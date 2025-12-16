@@ -1,0 +1,1541 @@
+/* ========================================
+   Parallel Shopfloor Console - Odoo Shopfloor Style
+   Following Odoo 18 Manufacturing Shopfloor design patterns
+   ======================================== */
+
+// Odoo Standard Color Palette
+$o-brand-primary: #017e84; // Odoo teal-blue (primary)
+$o-brand-secondary: #875a7b; // Secondary purple
+$o-brand-odoo: #714b67; // Odoo Brand Purple
+
+$o-color-success: #28a745; // Green for success/start
+$o-color-info: #17a2b8; // Blue-cyan for info
+$o-color-warning: #f0ad4e; // Orange for warning
+$o-color-danger: #dc3545; // Red for stop/danger
+
+$o-gray-50: #fdfdfe;
+$o-gray-100: #f8f9fa; // Very light gray
+$o-gray-200: #e9ecef; // Light gray
+$o-gray-300: #dee2e6; // Border gray
+$o-gray-400: #ced4da; // Input border
+$o-gray-500: #adb5bd; // Mid gray for borders
+$o-gray-600: #6c757d; // Text muted
+$o-gray-700: #495057; // Dark text
+$o-gray-800: #343a40; // Darker text
+$o-gray-900: #212529; // Darkest text
+
+// Shopfloor specific
+$shopfloor-primary: $o-brand-primary;
+$shopfloor-header-bg: #ffffff;
+$shopfloor-header-text: #212529;
+$card-border-radius: 12px; // Increased radius for tablet touch
+$card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+$card-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+$shopfloor-bg: #f1f3f5; // Slightly darker gray for contrast
+
+// ========================================
+// Global Overrides (Dropdown Positioning)
+// ========================================
+// Force Dropdown to center relative to Search Bar
+.o_searchview_dropdown.dropdown-menu,
+.o_searchview .dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important;
+    right: auto !important;
+    min-width: 300px;
+    max-width: 90vw;
+    margin-top: 4px !important;
+}
+
+// ========================================
+// MPS (Master Production Schedule) Styles
+// ========================================
+// [Added] Make the Machines button purple
+.o_mrp_mps_machines {
+    background-color: $o-brand-odoo !important;
+    border-color: $o-brand-odoo !important;
+    color: white !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken($o-brand-odoo, 5%) !important;
+        border-color: darken($o-brand-odoo, 5%) !important;
+        color: white !important;
+    }
+}
+
+// ========================================
+// Root Dashboard Styles (Shopfloor Home)
+// ========================================
+.o_mrp_parallel_home {
+    background: $shopfloor-bg;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    // --- Control Panel Layout ---
+    .o_control_panel {
+        background: white;
+        border-bottom: 1px solid $o-gray-300;
+        padding: 12px 16px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        // 1. Left Section (Title/Buttons)
+        .o_cp_left {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+
+            .o_cp_heading {
+                color: $o-gray-900;
+                font-weight: 700;
+                font-size: 18px;
+                margin: 0;
+                white-space: nowrap;
+            }
+        }
+
+        // 2. Center Section (Search Bar)
+        .o_cp_center {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+
+            .o_searchview {
+                width: 100%;
+                max-width: 800px;
+                margin: 0;
+                position: relative !important;
+
+                .o_searchview_input_container {
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+
+                .form-control {
+                    border: 1px solid $o-gray-400;
+                    border-radius: 4px;
+                    padding: 6px 12px;
+                    font-size: 13px;
+                    transition: border-color 0.2s ease;
+                    width: 100%;
+
+                    &:focus {
+                        border-color: $shopfloor-primary;
+                        box-shadow: 0 0 0 2px rgba($shopfloor-primary, 0.15);
+                        outline: none;
+                    }
+                }
+
+                // Force dropdown inside searchview to center
+                .dropdown-menu,
+                .o-dropdown--menu {
+                    position: absolute !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    top: 100% !important;
+                    right: auto !important;
+                }
+            }
+        }
+
+        // 3. Right Section (Refresh Button)
+        .o_cp_right {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .btn {
+                font-size: 13px;
+                font-weight: 500;
+                padding: 6px 16px;
+                border-radius: $card-border-radius;
+                margin-left: 8px;
+
+                &.btn-secondary {
+                    background-color: $o-gray-600;
+                    border-color: $o-gray-600;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-gray-600, 8%);
+                    }
+                }
+            }
+        }
+    }
+
+    .o_content {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+    }
+
+    // Workorder cards container
+    >.o_content>div:first-child {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+    }
+
+    // Workorder cards
+    .card {
+        border: none;
+        border-radius: $card-border-radius;
+        box-shadow: $card-shadow;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background: white;
+        margin-bottom: 0; // Handled by grid gap/mb-4
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: $card-shadow-hover;
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            color: $shopfloor-header-text;
+
+            strong {
+                font-weight: 700;
+                color: $o-brand-odoo;
+            }
+
+            // Soft Badge Style
+            .badge {
+                font-size: 10px;
+                padding: 4px 10px;
+                border-radius: 12px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                border: 1px solid transparent;
+
+                &.badge-info {
+                    // Confirmed
+                    background-color: rgba($o-brand-primary, 0.1) !important;
+                    color: $o-brand-primary !important;
+                    border-color: rgba($o-brand-primary, 0.2);
+                }
+
+                &.badge-success {
+                    // In Progress
+                    background-color: rgba($o-brand-odoo, 0.1) !important;
+                    color: $o-brand-odoo !important;
+                    border-color: rgba($o-brand-odoo, 0.2);
+                }
+
+                &.badge-warning {
+                    // To Close
+                    background-color: rgba($o-color-warning, 0.1) !important;
+                    color: darken($o-color-warning, 20%) !important;
+                    border-color: rgba($o-color-warning, 0.2);
+                }
+
+                &.badge-secondary {
+                    // Draft
+                    background-color: $o-gray-100 !important;
+                    color: $o-gray-600 !important;
+                    border-color: $o-gray-300;
+                }
+            }
+        }
+
+        .card-body {
+            padding: 20px;
+            font-size: 14px;
+
+            .o_mrp_info_row {
+                display: flex;
+                align-items: flex-start; // Align top for multiline
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .o_mrp_icon {
+                    font-size: 16px;
+                    width: 20px;
+                    text-align: center;
+                    margin-right: 10px;
+                    color: $o-gray-600;
+                    flex-shrink: 0;
+                    padding-top: 2px;
+                }
+
+                .o_mrp_info_label {
+                    flex: 0 0 100px;
+                    color: $o-gray-600;
+                    font-weight: 600;
+                    font-size: 12px;
+                    padding-top: 2px;
+                }
+
+                .o_mrp_info_value {
+                    flex: 1;
+                    color: $o-gray-900;
+                    font-weight: 500;
+
+                    // Workorder List vertical stack
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+
+                    .mx-2 {
+                        display: none;
+                    }
+
+                    >span {
+                        display: flex;
+                        align-items: center;
+                        font-size: 13px;
+                        line-height: 1.4;
+                        min-height: 20px;
+                    }
+
+                    .form-control {
+                        font-size: 13px;
+                        border-color: $o-gray-400;
+                        border-radius: $card-border-radius;
+                        padding: 4px 8px;
+                        height: auto;
+
+                        // Hide spin buttons
+                        appearance: textfield;
+                        -moz-appearance: textfield;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        &:focus {
+                            border-color: $shopfloor-primary;
+                            box-shadow: 0 0 0 2px rgba($shopfloor-primary, 0.15);
+                        }
+                    }
+
+                    .small {
+                        font-size: 11px;
+                        color: $o-gray-600;
+                    }
+                }
+            }
+
+            .o_mrp_status_indicator {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                margin-right: 10px;
+                flex-shrink: 0;
+
+                &.status-ready {
+                    background: $o-color-success;
+                }
+
+                &.status-progress {
+                    background: $o-color-info;
+                }
+
+                &.status-done {
+                    background: $o-gray-600;
+                }
+
+                &.status-draft {
+                    background: $o-color-warning;
+                }
+
+                &.status-busy {
+                    background: #ffc107;
+                }
+
+                &.status-maintenance {
+                    background: $o-color-danger;
+                }
+            }
+
+            // Employee Badge
+            .badge-light {
+                background-color: $o-brand-odoo !important;
+                color: white !important;
+                border: none;
+                font-weight: 600;
+                padding: 4px 8px;
+                font-size: 11px;
+                border-radius: 3px;
+                margin-right: 4px;
+                margin-bottom: 4px;
+            }
+
+            .text-muted {
+                color: $o-gray-600 !important;
+            }
+        }
+
+        .card-footer {
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 20px;
+
+            .o_mrp_button_group {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 6px 14px;
+                margin-right: 0;
+                font-weight: 500;
+                border-radius: 6px;
+
+                &.btn-success {
+                    background-color: $o-color-success;
+                    border-color: $o-color-success;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-success, 8%);
+                    }
+                }
+
+                &.btn-danger {
+                    background-color: $o-color-danger;
+                    border-color: $o-color-danger;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-danger, 8%);
+                    }
+                }
+
+                &.btn-info {
+                    background-color: $o-color-info;
+                    border-color: $o-color-info;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-info, 8%);
+                    }
+                }
+
+                &.btn-warning {
+                    background-color: $o-color-warning;
+                    border-color: $o-color-warning;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-warning, 8%);
+                    }
+                }
+
+                &.btn-outline-secondary {
+                    color: $o-gray-700;
+                    border-color: $o-gray-400;
+                    background-color: white;
+
+                    &:hover {
+                        background-color: $o-gray-200;
+                        border-color: $o-gray-500;
+                    }
+                }
+            }
+        }
+
+        &.o_mrp_workorder_card {
+            min-width: 0; // Allow card to shrink to grid column width
+        }
+    }
+}
+
+// ========================================
+// Workorder Console Styles
+// ========================================
+.o_mrp_parallel_console {
+    background: $shopfloor-bg;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .o_control_panel {
+        background: white;
+        border-bottom: 1px solid $o-gray-300;
+        padding: 12px 16px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .o_cp_heading {
+            color: $o-gray-900;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .btn {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: $card-border-radius;
+            margin-left: 8px;
+
+            &.btn-primary {
+                background-color: $o-color-success;
+                border-color: $o-color-success;
+                color: white;
+
+                &:hover {
+                    background-color: darken($o-color-success, 8%);
+                    border-color: darken($o-color-success, 8%);
+                }
+            }
+
+            &.btn-secondary {
+                background-color: $o-gray-600;
+                border-color: $o-gray-600;
+                color: white;
+
+                &:hover {
+                    background-color: darken($o-gray-600, 8%);
+                }
+            }
+
+            &.btn-outline-secondary {
+                color: $o-gray-700;
+                border-color: $o-gray-400;
+                background-color: white;
+
+                &:hover {
+                    background-color: $o-gray-200;
+                    border-color: $o-gray-500;
+                }
+            }
+
+            // Odoo purple button
+            &.btn-odoo {
+                background-color: $o-brand-odoo;
+                border-color: $o-brand-odoo;
+                color: #fff;
+
+                &:hover {
+                    background-color: darken($o-brand-odoo, 6%);
+                    border-color: darken($o-brand-odoo, 6%);
+                }
+            }
+        }
+
+        // Ensure the Close Production button is displayed as Odoo purple
+        .o_cp_right>button:last-child {
+            // @extend .btn-odoo;
+            background-color: $o-brand-odoo;
+            border-color: $o-brand-odoo;
+            color: #fff;
+            background-color: $o-brand-odoo !important;
+            border-color: $o-brand-odoo !important;
+            color: #fff !important;
+
+            &:disabled,
+            &[disabled] {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    // Stat button style (for MO header)
+    .console-stat-large {
+        display: inline-flex;
+        align-items: center;
+        background-color: white;
+        border: 1px solid $o-gray-200;
+        border-radius: 10px;
+        padding: 6px 16px 6px 8px;
+        color: $o-gray-900;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        outline: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            border-color: $o-brand-odoo;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba($o-brand-odoo, 0.15);
+            text-decoration: none;
+        }
+
+        .console-stat-icon-large {
+            font-size: 18px;
+            color: white;
+            margin-right: 12px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, lighten($o-brand-odoo, 10%), $o-brand-odoo);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba($o-brand-odoo, 0.3);
+        }
+
+        .console-stat-body-large {
+            text-align: left;
+
+            .console-stat-label-large {
+                font-size: 10px;
+                color: $o-gray-500;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 1px;
+            }
+
+            .console-stat-value-large {
+                font-size: 16px;
+                font-weight: 800;
+                color: $o-gray-900;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .o_content {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+    }
+
+    // Workorder cards container
+    >.o_content>div:first-child {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+    }
+
+    // Workorder cards
+    .card {
+        border: none;
+        border-radius: $card-border-radius;
+        box-shadow: $card-shadow;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background: white;
+        margin-bottom: 0; // Handled by grid gap/mb-4
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: $card-shadow-hover;
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            background-color: $shopfloor-header-bg;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            color: $shopfloor-header-text;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+            &.bg-busy {
+                background-color: #fff3cd !important;
+                border-bottom-color: #ffeeba !important;
+                color: #856404 !important;
+
+                strong {
+                    color: #856404 !important;
+                }
+
+                .small,
+                .text-muted {
+                    color: rgba(133, 100, 4, 0.8) !important;
+                }
+            }
+
+            &.bg-maintenance {
+                background-color: #f8d7da !important;
+                border-bottom-color: #f5c6cb !important;
+                color: #721c24 !important;
+
+                strong {
+                    color: #721c24 !important;
+                }
+
+                .small,
+                .text-muted {
+                    color: rgba(114, 28, 36, 0.8) !important;
+                }
+            }
+
+            &.bg-progress {
+                background-color: #d4edda !important;
+                border-bottom-color: #c3e6cb !important;
+                color: #155724 !important;
+
+                strong {
+                    color: #155724 !important;
+                }
+
+                .small,
+                .text-muted {
+                    color: rgba(21, 87, 36, 0.8) !important;
+                }
+            }
+
+            strong {
+                font-weight: 700;
+            }
+
+            .form-check-input {
+                width: 18px;
+                height: 18px;
+                margin-top: 0;
+                cursor: pointer;
+
+                &:checked {
+                    background-color: $shopfloor-primary;
+                    border-color: $shopfloor-primary;
+                }
+            }
+
+            .o_mrp_card_subtitle {
+                font-size: 12px;
+                color: lighten($shopfloor-header-text, 20%);
+                font-weight: 500;
+                margin-top: 2px;
+            }
+        }
+
+        .card-body {
+            padding: 16px;
+            font-size: 13px;
+
+            .o_mrp_info_row {
+                display: flex;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid $o-gray-200;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .o_mrp_icon {
+                    font-size: 16px;
+                    margin-right: 8px;
+                    color: $o-gray-600;
+                    flex-shrink: 0;
+                }
+
+                .o_mrp_info_label {
+                    flex: 0 0 100px;
+                    color: $o-gray-600;
+                    font-weight: 600;
+                    font-size: 12px;
+                }
+
+                .o_mrp_info_value {
+                    flex: 1;
+                    color: $o-gray-900;
+                    font-weight: 500;
+
+                    .form-control {
+                        font-size: 13px;
+                        border-color: $o-gray-400;
+                        border-radius: $card-border-radius;
+                        padding: 4px 8px;
+                        height: auto;
+
+                        // Hide spin buttons
+                        appearance: textfield;
+                        -moz-appearance: textfield;
+
+                        &::-webkit-outer-spin-button,
+                        &::-webkit-inner-spin-button {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        &:focus {
+                            border-color: $shopfloor-primary;
+                            box-shadow: 0 0 0 2px rgba($shopfloor-primary, 0.15);
+                        }
+                    }
+
+                    .small {
+                        font-size: 11px;
+                        color: $o-gray-600;
+                    }
+                }
+            }
+
+            .o_mrp_status_indicator {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                margin-right: 6px;
+
+                &.status-ready {
+                    background: $o-color-success;
+                }
+
+                &.status-progress {
+                    background: $o-color-info;
+                }
+
+                &.status-done {
+                    background: $o-gray-600;
+                }
+
+                &.status-draft {
+                    background: $o-color-warning;
+                }
+
+                &.status-busy {
+                    background: #ffc107;
+                }
+
+                &.status-maintenance {
+                    background: $o-color-danger;
+                }
+            }
+
+            // Employee Badge
+            .badge-light {
+                background-color: $o-brand-odoo !important;
+                color: white !important;
+                border: none;
+                font-weight: 600;
+                padding: 4px 8px;
+                font-size: 11px;
+                border-radius: 3px;
+                margin-right: 4px;
+                margin-bottom: 4px;
+            }
+
+            .text-muted {
+                color: $o-gray-600 !important;
+            }
+        }
+
+        .card-footer {
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 20px;
+
+            .o_mrp_button_group {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 6px 14px;
+                margin-right: 0;
+                font-weight: 500;
+                border-radius: 6px;
+
+                &.btn-success {
+                    background-color: $o-color-success;
+                    border-color: $o-color-success;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-success, 8%);
+                    }
+                }
+
+                &.btn-danger {
+                    background-color: $o-color-danger;
+                    border-color: $o-color-danger;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-danger, 8%);
+                    }
+                }
+
+                &.btn-info {
+                    background-color: $o-color-info;
+                    border-color: $o-color-info;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-info, 8%);
+                    }
+                }
+
+                &.btn-warning {
+                    background-color: $o-color-warning;
+                    border-color: $o-color-warning;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-color-warning, 8%);
+                    }
+                }
+
+                &.btn-outline-secondary {
+                    color: $o-gray-700;
+                    border-color: $o-gray-400;
+                    background-color: white;
+
+                    &:hover {
+                        background-color: $o-gray-200;
+                        border-color: $o-gray-500;
+                    }
+                }
+            }
+        }
+
+        &.o_mrp_workorder_card {
+            min-width: 0; // Allow card to shrink to grid column width
+        }
+    }
+}
+
+// ========================================
+// Workorder Console Styles
+// ========================================
+.o_mrp_parallel_console {
+    background: $shopfloor-bg;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    // Workorder detail modal (Updated for better UI)
+    // ========================================
+    .o_mrp_detail_modal {
+        .modal-dialog {
+            max-width: 950px;
+            width: 95%;
+        }
+
+        .modal-content {
+            border: 1px solid $o-gray-300;
+            border-radius: $card-border-radius;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden; // Smooth rounded corners
+        }
+
+        .modal-header {
+            background-color: white; // Changed to white for cleaner look
+            border-bottom: 1px solid $o-gray-200;
+            border-radius: $card-border-radius $card-border-radius 0 0;
+            padding: 16px 24px;
+
+            .modal-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: $o-gray-900;
+            }
+
+            // Bigger, easier to hit Close button
+            .btn-close {
+                background: none;
+                border: none;
+                font-size: 24px;
+                line-height: 1;
+                color: $o-gray-400;
+                opacity: 1;
+                padding: 0 8px;
+                cursor: pointer;
+                transition: color 0.2s;
+                filter: none;
+
+                &:hover {
+                    color: $o-color-danger;
+                }
+            }
+        }
+
+        .modal-body {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 24px;
+            background-color: $o-gray-50; // Light background
+
+            .form-group {
+                margin-bottom: 20px;
+
+                label {
+                    color: $o-gray-700;
+                    font-weight: 600;
+                    font-size: 13px;
+                    margin-bottom: 8px;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+
+                    .o_mrp_icon {
+                        margin-right: 6px;
+                        color: $shopfloor-primary;
+                    }
+                }
+
+                // Remove Spin buttons from number inputs
+                input[type="number"] {
+                    appearance: textfield;
+                    -moz-appearance: textfield;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                .form-control,
+                .form-control-plaintext {
+                    border-radius: 6px;
+                    border: 1px solid $o-gray-300;
+                    font-size: 14px;
+                    padding: 10px 12px;
+
+                    &:focus {
+                        border-color: $o-brand-odoo;
+                        box-shadow: 0 0 0 3px rgba($o-brand-odoo, 0.15);
+                    }
+                }
+
+                .form-control-plaintext {
+                    border: none;
+                    background: $o-gray-100;
+                    padding-left: 2px;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .table {
+                    margin-bottom: 0;
+                    font-size: 13px;
+
+                    thead {
+                        background: $o-gray-100;
+
+                        th {
+                            border-top: none;
+                            border-bottom: 2px solid $o-gray-300;
+                            color: $o-gray-900;
+                            font-weight: 600;
+                            font-size: 12px;
+                            padding: 10px 12px;
+
+                            .o_mrp_icon {
+                                margin-right: 6px;
+                                color: $o-gray-600;
+                            }
+                        }
+                    }
+
+                    tbody td {
+                        padding: 10px 12px;
+                        vertical-align: middle;
+                        border-bottom: 1px solid $o-gray-200;
+                    }
+
+                    tbody tr:last-child td {
+                        border-bottom: none;
+                    }
+                }
+
+                // Employee Grid Layout (Fixed Checkbox)
+                .o-mrp-console-employee-list.employee-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Auto-grid
+                    gap: 10px;
+                    padding: 0;
+                    border: none;
+                    background: transparent;
+                    overflow: visible;
+
+                    &.is-scrollable {
+                        max-height: 300px;
+                        overflow-y: auto;
+                        padding-right: 5px;
+                    }
+
+                    .form-check.employee-card {
+                        padding: 10px 12px !important;
+                        margin: 0;
+                        background: white;
+                        border: 1px solid $o-gray-300;
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        transition: all 0.15s ease-in-out;
+                        position: relative;
+
+                        &:hover {
+                            border-color: $o-brand-odoo;
+                            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                        }
+
+                        &:has(.form-check-input:checked) {
+                            border-color: $o-brand-odoo;
+                            background-color: rgba($o-brand-odoo, 0.05);
+                        }
+
+                        .form-check-input {
+                            // ดึง Checkbox กลับเข้ามาในปุ่ม
+                            float: none;
+                            margin-left: 0 !important;
+                            margin-top: 0;
+                            margin-right: 12px; // ระยะห่างจากชื่อ
+                            position: static;
+
+                            width: 18px;
+                            height: 18px;
+                            cursor: pointer;
+                            border: 1px solid $o-gray-400;
+
+                            &:checked {
+                                background-color: $o-brand-odoo;
+                                border-color: $o-brand-odoo;
+                            }
+
+                            &:focus {
+                                box-shadow: none;
+                            }
+                        }
+
+                        .form-check-label {
+                            font-size: 14px;
+                            color: $o-gray-800;
+                            cursor: pointer;
+                            font-weight: 500;
+                            user-select: none;
+                            width: 100%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            background: white;
+            border-top: 1px solid $o-gray-200;
+            padding: 16px 24px;
+            border-radius: 0 0 $card-border-radius $card-border-radius;
+
+            .btn {
+                padding: 8px 24px;
+                font-size: 14px;
+                font-weight: 500;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                // Cancel = Odoo Secondary Grey
+                &.btn-secondary {
+                    background-color: #FFFFFF;
+                    border: 1px solid $o-gray-300;
+                    color: $o-gray-700;
+
+                    &:hover {
+                        background-color: $o-gray-100;
+                        color: $o-gray-900;
+                    }
+                }
+
+                // Save = Odoo Brand Purple (With !important override)
+                &.btn-primary {
+                    background-color: $o-brand-odoo !important;
+                    border-color: $o-brand-odoo !important;
+                    color: white !important;
+
+                    &:hover {
+                        background-color: darken($o-brand-odoo, 5%) !important;
+                        border-color: darken($o-brand-odoo, 5%) !important;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+                    }
+                }
+            }
+        }
+    }
+
+    // ========================================
+    // Centered modal overlay + picking modal
+    // ========================================
+    .o_modal_centered {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1050;
+
+        .modal-dialog {
+            margin: 0;
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+        }
+    }
+
+    .o_mrp_picking_modal {
+        .modal-header {
+            background: $shopfloor-header-bg;
+            color: $shopfloor-header-text;
+            border-radius: $card-border-radius $card-border-radius 0 0;
+            border-bottom: 1px solid $o-gray-300;
+
+            .modal-title {
+                font-weight: 700;
+                font-size: 16px;
+
+                .o_mrp_icon {
+                    margin-right: 8px;
+                }
+            }
+
+            .btn-close {
+                filter: none;
+                opacity: 0.6;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .modal-body {
+            background: white;
+            padding: 16px;
+
+            .o_mrp_picking_overview {
+                background: $o-gray-50;
+                border: 1px solid $o-gray-200;
+                border-radius: $card-border-radius;
+                padding: 12px 16px;
+                font-size: 14px;
+                margin-bottom: 16px;
+
+                .small {
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    color: $o-gray-600;
+                    letter-spacing: 0.05em;
+                }
+            }
+
+            .o_mrp_picking_move {
+                border: 1px solid $o-gray-300;
+                border-radius: $card-border-radius;
+                margin-bottom: 16px;
+                background: white;
+                box-shadow: $card-shadow;
+
+                .card-header {
+                    background: $o-gray-100;
+                    color: $o-gray-900;
+                    border-bottom: 1px solid $o-gray-300;
+                    padding: 12px;
+                    font-size: 14px;
+
+                    strong {
+                        font-weight: 700;
+                    }
+
+                    .text-muted,
+                    .small {
+                        color: $o-gray-600 !important;
+                        font-size: 12px;
+                    }
+
+                    .badge {
+                        font-size: 11px;
+                        padding: 4px 8px;
+                    }
+                }
+
+                .card-body {
+                    padding: 12px;
+
+                    .table {
+                        font-size: 12px;
+                        margin-bottom: 8px;
+
+                        thead th {
+                            background: $o-gray-100;
+                            font-weight: 600;
+                            font-size: 11px;
+                            padding: 8px;
+                            border-bottom: 2px solid $o-gray-300;
+                        }
+
+                        tbody td {
+                            padding: 8px;
+                            vertical-align: middle;
+                        }
+
+                        .form-control {
+                            font-size: 12px;
+                            padding: 4px 8px;
+                            height: auto;
+                        }
+
+                        select.form-control {
+                            padding-right: 24px;
+                        }
+                    }
+
+                    .btn-link {
+                        font-size: 12px;
+                        padding: 0;
+                        color: $shopfloor-primary;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .alert {
+                font-size: 13px;
+                padding: 12px;
+                border-radius: $card-border-radius;
+            }
+        }
+
+        .modal-footer {
+            background: $o-gray-100;
+            border-top: 1px solid $o-gray-300;
+            padding: 16px;
+            border-radius: 0 0 $card-border-radius $card-border-radius;
+
+            // [Added] Target the inner div that groups buttons (from XML)
+            >div {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 6px 16px;
+                font-size: 13px;
+                font-weight: 500;
+                border-radius: $card-border-radius;
+
+                &.btn-secondary {
+                    background-color: $o-gray-600;
+                    border-color: $o-gray-600;
+                    color: white;
+
+                    &:hover {
+                        background-color: darken($o-gray-600, 8%);
+                    }
+                }
+
+                &.btn-outline-secondary {
+                    color: $o-gray-700;
+                    border-color: $o-gray-400;
+                    background-color: white;
+
+                    &:hover {
+                        background-color: $o-gray-200;
+                    }
+                }
+
+                // [Fixed] Force purple color for Validate Picking
+                &.btn-primary {
+                    background-color: $o-brand-odoo !important;
+                    border-color: $o-brand-odoo !important;
+                    color: white !important;
+
+                    &:hover {
+                        background-color: darken($o-brand-odoo, 5%) !important;
+                        border-color: darken($o-brand-odoo, 5%) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // ========================================
+    // Standard Modal Styles (for scrap)
+    // ========================================
+    .o_modal {
+        .modal-dialog {
+            .modal-content {
+                background-color: white;
+                border: 1px solid $o-gray-300;
+                border-radius: $card-border-radius;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+                .modal-header {
+                    background: $shopfloor-header-bg;
+                    color: $shopfloor-header-text;
+                    border-radius: $card-border-radius $card-border-radius 0 0;
+                    padding: 16px;
+                    border-bottom: 1px solid $o-gray-300;
+
+                    .modal-title {
+                        font-weight: 700;
+                        font-size: 16px;
+
+                        .o_mrp_icon {
+                            margin-right: 8px;
+                        }
+                    }
+
+                    .btn-close {
+                        filter: none;
+                        opacity: 0.6;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .modal-body {
+                    padding: 16px;
+                }
+            }
+        }
+    }
+}
+
+// ========================================
+// Real-Time Updates Styles
+// ========================================
+
+// Flash animation on update
+@keyframes realtime-flash {
+
+    0%,
+    100% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: rgba(#FFD700, 0.3); // Gold flash
+    }
+}
+
+.realtime-update-flash {
+    animation: realtime-flash 1s ease-in-out;
+}
+
+// Live status indicator
+.live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+
+    &.live {
+        background-color: rgba($o-color-success, 0.1);
+        color: $o-color-success;
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $o-color-success;
+            animation: pulse 2s infinite;
+        }
+    }
+
+    &.offline {
+        background-color: rgba($o-color-danger, 0.1);
+        color: $o-color-danger;
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $o-color-danger;
+        }
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+// Reconnecting overlay
+.realtime-reconnecting {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($o-color-warning, 0.9);
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-weight: 600;
+    z-index: 9999;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+// Card data attribute for easy targeting
+[data-wo-id] {
+    transition: background-color 0.5s ease;
+}

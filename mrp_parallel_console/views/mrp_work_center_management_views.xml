@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree views for wizard lines -->
+    <record id="view_mrp_work_center_delete_line_tree" model="ir.ui.view">
+        <field name="name">mrp.work.center.delete.line.tree</field>
+        <field name="model">mrp.work.center.delete.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" create="0" delete="0">
+                <field name="selected" />
+                <field name="work_center_id" readonly="1" />
+                <field name="name" readonly="1" />
+                <field name="qty_to_produce" string="Target" readonly="1" />
+                <!-- keep technical link to workorder so server can find it -->
+                <field name="workorder_id" invisible="1" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mrp_work_center_add_line_tree" model="ir.ui.view">
+        <field name="name">mrp.work.center.add.line.tree</field>
+        <field name="model">mrp.work.center.add.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" create="0" delete="0">
+                <field name="selected" />
+                <!-- force_save keeps values in the virtual rows when submitting -->
+                <field name="operation_id" readonly="1" force_save="1" />
+                <field name="work_center_id" readonly="1" force_save="1" />
+                <field name="name" readonly="1" force_save="1" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mrp_work_center_adjust_qty_line_tree" model="ir.ui.view">
+        <field name="name">mrp.work.center.adjust.qty.line.tree</field>
+        <field name="model">mrp.work.center.adjust.qty.line</field>
+        <field name="arch" type="xml">
+            <!-- Adjust Qty popup: Work Center + Planned Qty + Lock -->
+            <list editable="bottom" create="0" delete="0">
+                <field name="work_center_id" readonly="1" string="Station" />
+                <field name="new_qty" string="Target" />
+                <field name="locked" string="Lock" />
+                <!-- technical fields used for computation / writeback -->
+                <field name="original_qty" invisible="1" />
+                <field name="workorder_id" invisible="1" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Delete Work Center Wizard View -->
+    <record id="view_mrp_work_center_delete_wizard_form" model="ir.ui.view">
+        <field name="name">Delete Stations</field>
+        <field name="model">mrp.work.center.delete.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Delete Stations">
+                <sheet>
+                    <group>
+                        <field name="production_id" readonly="1" />
+                    </group>
+                    <group string="Select Stations to Delete">
+                        <field name="work_center_line_ids"
+                            nolabel="1"
+                            context="{'tree_view_ref': 'mrp_parallel_console.view_mrp_work_center_delete_line_tree'}" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_delete_work_centers" string="Delete Selected" type="object"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Add Work Center Wizard View -->
+    <record id="view_mrp_work_center_add_wizard_form" model="ir.ui.view">
+        <field name="name">Add Stations</field>
+        <field name="model">mrp.work.center.add.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Stations">
+                <sheet>
+                    <group>
+                        <field name="production_id" readonly="1" />
+                        <field name="operation_id" readonly="1" />
+                    </group>
+                    <group string="Select Stations to Add">
+                        <field name="work_center_line_ids" nolabel="1"
+                            context="{'tree_view_ref': 'mrp_parallel_console.view_mrp_work_center_add_line_tree'}" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_add_work_centers" string="Add Selected" type="object"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Adjust Planned Quantity Wizard View -->
+    <record id="view_mrp_work_center_adjust_qty_wizard_form" model="ir.ui.view">
+        <field name="name">Adjust Targets</field>
+        <field name="model">mrp.work.center.adjust.qty.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Adjust Targets">
+                <sheet>
+                    <group>
+                        <field name="production_id" readonly="1" />
+                    </group>
+                    <group string="Adjust Station Targets">
+                        <field name="work_center_line_ids"
+                            nolabel="1"
+                            context="{'tree_view_ref': 'mrp_parallel_console.view_mrp_work_center_adjust_qty_line_tree'}" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_adjust_quantities" string="Apply Changes" type="object"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions for Wizards -->
+    <record id="action_mrp_work_center_delete_wizard" model="ir.actions.act_window">
+        <field name="name">Delete Stations</field>
+        <field name="res_model">mrp.work.center.delete.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_mrp_work_center_add_wizard" model="ir.actions.act_window">
+        <field name="name">Add Stations</field>
+        <field name="res_model">mrp.work.center.add.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_mrp_work_center_adjust_qty_wizard" model="ir.actions.act_window">
+        <field name="name">Adjust Targets</field>
+        <field name="res_model">mrp.work.center.adjust.qty.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>

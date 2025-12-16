@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="mrp_parallel_console.HomeAction">
+        <WithSearch t-props="withSearchProps" t-slot-scope="search">
+            <ParallelShopfloorHome
+                action="props.action"
+                searchDomain="search.domain"
+                searchContext="search.context"
+                searchProps="search"/>
+        </WithSearch>
+    </t>
+
+    <t t-name="mrp_parallel_console.Home">
+        <div class="o_mrp_parallel_home h-100 d-flex flex-column">
+            <div class="o_control_panel d-flex flex-shrink-0 align-items-center p-3">
+                <div class="o_cp_left d-flex align-items-center">
+                </div>
+                <div class="o_cp_center flex-grow-1 d-flex justify-content-center align-items-center">
+                    <SearchBar/>
+                </div>
+                <div class="o_cp_right d-flex align-items-center">
+                </div>
+            </div>
+
+            <div class="o_content flex-grow-1 overflow-auto">
+                <t t-if="state.loading">
+                    <div class="o_mrp_loading_state">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="o_mrp_loading_text">Loading Manufacturing Orders...</div>
+                    </div>
+                </t>
+                <t t-else="">
+                    <t t-if="!state.mos.length">
+                        <div class="o_mrp_empty_state">
+                            <i class="fa fa-inbox"/>
+                            <div class="o_mrp_empty_text">
+                                No Manufacturing Orders to process.<br/>
+                                <small class="text-muted">Create a new MO to get started</small>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="container-fluid p-3">
+                            <div class="row">
+                                <t t-foreach="state.mos" t-as="mo" t-key="mo.id">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                        <div class="card h-100">
+                                            <div class="card-header">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <strong t-esc="mo.name" class="text-truncate" style="font-size: 1.1em;"/>
+                                                </div>
+                                                <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
+                                                <div class="mt-2">
+                                                    <span t-att-class="stateBadgeClass(mo) + ' text-uppercase'">
+                                                        <t t-esc="mo.state_label or mo.state"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="o_mrp_info_row">
+                                                    <span class="o_mrp_icon icon-qty"></span>
+                                                    <span class="o_mrp_info_label">Target</span>
+                                                    <span class="o_mrp_info_value">
+                                                        <t t-esc="mo.qty"/> <t t-esc="mo.uom"/>
+                                                    </span>
+                                                </div>
+                                                <div class="o_mrp_info_row">
+                                                    <span class="o_mrp_icon icon-workorder"></span>
+                                                    <span class="o_mrp_info_label">Tasks</span>
+                                                    <span class="o_mrp_info_value">
+                                                        <span class="d-flex align-items-center mb-1">
+                                                            <span class="o_mrp_status_indicator status-ready me-2"></span>
+                                                            <t t-esc="mo.ready_wo_count"/> Ready
+                                                        </span>
+                                                        <span class="d-flex align-items-center mb-1">
+                                                            <span class="o_mrp_status_indicator status-progress me-2"></span>
+                                                            <t t-esc="mo.progress_wo_count"/> In Progress
+                                                        </span>
+                                                        <span class="d-flex align-items-center">
+                                                            <span class="o_mrp_status_indicator status-done me-2"></span>
+                                                            <t t-esc="mo.done_wo_count"/> Done
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-end gap-2">
+                                                <t t-if="mo.can_confirm">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-primary"
+                                                            t-on-click="() => this.confirmMo(mo)">
+                                                        <i class="fa fa-check me-1"/>Confirm
+                                                    </button>
+                                                </t>
+                                                <t t-if="mo.can_manual_close">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-danger"
+                                                            t-on-click="() => this.closeMo(mo)">
+                                                        Close
+                                                    </button>
+                                                </t>
+                                                <t t-if="mo.can_open_console">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-primary"
+                                                            t-on-click="() => this.openConsole(mo)">
+                                                        Open Console
+                                                    </button>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="mrp_parallel_console.WorkorderConsole">
+        <div class="o_mrp_parallel_console h-100 d-flex flex-column">
+            <div class="o_control_panel d-flex flex-shrink-0 align-items-center justify-content-between border-bottom p-3">
+                <div class="o_cp_left d-flex align-items-center">
+                    <t t-if="productionId">
+                        <button type="button"
+                                class="console-stat-large btn btn-link p-0"
+                                t-on-click="openProductionForm"
+                                title="Open Manufacturing Order">
+                            <div class="console-stat-inner d-flex align-items-center">
+                                <span class="console-stat-icon-large fa fa-wrench me-3" aria-hidden="true"></span>
+                                <div class="console-stat-body-large text-left">
+                                    <div class="console-stat-label-large small text-muted">Manufacturing Order</div>
+                                    <div class="console-stat-value-large"
+                                        t-esc="productionName || ('#' + productionId)"/>
+                                </div>
+                            </div>
+                        </button>
+                    </t>
+                    <t t-else="">
+                        <h2 class="o_cp_heading mb-0">Workorder Parallel Console</h2>
+                    </t>
+                </div>
+                <div class="o_cp_right d-flex align-items-center">
+                    <button type="button"
+                            class="btn btn-outline-secondary me-2"
+                            t-on-click="toggleSelectAll">
+                        <t t-if="isAllSelected()">Uncheck All</t>
+                        <t t-else="">Check All</t>
+                    </button>
+                    <button type="button"
+                            t-att-class="'btn btn-outline-secondary me-2' + (state.moClosed ? ' disabled' : '')"
+                            t-att-disabled="state.moClosed ? true : null"
+                            t-on-click="openEmployeesPicker">
+                        Employees
+                    </button>
+                    <div class="btn-group me-2">
+                        <button type="button"
+                                class="btn btn-outline-secondary dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            More
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" t-on-click="openDeleteWorkCentersWizard">
+                                    <i class="fa fa-trash me-2 text-danger"/>
+                                    Delete Stations
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" t-on-click="() => this.createMaintenanceFromSelection()">
+                                    <i class="fa fa-wrench me-2 text-warning"/>
+                                    Report Issue
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" t-on-click="openAddWorkCentersWizard">
+                                    <i class="fa fa-plus me-2 text-success"/>
+                                    Add Stations
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" t-on-click="openAdjustPlannedQtyWizard">
+                                    <i class="fa fa-edit me-2 text-primary"/>
+                                    Adjust Target
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn-group me-2" t-if="state.productionPrintMenuLoaded">
+                        <button type="button"
+                                class="btn btn-outline-secondary dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                title="Print manufacturing order"
+                                t-att-disabled="(!productionId or !(state.productionPrintMenu || []).length) ? true : null">
+                            <i class="fa fa-print me-1"/>Print
+                        </button>
+                        <ul class="dropdown-menu">
+                            <t t-if="!(state.productionPrintMenu || []).length">
+                                <li>
+                                    <span class="dropdown-item text-muted">No reports available</span>
+                                </li>
+                            </t>
+                            <t t-else="">
+                                <t t-foreach="state.productionPrintMenu" t-as="printItem" t-key="printItem.id">
+                                    <li>
+                                        <a class="dropdown-item"
+                                           href="#"
+                                           t-on-click.prevent="() => this.printProductionAction(printItem.id, printItem.model)">
+                                            <i class="fa fa-print me-2"/>
+                                            <t t-esc="printItem.name"/>
+                                        </a>
+                                    </li>
+                                </t>
+                            </t>
+                        </ul>
+                    </div>
+                    <button type="button"
+                            t-attf-class="btn me-2 btn-odoo {{ state.canCloseProduction ? 'disabled' : '' }}"
+                            t-att-disabled="state.canCloseProduction ? true : null"
+                            t-on-click="openPickingDrawer">
+                        Get Materials
+                    </button>
+                    <button type="button"
+                            t-attf-class="btn {{ state.canCloseProduction ? 'btn-odoo' : 'btn-secondary' }}"
+                            t-att-disabled="state.canCloseProduction ? null : true"
+                            t-on-click="applyConsole">
+                        Finish Job
+                    </button>
+                </div>
+            </div>
+
+            <div class="o_content d-flex flex-grow-1 overflow-hidden">
+                <div class="flex-grow-1 overflow-auto p-3">
+                    <t t-if="state.loading">
+                        <div class="o_mrp_loading_state">
+                            <div class="o_mrp_loading_text">Loading Workorders...</div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <t t-if="!state.workorders.length">
+                            <div class="o_mrp_empty_state">
+                                <div class="o_mrp_empty_text">
+                                    No tasks to display.<br/>
+                                    <small class="text-muted">Check MO status or create new tasks</small>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <t t-foreach="state.workorders" t-as="wo" t-key="wo.id">
+                                        <div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 mb-4">
+                                            <div class="card h-100 o_mrp_workorder_card">
+                                                <div t-att-class="'card-header d-flex justify-content-between align-items-center' + (wo.machine_status == 'busy' ? ' bg-busy' : '') + (wo.machine_status == 'maintenance' ? ' bg-maintenance' : '') + (wo.state == 'progress' ? ' bg-progress' : '')">
+                                                    <div>
+                                                        <strong t-esc="wo.name"/>
+                                                        <div class="o_mrp_card_subtitle">
+                                                            <t t-esc="wo.workcenter_name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center">
+                                                        <input type="checkbox"
+                                                               class="form-check-input"
+                                                               t-att-checked="isSelected(wo) ? 'checked' : null"
+                                                               t-on-change="() => this.toggleSelect(wo)"/>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="o_mrp_info_row">
+                                                        <span class="o_mrp_icon icon-qty"></span>
+                                                        <span class="o_mrp_info_label">Target</span>
+                                                        <span class="o_mrp_info_value"
+                                                              t-esc="wo.planned_qty || 0.0"/>
+                                                    </div>
+                                                    <div class="o_mrp_info_row">
+                                                        <span class="o_mrp_icon icon-qty"></span>
+                                                        <span class="o_mrp_info_label">Done</span>
+                                                        <div class="o_mrp_info_value d-flex align-items-center">
+                                                            <input type="number" step="0.01"
+                                                                   class="form-control form-control-sm"
+                                                                   readonly="readonly"
+                                                                   disabled="disabled"
+                                                                   t-att-value="wo.console_qty || 0"/>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="o_mrp_info_row" t-if="wo.lot_name">
+                                                        <span class="o_mrp_icon icon-barcode"></span>
+                                                        <span class="o_mrp_info_label">Lot/Serial</span>
+                                                        <span class="o_mrp_info_value">
+                                                            <span class="badge badge-info"
+                                                                  t-esc="wo.lot_name.split('(')[0].trim()"></span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="o_mrp_info_row">
+                                                        <span class="o_mrp_icon icon-time"></span>
+                                                        <span class="o_mrp_info_label">Time</span>
+                                                        <div class="o_mrp_info_value">
+                                                            <div class="d-flex justify-content-between small">
+                                                                <span>▶️
+                                                                    <t t-esc="formatDisplayDatetime(wo.console_date_start)"/>
+                                                                </span>
+                                                                <span>⏹️
+                                                                    <t t-esc="formatDisplayDatetime(wo.console_date_finished)"/>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="o_mrp_info_row">
+                                                        <span class="o_mrp_icon icon-employee"></span>
+                                                        <span class="o_mrp_info_label">Employees</span>
+                                                        <div class="o_mrp_info_value">
+                                                            <t t-if="wo.employees &amp;&amp; wo.employees.length">
+                                                                <t t-foreach="wo.employees" t-as="emp" t-key="emp.id">
+                                                                    <span class="badge badge-light me-1"
+                                                                          t-esc="emp.name"></span>
+                                                                </t>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span class="text-muted small">None</span>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                        <div class="o_mrp_info_row">
+                                                        <span class="o_mrp_icon icon-state"></span>
+                                                        <span class="o_mrp_info_label">State</span>
+
+                                                        <div class="o_mrp_info_value">
+                                                            <t t-if="wo.machine_status == 'maintenance'">
+                                                                <span class="badge bg-danger d-flex align-items-center w-auto" style="width: fit-content;">
+                                                                    <i class="fa fa-wrench me-2"/> Maintenance
+                                                                </span>
+                                                            </t>
+                                                            <t t-elif="wo.machine_status == 'busy'">
+                                                                <span class="badge bg-warning text-dark d-flex align-items-center w-auto" style="width: fit-content;">
+                                                                    <i class="fa fa-clock-o me-2"/> Busy
+                                                                </span>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <div class="d-flex align-items-center">
+                                                                    <span t-att-class="'o_mrp_status_indicator status-' + (wo.state || 'ready')"></span>
+                                                                    <t t-esc="wo.state_label or wo.state"/>
+                                                                </div>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="o_mrp_button_group d-flex flex-wrap justify-content-center gap-2">
+                                                         <t t-if="!isRunning(wo)">
+                                                             <button type="button"
+                                                                    t-att-class="'btn btn-sm btn-success' + ((state.moClosed || !state.canCloseProduction || wo.state != 'ready' || wo.is_locked || !(wo.employees &amp;&amp; wo.employees.length)) ? ' disabled' : '')"
+                                                                    t-att-disabled="(state.moClosed || !state.canCloseProduction || wo.state != 'ready' || wo.is_locked || !(wo.employees &amp;&amp; wo.employees.length)) ? true : null"
+                                                                    t-on-click="() => this.startWo(wo)">
+                                                                 <span class="fa fa-play me-1" aria-hidden="true"></span>Start
+                                                             </button>
+                                                         </t>
+                                                        <t t-else="">
+                                                            <button type="button"
+                                                                    t-att-class="'btn btn-sm btn-danger' + (state.moClosed ? ' disabled' : '')"
+                                                                    t-att-disabled="(state.moClosed || !state.canCloseProduction) ? true : null"
+                                                                    t-on-click="() => this.stopWo(wo)">
+                                                                <span class="fa fa-stop me-1" aria-hidden="true"></span>Stop
+                                                            </button>
+                                                        </t>
+                                                        <t t-if="isRunning(wo)">
+                                                            <button type="button"
+                                                                    t-att-class="'btn btn-sm btn-primary' + (state.moClosed ? ' disabled' : '')"
+                                                                    t-att-disabled="(state.moClosed || !state.canCloseProduction) ? true : null"
+                                                                    t-on-click="() => this.finishWo(wo)">
+                                                                <span class="fa fa-check me-1" aria-hidden="true"></span>Done
+                                                            </button>
+                                                        </t>
+                                                        <button type="button"
+                                                                class="btn btn-sm btn-outline-secondary"
+                                                                t-on-click="() => this.openDrawer(wo)">
+                                                            📋 Details
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-sm btn-outline-secondary position-relative"
+                                                                t-on-click="() => this.openScrapModal(wo)">
+                                                            🗑️ Scrap
+                                                            <t t-if="wo.scraps and wo.scraps.length">
+                                                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                                                    <t t-esc="wo.scraps.length"/>
+                                                                    <span class="visually-hidden">scraps</span>
+                                                                </span>
+                                                            </t>
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-sm btn-outline-secondary"
+                                                                t-on-click="() => this.createQC(wo)">
+                                                            ✅ Quality
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+
+                <t t-if="state.activeWo">
+                    <div class="o_modal o_modal_centered o_mrp_detail_modal">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-between align-items-start">
+                                    <div class="d-flex flex-column">
+                                        <h4 class="modal-title mb-0">
+                                            <strong t-esc="state.activeWo.name"/>
+                                        </h4>
+                                        <span class="small text-muted mt-1" t-esc="state.activeWo.workcenter_name"/>
+                                    </div>
+                                    <button type="button" class="btn-close" t-on-click="closeDrawer">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-qty"></span>
+                                            Target
+                                        </label>
+                                        <div class="form-control-plaintext"
+                                             t-esc="state.activeWo.planned_qty || 0"/>
+                                    </div>
+                                        <div class="form-group d-flex justify-content-between align-items-center">
+                                            <label>
+                                                <span class="o_mrp_icon icon-qty"></span>
+                                                Done
+                                            </label>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" step="0.01"
+                                                   class="form-control"
+                                                   t-att-value="state.activeWo.console_qty || 0"
+                                                   readonly="readonly"
+                                                   disabled="disabled"/>
+                                    </div>
+                                        <div class="form-group">
+                                            <label>
+                                                <span class="o_mrp_icon icon-qty"></span>
+                                                Output History
+                                            </label>
+                                            <div class="d-flex gap-2 mb-2">
+                                                <input type="number" step="0.01" min="0"
+                                                       class="form-control"
+                                                       placeholder="Add quantity"
+                                                       t-att-value="state.drawerQtyInput"
+                                                       t-on-input="(ev) => { state.drawerQtyInput = ev.target.value; }"/>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   placeholder="Note (optional)"
+                                                   t-att-value="state.drawerQtyNote"
+                                                   t-on-input="(ev) => { state.drawerQtyNote = ev.target.value; }"/>
+                                            <button type="button"
+                                                    class="btn btn-primary"
+                                                    t-on-click="addQtyLog">
+                                                Add
+                                            </button>
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Qty</th>
+                                                        <th>Note</th>
+                                                        <th>Date</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-if="filteredQtyLogs.length">
+                                                        <t t-foreach="filteredQtyLogs" t-as="ql" t-key="ql.id">
+                                                            <tr>
+                                                                <td t-esc="ql.qty"/>
+                                                                <td t-esc="ql.note or '-'"/>
+                                                                <td>
+                                                                    <div><t t-esc="formatDisplayDatetime(ql.log_date || ql.create_date)"/></div>
+                                                                    <t t-if="ql.employees &amp;&amp; ql.employees.length">
+                                                                        <div class="small text-muted">
+                                                                            <t t-foreach="ql.employees" t-as="qe" t-key="qe.id">
+                                                                                <span class="badge bg-light text-dark me-1" t-esc="qe.name"/>
+                                                                            </t>
+                                                                        </div>
+                                                                    </t>
+                                                                </td>
+                                                                <td class="text-end">
+                                                                    <button type="button"
+                                                                            class="btn btn-sm btn-outline-secondary"
+                                                                            t-on-click="() => this.editQtyLog(ql)">
+                                                                        Edit
+                                                                    </button>
+                                                                    <button type="button"
+                                                                            class="btn btn-sm btn-outline-primary ms-2"
+                                                                            t-on-click="() => this.openTimeTrackingPopup(ql)">
+                                                                        More
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <tr>
+                                                            <td colspan="4" class="text-muted text-center">No quantity logs yet.</td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-time"></span>
+                                            Started At
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               readonly="readonly"
+                                               t-att-value="formatDisplayDatetime(state.activeWo.console_date_start)"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-time"></span>
+                                            Finished At
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               readonly="readonly"
+                                               t-att-value="formatDisplayDatetime(state.activeWo.console_date_finished)"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-employee"></span>
+                                            Employees
+                                        </label>
+                                        <div class="d-flex gap-2 mb-2 align-items-center flex-wrap">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-primary"
+                                                    t-on-click="addDrawerEmployee">
+                                                Add employee
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    t-on-click="clearDrawerEmployees">
+                                                Remove all
+                                            </button>
+                                        </div>
+                                        <div t-att-class="'o-mrp-console-employee-list employee-grid ' + (((state.activeWo.employees || []).length > 8) ? 'is-scrollable' : '')">
+                                            <t t-if="state.activeWo.employees &amp;&amp; state.activeWo.employees.length">
+                                                <t t-foreach="state.activeWo.employees" t-as="emp" t-key="emp.id">
+                                                    <div class="form-check employee-card">
+                                                        <input class="form-check-input"
+                                                               type="checkbox"
+                                                               checked="checked"
+                                                               t-att-id="'emp_check_' + emp.id"
+                                                               t-on-change="(ev) => this.toggleDrawerEmployee(emp.id, ev.target.checked)"/>
+                                                        <label class="form-check-label w-100" t-att-for="'emp_check_' + emp.id">
+                                                            <t t-esc="emp.name"/>
+                                                        </label>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="text-muted small p-2 w-100 text-center">
+                                                    No employees assigned.
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="d-flex justify-content-end w-100 gap-2">
+                                        <button type="button"
+                                                class="btn btn-secondary"
+                                                t-on-click="closeDrawer">
+                                            ✕ Cancel
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-primary"
+                                                t-on-click="saveActiveWo">
+                                            💾 Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <t t-if="state.pickingDrawer.open">
+                    <div class="o_modal o_modal_centered o_mrp_picking_modal">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header flex-wrap align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h4 class="modal-title mb-0">
+                                            <span class="o_mrp_icon icon-picking"></span>
+                                            Material Request
+                                        </h4>
+                                        <div class="small text-muted mt-1">
+                                            <t t-if="state.pickingDrawer.picking">
+                                                From
+                                                <t t-esc="state.pickingDrawer.picking.location_name"/>
+                                                to
+                                                <t t-esc="state.pickingDrawer.picking.location_dest_name"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <t t-if="(state.pickingDrawer.availablePickings || []).length">
+                                        <div class="me-3 mt-2 mt-md-0">
+                                            <label class="small text-muted text-uppercase mb-1 d-block">
+                                                Transfer
+                                            </label>
+                                            <select class="form-control form-control-sm"
+                                                    t-att-disabled="state.pickingDrawer.loading ? true : null"
+                                                    t-att-value="state.pickingDrawer.activePickingId or ''"
+                                                    t-on-change="switchPicking">
+                                                <t t-foreach="state.pickingDrawer.availablePickings"
+                                                   t-as="pick"
+                                                   t-key="pick.id">
+                                                    <option t-att-value="pick.id"
+                                                            t-att-selected="pick.id === state.pickingDrawer.activePickingId">
+                                                        <t t-esc="pick.name"/>
+                                                        —
+                                                        <t t-esc="pick.operation"/>
+                                                        :
+                                                        <t t-esc="pick.from"/>
+                                                        →
+                                                        <t t-esc="pick.to"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </t>
+                                    <div class="dropdown me-2 mt-2 mt-md-0">
+                                        <button type="button"
+                                                class="btn btn-outline-secondary dropdown-toggle"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false"
+                                                title="More actions"
+                                                t-att-disabled="(state.pickingDrawer.loading or ( !(state.pickingDrawer.printMenu || []).length and !(state.productionPrintMenu || []).length)) ? true : null">
+                                            <i class="fa fa-cog"/>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <t t-if="(state.productionPrintMenu || []).length">
+                                                <li><h6 class="dropdown-header">Manufacturing Order</h6></li>
+                                                <t t-foreach="state.productionPrintMenu" t-as="printItem" t-key="printItem.id">
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                           href="#"
+                                                           t-on-click.prevent="() => this.printProductionAction(printItem.id, printItem.model)">
+                                                            <i class="fa fa-print me-2"/>
+                                                            <t t-esc="printItem.name"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+                                            </t>
+                                            <t t-if="(state.productionPrintMenu || []).length and (state.pickingDrawer.printMenu || []).length">
+                                                <li><hr class="dropdown-divider"/></li>
+                                            </t>
+                                            <t t-if="(state.pickingDrawer.printMenu || []).length">
+                                                <li><h6 class="dropdown-header">Picking</h6></li>
+                                                <t t-foreach="state.pickingDrawer.printMenu" t-as="printOpt" t-key="printOpt.xml_id">
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                           href="#"
+                                                           t-att-title="printOpt.help"
+                                                           t-on-click.prevent="() => this.printPickingReport(printOpt.xml_id)">
+                                                            <i class="fa fa-print me-2"/>
+                                                            <t t-esc="printOpt.name"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+                                            </t>
+                                            <t t-if="!(state.productionPrintMenu || []).length and !(state.pickingDrawer.printMenu || []).length">
+                                                <li>
+                                                    <span class="dropdown-item text-muted">No actions available</span>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    <button type="button"
+                                            class="btn-close"
+                                            t-on-click="closePickingDrawer"/>
+                                </div>
+                                <div class="modal-body">
+                                    <t t-if="state.pickingDrawer.loading">
+                                        <div class="o_mrp_loading_state">
+                                            <div class="o_mrp_loading_text">Loading Picking...</div>
+                                        </div>
+                                    </t>
+                                    <t t-elif="state.pickingDrawer.picking">
+                                        <div class="o_mrp_picking_overview mb-3">
+                                            <div class="small text-muted">
+                                                <span class="o_mrp_icon icon-picking"></span>
+                                                 MATERIAL REQUEST
+                                            </div>
+                                            <strong t-esc="state.pickingDrawer.picking.name"/>
+                                        </div>
+                                        <t t-if="!state.pickingDrawer.picking.moves.length">
+                                            <div class="alert alert-success">
+                                                All component moves are completed for this picking.
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-foreach="state.pickingDrawer.picking.moves" t-as="move" t-key="move.move_id">
+                                                <div class="o_mrp_picking_move card mb-3">
+                                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <strong t-esc="move.product_name"/>
+                                                            <div class="small text-muted">
+                                                                Required:
+                                                                <t t-esc="move.required_qty"/>
+                                                                <t t-esc="move.uom"/>
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge badge-light"
+                                                              t-esc="move.uom"/>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm align-middle">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Location</th>
+                                                                        <t t-if="requiresLot(move)">
+                                                                            <th>Lot / Serial</th>
+                                                                        </t>
+                                                                        <th class="text-right">On Hand</th>
+                                                                        <th>
+                                                                            Qty Done
+                                                                            (<t t-esc="move.uom"/>)
+                                                                        </th>
+                                                                        <th class="text-center">Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <t t-foreach="move.move_lines" t-as="line" t-key="line.id or line.client_id">
+                                                                        <tr>
+                                                                            <td class="align-middle">
+                                                                                <select class="form-control form-control-sm"
+                                                                                        t-att-value="line.location_id || move.location_id || ''"
+                                                                                        t-on-change="(ev) => this.updatePickingLine(move, line, 'location_id', ev.target.value)">
+                                                                                    <option value="">Select location</option>
+                                                                                    <t t-foreach="getAvailableLocations(move)" t-as="loc" t-key="loc.id">
+                                                                                        <option t-att-value="loc.id">
+                                                                                            <t t-esc="loc.name"/>
+                                                                                        </option>
+                                                                                    </t>
+                                                                                    <option value="search_more">Search more...</option>
+                                                                                </select>
+                                                                            </td>
+                                                                            <t t-if="requiresLot(move)">
+                                                                                <td class="align-middle">
+                                                                                    <select class="form-control form-control-sm"
+                                                                                            t-att-value="line.lot_id || ''"
+                                                                                            t-on-change="(ev) => this.selectPickingLot(move, line, ev.target.value)">
+                                                                                        <option value="">Select lot</option>
+                                                                                        <t t-foreach="getAvailableLots(move, line)" t-as="lot" t-key="lot.id + '-' + lot.location_id">
+                                                                                            <option t-att-value="lot.id">
+                                                                                                <t t-esc="lot.name"/>
+                                                                                                <t t-if="lot.quantity != null"> - <t t-esc="lot.quantity"/></t>
+                                                                                            </option>
+                                                                                        </t>
+                                                                                        <option value="search_more">Search more...</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </t>
+                                                                            <td class="align-middle text-right">
+                                                                                <span t-esc="getOnHand(move, line)"/>
+                                                                            </td>
+                                                                            <td class="align-middle">
+                                                                                <input type="number"
+                                                                                       step="0.01"
+                                                                                       min="0"
+                                                                                       class="form-control form-control-sm"
+                                                                                       t-att-value="line.qty_done"
+                                                                                       t-on-change="(ev) => this.updatePickingLine(move, line, 'qty_done', ev.target.value)"/>
+                                                                            </td>
+                                                                            <td class="text-center align-middle">
+                                                                                <button type="button"
+                                                                                        class="btn btn-sm btn-outline-danger"
+                                                                                        t-on-click="() => this.removePickingLine(move, line)">
+                                                                                    Remove
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </t>
+                                                                </tbody>
+                                                            </table>
+                                                            <button type="button"
+                                                                    class="btn btn-link"
+                                                                    t-on-click="() => this.addPickingLine(move)">
+                                                                + Add a line
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <div class="o_mrp_empty_state">
+                                            <div class="o_mrp_empty_text">
+                                                No picking data available for this manufacturing order.<br/>
+                                                <small class="text-muted">Check component requirements or MO state</small>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-between align-items-center">
+                                    <button type="button"
+                                            class="btn btn-outline-secondary"
+                                            t-on-click="refreshPickingData"
+                                            t-att-disabled="state.pickingDrawer.loading ? true : null">
+                                        Reload
+                                    </button>
+                                    <div>
+                                        <button type="button"
+                                                class="btn btn-secondary me-2"
+                                                t-on-click="closePickingDrawer"
+                                                t-att-disabled="state.pickingDrawer.saving ? true : null">
+                                            ✕ Cancel
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-primary"
+                                                t-on-click="validatePicking"
+                                                t-att-disabled="state.pickingDrawer.saving ? true : null">
+                                            ✔ Validate Picking
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+                <t t-if="state.scrapModal.open">
+                    <div class="o_modal o_modal_centered">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">
+                                        <span class="o_mrp_icon icon-scrap"></span>
+                                        Scrap for
+                                        <t t-esc="state.scrapModal.workorder.workcenter_name or state.scrapModal.workorder.name"/>
+                                    </h4>
+                                    <button type="button"
+                                            class="btn-close ms-auto"
+                                            t-on-click="closeScrapModal"/>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Tabs for Component vs Finished -->
+                                    <ul class="nav nav-tabs mb-3">
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                               t-att-class="state.scrapModal.activeTab === 'component' ? 'active' : ''"
+                                               href="#"
+                                               t-on-click.prevent="() => this.setScrapTab('component')">
+                                                Components
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                               t-att-class="state.scrapModal.activeTab === 'finished' ? 'active' : ''"
+                                               href="#"
+                                               t-on-click.prevent="() => this.setScrapTab('finished')">
+                                                Finished Goods
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-product"></span>
+                                            Product
+                                        </label>
+                                        <select class="form-control"
+                                                t-on-change="(ev) => this.onScrapProductChange(ev)">
+                                            <t t-foreach="state.scrapModal.filteredProducts" t-as="p" t-key="p.id">
+                                                <option t-att-value="p.id"
+                                                        t-att-selected="p.id === state.scrapModal.productId">
+                                                    <t t-esc="p.name"/> (<t t-esc="p.type"/>)
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-lot"></span>
+                                            Lot / Serial
+                                        </label>
+                                        <t t-if="state.scrapModal.productType == 'finished'">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   readonly="readonly"
+                                                   t-att-value="state.scrapModal.lotName or '—'"/>
+                                        </t>
+                                        <t t-elif="state.scrapModal.availableLots.length">
+                                            <select class="form-control"
+                                                    t-on-change="(ev) => this.onScrapLotChange(ev)"
+                                                    t-att-value="state.scrapModal.lotId or ''">
+                                                <t t-foreach="state.scrapModal.availableLots" t-as="lot" t-key="lot.id">
+                                                    <option t-att-value="lot.id">
+                                                        <t t-esc="lot.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </t>
+                                        <t t-else="">
+                                            <input type="text"
+                                                   class="form-control"
+                                                   placeholder="Enter lot / serial"
+                                                   t-att-value="state.scrapModal.lotName"
+                                                   t-on-input="(ev) => this.scrapChange('lotName', ev.target.value)"/>
+                                        </t>
+                                    </div>
+                                    <div class="form-group">
+                                        <t t-set="p" t-if="state.scrapModal.productId"
+                                           t-value="state.scrapModal.products.find(pp => pp.id === state.scrapModal.productId)"/>
+                                        <label>
+                                            <span class="o_mrp_icon icon-qty"></span>
+                                            Quantity <t t-if="p">(<t t-esc="p.uom_name"/>)</t>
+                                        </label>
+                                        <input type="number" step="0.01"
+                                               class="form-control"
+                                               t-ref="scrapQtyInput"
+                                               t-att-value="state.scrapModal.qty"
+                                               t-on-input="(ev) => this.scrapChange('qty', ev.target.value)"/>
+                                        <small class="text-muted">
+                                            <t t-if="p &amp;&amp; p.type === 'component' &amp;&amp; p.max_qty != null">
+                                                Max component scrap: <t t-esc="p.max_qty"/> <t t-esc="p.uom_name"/>
+                                            </t>
+                                            <t t-elif="p &amp;&amp; p.type === 'finished' &amp;&amp; p.max_qty != null">
+                                                Max finished scrap: <t t-esc="p.max_qty"/> <t t-esc="p.uom_name"/>
+                                            </t>
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>📍 Source Location</label>
+                                        <select class="form-control"
+                                                t-on-change="(ev) => this.onScrapLocationChange(ev)">
+                                            <t t-foreach="state.scrapModal.locations" t-as="loc" t-key="loc.id">
+                                                <option t-att-value="loc.id"
+                                                        t-att-selected="loc.id === state.scrapModal.locationId">
+                                                    <t t-esc="loc.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>
+                                            <span class="o_mrp_icon icon-scrap"></span>
+                                            Scrap Location
+                                        </label>
+                                        <select class="form-control"
+                                                t-on-change="(ev) => this.onScrapScrapLocationChange(ev)">
+                                            <t t-foreach="state.scrapModal.scrapLocations" t-as="loc" t-key="loc.id">
+                                                <option t-att-value="loc.id"
+                                                        t-att-selected="loc.id === state.scrapModal.scrapLocationId">
+                                                    <t t-esc="loc.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Scrap Reason</label>
+                                        <select class="form-control"
+                                                t-on-change="(ev) => this.onScrapReasonChange(ev)">
+                                            <option value="">Select reason...</option>
+                                            <t t-foreach="state.scrapModal.scrapReasons" t-as="sr" t-key="sr.id">
+                                                <option t-att-value="sr.id"
+                                                        t-att-selected="sr.id === state.scrapModal.scrapReasonId">
+                                                    <t t-esc="sr.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Reason Note</label>
+                                        <textarea class="form-control"
+                                                  rows="3"
+                                                  placeholder="Enter reason for scrap..."
+                                                  t-att-value="state.scrapModal.reason"
+                                                  t-on-input="(ev) => this.scrapChange('reason', ev.target.value)"/>
+                                    </div>
+                                    <t t-if="state.scrapModal.workorder.scraps and state.scrapModal.workorder.scraps.length">
+                                        <div class="mt-4 pt-3 border-top">
+                                            <h6 class="text-muted mb-2">Pending Scraps (Draft)</h6>
+                                            <div class="table-responsive" style="max-height: 150px;">
+                                                <table class="table table-sm table-hover small mb-0">
+                                                    <thead class="bg-light">
+                                                        <tr>
+                                                            <th>Product</th>
+                                                            <th>Reason</th>
+                                                            <th class="text-end">Qty</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-foreach="state.scrapModal.workorder.scraps" t-as="s" t-key="s.id">
+                                                            <tr t-if="s.type === state.scrapModal.activeTab"
+                                                                style="cursor: pointer;"
+                                                                t-on-click="() => this.openScrapRecord(s.id)">
+                                                                <td t-esc="s.product_name"/>
+                                                                <td t-esc="s.reason or '-'"/>
+                                                                <td class="text-end">
+                                                                    <span class="badge bg-warning text-dark">
+                                                                        <t t-esc="s.qty"/> <t t-esc="s.uom"/>
+                                                                    </span>
+                                                                </td>
+                                                                <td class="text-end text-muted">
+                                                                    <i class="fa fa-pencil"/>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="modal-footer p-3">
+                                    <div class="d-flex justify-content-end w-100 gap-2">
+                                        <button type="button"
+                                                class="btn btn-secondary px-4"
+                                                t-on-click="closeScrapModal">
+                                            ✕ Close
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-primary px-4"
+                                                t-on-click="saveScrapModal">
+                                            💾 Save
+                                        </button>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </t>
+
+            </div>
+        </div>
+    </t>
+
+    <t t-name="mrp_parallel_console.MpsLineMachines"
+       t-inherit="mrp_mps.MpsLineComponent"
+       t-inherit-mode="extension">
+        <xpath expr="//tr[@name='to_replenish']//th[@scope='row']" position="inside">
+            <t t-if="productionSchedule.mpc_has_parallel_ops">
+                <button type="button"
+                        class="btn btn-outline-secondary o_mrp_mps_machines ms-2"
+                        t-att-title="'Select machines for parallel operations'"
+                        t-on-click.stop="_onClickOpenMachines">
+                    Machines
+                </button>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

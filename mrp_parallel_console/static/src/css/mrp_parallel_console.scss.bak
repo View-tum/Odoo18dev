@@ -1,0 +1,1697 @@
+/* ========================================
+   Parallel Shopfloor Console - Odoo Style
+   ======================================== */
+
+// Odoo Standard Color Palette
+$o-brand-primary: #017e84;
+$o-brand-secondary: #875a7b;
+$o-brand-odoo: #714b67;
+
+$o-color-success: #28a745;
+$o-color-info: #17a2b8;
+$o-color-warning: #f0ad4e;
+$o-color-danger: #dc3545;
+
+$o-gray-100: #f8f9fa;
+$o-gray-200: #e9ecef;
+$o-gray-300: #dee2e6;
+$o-gray-400: #ced4da;
+$o-gray-600: #6c757d;
+$o-gray-800: #343a40;
+$o-gray-900: #212529;
+
+// Shopfloor specific
+$shopfloor-primary: $o-brand-primary;
+$shopfloor-header-bg: $o-gray-100;
+$card-border-radius: 4px;
+$card-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06);
+$card-shadow-hover: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+
+
+// ========================================
+// Root Dashboard Styles (Shopfloor Home)
+// ========================================
+.o_mrp_parallel_home {
+    background: $o-gray-100;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .o_control_panel {
+        background: white;
+        border-bottom: 1px solid $o-gray-300;
+        padding: 12px 16px;
+        flex-shrink: 0;
+
+        .o_cp_heading {
+            color: $o-gray-900;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .btn {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: $card-border-radius;
+            
+            &.btn-primary {
+                background-color: $shopfloor-primary;
+                border-color: $shopfloor-primary;
+                
+                &:hover {
+                    background-color: darken($shopfloor-primary, 8%);
+                    border-color: darken($shopfloor-primary, 8%);
+                }
+            }
+            
+            &.btn-secondary {
+                background-color: $o-gray-600;
+                border-color: $o-gray-600;
+                
+                &:hover {
+                    background-color: darken($o-gray-600, 8%);
+                }
+            }
+        }
+    }
+
+    .o_content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+    }
+
+    .card {
+        border: 1px solid $o-gray-300;
+        border-radius: $card-border-radius;
+        box-shadow: $card-shadow;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        background: white;
+        margin-bottom: 16px;
+
+        &:hover {
+            box-shadow: $card-shadow-hover;
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            background-color: $shopfloor-header-bg;
+            border-bottom: 1px solid $o-gray-300;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            color: $o-gray-900;
+
+            .badge {
+                font-size: 11px;
+                padding: 4px 8px;
+                font-weight: 600;
+                border-radius: 3px;
+
+                &.badge-success {
+                    background-color: $o-color-success;
+                    color: white;
+                }
+
+                &.badge-info {
+                    background-color: $o-color-info;
+                    color: white;
+                }
+
+                &.badge-warning {
+                    background-color: $o-color-warning;
+                    color: white;
+                }
+
+                &.badge-secondary {
+                    background-color: $o-gray-600;
+                    color: white;
+                }
+            }
+        }
+
+        .card-body {
+            padding: 16px;
+            font-size: 13px;
+
+            .small, small {
+                font-size: 12px;
+                color: $o-gray-600;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.3px;
+            }
+        }
+
+        .card-footer {
+            background-color: $o-gray-100;
+            border-top: 1px solid $o-gray-300;
+            padding: 12px 16px;
+            
+            .btn {
+                font-size: 13px;
+                padding: 5px 12px;
+                margin-right: 8px;
+                
+                &.btn-primary {
+                    background-color: $shopfloor-primary;
+                    border-color: $shopfloor-primary;
+                    
+                    &:hover {
+                        background-color: darken($shopfloor-primary, 8%);
+                    }
+                }
+                
+                &.btn-outline-primary {
+                    color: $shopfloor-primary;
+                    border-color: $shopfloor-primary;
+                    background-color: white;
+                    
+                    &:hover {
+                        background-color: $shopfloor-primary;
+                        color: white;
+                    }
+                }
+                
+                &.btn-outline-danger {
+                    color: $o-color-danger;
+                    border-color: $o-color-danger;
+                    background-color: white;
+                    
+                    &:hover {
+                        background-color: $o-color-danger;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ========================================
+// Workorder Console Styles
+// ========================================
+.o_mrp_parallel_console {
+    background: $o-gray-100;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .o_control_panel {
+        background: white;
+        border-bottom: 1px solid $o-gray-300;
+        padding: 12px 16px;
+        flex-shrink: 0;
+
+        .o_cp_heading {
+            color: $o-gray-900;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .btn {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: $card-border-radius;
+            margin-left: 8px;
+            
+            &.btn-primary {
+                background-color: $o-color-success;
+                border-color: $o-color-success;
+                
+                &:hover {
+                    background-color: darken($o-color-success, 8%);
+                    border-color: darken($o-color-success, 8%);
+                }
+            }
+            
+            &.btn-secondary {
+                background-color: $o-gray-600;
+                border-color: $o-gray-600;
+                color: white;
+                
+                &:hover {
+                    background-color: darken($o-gray-600, 8%);
+                }
+            }
+            
+            &.btn-outline-secondary {
+                color: $o-gray-700;
+                border-color: $o-gray-400;
+                background-color: white;
+                
+                &:hover {
+                    background-color: $o-gray-200;
+                    border-color: $o-gray-500;
+                }
+            }
+        }
+    }
+
+    // Stat button style (for MO header)
+    .console-stat-large {
+        display: inline-flex;
+        align-items: center;
+        background-color: white;
+        border: 1px solid $o-gray-300;
+        border-radius: $card-border-radius;
+        padding: 8px 16px;
+        color: $o-gray-900;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background-color: $o-gray-100;
+            border-color: $shopfloor-primary;
+            text-decoration: none;
+            box-shadow: $card-shadow;
+        }
+        
+        .console-stat-icon-large {
+            font-size: 28px;
+            color: $shopfloor-primary;
+            margin-right: 12px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lighten($shopfloor-primary, 45%);
+            border-radius: 4px;
+        }
+        
+        .console-stat-body-large {
+            .console-stat-label-large {
+                font-size: 11px;
+                color: $o-gray-600;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 2px;
+            }
+            
+            .console-stat-value-large {
+                font-size: 16px;
+                font-weight: 700;
+                color: $o-gray-900;
+            }
+        }
+    }
+
+    .o_content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+    }
+
+    // Workorder cards
+    .card {
+        border: 1px solid $o-gray-300;
+        border-radius: $card-border-radius;
+        box-shadow: $card-shadow;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        background: white;
+        margin-bottom: 16px;
+
+        &:hover {
+            box-shadow: $card-shadow-hover;
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            background-color: $shopfloor-header-bg;
+            border-bottom: 1px solid $o-gray-300;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            color: $o-gray-900;
+
+            .form-check-input {
+                width: 18px;
+                height: 18px;
+                margin-top: 0;
+                cursor: pointer;
+                
+                &:checked {
+                    background-color: $shopfloor-primary;
+                    border-color: $shopfloor-primary;
+                }
+            }
+            
+            .o_mrp_card_subtitle {
+                font-size: 12px;
+                color: $o-gray-600;
+                font-weight: 500;
+                margin-top: 2px;
+            }
+        }
+
+        .card-body {
+            padding: 16px;
+            font-size: 13px;
+
+            .form-control {
+                font-size: 13px;
+                border-color: $o-gray-400;
+                border-radius: $card-border-radius;
+                
+                &:focus {
+                    border-color: $shopfloor-primary;
+                    box-shadow: 0 0 0 2px rgba($shopfloor-primary, 0.15);
+                }
+            }
+
+            .badge-light {
+                background-color: lighten($shopfloor-primary, 40%);
+                color: darken($shopfloor-primary, 10%);
+                border: none;
+                font-weight: 600;
+                padding: 4px 8px;
+                font-size: 11px;
+                border-radius: 3px;
+            }
+        }
+
+        .card-footer {
+            background-color: $o-gray-100;
+            border-top: 1px solid $o-gray-300;
+            padding: 12px 16px;
+
+            .btn {
+                font-size: 13px;
+                padding: 5px 12px;
+                margin-right: 6px;
+                margin-bottom: 4px;
+                font-weight: 500;
+                
+                &.btn-success {
+                    background-color: $o-color-success;
+                    border-color: $o-color-success;
+                    
+                    &:hover {
+                        background-color: darken($o-color-success, 8%);
+                    }
+                }
+                
+                &.btn-danger {
+                    background-color: $o-color-danger;
+                    border-color: $o-color-danger;
+                    
+                    &:hover {
+                        background-color: darken($o-color-danger, 8%);
+                    }
+                }
+                
+                &.btn-info {
+                    background-color: $o-color-info;
+                    border-color: $o-color-info;
+                    
+                    &:hover {
+                        background-color: darken($o-color-info, 8%);
+                    }
+                }
+                
+                &.btn-warning {
+                    background-color: $o-color-warning;
+                    border-color: $o-color-warning;
+                    color: white;
+                    
+                    &:hover {
+                        background-color: darken($o-color-warning, 8%);
+                    }
+                }
+                
+                &.btn-outline-secondary {
+                    color: $o-gray-700;
+                    border-color: $o-gray-400;
+                    background-color: white;
+                    
+                    &:hover {
+                        background-color: $o-gray-200;
+                        border-color: $o-gray-500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+    .o_control_panel {
+        background: white;
+        box-shadow: $card-shadow;
+        border-radius: 8px 8px 0 0;
+
+        .o_cp_heading {
+            color: #2d3748;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: $primary-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-secondary {
+            background: $primary-gradient;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: $button-shadow;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
+        }
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: $card-shadow;
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: $card-shadow-hover;
+        }
+
+        .card-header {
+            background: $dark-gradient;
+            color: white !important;
+            padding: 1.25rem;
+            font-weight: 600;
+            font-size: 1.1rem; // Larger text for better visibility
+
+            // Ensure all text in header is white and bold
+            strong, div, span, small {
+                color: white !important;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); // Subtle shadow for better readability
+            }
+
+            strong {
+                font-size: 1.15rem;
+                letter-spacing: 0.5px;
+            }
+
+            .text-muted {
+                color: #ffffff !important;
+                font-weight: 700;
+                font-size: 1rem;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                letter-spacing: 0.5px;
+            }
+
+            .o_mrp_card_subtitle {
+                color: #e2e8f0 !important;
+                font-weight: 600;
+                font-size: 0.95rem;
+                letter-spacing: 0.4px;
+                opacity: 0.95;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.75rem;
+                border-radius: 20px;
+                font-weight: 600;
+
+                &.badge-success {
+                    background: $success-gradient;
+                    border: none;
+                }
+
+                &.badge-info {
+                    background: $info-gradient;
+                    border: none;
+                }
+
+                &.badge-warning {
+                    background: $warning-gradient;
+                    border: none;
+                }
+
+                &.badge-secondary {
+                    background: linear-gradient(135deg, #868f96 0%, #596164 100%);
+                    border: none;
+                }
+            }
+        }
+
+        .card-body {
+            background: white;
+            padding: 1.25rem;
+
+            .small.text-muted {
+                color: #718096 !important;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.7rem;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        .card-footer {
+            background: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 1rem;
+
+            .btn-outline-primary {
+                border: 2px solid #667eea;
+                color: #667eea;
+                font-weight: 600;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: $primary-gradient;
+                    border-color: transparent;
+                    color: white;
+                    transform: scale(1.05);
+                }
+            }
+
+            .btn-primary {
+                background: $primary-gradient;
+                border: none;
+                color: white;
+                font-weight: 600;
+                border-radius: 8px;
+                box-shadow: $button-shadow;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+                }
+            }
+        }
+    }
+}
+
+// ========================================
+// Workorder Console Styles
+// ========================================
+.o_mrp_parallel_console {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    .o_control_panel {
+        background: white;
+        box-shadow: $card-shadow;
+        border-radius: 8px 8px 0 0;
+
+        .o_cp_heading {
+            color: #2d3748;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: $primary-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-outline-secondary {
+            border: 2px solid #cbd5e0;
+            color: #4a5568;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: $dark-gradient;
+                border-color: transparent;
+                color: white;
+                transform: translateY(-2px);
+            }
+        }
+
+        .btn-secondary {
+            background: $dark-gradient;
+            border: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: $button-shadow;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(52, 73, 94, 0.4);
+            }
+        }
+
+        .btn-primary {
+            background: $success-gradient;
+            border: none;
+            color: white;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: $button-shadow;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(17, 153, 142, 0.5);
+            }
+        }
+    }
+
+    /* Console header stat button (compact smart-button look) */
+    .console-stat {
+        border-radius: 8px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border: 1px solid #e6eefc;
+        box-shadow: 0 2px 6px rgba(32, 41, 60, 0.06);
+        padding: 0.35rem 0.5rem;
+        min-width: 180px;
+        display: inline-block;
+        text-align: left;
+        color: #2d3748;
+    }
+
+    .console-stat-inner { align-items: center; }
+
+    .console-stat-icon {
+        font-size: 1.25rem;
+        color: #5b6bf6; /* primary tint */
+        width: 32px;
+        text-align: center;
+    }
+
+    .console-stat-body {
+        line-height: 1;
+    }
+
+    .console-stat-label {
+        color: #718096;
+        font-weight: 700;
+        text-transform: none;
+        font-size: 0.75rem;
+    }
+
+    .console-stat-value {
+        color: #1f2937;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    /* Hover / focus affordances */
+    .console-stat:hover, .console-stat:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.12);
+        border-color: rgba(102,126,234,0.45);
+        text-decoration: none;
+    }
+
+    /* Large stat button (main header replacement) */
+    .console-stat-large {
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+        border: 2px solid #e0e7ff;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        padding: 0.75rem 1.25rem;
+        display: inline-block;
+        text-align: left;
+        color: #1f2937;
+        transition: all 0.3s ease;
+    }
+
+    .console-stat-icon-large {
+        font-size: 2rem;
+        color: #6366f1; /* vibrant indigo */
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.04) 100%);
+        border-radius: 10px;
+    }
+
+    .console-stat-body-large {
+        line-height: 1.2;
+    }
+
+    .console-stat-label-large {
+        color: #6b7280;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.6px;
+        margin-bottom: 0.25rem;
+    }
+
+    .console-stat-value-large {
+        color: #111827;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    /* Large button hover state */
+    .console-stat-large:hover, .console-stat-large:focus {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        border-color: #6366f1;
+        text-decoration: none;
+        background: linear-gradient(135deg, #f8f9ff 0%, #eff2ff 100%);
+    }
+
+
+    // Workorder cards
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: $card-shadow;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: $card-shadow-hover;
+        }
+
+        .card-header {
+            background: $dark-gradient;
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+
+            .form-check-input {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                border: 2px solid white;
+
+                &:checked {
+                    background-color: #38ef7d;
+                    border-color: #38ef7d;
+                }
+            }
+        }
+
+        .card-body {
+            background: white;
+            padding: 1.25rem;
+
+            .small.text-muted {
+                color: #718096 !important;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 0.7rem;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.25rem;
+            }
+
+            .form-control {
+                border: 2px solid #e2e8f0;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: #667eea;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
+            }
+
+            .badge-light {
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                color: white;
+                border: none;
+                font-weight: 600;
+                padding: 0.35rem 0.75rem;
+                border-radius: 12px;
+            }
+        }
+
+        .card-footer {
+            background: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 1rem;
+
+            .btn-success {
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%); // Modern green
+                border: none;
+                font-weight: 600;
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+                }
+            }
+
+            .btn-danger {
+                background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); // Modern red
+                border: none;
+                font-weight: 600;
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+                }
+            }
+
+            .btn-outline-secondary {
+                border: 2px solid #94a3b8;
+                background: white;
+                color: #475569;
+                font-weight: 600;
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+                    border-color: transparent;
+                    color: white;
+                    transform: translateY(-2px);
+                }
+            }
+
+            .btn-info {
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); // Modern blue
+                border: none;
+                font-weight: 600;
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+                }
+            }
+
+            .btn-warning {
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); // Modern orange
+                border: none;
+                font-weight: 600;
+                border-radius: 8px;
+                padding: 0.5rem 1.2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+                color: white;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.5);
+                }
+            }
+        }
+    }
+}
+
+// ========================================
+// Modal Popup Styles
+// ========================================
+.o_mrp_modal_backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1050;
+    animation: fadeIn 0.2s ease;
+}
+
+.o_mrp_modal_dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Make details modal wider and responsive */
+    max-width: 1100px;   /* allow wide desktops */
+    width: 90vw;         /* responsive width based on viewport */
+    min-width: 600px;    /* keep reasonable minimum on mid-size screens */
+    max-height: 85vh;
+    z-index: 1060;
+.o_mrp_modal_dialog {
+    position: fixed;
+    /* Use viewport units to avoid scrollbar offset issues and ensure precise centering */
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 1100px;   /* allow wide desktops */
+    width: 90vw;         /* responsive width based on viewport */
+    min-width: 600px;    /* keep reasonable minimum on mid-size screens */
+    max-height: 85vh;
+    z-index: 1060;
+    animation: slideInUp 0.3s ease;
+    @media (max-width: 768px) {
+        .o_mrp_modal_dialog {
+            width: 95vw;
+            min-width: unset;
+            max-width: 95vw;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .card-header {
+        background: $primary-gradient;
+        color: white;
+        padding: 1.5rem;
+        font-weight: 600;
+        border-radius: 12px 12px 0 0;
+
+        h4 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-link {
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 0;
+            line-height: 1;
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .card-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.5rem;
+
+        .form-group {
+            margin-bottom: 1.25rem;
+
+            label {
+                color: #4a5568;
+                font-weight: 600;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .form-control {
+                border: 2px solid #e2e8f0;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+                font-size: 1rem;
+
+                &:focus {
+                    border-color: #667eea;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
+            }
+
+            .form-control-plaintext {
+                color: #2d3748;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+        }
+
+        .o-mrp-console-employee-list {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f7fafc;
+            padding: 1rem;
+            padding-left: 1.25rem; /* ensure items don't touch the left border */
+            max-height: unset;
+            overflow: visible;
+
+            &.is-scrollable {
+                max-height: 200px;
+                overflow-y: auto;
+            }
+
+            .form-check {
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .table {
+            margin-bottom: 0;
+
+            thead {
+                background: #f7fafc;
+
+                th {
+                    border-top: none;
+                    color: #4a5568;
+                    font-weight: 600;
+                    font-size: 0.875rem;
+                    padding: 0.75rem;
+                }
+            }
+
+            tbody {
+                td {
+                    padding: 0.75rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+    .card-footer {
+        padding: 1.25rem 1.5rem;
+        background: #f7fafc;
+        border-top: 2px solid #e2e8f0;
+        border-radius: 0 0 12px 12px;
+
+        .btn {
+            padding: 0.625rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+// ========================================
+// Drawer Styles
+// ========================================
+.o_mrp_console_drawer {
+    width: 400px;
+    border-left: 2px solid #e2e8f0;
+    background: white;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+
+    .card-header {
+        background: $primary-gradient;
+        color: white;
+        padding: 1.25rem;
+        font-weight: 600;
+
+        .btn-link {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .card-body {
+        .form-group {
+            margin-bottom: 1.25rem;
+
+            label {
+                color: #4a5568;
+                font-weight: 600;
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .form-control {
+                border: 2px solid #e2e8f0;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: #667eea;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
+            }
+
+            .form-control-plaintext {
+                color: #2d3748;
+                font-weight: 600;
+            }
+        }
+
+        .o-mrp-console-employee-list {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem;
+            padding-left: 1rem; /* avoid flush left edge */
+            background: #f7fafc;
+            max-height: unset;
+            overflow: visible;
+
+            &.is-scrollable {
+                max-height: 200px;
+                overflow-y: auto;
+            }
+
+            .form-check {
+                padding: 0.5rem;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+
+                /* keep label/content away from the left border */
+                margin-left: 0.25rem;
+
+                &:hover {
+                    background: white;
+                }
+
+                .form-check-input {
+                    width: 18px;
+                    height: 18px;
+
+                    &:checked {
+                        background-color: #38ef7d;
+                        border-color: #38ef7d;
+                    }
+                }
+            }
+        }
+
+        .table {
+            font-size: 0.875rem;
+
+            thead {
+                background: #f7fafc;
+
+                th {
+                    color: #4a5568;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 0.75rem;
+                    letter-spacing: 0.5px;
+                    border-bottom: 2px solid #e2e8f0;
+                    padding: 0.75rem;
+                }
+            }
+
+            tbody {
+                tr {
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #f7fafc;
+                    }
+
+                    td {
+                        padding: 0.75rem;
+                        border-bottom: 1px solid #e2e8f0;
+                    }
+                }
+            }
+        }
+    }
+
+    .card-footer {
+        background: #f7fafc;
+        border-top: 2px solid #e2e8f0;
+        padding: 1.25rem;
+
+        .btn-secondary {
+            background: #e2e8f0;
+            border: none;
+            color: #4a5568;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: #cbd5e0;
+                transform: translateY(-2px);
+            }
+        }
+
+        .btn-primary {
+            background: $primary-gradient;
+            border: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: $button-shadow;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            }
+        }
+    }
+}
+
+.o_mrp_console_picking_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 55, 72, 0.45);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1050;
+}
+
+.o_mrp_console_picking_drawer {
+    width: 520px;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border-left: 0;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
+
+    .card-header {
+        background: $success-gradient;
+    }
+
+    .o_mrp_picking_move {
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+
+        .card-header {
+            background: #f7fafc;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-body {
+            background: white;
+
+            .table {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    .btn-outline-danger {
+        border-width: 1px;
+    }
+}
+
+// ========================================
+// Modal Styles
+// ========================================
+.o_modal {
+    .modal-dialog {
+        .modal-content {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+            .modal-header {
+                background: $primary-gradient;
+                color: white;
+                border-radius: 12px 12px 0 0;
+                padding: 1.5rem;
+                border-bottom: none;
+
+                .modal-title {
+                    font-weight: 700;
+                    font-size: 1.25rem;
+                }
+
+                .btn-close {
+                    filter: brightness(0) invert(1);
+                    opacity: 0.8;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+
+                .form-group {
+                    margin-bottom: 1.25rem;
+
+                    label {
+                        color: #4a5568;
+                        font-weight: 600;
+                        font-size: 0.875rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .form-control {
+                        border: 2px solid #e2e8f0;
+                        border-radius: 6px;
+                        transition: all 0.3s ease;
+
+                        &:focus {
+                            border-color: #667eea;
+                            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                        }
+                    }
+                }
+            }
+
+            .modal-footer {
+                background: #f7fafc;
+                border-top: 2px solid #e2e8f0;
+                padding: 1.25rem;
+                border-radius: 0 0 12px 12px;
+
+                .btn-secondary {
+                    background: #e2e8f0;
+                    border: none;
+                    color: #4a5568;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #cbd5e0;
+                        transform: translateY(-2px);
+                    }
+                }
+
+                .btn-primary {
+                    background: $success-gradient;
+                    border: none;
+                    color: white;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    box-shadow: $button-shadow;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ========================================
+// Loading & Empty States
+// ========================================
+.o_mrp_loading_state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+
+    &::before {
+        content: "⏳";
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .o_mrp_loading_text {
+        color: #718096;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+}
+
+.o_mrp_empty_state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #a0aec0;
+
+    &::before {
+        content: "📦";
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        opacity: 0.6;
+    }
+
+    .o_mrp_empty_text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #718096;
+        max-width: 400px;
+    }
+}
+
+// ========================================
+// Status Badges & Indicators
+// ========================================
+.o_mrp_status_indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    animation: pulse 2s ease-in-out infinite;
+
+    &.status-ready {
+        background: #38ef7d;
+    }
+
+    &.status-progress {
+        background: #4facfe;
+    }
+
+    &.status-done {
+        background: #868f96;
+    }
+
+    &.status-draft {
+        background: #f093fb;
+    }
+}
+
+.o_mrp_qty_badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+
+    &::before {
+        content: "📊";
+        margin-right: 0.5rem;
+    }
+}
+
+// ========================================
+// Icon Helpers (using Unicode emojis for no-dependency solution)
+// ========================================
+.o_mrp_icon {
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    opacity: 0.8;
+
+    &.icon-workorder::before { content: "⚙️"; }
+    &.icon-employee::before { content: "👷"; }
+    &.icon-time::before { content: "⏱️"; }
+    &.icon-qty::before { content: "📊"; }
+    &.icon-state::before { content: "📋"; }
+    &.icon-product::before { content: "📦"; }
+    &.icon-lot::before { content: "🔖"; }
+    &.icon-scrap::before { content: "🗑️"; }
+    &.icon-qc::before { content: "✅"; }
+    &.icon-component::before { content: "🔩"; }
+    &.icon-picking::before { content: "📤"; }
+}
+
+// ========================================
+// Improved Card Info Display
+// ========================================
+.o_mrp_info_row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background: #f7fafc;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #edf2f7;
+    }
+
+    .o_mrp_info_label {
+        flex: 0 0 auto;
+        color: #718096;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        min-width: 80px;
+    }
+
+    .o_mrp_info_value {
+        flex: 1;
+        color: #2d3748;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+}
+
+// ========================================
+// Responsive Adjustments
+// ========================================
+@media (max-width: 768px) {
+    .o_mrp_console_drawer,
+    .o_mrp_console_picking_drawer {
+        width: 100%;
+        border-left: none;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .o_cp_heading {
+        font-size: 1.25rem !important;
+    }
+
+    .o_control_panel {
+        flex-direction: column !important;
+        gap: 1rem;
+
+        .o_cp_right {
+            width: 100%;
+
+            .btn {
+                width: 100%;
+                margin: 0.25rem 0 !important;
+            }
+        }
+    }
+
+    .card-footer {
+        flex-direction: column !important;
+
+        > div {
+            width: 100%;
+            margin-bottom: 0.5rem;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ========================================
+// Animation Utilities
+// ========================================
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.3s ease;
+}
+
+.o_mrp_console_drawer,
+.o_mrp_console_picking_drawer {
+    animation: slideInRight 0.4s ease;
+}
+
+// ========================================
+// Button Group Enhancements
+// ========================================
+.o_mrp_button_group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    .btn {
+        flex: 1;
+        min-width: max-content;
+    }
+}
+
+// ========================================
+// Workorder State Visual Cues
+// ========================================
+.card {
+    &.state-ready {
+        border-left: 4px solid #38ef7d;
+    }
+
+    &.state-progress {
+        border-left: 4px solid #4facfe;
+    }
+
+    &.state-done {
+        border-left: 4px solid #868f96;
+        opacity: 0.85;
+    }
+
+    &.state-pending {
+        border-left: 4px solid #f093fb;
+    }
+}}
