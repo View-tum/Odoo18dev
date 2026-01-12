@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_van_sales_lock_wh" model="ir.ui.view">
+        <field name="name">sale.order.form.van.sales.lock.wh</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="replace" groups="sale_auto_warehouse_van_sales.group_van_sales">
+                <field name="warehouse_id" readonly="1" options="{'no_open': True}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

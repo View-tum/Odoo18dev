@@ -1,0 +1,107 @@
+/* Page Container */
+.pr-page {
+    font-size: 12px;
+}
+
+/* Header Section */
+.pr-header {
+    border-bottom: 3px solid #2c3e50;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.pr-header-title {
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    font-size: 24px;
+}
+.pr-header-date {
+    text-align: center;
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Filter Section */
+.pr-filters {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
+.pr-filters-table-header {
+    width: 100%;
+    border-collapse: collapse;
+}
+.pr-filters table td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+.pr-filter-label {
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 13px;
+}
+.pr-filter-value {
+    color: #34495e;
+    font-size: 13px;
+}
+
+/* Table Styling */
+.pr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+.pr-table thead th {
+    padding: 12px 8px;
+    text-align: left;
+    border: 1px solid #2c3e50;
+    font-weight: 600;
+    background-color: #34495e;
+    color: #ffffff;
+    white-space: nowrap;
+}
+.pr-table tbody td {
+    padding: 10px 8px;
+    border: 1px solid #dee2e6;
+    color: #34495e;
+}
+.pr-table td.text-right {
+    text-align: right;
+    font-weight: 500;
+}
+.pr-table td.text-center {
+    text-align: center;
+}
+
+/* Status Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.badge-draft { background-color: #95a5a6; }
+.badge-lv1 { background-color: #f39c12; }
+.badge-lv2 { background-color: #e67e22; }
+.badge-approved { background-color: #27ae60; }
+.badge-progress { background-color: #3498db; }
+.badge-done { background-color: #16a085; }
+.badge-rejected { background-color: #e74c3c; }
+.badge-cancel { background-color: #7f8c8d; }
+
+/* Footer */
+.pr-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 2px solid #bdc3c7;
+    text-align: right;
+    color: #7f8c8d;
+    font-size: 12px;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_order_form_inherit_free_item_promo" model="ir.ui.view">
+        <field name="name">sale.order.form.free.item.promo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_total']" position="after">
+                <field name="is_free_item" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after">
+			    <field name="is_free_item" readonly="1"/>
+			</xpath>
+        </field>
+    </record>
+</odoo>

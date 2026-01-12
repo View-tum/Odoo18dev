@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_order_form_foc" model="ir.ui.view">
+        <field name="name">sale.order.form.foc</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add FOC fields on order line tree inside the order form -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+                <field name="is_foc"/>
+                <field name="foc_price_unit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

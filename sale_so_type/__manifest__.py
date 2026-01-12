@@ -1,0 +1,20 @@
+{
+    "name": "Sale SO Type",
+    "summary": "Add SO Type selector on sale orders and configuration menu",
+    "version": "18.0.1.0.0",
+    "author": "Ecosoft",
+    "website": "",
+    "category": "Sales",
+    "depends": ["sale", "account_auto_journal_selector"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/sale_so_type_views.xml",
+        "views/sale_order_views.xml",
+        "views/res_config_settings_views.xml",
+        "views/res_partner_views.xml",
+        "data/sale_so_type_data.xml",
+    ],
+    "license": "LGPL-3",
+    "installable": True,
+    "auto_install": False,
+}

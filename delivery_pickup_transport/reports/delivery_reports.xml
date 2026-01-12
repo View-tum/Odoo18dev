@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Report Actions -->
+  <!--<report id="action_report_delivery_send"
+          model="delivery.send"
+          string="Send to Warehouse"
+          name="delivery_pickup_transport.report_delivery_send"
+          file="delivery_pickup_transport.report_delivery_send"
+          report_type="qweb-pdf"/>-->
+  <record id="action_report_delivery_send" model="ir.actions.report">
+    <field name="name">Delivery Send Form</field>
+    <field name="model">delivery.send</field>
+    <field name="report_type">qweb-pdf</field>
+    <!-- This should match your template's full name: module.template_id -->
+    <field name="report_name">delivery_pickup_transport.report_delivery_send</field>
+    <field name="report_file">delivery_pickup_transport.report_delivery_send</field>
+    <field name="print_report_name">'Delivery_Send_' + (object.name or '')</field>
+  </record>
+  
+  <report id="action_report_transport_pickup"
+          model="transport.pickup"
+          string="Transporter Pickup"
+          name="delivery_pickup_transport.report_transport_pickup"
+          file="delivery_pickup_transport.report_transport_pickup"
+          report_type="qweb-pdf"/>
+
+
+  <!-- Templates -->
+  <template id="report_delivery_send">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2>Send to Warehouse</h2>
+            <div class="row mt16">
+              <div class="col-6">
+                <strong>Document:</strong> <span t-esc="o.name"/>
+              </div>
+              <div class="col-6 text-end">
+                <strong>Date:</strong> <span t-esc="o.date"/>
+              </div>
+            </div>
+            <div class="mt8">
+              <strong>Transporter:</strong> <span t-esc="o.transport_partner_id.display_name"/> 
+              <strong>Vehicle:</strong> <span t-esc="o.vehicle_no"/>
+            </div>
+            <div class="mt8">
+              <strong>Consignee:</strong>
+              <span t-esc="o.consignee_id and o.consignee_id.display_name or ''"/>
+              <div t-if="o.consignee_contact">Contact: <span t-esc="o.consignee_contact"/></div>
+              <div t-if="o.consignee_phone">Phone: <span t-esc="o.consignee_phone"/></div>
+              <div t-if="o.consignee_address"><span t-esc="o.consignee_address"/></div>
+            </div>
+
+            <table class="table table-sm mt16" style="width:100%;">
+              <thead>
+                <tr>
+                  <th style="width:5%;">#</th>
+                  <th>Description</th>
+                  <th style="width:20%;">Pack/Size</th>
+                  <th style="width:15%;" class="text-end">Boxes</th>
+                </tr>
+              </thead>
+              <tbody>
+              	<t t-set="seq" t-value="1"/>
+                <tr t-foreach="o.line_ids" t-as="l" t-esc="">
+                  <td><span t-esc="seq"/></td>
+                  <td><span t-esc="l.product_id"/></td>
+                  <td><span t-esc="l.uom_id"/></td>
+                 <!-- <td class="text-end"><span t-esc="l.qty_boxes"/></td>-->
+                </tr>
+                <t t-set="seq" t-value="seq + 1"/>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3" class="text-end"><strong>Total</strong></td>
+                  <td class="text-end"><strong t-esc="o.total_boxes"/></td>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="mt32">
+              <div><strong>Remark:</strong> <span t-esc="o.remark"/></div>
+            </div>
+
+            <div class="mt64">
+              <div><strong>Received By:</strong> <span t-esc="o.receive_by"/></div>
+              <div><strong>Received Date:</strong> <span t-esc="o.receive_date"/></div>
+            </div>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+
+  <template id="report_transport_pickup">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2>Transporter Pickup</h2>
+            <div class="row mt16">
+              <div class="col-6">
+                <strong>Document:</strong> <span t-esc="o.name"/>
+              </div>
+              <div class="col-6 text-end">
+                <strong>Date:</strong> <span t-esc="o.date"/>
+              </div>
+            </div>
+            <div class="mt8">
+              <strong>Carrier:</strong> <span t-esc="o.carrier_id.display_name"/> 
+              <strong>Vehicle:</strong> <span t-esc="o.vehicle_no"/> 
+              <strong>Trip:</strong> <span t-esc="o.trip_count"/>
+            </div>
+            <div class="mt8">
+              <div><strong>Driver:</strong> <span t-esc="o.driver_name"/>  <strong>Phone:</strong> <span t-esc="o.driver_phone"/></div>
+              <div><strong>Route/Destination:</strong> <span t-esc="o.route"/></div>
+            </div>
+
+            <table class="table table-sm mt16" style="width:100%;">
+              <thead>
+                <tr>
+                  <th style="width:5%;">#</th>
+                  <th>Description</th>
+                  <th style="width:20%;">Pack/Size</th>
+                  <th style="width:15%;" class="text-end">Boxes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr t-foreach="o.line_ids" t-as="l">
+                  <td><span t-esc="l.sequence"/></td>
+                  <td><span t-esc="l.product_description"/></td>
+                  <td><span t-esc="l.pack_size"/></td>
+                  <td class="text-end"><span t-esc="l.qty_boxes"/></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="3" class="text-end"><strong>Total</strong></td>
+                  <td class="text-end"><strong t-esc="o.total_boxes"/></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

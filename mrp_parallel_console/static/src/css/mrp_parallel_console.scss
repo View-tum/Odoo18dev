@@ -1535,7 +1535,21 @@ $shopfloor-bg: #f1f3f5; // Slightly darker gray for contrast
     }
 }
 
-// Card data attribute for easy targeting
 [data-wo-id] {
     transition: background-color 0.5s ease;
+}
+
+.o_mrp_parallel_home,
+.o_mrp_parallel_console,
+.o_mrp_parallel_dialog_content {
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- 1) HTML Preview -->
+  <record id="action_report_sale_proforma_html" model="ir.actions.report">
+    <field name="name">Pro-Forma Invoice</field>
+    <field name="model">sale.order</field>
+    <field name="report_type">qweb-html</field>
+    <field name="report_name">sale_report_saleorder_pro_forma.proforma_report_document</field>
+    <field name="report_file">sale_report_saleorder_pro_forma.proforma_report_document</field>
+    <field name="paperformat_id" ref="sale_report_saleorder_pro_forma.paperformat_sale_proforma_a4"/>
+    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_type">report</field>
+  </record>
+
+  <!-- 2) PDF Export -->
+  <record id="action_report_sale_proforma_pdf" model="ir.actions.report">
+    <field name="name">Pro-Forma Invoice</field>
+    <field name="model">sale.order</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">sale_report_saleorder_pro_forma.proforma_report_document</field>
+    <field name="report_file">sale_report_saleorder_pro_forma.proforma_report_document</field>
+    <field name="paperformat_id" ref="sale_report_saleorder_pro_forma.paperformat_sale_proforma_a4"/>
+  </record>
+
+    <!-- TH: PDF Export -->
+    <record id="action_report_sale_proforma_pdf_th" model="ir.actions.report">
+        <field name="name">Pro-Forma Invoice (TH)</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale_report_saleorder_pro_forma.proforma_report_document_th</field>
+        <field name="report_file">sale_report_saleorder_pro_forma.proforma_report_document_th</field>
+        <field name="paperformat_id" ref="sale_report_saleorder_pro_forma.paperformat_sale_proforma_a4"/>
+    </record>
+</odoo>

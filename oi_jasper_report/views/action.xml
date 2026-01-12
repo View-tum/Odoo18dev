@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="act_window_jasper_report" model="ir.actions.act_window">
+		<field name="name">Jasper Report</field>
+		<field name="res_model">jasper.report</field>
+		<field name="view_mode">list,form</field>
+	</record>
+
+	<record id="act_window_jasper_report_run" model="ir.actions.act_window">
+		<field name="name">Jasper Report Run</field>
+		<field name="res_model">jasper.report.run</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+</odoo>

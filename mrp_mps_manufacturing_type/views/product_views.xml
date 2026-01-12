@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Add Manufacturing Type (Plastic / Pharma) on Product Template form -->
+    <record id="view_product_form_inherit_mps_manufacturing_type" model="ir.ui.view">
+        <field name="name">product.template.form.mps.manufacturing.type</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="manufacturing_type"/>
+            </xpath>
+        </field>
+    </record>
+    
+    
+     <!-- NEW: show Manufacturing Type on product.product form as well -->
+    <record id="view_product_product_form_inherit_mps_manufacturing_type" model="ir.ui.view">
+        <field name="name">product.product.form.mps.manufacturing.type</field>
+        <field name="model">product.product</field>
+        <!-- use the main product.product form view in your DB -->
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="manufacturing_type"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

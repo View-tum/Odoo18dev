@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_service_acceptance_form" model="ir.ui.view">
+        <field name="name">purchase.service.acceptance.form</field>
+        <field name="model">purchase.service.acceptance</field>
+        <field name="arch" type="xml">
+            <form string="Service Acceptance">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" />
+                    <button name="action_cancel" type="object" string="Cancel" />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,validated,cancelled" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_open_backorders" class="oe_stat_button"
+                            icon="fa-files-o" invisible="backorder_count">
+                            <field name="backorder_count" widget="statinfo" string="Backorders" />
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1" />
+                            <field name="po_id" />
+                            <field name="responsible_id" />
+                            <field name="state" readonly="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids" nolabel="1"
+                                context="{'tree_view_ref': 'purchase_service_acceptance.view_purchase_service_acceptance_line_tree', 'form_view_ref': 'purchase_service_acceptance.view_purchase_service_acceptance_line_form'}" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_service_acceptance_tree" model="ir.ui.view">
+        <field name="name">purchase.service.acceptance.tree</field>
+        <field name="model">purchase.service.acceptance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="po_id" />
+                <field name="responsible_id" />
+                <field name="state" />
+                <field name="backorder_count" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_purchase_service_acceptance" model="ir.actions.act_window">
+        <field name="name">Service Acceptance</field>
+        <field name="res_model">purchase.service.acceptance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_purchase_service_acceptance_root" name="Service Acceptance"
+        parent="purchase.menu_purchase_root" action="action_purchase_service_acceptance"
+        sequence="80" />
+
+    <record id="view_purchase_service_acceptance_line_tree" model="ir.ui.view">
+        <field name="name">purchase.service.acceptance.line.tree</field>
+        <field name="model">purchase.service.acceptance.line</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="po_line_id" />
+                <field name="product_id" invisible="1" />
+                <field name="name" readonly="1" />
+                <field name="ordered_qty" readonly="1" />
+                <field name="accepted_total_qty" readonly="1" />
+                <field name="remaining_qty" readonly="1" />
+                <field name="to_receive_qty" />
+                <field name="uom_id" readonly="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_purchase_service_acceptance_line_form" model="ir.ui.view">
+        <field name="name">purchase.service.acceptance.line.form</field>
+        <field name="model">purchase.service.acceptance.line</field>
+        <field name="arch" type="xml">
+            <form string="Line">
+                <group>
+                    <field name="po_line_id" />
+                    <field name="product_id" invisible="1" />
+                    <field name="name" readonly="1" />
+                    <field name="ordered_qty" readonly="1" />
+                    <field name="accepted_total_qty" readonly="1" />
+                    <field name="remaining_qty" readonly="1" />
+                    <field name="to_receive_qty" />
+                    <field name="uom_id" readonly="1" />
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="warranty_view_form" model="ir.ui.view">
+        <field name="name">warranty.view.form</field>
+        <field name="model">warranty</field>
+        <field name="arch" type="xml">
+            <form string="Warranty">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Services"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="warranty_view_tree" model="ir.ui.view">
+        <field name="name">warranty.view.list</field>
+        <field name="model">warranty</field>
+        <field name="arch" type="xml">
+            <list string="Warranty" editable="bottom" sample="1">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="warranty_action" model="ir.actions.act_window">
+        <field name="name">warranty</field>
+        <field name="res_model">warranty</field>
+        <field name="view_id" ref="sales_team.crm_team_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create CRM Tags
+            </p><p>
+                Use Tags to manage and track your Opportunities (product structure, sales type, ...)
+            </p>
+        </field>
+    </record>
+</odoo>

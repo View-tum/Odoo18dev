@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.server" id="sh_mrp_cancel_multi_action">
+        <field name="name">Cancel Manufacturing</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="mrp.model_mrp_production" />
+        <field name="binding_model_id" ref="mrp.model_mrp_production" />
+        <field name="groups_id" eval="[(4, ref('sh_all_in_one_cancel_adv.group_sh_mrp_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_mrp_cancel()
+        </field>
+    </record>
+    <record model="ir.actions.server" id="sh_mrp_cancel_draft_multi_action">
+        <field name="name">Cancel &amp; Reset Draft</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="mrp.model_mrp_production" />
+        <field name="binding_model_id" ref="mrp.model_mrp_production" />
+        <field name="groups_id" eval="[(4, ref('sh_all_in_one_cancel_adv.group_sh_mrp_cancel'))]" />
+        <field name="state">code</field>
+        <field name="code">
+            records.action_mrp_cancel_draft()
+        </field>
+    </record>
+</odoo>

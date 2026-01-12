@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_page">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="psn_from_purchase_order.request_layout">
+                    <div class="page" >
+                        <t t-call="psn_from_purchase_order.report_main_content"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sequence_form_inherit_auto_sequence" model="ir.ui.view">
+        <field name="name">ir.sequence.form.inherit.auto.sequence</field>
+        <field name="model">ir.sequence</field>
+        <field name="inherit_id" ref="base.sequence_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="%(auto_sequence.action_generate_sequence_wizard)d" string="Generate Ranges" type="action" class="btn-primary"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

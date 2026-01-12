@@ -1,0 +1,7 @@
+<odoo>
+  
+ <!-- <menuitem id="menu_delivery_pickup_transport" name="Pickup Send Forms" parent="delivery_routes_management.menu_delivery_root" sequence ="2"/>-->
+  <menuitem id="menu_delivery_send" name="Transport Warehouse" parent="delivery_routes_management.menu_delivery_ops" sequence="3" action="delivery_pickup_transport.action_delivery_send"/>
+  <menuitem id="menu_transport_pickup" name="Transporter Pickup" parent="delivery_routes_management.menu_delivery_ops" sequence="4" action="delivery_pickup_transport.action_transport_pickup"/>
+  <menuitem id="menu_customer_parcel_list" name="Customer Parcel List" parent="delivery_routes_management.menu_delivery_ops" sequence="5" action="delivery_pickup_transport.action_customer_parcel_list"/>
+</odoo>

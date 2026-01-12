@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit the Sale Order form to move Delivery Date (commitment_date)
+             under Payment Terms in the header -->
+        <record id="view_order_form_delivery_date_header" model="ir.ui.view">
+            <field name="name">sale.order.form.delivery.date.header</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+	            <xpath expr="//label[@for='commitment_date']" position="attributes">
+		            <attribute name="invisible">1</attribute>
+		        </xpath>
+		
+		        <!-- Hide the bottom commitment_date field (the one which has readonly set) -->
+		        <xpath expr="//field[@name='commitment_date']" position="attributes">
+		            <attribute name="invisible">1</attribute>
+		        </xpath>
+		        
+		         <!-- Insert Delivery Date just after Payment Terms in the header -->
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="commitment_date" string="Delivery Date" required="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

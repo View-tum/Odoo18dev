@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="effective_date_change">
+            <field name="name">effective.date.change</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="is_effective_date_editable" groups="base.group_no_one" />
+                    <field name="date_of_transfer" groups="base.group_user"
+                        invisible="state == 'done' or not is_effective_date_editable"
+                        readonly="not is_effective_date_editable"
+                    />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

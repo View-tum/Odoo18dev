@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- XLSX action เหมือนตัวอย่าง purchase_order_status_xlsx -->
+    <record id="action_expired_products_report_xlsx" model="ir.actions.report">
+        <field name="name">Expired Products XLSX</field>
+        <field name="model">expired.products.report</field>
+        <field name="report_type">xlsx</field>
+
+        <!-- ต้องตรงกับ _name ของคลาส XLSX (ตัดคำว่า report. หน้าแรกออก) -->
+        <!-- _name = "report.inventory_expired_products_report.expired_products_xlsx" -->
+        <field name="report_name">inventory_expired_products_report.expired_products_xlsx</field>
+
+        <!-- จะตั้งชื่อไฟล์ตาม object ก็ได้ หรือจะไม่ใส่ก็ได้ -->
+        <field name="print_report_name">'Expired Products - ' + (object.display_name or '')</field>
+    </record>
+</odoo>

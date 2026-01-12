@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_account_asset_form_inherit">
+        <field name="name">account.asset.form.custom</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <!-- Replace account field in the template (state != model group) -->
+            <xpath expr="//group[@invisible=&quot;state != 'model'&quot;]//field[@name='account_asset_id']" position="replace">
+                <field name="account_asset_id" domain="[
+                        ('company_ids', 'parent_of', company_id),
+                        ('account_type', 'in', (
+                            'asset_fixed',
+                            'asset_non_current',
+                            'asset_current',
+                            'asset_prepayments'))
+                        ]" context="{
+                        'default_account_type': 'asset_fixed',
+                        'hide_model_on_account': state == 'model' and not id,
+                        'account_type_domain': [('account_type', 'in', (
+                            'asset_fixed',
+                            'asset_non_current',
+                            'asset_current',
+                            'asset_prepayments'))]
+                    }" invisible="not display_account_asset_id" readonly="state == 'close'" />
+            </xpath>
+
+            <!-- Add extra partner fields after asset_group_id -->
+            <xpath expr="//field[@name='asset_group_id']" position="after">
+                <field name="responsible_id"/>
+                <!-- <field name="asset_location"/> -->
+                <field name="asset_location_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

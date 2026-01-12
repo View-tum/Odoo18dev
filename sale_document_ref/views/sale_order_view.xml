@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_form_document_ref" model="ir.ui.view">
+            <field name="name">sale.order.form.document.ref</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='commitment_date']" position="after">
+                    <field name="document_ref" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

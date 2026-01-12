@@ -1,0 +1,8 @@
+<odoo>
+    <record id="stock_location_transform" model="stock.location">
+        <field name="name">Transform Location</field>
+        <field name="usage">internal</field>
+        <field name="location_id" ref="stock.stock_location_locations_virtual"/>
+        <field name="active">True</field>
+    </record>
+</odoo>

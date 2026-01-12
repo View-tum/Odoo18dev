@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record id="stock.picking_type_in" model="stock.picking.type">
+    <field name="require_invoice_info">1</field>
+    <field name="propagate_invoice_info">1</field>
+  </record>
+
+  <record id="stock.picking_type_internal" model="stock.picking.type">
+    <field name="require_invoice_info">1</field>
+    <field name="propagate_invoice_info">0</field>
+  </record>
+</odoo>

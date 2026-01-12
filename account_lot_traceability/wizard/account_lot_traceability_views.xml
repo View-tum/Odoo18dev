@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_lot_traceability_form" model="ir.ui.view">
+        <field name="name">account.lot.traceability.form</field>
+        <field name="model">account.lot.traceability</field>
+        <field name="arch" type="xml">
+            <form string="Trace Invoice by Lot">
+                <group>
+                    <field name="allowed_product_ids" invisible="1"/>
+                    <field name="product_id" options="{'no_create': True}"/>
+                    <field name="lot_id" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button string="Search" name="action_find_invoices" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_account_lot_traceability_line_list" model="ir.ui.view">
+        <field name="name">account.lot.traceability.line.list</field>
+        <field name="model">account.lot.traceability.line</field>
+        <field name="arch" type="xml">
+            <list string="Traceability Results" create="0" edit="0" delete="0">
+                <field name="lot_id" optional="hide"/>
+                <field name="invoice_date"/>
+                <field name="invoice_id" widget="many2one_clickable" decoration-bf="1"/>
+                <field name="sale_order_id" widget="many2one_clickable" optional="show"/>
+                <field name="customer_id"/>
+                <field name="product_id"/>
+                <field name="quantity" sum="Total Qty"/>
+                <field name="amount_total" sum="Total Amount" decoration-bf="1"/>
+                <field name="price_per_unit_calculated" widget="monetary"/>
+                <field name="payment_state" widget="badge" decoration-success="payment_state == 'paid'" decoration-warning="payment_state == 'partial'" decoration-danger="payment_state == 'not_paid'"/>
+
+                <button name="action_open_invoice" type="object" string="View Invoice" icon="fa-external-link"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_account_lot_traceability" model="ir.actions.act_window">
+        <field name="name">ตรวจสอบใบแจ้งหนี้ตามล็อต</field>
+        <field name="res_model">account.lot.traceability</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_account_lot_traceability_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_stock_card" t-name="inventory_stock_card.report_stock_card">
+    <t t-call="web.basic_layout">
+      <t t-set="data" t-value="payload or {}"/>
+      <t t-set="sheets" t-value="data.get('sheets', [])"/>
+
+      <t t-foreach="sheets" t-as="sheet">
+        <div class="pb-top">&#160;</div>   
+        <div class="sc-header">
+          <div class="sc-title">รายงานสินค้าคงคลัง (Stock Card Report)</div>
+        </div>
+
+        <div class="sc-info-container">
+          <table class="sc-meta">
+            <tr>
+              <td class="label">บริษัท (Company)</td>
+              <td class="value"><t t-esc="sheet.get('company') or ''"/></td>
+              <td class="label">สินค้า (Product)</td>
+              <td class="value"><t t-esc="sheet.get('product') or sheet.get('name') or ''"/></td>
+            </tr>
+            <tr>
+              <td class="label">หน่วย (UoM)</td>
+              <td class="value"><t t-esc="sheet.get('uom') or ''"/></td>
+              <td class="label">คลังสินค้า (Location)</td>
+              <td class="value"><t t-esc="sheet.get('location') or sheet.get('location_names') or ''"/></td>
+            </tr>
+            <tr>
+              <td class="label">วันที่เริ่มต้น (Date From)</td>
+              <td class="value"><t t-esc="thdate(sheet.get('date_from'))"/></td>
+              <td class="label">วันที่สิ้นสุด (Date To)</td>
+              <td class="value"><t t-esc="thdate(sheet.get('date_to'))"/></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sc-divider"></div>
+
+        <div class="sc-table-container">
+          <table class="sc-table">
+            <thead>
+              <tr>
+                <th rowspan="2" style="vertical-align: middle; width: 7%;">วันที่<br/>(Date)</th>
+                <th rowspan="2" style="vertical-align: middle; width: 9%;">เลขที่เอกสาร<br/>(Reference)</th>
+                <th rowspan="2" style="vertical-align: middle; width: 7%;">เอกสารอ้างอิง<br/>(Origin)</th>
+                <th rowspan="2" style="vertical-align: middle; width: 10%;">คู่ค้า<br/>(Partner)</th>
+                <th rowspan="2" style="vertical-align: middle; width: 7%;">Lot<br/>Number</th>
+
+                <th colspan="2" class="text-center" style="background-color: #EEEEEE; color: #000; width: 15%;">ยอดยกมา<br/>(Opening)</th>
+                <th colspan="2" class="text-center" style="background-color: #EEEEEE; color: #000; width: 15%;">รับเข้า<br/>(Incoming)</th>
+                <th colspan="2" class="text-center" style="background-color: #EEEEEE; color: #000; width: 15%;">จ่ายออก<br/>(Outgoing)</th>
+                <th colspan="2" class="text-center" style="background-color: #EEEEEE; color: #000; width: 15%;">คงเหลือ<br/>(Balance)</th>
+              </tr>
+              <tr>
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Qty <t t-if="sheet.get('uom')">(<t t-esc="sheet.get('uom')"/>)</t></th>
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Value <t t-if="sheet.get('currency_symbol')">(<t t-esc="sheet.get('currency_symbol')"/>)</t></th>
+                
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Qty <t t-if="sheet.get('uom')">(<t t-esc="sheet.get('uom')"/>)</t></th>
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Value <t t-if="sheet.get('currency_symbol')">(<t t-esc="sheet.get('currency_symbol')"/>)</t></th>
+              
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Qty <t t-if="sheet.get('uom')">(<t t-esc="sheet.get('uom')"/>)</t></th>
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Value <t t-if="sheet.get('currency_symbol')">(<t t-esc="sheet.get('currency_symbol')"/>)</t></th>
+                
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Qty <t t-if="sheet.get('uom')">(<t t-esc="sheet.get('uom')"/>)</t></th>
+                <th class="text-right" style="font-size: 10px; width: 7.5%;">Value <t t-if="sheet.get('currency_symbol')">(<t t-esc="sheet.get('currency_symbol')"/>)</t></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <t t-foreach="sheet.get('lines', [])" t-as="line">
+                  <tr>
+                    <td><t t-esc="thdate(line.get('date'))"/></td>
+                    <td><t t-esc="line.get('picking') or line.get('ref') or ''"/></td>
+                    
+                    <td style="white-space: pre-wrap;"><t t-esc="line.get('origin') or ''"/></td>
+                    
+                    <td><t t-esc="line.get('partner') or ''"/></td>
+                    <td><t t-esc="line.get('lot_name') or ''"/></td>
+
+                    <td class="text-right">
+                        <t t-if="not sheet.get('at_date_only')">
+                            <t t-esc="qty(line.get('line_open_qty') or 0.0)"/>
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <t t-if="not sheet.get('at_date_only')">
+                            <t t-esc="money(line.get('line_open_val') or 0.0, show_symbol=False)"/>
+                        </t>
+                    </td>
+
+                    <td class="text-right numeric-positive">
+                        <t t-if="not sheet.get('at_date_only') and line.get('qty_in') > 0">
+                            <t t-esc="qty(line.get('qty_in'))"/>
+                        </t>
+                    </td>
+                    <td class="text-right numeric-positive">
+                        <t t-if="not sheet.get('at_date_only') and line.get('qty_in') > 0">
+                            <t t-esc="money(line.get('valuation_amount'), show_symbol=False)"/>
+                        </t>
+                    </td>
+
+                    <td class="text-right numeric-negative">
+                        <t t-if="not sheet.get('at_date_only') and line.get('qty_out') > 0">
+                            <t t-esc="qty(-1 * line.get('qty_out'))"/>
+                        </t>
+                    </td>
+                    <td class="text-right numeric-negative">
+                        <t t-if="not sheet.get('at_date_only') and line.get('qty_out') > 0">
+                            <t t-esc="money(-1 * line.get('valuation_amount'), show_symbol=False)"/>
+                        </t>
+                    </td>
+
+                    <td class="text-right balance-cell"><t t-esc="qty(line.get('balance_qty') or 0.0)"/></td>
+                    <td class="text-right balance-cell"><t t-esc="money(line.get('balance_val') or 0.0, show_symbol=False)"/></td>
+                  </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+        
+        <div t-if="not sheet_last" class="page-break"></div>
+      </t>
+    </t>
+  </template>
+</odoo>

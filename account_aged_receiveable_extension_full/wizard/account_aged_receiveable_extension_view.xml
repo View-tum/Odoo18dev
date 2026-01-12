@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_account_aged_receiveable_extension_form_full" model="ir.ui.view">
+        <field name="name">account.aged.receiveable.extension.form.full</field>
+        <field name="model">account.aged.receiveable.extension</field>
+        <field name="inherit_id" ref="account_aged_receiveable_extension.view_account_aged_receiveable_extension_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='date_maturity']" position="after">
+                <field name="extra_days" optional="hide"/>
+                <field name="next_run_date" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

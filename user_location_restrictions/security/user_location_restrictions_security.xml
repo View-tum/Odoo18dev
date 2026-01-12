@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Security group to turn on restrictions per user -->
+    <!--<record id="group_inventory_location_restricted" model="res.groups">
+        <field name="name">Inventory Location Restricted</field>
+        <field name="category_id" ref="base.module_category_inventory"/>
+        <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+    </record> -->
+    <!-- New category to show as its own section -->
+	<record id="module_category_user_location_restrictions" model="ir.module.category">
+	    <field name="name">User Location Restrictions</field>
+	    <field name="sequence">50</field>
+	</record>
+	
+	<!-- Group shown as a checkbox under this new section -->
+	<record id="group_inventory_location_restricted" model="res.groups">
+	    <field name="name">Inventory Location Restricted</field>
+	    <field name="category_id" ref="user_location_restrictions.module_category_user_location_restrictions"/>
+	    <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+	</record>
+
+
+    <!-- Record rules: apply ONLY to users in the restriction group.
+         Managers (stock.group_stock_manager) are intentionally not restricted. -->
+
+    <!-- Warehouses -->
+    <record id="rule_stock_warehouse_restrict_by_user" model="ir.rule">
+        <field name="name">Warehouse limited to user's allowed warehouses</field>
+        <field name="model_id" ref="stock.model_stock_warehouse"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">[('id','in', user.allowed_warehouse_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Locations (include children of allowed roots) -->
+   <!-- <record id="rule_stock_location_restrict_by_user" model="ir.rule">
+        <field name="name">Location limited to user's allowed roots (and children)</field>
+        <field name="model_id" ref="stock.model_stock_location"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">['|', ('id','in', user.allowed_location_ids.ids or []), ('id','child_of', user.allowed_location_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>-->
+
+    <!-- Operation Types (Picking Types) -->
+    <record id="rule_stock_picking_type_restrict_by_user" model="ir.rule">
+        <field name="name">Picking Types limited to user's allowed ones</field>
+        <field name="model_id" ref="stock.model_stock_picking_type"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+       <field name="domain_force">
+	        ['|',
+	            ('id','in', user.allowed_picking_type_ids.ids or [0]),
+	            ('warehouse_id','in', user.allowed_warehouse_ids.ids or [0])
+	        ]
+	    </field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Pickings limited by picking type -->
+    <record id="rule_stock_picking_restrict_by_user" model="ir.rule">
+        <field name="name">Pickings limited by user's allowed operation types</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">[('picking_type_id','in', user.allowed_picking_type_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Stock Moves limited via their picking's picking type -->
+    <record id="rule_stock_move_restrict_by_user" model="ir.rule">
+        <field name="name">Moves limited by user's allowed operation types</field>
+        <field name="model_id" ref="stock.model_stock_move"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">['|', ('picking_id.picking_type_id','in', user.allowed_picking_type_ids.ids or []), ('location_id','child_of', user.allowed_location_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Stock Move Lines limited similarly -->
+    <record id="rule_stock_move_line_restrict_by_user" model="ir.rule">
+        <field name="name">Move lines limited by user's allowed operation types</field>
+        <field name="model_id" ref="stock.model_stock_move_line"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">['|', ('picking_id.picking_type_id','in', user.allowed_picking_type_ids.ids or []), ('location_id','child_of', user.allowed_location_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Quants limited by location -->
+    <record id="rule_stock_quant_restrict_by_user" model="ir.rule">
+        <field name="name">Quants limited by user's locations</field>
+        <field name="model_id" ref="stock.model_stock_quant"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">[('location_id','child_of', user.allowed_location_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    
+    <!-- Lots / Serial Numbers limited by location -->
+    <record id="rule_stock_lot_restrict_by_user" model="ir.rule">
+        <field name="name">Lots / Serial Numbers limited by user's locations</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">['|', ('location_id','child_of', user.allowed_location_ids.ids or []), ('location_id', '=', False)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Scrap limited by location -->
+    <record id="rule_stock_scrap_restrict_by_user" model="ir.rule">
+        <field name="name">Scrap limited by user's locations</field>
+        <field name="model_id" ref="stock.model_stock_scrap"/>
+        <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+        <field name="domain_force">[('location_id','child_of', user.allowed_location_ids.ids or [])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+    
+    
+    <!-- Products: allow read in user's companies (and global) -->
+	<record id="rule_product_product_read_for_inventory_restricted" model="ir.rule">
+	    <field name="name">Products readable (company-safe) for restricted inv users</field>
+	    <field name="model_id" ref="product.model_product_product"/>
+	    <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+	    <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', user.company_ids.ids or [0])]</field>
+	    <field name="perm_read" eval="True"/>
+	    <field name="perm_write" eval="False"/>
+	    <field name="perm_create" eval="False"/>
+	    <field name="perm_unlink" eval="False"/>
+	</record>
+	
+	<record id="rule_product_template_read_for_inventory_restricted" model="ir.rule">
+	    <field name="name">Product templates readable (company-safe) for restricted inv users</field>
+	    <field name="model_id" ref="product.model_product_template"/>
+	    <field name="groups" eval="[(4, ref('user_location_restrictions.group_inventory_location_restricted'))]"/>
+	    <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', user.company_ids.ids or [0])]</field>
+	    <field name="perm_read" eval="True"/>
+	    <field name="perm_write" eval="False"/>
+	    <field name="perm_create" eval="False"/>
+	    <field name="perm_unlink" eval="False"/>
+	</record>
+
+</odoo>

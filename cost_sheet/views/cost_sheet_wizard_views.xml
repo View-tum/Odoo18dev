@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- views/cost_sheet_wizard_views.xml -->
+    <!-- Wizard Form View -->
+    <record id="view_cost_sheet_wizard_form" model="ir.ui.view">
+        <field name="name">cost.sheet.wizard.form</field>
+        <field name="model">cost.sheet.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cost Sheet">
+                <group>
+                    <field name="company_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="description"/>
+                    <field name="show_details"/>
+                </group>
+                <footer>
+                    <button name="action_view_html" type="object"
+                            class="btn btn-primary" string="View"/>
+                    <button name="action_export_pdf" type="object"
+                            class="btn btn-secondary" string="Export PDF"/>
+                    <button name="action_export_xlsx" type="object"
+                            class="btn btn-secondary" string="Export XLSX"/>
+                    <button special="cancel" string="Cancel" class="btn btn-link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard Action -->
+    <record id="action_cost_sheet_wizard" model="ir.actions.act_window">
+        <field name="name">Cost Sheet</field>
+        <field name="res_model">cost.sheet.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_cost_sheet_wizard_form"/>
+    </record>
+
+    <menuitem id="menu_cost_sheet_root"
+                name="Cost Sheet"
+                parent="stock.menu_warehouse_report"
+                action="action_cost_sheet_wizard"
+                sequence="100"/>
+</odoo>

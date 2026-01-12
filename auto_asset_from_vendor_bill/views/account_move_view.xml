@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+    <record id="view_move_form_inherit_auto_asset" model="ir.ui.view">
+      <field name="name">account.move.form.auto.asset</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet" position="before">
+                <div class="oe_inline">
+					<field name="has_asset_category_line" invisible="1"/>
+                    <div class="alert alert-info" role="alert"  invisible="has_asset_category_line == False">
+                        <span>
+                            This bill contains products under an <b>Asset</b> category.
+                        </span>
+                        <button name="action_create_assets_from_bill_lines" invisible="asset_creatd == True"
+					        type="object"
+					        string="Create Assets"
+					        class="btn btn-primary ms-2" 
+					        />
+
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//sheet//div[@name='button_box']" position="inside">
+		        <button
+		          name="action_view_assets"
+		          type="object"
+		          class="oe_stat_button" invisible="asset_creatd == False" >
+		          <field name="asset_count" widget="statinfo" string="Assets"/>
+		        </button>
+		      </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

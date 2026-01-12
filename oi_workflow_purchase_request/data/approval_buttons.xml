@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="button_pr_approval_draft_confirm" model="approval.buttons" forcecreate="False">
+        <field name="name">Confirm</field>
+        <field name="states" eval="['draft','sent']" />
+        <field name="settings_id" ref="approval_settings_purchase_request"/>
+        <field name="action_type">approve</field>
+        <field name="button_class">btn-primary</field>
+    </record>
+
+    <record id="button_pr_approval_to_approve_approve" model="approval.buttons" forcecreate="False">
+        <field name="name">Approve</field>
+        <field name="states" eval="['to approve']" />
+        <field name="settings_id" ref="approval_settings_purchase_request" />
+        <field name="visible_to">approval</field>
+        <field name="action_type">approve</field>
+        <field name="button_class">btn-primary</field>
+    </record>
+
+    <record id="button_pr_approval_to_approve_reject" model="approval.buttons" forcecreate="False">
+        <field name="name">Reject</field>
+        <field name="states" eval="['to approve']" />
+        <field name="settings_id" ref="approval_settings_purchase_request" />
+        <field name="visible_to">approval</field>
+        <field name="action_type">reject</field>
+        <field name="button_class">btn-secondary</field>
+        <field name="comment">required</field>
+    </record>
+
+<!--    <record id="button_pr_approval_draft_confirm" model="approval.buttons" forcecreate="False">-->
+<!--        <field name="name">Confirm</field>-->
+<!--        <field name="states" eval="['draft','sent']" />-->
+<!--        <field name="settings_id" ref="approval_settings_purchase_request"/>-->
+<!--        <field name="action_type">approve</field>-->
+<!--        <field name="button_class">btn-primary</field>-->
+<!--    </record>-->
+
+<!--    <record id="button_pr_approval_to_approve_approve" model="approval.buttons" forcecreate="False">-->
+<!--        <field name="name">Approve</field>-->
+<!--        <field name="settings_id" ref="approval_settings_purchase_request" />-->
+<!--        <field name="visible_to">approval</field>-->
+<!--        <field name="action_type">approve</field>-->
+<!--        <field name="button_class">btn-primary</field>-->
+<!--    </record>-->
+
+<!--    <record id="button_pr_approval_to_approve_reject" model="approval.buttons" forcecreate="False">-->
+<!--        <field name="name">Reject</field>-->
+<!--        <field name="settings_id" ref="approval_settings_purchase_request" />-->
+<!--        <field name="visible_to">approval</field>-->
+<!--        <field name="action_type">reject</field>-->
+<!--        <field name="button_class">btn-secondary</field>-->
+<!--        <field name="comment">required</field>-->
+<!--    </record>-->
+
+</odoo>

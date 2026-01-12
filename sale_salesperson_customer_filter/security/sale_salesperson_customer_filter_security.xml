@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Salespeople: only customers assigned to them -->
+        <record id="rule_res_partner_customer_by_salesperson" model="ir.rule">
+            <field name="name">Customer limited to own salesperson</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[
+                ('customer_rank','>',0),
+                '|', ('user_id','=', user.id), ('commercial_partner_id.user_id','=', user.id)
+            ]</field>
+            <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman')),
+                                        (4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+        </record>
+
+        <!-- Sales managers and admins: unrestricted -->
+        <record id="rule_res_partner_customer_manager_admin_unrestricted" model="ir.rule">
+            <field name="name">Customer unrestricted for manager/admin</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('sales_team.group_sale_manager')),
+                                        (4, ref('base.group_system'))]"/>
+        </record>
+    </data>
+</odoo>

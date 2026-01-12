@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_account_invoice_payment_status" model="ir.actions.act_window">
+        <field name="name">ตรวจสอบสถานะใบแจ้งหนี้</field>
+        <field name="res_model">account.invoice.payment.status</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_account_invoice_payment_status" name="ตรวจสอบสถานะใบแจ้งหนี้" parent="account.menu_finance_receivables" action="action_account_invoice_payment_status" sequence="16"/>
+</odoo>

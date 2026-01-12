@@ -2,8 +2,9 @@
 
 import { Component, onWillStart, onWillUpdateProps, useRef, useState } from "@odoo/owl";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
-import { rpc } from "@web/core/network/rpc";
+import { Dialog } from "@web/core/dialog/dialog";
 import { _t } from "@web/core/l10n/translation";
+import { rpc } from "@web/core/network/rpc";
 import { registry } from "@web/core/registry";
 import { useBus, useService } from "@web/core/utils/hooks";
 import { SearchBar } from "@web/search/search_bar/search_bar";
@@ -28,6 +29,7 @@ export class ParallelShopfloorHome extends Component {
             loading: true,
             mos: [],
             allMos: [],  // Cache for client-side search
+            marketFilter: null, // 'inter', 'local' or null
         });
 
         onWillStart(async () => {
@@ -46,11 +48,24 @@ export class ParallelShopfloorHome extends Component {
         });
     }
 
+    async setMarketFilter(value) {
+        if (this.state.marketFilter === value) {
+            this.state.marketFilter = null;
+        } else {
+            this.state.marketFilter = value;
+        }
+        await this.loadMos();
+    }
+
     async loadMos(domain = this.props.searchDomain || []) {
         this.state.loading = true;
         const params = {};
-        if (domain && domain.length) {
-            params.domain = domain;
+        let searchDomain = [...domain];
+        if (this.state.marketFilter) {
+            searchDomain.push(['mpc_market_scope', '=', this.state.marketFilter]);
+        }
+        if (searchDomain.length) {
+            params.domain = searchDomain;
         }
         if (this.props.searchContext) {
             params.context = this.props.searchContext;
@@ -153,6 +168,40 @@ ParallelShopfloorHome.props = {
     searchProps: { optional: true },
 };
 ParallelShopfloorHome.components = { SearchBar };
+
+export class QtyEditDialog extends Component {
+    setup() {
+        this.notification = useService("notification");
+        this.state = useState({
+            qty: this.props.log.qty,
+            note: this.props.log.note || "",
+        });
+        useRef("qtyInput");
+    }
+
+    save() {
+        const qty = parseFloat(this.state.qty);
+        if (!qty || qty <= 0) {
+            this.notification.add("Quantity must be greater than zero.", { type: "warning" });
+            return;
+        }
+        this.props.onSave(qty, this.state.note);
+        this.props.close();
+    }
+
+    onKeydown(ev) {
+        if (ev.key === "Enter") {
+            this.save();
+        }
+    }
+}
+QtyEditDialog.template = "mrp_parallel_console.QtyEditDialog";
+QtyEditDialog.components = { Dialog };
+QtyEditDialog.props = {
+    log: Object,
+    onSave: Function,
+    close: Function,
+};
 
 // -------------------------------------------------------------
 // Root dashboard client action with WithSearch wrapper
@@ -977,35 +1026,30 @@ export class ParallelWorkorderConsole extends Component {
         if (!log || !this.state.activeWo) {
             return;
         }
-        const newQtyStr = window.prompt("Edit quantity", log.qty);
-        if (newQtyStr === null) {
-            return;
-        }
-        const qty = parseFloat(newQtyStr || "0");
-        if (!qty || qty <= 0) {
-            this.notification.add("Quantity must be greater than zero.", { type: "warning" });
-            return;
-        }
-        const newNote = window.prompt("Edit note (optional)", log.note || "") ?? "";
-        try {
-            const res = await rpc("/mrp_parallel_console/update_qty_log", {
-                log_id: log.id,
-                qty,
-                note: newNote,
-            });
-            if (res && res.error) {
-                this.notification.add(res.error, { type: "danger" });
-                return;
+        this.dialogService.add(QtyEditDialog, {
+            log: log,
+            onSave: async (qty, note) => {
+                try {
+                    const res = await rpc("/mrp_parallel_console/update_qty_log", {
+                        log_id: log.id,
+                        qty,
+                        note: note,
+                    });
+                    if (res && res.error) {
+                        this.notification.add(res.error, { type: "danger" });
+                        return;
+                    }
+                    this.state.activeWo.console_qty = res.total ?? qty;
+                    this.state.activeWo.qty_logs = res.logs || [];
+                    this._syncCardQty(res.workorder_id, res.total ?? qty, res.logs || []);
+                } catch (error) {
+                    this.notification.add(
+                        error?.message || "Failed to update quantity log.",
+                        { type: "danger" }
+                    );
+                }
             }
-            this.state.activeWo.console_qty = res.total ?? qty;
-            this.state.activeWo.qty_logs = res.logs || [];
-            this._syncCardQty(res.workorder_id, res.total ?? qty, res.logs || []);
-        } catch (error) {
-            this.notification.add(
-                error?.message || "Failed to update quantity log.",
-                { type: "danger" }
-            );
-        }
+        });
     }
 
     async openTimeTrackingPopup(log = null) {

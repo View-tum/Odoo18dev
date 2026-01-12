@@ -3,7 +3,6 @@
 
 from odoo import fields, models
 
-
 PRODUCTIVITY_MODEL = "mrp.workcenter.productivity"
 PRODUCTIVITY_LOSS_MODEL = "mrp.workcenter.productivity.loss"
 EMPLOYEE_MODEL = "hr.employee"

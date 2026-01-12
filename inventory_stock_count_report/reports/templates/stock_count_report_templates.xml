@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="stock_count_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-set="page_break" t-value="data.get('page_break_by_location')" />
+                <t t-set="row_index" t-value="0" />
+                <div class="o_stock_count_report">
+                    <!-- Header Section -->
+                    <div class="report-header">
+                        <div class="header-title">
+                            <h1>Stock Count Report</h1>
+                            <div class="header-divider"></div>
+                        </div>
+                        
+                        <div class="report-metadata">
+                            <div class="metadata-row">
+                                <div class="metadata-item">
+                                    <span class="label">Company:</span>
+                                    <span class="value"><t t-esc="data.get('company').display_name" /></span>
+                                </div>
+                                <div class="metadata-item">
+                                    <span class="label">Printed:</span>
+                                    <span class="value"><t t-esc="data.get('printed_at').strftime('%Y-%m-%d %H:%M:%S') if data.get('printed_at') else ''" /></span>
+                                </div>
+                            </div>
+                            <div class="metadata-row">
+                                <div class="metadata-item">
+                                    <span class="label">Locations:</span>
+                                    <span class="value"><t t-esc="data.get('selected_locations')" /></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content with page breaks -->
+                    <t t-if="page_break">
+                        <t t-set="group_index" t-value="0"/>
+                        <t t-foreach="data.get('grouped_lines')" t-as="group">
+                            <div t-attf-class="location-section #{'' if group_index == 0 else 'page-break-before'}">
+                                <t t-set="group_index" t-value="group_index + 1"/>
+                                <div class="location-header">
+                                    <h3>
+                                        <span class="location-label">Location:</span>
+                                        <span class="location-name" t-esc="group.get('location_name')" />
+                                    </h3>
+                                </div>
+                                <table class="stock-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center col-no">No.</th>
+                                            <th class="col-product">Product</th>
+                                            <th class="col-lot">Lot/Serial</th>
+                                            <th class="col-counted-qty">Counted Qty</th>
+                                            <t t-if="data.get('show_uom')">
+                                                <th class="col-uom">UoM</th>
+                                            </t>
+                                            <th class="col-price">Price</th>
+                                            <th class="col-remark">Remark</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="group.get('lines')" t-as="line" t-key="str(line.get('location_id') or 0) + '|' + str(line.get('product_id') or 0) + '|' + str(line.get('lot_id') or 0)">
+                                            <t t-set="row_index" t-value="row_index + 1" />
+                                            <tr>
+                                                <td class="text-center"><t t-esc="row_index"/></td>
+                                                <td class="product-cell">
+                                                    <span class="product-name" t-esc="line.get('product_name')" />
+                                                </td>
+                                                <td><t t-esc="line.get('lot_name')"/></td>
+                                                <!-- Counted Qty -->
+                                                <td class="editable-cell text-end">
+                                                    <t t-esc="line.get('counted_qty') if line.get('counted_qty') not in [None, ''] else ''"/>
+                                                </td>
+
+                                                <t t-if="data.get('show_uom')">
+                                                    <td><t t-esc="line.get('uom_name')"/></td>
+                                                </t>
+
+                                                <!-- Price -->
+                                                <td class="editable-cell text-end">
+                                                    <t t-esc="line.get('price') if line.get('price') not in [None, ''] else ''"/>
+                                                </td>
+
+                                                <!-- Remark -->
+                                                <td class="editable-cell">
+                                                    <t t-esc="line.get('note') or ''"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+                    </t>
+
+                    <!-- Content without page breaks -->
+                    <t t-if="not page_break">
+                        <div class="location-section">
+                            <table class="stock-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center col-no">No.</th>
+                                        <th class="col-location">Location</th>
+                                        <th class="col-product">Product</th>
+                                        <th class="col-lot">Lot/Serial</th>
+                                        <th class="col-counted-qty">Counted Qty</th>
+                                        <t t-if="data.get('show_uom')">
+                                            <th class="col-uom">UoM</th>
+                                        </t>
+                                        <th class="col-price">Price</th>
+                                        <th class="col-remark">Remark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="data.get('lines')" t-as="line" t-key="str(line.get('location_id') or 0) + '|' + str(line.get('product_id') or 0) + '|' + str(line.get('lot_id') or 0)">
+                                        <t t-set="row_index" t-value="row_index + 1" />
+                                        <tr>
+                                            <td class="text-center"><t t-esc="row_index"/></td>
+                                            <td><t t-esc="line.get('location_name')"/></td>
+                                            <td class="product-cell">
+                                                <t t-if="line.get('product_code')">
+                                                    <span class="product-code">[<t t-esc="line.get('product_code')" />]</span>
+                                                </t>
+                                                <span class="product-name" t-esc="line.get('product_name')" />
+                                            </td>
+                                            <td><t t-esc="line.get('lot_name')"/></td>
+                                            <!-- Counted Qty -->
+                                            <td class="editable-cell text-end">
+                                                <t t-esc="line.get('counted_qty') if line.get('counted_qty') not in [None, ''] else ''"/>
+                                            </td>
+
+                                            <t t-if="data.get('show_uom')">
+                                                <td><t t-esc="line.get('uom_name')"/></td>
+                                            </t>
+
+                                            <!-- Price -->
+                                            <td class="editable-cell text-end">
+                                                <t t-esc="line.get('price') if line.get('price') not in [None, ''] else ''"/>
+                                            </td>
+
+                                            <!-- Remark -->
+                                            <td class="editable-cell">
+                                                <t t-esc="line.get('note') or ''"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+
+                    <!-- Signature Section -->
+                    <div class="signatures last-page-only">
+                        <table class="signature-table">
+                            <tr>
+                                <td class="signature-cell signature-cell-left">
+                                    <div class="signature-line"></div>
+                                    <div class="signature-info">
+                                        <div class="signature-brackets">( &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; )</div>
+                                        <div class="signature-role">ผู้ตรวจนับ</div>
+                                    </div>
+                                    <div class="signature-date">วันที่: _____ / _____ / __________</div>
+                                </td>
+                                <td class="signature-cell">
+                                    <div class="signature-line"></div>
+                                    <div class="signature-info">
+                                        <div class="signature-brackets">( &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; )</div>
+                                        <div class="signature-role">ผู้อนุมัติ</div>
+                                    </div>
+                                    <div class="signature-date">วันที่: _____ / _____ / __________</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="footer">
+                    <div style="text-align:right; font-size:11px;">
+                        หน้า <span class="page"/> / <span class="topage"/>
+                    </div>
+                </div>
+
+            </t>
+        </t>
+    </template>
+</odoo>

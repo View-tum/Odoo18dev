@@ -1,0 +1,2732 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * l10n_be
+# Yenthe, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-14 13:31+0000\n"
+"PO-Revision-Date: 2013-03-14 16:41+0100\n"
+"Last-Translator: Yenthe \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+# Sales
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__signed_on
+msgid "Signed On"
+msgstr "วันที่เซ็น"
+
+#. modules: base, mrp, purchase_stock, sale_stock,
+#. spreadsheet_dashboard_stock, spreadsheet_dashboard_stock_account, stock,
+#. stock_barcode
+#. odoo-javascript
+#: code:addons/mrp/static/src/components/bom_overview_control_panel/mrp_bom_overview_control_panel.xml:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/operation_analysis_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock_account/data/files/warehouse_metrics_dashboard.json:0
+#: model:ir.model,name:stock_barcode.model_stock_warehouse
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__warehouse_id
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_report__picking_type_id
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__warehouse_id
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__warehouse_id
+#: model:ir.model.fields,field_description:sale_stock.field_sale_report__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_product_product__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_product_replenish__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_product_template__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_report_stock_quantity__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_location__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_move__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_picking_type__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_quant__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_rule__warehouse_id
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse__name
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__warehouse_id
+#: model:ir.module.category,name:base.module_category_warehouse
+#: model_terms:ir.ui.view,arch_db:stock.replenishment_option_tree_view
+#: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:stock.stock_reorder_report_search
+#: model_terms:ir.ui.view,arch_db:stock.stock_warehouse_view_search
+#: model_terms:ir.ui.view,arch_db:stock.view_location_search
+#: model_terms:ir.ui.view,arch_db:stock.view_pickingtype_filter
+#: model_terms:ir.ui.view,arch_db:stock.view_stock_rule_filter
+#: model_terms:ir.ui.view,arch_db:stock.view_warehouse
+#: model_terms:ir.ui.view,arch_db:stock.view_warehouse_tree
+#: model_terms:ir.ui.view,arch_db:stock.warehouse_orderpoint_search
+msgid "Warehouse"
+msgstr "คลังสินค้า" 
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__has_archived_products
+msgid "Has Archived Products"
+msgstr "มีสินค้าที่ถูกเก็บถาวร"
+
+#. modules: account, sale
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__show_update_fpos
+#: model:ir.model.fields,field_description:account.field_account_move__show_update_fpos
+#: model:ir.model.fields,field_description:sale.field_sale_order__show_update_fpos
+msgid "Has Fiscal Position Changed"
+msgstr "มีการเปลี่ยนแปลงตำแหน่งทางการเงิน"
+
+#. modules: account_auto_transfer, mrp, sale_stock, stock
+#. odoo-python
+#: code:addons/stock/models/stock_picking.py:0
+#: model:ir.actions.act_window,name:stock.action_picking_tree_all
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_ids
+#: model:ir.model.fields,field_description:stock.field_stock_lot__delivery_ids
+#: model:ir.ui.menu,name:account_auto_transfer.menu_auto_transfer
+#: model:ir.ui.menu,name:stock.menu_stock_transfers
+#: model_terms:ir.ui.view,arch_db:account_auto_transfer.view_transfer_model_form
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+#: model_terms:ir.ui.view,arch_db:stock.procurement_group_form_view
+#: model_terms:ir.ui.view,arch_db:stock.stock_move_line_view_search
+#: model_terms:ir.ui.view,arch_db:stock.stock_picking_type_kanban
+#: model_terms:ir.ui.view,arch_db:stock.view_production_lot_form
+msgid "Transfers"
+msgstr "การโอน"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__show_json_popover
+msgid "Has late picking"
+msgstr "มีการเบิกสินค้าล่าช้า"
+
+#. modules: account, purchase, purchase_request, sale, stock
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__origin
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__origin
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__origin
+#: model:ir.model.fields,field_description:sale.field_sale_order__origin
+#: model:ir.model.fields,field_description:stock.field_stock_move__origin
+#: model:ir.model.fields,field_description:stock.field_stock_picking__origin
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__origin
+#: model_terms:ir.ui.view,arch_db:account.view_invoice_tree
+#: model_terms:ir.ui.view,arch_db:account.view_move_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
+msgid "Source Document"
+msgstr "เอกสารต้นทาง"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__validity_date
+msgid "Expiration"
+msgstr "วันสิ้นสุด"
+
+#. modules: sale, sale_management
+#: model:ir.model.fields,field_description:sale.field_sale_order__journal_id
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__journal_id
+msgid "Invoicing Journal"
+msgstr "สมุดรายวันอินวอยซ์"
+
+#. modules: account, account_reports, purchase, sale
+#: model:ir.model,name:account_reports.model_account_fiscal_position
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position__name
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_account__position_id
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_tax__position_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_account_move__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_res_company__fiscal_position_ids
+#: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
+#: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model:ir.model.fields,field_description:account_reports.field_account_report_annotation__fiscal_position_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__fiscal_position_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report__fiscal_position_id
+#: model:ir.model.fields,field_description:sale.field_sale_order__fiscal_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_form
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_tree
+msgid "Fiscal Position"
+msgstr "ตำแหน่งทางการเงิน"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__amount_paid
+msgid "Payment Transactions Amount"
+msgstr "ยอดรายการชำระเงิน"
+
+#. modules: sale_stock, stock_enterprise
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__expected_date
+#: model:ir.model.fields,field_description:stock_enterprise.field_stock_report__scheduled_date
+msgid "Expected Date"
+msgstr "วันที่คาดว่าจะส่งมอบ"
+
+#. modules: purchase_stock, sale_stock, stock
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_report__effective_date
+#: model:ir.model.fields,field_description:purchase_stock.field_vendor_delay_report__date
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__effective_date
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.vpicktree
+msgid "Effective Date"
+msgstr "วันที่มีผลบังคับใช้"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__amount_to_invoice
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__amount_to_invoice
+msgid "Un-invoiced Balance"
+msgstr "ยอดค้างชำระ (ยังไม่ออกใบแจ้งหนี้)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__duplicated_order_ids
+msgid "Duplicated Order"
+msgstr "คำสั่งซื้อซ้ำ"
+
+#. module: sale_pdf_quote_builder
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_order__available_product_document_ids
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_order_line__available_product_document_ids
+msgid "Available Product Documents"
+msgstr "เอกสารสินค้าที่พร้อมใช้งาน"
+
+#. module: sale_pdf_quote_builder
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_order__is_pdf_quote_builder_available
+msgid "Is Pdf Quote Builder Available"
+msgstr "เครื่องมือสร้าง PDF ใบเสนอราคาพร้อมใช้งาน"
+
+#. module: sale_pdf_quote_builder
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_order_template__quotation_document_ids
+msgid "Headers and footers"
+msgstr "ส่วนหัว/ส่วนท้าย"
+
+#. module: sale_pdf_quote_builder
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_order__customizable_pdf_form_fields
+msgid "Customizable PDF Form Fields"
+msgstr "ฟิลด์ฟอร์ม PDF ที่ปรับแต่งได้"
+
+#. module: spreadsheet_sale_management
+#: model:ir.model.fields,field_description:spreadsheet_sale_management.field_sale_order__spreadsheet_template_id
+#: model:ir.model.fields,field_description:spreadsheet_sale_management.field_sale_order_template__spreadsheet_template_id
+#: model_terms:ir.ui.view,arch_db:spreadsheet_sale_management.sale_order_view_form
+msgid "Quote calculator"
+msgstr "เครื่องคำนวณใบเสนอราคา"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_delivered_method
+msgid "Method to update delivered qty"
+msgstr "วิธีการอัปเดตจำนวนที่จัดส่งแล้ว"
+
+#. modules: mrp, sale_stock, stock
+#. odoo-javascript
+#: code:addons/mrp/static/src/components/bom_overview_table/mrp_bom_overview_table.xml:0
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__customer_lead
+#: model:ir.model.fields,field_description:stock.field_stock_replenishment_option__lead_time
+#: model:ir.model.fields,field_description:stock.field_stock_rule__delay
+#: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
+msgid "Lead Time"
+msgstr "ระยะเวลาส่งมอบ"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__translated_product_name
+msgid "Translated Product Name"
+msgstr "ชื่อสินค้าที่แปลแล้ว"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__linked_line_ids
+msgid "Linked Order Lines"
+msgstr "รายการคำสั่งซื้อที่เชื่อมโยง"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__virtual_id
+msgid "Virtual"
+msgstr "เสมือน"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__linked_virtual_id
+msgid "Linked Virtual"
+msgstr "เชื่อมโยงเสมือน"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__selected_combo_items
+msgid "Selected Combo Items"
+msgstr "รายการคอมโบที่เลือก"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__technical_price_unit
+msgid "Technical Price Unit"
+msgstr "ราคาต่อหน่วย (ทางเทคนิค)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__qty_invoiced_posted
+msgid "Invoiced Quantity (posted)"
+msgstr "จำนวนที่ออกใบแจ้งหนี้ (ผ่านรายการแล้ว)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order__amount_to_invoice
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__amount_to_invoice
+msgid "Un-invoiced Balance"
+msgstr "ยอดค้างชำระ (ยังไม่ออกใบแจ้งหนี้)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__linked_line_id
+msgid "Linked Order Line"
+msgstr "เชื่อมโยงรายการคำสั่งซื้อ"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__price_reduce_taxinc
+msgid "Price Reduce Tax incl"
+msgstr "ราคาลด (รวมภาษี)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__qty_delivered
+msgid "Delivery Quantity"
+msgstr "จำนวนที่จัดส่งแล้ว"
+
+#. modules: account, sale
+#: model:ir.model.fields,field_description:account.field_account_analytic_account__invoice_count
+#: model:ir.model.fields,field_description:sale.field_sale_order__invoice_count
+msgid "Invoice Count"
+msgstr "จำนวนที่ออกใบแจ้งหนี้แล้ว"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__qty_to_invoice
+msgid "Quantity To Invoice"
+msgstr "จำนวนที่รอออกใบแจ้งหนี้"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__untaxed_amount_invoiced
+msgid "Untaxed Invoiced Amount"
+msgstr "ยอดที่ออกใบแจ้งหนี้ (ไม่รวมภาษี)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__untaxed_amount_to_invoice
+#: model:ir.model.fields,field_description:sale.field_sale_report__untaxed_amount_to_invoice
+msgid "Untaxed Amount To Invoice"
+msgstr "ยอดที่รอออกใบแจ้งหนี้ (ไม่รวมภาษี)"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_report__untaxed_amount_invoiced
+msgid "Untaxed Amount Invoiced"
+msgstr "ยอดที่รอออกใบแจ้งหนี้ (ไม่รวมภาษี)"
+
+#. modules: product, sale
+#: model:ir.model.fields,field_description:product.field_product_product__service_tracking
+#: model:ir.model.fields,field_description:product.field_product_template__service_tracking
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__service_tracking
+msgid "Create on Order"
+msgstr "การติดตามบริการ"
+
+# purchase_order
+
+#. modules: purchase, sale
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__order_line
+#: model:ir.model.fields,field_description:sale.field_sale_order__order_line
+#: model_terms:ir.ui.view,arch_db:sale.view_order_form
+msgid "Order Lines"
+msgstr "รายการคำสั่งซื้อ"
+
+#. modules: account, purchase, sale
+#. odoo-javascript
+#. odoo-python
+#: code:addons/account/models/account_move.py:0
+#: code:addons/account/models/account_tax.py:0
+#: code:addons/account/static/src/helpers/account_tax.js:0
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__amount_untaxed
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__price_subtotal
+#: model:ir.model.fields,field_description:account.field_account_move__amount_untaxed
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__amount_untaxed
+#: model:ir.model.fields,field_description:sale.field_sale_order__amount_untaxed
+#: model_terms:ir.ui.view,arch_db:account.document_tax_totals_template
+msgid "Untaxed Amount"
+msgstr "ยอดที่ยังไม่รวมภาษี"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__amount_total_cc
+msgid "Company Total"
+msgstr "ยอดรวมในสกุลเงินบริษัท"
+
+#. modules: account, account_reports, purchase, sale
+#: model:ir.model,name:account_reports.model_account_fiscal_position
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position__name
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_account__position_id
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_tax__position_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_account_move__fiscal_position_id
+#: model:ir.model.fields,field_description:account.field_res_company__fiscal_position_ids
+#: model:ir.model.fields,field_description:account.field_res_partner__property_account_position_id
+#: model:ir.model.fields,field_description:account.field_res_users__property_account_position_id
+#: model:ir.model.fields,field_description:account_reports.field_account_report_annotation__fiscal_position_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__fiscal_position_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report__fiscal_position_id
+#: model:ir.model.fields,field_description:sale.field_sale_order__fiscal_position_id
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_form
+#: model_terms:ir.ui.view,arch_db:account.view_account_position_tree
+msgid "Fiscal Position"
+msgstr "ตำแหน่งทางการคลัง"
+
+#. modules: account, purchase, sale
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:account.field_account_move__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:account.field_account_move_line__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:account.field_res_config_settings__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__tax_calculation_rounding_method
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__tax_calculation_rounding_method
+msgid "Tax calculation rounding method"
+msgstr "วิธีการปัดเศษการคำนวณภาษี"
+
+#. modules: account, account_accountant, account_asset, account_auto_transfer,
+#. account_base_import, account_disallowed_expenses, account_followup,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. account_payment, account_reports, analytic, auth_totp, barcodes, base,
+#. base_import, base_import_module, base_install_request, bus, digest, hr,
+#. hr_skills, iap, mail, mrp, mrp_account, mrp_account_enterprise,
+#. mrp_workorder, onboarding, partner_autocomplete, payment, phone_validation,
+#. portal, privacy_lookup, product, purchase, purchase_request,
+#. purchase_stock, quality, resource, sale, sale_management,
+#. sale_pdf_quote_builder, sales_team, sms, snailmail, spreadsheet_dashboard,
+#. spreadsheet_edition, spreadsheet_sale_management, stock, stock_account,
+#. stock_barcode, stock_enterprise, stock_sms, uom, utm, web, web_editor,
+#. web_tour
+#. odoo-javascript
+#: code:addons/web/static/src/views/kanban/kanban_record_quick_create.js:0
+#: model:ir.model.fields,field_description:account.field_account_account__display_name
+#: model:ir.model.fields,field_description:account.field_account_account_tag__display_name
+#: model:ir.model.fields,field_description:account.field_account_accrued_orders_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_automatic_entry_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_autopost_bills_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_bank_statement__display_name
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_cash_rounding__display_name
+#: model:ir.model.fields,field_description:account.field_account_code_mapping__display_name
+#: model:ir.model.fields,field_description:account.field_account_financial_year_op__display_name
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position__display_name
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_account__display_name
+#: model:ir.model.fields,field_description:account.field_account_fiscal_position_tax__display_name
+#: model:ir.model.fields,field_description:account.field_account_full_reconcile__display_name
+#: model:ir.model.fields,field_description:account.field_account_group__display_name
+#: model:ir.model.fields,field_description:account.field_account_incoterms__display_name
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__display_name
+#: model:ir.model.fields,field_description:account.field_account_journal__display_name
+#: model:ir.model.fields,field_description:account.field_account_journal_group__display_name
+#: model:ir.model.fields,field_description:account.field_account_lock_exception__display_name
+#: model:ir.model.fields,field_description:account.field_account_merge_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_merge_wizard_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_move__display_name
+#: model:ir.model.fields,field_description:account.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_move_reversal__display_name
+#: model:ir.model.fields,field_description:account.field_account_move_send_batch_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_move_send_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_partial_reconcile__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment_method__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment_method_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment_term__display_name
+#: model:ir.model.fields,field_description:account.field_account_payment_term_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__display_name
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_partner_mapping__display_name
+#: model:ir.model.fields,field_description:account.field_account_report__display_name
+#: model:ir.model.fields,field_description:account.field_account_report_column__display_name
+#: model:ir.model.fields,field_description:account.field_account_report_expression__display_name
+#: model:ir.model.fields,field_description:account.field_account_report_external_value__display_name
+#: model:ir.model.fields,field_description:account.field_account_report_line__display_name
+#: model:ir.model.fields,field_description:account.field_account_resequence_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_root__display_name
+#: model:ir.model.fields,field_description:account.field_account_secure_entries_wizard__display_name
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__display_name
+#: model:ir.model.fields,field_description:account.field_account_tax__display_name
+#: model:ir.model.fields,field_description:account.field_account_tax_group__display_name
+#: model:ir.model.fields,field_description:account.field_account_tax_repartition_line__display_name
+#: model:ir.model.fields,field_description:account.field_validate_account_move__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_account_auto_reconcile_wizard__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_account_change_lock_date__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_account_fiscal_year__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_account_reconcile_wizard__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget__display_name
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget_line__display_name
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__display_name
+#: model:ir.model.fields,field_description:account_asset.field_account_asset_group__display_name
+#: model:ir.model.fields,field_description:account_asset.field_asset_modify__display_name
+#: model:ir.model.fields,field_description:account_auto_transfer.field_account_transfer_model__display_name
+#: model:ir.model.fields,field_description:account_auto_transfer.field_account_transfer_model_line__display_name
+#: model:ir.model.fields,field_description:account_base_import.field_account_import_summary__display_name
+#: model:ir.model.fields,field_description:account_disallowed_expenses.field_account_disallowed_expenses_category__display_name
+#: model:ir.model.fields,field_description:account_disallowed_expenses.field_account_disallowed_expenses_rate__display_name
+#: model:ir.model.fields,field_description:account_followup.field_account_followup_followup_line__display_name
+#: model:ir.model.fields,field_description:account_followup.field_account_followup_manual_reminder__display_name
+#: model:ir.model.fields,field_description:account_followup.field_account_followup_missing_information_wizard__display_name
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_invoice_extract_words__display_name
+#: model:ir.model.fields,field_description:account_loans.field_account_loan_close_wizard__display_name
+#: model:ir.model.fields,field_description:account_loans.field_account_loan_compute_wizard__display_name
+#: model:ir.model.fields,field_description:account_loans.field_account_loan_line__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_bank_selection__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_bank_statement_line_transient__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_duplicate_transaction_wizard__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_missing_transaction_wizard__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_account__display_name
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__display_name
+#: model:ir.model.fields,field_description:account_payment.field_payment_refund_wizard__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_multicurrency_revaluation_wizard__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_annotation__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_budget__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_budget_item__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_file_download_error_wizard__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_horizontal_group__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_horizontal_group_rule__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_report_send__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_reports_export_wizard__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_reports_export_wizard_format__display_name
+#: model:ir.model.fields,field_description:account_reports.field_account_tax_unit__display_name
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__display_name
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_applicability__display_name
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__display_name
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_plan__display_name
+#: model:ir.model.fields,field_description:auth_totp.field_auth_totp_device__display_name
+#: model:ir.model.fields,field_description:auth_totp.field_auth_totp_wizard__display_name
+#: model:ir.model.fields,field_description:barcodes.field_barcode_nomenclature__display_name
+#: model:ir.model.fields,field_description:barcodes.field_barcode_rule__display_name
+#: model:ir.model.fields,field_description:base.field_base_enable_profiling_wizard__display_name
+#: model:ir.model.fields,field_description:base.field_base_language_export__display_name
+#: model:ir.model.fields,field_description:base.field_base_language_import__display_name
+#: model:ir.model.fields,field_description:base.field_base_language_install__display_name
+#: model:ir.model.fields,field_description:base.field_base_module_uninstall__display_name
+#: model:ir.model.fields,field_description:base.field_base_module_update__display_name
+#: model:ir.model.fields,field_description:base.field_base_module_upgrade__display_name
+#: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__display_name
+#: model:ir.model.fields,field_description:base.field_base_partner_merge_line__display_name
+#: model:ir.model.fields,field_description:base.field_change_password_own__display_name
+#: model:ir.model.fields,field_description:base.field_change_password_user__display_name
+#: model:ir.model.fields,field_description:base.field_change_password_wizard__display_name
+#: model:ir.model.fields,field_description:base.field_decimal_precision__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_act_url__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_act_window__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_act_window_close__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_actions__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_client__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_report__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_server__display_name
+#: model:ir.model.fields,field_description:base.field_ir_actions_todo__display_name
+#: model:ir.model.fields,field_description:base.field_ir_asset__display_name
+#: model:ir.model.fields,field_description:base.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:base.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:base.field_ir_cron__display_name
+#: model:ir.model.fields,field_description:base.field_ir_cron_progress__display_name
+#: model:ir.model.fields,field_description:base.field_ir_cron_trigger__display_name
+#: model:ir.model.fields,field_description:base.field_ir_default__display_name
+#: model:ir.model.fields,field_description:base.field_ir_demo__display_name
+#: model:ir.model.fields,field_description:base.field_ir_demo_failure__display_name
+#: model:ir.model.fields,field_description:base.field_ir_demo_failure_wizard__display_name
+#: model:ir.model.fields,field_description:base.field_ir_embedded_actions__display_name
+#: model:ir.model.fields,field_description:base.field_ir_exports__display_name
+#: model:ir.model.fields,field_description:base.field_ir_exports_line__display_name
+#: model:ir.model.fields,field_description:base.field_ir_filters__display_name
+#: model:ir.model.fields,field_description:base.field_ir_logging__display_name
+#: model:ir.model.fields,field_description:base.field_ir_mail_server__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_access__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_constraint__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_data__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_fields__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_fields_selection__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_inherit__display_name
+#: model:ir.model.fields,field_description:base.field_ir_model_relation__display_name
+#: model:ir.model.fields,field_description:base.field_ir_module_category__display_name
+#: model:ir.model.fields,field_description:base.field_ir_module_module__display_name
+#: model:ir.model.fields,field_description:base.field_ir_module_module_dependency__display_name
+#: model:ir.model.fields,field_description:base.field_ir_module_module_exclusion__display_name
+#: model:ir.model.fields,field_description:base.field_ir_profile__display_name
+#: model:ir.model.fields,field_description:base.field_ir_rule__display_name
+#: model:ir.model.fields,field_description:base.field_ir_sequence__display_name
+#: model:ir.model.fields,field_description:base.field_ir_sequence_date_range__display_name
+#: model:ir.model.fields,field_description:base.field_ir_ui_menu__display_name
+#: model:ir.model.fields,field_description:base.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:base.field_ir_ui_view_custom__display_name
+#: model:ir.model.fields,field_description:base.field_report_layout__display_name
+#: model:ir.model.fields,field_description:base.field_report_paperformat__display_name
+#: model:ir.model.fields,field_description:base.field_res_bank__display_name
+#: model:ir.model.fields,field_description:base.field_res_company__display_name
+#: model:ir.model.fields,field_description:base.field_res_config__display_name
+#: model:ir.model.fields,field_description:base.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:base.field_res_country__display_name
+#: model:ir.model.fields,field_description:base.field_res_country_group__display_name
+#: model:ir.model.fields,field_description:base.field_res_country_state__display_name
+#: model:ir.model.fields,field_description:base.field_res_currency__display_name
+#: model:ir.model.fields,field_description:base.field_res_currency_rate__display_name
+#: model:ir.model.fields,field_description:base.field_res_device__display_name
+#: model:ir.model.fields,field_description:base.field_res_device_log__display_name
+#: model:ir.model.fields,field_description:base.field_res_groups__display_name
+#: model:ir.model.fields,field_description:base.field_res_lang__display_name
+#: model:ir.model.fields,field_description:base.field_res_partner__display_name
+#: model:ir.model.fields,field_description:base.field_res_partner_bank__display_name
+#: model:ir.model.fields,field_description:base.field_res_partner_category__display_name
+#: model:ir.model.fields,field_description:base.field_res_partner_industry__display_name
+#: model:ir.model.fields,field_description:base.field_res_partner_title__display_name
+#: model:ir.model.fields,field_description:base.field_res_users__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_apikeys__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_apikeys_description__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_deletion__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_identitycheck__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_log__display_name
+#: model:ir.model.fields,field_description:base.field_res_users_settings__display_name
+#: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__display_name
+#: model:ir.model.fields,field_description:base.field_wizard_ir_model_menu_create__display_name
+#: model:ir.model.fields,field_description:base_import.field_base_import_import__display_name
+#: model:ir.model.fields,field_description:base_import.field_base_import_mapping__display_name
+#: model:ir.model.fields,field_description:base_import_module.field_base_import_module__display_name
+#: model:ir.model.fields,field_description:base_install_request.field_base_module_install_request__display_name
+#: model:ir.model.fields,field_description:base_install_request.field_base_module_install_review__display_name
+#: model:ir.model.fields,field_description:bus.field_bus_bus__display_name
+#: model:ir.model.fields,field_description:bus.field_bus_presence__display_name
+#: model:ir.model.fields,field_description:digest.field_digest_digest__display_name
+#: model:ir.model.fields,field_description:digest.field_digest_tip__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_contract_type__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_department__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_departure_reason__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_departure_wizard__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_employee_category__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_job__display_name
+#: model:ir.model.fields,field_description:hr.field_hr_work_location__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_cv_wizard__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_employee_skill_log__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_resume_line_type__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_skill__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_skill_level__display_name
+#: model:ir.model.fields,field_description:hr_skills.field_hr_skill_type__display_name
+#: model:ir.model.fields,field_description:iap.field_iap_account__display_name
+#: model:ir.model.fields,field_description:iap.field_iap_service__display_name
+#: model:ir.model.fields,field_description:mail.field_discuss_channel__display_name
+#: model:ir.model.fields,field_description:mail.field_discuss_channel_member__display_name
+#: model:ir.model.fields,field_description:mail.field_discuss_channel_rtc_session__display_name
+#: model:ir.model.fields,field_description:mail.field_discuss_gif_favorite__display_name
+#: model:ir.model.fields,field_description:mail.field_discuss_voice_metadata__display_name
+#: model:ir.model.fields,field_description:mail.field_fetchmail_server__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_activity__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_activity_plan__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_activity_plan_template__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_activity_schedule__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_activity_type__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_alias__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_alias_domain__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_blacklist__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_blacklist_remove__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_canned_response__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_compose_message__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_followers__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_gateway_allowed__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_guest__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_ice_server__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_link_preview__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_mail__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_message__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_message_reaction__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_message_schedule__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_message_subtype__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_message_translation__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_notification__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_push__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_push_device__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_resend_message__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_resend_partner__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_scheduled_message__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_template__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_template_preview__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_template_reset__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_tracking_value__display_name
+#: model:ir.model.fields,field_description:mail.field_mail_wizard_invite__display_name
+#: model:ir.model.fields,field_description:mail.field_res_users_settings_volumes__display_name
+#: model:ir.model.fields,field_description:mrp.field_change_production_qty__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_batch_produce__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom_byproduct__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom_line__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_consumption_warning__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_consumption_warning_line__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_backorder__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_backorder_line__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_split__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_split_line__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_split_multi__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_capacity__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_productivity__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_productivity_loss__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_productivity_loss_type__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_tag__display_name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__display_name
+#: model:ir.model.fields,field_description:mrp.field_stock_warn_insufficient_qty_unbuild__display_name
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_account_wip_accounting__display_name
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_account_wip_accounting_line__display_name
+#: model:ir.model.fields,field_description:mrp_account_enterprise.field_mrp_report__display_name
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_production_additional_workorder__display_name
+#: model:ir.model.fields,field_description:mrp_workorder.field_propose_change__display_name
+#: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding__display_name
+#: model:ir.model.fields,field_description:onboarding.field_onboarding_onboarding_step__display_name
+#: model:ir.model.fields,field_description:onboarding.field_onboarding_progress__display_name
+#: model:ir.model.fields,field_description:onboarding.field_onboarding_progress_step__display_name
+#: model:ir.model.fields,field_description:partner_autocomplete.field_res_partner_autocomplete_sync__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_capture_wizard__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_link_wizard__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_method__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_provider__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_provider_onboarding_wizard__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_token__display_name
+#: model:ir.model.fields,field_description:payment.field_payment_transaction__display_name
+#: model:ir.model.fields,field_description:phone_validation.field_phone_blacklist__display_name
+#: model:ir.model.fields,field_description:phone_validation.field_phone_blacklist_remove__display_name
+#: model:ir.model.fields,field_description:portal.field_portal_share__display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__display_name
+#: model:ir.model.fields,field_description:privacy_lookup.field_privacy_log__display_name
+#: model:ir.model.fields,field_description:privacy_lookup.field_privacy_lookup_wizard__display_name
+#: model:ir.model.fields,field_description:privacy_lookup.field_privacy_lookup_wizard_line__display_name
+#: model:ir.model.fields,field_description:product.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:product.field_product_attribute_custom_value__display_name
+#: model:ir.model.fields,field_description:product.field_product_attribute_value__display_name
+#: model:ir.model.fields,field_description:product.field_product_category__display_name
+#: model:ir.model.fields,field_description:product.field_product_combo__display_name
+#: model:ir.model.fields,field_description:product.field_product_combo_item__display_name
+#: model:ir.model.fields,field_description:product.field_product_document__display_name
+#: model:ir.model.fields,field_description:product.field_product_label_layout__display_name
+#: model:ir.model.fields,field_description:product.field_product_packaging__display_name
+#: model:ir.model.fields,field_description:product.field_product_pricelist__display_name
+#: model:ir.model.fields,field_description:product.field_product_pricelist_item__display_name
+#: model:ir.model.fields,field_description:product.field_product_product__display_name
+#: model:ir.model.fields,field_description:product.field_product_supplierinfo__display_name
+#: model:ir.model.fields,field_description:product.field_product_tag__display_name
+#: model:ir.model.fields,field_description:product.field_product_template__display_name
+#: model:ir.model.fields,field_description:product.field_product_template_attribute_exclusion__display_name
+#: model:ir.model.fields,field_description:product.field_product_template_attribute_line__display_name
+#: model:ir.model.fields,field_description:product.field_product_template_attribute_value__display_name
+#: model:ir.model.fields,field_description:product.field_update_product_attribute_value__display_name
+#: model:ir.model.fields,field_description:purchase.field_bill_to_po_wizard__display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_bill_union__display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_report__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_allocation__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order__display_name
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line_make_purchase_order_item__display_name
+#: model:ir.model.fields,field_description:purchase_stock.field_vendor_delay_report__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_alert__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_alert_stage__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_alert_team__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_check__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_point__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_point_test_type__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_reason__display_name
+#: model:ir.model.fields,field_description:quality.field_quality_tag__display_name
+#: model:ir.model.fields,field_description:resource.field_resource_calendar__display_name
+#: model:ir.model.fields,field_description:resource.field_resource_calendar_attendance__display_name
+#: model:ir.model.fields,field_description:resource.field_resource_calendar_leaves__display_name
+#: model:ir.model.fields,field_description:resource.field_resource_resource__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_advance_payment_inv__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_mass_cancel_orders__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_order_cancel__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_order_discount__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_payment_provider_onboarding_wizard__display_name
+#: model:ir.model.fields,field_description:sale.field_sale_report__display_name
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__display_name
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__display_name
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__display_name
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_option__display_name
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_quotation_document__display_name
+#: model:ir.model.fields,field_description:sale_pdf_quote_builder.field_sale_pdf_form_field__display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_tag__display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_account_code__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_account_phone__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_account_sender__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_composer__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_resend__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_resend_recipient__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_sms__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_template__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_template_preview__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_template_reset__display_name
+#: model:ir.model.fields,field_description:sms.field_sms_tracker__display_name
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__display_name
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter_format_error__display_name
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter_missing_required_fields__display_name
+#: model:ir.model.fields,field_description:spreadsheet_dashboard.field_spreadsheet_dashboard__display_name
+#: model:ir.model.fields,field_description:spreadsheet_dashboard.field_spreadsheet_dashboard_group__display_name
+#: model:ir.model.fields,field_description:spreadsheet_dashboard.field_spreadsheet_dashboard_share__display_name
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_cell_thread__display_name
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_revision__display_name
+#: model:ir.model.fields,field_description:spreadsheet_sale_management.field_sale_order_spreadsheet__display_name
+#: model:ir.model.fields,field_description:stock.field_lot_label_layout__display_name
+#: model:ir.model.fields,field_description:stock.field_picking_label_type__display_name
+#: model:ir.model.fields,field_description:stock.field_procurement_group__display_name
+#: model:ir.model.fields,field_description:stock.field_product_removal__display_name
+#: model:ir.model.fields,field_description:stock.field_product_replenish__display_name
+#: model:ir.model.fields,field_description:stock.field_report_stock_quantity__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_backorder_confirmation__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_backorder_confirmation_line__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_change_product_qty__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_inventory_adjustment_name__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_inventory_conflict__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_inventory_warning__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_location__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_lot__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_lot_report__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_move__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_orderpoint_snooze__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_package_destination__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_package_type__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_picking_type__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_putaway_rule__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_quant__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_quant_package__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_quant_relocate__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_quantity_history__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_replenishment_info__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_replenishment_option__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_request_count__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_return_picking__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_return_picking_line__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_route__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_rule__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_rules_report__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_scrap_reason_tag__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_storage_category__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_storage_category_capacity__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_traceability_report__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_track_confirmation__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_track_line__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__display_name
+#: model:ir.model.fields,field_description:stock.field_stock_warn_insufficient_qty_scrap__display_name
+#: model:ir.model.fields,field_description:stock_account.field_stock_valuation_layer__display_name
+#: model:ir.model.fields,field_description:stock_account.field_stock_valuation_layer_revaluation__display_name
+#: model:ir.model.fields,field_description:stock_barcode.field_stock_barcode_cancel_operation__display_name
+#: model:ir.model.fields,field_description:stock_enterprise.field_stock_report__display_name
+#: model:ir.model.fields,field_description:stock_sms.field_confirm_stock_sms__display_name
+#: model:ir.model.fields,field_description:uom.field_uom_category__display_name
+#: model:ir.model.fields,field_description:uom.field_uom_uom__display_name
+#: model:ir.model.fields,field_description:utm.field_utm_campaign__display_name
+#: model:ir.model.fields,field_description:utm.field_utm_medium__display_name
+#: model:ir.model.fields,field_description:utm.field_utm_source__display_name
+#: model:ir.model.fields,field_description:utm.field_utm_stage__display_name
+#: model:ir.model.fields,field_description:utm.field_utm_tag__display_name
+#: model:ir.model.fields,field_description:web.field_base_document_layout__display_name
+#: model:ir.model.fields,field_description:web_editor.field_web_editor_converter_test_sub__display_name
+#: model:ir.model.fields,field_description:web_tour.field_web_tour_tour__display_name
+#: model:ir.model.fields,field_description:web_tour.field_web_tour_tour_step__display_name
+#: model_terms:ir.ui.view,arch_db:stock.report_reception_body
+msgid "Display Name"
+msgstr "ชื่อที่แสดง"
+
+#. modules: mrp, purchase_request, purchase_stock, sale_stock, stock
+#: model:ir.model,name:stock.model_procurement_group
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__procurement_group_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__group_id
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_order__group_id
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__procurement_group_id
+#: model:ir.model.fields,field_description:stock.field_stock_move__group_id
+#: model:ir.model.fields,field_description:stock.field_stock_picking__group_id
+#: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__group_id
+#: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
+msgid "Procurement Group"
+msgstr "กลุ่มการจัดซื้อที่สร้างรายการนี้"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.procurement_group_form_view
+msgid "Procurement group"
+msgstr "กลุ่มการจัดซื้อที่สร้างรายการนี้"
+
+#. module: sale_purchase
+#: model:ir.model.fields,field_description:sale_purchase.field_purchase_order__sale_order_count
+msgid "Number of Source Sale"
+msgstr "จำนวนใบสั่งขายต้นทาง"
+
+#. modules: account, portal, purchase, sale
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__access_url
+#: model:ir.model.fields,field_description:account.field_account_journal__access_url
+#: model:ir.model.fields,field_description:account.field_account_move__access_url
+#: model:ir.model.fields,field_description:portal.field_portal_mixin__access_url
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__access_url
+#: model:ir.model.fields,field_description:sale.field_sale_order__access_url
+msgid "Portal Access URL"
+msgstr "URL การเข้าถึงพอร์ทัล"
+
+#. modules: account, account_asset, account_online_synchronization, hr, mail,
+#. mrp, mrp_workorder, product, purchase, purchase_request, quality, sale,
+#. stock
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:account.field_account_journal__activity_exception_decoration
+#: model:ir.model.fields,field_description:account.field_account_move__activity_exception_decoration
+#: model:ir.model.fields,field_description:account.field_account_payment__activity_exception_decoration
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__activity_exception_decoration
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__activity_exception_decoration
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__activity_exception_decoration
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__activity_exception_decoration
+#: model:ir.model.fields,field_description:hr.field_hr_department__activity_exception_decoration
+#: model:ir.model.fields,field_description:hr.field_hr_employee__activity_exception_decoration
+#: model:ir.model.fields,field_description:mail.field_mail_activity_mixin__activity_exception_decoration
+#: model:ir.model.fields,field_description:mail.field_res_partner__activity_exception_decoration
+#: model:ir.model.fields,field_description:mail.field_res_users__activity_exception_decoration
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__activity_exception_decoration
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__activity_exception_decoration
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__activity_exception_decoration
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_bom__activity_exception_decoration
+#: model:ir.model.fields,field_description:product.field_product_pricelist__activity_exception_decoration
+#: model:ir.model.fields,field_description:product.field_product_product__activity_exception_decoration
+#: model:ir.model.fields,field_description:product.field_product_template__activity_exception_decoration
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_exception_decoration
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:quality.field_quality_alert__activity_exception_decoration
+#: model:ir.model.fields,field_description:quality.field_quality_check__activity_exception_decoration
+#: model:ir.model.fields,field_description:sale.field_sale_order__activity_exception_decoration
+#: model:ir.model.fields,field_description:stock.field_stock_lot__activity_exception_decoration
+#: model:ir.model.fields,field_description:stock.field_stock_picking__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "เครื่องหมายข้อยกเว้นกิจกรรม"
+
+#. modules: account, purchase, sale
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__tax_country_id
+#: model:ir.model.fields,field_description:account.field_account_move__tax_country_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__tax_country_id
+#: model:ir.model.fields,field_description:sale.field_sale_order__tax_country_id
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__tax_country_id
+msgid "Tax Country"
+msgstr "ประเทศสำหรับคำนวณภาษี"
+
+#. modules: account, purchase, sale
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__company_price_include
+#: model:ir.model.fields,field_description:account.field_account_move__company_price_include
+#: model:ir.model.fields,field_description:account.field_account_tax__company_price_include
+#: model:ir.model.fields,field_description:account.field_res_company__account_price_include
+#: model:ir.model.fields,field_description:account.field_res_config_settings__account_price_include
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__company_price_include
+#: model:ir.model.fields,field_description:sale.field_sale_order__company_price_include
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__company_price_include
+msgid "Default Sales Price Include"
+msgstr "ราคาขายเริ่มต้นรวมภาษี"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__mail_reception_declined
+msgid "Reception Declined"
+msgstr "การรับสินค้าถูกปฏิเสธ"
+
+#. module: purchase_request
+#. odoo-python
+#: code:addons/purchase_request/models/purchase_order.py:0
+#: model:ir.actions.act_window,name:purchase_request.purchase_request_line_form_action
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_order_line__purchase_request_lines
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line_act
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
+msgid "Purchase Request Lines"
+msgstr "รายการใบขอซื้อ"
+
+#. module: purchase_request
+#: model:ir.model,name:purchase_request.model_purchase_request_allocation
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_order_line__purchase_request_allocation_ids
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__purchase_request_allocation_ids
+#: model:ir.model.fields,field_description:purchase_request.field_stock_move__purchase_request_allocation_ids
+msgid "Purchase Request Allocation"
+msgstr "การปันส่วนคำขอซื้อ"
+
+#. module: purchase_request
+#: model_terms:ir.ui.view,arch_db:purchase_request.view_move_form
+msgid "Purchase Request Allocations"
+msgstr "การจัดสรรใบขอซื้อ"
+
+#. modules: mrp, purchase_request, purchase_stock, stock
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__orderpoint_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__orderpoint_id
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__orderpoint_id
+#: model:ir.model.fields,field_description:stock.field_stock_orderpoint_snooze__orderpoint_ids
+#: model:ir.model.fields,field_description:stock.field_stock_replenishment_info__orderpoint_id
+msgid "Orderpoint"
+msgstr "จุดสั่งซื้อ"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__move_dest_ids
+msgid "Downstream moves alt"
+msgstr "การย้ายปลายทาง (ทางเลือก)"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__qty_received_method
+msgid "Received Qty Method"
+msgstr "วิธีการคำนวณจำนวนที่ได้รับ"
+
+#. modules: account, account_accountant, account_asset, analytic, mrp_account,
+#. purchase, purchase_request, sale
+#: model:ir.model.fields,field_description:account.field_account_move_line__analytic_distribution
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_line__analytic_distribution
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget_line__analytic_distribution
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__analytic_distribution
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__analytic_distribution
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__analytic_distribution
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_workcenter__analytic_distribution
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__analytic_distribution
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__analytic_distribution
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__analytic_distribution
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
+msgid "Analytic Distribution"
+msgstr "การปันส่วนบัญชีวิเคราะห์"
+
+#. modules: account, account_accountant, account_asset, analytic, mrp_account,
+#. purchase, purchase_request, sale
+#: model:ir.model.fields,field_description:account.field_account_move_line__analytic_precision
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_line__analytic_precision
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget_line__analytic_precision
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__analytic_precision
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__analytic_precision
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__analytic_precision
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_workcenter__analytic_precision
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__analytic_precision
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__analytic_precision
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__analytic_precision
+msgid "Analytic Precision"
+msgstr "ความแม่นยำของบัญชีวิเคราะห์"
+
+#. modules: account, account_accountant, account_asset, analytic, mrp_account,
+#. purchase, purchase_request, sale
+#: model:ir.model.fields,field_description:account.field_account_move_line__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_line__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget_line__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_distribution_model__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:analytic.field_analytic_mixin__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_workcenter__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__distribution_analytic_account_ids
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__distribution_analytic_account_ids
+msgid "Distribution Analytic Account"
+msgstr "บัญชีวิเคราะห์สำหรับการปันส่วน"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_purchase_order_line__group_id
+msgid "Procurement group that generated this line"
+msgstr "กลุ่มการจัดซื้อที่สร้างรายการนี้"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__qty_to_invoice
+msgid "To Invoice Quantity"
+msgstr "จำนวนรอออกบิล"
+
+# purchase_request
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__move_count
+msgid "Stock Move count"
+msgstr "จำนวนการเคลื่อนไหวสต็อก"
+
+#. modules: account, account_asset, account_online_synchronization, hr, mail,
+#. mrp, mrp_workorder, product, purchase, purchase_request, quality, sale,
+#. stock
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__activity_user_id
+#: model:ir.model.fields,field_description:account.field_account_journal__activity_user_id
+#: model:ir.model.fields,field_description:account.field_account_move__activity_user_id
+#: model:ir.model.fields,field_description:account.field_account_payment__activity_user_id
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__activity_user_id
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__activity_user_id
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__activity_user_id
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__activity_user_id
+#: model:ir.model.fields,field_description:hr.field_hr_department__activity_user_id
+#: model:ir.model.fields,field_description:hr.field_hr_employee__activity_user_id
+#: model:ir.model.fields,field_description:mail.field_mail_activity_mixin__activity_user_id
+#: model:ir.model.fields,field_description:mail.field_res_partner__activity_user_id
+#: model:ir.model.fields,field_description:mail.field_res_users__activity_user_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__activity_user_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__activity_user_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__activity_user_id
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_bom__activity_user_id
+#: model:ir.model.fields,field_description:product.field_product_pricelist__activity_user_id
+#: model:ir.model.fields,field_description:product.field_product_product__activity_user_id
+#: model:ir.model.fields,field_description:product.field_product_template__activity_user_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_user_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__activity_user_id
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__activity_user_id
+#: model:ir.model.fields,field_description:quality.field_quality_alert__activity_user_id
+#: model:ir.model.fields,field_description:quality.field_quality_check__activity_user_id
+#: model:ir.model.fields,field_description:sale.field_sale_order__activity_user_id
+#: model:ir.model.fields,field_description:stock.field_stock_lot__activity_user_id
+#: model:ir.model.fields,field_description:stock.field_stock_picking__activity_user_id
+msgid "Responsible User"
+msgstr "ผู้รับผิดชอบ"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,field_description:account.field_account_account__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_journal__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_payment__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__message_needaction
+#: model:ir.model.fields,field_description:account.field_account_tax__message_needaction
+#: model:ir.model.fields,field_description:account.field_res_company__message_needaction
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__message_needaction
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__message_needaction
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__message_needaction
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__message_needaction
+#: model:ir.model.fields,field_description:account_loans.field_account_loan__message_needaction
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__message_needaction
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_needaction
+#: model:ir.model.fields,field_description:hr.field_hr_department__message_needaction
+#: model:ir.model.fields,field_description:hr.field_hr_employee__message_needaction
+#: model:ir.model.fields,field_description:hr.field_hr_job__message_needaction
+#: model:ir.model.fields,field_description:iap_extract.field_extract_mixin__message_needaction
+#: model:ir.model.fields,field_description:iap_mail.field_iap_account__message_needaction
+#: model:ir.model.fields,field_description:mail.field_discuss_channel__message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_thread__message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_thread_blacklist__message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_thread_cc__message_needaction
+#: model:ir.model.fields,field_description:mail.field_mail_thread_main_attachment__message_needaction
+#: model:ir.model.fields,field_description:mail.field_res_users__message_needaction
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__message_needaction
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__message_needaction
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__message_needaction
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__message_needaction
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__message_needaction
+#: model:ir.model.fields,field_description:phone_validation.field_mail_thread_phone__message_needaction
+#: model:ir.model.fields,field_description:phone_validation.field_phone_blacklist__message_needaction
+#: model:ir.model.fields,field_description:product.field_product_category__message_needaction
+#: model:ir.model.fields,field_description:product.field_product_pricelist__message_needaction
+#: model:ir.model.fields,field_description:product.field_product_product__message_needaction
+#: model:ir.model.fields,field_description:product.field_product_template__message_needaction
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__message_needaction
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_needaction
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_needaction
+#: model:ir.model.fields,field_description:quality.field_quality_alert__message_needaction
+#: model:ir.model.fields,field_description:quality.field_quality_alert_team__message_needaction
+#: model:ir.model.fields,field_description:quality.field_quality_check__message_needaction
+#: model:ir.model.fields,field_description:quality.field_quality_point__message_needaction
+#: model:ir.model.fields,field_description:sale.field_sale_order__message_needaction
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_needaction
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_needaction
+#: model:ir.model.fields,field_description:sms.field_res_partner__message_needaction
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_cell_thread__message_needaction
+#: model:ir.model.fields,field_description:stock.field_stock_lot__message_needaction
+#: model:ir.model.fields,field_description:stock.field_stock_picking__message_needaction
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__message_needaction
+msgid "Action Needed"
+msgstr "การดำเนินการที่จำเป็น"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,field_description:account.field_account_account__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_journal__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_payment__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_account_tax__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_res_company__message_attachment_count
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__message_attachment_count
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__message_attachment_count
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__message_attachment_count
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__message_attachment_count
+#: model:ir.model.fields,field_description:account_loans.field_account_loan__message_attachment_count
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__message_attachment_count
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_attachment_count
+#: model:ir.model.fields,field_description:hr.field_hr_department__message_attachment_count
+#: model:ir.model.fields,field_description:hr.field_hr_employee__message_attachment_count
+#: model:ir.model.fields,field_description:hr.field_hr_job__message_attachment_count
+#: model:ir.model.fields,field_description:iap_extract.field_extract_mixin__message_attachment_count
+#: model:ir.model.fields,field_description:iap_mail.field_iap_account__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_discuss_channel__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_mail_thread__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_mail_thread_blacklist__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_mail_thread_cc__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_mail_thread_main_attachment__message_attachment_count
+#: model:ir.model.fields,field_description:mail.field_res_users__message_attachment_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__message_attachment_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__message_attachment_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__message_attachment_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__message_attachment_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__message_attachment_count
+#: model:ir.model.fields,field_description:phone_validation.field_mail_thread_phone__message_attachment_count
+#: model:ir.model.fields,field_description:phone_validation.field_phone_blacklist__message_attachment_count
+#: model:ir.model.fields,field_description:product.field_product_category__message_attachment_count
+#: model:ir.model.fields,field_description:product.field_product_pricelist__message_attachment_count
+#: model:ir.model.fields,field_description:product.field_product_product__message_attachment_count
+#: model:ir.model.fields,field_description:product.field_product_template__message_attachment_count
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__message_attachment_count
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_attachment_count
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_attachment_count
+#: model:ir.model.fields,field_description:quality.field_quality_alert__message_attachment_count
+#: model:ir.model.fields,field_description:quality.field_quality_alert_team__message_attachment_count
+#: model:ir.model.fields,field_description:quality.field_quality_check__message_attachment_count
+#: model:ir.model.fields,field_description:quality.field_quality_point__message_attachment_count
+#: model:ir.model.fields,field_description:sale.field_sale_order__message_attachment_count
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_attachment_count
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_attachment_count
+#: model:ir.model.fields,field_description:sms.field_res_partner__message_attachment_count
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_cell_thread__message_attachment_count
+#: model:ir.model.fields,field_description:stock.field_stock_lot__message_attachment_count
+#: model:ir.model.fields,field_description:stock.field_stock_picking__message_attachment_count
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__message_attachment_count
+msgid "Attachment Count"
+msgstr "จำนวนไฟล์แนบ"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization, hr,
+#. mrp, portal, purchase, purchase_request, quality, sale, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,field_description:account.field_account_account__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_journal__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_payment__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__website_message_ids
+#: model:ir.model.fields,field_description:account.field_account_tax__website_message_ids
+#: model:ir.model.fields,field_description:account.field_res_company__website_message_ids
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__website_message_ids
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__website_message_ids
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__website_message_ids
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__website_message_ids
+#: model:ir.model.fields,field_description:account_loans.field_account_loan__website_message_ids
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__website_message_ids
+#: model:ir.model.fields,field_description:hr.field_hr_department__website_message_ids
+#: model:ir.model.fields,field_description:hr.field_hr_employee__website_message_ids
+#: model:ir.model.fields,field_description:hr.field_hr_job__website_message_ids
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__website_message_ids
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__website_message_ids
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__website_message_ids
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__website_message_ids
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_analytic_account__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_team__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_team_member__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_discuss_channel__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_extract_mixin__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_iap_account__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_blacklist__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread_blacklist__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread_cc__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread_main_attachment__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread_phone__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_phone_blacklist__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_category__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_pricelist__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_product__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_template__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_res_users__website_message_ids
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__website_message_ids
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__website_message_ids
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__website_message_ids
+#: model:ir.model.fields,field_description:quality.field_quality_alert__website_message_ids
+#: model:ir.model.fields,field_description:quality.field_quality_alert_team__website_message_ids
+#: model:ir.model.fields,field_description:quality.field_quality_check__website_message_ids
+#: model:ir.model.fields,field_description:quality.field_quality_point__website_message_ids
+#: model:ir.model.fields,field_description:sale.field_sale_order__website_message_ids
+#: model:ir.model.fields,field_description:sms.field_res_partner__website_message_ids
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_cell_thread__website_message_ids
+#: model:ir.model.fields,field_description:stock.field_stock_lot__website_message_ids
+#: model:ir.model.fields,field_description:stock.field_stock_picking__website_message_ids
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__website_message_ids
+msgid "Website Messages"
+msgstr "ข้อความจากเว็บไซต์"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__name
+msgid "Request Reference"
+msgstr "เอกสารอ้างอิงคำขอ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__is_name_editable
+msgid "Is Name Editable"
+msgstr "สามารถแก้ไขชื่อได้"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__requested_by
+msgid "Requested By"
+msgstr "ร้องขอโดย"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__assigned_to
+msgid "Approver"
+msgstr "ผู้อนุมัติ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__line_ids
+msgid "Products to Purchase"
+msgstr "สินค้าที่จะซื้อ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__to_approve_allowed
+msgid "To Approve Allowed"
+msgstr "อนุญาตให้อนุมัติ"
+
+#. modules: purchase_request, stock_barcode_mrp
+#: model:ir.model,name:stock_barcode_mrp.model_stock_picking_type
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__picking_type_id
+msgid "Picking Type"
+msgstr "ประเภทการเบิก"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__line_count
+msgid "Purchase Request Line count"
+msgstr "จำนวนรายการคำขอซื้อ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__purchase_count
+msgid "Purchases count"
+msgstr "จำนวนการสั่งซื้อ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__estimated_cost
+msgid "Total Estimated Cost"
+msgstr "ต้นทุนประมาณการรวม"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__date_required
+msgid "Request Date"
+msgstr "วันที่ต้องการ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__specifications
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_form
+#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_line_details
+msgid "Specifications"
+msgstr "รายละเอียดคุณสมบัติ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__request_state
+msgid "Request state"
+msgstr "สถานะคำขอ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__supplier_id
+msgid "Preferred supplier"
+msgstr "ผู้ขายที่ต้องการ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__purchased_qty
+msgid "RFQ/PO Qty"
+msgstr "จำนวนใน RFQ/PO"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__purchase_state
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
+msgid "Purchase Status"
+msgstr "สถานะการซื้อ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__move_dest_ids
+msgid "Downstream Moves"
+msgstr "การเคลื่อนไหวปลายทาง"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__qty_in_progress
+msgid "Qty In Progress"
+msgstr "จำนวนที่กำลังดำเนินการ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__qty_cancelled
+msgid "Qty Cancelled"
+msgstr "จำนวนที่ยกเลิก"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__qty_to_buy
+msgid "There is some pending qty to buy"
+msgstr "มีจำนวนค้างซื้อ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__pending_qty_to_receive
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_request_line_search
+msgid "Pending Qty to Receive"
+msgstr "จำนวนค้างรับ"
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__estimated_cost
+msgid "Estimated Cost"
+msgstr "ต้นทุนประมาณการ"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,field_description:account.field_account_account__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_journal__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_payment__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__message_has_error
+#: model:ir.model.fields,field_description:account.field_account_tax__message_has_error
+#: model:ir.model.fields,field_description:account.field_res_company__message_has_error
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__message_has_error
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__message_has_error
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__message_has_error
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__message_has_error
+#: model:ir.model.fields,field_description:account_loans.field_account_loan__message_has_error
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__message_has_error
+#: model:ir.model.fields,field_description:analytic.field_account_analytic_account__message_has_error
+#: model:ir.model.fields,field_description:hr.field_hr_department__message_has_error
+#: model:ir.model.fields,field_description:hr.field_hr_employee__message_has_error
+#: model:ir.model.fields,field_description:hr.field_hr_job__message_has_error
+#: model:ir.model.fields,field_description:iap_extract.field_extract_mixin__message_has_error
+#: model:ir.model.fields,field_description:iap_mail.field_iap_account__message_has_error
+#: model:ir.model.fields,field_description:mail.field_discuss_channel__message_has_error
+#: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_has_error
+#: model:ir.model.fields,field_description:mail.field_mail_thread__message_has_error
+#: model:ir.model.fields,field_description:mail.field_mail_thread_blacklist__message_has_error
+#: model:ir.model.fields,field_description:mail.field_mail_thread_cc__message_has_error
+#: model:ir.model.fields,field_description:mail.field_mail_thread_main_attachment__message_has_error
+#: model:ir.model.fields,field_description:mail.field_res_users__message_has_error
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__message_has_error
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__message_has_error
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__message_has_error
+#: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__message_has_error
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__message_has_error
+#: model:ir.model.fields,field_description:phone_validation.field_mail_thread_phone__message_has_error
+#: model:ir.model.fields,field_description:phone_validation.field_phone_blacklist__message_has_error
+#: model:ir.model.fields,field_description:product.field_product_category__message_has_error
+#: model:ir.model.fields,field_description:product.field_product_pricelist__message_has_error
+#: model:ir.model.fields,field_description:product.field_product_product__message_has_error
+#: model:ir.model.fields,field_description:product.field_product_template__message_has_error
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__message_has_error
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request__message_has_error
+#: model:ir.model.fields,field_description:purchase_request.field_purchase_request_line__message_has_error
+#: model:ir.model.fields,field_description:quality.field_quality_alert__message_has_error
+#: model:ir.model.fields,field_description:quality.field_quality_alert_team__message_has_error
+#: model:ir.model.fields,field_description:quality.field_quality_check__message_has_error
+#: model:ir.model.fields,field_description:quality.field_quality_point__message_has_error
+#: model:ir.model.fields,field_description:sale.field_sale_order__message_has_error
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_has_error
+#: model:ir.model.fields,field_description:sms.field_res_partner__message_has_error
+#: model:ir.model.fields,field_description:spreadsheet_edition.field_spreadsheet_cell_thread__message_has_error
+#: model:ir.model.fields,field_description:stock.field_stock_lot__message_has_error
+#: model:ir.model.fields,field_description:stock.field_stock_picking__message_has_error
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__message_has_error
+msgid "Message Delivery error"
+msgstr "ข้อผิดพลาดในการส่งข้อความ"
+
+# Products
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__description_picking
+#: model:ir.model.fields,field_description:stock.field_product_template__description_picking
+msgid "Description on Picking"
+msgstr "คำอธิบายในใบเบิกสินค้า"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__description_pickingout
+#: model:ir.model.fields,field_description:stock.field_product_template__description_pickingout
+msgid "Description on Delivery Orders"
+msgstr "คำอธิบายในใบส่งของ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__description_pickingin
+#: model:ir.model.fields,field_description:stock.field_product_template__description_pickingin
+msgid "Description on Receptions"
+msgstr "คำอธิบายในใบรับของ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__reordering_max_qty
+#: model:ir.model.fields,field_description:stock.field_product_template__reordering_max_qty
+msgid "Reordering Max Qty"
+msgstr "ปริมาณสูงสุดของการสั่งซื้อซ้ำ"
+
+#. module: mrp
+#: model:ir.actions.act_window,name:mrp.product_open_bom
+#: model:ir.actions.act_window,name:mrp.template_open_bom
+#: model:ir.model.fields,field_description:mrp.field_product_product__bom_ids
+#: model:ir.model.fields,field_description:mrp.field_product_template__bom_ids
+#: model:ir.model.fields,field_description:mrp.field_stock_warehouse_orderpoint__bom_id
+#: model:ir.model.fields.selection,name:mrp.selection__product_document__attached_on_mrp__bom
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_tree_view
+#: model_terms:ir.ui.view,arch_db:mrp.product_product_form_view_bom_button
+#: model_terms:ir.ui.view,arch_db:mrp.product_template_form_view_bom_button
+#: model_terms:ir.ui.view,arch_db:mrp.view_mrp_bom_filter
+msgid "Bill of Materials"
+msgstr "รายการวัสดุ"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_product_product__bom_count
+#: model:ir.model.fields,field_description:mrp.field_product_template__bom_count
+msgid "# Bill of Material"
+msgstr "จำนวน Bill of Material (หรือ จำนวน BOM)"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_product_template__used_in_bom_count
+msgid "# of BoM Where is Used"
+msgstr "จำนวน BOM ที่สินค้านี้ถูกใช้"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_product_product__is_kits
+#: model:ir.model.fields,field_description:mrp.field_product_template__is_kits
+#: model:ir.model.fields,field_description:mrp.field_stock_scrap__product_is_kit
+msgid "Is Kits"
+msgstr "เป็นสินค้าชุด"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__uom_po_id
+#: model:ir.model.fields,field_description:product.field_product_template__uom_po_id
+msgid "Purchase Unit"
+msgstr "หน่วยวัดสำหรับซื้อ"
+
+#. modules: product, stock
+#: model:ir.model.fields,field_description:product.field_product_product__weight_uom_name
+#: model:ir.model.fields,field_description:product.field_product_template__weight_uom_name
+#: model:ir.model.fields,field_description:stock.field_stock_package_type__weight_uom_name
+msgid "Weight unit of measure label"
+msgstr "ฉลากหน่วยวัดน้ำหนัก"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__cost_currency_id
+#: model:ir.model.fields,field_description:product.field_product_template__cost_currency_id
+msgid "Cost Currency"
+msgstr "สกุลเงินต้นทุน"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_pricelist_item__product_variant_count
+#: model:ir.model.fields,field_description:product.field_product_product__product_variant_count
+#: model:ir.model.fields,field_description:product.field_product_template__product_variant_count
+msgid "# Product Variants"
+msgstr "# จำนวนตัวเลือกสินค้า"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__expense_policy
+#: model:ir.model.fields,field_description:sale.field_product_template__expense_policy
+msgid "Re-Invoice Costs"
+msgstr "นโยบายการออกใบแจ้งหนี้ค่าใช้จ่ายซ้ำ"
+
+#. modules: sale, sale_management
+#: model:ir.model.fields,field_description:sale.field_product_product__optional_product_ids
+#: model:ir.model.fields,field_description:sale.field_product_template__optional_product_ids
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__sale_order_template_option_ids
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_form_quote
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Optional Products"
+msgstr "สินค้าทางเลือก"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_payment_term__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_product_product__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_product_template__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_res_currency__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_res_partner__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_res_users__fiscal_country_codes
+#: model:ir.model.fields,field_description:account.field_uom_uom__fiscal_country_codes
+msgid "Fiscal Country Codes"
+msgstr "รหัสประเทศทางภาษี"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_product_product__tax_string
+#: model:ir.model.fields,field_description:account.field_product_template__tax_string
+msgid "Tax String"
+msgstr "ข้อความภาษี"
+
+#. modules: mrp, stock
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__production_location_id
+#: model:ir.model.fields,field_description:stock.field_product_product__property_stock_production
+#: model:ir.model.fields,field_description:stock.field_product_template__property_stock_production
+msgid "Production Location"
+msgstr "สถานที่ผลิต"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__property_stock_inventory
+#: model:ir.model.fields,field_description:stock.field_product_template__property_stock_inventory
+msgid "Inventory Location"
+msgstr "สถานที่จัดเก็บ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__nbr_moves_in
+#: model:ir.model.fields,field_description:stock.field_product_template__nbr_moves_in
+msgid "Nbr Moves In"
+msgstr "จำนวนย้ายเข้า"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__nbr_moves_out
+#: model:ir.model.fields,field_description:stock.field_product_template__nbr_moves_out
+msgid "Nbr Moves Out"
+msgstr "จำนวนย้ายออก"
+
+#. module: stock_account
+#: model:ir.model.fields,field_description:stock_account.field_product_product__lot_valuated
+#: model:ir.model.fields,field_description:stock_account.field_product_template__lot_valuated
+msgid "Valuation by Lot/Serial number"
+msgstr "การประเมินมูลค่าตามล็อต/ซีเรียล"
+
+#. module: sale_purchase
+#: model:ir.model.fields,field_description:sale_purchase.field_product_product__service_to_purchase
+#: model:ir.model.fields,field_description:sale_purchase.field_product_template__service_to_purchase
+msgid "Subcontract Service"
+msgstr "บริการจ้างเหมาช่วง"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__visible_expense_policy
+#: model:ir.model.fields,field_description:sale.field_product_template__visible_expense_policy
+msgid "Re-Invoice Policy visible"
+msgstr "แสดงนโยบายการออกใบแจ้งหนี้ซ้ำ"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__invoice_policy
+#: model:ir.model.fields,field_description:sale.field_product_template__invoice_policy
+#: model:ir.model.fields,field_description:sale.field_res_config_settings__default_invoice_policy
+msgid "Invoicing Policy"
+msgstr "นโยบายการออกใบแจ้งหนี้"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__free_qty
+msgid "Free To Use Quantity "
+msgstr "ปริมาณที่พร้อมใช้งาน"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__combination_indices
+msgid "Combination Indices"
+msgstr "ดัชนีการรวมคุณสมบัติ"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__sale_line_warn_msg
+#: model:ir.model.fields,field_description:sale.field_product_template__sale_line_warn_msg
+msgid "Message for Sales Order Line"
+msgstr "ข้อความสำหรับรายการคำสั่งขาย"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_product_product__stock_quant_ids
+#: model_terms:ir.ui.view,arch_db:stock.stock_quant_view_graph
+msgid "Stock Quant"
+msgstr "ปริมาณสินค้าคงคลัง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_picking__move_ids_without_package
+msgid "Stock move"
+msgstr "การเคลื่อนไหวสต็อก"
+
+#. module: stock
+#. odoo-python
+#: code:addons/stock/models/product.py:0
+#: model:ir.actions.act_window,name:stock.category_open_putaway
+#: model:ir.actions.act_window,name:stock.location_open_putaway
+#: model:ir.model.fields,field_description:stock.field_product_category__putaway_rule_ids
+#: model:ir.model.fields,field_description:stock.field_product_product__putaway_rule_ids
+#: model:ir.model.fields,field_description:stock.field_stock_location__putaway_rule_ids
+#: model:ir.ui.menu,name:stock.menu_putaway
+#: model_terms:ir.ui.view,arch_db:stock.product_category_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:stock.product_product_view_form_easy_inherit_stock
+#: model_terms:ir.ui.view,arch_db:stock.stock_putaway_list
+#: model_terms:ir.ui.view,arch_db:stock.view_location_form
+#: model_terms:ir.ui.view,arch_db:stock.view_putaway_search
+msgid "Putaway Rules"
+msgstr "กฎการจัดเก็บ"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_product_product__variant_bom_ids
+msgid "BOM Product Variants"
+msgstr "ตัวเลือกย่อยสินค้า BOM"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_product_product__purchase_order_line_ids
+msgid "PO Lines"
+msgstr "รายการใบสั่งซื้อ"
+
+# Manufacturing
+
+#. modules: account, stock
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__move_id
+#: model:ir.model.fields,field_description:account.field_account_move_reversal__move_ids
+#: model:ir.model.fields,field_description:account.field_account_move_send_batch_wizard__move_ids
+#: model:ir.model.fields,field_description:account.field_account_move_send_wizard__move_id
+#: model:ir.model.fields,field_description:account.field_account_resequence_wizard__move_ids
+#: model:ir.model.fields,field_description:account.field_validate_account_move__move_ids
+#: model:ir.model.fields,field_description:stock.field_product_label_layout__move_ids
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__move_ids
+#: model:ir.model.fields,field_description:stock.field_stock_return_picking_line__move_id
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__move_ids
+msgid "Move"
+msgstr "รายการย้าย"
+
+#. modules: purchase_request, quality, stock
+#: model:ir.model.fields,field_description:quality.field_quality_alert__picking_id
+#: model:ir.model.fields,field_description:quality.field_quality_check__picking_id
+#: model:ir.model.fields,field_description:stock.field_picking_label_type__picking_ids
+#: model:ir.model.fields,field_description:stock.field_stock_lot_report__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_package_destination__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_return_picking__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__picking_id
+#: model_terms:ir.ui.view,arch_db:purchase_request.view_purchase_request_form
+#: model_terms:ir.ui.view,arch_db:stock.view_move_search
+msgid "Picking"
+msgstr "การเบิกสินค้า"
+
+#. modules: stock, stock_barcode
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__scrap_location_id
+#: model_terms:ir.ui.view,arch_db:stock.stock_scrap_search_view
+#: model_terms:ir.ui.view,arch_db:stock_barcode.scrap_product_selector
+msgid "Scrap Location"
+msgstr "ตำแหน่งเศษซาก (Scrap)"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_scrap__scrap_reason_tag_ids
+msgid "Scrap Reason"
+msgstr "เหตุผลการตัดจำหน่าย (Scrap)"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__picking_ids
+msgid "Picking associated to this manufacturing order"
+msgstr "การเบิกสินค้าที่เกี่ยวข้องใบสั่งผลิตนี้"
+
+#. modules: mrp, mrp_workorder
+#: model:ir.model.fields,field_description:mrp.field_mrp_consumption_warning__consumption
+#: model:ir.model.fields,field_description:mrp.field_mrp_consumption_warning_line__consumption
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__consumption
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__consumption
+#: model:ir.model.fields,field_description:mrp_workorder.field_quality_check__consumption
+msgid "Consumption"
+msgstr "การเบิกใช้"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__mrp_production_backorder_count
+msgid "Count of linked backorder"
+msgstr "จำนวน Backorder (สั่งซื้อค้างส่ง) ที่เชื่อมโยง"
+
+#. modules: quality, stock
+#: model:ir.model.fields,field_description:quality.field_quality_point__picking_type_ids
+#: model_terms:ir.ui.view,arch_db:stock.report_picking_type_label
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_type_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_type_tree
+#: model_terms:ir.ui.view,arch_db:stock.view_warehouse
+msgid "Operation Types"
+msgstr "ประเภทการดำเนินการ"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__all_move_raw_ids
+msgid "All Move Raw"
+msgstr "รายการย้ายวัตถุดิบทั้งหมด"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__all_move_ids
+msgid "All Move"
+msgstr "รายการย้ายทั้งหมด"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__move_byproduct_ids
+msgid "Move Byproduct"
+msgstr "รายการย้ายสินค้าพลอยได้"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__scrap_count
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__scrap_count
+msgid "Scrap Move"
+msgstr "รายการย้ายเศษซาก"
+
+#. modules: mrp, mrp_workorder
+#: model:ir.model,name:mrp_workorder.model_mrp_workcenter
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__workcenter_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__name
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_capacity__workcenter_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_productivity__workcenter_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__workcenter_id
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_production_additional_workorder__workcenter_id
+#: model:ir.model.fields,field_description:mrp_workorder.field_quality_alert__workcenter_id
+#: model:ir.model.fields,field_description:mrp_workorder.field_quality_check__workcenter_id
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_tree_view
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
+#: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_filter
+#: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_workorder_form_view_filter
+#: model_terms:ir.ui.view,arch_db:mrp.view_mrp_workcenter_search
+#: model_terms:ir.ui.view,arch_db:mrp_workorder.quality_alert_view_search_inherit_mrp_workorder
+msgid "Work Center"
+msgstr "ศูนย์การทำงาน"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__unbuild_ids
+msgid "Unbuilds"
+msgstr "การรื้อส่วนประกอบ"
+
+#. modules: account, mrp_workorder
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_production__check_ids
+#: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
+msgid "Checks"
+msgstr "การตรวจสอบ"
+
+#. module: stock_barcode_mrp
+#: model:ir.model.fields,field_description:stock_barcode_mrp.field_mrp_production__move_raw_line_ids
+msgid "Move Raw Line"
+msgstr "รายการย้ายวัตถุดิบ"
+
+#. module: stock_barcode_mrp
+#: model:ir.model.fields,field_description:stock_barcode_mrp.field_mrp_production__move_byproduct_line_ids
+msgid "Move Byproduct Line"
+msgstr "รายการย้ายสินค้าพลอยได้"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__backorder_sequence
+msgid "Backorder Sequence"
+msgstr "ลำดับ Backorder (สั่งซื้อค้างส่ง)"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__location_src_id
+msgid "Components Location"
+msgstr "สถานที่ของส่วนประกอบ"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__location_dest_id
+msgid "Finished Products Location"
+msgstr "สถานที่ของสินค้าสำเร็จรูป"
+
+#. modules: account, account_accountant, account_auto_transfer,
+#. account_online_synchronization, account_payment, base, hr, iap, mail, mrp,
+#. payment, purchase, snailmail, stock
+#: model:ir.model.fields,field_description:account.field_account_lock_exception__state
+#: model:ir.model.fields,field_description:account.field_account_payment__state
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget__state
+#: model:ir.model.fields,field_description:account_auto_transfer.field_account_transfer_model__state
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_bank_statement_line_transient__state
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_journal__account_online_link_state
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__state
+#: model:ir.model.fields,field_description:account_payment.field_account_payment_method_line__payment_provider_state
+#: model:ir.model.fields,field_description:base.field_base_language_export__state
+#: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__state
+#: model:ir.model.fields,field_description:base.field_res_partner__state_id
+#: model:ir.model.fields,field_description:base.field_res_users__state_id
+#: model:ir.model.fields,field_description:base.field_res_users_deletion__state
+#: model:ir.model.fields,field_description:iap.field_iap_account__state
+#: model:ir.model.fields,field_description:mail.field_mail_activity__state
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__state
+#: model:ir.model.fields,field_description:payment.field_payment_provider__state
+#: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_state_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_bill_line_match__state
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__state_id
+#: model:ir.model.fields,field_description:snailmail.field_snailmail_letter_missing_required_fields__state_id
+#: model:ir.model.fields,field_description:stock.field_report_stock_quantity__state
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__state
+#: model_terms:ir.ui.view,arch_db:account.res_company_form_view_onboarding
+#: model_terms:ir.ui.view,arch_db:base.res_partner_view_form_private
+#: model_terms:ir.ui.view,arch_db:base.view_company_form
+#: model_terms:ir.ui.view,arch_db:base.view_country_state_form
+#: model_terms:ir.ui.view,arch_db:base.view_country_state_tree
+#: model_terms:ir.ui.view,arch_db:base.view_partner_address_form
+#: model_terms:ir.ui.view,arch_db:base.view_partner_form
+#: model_terms:ir.ui.view,arch_db:base.view_res_bank_form
+#: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_profile
+#: model_terms:ir.ui.view,arch_db:hr.view_employee_form
+#: model_terms:ir.ui.view,arch_db:mail.discuss_channel_rtc_session_view_form
+#: model_terms:ir.ui.view,arch_db:payment.payment_provider_search
+#: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form
+#: model_terms:ir.ui.view,arch_db:snailmail.snailmail_letter_missing_required_fields
+msgid "State"
+msgstr "สถานะ"
+
+#. modules: mrp, stock
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__propagate_cancel
+#: model:ir.model.fields,field_description:stock.field_stock_move__propagate_cancel
+msgid "Propagate cancel and split"
+msgstr "ส่งผลการยกเลิกและการแยก"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__has_worksheet
+msgid "Has Worksheet"
+msgstr "มีแผ่นงาน"
+
+#. module: mrp_workorder
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_workorder__move_line_ids
+msgid "Moves to Track"
+msgstr "รายการย้ายที่ต้องติดตาม"
+
+#. modules: mrp, mrp_workorder
+#: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__working_state
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__working_state
+#: model:ir.model.fields,field_description:mrp_workorder.field_quality_check__working_state
+msgid "Workcenter Status"
+msgstr "สถานะศูนย์การทำงาน"
+
+#. modules: mrp_workorder, onboarding, web_tour
+#. odoo-javascript
+#: code:addons/web_tour/static/src/tour_service/tour_recorder/tour_recorder.xml:0
+#: model:ir.actions.act_window,name:mrp_workorder.action_mrp_workorder_show_steps
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_workorder__quality_point_count
+#: model_terms:ir.ui.view,arch_db:onboarding.onboarding_onboarding_view_form
+#: model_terms:ir.ui.view,arch_db:web_tour.tour_form
+msgid "Steps"
+msgstr "ขั้นตอน"
+
+#. modules: account, base, mrp_workorder, quality
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_workorder__check_ids
+#: model:ir.model.fields,field_description:mrp_workorder.field_stock_move_line__quality_check_ids
+#: model:ir.model.fields,field_description:quality.field_quality_alert__check_id
+#: model:ir.model.fields,field_description:quality.field_quality_point__check_ids
+#: model:ir.module.category,name:base.module_category_accounting_localizations_check
+#: model_terms:ir.ui.view,arch_db:account.report_hash_integrity
+msgid "Check"
+msgstr "การตรวจสอบ"
+
+#. modules: account_followup, mail, mrp, mrp_workorder, quality,
+#. spreadsheet_dashboard_mrp_account, spreadsheet_dashboard_stock, stock, utm
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_mrp_account/data/files/manufacturing_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_mrp_account/data/files/manufacturing_sample_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/warehouse_operations_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/warehouse_operations_sample_dashboard.json:0
+#: model:ir.model.fields,field_description:account_followup.field_account_followup_followup_line__activity_default_responsible_type
+#: model:ir.model.fields,field_description:account_followup.field_res_partner__followup_responsible_id
+#: model:ir.model.fields,field_description:account_followup.field_res_users__followup_responsible_id
+#: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_user_id
+#: model:ir.model.fields,field_description:mail.field_ir_cron__activity_user_id
+#: model:ir.model.fields,field_description:mail.field_mail_compose_message__res_domain_user_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_production__user_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_production_split_line__user_id
+#: model:ir.model.fields,field_description:mrp_workorder.field_mrp_workorder__user_id
+#: model:ir.model.fields,field_description:quality.field_quality_alert__user_id
+#: model:ir.model.fields,field_description:quality.field_quality_check__user_id
+#: model:ir.model.fields,field_description:quality.field_quality_point__user_id
+#: model:ir.model.fields,field_description:stock.field_product_product__responsible_id
+#: model:ir.model.fields,field_description:stock.field_product_template__responsible_id
+#: model:ir.model.fields,field_description:stock.field_stock_picking__user_id
+#: model:ir.model.fields,field_description:utm.field_utm_campaign__user_id
+#: model_terms:ir.ui.view,arch_db:quality.quality_alert_view_search
+#: model_terms:ir.ui.view,arch_db:utm.view_utm_campaign_view_search
+msgid "Responsible"
+msgstr "ผู้รับผิดชอบ"
+
+# Inventory
+
+#. module: purchase_request
+#: model:ir.model.fields,field_description:purchase_request.field_stock_move__created_purchase_request_line_id
+msgid "Created Purchase Request Line"
+msgstr "รายการคำขอซื้อที่สร้างขึ้น"
+
+#. module: purchase_request
+#: model:ir.actions.act_window,name:purchase_request.action_purchase_request_line_product_tree
+#: model:ir.actions.act_window,name:purchase_request.purchase_request_form_action
+#: model:ir.model.fields,field_description:purchase_request.field_stock_move__purchase_request_ids
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_act
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_pro_mgt
+#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
+msgid "Purchase Requests"
+msgstr "คำขอซื้อ"
+
+#. modules: account, sale, sms, spreadsheet
+#. odoo-javascript
+#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
+#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__name
+#: model:ir.model.fields,field_description:account.field_account_move__name
+#: model:ir.model.fields,field_description:account.field_account_move_line__move_name
+#: model:ir.model.fields,field_description:account.field_account_payment__name
+#: model:ir.model.fields,field_description:sms.field_sms_sms__number
+#: model_terms:ir.ui.view,arch_db:account.view_duplicated_moves_tree_js
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_tree
+msgid "Number"
+msgstr "เลขที่"
+
+#. modules: account, account_asset, account_followup, hr, mail, portal,
+#. purchase, quality, sale, sale_management, stock
+#. odoo-javascript
+#: code:addons/mail/static/src/core/common/message.js:0
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_note
+#: model:ir.model.fields,field_description:account_asset.field_asset_modify__name
+#: model:ir.model.fields,field_description:account_followup.field_account_followup_followup_line__activity_note
+#: model:ir.model.fields,field_description:hr.field_hr_department__note
+#: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_note
+#: model:ir.model.fields,field_description:mail.field_ir_cron__activity_note
+#: model:ir.model.fields,field_description:mail.field_mail_activity__note
+#: model:ir.model.fields,field_description:mail.field_mail_activity_plan_template__note
+#: model:ir.model.fields,field_description:mail.field_mail_activity_schedule__note
+#: model:ir.model.fields,field_description:portal.field_portal_share__note
+#: model:ir.model.fields,field_description:quality.field_quality_check__note
+#: model:ir.model.fields,field_description:quality.field_quality_point__note
+#: model:ir.model.fields.selection,name:account.selection__account_move_line__display_type__line_note
+#: model:ir.model.fields.selection,name:mail.selection__ir_actions_server__mail_post_method__note
+#: model:ir.model.fields.selection,name:purchase.selection__purchase_order_line__display_type__line_note
+#: model:ir.model.fields.selection,name:sale.selection__sale_order_line__display_type__line_note
+#: model:ir.model.fields.selection,name:sale_management.selection__sale_order_template_line__display_type__line_note
+#: model:mail.message.subtype,name:mail.mt_note
+#: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_form
+#: model_terms:ir.ui.view,arch_db:account.view_move_form
+#: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model_terms:ir.ui.view,arch_db:quality.quality_point_view_form
+#: model_terms:ir.ui.view,arch_db:sale.view_order_form
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid "Note"
+msgstr "หมายเหตุ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__never_product_template_attribute_value_ids
+msgid "Never attribute Values"
+msgstr "ค่าคุณสมบัติที่ไม่ใช้"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__description_picking
+msgid "Description of Picking"
+msgstr "คำอธิบายในใบเบิกสินค้า"
+
+#. modules: account, spreadsheet_dashboard_stock, stock, stock_barcode,
+#. stock_sms
+#. odoo-javascript
+#. odoo-python
+#: code:addons/account/wizard/account_automatic_entry_wizard.py:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/operation_analysis_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/warehouse_operations_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/warehouse_operations_sample_dashboard.json:0
+#: model:ir.model,name:stock_sms.model_stock_picking
+#: model:ir.model.fields,field_description:stock.field_stock_backorder_confirmation_line__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_move__picking_id
+#: model:ir.model.fields,field_description:stock.field_stock_move_line__picking_id
+#: model:ir.model.fields,field_description:stock_barcode.field_stock_barcode_cancel_operation__picking_id
+#: model_terms:ir.ui.view,arch_db:stock.stock_move_line_view_search
+#: model_terms:ir.ui.view,arch_db:stock.stock_scrap_search_view
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
+msgid "Transfer"
+msgstr "การโอน"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__scrap_id
+msgid "Scrap operation"
+msgstr "การดำเนินการเศษซาก (Scrap)"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__picking_code
+#: model:ir.model.fields,field_description:stock.field_stock_move_line__picking_code
+#: model:ir.model.fields,field_description:stock.field_stock_package_level__picking_type_code
+#: model:ir.model.fields,field_description:stock.field_stock_picking__picking_type_code
+#: model:ir.model.fields,field_description:stock.field_stock_picking_type__code
+#: model_terms:ir.ui.view,arch_db:stock.view_pickingtype_filter
+msgid "Type of Operation"
+msgstr "ประเภทย่อยการดำเนินการ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__move_lines_count
+msgid "Move Lines Count"
+msgstr "จำนวนรายการย้าย"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__forecast_expected_date
+msgid "Forecasted Expected date"
+msgstr "วันที่คาดการณ์"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_stock_move__should_consume_qty
+msgid "Quantity To Consume"
+msgstr "จำนวนที่ต้องเบิกใช้"
+
+#. modules: spreadsheet_dashboard_stock, stock
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_stock/data/files/operation_analysis_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_stock/data/files/operation_analysis_sample_dashboard.json:0
+#: model:ir.model.fields,field_description:stock.field_stock_move__product_uom_qty
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
+msgid "Demand"
+msgstr "ปริมาณที่ต้องการ"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__location_final_id
+msgid "Final Location"
+msgstr "ตำแหน่งปลายทาง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__move_dest_ids
+#: model_terms:ir.ui.view,arch_db:stock.view_move_form
+msgid "Destination Moves"
+msgstr "รายการย้ายปลายทาง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__move_orig_ids
+msgid "Original Move"
+msgstr "รายการย้ายต้นทาง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__picked
+#: model:ir.model.fields,field_description:stock.field_stock_move_line__picked
+msgid "Picked"
+msgstr "เบิกสินค้าแล้ว"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__procure_method
+#: model:ir.model.fields,field_description:stock.field_stock_rule__procure_method
+msgid "Supply Method"
+msgstr "วิธีการจัดหา"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__scrapped
+msgid "Scrapped"
+msgstr "ตัดจำหน่าย (Scrap)"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__origin_returned_move_id
+msgid "Origin return move"
+msgstr "รายการย้ายคืนต้นทาง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_move__returned_move_ids
+msgid "All returned moves"
+msgstr "รายการย้ายที่ส่งคืนทั้งหมด"
+
+#. modules: mrp, purchase_request, purchase_stock, sale_stock, stock
+#: model:ir.actions.act_window,name:mrp.action_mrp_unbuild_moves
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__move_ids
+#: model:ir.model.fields,field_description:stock.field_stock_picking__move_ids
+#: model:ir.model.fields.selection,name:purchase_stock.selection__purchase_order_line__qty_received_method__stock_moves
+#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order_line__qty_delivered_method__stock_move
+#: model_terms:ir.ui.view,arch_db:purchase_request.purchase_order_line_form2_sub
+#: model_terms:ir.ui.view,arch_db:purchase_stock.purchase_order_line_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:stock.stock_move_line_view_search
+#: model_terms:ir.ui.view,arch_db:stock.view_move_form
+#: model_terms:ir.ui.view,arch_db:stock.view_move_search
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_move_tree
+msgid "Stock Moves"
+msgstr "รายการย้ายสต็อก"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_picking__has_scrap_move
+msgid "Has Scrap Moves"
+msgstr "มีรายการย้ายเศษซาก (Scrap)"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_picking__package_level_ids_details
+msgid "Package Level Ids Details"
+msgstr "รายละเอียด ID ระดับแพ็คเกจ"
+
+#. modules: account, stock
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__sequence_prefix
+#: model:ir.model.fields,field_description:account.field_account_move__sequence_prefix
+#: model:ir.model.fields,field_description:account.field_sequence_mixin__sequence_prefix
+#: model:ir.model.fields,field_description:stock.field_stock_picking_type__sequence_code
+#: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
+msgid "Sequence Prefix"
+msgstr "คำนำหน้าลำดับ"
+
+#. modules: account, account_accountant, account_reports
+#. odoo-javascript
+#: code:addons/account_reports/static/src/components/aged_partner_balance/filter_aging.xml:0
+#: model:account.report.column,name:account_reports.aged_payable_report_invoice_date
+#: model:account.report.column,name:account_reports.aged_receivable_report_invoice_date
+#: model:account.report.column,name:account_reports.customer_statement_report_invoicing_date
+#: model:account.report.column,name:account_reports.followup_report_invoicing_date
+#: model:account.report.column,name:account_reports.partner_ledger_report_invoicing_date
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__invoice_date
+#: model_terms:ir.ui.view,arch_db:account.portal_my_invoices
+#: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_line_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_line_payment_filter
+#: model_terms:ir.ui.view,arch_db:account.view_invoice_tree
+#: model_terms:ir.ui.view,arch_db:account.view_move_form
+#: model_terms:ir.ui.view,arch_db:account.view_move_line_tree
+#: model_terms:ir.ui.view,arch_db:account.view_move_tree
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_account_move_line_list_bank_rec_widget
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_account_move_line_reconcile_search
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_account_move_line_search_bank_rec_widget
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_bank_statement_line_search_bank_rec_widget
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_move_line_reconcile_tree
+msgid "Invoice Date"
+msgstr "วันที่ในใบแจ้งหนี้"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_picking__shipping_volume
+msgid "Volume for Shipping"
+msgstr "ปริมาตรสำหรับการจัดส่ง"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_picking__show_next_pickings
+msgid "Show Next Pickings"
+msgstr "แสดงการเบิกถัดไป"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_stock_picking__days_to_arrive
+msgid "Days To Arrive"
+msgstr "จำนวนวันที่จะมาถึง"
+
+#. module: purchase_stock
+#: model:ir.model.fields,field_description:purchase_stock.field_stock_picking__delay_pass
+msgid "Delay Pass"
+msgstr "ผ่านการหน่วงเวลา"
+
+#. modules: sale_stock, stock
+#. odoo-python
+#: code:addons/stock/models/stock_picking.py:0
+#: model:ir.model.fields,field_description:stock.field_stock_picking__return_ids
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid "Returns"
+msgstr "การส่งคืน"
+
+# account
+
+#. modules: account, account_accountant, account_asset, account_auto_transfer,
+#. account_loans, account_online_synchronization, account_reports,
+#. mrp_account, stock_account
+#: model:account.report.column,name:account_reports.partner_ledger_report_journal_code
+#: model:ir.model,name:account_reports.model_account_journal
+#: model:ir.model.fields,field_description:account.field_account_accrued_orders_wizard__journal_id
+#: model:ir.model.fields,field_description:account.field_account_automatic_entry_wizard__journal_id
+#: model:ir.model.fields,field_description:account.field_account_bank_statement__journal_id
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__journal_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report__journal_id
+#: model:ir.model.fields,field_description:account.field_account_move__journal_id
+#: model:ir.model.fields,field_description:account.field_account_move_line__journal_id
+#: model:ir.model.fields,field_description:account.field_account_move_reversal__journal_id
+#: model:ir.model.fields,field_description:account.field_account_payment__journal_id
+#: model:ir.model.fields,field_description:account.field_account_payment_method_line__journal_id
+#: model:ir.model.fields,field_description:account.field_account_payment_register__journal_id
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_line__journal_id
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__linked_journal_id
+#: model:ir.model.fields,field_description:account_accountant.field_account_reconcile_wizard__journal_id
+#: model:ir.model.fields,field_description:account_accountant.field_bank_rec_widget__st_line_journal_id
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__journal_id
+#: model:ir.model.fields,field_description:account_loans.field_account_loan__journal_id
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_bank_statement_line_transient__journal_id
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_duplicate_transaction_wizard__journal_id
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_missing_transaction_wizard__journal_id
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_account__journal_ids
+#: model:ir.model.fields,field_description:account_online_synchronization.field_account_online_link__journal_ids
+#: model:ir.model.fields,field_description:account_reports.field_account_financial_year_op__account_tax_periodicity_journal_id
+#: model:ir.model.fields,field_description:account_reports.field_account_multicurrency_revaluation_wizard__journal_id
+#: model:ir.model.fields,field_description:account_reports.field_res_company__account_tax_periodicity_journal_id
+#: model:ir.model.fields,field_description:account_reports.field_res_config_settings__account_tax_periodicity_journal_id
+#: model:ir.model.fields,field_description:mrp_account.field_mrp_account_wip_accounting__journal_id
+#: model:ir.model.fields,field_description:stock_account.field_stock_valuation_layer_revaluation__account_journal_id
+#: model_terms:ir.ui.view,arch_db:account.report_hash_integrity
+#: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_journal_search
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_line_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_move_line_payment_filter
+#: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
+#: model_terms:ir.ui.view,arch_db:account.view_bank_statement_search
+#: model_terms:ir.ui.view,arch_db:account_accountant.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_account_move_line_reconcile_search
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_bank_statement_line_search_bank_rec_widget
+#: model_terms:ir.ui.view,arch_db:account_asset.view_account_asset_model_search
+#: model_terms:ir.ui.view,arch_db:account_auto_transfer.view_transfer_model_form
+#: model_terms:ir.ui.view,arch_db:account_online_synchronization.portal_renew_consent
+#: model_terms:ir.ui.view,arch_db:account_reports.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account_reports.setup_financial_year_opening_form
+msgid "Journal"
+msgstr "สมุดรายวัน"
+
+#. modules: account, account_asset, spreadsheet_account,
+#. spreadsheet_dashboard_account_accountant
+#. odoo-javascript
+#. odoo-python
+#: code:addons/account_asset/models/account_assets_report.py:0
+#: code:addons/spreadsheet_account/static/src/account_group_auto_complete.js:0
+#: code:addons/spreadsheet_dashboard_account_accountant/data/files/benchmark_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_account_accountant/data/files/benchmark_sample_dashboard.json:0
+#: model:ir.model.fields,field_description:account_asset.field_account_bank_statement_line__depreciation_value
+#: model:ir.model.fields,field_description:account_asset.field_account_move__depreciation_value
+#: model:ir.model.fields.selection,name:account.selection__account_account__account_type__expense_depreciation
+#: model:ir.model.fields.selection,name:account_asset.selection__account_move__asset_move_type__depreciation
+#: model_terms:ir.ui.view,arch_db:account_asset.view_account_asset_form
+msgid "Depreciation"
+msgstr "ค่าเสื่อมราคา"
+
+#. modules: account_bank_statement_extract, account_invoice_extract,
+#. iap_extract
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__extract_status
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__extract_status
+#: model:ir.model.fields,field_description:iap_extract.field_extract_mixin__extract_status
+msgid "Extract status"
+msgstr "สถานะ Extract"
+
+#. modules: account_bank_statement_extract, account_invoice_extract,
+#. iap_extract
+#: model:ir.model.fields,field_description:account_bank_statement_extract.field_account_bank_statement__extract_state_processed
+#: model:ir.model.fields,field_description:account_invoice_extract.field_account_move__extract_state_processed
+#: model:ir.model.fields,field_description:iap_extract.field_extract_mixin__extract_state_processed
+msgid "Extract State Processed"
+msgstr "สถานะ Extract ที่ดำเนินการแล้ว"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__restrict_mode_hash_table
+#: model:ir.model.fields,field_description:account.field_account_journal__restrict_mode_hash_table
+#: model:ir.model.fields,field_description:account.field_account_move__restrict_mode_hash_table
+msgid "Secure Posted Entries with Hash"
+msgstr "รักษาความปลอดภัยรายการที่โพสต์ด้วย Hash"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__direction_sign
+#: model:ir.model.fields,field_description:account.field_account_move__direction_sign
+msgid "Direction Sign"
+msgstr "เครื่องหมายทิศทาง (ตัวคูณ)"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__is_move_sent
+#: model:ir.model.fields,field_description:account.field_account_move__is_move_sent
+msgid "Is Move Sent"
+msgstr "ส่งรายการแล้ว"
+
+#. modules: account, account_followup, stock
+#. odoo-python
+#: code:addons/account_followup/models/account_followup_report.py:0
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__invoice_origin
+#: model:ir.model.fields,field_description:account.field_account_move__invoice_origin
+#: model:ir.model.fields,field_description:account_followup.field_account_move_line__invoice_origin
+#: model_terms:ir.ui.view,arch_db:stock.view_move_form
+msgid "Origin"
+msgstr "ต้นทาง (หรือ เอกสารต้นทาง)"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__tax_cash_basis_origin_move_id
+#: model:ir.model.fields,field_description:account.field_account_move__tax_cash_basis_origin_move_id
+msgid "Cash Basis Origin"
+msgstr "ต้นทางเกณฑ์เงินสด"
+
+#. module: account_loans
+#: model:ir.model.fields,field_description:account_loans.field_account_bank_statement_line__generating_loan_line_id
+#: model:ir.model.fields,field_description:account_loans.field_account_move__generating_loan_line_id
+msgid "Generating Loan Line"
+msgstr "รายการสินเชื่อที่สร้าง"
+
+#. modules: account, account_accountant, account_asset, account_base_import,
+#. account_disallowed_expenses, account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/account/models/account_lock_exception.py:0
+#: code:addons/account_asset/models/account_asset.py:0
+#: code:addons/account_base_import/static/src/js/account_import_action.js:0
+#: code:addons/account_disallowed_expenses/report/account_disallowed_expenses_report.py:0
+#: code:addons/account_reports/models/account_deferred_reports.py:0
+#: code:addons/account_reports/models/account_report.py:0
+#: code:addons/account_reports/models/account_trial_balance_report.py:0
+#: code:addons/account_reports/models/bank_reconciliation_report.py:0
+#: code:addons/account_reports/static/src/components/general_ledger/line_name.xml:0
+#: code:addons/account_reports/static/src/components/partner_ledger/line_name.xml:0
+#: model:ir.actions.act_window,name:account.action_account_moves_all
+#: model:ir.actions.act_window,name:account.action_account_moves_all_a
+#: model:ir.actions.act_window,name:account.action_account_moves_all_grouped_matching
+#: model:ir.actions.act_window,name:account.action_account_moves_all_tree
+#: model:ir.actions.act_window,name:account.action_move_line_select
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__line_ids
+#: model:ir.model.fields,field_description:account.field_account_move__line_ids
+#: model:ir.model.fields,field_description:account.field_res_partner__journal_item_count
+#: model:ir.model.fields,field_description:account.field_res_users__journal_item_count
+#: model:ir.model.fields,field_description:account_asset.field_account_asset__original_move_line_ids
+#: model:ir.ui.menu,name:account.menu_action_account_moves_all
+#: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
+#: model_terms:ir.ui.view,arch_db:account.view_move_form
+#: model_terms:ir.ui.view,arch_db:account.view_move_line_pivot
+#: model_terms:ir.ui.view,arch_db:account.view_move_line_tree
+#: model_terms:ir.ui.view,arch_db:account_accountant.view_move_line_reconcile_tree
+msgid "Journal Items"
+msgstr "รายการสมุดรายวัน"
+
+#. modules: account, account_asset, account_online_synchronization, hr, mail,
+#. mrp, mrp_workorder, product, purchase, purchase_request, quality, sale,
+#. stock
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__activity_exception_icon
+#: model:ir.model.fields,help:account.field_account_journal__activity_exception_icon
+#: model:ir.model.fields,help:account.field_account_move__activity_exception_icon
+#: model:ir.model.fields,help:account.field_account_payment__activity_exception_icon
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__activity_exception_icon
+#: model:ir.model.fields,help:account.field_res_partner_bank__activity_exception_icon
+#: model:ir.model.fields,help:account_asset.field_account_asset__activity_exception_icon
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__activity_exception_icon
+#: model:ir.model.fields,help:hr.field_hr_department__activity_exception_icon
+#: model:ir.model.fields,help:hr.field_hr_employee__activity_exception_icon
+#: model:ir.model.fields,help:mail.field_mail_activity_mixin__activity_exception_icon
+#: model:ir.model.fields,help:mail.field_res_partner__activity_exception_icon
+#: model:ir.model.fields,help:mail.field_res_users__activity_exception_icon
+#: model:ir.model.fields,help:mrp.field_mrp_production__activity_exception_icon
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__activity_exception_icon
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__activity_exception_icon
+#: model:ir.model.fields,help:mrp_workorder.field_mrp_bom__activity_exception_icon
+#: model:ir.model.fields,help:product.field_product_pricelist__activity_exception_icon
+#: model:ir.model.fields,help:product.field_product_product__activity_exception_icon
+#: model:ir.model.fields,help:product.field_product_template__activity_exception_icon
+#: model:ir.model.fields,help:purchase.field_purchase_order__activity_exception_icon
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__activity_exception_icon
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__activity_exception_icon
+#: model:ir.model.fields,help:quality.field_quality_alert__activity_exception_icon
+#: model:ir.model.fields,help:quality.field_quality_check__activity_exception_icon
+#: model:ir.model.fields,help:sale.field_sale_order__activity_exception_icon
+#: model:ir.model.fields,help:stock.field_stock_lot__activity_exception_icon
+#: model:ir.model.fields,help:stock.field_stock_picking__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ไอคอนเพื่อระบุกิจกรรมที่เป็นข้อยกเว้น"
+
+#. module: account
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__is_being_sent
+#: model:ir.model.fields,help:account.field_account_move__is_being_sent
+msgid "Is the move being sent asynchronously"
+msgstr "รายการ (move) ถูกส่งแบบอะซิงโครนัสหรือไม่"
+
+#. module: account
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__bank_partner_id
+#: model:ir.model.fields,help:account.field_account_move__bank_partner_id
+msgid "Technical field to get the domain on the bank"
+msgstr "ฟิลด์ทางเทคนิคสำหรับดึงขอบเขตข้อมูล (domain) ของธนาคาร"
+
+#. modules: account, account_asset, account_online_synchronization, hr, mail,
+#. mrp, mrp_workorder, product, purchase, purchase_request, quality, sale,
+#. stock
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__activity_exception_decoration
+#: model:ir.model.fields,help:account.field_account_journal__activity_exception_decoration
+#: model:ir.model.fields,help:account.field_account_move__activity_exception_decoration
+#: model:ir.model.fields,help:account.field_account_payment__activity_exception_decoration
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__activity_exception_decoration
+#: model:ir.model.fields,help:account.field_res_partner_bank__activity_exception_decoration
+#: model:ir.model.fields,help:account_asset.field_account_asset__activity_exception_decoration
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__activity_exception_decoration
+#: model:ir.model.fields,help:hr.field_hr_department__activity_exception_decoration
+#: model:ir.model.fields,help:hr.field_hr_employee__activity_exception_decoration
+#: model:ir.model.fields,help:mail.field_mail_activity_mixin__activity_exception_decoration
+#: model:ir.model.fields,help:mail.field_res_partner__activity_exception_decoration
+#: model:ir.model.fields,help:mail.field_res_users__activity_exception_decoration
+#: model:ir.model.fields,help:mrp.field_mrp_production__activity_exception_decoration
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__activity_exception_decoration
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__activity_exception_decoration
+#: model:ir.model.fields,help:mrp_workorder.field_mrp_bom__activity_exception_decoration
+#: model:ir.model.fields,help:product.field_product_pricelist__activity_exception_decoration
+#: model:ir.model.fields,help:product.field_product_product__activity_exception_decoration
+#: model:ir.model.fields,help:product.field_product_template__activity_exception_decoration
+#: model:ir.model.fields,help:purchase.field_purchase_order__activity_exception_decoration
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__activity_exception_decoration
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__activity_exception_decoration
+#: model:ir.model.fields,help:quality.field_quality_alert__activity_exception_decoration
+#: model:ir.model.fields,help:quality.field_quality_check__activity_exception_decoration
+#: model:ir.model.fields,help:sale.field_sale_order__activity_exception_decoration
+#: model:ir.model.fields,help:stock.field_stock_lot__activity_exception_decoration
+#: model:ir.model.fields,help:stock.field_stock_picking__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "ประเภทของกิจกรรมที่เป็นข้อยกเว้นในเอกสารนี้"
+
+#. module: account
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__auto_post_until
+#: model:ir.model.fields,help:account.field_account_move__auto_post_until
+msgid "This recurring move will be posted up to and including this date."
+msgstr "รายการ (move) ที่เกิดซ้ำนี้ จะถูกผ่านรายการจนถึงและรวมถึงวันนี้ด้วย"
+
+#. module: account_loans
+#: model:ir.model.fields,help:account_loans.field_account_bank_statement_line__generating_loan_line_id
+#: model:ir.model.fields,help:account_loans.field_account_move__generating_loan_line_id
+msgid "Line of the loan that generated this entry"
+msgstr "รายการสินเชื่อที่ก่อให้เกิดรายการนี้"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_account_bank_statement_line__purchase_vendor_bill_id
+#: model:ir.model.fields,help:purchase.field_account_move__purchase_vendor_bill_id
+msgid "Auto-complete from a past bill / purchase order."
+msgstr "เติมข้อความอัตโนมัติจากใบเรียกเก็บเงิน"
+
+# help_products
+
+#. modules: account, account_asset, account_online_synchronization, hr, mail,
+#. mrp, mrp_workorder, product, purchase, purchase_request, quality, sale,
+#. stock
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__activity_type_icon
+#: model:ir.model.fields,help:account.field_account_journal__activity_type_icon
+#: model:ir.model.fields,help:account.field_account_move__activity_type_icon
+#: model:ir.model.fields,help:account.field_account_payment__activity_type_icon
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__activity_type_icon
+#: model:ir.model.fields,help:account.field_res_partner_bank__activity_type_icon
+#: model:ir.model.fields,help:account_asset.field_account_asset__activity_type_icon
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__activity_type_icon
+#: model:ir.model.fields,help:hr.field_hr_department__activity_type_icon
+#: model:ir.model.fields,help:hr.field_hr_employee__activity_type_icon
+#: model:ir.model.fields,help:mail.field_mail_activity__icon
+#: model:ir.model.fields,help:mail.field_mail_activity_mixin__activity_type_icon
+#: model:ir.model.fields,help:mail.field_mail_activity_plan_template__icon
+#: model:ir.model.fields,help:mail.field_mail_activity_type__icon
+#: model:ir.model.fields,help:mail.field_res_partner__activity_type_icon
+#: model:ir.model.fields,help:mail.field_res_users__activity_type_icon
+#: model:ir.model.fields,help:mrp.field_mrp_production__activity_type_icon
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__activity_type_icon
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__activity_type_icon
+#: model:ir.model.fields,help:mrp_workorder.field_mrp_bom__activity_type_icon
+#: model:ir.model.fields,help:product.field_product_pricelist__activity_type_icon
+#: model:ir.model.fields,help:product.field_product_product__activity_type_icon
+#: model:ir.model.fields,help:product.field_product_template__activity_type_icon
+#: model:ir.model.fields,help:purchase.field_purchase_order__activity_type_icon
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__activity_type_icon
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__activity_type_icon
+#: model:ir.model.fields,help:quality.field_quality_alert__activity_type_icon
+#: model:ir.model.fields,help:quality.field_quality_check__activity_type_icon
+#: model:ir.model.fields,help:sale.field_sale_order__activity_type_icon
+#: model:ir.model.fields,help:stock.field_stock_lot__activity_type_icon
+#: model:ir.model.fields,help:stock.field_stock_picking__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "ไอคอน Font awesome เช่น fa-tasks"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,help:account.field_account_account__message_needaction
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__message_needaction
+#: model:ir.model.fields,help:account.field_account_journal__message_needaction
+#: model:ir.model.fields,help:account.field_account_payment__message_needaction
+#: model:ir.model.fields,help:account.field_account_reconcile_model__message_needaction
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__message_needaction
+#: model:ir.model.fields,help:account.field_account_tax__message_needaction
+#: model:ir.model.fields,help:account.field_res_company__message_needaction
+#: model:ir.model.fields,help:account.field_res_partner_bank__message_needaction
+#: model:ir.model.fields,help:account_asset.field_account_asset__message_needaction
+#: model:ir.model.fields,help:account_bank_statement_extract.field_account_bank_statement__message_needaction
+#: model:ir.model.fields,help:account_invoice_extract.field_account_move__message_needaction
+#: model:ir.model.fields,help:account_loans.field_account_loan__message_needaction
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__message_needaction
+#: model:ir.model.fields,help:analytic.field_account_analytic_account__message_needaction
+#: model:ir.model.fields,help:hr.field_hr_department__message_needaction
+#: model:ir.model.fields,help:hr.field_hr_employee__message_needaction
+#: model:ir.model.fields,help:hr.field_hr_job__message_needaction
+#: model:ir.model.fields,help:iap_extract.field_extract_mixin__message_needaction
+#: model:ir.model.fields,help:iap_mail.field_iap_account__message_needaction
+#: model:ir.model.fields,help:mail.field_discuss_channel__message_needaction
+#: model:ir.model.fields,help:mail.field_mail_blacklist__message_needaction
+#: model:ir.model.fields,help:mail.field_mail_thread__message_needaction
+#: model:ir.model.fields,help:mail.field_mail_thread_blacklist__message_needaction
+#: model:ir.model.fields,help:mail.field_mail_thread_cc__message_needaction
+#: model:ir.model.fields,help:mail.field_mail_thread_main_attachment__message_needaction
+#: model:ir.model.fields,help:mail.field_res_users__message_needaction
+#: model:ir.model.fields,help:mrp.field_mrp_bom__message_needaction
+#: model:ir.model.fields,help:mrp.field_mrp_production__message_needaction
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__message_needaction
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__message_needaction
+#: model:ir.model.fields,help:mrp.field_mrp_workcenter__message_needaction
+#: model:ir.model.fields,help:phone_validation.field_mail_thread_phone__message_needaction
+#: model:ir.model.fields,help:phone_validation.field_phone_blacklist__message_needaction
+#: model:ir.model.fields,help:product.field_product_category__message_needaction
+#: model:ir.model.fields,help:product.field_product_pricelist__message_needaction
+#: model:ir.model.fields,help:product.field_product_product__message_needaction
+#: model:ir.model.fields,help:product.field_product_template__message_needaction
+#: model:ir.model.fields,help:purchase.field_purchase_order__message_needaction
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_needaction
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_needaction
+#: model:ir.model.fields,help:quality.field_quality_alert__message_needaction
+#: model:ir.model.fields,help:quality.field_quality_alert_team__message_needaction
+#: model:ir.model.fields,help:quality.field_quality_check__message_needaction
+#: model:ir.model.fields,help:quality.field_quality_point__message_needaction
+#: model:ir.model.fields,help:sale.field_sale_order__message_needaction
+#: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_needaction
+#: model:ir.model.fields,help:sms.field_res_partner__message_needaction
+#: model:ir.model.fields,help:spreadsheet_edition.field_spreadsheet_cell_thread__message_needaction
+#: model:ir.model.fields,help:stock.field_stock_lot__message_needaction
+#: model:ir.model.fields,help:stock.field_stock_picking__message_needaction
+#: model:ir.model.fields,help:stock.field_stock_scrap__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "หากเลือกไว้, ข้อความใหม่ต้องการการดำเนินการจากคุณ"
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,help:account.field_account_account__message_has_error
+#: model:ir.model.fields,help:account.field_account_account__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__message_has_error
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_journal__message_has_error
+#: model:ir.model.fields,help:account.field_account_journal__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_payment__message_has_error
+#: model:ir.model.fields,help:account.field_account_payment__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_reconcile_model__message_has_error
+#: model:ir.model.fields,help:account.field_account_reconcile_model__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__message_has_error
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__message_has_sms_error
+#: model:ir.model.fields,help:account.field_account_tax__message_has_error
+#: model:ir.model.fields,help:account.field_account_tax__message_has_sms_error
+#: model:ir.model.fields,help:account.field_res_company__message_has_error
+#: model:ir.model.fields,help:account.field_res_company__message_has_sms_error
+#: model:ir.model.fields,help:account.field_res_partner_bank__message_has_error
+#: model:ir.model.fields,help:account.field_res_partner_bank__message_has_sms_error
+#: model:ir.model.fields,help:account_asset.field_account_asset__message_has_error
+#: model:ir.model.fields,help:account_asset.field_account_asset__message_has_sms_error
+#: model:ir.model.fields,help:account_bank_statement_extract.field_account_bank_statement__message_has_error
+#: model:ir.model.fields,help:account_bank_statement_extract.field_account_bank_statement__message_has_sms_error
+#: model:ir.model.fields,help:account_invoice_extract.field_account_move__message_has_error
+#: model:ir.model.fields,help:account_invoice_extract.field_account_move__message_has_sms_error
+#: model:ir.model.fields,help:account_loans.field_account_loan__message_has_error
+#: model:ir.model.fields,help:account_loans.field_account_loan__message_has_sms_error
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__message_has_error
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__message_has_sms_error
+#: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error
+#: model:ir.model.fields,help:hr.field_hr_department__message_has_error
+#: model:ir.model.fields,help:hr.field_hr_department__message_has_sms_error
+#: model:ir.model.fields,help:hr.field_hr_employee__message_has_error
+#: model:ir.model.fields,help:hr.field_hr_employee__message_has_sms_error
+#: model:ir.model.fields,help:hr.field_hr_job__message_has_error
+#: model:ir.model.fields,help:hr.field_hr_job__message_has_sms_error
+#: model:ir.model.fields,help:iap_extract.field_extract_mixin__message_has_error
+#: model:ir.model.fields,help:iap_mail.field_iap_account__message_has_error
+#: model:ir.model.fields,help:mail.field_discuss_channel__message_has_error
+#: model:ir.model.fields,help:mail.field_mail_blacklist__message_has_error
+#: model:ir.model.fields,help:mail.field_mail_thread__message_has_error
+#: model:ir.model.fields,help:mail.field_mail_thread_blacklist__message_has_error
+#: model:ir.model.fields,help:mail.field_mail_thread_cc__message_has_error
+#: model:ir.model.fields,help:mail.field_mail_thread_main_attachment__message_has_error
+#: model:ir.model.fields,help:mail.field_res_users__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_bom__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_bom__message_has_sms_error
+#: model:ir.model.fields,help:mrp.field_mrp_production__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_production__message_has_sms_error
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__message_has_sms_error
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__message_has_sms_error
+#: model:ir.model.fields,help:mrp.field_mrp_workcenter__message_has_error
+#: model:ir.model.fields,help:mrp.field_mrp_workcenter__message_has_sms_error
+#: model:ir.model.fields,help:phone_validation.field_mail_thread_phone__message_has_error
+#: model:ir.model.fields,help:phone_validation.field_phone_blacklist__message_has_error
+#: model:ir.model.fields,help:product.field_product_category__message_has_error
+#: model:ir.model.fields,help:product.field_product_pricelist__message_has_error
+#: model:ir.model.fields,help:product.field_product_product__message_has_error
+#: model:ir.model.fields,help:product.field_product_template__message_has_error
+#: model:ir.model.fields,help:purchase.field_purchase_order__message_has_error
+#: model:ir.model.fields,help:purchase.field_purchase_order__message_has_sms_error
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_error
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_sms_error
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_error
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_sms_error
+#: model:ir.model.fields,help:quality.field_quality_alert__message_has_error
+#: model:ir.model.fields,help:quality.field_quality_alert__message_has_sms_error
+#: model:ir.model.fields,help:quality.field_quality_alert_team__message_has_error
+#: model:ir.model.fields,help:quality.field_quality_alert_team__message_has_sms_error
+#: model:ir.model.fields,help:quality.field_quality_check__message_has_error
+#: model:ir.model.fields,help:quality.field_quality_check__message_has_sms_error
+#: model:ir.model.fields,help:quality.field_quality_point__message_has_error
+#: model:ir.model.fields,help:quality.field_quality_point__message_has_sms_error
+#: model:ir.model.fields,help:sale.field_sale_order__message_has_error
+#: model:ir.model.fields,help:sale.field_sale_order__message_has_sms_error
+#: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_has_error
+#: model:ir.model.fields,help:sms.field_account_analytic_account__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_crm_team__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_crm_team_member__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_discuss_channel__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_extract_mixin__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_iap_account__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_blacklist__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_thread__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_thread_blacklist__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_thread_cc__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_thread_main_attachment__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_mail_thread_phone__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_phone_blacklist__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_product_category__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_product_pricelist__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_product_product__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_product_template__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_res_partner__message_has_error
+#: model:ir.model.fields,help:sms.field_res_partner__message_has_sms_error
+#: model:ir.model.fields,help:sms.field_res_users__message_has_sms_error
+#: model:ir.model.fields,help:spreadsheet_edition.field_spreadsheet_cell_thread__message_has_error
+#: model:ir.model.fields,help:spreadsheet_edition.field_spreadsheet_cell_thread__message_has_sms_error
+#: model:ir.model.fields,help:stock.field_stock_lot__message_has_error
+#: model:ir.model.fields,help:stock.field_stock_lot__message_has_sms_error
+#: model:ir.model.fields,help:stock.field_stock_picking__message_has_error
+#: model:ir.model.fields,help:stock.field_stock_picking__message_has_sms_error
+#: model:ir.model.fields,help:stock.field_stock_scrap__message_has_error
+#: model:ir.model.fields,help:stock.field_stock_scrap__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "หากเลือกไว้, บางข้อความมีข้อผิดพลาดในการจัดส่ง"
+
+# help_purchase_order
+
+#. modules: account, purchase, sale
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__company_price_include
+#: model:ir.model.fields,help:account.field_account_move__company_price_include
+#: model:ir.model.fields,help:account.field_account_tax__company_price_include
+#: model:ir.model.fields,help:account.field_res_company__account_price_include
+#: model:ir.model.fields,help:account.field_res_config_settings__account_price_include
+#: model:ir.model.fields,help:purchase.field_purchase_order__company_price_include
+#: model:ir.model.fields,help:sale.field_sale_order__company_price_include
+#: model:ir.model.fields,help:sale.field_sale_order_line__company_price_include
+msgid ""
+"Default on whether the sales price used on the product and invoices with "
+"this Company includes its taxes."
+msgstr ""
+"ค่าเริ่มต้นที่กำหนดว่าราคาขายที่ใช้กับสินค้าและใบแจ้งหนี้ของบริษัทนี้ รวมภาษีไว้แล้วหรือไม่"
+
+#. module: purchase_stock
+#: model:ir.model.fields,help:purchase_stock.field_purchase_order__default_location_dest_id_usage
+msgid "Technical field used to display the Drop Ship Address"
+msgstr "ข้อมูลทางเทคนิคที่ใช้เพื่อแสดงที่อยู่จัดส่งดรอปชิป"
+
+# help_sales_order
+
+#. modules: account, account_asset, account_bank_statement_extract,
+#. account_invoice_extract, account_loans, account_online_synchronization,
+#. analytic, hr, iap_extract, iap_mail, mail, mrp, phone_validation, product,
+#. purchase, purchase_request, quality, sale, sales_team, sms,
+#. spreadsheet_edition, stock
+#: model:ir.model.fields,help:account.field_account_account__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_bank_statement_line__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_journal__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_payment__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_reconcile_model__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__message_has_error_counter
+#: model:ir.model.fields,help:account.field_account_tax__message_has_error_counter
+#: model:ir.model.fields,help:account.field_res_company__message_has_error_counter
+#: model:ir.model.fields,help:account.field_res_partner_bank__message_has_error_counter
+#: model:ir.model.fields,help:account_asset.field_account_asset__message_has_error_counter
+#: model:ir.model.fields,help:account_bank_statement_extract.field_account_bank_statement__message_has_error_counter
+#: model:ir.model.fields,help:account_invoice_extract.field_account_move__message_has_error_counter
+#: model:ir.model.fields,help:account_loans.field_account_loan__message_has_error_counter
+#: model:ir.model.fields,help:account_online_synchronization.field_account_online_link__message_has_error_counter
+#: model:ir.model.fields,help:analytic.field_account_analytic_account__message_has_error_counter
+#: model:ir.model.fields,help:hr.field_hr_department__message_has_error_counter
+#: model:ir.model.fields,help:hr.field_hr_employee__message_has_error_counter
+#: model:ir.model.fields,help:hr.field_hr_job__message_has_error_counter
+#: model:ir.model.fields,help:iap_extract.field_extract_mixin__message_has_error_counter
+#: model:ir.model.fields,help:iap_mail.field_iap_account__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_discuss_channel__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_mail_blacklist__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_mail_thread__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_mail_thread_blacklist__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_mail_thread_cc__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_mail_thread_main_attachment__message_has_error_counter
+#: model:ir.model.fields,help:mail.field_res_users__message_has_error_counter
+#: model:ir.model.fields,help:mrp.field_mrp_bom__message_has_error_counter
+#: model:ir.model.fields,help:mrp.field_mrp_production__message_has_error_counter
+#: model:ir.model.fields,help:mrp.field_mrp_routing_workcenter__message_has_error_counter
+#: model:ir.model.fields,help:mrp.field_mrp_unbuild__message_has_error_counter
+#: model:ir.model.fields,help:mrp.field_mrp_workcenter__message_has_error_counter
+#: model:ir.model.fields,help:phone_validation.field_mail_thread_phone__message_has_error_counter
+#: model:ir.model.fields,help:phone_validation.field_phone_blacklist__message_has_error_counter
+#: model:ir.model.fields,help:product.field_product_category__message_has_error_counter
+#: model:ir.model.fields,help:product.field_product_pricelist__message_has_error_counter
+#: model:ir.model.fields,help:product.field_product_product__message_has_error_counter
+#: model:ir.model.fields,help:product.field_product_template__message_has_error_counter
+#: model:ir.model.fields,help:purchase.field_purchase_order__message_has_error_counter
+#: model:ir.model.fields,help:purchase_request.field_purchase_request__message_has_error_counter
+#: model:ir.model.fields,help:purchase_request.field_purchase_request_line__message_has_error_counter
+#: model:ir.model.fields,help:quality.field_quality_alert__message_has_error_counter
+#: model:ir.model.fields,help:quality.field_quality_alert_team__message_has_error_counter
+#: model:ir.model.fields,help:quality.field_quality_check__message_has_error_counter
+#: model:ir.model.fields,help:quality.field_quality_point__message_has_error_counter
+#: model:ir.model.fields,help:sale.field_sale_order__message_has_error_counter
+#: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error_counter
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_has_error_counter
+#: model:ir.model.fields,help:sms.field_res_partner__message_has_error_counter
+#: model:ir.model.fields,help:spreadsheet_edition.field_spreadsheet_cell_thread__message_has_error_counter
+#: model:ir.model.fields,help:stock.field_stock_lot__message_has_error_counter
+#: model:ir.model.fields,help:stock.field_stock_picking__message_has_error_counter
+#: model:ir.model.fields,help:stock.field_stock_scrap__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "จำนวนข้อความที่มีข้อผิดพลาดในการส่ง"
+
+#. module: sale
+#: model:ir.model.fields,help:sale.field_sale_order__reference
+msgid "The payment communication of this sale order."
+msgstr "ข้อความสำหรับการชำระเงินของใบสั่งขายนี้"
+

@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_sale_invoice_pending_payment_form" model="ir.ui.view">
+        <field name="name">sale.invoice.pending.payment.form</field>
+        <field name="model">sale.invoice.pending.payment</field>
+        <field name="arch" type="xml">
+            <form string="Sale Invoice Pending Payment">
+                <group name="selection_criteria">
+                    <group>
+                        <field name="customer_id"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Invoices Pending Payment">
+                        <field name="line_ids" readonly="1">
+                            <list decoration-info="status_in_payment == 'in_payment'">
+                                <field name="currency_id" column_invisible="1"/>
+                                <field name="invoice_name"/>
+                                <field name="customer_name"/>
+                                <field name="datetime_payment_collection"/>
+                                <field name="log_timestamp"/>
+                                <field name="amount_untaxed" sum="Total Tax Excluded"/>
+                                <field name="status_in_payment" widget="badge" decoration-success="status_in_payment == 'paid'" decoration-warning="status_in_payment == 'in_payment'"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="action_account_fixed_asset_report" model="ir.actions.act_window">
+            <field name="name">รายงานสินทรัพย์ถาวร</field>
+            <field name="res_model">account.fixed.asset.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_accounting_fixed_asset_report" name="รายงานสินทรัพย์ถาวร" parent="account_payment_collection_report.account_reports_accounting_reports_menu" sequence="60" action="action_account_fixed_asset_report" groups="account.group_account_user"/>
+
+    </data>
+</odoo>

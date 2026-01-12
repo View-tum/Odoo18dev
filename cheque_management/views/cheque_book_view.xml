@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Cheque Book Pivot View -->
+    <record id="cheque_book_pivot_view" model="ir.ui.view">
+        <field name="name">cheque.book.pivot.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <pivot string="Cheque Book" display_quantity="True" sample="1">
+                <field name="name" type="row"/>
+                <field name="cheque_qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Cheque Book Graph View -->
+    <record id="cheque_book_graph_view" model="ir.ui.view">
+        <field name="name">cheque.book.graph.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <graph string="Cheque Book" sample="1">
+                <field name="name" type="row"/>
+                <field name="cheque_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Cheque Book Calendar View -->
+    <record id="cheque_book_calendar_view" model="ir.ui.view">
+        <field name="name">cheque.book.calendar.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <calendar string="Cheque Book" date_start="date" color="name" hide_time="true" event_limit="5" create="false">
+                <field name="cheque_qty"/>
+                <field name="name" filters="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Cheque Book View -->
+    <record id="cheque_book_activity_view" model="ir.ui.view">
+        <field name="name">cheque.book.activity.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <activity string="Cheque Book">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name" display="full"/>
+                            <field name="cheque_qty" muted="1" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <!-- Cheque Book Kanban View -->
+    <record id="cheque_book_kanban_view" model="ir.ui.view">
+        <field name="name">cheque.book.kanban.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="bank_account_journal_id"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row mb4">
+                                <div class="col-6 o_kanban_record_headings">
+                                    <strong>
+                                        <span>
+                                            <field name="name"/>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span><field name="bank_account_journal_id"/></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong><i class="fa fa-clock-o" aria-label="Date" role="img" title="Date"/> <t t-esc="record.date.value"/></strong>
+                                </div>
+                                <div class="col-6">
+                                    <span class="float-right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'done': 'success'}}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Cheque Book Form View -->
+    <record id="cheque_book_form_view" model="ir.ui.view">
+        <field name="name">cheque.book.form.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <form string="Cheque Book">
+                <header>
+                    <button string="Submit" type="object" name="action_submit" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button string="Generate Cheque" type="object" name="action_generate_cheque" class="oe_highlight" invisible="state != 'submit'"/>
+                    <button string="Clear Cheque" type="object" name="action_clear_cheque" class="oe_highlight" invisible="state != 'submit'"/>
+                    <button string="Confirm" type="object" name="action_confirm" class="oe_highlight" invisible="state != 'submit'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" force_save="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="bank_account_journal_id" readonly="state in ['done', 'close']"/>
+                            <field name="cheque_qty" readonly="state in ['done', 'close']"/>
+                            <field name="first_cheque_no" invisible="1" readonly="state in ['done', 'close']"/>
+                            <field name="first_cheque_no_char"  readonly="state in ['done', 'close']" string="First Cheque No"/>
+                            <field name="last_cheque_no" invisible="1"/>
+                            <field name="last_cheque_no_char" readonly="state in ['done', 'close']" string="Last Cheque No" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state in ['done', 'close']"/>
+                            <field name="is_state_close" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="cheque_list" string="Cheque List">
+                            <field name="cheque_book_lines" readonly="state in ['close']" options="{'delete': [('state', 'in', ['draft', 'submit'])]}">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="pay_to"/>
+                                    <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" force_save="1"/>
+                                    <field name="memo"/>
+                                    <field name="status" readonly="1" force_save="1" decoration-success="status == 'paid'" decoration-warning="status == 'waiting_confirm'" decoration-info="status == 'draft'" decoration-muted="status == 'cancelled'" decoration-danger="status == 'return'" widget="badge"/>
+                                    <field name="company_id" column_invisible="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="is_state_draft" column_invisible="1"/>
+                                    <field name="is_state_waiting_confirm" column_invisible="1"/>
+                                    <field name="is_state_return" column_invisible="1"/>
+                                    <field name="is_state_paid" column_invisible="1"/>
+                                    <field name="is_state_cancelled" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page name="other_information" string="Other Information">
+                            <group>
+                                <group>
+                                    <field name="company_id" readonly="state in ['done', 'close']" groups="base.group_multi_company"/>
+                                </group>
+                                <group/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Cheque Book List View -->
+    <record id="cheque_book_list_view" model="ir.ui.view">
+        <field name="name">cheque.book.list.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <list string="Cheque Book">
+                <field name="bank_account_journal_id" optional="show"/>
+                <field name="name" optional="show"/>
+                <field name="date" optional="show"/>
+                <field name="first_cheque_no_char" optional="show"/>
+                <field name="last_cheque_no_char" optional="show"/>
+                <field name="cheque_qty" optional="show"/>
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+                <field name="company_id" optional="show"/>
+                <field name="state" optional="show" decoration-success="state == 'done'" decoration-warning="state == 'submit'" decoration-info="state == 'draft'" decoration-muted="state == 'close'" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Cheque Book Search View -->
+    <record id="cheque_book_search_view" model="ir.ui.view">
+        <field name="name">cheque.book.search.view</field>
+        <field name="model">cheque.book</field>
+        <field name="arch" type="xml">
+            <search string="Cheque Book">
+                <field name="name" string="Cheque Book No"/>
+                <field name="bank_account_journal_id" string="Bank Account"/>
+                <field name="state" string="Status"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Cheque Book Action View -->
+    <record id="action_cheque_book" model="ir.actions.act_window">
+        <field name="name">Cheque Book</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cheque.book</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="cheque_book_list_view"/>
+        <field name="search_view_id" ref="cheque_book_search_view"/>
+    </record>
+
+    <!-- Cheque Book Menu View -->
+    <menuitem id="menu_cheque_book"
+        name="Cheque Book"
+        action="action_cheque_book"
+        parent="cheque_management.menu_cheque_root"
+        sequence="2"/>
+
+
+    <!-- Cheque Book Lines list View -->
+    <record id="cheque_book_lines_list_view" model="ir.ui.view">
+        <field name="name">cheque.book.lines.list.view</field>
+        <field name="model">cheque.book.lines</field>
+        <field name="arch" type="xml">
+            <list string="Cheque Book">
+                <field name="name"/>
+                <field name="bank_account_journal_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Cheque Book Lines Form View -->
+    <record id="cheque_book_lines_form_view" model="ir.ui.view">
+        <field name="name">cheque.book.lines.form.view</field>
+        <field name="model">cheque.book.lines</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="pay_to"/>
+                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="memo"/>
+                            <field name="status" decoration-success="status == 'paid'" decoration-warning="status in ('waiting_confirm', 'transform')" decoration-info="status == 'draft'" decoration-muted="status == 'cancel'" decoration-danger="status == 'return'" widget="badge"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Reset To Draft" name="action_reset_to_draft" type="object" class="oe_highlight" invisible="status != 'cancelled'"/>
+                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" invisible="status != 'draft'"/>
+                    <button string="Close" class="btn btn-secondary" data-dismiss="modal"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

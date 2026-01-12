@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="sale_menu_config_commission_settings" name="ตั้งค่าคอมมิชชั่น" parent="sale.menu_sale_config" sequence="60"/>
+    <menuitem id="sale_menus_config_commission_settings_rate" name="อัตราค่าคอมมิชชั่น" parent="sale_menu_config_commission_settings" sequence="10" action="action_sale_commission_rate" groups="sales_team.group_sale_manager,account.group_account_user"/>
+    <menuitem id="action_sale_commission_rule_menu" name="เกณฑ์การคิดคอมมิชชั่น" parent="sale_menu_config_commission_settings" sequence="20" action="action_sale_commission_rule" groups="sales_team.group_sale_manager,account.group_account_user"/>
+
+</odoo>

@@ -60,11 +60,7 @@ class MrpProduction(models.Model):
 
         action = False
         for mo in self:
-
-
-            wo_mo = workorders.filtered(
-                lambda w, mo=mo: w.production_id == mo
-            )
+            wo_mo = workorders.filtered(lambda w, mo=mo: w.production_id == mo)
             if not wo_mo:
                 continue
 
@@ -93,24 +89,13 @@ class MrpProduction(models.Model):
 
             res = mo.with_context(ctx).button_mark_done()
 
-            # Validate any draft scraps linked to this MO right after closing attempt.
-            draft_scraps = mo.scrap_ids.filtered(lambda s: s.state == "draft")
-            finished_product = mo.product_id
-            for scrap in draft_scraps:
-                # If scraping FG, ensure MO is Done (stock produced).
-                if scrap.product_id == finished_product and mo.state != 'done':
-                    # Skip validation for FG if MO is not yet done (e.g. waiting for Backorder wizard)
-                    continue
-
-                # Try to validate to avoid breaking the Close flow
-                try:
-                    scrap.sudo().action_validate()
-                except Exception:
-                    # If validation fails (e.g. not enough stock), leave it as draft.
-                    pass
             if res and not action:
-                if isinstance(res, dict) and res.get('type') == 'ir.actions.act_window' and not res.get('views'):
-                    res['views'] = [(False, 'form')]
+                if (
+                    isinstance(res, dict)
+                    and res.get("type") == "ir.actions.act_window"
+                    and not res.get("views")
+                ):
+                    res["views"] = [(False, "form")]
                 action = res
 
         return action
@@ -154,7 +139,21 @@ class MrpProduction(models.Model):
         # This ensures that if downstream operations report fewer finished units
         # than upstream steps, the MO is closed at the lower quantity and the
         # remainder is pushed to a backorder.
-        return min(op_totals) if op_totals else 0.0
+        total_good_qty = min(op_totals) if op_totals else 0.0
+
+        # Add FG Scrap quantities (Draft) to the total
+        # This ensures Odoo considers "Scrap" as "Processed", preventing Backorders
+        # for quantities that were actually produced but rejected.
+        scraps = self.env["stock.scrap"].search(
+            [
+                ("production_id", "=", self.id),
+                ("product_id", "=", self.product_id.id),
+                ("state", "=", "draft"),
+            ]
+        )
+        total_scrap_qty = sum(scraps.mapped("scrap_qty"))
+
+        return total_good_qty + total_scrap_qty
 
     def _console_fill_move_quantities_for_close(self, finished_qty_map=None):
         """Auto-fill stock move done quantities before closing the MO.
@@ -175,9 +174,7 @@ class MrpProduction(models.Model):
     @staticmethod
     def _console_fill_component_moves(mo):
         for move in mo.move_raw_ids:
-            MrpProduction._console_set_move_done_quantity(
-                move, move.product_uom_qty
-            )
+            MrpProduction._console_set_move_done_quantity(move, move.product_uom_qty)
 
     @staticmethod
     def _console_fill_finished_moves(mo, target_finished_qty=None):
@@ -195,44 +192,49 @@ class MrpProduction(models.Model):
 
         # Ensure target_qty respects product UoM rounding
         if move.product_uom:
-             from odoo.tools import float_round
-             target_qty = float_round(target_qty, precision_rounding=move.product_uom.rounding or 0.0001)
+            from odoo.tools import float_round
+
+            target_qty = float_round(
+                target_qty, precision_rounding=move.product_uom.rounding or 0.0001
+            )
 
         # 1. พยายามจองของอัตโนมัติ (Reserve)
-        if move.product_id.tracking in ('lot', 'serial') and not move.move_line_ids:
+        if move.product_id.tracking in ("lot", "serial") and not move.move_line_ids:
             try:
                 move._action_assign()
             except Exception:
                 pass
 
         # 2. เติม lot แบบ best-effort (ให้ FG ไม่ติด แต่คุม stock component)
-        if move.product_id.tracking in ('lot', 'serial') and not move.move_line_ids:
-            is_finished_move = bool(move.production_id and move.product_id == move.production_id.product_id)
+        if move.product_id.tracking in ("lot", "serial") and not move.move_line_ids:
+            is_finished_move = bool(
+                move.production_id and move.product_id == move.production_id.product_id
+            )
             lot_id = False
 
             # หาจาก location ต้นทางก่อน
-            quant = move.env['stock.quant'].search(
+            quant = move.env["stock.quant"].search(
                 [
-                    ('product_id', '=', move.product_id.id),
-                    ('location_id', 'child_of', move.location_id.id),
-                    ('quantity', '>=', 0),
-                    ('lot_id', '!=', False),
+                    ("product_id", "=", move.product_id.id),
+                    ("location_id", "child_of", move.location_id.id),
+                    ("quantity", ">=", 0),
+                    ("lot_id", "!=", False),
                 ],
                 limit=1,
-                order='in_date, id',
+                order="in_date, id",
             )
 
             # สำหรับ FG ลองดูปลายทางด้วย (สต็อกจริงอยู่ปลายทาง)
             if not quant and is_finished_move and move.location_dest_id:
-                quant = move.env['stock.quant'].search(
+                quant = move.env["stock.quant"].search(
                     [
-                        ('product_id', '=', move.product_id.id),
-                        ('location_id', 'child_of', move.location_dest_id.id),
-                        ('quantity', '>=', 0),
-                        ('lot_id', '!=', False),
+                        ("product_id", "=", move.product_id.id),
+                        ("location_id", "child_of", move.location_dest_id.id),
+                        ("quantity", ">=", 0),
+                        ("lot_id", "!=", False),
                     ],
                     limit=1,
-                    order='in_date, id',
+                    order="in_date, id",
                 )
 
             if quant:
@@ -240,16 +242,21 @@ class MrpProduction(models.Model):
                 if not is_finished_move:
                     available_qty = quant.quantity
                     rounding = move.product_uom.rounding or 0.0001
-                    if float_compare(available_qty, target_qty, precision_rounding=rounding) < 0:
+                    if (
+                        float_compare(
+                            available_qty, target_qty, precision_rounding=rounding
+                        )
+                        < 0
+                    ):
                         raise UserError(
                             _(
                                 "Not enough stock for %(product)s in %(location)s (needed %(needed).2f, available %(available).2f)."
                             )
                             % {
-                                'product': move.product_id.display_name,
-                                'location': quant.location_id.display_name,
-                                'needed': target_qty,
-                                'available': available_qty,
+                                "product": move.product_id.display_name,
+                                "location": quant.location_id.display_name,
+                                "needed": target_qty,
+                                "available": available_qty,
                             }
                         )
             elif is_finished_move:
@@ -259,7 +266,9 @@ class MrpProduction(models.Model):
                     else False
                 )
                 if not lot_id:
-                    finished_lot = move.production_id.workorder_ids.filtered("finished_lot_id")[:1].finished_lot_id
+                    finished_lot = move.production_id.workorder_ids.filtered(
+                        "finished_lot_id"
+                    )[:1].finished_lot_id
                     lot_id = finished_lot.id if finished_lot else False
             else:
                 raise UserError(
@@ -270,15 +279,17 @@ class MrpProduction(models.Model):
                 )
 
             if lot_id:
-                move.env['stock.move.line'].create({
-                    'move_id': move.id,
-                    'product_id': move.product_id.id,
-                    'product_uom_id': move.product_uom.id,
-                    'location_id': move.location_id.id,
-                    'location_dest_id': move.location_dest_id.id,
-                    'lot_id': lot_id,
-                    'quantity': target_qty,
-                })
+                move.env["stock.move.line"].create(
+                    {
+                        "move_id": move.id,
+                        "product_id": move.product_id.id,
+                        "product_uom_id": move.product_uom.id,
+                        "location_id": move.location_id.id,
+                        "location_dest_id": move.location_dest_id.id,
+                        "lot_id": lot_id,
+                        "quantity": target_qty,
+                    }
+                )
                 return
 
         if move.move_line_ids:
@@ -291,14 +302,14 @@ class MrpProduction(models.Model):
                 last_line = line
 
                 reserved = 0.0
-                if 'quantity_product_uom' in line._fields:
+                if "quantity_product_uom" in line._fields:
                     reserved = line.quantity_product_uom
-                elif 'product_uom_qty' in line._fields:
+                elif "product_uom_qty" in line._fields:
                     reserved = line.product_uom_qty
 
                 fill = min(reserved, qty_to_fill) if reserved > 0 else qty_to_fill
 
-                if 'quantity' in line._fields:
+                if "quantity" in line._fields:
                     line.quantity = fill
                 else:
                     line.qty_done = fill
@@ -306,7 +317,7 @@ class MrpProduction(models.Model):
                 qty_to_fill -= fill
 
             if qty_to_fill > 0 and last_line:
-                if 'quantity' in last_line._fields:
+                if "quantity" in last_line._fields:
                     last_line.quantity += qty_to_fill
                 else:
                     last_line.qty_done += qty_to_fill
@@ -318,6 +329,7 @@ class MrpProduction(models.Model):
 
         if float_compare(current_qty, target_qty, precision_rounding=rounding) < 0:
             setattr(move, field_name, target_qty)
+
     @staticmethod
     def _console_prepare_tracked_move(move, target_qty):
         if move.move_line_ids:
@@ -391,6 +403,7 @@ class MrpProduction(models.Model):
         rounding = getattr(move.product_uom, "rounding", 0.0) or 0.0001
         if float_compare(current_qty, target_qty, precision_rounding=rounding) < 0:
             setattr(move, field_name, target_qty)
+
     def _console_validate_before_apply(self):
         for mo in self:
             if mo.state not in ("confirmed", "progress", "to_close"):
@@ -429,9 +442,9 @@ class MrpProduction(models.Model):
                 continue
 
             # Try to auto-fill from workorders finished lots (Set Qty / WO form).
-            finished_lot = mo.workorder_ids.filtered(
-                lambda w: w.finished_lot_id
-            )[:1].finished_lot_id
+            finished_lot = mo.workorder_ids.filtered(lambda w: w.finished_lot_id)[
+                :1
+            ].finished_lot_id
             if finished_lot:
                 mo.lot_producing_id = finished_lot
                 continue
@@ -443,3 +456,66 @@ class MrpProduction(models.Model):
                 )
                 % mo.display_name
             )
+
+    def button_mark_done(self):
+        res = super(MrpProduction, self).button_mark_done()
+        for mo in self:
+            if mo.state == "done":
+                mo._mpc_validate_fg_scraps()
+        return res
+
+    def _mpc_validate_fg_scraps(self):
+        """Identify draft FG scraps for this production, correct their location, and validate."""
+        self.ensure_one()
+        summary = {"validated": 0, "skipped": []}
+
+        finished_move = self.move_finished_ids.filtered(
+            lambda m: m.product_id == self.product_id and m.state == "done"
+        )[:1]
+
+        final_location = False
+        if finished_move:
+            final_lines = finished_move.move_line_ids.filtered(
+                lambda line: line.state == "done" and line.location_dest_id
+            )
+            if final_lines:
+                final_location = final_lines[-1].location_dest_id
+
+        if not final_location:
+            final_location = self.location_dest_id
+
+        if not final_location:
+            return summary
+
+        draft_fg_scraps = self.scrap_ids.filtered(
+            lambda s: s.product_id == self.product_id and s.state == "draft"
+        )
+
+        for scrap in draft_fg_scraps:
+            try:
+                if scrap.location_id != final_location:
+                    scrap.sudo().write({"location_id": final_location.id})
+
+                res = scrap.sudo().action_validate()
+                if scrap.state == "done":
+                    summary["validated"] += 1
+                else:
+                    reason = "Resulting state: %s" % scrap.state
+                    if (
+                        isinstance(res, dict)
+                        and res.get("type") == "ir.actions.act_window"
+                    ):
+                        reason = "Validation wizard triggered (Insufficient stock?)"
+                    summary["skipped"].append({"id": scrap.id, "reason": reason})
+            except Exception as exc:
+                summary["skipped"].append({"id": scrap.id, "reason": str(exc)})
+
+        if summary["validated"] or summary["skipped"]:
+            msg = (
+                _("MPC Auto-Validation: %s FG scraps validated.") % summary["validated"]
+            )
+            if summary["skipped"]:
+                msg += _(" %s skipped.") % len(summary["skipped"])
+            self.message_post(body=msg)
+
+        return summary

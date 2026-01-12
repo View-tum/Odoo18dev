@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_landed_cost_inherit_form_view" model="ir.ui.view">
+        <field name="name">stock.landed.cost.inherit.form.view</field>
+        <field name="model">stock.landed.cost</field>
+        <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="sh_cancel" string="Cancel" type="object" groups="sh_all_in_one_cancel_adv.group_sh_stock_landed_cost_cancel" invisible="state != 'done'"></button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

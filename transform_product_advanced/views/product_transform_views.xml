@@ -1,0 +1,120 @@
+<odoo>
+    <!-- Tree view -->
+    <record id="view_product_transform_tree" model="ir.ui.view">
+        <field name="name">product.transform.tree</field>
+        <field name="model">product.transform</field>
+        <field name="arch" type="xml">
+            <list string="Product Transforms">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="product_from_id"/>
+                <field name="qty_from"/>
+                <field name="product_to_id"/>
+                <field name="qty_to"/>
+                <field name="lot_from_id"/>
+                <field name="lot_to_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_product_transform_form" model="ir.ui.view">
+        <field name="name">product.transform.form</field>
+        <field name="model">product.transform</field>
+        <field name="arch" type="xml">
+            <form string="Product Transform">
+            	
+                <header>
+                    <!-- Show only in draft -->
+                    <button name="action_confirm" type="object"
+                            string="Confirm"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <!-- Show only in cancel -->
+                    <button name="action_set_to_draft" type="object"
+                            string="Set to Draft"
+                            invisible="state != 'cancel'"/>
+
+                    <!-- Show only in draft -->
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            class="btn-secondary"
+                            invisible="state != 'draft'"/>
+                            
+                    
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,done,cancel"/>
+                </header>
+
+                <sheet>
+                	  <div class="oe_button_box" name="button_box">
+			                <button name="action_view_valuation_layers"
+			                        type="object"
+			                        class="oe_stat_button"
+			                        icon="fa-balance-scale">
+			                    <field name="svl_count" widget="statinfo"
+			                           string="Valuation Layers"/>
+			                </button>
+		                </div>
+	                <div class="oe_title">
+	                    <h1>
+	                        <field name="name" readonly="1"/>
+	                    </h1>
+	                </div>
+                    <group>
+                        <group>
+                        	 <field name="rule_id"/>
+                            <field name="product_from_id"/>
+                            <field name="lot_from_id"/>
+                            <field name="qty_from"/>
+                            <field name="transform_factor"/>
+                            <!--<field name="state" readonly="1"/>-->
+                        </group>
+                        <group>
+                            <field name="product_to_id"/>
+                            <field name="lot_to_id" readonly="1"/>
+                            <field name="qty_to" readonly="1"/>
+                            <field name="date"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+
+                    <group string="Locations">
+                        <group>
+                            <field name="location_id"/>
+                            <field name="dest_location_id" readonly='1'/>
+                        </group>
+                    </group>
+
+
+                    <group string="Stock Moves">
+                        <group>
+                            <field name="move_out_id" readonly="1"/>
+                            <field name="move_in_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_product_transform" model="ir.actions.act_window">
+        <field name="name">Product Transforms</field>
+        <field name="res_model">product.transform</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_product_transform_root"
+              name="Transform Product"
+              parent="stock.menu_stock_warehouse_mgmt"/>
+
+    <menuitem id="menu_product_transform"
+              name="Transforms"
+              parent="menu_product_transform_root"
+              action="action_product_transform"/>
+</odoo>

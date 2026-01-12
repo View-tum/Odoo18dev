@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_partner_form_banker_info" model="ir.ui.view">
+            <field name="name">res.partner.form.banker.info</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='accounting']" position="inside">
+                    <group string="Remittance &amp; Banking">
+                        <field name="banker_info" nolabel="1"
+                            string="Bank Transfer Instructions"
+                            placeholder="Enter bank and remittance information"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

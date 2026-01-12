@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_groups_form_inherit_hierarchy" model="ir.ui.view">
+        <field name="name">res.groups.form.inherit.hierarchy</field>
+        <field name="model">res.groups</field>
+        <field name="inherit_id" ref="base.view_groups_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='inherit_groups']" position="after">
+                <page string="Inherited By" name="inheritance_display">
+                    <label for="inherited_by_ids" string="The following groups are inherited by this group."/>
+                    <field name="inherited_by_ids"/>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+    
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        /// ===== Search view =====
+        <record id="thecool_rereceive_import_view_search" model="ir.ui.view">
+            <field name="name">thecool.receive.import.search</field>
+            <field name="model">thecool.receive.import</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="import_state_draft" string="Pre-Import"
+                            domain="[('import_state', '=', 'draft')]"/>
+                    <filter name="import_state_import" string="Imported"
+                            domain="[('import_state', '=', 'import')]"/>
+                    <filter name="import_state_fail" string="Fail"
+                            domain="[('import_state', '=', 'fail')]"/>
+                    <filter name="import_state_cancel" string="Cancelled"
+                            domain="[('import_state', '=', 'cancel')]"/>
+                </search>
+            </field>
+        </record>
+
+        /// ===== list view (list view) =====
+        <record id="thecool_rereceive_import_list_view" model="ir.ui.view">
+            <field name="name">thecool_receive_import_list</field>
+            <field name="model">thecool.receive.import</field>
+            <field name="arch" type="xml">
+
+                <list string="Thecool Rereceive Temporary Import" create="false" edit="false">
+                    <header>
+                        <button name="import_data" string="Test Import" type="object"/>
+                    </header>
+                    <field name="import_state" optional="show"/>
+                    <field name="date_import" optional="hide"/>
+                    <field name="error_log" optional="show"/>
+
+                    <field name='state' optional='show'/>
+                    <field name="reference" optional="show"/>
+                    <field name='old_system_number' optional='show'/>
+                    <field name='contact_id' optional='show'/>
+                    <field name='picking_type' optional='show'/>
+                    <field name='source_location' optional='show'/>
+                    <field name='destination_location' optional='show'/>
+                    <field name='scheduled_date' optional='show'/>
+                    <field name='source_document' optional='show'/>
+                    <field name='effective_date' optional='show'/>
+                    <field name='date_done' optional='show'/>
+                    <field name='procurement_group' optional='show'/>
+                    <field name='line_number' optional='show'/>
+                    <field name='line_product_id' optional='show'/>
+                    <field name='line_scheduled_date' optional='show'/>
+                    <field name='line_qty' optional='show'/>
+                    <field name='line_state' optional='show'/>
+                </list>
+            </field>
+        </record>
+
+        ///====== Action Menu ======
+        <record id="action_thecool_receive_import" model="ir.actions.act_window">
+            <field name="name">Receive Import</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">thecool.receive.import</field>
+            <field name="context">{'search_default_import_state_draft': 1, 'search_default_import_state_fail': 1}
+            </field>
+            <field name="view_mode">list</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new data.
+                </p>
+            </field>
+        </record>
+
+        ///====== Menu Link to Action ======
+        <menuitem id="menu_receive_import"
+                  name="Thecool"
+                  parent="stock.menu_stock_config_settings"
+                  sequence="2"/>
+
+        <menuitem id="menu_thecool_receive_import"
+                  name="Receive Import"
+                  action="action_thecool_receive_import"
+                  parent="menu_receive_import"
+                  sequence="10"/>
+
+    </data>
+</odoo>

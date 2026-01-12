@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- OPERATION TYPE FORM: add guard fields (correct XMLID is stock.view_picking_type_form) -->
+    <record id="view_picking_type_form_internal_validate_guard" model="ir.ui.view">
+        <field name="name">stock.picking.type.form.internal.validate.guard</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form" />
+        <field name="arch" type="xml">
+            <!-- Safe anchor: insert inside the group that contains 'code' -->
+            <xpath expr="//group[.//field[@name='code']]" position="inside">
+                <group string="Internal Validate Guard" invisible="code != 'internal'">
+                    <field name="enforce_internal_validate_restriction" />
+                    <field name="allow_admin_bypass" />
+                    <field name="allowed_validate_group_ids" widget="many2many_tags"
+                        context="{'no_create': False}" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_form_hide_validate_internal_guard" model="ir.ui.view">
+        <field name="name">stock.picking.form.hide.validate.internal.guard</field>
+        <field name="priority">200</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <field name="is_internal_picking" invisible="1" />
+                <field name="can_validate_by_group" invisible="1" />
+                <!-- Ensure picking_type_code is available to client-side QWeb templates -->
+                <field name="picking_type_code" invisible="1" />
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <field name="is_internal_picking" invisible="1" />
+                <field name="can_validate_by_group" invisible="1" />
+            </xpath>
+
+            <xpath expr="//header//button[@name='button_validate' and not(contains(@class, 'o_btn_validate'))]"
+                position="attributes">
+                <attribute name="invisible">state in ('draft','confirmed','done','cancel') or is_internal_picking</attribute>
+            </xpath>
+
+            <xpath expr="//header//button[@name='button_validate' and contains(@class, 'o_btn_validate')]"
+                position="attributes">
+                <attribute name="invisible">(not is_internal_picking and state in ('waiting','assigned','done','cancel')) or (is_internal_picking and (state in ('done','cancel') or not can_validate_by_group))</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

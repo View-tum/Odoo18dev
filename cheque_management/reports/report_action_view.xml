@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dynamic_cheque_print_report_action" model="ir.actions.report">
+        <field name="name">Print Dynamic Cheque</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cheque_management.report_dynamic_check_print</field>
+        <field name="report_file">cheque_management.report_dynamic_check_print</field>
+        <field name="binding_model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s' % object.name</field>
+    </record>
+
+</odoo>

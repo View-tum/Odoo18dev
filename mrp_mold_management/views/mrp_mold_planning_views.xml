@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_mold_planning_tree" model="ir.ui.view">
+        <field name="name">mrp.workorder.planning.mold.tree</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list/field[@name='workcenter_id']" position="after">
+                <field name="mold_names" string="Molds" optional="show"/>
+            </xpath>
+            <xpath expr="//list/field[@name='duration']" position="after">
+                <field name="mold_cost" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

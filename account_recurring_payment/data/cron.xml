@@ -1,0 +1,26 @@
+<odoo>
+    <record id="ir_cron_recurring_payment_1" model="ir.cron">
+        <field name="name">Recurring Payments AP (02:55)</field>
+        <field name="model_id" ref="account_recurring_payment.model_account_recurring_template"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_generate_recurring_moves()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="nextcall" eval="(DateTime.now() + relativedelta(days=1)).replace(hour=2, minute=55, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="active">True</field>
+        <field name="priority">5</field>
+    </record>
+    <record id="ir_cron_recurring_payment_2" model="ir.cron">
+        <field name="name">Recurring Payments AP (03:00)</field>
+        <field name="model_id" ref="account_recurring_payment.model_account_recurring_template"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_generate_recurring_moves()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="nextcall" eval="(DateTime.now() + relativedelta(days=1)).replace(hour=3, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="active">True</field>
+        <field name="priority">5</field>
+    </record>
+</odoo>

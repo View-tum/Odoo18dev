@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_service_acceptance_line_tree" model="ir.ui.view">
+        <field name="name">service.acceptance.line.tree</field>
+        <field name="model">service.acceptance.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="po_line_id" domain="[('order_id', '=', parent.purchase_id)]" />
+                <field name="product_id" />
+                <field name="name" />
+                <field name="qty_to_accept" />
+                <field name="qty_accepted" />
+                <field name="product_uom" />
+            </list>
+        </field>
+    </record>
+    <record id="view_service_acceptance_form" model="ir.ui.view">
+        <field name="name">service.acceptance.form</field>
+        <field name="model">service.acceptance</field>
+        <field name="arch" type="xml">
+            <form string="Service Acceptance">
+                <header>
+                    <button name="action_confirm" string="Validate" type="object"
+                        class="oe_highlight" invisible="state != 'draft'" />
+                    <button name="action_cancel" string="Cancel" type="object"
+                        invisible="state not in ('draft', 'done')" />
+                    <button name="action_draft" string="Set to Draft" type="object"
+                        invisible="state != 'cancel'" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done" />
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            type="object"
+                            name="action_view_purchase_order"
+                            class="oe_stat_button"
+                            invisible="purchase_count == 0"
+                            icon="fa-shopping-cart"
+                            string="Purchase Order"
+                        >
+                            <field
+                                name="purchase_count"
+                                widget="statinfo"
+                                string="Purchase Orders"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="purchase_id" />
+                            <field name="partner_id" />
+                        </group>
+                        <group>
+                            <field name="date" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="acceptance_line_ids">
+                                <list editable="bottom">
+                                    <field name="po_line_id" domain="[('order_id', '=', parent.purchase_id)]" />
+                                    <field name="product_id" />
+                                    <field name="name" />
+                                    <field name="qty_to_accept" />
+                                    <field name="qty_accepted" />
+                                    <field name="product_uom" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record id="view_service_acceptance_tree" model="ir.ui.view">
+        <field name="name">service.acceptance.tree</field>
+        <field name="model">service.acceptance</field>
+        <field name="arch" type="xml">
+            <list string="Service Acceptance">
+                <field name="name" />
+                <field name="purchase_id" />
+                <field name="partner_id" />
+                <field name="date" />
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                    decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_service_acceptance" model="ir.actions.act_window">
+        <field name="name">Service Acceptances</field>
+        <field name="res_model">service.acceptance</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Service Acceptance
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_service_acceptance"
+        name="Service Acceptances"
+        parent="purchase.menu_procurement_management"
+        action="action_service_acceptance"
+        sequence="11" />
+</odoo>

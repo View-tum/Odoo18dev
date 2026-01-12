@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_stock_picking_operation_stamp_sign" inherit_id="stock.report_picking">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+                        <div class="row " name="signature">
+                <div class="col-12" t-attf-style="text-align:#{o.company_id.stamp_position};">
+                    <div class="d-inline-flex">
+                        <div>
+                            <div>
+                                <t t-if="o.user_id.user_signature">
+                                    <img t-att-src="image_data_uri(o.user_id.user_signature)"
+                                         style="width:150px;"
+                                    />
+                                </t>
+                            </div>
+                            <div style="text-align:center;">
+                                <t t-esc="o.user_id.name"/>
+                            </div>
+                        </div>
+                        <div>
+                            <t t-if="o.company_id.company_stamp">
+                                <img t-att-src="image_data_uri(o.company_id.company_stamp)"
+                                     style="height:80px;width:80px;"
+                                />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </xpath>
+    </template>
+
+    <template id="report_stock_delivery_slip_sign_stamp" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+                        <div class="row " name="signature">
+                <div class="col-12" t-attf-style="text-align:#{o.company_id.stamp_position};">
+                    <div class="d-inline-flex">
+                        <div>
+                            <div>
+                                <t t-if="o.user_id.user_signature">
+                                    <img t-att-src="image_data_uri(o.user_id.user_signature)"
+                                         style="width:150px;"
+                                    />
+                                </t>
+                            </div>
+                            <div style="text-align:center;">
+                                <t t-esc="o.user_id.name"/>
+                            </div>
+                        </div>
+                        <div>
+                            <t t-if="o.company_id.company_stamp">
+                                <img t-att-src="image_data_uri(o.company_id.company_stamp)"
+                                     style="height:80px;width:80px;"
+                                />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </xpath>
+    </template>
+
+</odoo>

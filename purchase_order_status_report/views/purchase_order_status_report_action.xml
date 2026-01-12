@@ -1,0 +1,19 @@
+<odoo>
+    <record id="action_report_purchase_order_status" model="ir.actions.report">
+        <field name="name">Purchase Order Status</field>
+        <field name="model">purchase.order.status.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_order_status_report.po_status_report</field>
+        <field name="report_file">purchase_order_status_report.po_status_report</field>
+        <field name="print_report_name">object._get_report_base_filename()</field>
+        <field name="paperformat_id" ref="purchase_order_status_report.paperformat_po_status_a4"/>
+    </record>
+
+    <record id="action_report_purchase_order_status_xlsx" model="ir.actions.report">
+        <field name="name">Purchase Order Status</field>
+        <field name="model">purchase.order.status.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">purchase_order_status_report.po_status_report_xlsx</field>
+        <field name="print_report_name">object._get_report_base_filename()</field>
+    </record>
+</odoo>

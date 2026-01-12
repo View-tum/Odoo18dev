@@ -1,0 +1,40 @@
+<odoo>
+  <record id="view_order_form_approved_partner" model="ir.ui.view">
+    <field name="name">sale.order.form.approved.partner</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+    
+     <field name="partner_id" position="attributes">
+	    <attribute name="domain">['|', ('ecom_exempt', '=', True), ('approval_state', '=', 'approved')]</attribute>
+	</field>
+	
+	<field name="partner_invoice_id" position="attributes">
+	    <attribute name="domain">['|', ('ecom_exempt', '=', True), '&amp;', ('approval_state', '=', 'approved'), '|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+	</field>
+	
+	<field name="partner_shipping_id" position="attributes">
+	    <attribute name="domain">['|', ('ecom_exempt', '=', True), '&amp;', ('approval_state', '=', 'approved'), '|', ('id', '=', partner_id), ('parent_id', '=', partner_id)]</attribute>
+	</field>
+
+      
+      
+      <!-- Inline tree (editable lines) -->
+      <xpath expr="//field[@name='order_line']//list//field[@name='product_template_id']" position="attributes">
+        <attribute name="domain">[('approval_state','=','approved')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='order_line']//list//field[@name='product_id']" position="attributes">
+        <attribute name="domain">[('product_tmpl_id.approval_state','=','approved')]</attribute>
+      </xpath>
+
+      <!-- Popup form for a line (opened when you click a line) -->
+      <!--<xpath expr="//field[@name='order_line']//form//field[@name='product_template_id']" position="attributes">
+        <attribute name="domain">[('approval_state','=','approved')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='order_line']//form//field[@name='product_id']" position="attributes">
+        <attribute name="domain">[('product_tmpl_id.approval_state','=','approved')]</attribute>
+      </xpath>-->
+      
+    </field>
+  </record>
+</odoo>

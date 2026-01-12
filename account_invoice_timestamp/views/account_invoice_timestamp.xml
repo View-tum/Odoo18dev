@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_invoice_timestamp_list" model="ir.ui.view">
+            <field name="name">account.invoice.timestamp.list</field>
+            <field name="model">account.invoice.timestamp</field>
+            <field name="arch" type="xml">
+                <list string="Invoice Timestamp Log" create="false" edit="false">
+                    <field name="name"/>
+                    <field name="timestamp"/>
+                    <field name="user_id"/>
+                    <field name="invoice_ids" widget="many2many_tags"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_timestamp_form" model="ir.ui.view">
+            <field name="name">account.invoice.timestamp.form</field>
+            <field name="model">account.invoice.timestamp</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Timestamp Log" create="false" edit="false">
+                    <sheet>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <group>
+                            <field name="timestamp" readonly="1"/>
+                            <field name="user_id" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Invoices">
+                                <field name="invoice_ids" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_account_invoice_timestamp" model="ir.actions.act_window">
+            <field name="name">Invoice Logs (Payment Collection)</field>
+            <field name="res_model">account.invoice.timestamp</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_account_invoice_timestamp" name="Invoice Logs (Payment Collection)" parent="account_payment_collection_report.account_reports_accounting_reports_menu" action="action_account_invoice_timestamp" groups="base.group_system" sequence="20"/>
+
+    </data>
+</odoo>

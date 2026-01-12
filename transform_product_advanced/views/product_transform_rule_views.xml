@@ -1,0 +1,65 @@
+<odoo>
+    <!-- Tree view -->
+    <record id="view_product_transform_rule_tree" model="ir.ui.view">
+        <field name="name">product.transform.rule.tree</field>
+        <field name="model">product.transform.rule</field>
+        <field name="arch" type="xml">
+            <list string="Transform Rules">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="product_from_id"/>
+                <field name="product_to_id"/>
+                <field name="qty_to"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_product_transform_rule_form" model="ir.ui.view">
+        <field name="name">product.transform.rule.form</field>
+        <field name="model">product.transform.rule</field>
+        <field name="arch" type="xml">
+            <form string="Transform Rule">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="product_from_id"/>
+                            <field name="product_to_id"/>
+                            <field name="qty_to"/>
+                        </group>
+                    </group>
+
+                    <group string="UoM">
+                        <group>
+                            <field name="uom_from_id" readonly="1"/>
+                            <field name="uom_to_id" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group string="Next Rule">
+                        <group>
+                            <field name="next_rule_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_product_transform_rule" model="ir.actions.act_window">
+        <field name="name">Transform Rules</field>
+        <field name="res_model">product.transform.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_product_transform_rule"
+              name="Transform Rules"
+              parent="menu_product_transform_root"
+              action="action_product_transform_rule"/>
+</odoo>

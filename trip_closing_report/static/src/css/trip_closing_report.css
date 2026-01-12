@@ -1,0 +1,161 @@
+/* trip_closing_report/static/src/css/trip_closing_report.css */
+
+body {
+    font-family: "TH SarabunPSK", "Sarabun", Arial, sans-serif;
+    color: #000;
+}
+
+.page-landscape {
+    font-size: 11px;
+}
+
+.page-portrait {
+    font-size: 12px;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 3px 0;
+    text-align: center;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 2px 0 6px 0;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3px;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 3px 5px;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-left  { text-align: left; }
+.text-center{ text-align: center; }
+.text-right { text-align: right; }
+.text-bold  { font-weight: bold; }
+
+.no-border,
+.no-border th,
+.no-border td {
+    border: none !important;
+}
+
+.outer-box {
+    border: 2px solid #000;
+    padding: 6px;
+    margin-top: 5px;
+}
+
+.header-section {
+    border: 1px solid #000;
+    padding: 6px 8px;
+    margin: 6px 0;
+}
+
+.header-label {
+    display: inline-block;
+    font-weight: bold;
+    min-width: 110px;
+}
+
+.summary-table td {
+    padding: 4px 6px;
+}
+
+.summary-label {
+    width: 70%;
+}
+
+.summary-value {
+    width: 30%;
+    text-align: right;
+}
+
+.summary-total {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+.signature-box {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    min-height: 70px;
+}
+
+.signature-title {
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.signature-line {
+    border-top: 1px solid #000;
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 4px;
+}
+
+/* column widths หน้า 1 */
+.col-date    { width: 6%; }
+.col-id      { width: 5%; }
+.col-product { width: 18%; }
+.col-trip    { width: 4%; }
+.col-total   { width: 6%; }
+.col-remain  { width: 6%; }
+.col-cash    { width: 6%; }
+.col-credit  { width: 6%; }
+.col-sample  { width: 6%; }
+.col-conv    { width: 6%; }
+.col-sold    { width: 6%; }
+.col-price   { width: 6%; }
+.col-amount  { width: 9%; }
+
+.recon-box {
+    border: 1px solid #000;
+    min-height: 50px;
+    padding: 6px;
+}
+
+.footer .page-number {
+    font-size: 10px;
+    padding-right: 10px;
+}
+
+/* หน้า 3: ทำ layout เป็น table 2 แถว (body + footer) ให้ footer ชิดล่างได้ทั้งใน PDF และ preview */
+.page-with-footer {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.page-with-footer .page-body {
+    display: table-row;      /* แถวบน: เนื้อหา */
+}
+
+.page-with-footer .recon-signature-wrapper {
+    display: table-row;      /* แถวล่าง: footer */
+    height: 1%;              /* บังคับให้กินพื้นที่แค่พอจำเป็น */
+    padding-top: 10px;
+    page-break-inside: avoid;
+}
+

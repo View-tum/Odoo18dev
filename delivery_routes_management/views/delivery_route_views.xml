@@ -1,0 +1,49 @@
+<odoo>
+  <record id="view_delivery_route_list" model="ir.ui.view">
+    <field name="name">delivery.route.list</field>
+    <field name="model">delivery.route</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="route_code"/>
+        <field name="name"/>
+        <field name="vehicle_plateno"/>
+        <field name="responsible_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_delivery_route_form" model="ir.ui.view">
+    <field name="name">delivery.route.form</field>
+    <field name="model">delivery.route</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="route_code"/>
+            <field name="name"/>
+            <field name="route_description"/>
+            <field name="vehicle_plateno"/>
+            <field name="responsible_id"/>
+          </group>
+          <notebook>
+            <page string="Subregions">
+              <field name="subregion_ids">
+                <list editable="bottom">
+                  <field name="code"/>
+                  <field name="name"/>
+                  <field name="description"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_delivery_route" model="ir.actions.act_window">
+    <field name="name">Delivery Routes</field>
+    <field name="res_model">delivery.route</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

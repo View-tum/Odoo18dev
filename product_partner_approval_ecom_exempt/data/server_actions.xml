@@ -1,0 +1,32 @@
+<odoo>
+  <!-- Server Action that appears in the Actions dropdown of the product template list -->
+	  <record id="product_template_action_approve" model="ir.actions.server">
+		    <field name="name">Approve Product</field>
+		    <!-- Model the action runs on -->
+		    <field name="model_id" ref="product.model_product_template"/>
+		    <!-- Bind so it appears in the UI "Actions" menu -->
+		    <field name="binding_model_id" ref="product.model_product_template"/>
+		    <field name="binding_type">action</field>
+		    <!-- Only list view (you can use 'list,form' if you want both) -->
+		    <field name="binding_view_types">list</field>
+		    <!-- Run Python code -->
+		    <field name="state">code</field>
+		    <!-- records = selected records in the list view -->
+		    <field name="code">action = records.action_approve()</field>
+	  </record>
+	  
+	  <record id="res_partner_action_approve" model="ir.actions.server">
+		    <field name="name">Approve Contact</field>
+		    <!-- Model the action runs on -->
+		    <field name="model_id" ref="base.model_res_partner"/>
+		    <!-- Bind so it appears in the UI "Actions" menu -->
+		    <field name="binding_model_id" ref="base.model_res_partner"/>
+		    <field name="binding_type">action</field>
+		    <!-- Only list view (you can use 'list,form' if you want both) -->
+		    <field name="binding_view_types">list</field>
+		    <!-- Run Python code -->
+		    <field name="state">code</field>
+		    <!-- records = selected records in the list view -->
+		    <field name="code">action = records.action_approve()</field>
+	  </record>
+</odoo>

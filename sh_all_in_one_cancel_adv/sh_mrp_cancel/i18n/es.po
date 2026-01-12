@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_mrp_cancel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 05:44+0000\n"
+"PO-Revision-Date: 2021-02-03 05:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields.selection,name:sh_mrp_cancel.selection__res_company__mrp_operation_type__cancel
+#: model_terms:ir.ui.view,arch_db:sh_mrp_cancel.sh_mrp_production_inherit_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sh_mrp_cancel
+#: model:ir.actions.server,name:sh_mrp_cancel.sh_mrp_cancel_delete_multi_action
+msgid "Cancel & Delete"
+msgstr "Cancelar y eliminar"
+
+#. module: sh_mrp_cancel
+#: model:ir.actions.server,name:sh_mrp_cancel.sh_mrp_cancel_draft_multi_action
+msgid "Cancel & Reset Draft"
+msgstr "Cancelar y restablecer el borrador"
+
+#. module: sh_mrp_cancel
+#: model:ir.actions.server,name:sh_mrp_cancel.sh_mrp_cancel_multi_action
+msgid "Cancel Manufacturing"
+msgstr "Cancelar manufactura"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields.selection,name:sh_mrp_cancel.selection__res_company__mrp_operation_type__cancel_delete
+msgid "Cancel and Delete"
+msgstr "Cancelar y eliminar"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields.selection,name:sh_mrp_cancel.selection__res_company__mrp_operation_type__cancel_draft
+msgid "Cancel and Reset to Draft"
+msgstr "Cancelar y reiniciar al borrador"
+
+#. module: sh_mrp_cancel
+#: model:ir.model,name:sh_mrp_cancel.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: sh_mrp_cancel
+#: model:ir.model,name:sh_mrp_cancel.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuración de configuración"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_company__display_name
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_stock_move__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_mrp_production__id
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_company__id
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_stock_move__id
+msgid "ID"
+msgstr "IDENTIFICACIÓN"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_mrp_production____last_update
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_company____last_update
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_stock_move____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sh_mrp_cancel
+#: model:res.groups,name:sh_mrp_cancel.group_sh_mrp_cancel
+msgid "MRP Cancel Feature"
+msgstr "Característica de cancelación MRP"
+
+#. module: sh_mrp_cancel
+#: model_terms:ir.ui.view,arch_db:sh_mrp_cancel.sh_mrp_config_cancel_form_inherit
+msgid "Manufacturing Cancel Configuration"
+msgstr "Fabricación de configuración de cancelación"
+
+#. module: sh_mrp_cancel
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_company__mrp_operation_type
+#: model:ir.model.fields,field_description:sh_mrp_cancel.field_res_config_settings__mrp_operation_type
+msgid "Opration Type"
+msgstr "Tipo de óptica"
+
+#. module: sh_mrp_cancel
+#: model:ir.model,name:sh_mrp_cancel.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de producción"
+
+#. module: sh_mrp_cancel
+#: model:ir.model,name:sh_mrp_cancel.model_stock_move
+msgid "Stock Move"
+msgstr "Moverse"

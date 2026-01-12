@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_account_billing_create_form" model="ir.ui.view">
+        <field name="name">account.billing.create.form</field>
+        <field name="model">account.billing.create</field>
+        <field name="arch" type="xml">
+            <form string="Create Billing">
+                <group name="billing create">
+                    <group name="details_filters">
+                        <separator string="Filter Details"/>
+                        <field name="billing_mode" widget="radio" options="{'horizontal': false}"/>
+                        <field name="salesperson_id" force_save="1" readonly="customer_ids" required="not salesperson_id and not customer_ids"/>
+                        <field name="customer_ids" force_save="1" widget="many2many_tags" readonly="salesperson_id" required="not salesperson_id and not customer_ids"/>
+                    </group>
+
+                    <group name="Date range and report settings">
+                        <separator string="Date range and report settings"/>
+                        <label for="select_month" string="Select Period (Month/Year)"/>
+                        <div class="o_row">
+                            <field name="select_month" force_save="1" nolabel="1" placeholder="Select Month"/>
+                            <field name="select_year" force_save="1" nolabel="1" placeholder="Select Year"/>
+                        </div>
+                        <field name="date_from" force_save="1" required="1"/>
+                        <field name="date_to" force_save="1" required="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_create_billing" string="Create Billing" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

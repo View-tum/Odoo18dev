@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Cheque Inbound/Outbound Main Menu View -->
+    <menuitem id="menu_cheque_inbound_outbound"
+        name="Cheque"
+        parent="cheque_management.menu_cheque_root"
+        sequence="5"/>
+
+    <!-- Move line Search for Cheque -->
+    <record id="account_move_search_view_cheque" model="ir.ui.view">
+        <field name="name">account.move.search.view.cheque</field>
+        <field name="model">account.move</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="cheque_inbound_outbound_id" string="Journal"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_account_move_cheque" model="ir.actions.act_window">
+        <field name="name">Journal Entry</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{
+                'search_default_cheque_inbound_outbound_id': [active_id],
+                'default_cheque_inbound_outbound_id': active_id,
+                'create': 0,
+                'edit': 0
+            }</field>
+        <field name="search_view_id" ref="account_move_search_view_cheque"/>
+    </record>
+
+    <!-- payment Search for Cheque -->
+    <record id="account_payment_search_view_cheque_outstanding" model="ir.ui.view">
+        <field name="name">account.payment.search.view.cheque.outstanding</field>
+        <field name="model">account.payment</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="cheque_id" string="Cheque"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_account_payment_cheque_outstanding" model="ir.actions.act_window">
+        <field name="name">Payment</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{
+                'search_default_cheque_id': [active_id],
+                'default_cheque_id': active_id,
+                'create': 0,
+                'edit': 0
+            }</field>
+        <field name="search_view_id" ref="account_payment_search_view_cheque_outstanding"/>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Pivot View -->
+    <record id="cheque_inbound_outbound_pivot_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.pivot.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <pivot string="Cheque" display_quantity="True" sample="1">
+                <field name="name" type="row"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Graph View -->
+    <record id="cheque_inbound_outbound_graph_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.graph.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <graph string="Cheque" sample="1">
+                <field name="name" type="row"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Calendar View -->
+    <record id="cheque_inbound_outbound_calendar_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.calendar.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <calendar string="Cheque" date_start="date" color="name" hide_time="true" event_limit="5" create="false">
+                <field name="amount"/>
+                <field name="name" filters="1"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Book View -->
+    <record id="cheque_inbound_outbound_activity_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.activity.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <activity string="Cheque Inbound/Outbound Book">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name" display="full"/>
+                            <field name="pay_partner_id" muted="1" display="full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Kanban View -->
+    <record id="cheque_inbound_outbound_kanban_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.kanban.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <kanban records_draggable="0" class="o_kanban_mobile" sample="1">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="pay_partner_id"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row mb4">
+                                <div class="col-6 o_kanban_record_headings">
+                                    <strong>
+                                        <span>
+                                            <field name="name"/>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span><field name="pay_partner_id"/></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong><i class="fa fa-clock-o" aria-label="Date" role="img" title="Date"/> <t t-esc="record.date.value"/></strong>
+                                </div>
+                                <div class="col-6">
+                                    <span class="float-right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'info', 'paid': 'success', 'waiting_confirm': 'warning', 'cancelled': 'muted', 'return': 'danger'}}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Form View -->
+    <record id="cheque_inbound_outbound_form_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.form.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <form string="Cheque">
+                <header>
+                    <button name="print_dynamic_cheque_report" string="Print" type="object" class="oe_highlight" invisible="cheque_type != 'inbound' or state != 'waiting_confirm' or is_cheque_print == True"/>
+                    <button string="Waiting Confirm" type="object" name="action_waiting_confirm" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button string="Confirm" type="object" name="action_confirm_pay" class="oe_highlight" invisible="state != 'waiting_confirm' or cheque_optinal in ['return', 'transform']"/>
+                    <button string="Validate" type="action" name="%(action_cheque_validate_wiz)d" class="oe_highlight" invisible="state != 'confirmed' or cheque_optinal in ['return', 'transform'] or is_reverse_cheque_entry == False" groups="cheque_management.group_cheque_manager"/>
+                    <button string="Validate" type="object" name="action_validate" class="oe_highlight" invisible="state != 'confirmed' or cheque_optinal in ['return', 'transform'] or is_reverse_cheque_entry == True" groups="cheque_management.group_cheque_manager"/>
+                    <button string="Void" type="action" name="%(action_cheque_return_wiz)d" class="oe_highlight" invisible="state != 'waiting_confirm' or cheque_optinal != 'return'"/>
+                    <button string="Transform" type="object" name="action_transform" class="oe_highlight" invisible="state not in ['waiting_confirm', 'confirmed'] or cheque_optinal != 'transform'"/>
+                    <button name="print_dynamic_cheque_report" string="Print" type="object" invisible="cheque_type != 'inbound' or state != 'waiting_confirm' or is_cheque_print == False"/>
+                    <button string="Cancel" type="object" name="action_cancel" invisible="state in ['confirmed', 'return', 'paid', 'cancelled']"/>
+                    <button string="Reset To Draft" type="object" name="action_reset_to_draft" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_payment_cheque" class="oe_stat_button" icon="fa-bars" invisible="count_payment == 0">
+                            <field name="count_payment" widget="statinfo" string="Payments Cheque"/>
+                            <field name='payment_ids' invisible="1"/>
+                        </button>
+                        <button type="action" name="%(act_account_move_cheque)d" class="oe_stat_button" icon="fa-bars" invisible="count_move == 0">
+                            <field name="count_move" widget="statinfo" string="Journals"/>
+                        </button>
+                        <button type="action" name="%(act_account_payment_cheque_outstanding)d" class="oe_stat_button" icon="fa-dollar" invisible="count_payment_outstanding == 0">
+                            <field name="count_payment_outstanding" widget="statinfo" string="Cheque Payment"/>
+                        </button>
+                        <button type="object" name="action_view_trnasform_cheques" class="oe_stat_button" icon="fa-tasks" invisible="count_transform_cheque == 0">
+                            <field name="count_transform_cheque" widget="statinfo" string="Transform"/>
+                            <field name='cheque_transform_cheque_ids' invisible="1"/>
+                        </button>
+                        <button type="object" name="action_view_original_cheques" class="oe_stat_button" icon="fa-tasks" invisible="count_original_cheque == 0">
+                            <field name="count_original_cheque" widget="statinfo" string="Original Cheque"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" readonly="state in ['paid', 'cancelled']"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="cheque_book_id" force_save="1" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']"/>
+                            <field name="cheque_id" force_save="1" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']" domain="[('cheque_book_id', '=', cheque_book_id), ('status', '=', 'draft')]"/>
+                            <field name="bank_account_journal_id" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']"/>
+                            <field name="payment_ref" invisible="cheque_type != 'outbound'" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="pay_partner_id" readonly="state in ['paid', 'cancelled']" force_save="1"/>
+                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" force_save="1" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="filtered_payment_method_line_ids" invisible="1"/>
+                            <field name="payment_method_line_id" required="cheque_optinal not in ['return', 'transform']" invisible="cheque_optinal in ['return', 'transform'] or cheque_type != 'inbound'" readonly="state in ['paid', 'cancelled']" domain="[('id', 'in', filtered_payment_method_line_ids)]"/>
+                            <field name="payment_method_line_account_id" readonly="1" force_save="1" invisible="1"/>
+                            <field name="cheque_type" readonly="1" force_save="1" invisible="1"/>
+                            <field name="payment_id" invisible="1"/>
+                            <field name="original_cheque_transform_id" invisible="1"/>
+                            <field name="is_cheque_print" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="date" required="1" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="cheque_date" required="1" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="cheque_received_date" readonly="state == 'cancelled'"/>
+                            <field name="clearing_date" readonly="state == 'cancelled'" invisible="cheque_optinal in ['return', 'transform']"/>
+                            <field name="cheque_optinal" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="return_date" invisible="cheque_optinal != 'return'" required="cheque_optinal == 'return'" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="transform_date" invisible="cheque_optinal != 'transform'" required="cheque_optinal == 'transform'" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="cheque_detail" string="Cheque Detail" invisible="cheque_type != 'outbound'">
+                            <group>
+                                <group>
+                                    <field name="bank_account_journal_id" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="payment_method_line_id" required="cheque_optinal not in ['return', 'transform']" invisible="cheque_optinal in ['return', 'transform']" readonly="state in ['paid', 'cancelled']" domain="[('id', 'in', filtered_payment_method_line_ids)]"/>
+                                    <field name="cheque_bank_id" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="cheque_bank_branch" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="memo" readonly="state in ['paid', 'cancelled']"/>
+                                </group>
+                                <group>
+                                    <field name="ac_payee" widget="boolean_toggle" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="void_reason" readonly="state in ['return']"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="cheque_detail_inbund" string="Cheque Detail" invisible="cheque_type != 'inbound'">
+                            <group>
+                                <group>
+                                    <field name="partner_name" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="memo" readonly="state in ['paid', 'cancelled']"/>
+                                </group>
+                                <group>
+                                    <field name="ac_payee" widget="boolean_toggle" readonly="state in ['paid', 'cancelled']"/>
+                                    <field name="dynamic_cheque_list" invisible="1"/>
+                                    <field name="dynamic_io_cheque_id" invisible="cheque_type != 'inbound'" readonly="state in ['paid', 'cancelled']"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="transform_detail" string="Transform Detail" invisible="cheque_optinal != 'transform'">
+                            <field name="transform_detail_lines" readonly="state in ['paid', 'cancelled']" invisible="cheque_type != 'inbound'">
+                                <list editable="bottom">
+                                    <field name="cheque_type" column_invisible="1"/>
+                                    <field name="payment_method_id" required="1"/>
+                                    <field name="filtered_payment_method_line_ids" column_invisible="1"/>
+                                    <field name="payment_method_line_id" domain="[('id', 'in', filtered_payment_method_line_ids)]"/>
+                                    <field name="use_cheque" widget="boolean_toggle"/>
+                                    <field name="cheque_id" readonly="use_cheque == False" required="use_cheque == True and cheque_type == 'inbound'" domain="[('bank_account_journal_id', '=', payment_method_id), ('status', '=', 'draft')]"/>
+                                    <field name="branch" readonly="use_cheque == False"/>
+                                    <field name="date" readonly="use_cheque == False" required="use_cheque == True"/>
+                                    <field name="ac_payee" widget="boolean_toggle" readonly="use_cheque == False"/>
+                                    <field name="amount" required="1"/>
+                                    <field name="remark" readonly="use_cheque == False"/>
+                                </list>
+                            </field>
+                            <field name="transform_detail_lines" readonly="state in ['paid', 'cancelled']" invisible="cheque_type != 'outbound'">
+                                <list editable="bottom">
+                                    <field name="cheque_type" column_invisible="1"/>
+                                    <field name="payment_method_id" required="1"/>
+                                    <field name="use_cheque" widget="boolean_toggle"/>
+                                    <field name="receiving_cheque_id" readonly="use_cheque == False" required="use_cheque == True and cheque_type == 'outbound'"/>
+                                    <field name="branch" readonly="use_cheque == False"/>
+                                    <field name="date" readonly="use_cheque == False" required="use_cheque == True"/>
+                                    <field name="ac_payee" widget="boolean_toggle" readonly="use_cheque == False"/>
+                                    <field name="amount" required="1"/>
+                                    <field name="remark" readonly="use_cheque == False"/>
+                                </list>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4">
+                                </group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2">
+                                    <field name="cheque_amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" force_save="1"/>
+                                    <field name="change_amount" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" force_save="1"/>
+                                    <field name="balance" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                        <page name="descriptions" string="Description">
+                            <field name="description" nolabel="1" placeholder="Describe your descriptions..." type="html"/>
+                            <div class="d-none oe_clear"/>
+                        </page>
+                        <page name="other_information" string="Other Information">
+                            <group>
+                                <group>
+                                    <field name="company_id" groups="base.group_multi_company" readonly="1" force_save="1"/>
+                                    <field name="is_reverse_cheque_entry" invisible="1" force_save="1"/>
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound List View -->
+    <record id="cheque_inbound_outbound_list_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.list.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <list string="Cheque">
+                <field name="name" optional="show"/>
+                <field name="bank_account_journal_id" optional="show"/>
+                <field name="cheque_date" optional="show"/>
+                <field name="cheque_received_date" optional="show"/>
+                <field name="clearing_date" optional="show"/>
+                <field name="pay_partner_id" optional="show"/>
+                <field name="amount" optional="show"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+                <field name="memo" optional="show"/>
+                <field name="state" decoration-success="state == 'paid'" decoration-warning="state == 'waiting_confirm'" decoration-info="state == 'draft'" decoration-muted="state == 'cancelled'" decoration-danger="state == 'return'" widget="badge" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Search View -->
+    <record id="cheque_inbound_outbound_search_view" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.search.view</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="arch" type="xml">
+            <search string="Cheque">
+                <field name="name" string="Cheque No"/>
+                <field name="state" string="Status"/>
+                <field name="bank_account_journal_id" string="Bank Account"/>
+                <field name="pay_partner_id" string="Pay To"/>
+                <filter string="Inbound" name="cheque_inbound" domain="[('cheque_type', '=', 'inbound')]"/>
+                <filter string="Outbound" name="cheque_outbound" domain="[('cheque_type', '=', 'outbound')]"/>
+                <separator/>
+                <filter string="Draft" name="cheque_state_draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Waiting Confirm" name="cheque_state_waiting_confirm" domain="[('state', '=', 'waiting_confirm')]"/>
+                <filter string="Confirmed" name="cheque_state_confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter string="Void" name="cheque_state_done" domain="[('state', '=', 'return')]"/>
+                <filter string="Paid" name="cheque_state_done" domain="[('state', '=', 'paid')]"/>
+                <filter string="Cancelled" name="cheque_state_cancel" domain="[('state', '=', 'cancel')]"/>
+                <filter string="Paying Process" name="cheque_paying_inprocess" domain="[('cheque_type', '=', 'inbound'), ('state', 'in', ('draft', 'waiting_confirm', 'confirmed'))]"/>
+                <filter string="Receiving Process" name="cheque_receiving_inprocess" domain="[('cheque_type', '=', 'outbound'), ('state', 'in', ('draft', 'waiting_confirm', 'confirmed'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_partner" string="Pay To" context="{'group_by': 'pay_partner_id'}"/>
+                    <filter name="group_by_bank" string="Bank Account" context="{'group_by': 'bank_account_journal_id'}"/>
+                    <filter name="group_by_type" string="Type" context="{'group_by': 'cheque_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Action View (Inbound) -->
+    <record id="action_cheque_inbound_outbound_paying" model="ir.actions.act_window">
+        <field name="name">Cheque Paying</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cheque.inbound.outbound</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
+        <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
+        <field name="domain">[('cheque_type', '=', 'inbound')]</field>
+        <field name="context">{'default_cheque_type': 'inbound', 'search_default_cheque_paying_inprocess': 1}</field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Menu View (Inbound) -->
+    <menuitem id="menu_cheque_inbound"
+        name="Cheque Paying"
+        action="action_cheque_inbound_outbound_paying"
+        parent="cheque_management.menu_cheque_inbound_outbound"
+        sequence="3"/>
+
+    <!-- Cheque Inbound/Outbound Action View (Outbound) -->
+    <record id="action_cheque_inbound_outbound_receiving" model="ir.actions.act_window">
+        <field name="name">Cheque Receiving</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cheque.inbound.outbound</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
+        <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
+        <field name="domain">[('cheque_type', '=', 'outbound')]</field>
+        <field name="context">{'default_cheque_type': 'outbound', 'search_default_cheque_receiving_inprocess': 1}</field>
+    </record>
+
+    <!-- Cheque Inbound/Outbound Menu View (Outbound) -->
+    <menuitem id="menu_cheque_outbound"
+        name="Cheque Receiving"
+        action="action_cheque_inbound_outbound_receiving"
+        parent="cheque_management.menu_cheque_inbound_outbound"
+        sequence="2"/>
+        
+        
+     <!-- Cheque Transaction Action View  -->
+    <record id="action_cheque_inbound_outbound_transactions" model="ir.actions.act_window">
+        <field name="name">Cheque Transactions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cheque.inbound.outbound</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
+        <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
+    </record>
+        
+        
+        
+     <!-- Cheque Transaction Menu View -->
+    <menuitem id="menu_cheque_transactions"
+        name="Cheque Transactions"
+        action="action_cheque_inbound_outbound_transactions"
+        parent="cheque_management.menu_cheque_inbound_outbound"
+        sequence="1"/>
+
+</odoo>

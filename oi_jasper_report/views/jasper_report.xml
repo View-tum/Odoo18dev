@@ -1,0 +1,54 @@
+<odoo>
+
+	<record id="view_jasper_report_form" model="ir.ui.view">
+		<field name="name">jasper.report.form</field>
+		<field name="model">jasper.report</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="action_create_action" string="Create Action" type="object"
+						class="btn btn-primary" invisible="action_id" />
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+
+					</div>
+					<widget name="web_ribbon" text="Archived" bg_color="bg-danger"
+						invisible="active" />
+					<group>
+						<group>
+							<field name="name" />
+							<field name="report_path" />
+							<field name="model_id" options="{'no_create' : 1}" />
+							<field name="multi" />
+							<field name="format_selection" />
+							<field name="preview" invisible="format not in ['pdf']" />
+						</group>
+						<group>
+							<field name="active" />
+							<field name="format" />
+							<field name="ignore_pagination" />
+							<field name="one_page_per_sheet"
+								invisible="format not in ['xls', 'xlsx']" />
+							<field name="action_id" />
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="view_jasper_report_list" model="ir.ui.view">
+		<field name="name">jasper.report.list</field>
+		<field name="model">jasper.report</field>
+		<field name="arch" type="xml">
+			<list>
+				<field name="name" />
+				<field name="report_path" />
+				<field name="model_id" />
+			</list>
+		</field>
+	</record>
+
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Force update template body to Jinja and ensure subject/from/to render correctly -->
+  <data noupdate="0">
+    <record id="email_template_contract_reminder" model="mail.template">
+      <field name="name">Contract Expiry Reminder</field>
+      <!-- Keep placeholders here; we override at send-time too, but make them sane -->
+      <field name="email_from">{{ (user.email_formatted or '') }}</field>
+      <field name="email_to">{{ (object.partner_id.email or object.user_id.email) }}</field>
+      <field name="subject">แจ้งเตือน: สัญญา {{ object.name }} จะหมดอายุเร็วๆ นี้ ({{ object.remaining_days }} วัน)</field>
+      <field name="body_html" type="html">
+        <![CDATA[
+<p>เรียน คุณ{{ object.user_id.name }},</p>
+<p>ขอแจ้งให้ทราบว่าสัญญา <strong>{{ object.name }}</strong> ของลูกค้า <strong>{{ object.partner_id.name }}</strong> จะหมดอายุใน <strong>{{ object.remaining_days }} วัน</strong></p>
+
+<p><strong>รายละเอียดสัญญา:</strong></p>
+<ul>
+  <li>ชื่อสัญญา: {{ object.name }}</li>
+  <li>ลูกค้า: {{ object.partner_id.name }}</li>
+  <li>วันที่เริ่มต้น: {{ object.date_start and object.date_start.strftime('%d/%m/%Y') or 'ไม่ระบุ' }}</li>
+  <li>วันที่สิ้นสุด: {{ object.date_end and object.date_end.strftime('%d/%m/%Y') or 'ไม่ระบุ' }}</li>
+  <li>จำนวนวันที่เหลือ: {{ object.remaining_days }} วัน</li>
+  <li>ผู้รับผิดชอบ: {{ object.user_id.name }}</li>
+</ul>
+
+<p>กรุณาดำเนินการที่จำเป็นต่อไป</p>
+
+<p>ขอบคุณครับ/ค่ะ<br/>{{ user.name }}</p>
+        ]]>
+      </field>
+    </record>
+  </data>
+</odoo>

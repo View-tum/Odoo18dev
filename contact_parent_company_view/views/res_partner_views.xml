@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Form: เปลี่ยน label/option ของ parent_id ที่มีอยู่เดิม (ไม่เพิ่มช่องใหม่) -->
+  <record id="view_partner_form_inherit_parent_company" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit.parent.company</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <!-- ปรับ attributes ของ parent_id เดิม -->
+      <xpath expr="//field[@name='parent_id']" position="attributes">
+        <attribute name="string">Parent</attribute>
+        <attribute name="options">{'no_create': False}</attribute>
+      </xpath>
+<xpath expr="//field[@name='vat' and @readonly='parent_id']" position="attributes">
+    <attribute name="readonly">0</attribute>
+</xpath>
+      <!-- ถ้าเคยมีโค้ดที่ 'เพิ่ม' parent_id หลัง name ให้ลบ/คอมเมนต์ทิ้ง -->
+    </field>
+  </record>
+
+  <!-- List: ใส่คอลัมน์ Parent ถัดจากชื่อ (ตั้งชื่อคอลัมน์เป็น Parent) -->
+  <record id="view_partner_tree_inherit_parent_company" model="ir.ui.view">
+    <field name="name">res.partner.tree.inherit.parent.company</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+      <!-- บางดาต้าเบสใช้ complete_name บางที่ใช้ name; เอาที่มีจริงใน view คุณ -->
+      <xpath expr="//list/field[@name='complete_name']" position="after">
+        <field name="parent_id" string="Parent"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

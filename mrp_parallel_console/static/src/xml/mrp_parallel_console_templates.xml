@@ -15,6 +15,13 @@
         <div class="o_mrp_parallel_home h-100 d-flex flex-column">
             <div class="o_control_panel d-flex flex-shrink-0 align-items-center p-3">
                 <div class="o_cp_left d-flex align-items-center">
+                    <div class="btn-group shadow-sm" role="group">
+                        <button type="button"
+                                t-att-class="'btn btn-outline-primary ' + (state.marketFilter === 'inter' ? 'active' : '')"
+                                t-on-click="() => this.setMarketFilter('inter')">
+                            <i class="fa fa-globe me-1"/>International
+                        </button>
+                    </div>
                 </div>
                 <div class="o_cp_center flex-grow-1 d-flex justify-content-center align-items-center">
                     <SearchBar/>
@@ -51,8 +58,24 @@
                                             <div class="card-header">
                                                 <div class="d-flex justify-content-between align-items-start">
                                                     <strong t-esc="mo.name" class="text-truncate" style="font-size: 1.1em;"/>
+                                                    <t t-if="mo.market_scope == 'inter'">
+                                                        <span class="badge rounded-pill bg-purple-light text-purple border border-purple px-2 py-1"
+                                                              style="font-size: 0.7em; letter-spacing: 0.5px; background-color: #f3e8ff; color: #7e22ce; border-color: #d8b4fe !important;">
+                                                            <i class="fa fa-globe me-1"/>INTL
+                                                        </span>
+                                                    </t>
                                                 </div>
-                                                <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
+                                                <div class="small text-muted text-truncate mt-1">
+                                                    <t t-if="mo.origin">
+                                                        <i class="fa fa-tag me-1"/> <t t-esc="mo.origin"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-esc="mo.product"/>
+                                                    </t>
+                                                </div>
+                                                <t t-if="mo.origin">
+                                                    <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
+                                                </t>
                                                 <div class="mt-2">
                                                     <span t-att-class="stateBadgeClass(mo) + ' text-uppercase'">
                                                         <t t-esc="mo.state_label or mo.state"/>
@@ -948,22 +971,23 @@
                                             </t>
                                         </small>
                                     </div>
-                                    <div class="form-group">
-                                        <label>📍 Source Location</label>
-                                        <select class="form-control"
-                                                t-on-change="(ev) => this.onScrapLocationChange(ev)">
-                                            <t t-foreach="state.scrapModal.locations" t-as="loc" t-key="loc.id">
-                                                <option t-att-value="loc.id"
-                                                        t-att-selected="loc.id === state.scrapModal.locationId">
-                                                    <t t-esc="loc.name"/>
-                                                </option>
+                                    <div class="form-group mb-3">
+                                        <label class="text-muted small mb-1">📍 Source Location</label>
+                                        <div class="form-control-plaintext border rounded bg-light px-2 py-1">
+                                            <t t-set="sloc" t-if="state.scrapModal.locationId"
+                                               t-value="state.scrapModal.locations.find(l => l.id === state.scrapModal.locationId)"/>
+                                            <t t-if="sloc">
+                                                <t t-esc="sloc.name"/>
                                             </t>
-                                        </select>
+                                            <t t-else="">
+                                                <span class="text-danger italic small">Check MO picking data</span>
+                                            </t>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>
+                                    <div class="form-group mb-3">
+                                        <label class="text-muted small mb-1">
                                             <span class="o_mrp_icon icon-scrap"></span>
-                                            Scrap Location
+                                            Scrap Destination
                                         </label>
                                         <select class="form-control"
                                                 t-on-change="(ev) => this.onScrapScrapLocationChange(ev)">
@@ -1070,4 +1094,29 @@
         </xpath>
     </t>
 
+    <t t-name="mrp_parallel_console.QtyEditDialog">
+        <Dialog title="'Edit Quantity Log'">
+            <div class="o_mrp_parallel_dialog_content">
+                <div class="mb-3">
+                    <label class="form-label" for="qty_input">Quantity</label>
+                    <input type="number" step="0.01" class="form-control" id="qty_input"
+                           t-model="state.qty" t-ref="qtyInput"
+                           t-on-keydown="onKeydown"/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="note_input">Note</label>
+                    <input type="text" class="form-control" id="note_input"
+                           t-model="state.note"
+                           placeholder="Optional note"
+                           t-on-keydown="onKeydown"/>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <div class="d-flex justify-content-end gap-2 w-100">
+                    <button class="btn btn-primary" t-on-click="save">Save</button>
+                    <button class="btn btn-secondary" t-on-click="props.close">Cancel</button>
+                </div>
+            </t>
+        </Dialog>
+    </t>
 </templates>

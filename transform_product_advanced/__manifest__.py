@@ -1,0 +1,20 @@
+{
+    "name": "Transform Product Advanced",
+    "version": "18.0.1.0.0",
+    "depends": ["stock", "stock_account"],
+    "author": "Phyo Thet Paing/paingphyothet561@gmail.com",
+    "license": "LGPL-3",
+    "website": "https://www.365infotech.co.th/",
+    "category": "Inventory",
+    "summary": "Transform products between packing levels with lot reuse and valuation",
+    "data": [
+        "security/ir.model.access.csv",
+        "data/ir_sequence.xml",
+        "data/stock_location_data.xml",
+        "views/product_transform_views.xml",
+        "views/product_transform_rule_views.xml",
+        "views/product_product_views.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

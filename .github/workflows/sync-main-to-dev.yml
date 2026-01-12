@@ -1,0 +1,47 @@
+name: Sync Main back to Dev
+
+# ทำงานเมื่อมีการ Push (หรือ Merge PR) เข้าที่ branch main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pr-to-dev:
+    runs-on: ubuntu-latest
+    # สำคัญ: ต้องกำหนด permission เพื่อให้ Bot มีสิทธิ์เขียน Code และเปิด PR
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # 1. Checkout โค้ดล่าสุด
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      # 2. สร้าง Pull Request โดยใช้ GitHub CLI
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ใช้ Token อัตโนมัติของ GitHub
+        run: |
+          # ตรวจสอบว่า branch dev มีอยู่จริงไหม (กัน Error)
+          if git ls-remote --exit-code --heads origin dev; then
+            echo "Found dev branch. Creating PR..."
+            
+            # สร้าง PR: main -> dev
+            # --assignee: คนที่กด merge เข้า main จะถูก assign ใน PR นี้
+            # --label: แปะป้าย automated-pr
+            # || true: ถ้ามี PR ค้างอยู่แล้ว ไม่ต้อง error ให้ผ่านไปได้เลย
+            
+            gh pr create --base dev --head main \
+              --title "chore: Sync changes from main to dev" \
+              --body "Automated PR to sync changes from main back to dev branch. Please review and merge manually." \
+              --assignee "${{ github.actor }}" \
+              --label "automated-pr" \
+              || echo "PR already exists or no changes detected"
+              
+          else
+            echo "Branch dev does not exist. Skipping."
+          fi

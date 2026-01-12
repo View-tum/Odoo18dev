@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.his</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="100" />
+		<field name="inherit_id" ref="base.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//form" position="inside">
+				<app name="nano_interface_revernue_his" data-string="Thecool" string="Thecool" groups="base.group_system">
+
+					<block title="Receipt Import" name="thecool_config_setting_container">
+						<setting>
+							<field name="his_file_path" style="width: 400px;" placeholder="/home/sftperp/upload/"/>
+						</setting>
+						<setting>
+							<field name="his_file_name" placeholder="_revenuefilename_rsu"/>
+						</setting>
+						<setting>
+							<button name="file_test" type="object" string="Test file" class="btn btn-primary" />
+						</setting>
+						<setting>
+							<button name="manual_import" type="object" string="Manual Import" class="btn btn-primary" />
+						</setting>
+					</block>
+
+				</app>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

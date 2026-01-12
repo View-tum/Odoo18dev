@@ -21,10 +21,26 @@ STOCK_QUANT_MODEL = "stock.quant"
 
 
 PICKING_PRINT_REPORTS = [
-    ("stock.action_report_picking", "Picking Operations", "Internal picking list balancing demanded/available quantities."),
-    ("stock.action_report_delivery", "Delivery Slip", "Customer-facing delivery document."),
-    ("stock.action_report_picking_packages", "Packages Content", "Lists packages and their contents."),
-    ("stock.action_report_picking_type_label", "Product Labels", "Generate product/lot labels for this transfer."),
+    (
+        "stock.action_report_picking",
+        "Picking Operations",
+        "Internal picking list balancing demanded/available quantities.",
+    ),
+    (
+        "stock.action_report_delivery",
+        "Delivery Slip",
+        "Customer-facing delivery document.",
+    ),
+    (
+        "stock.action_report_picking_packages",
+        "Packages Content",
+        "Lists packages and their contents.",
+    ),
+    (
+        "stock.action_report_picking_type_label",
+        "Product Labels",
+        "Generate product/lot labels for this transfer.",
+    ),
 ]
 
 
@@ -47,10 +63,7 @@ def _require_group(group_xmlid):
         raise AccessError(_("You do not have permission to perform this action."))
 
 
-
-
 class MrpParallelConsoleController(http.Controller):
-
     # ---------------------------------------------------------
     # Real-time notification helper
     # ---------------------------------------------------------
@@ -67,9 +80,9 @@ class MrpParallelConsoleController(http.Controller):
         if not production_id:
             return
 
-        channel = f'mrp_parallel_console.production.{production_id}'
+        channel = f"mrp_parallel_console.production.{production_id}"
         try:
-            request.env['bus.bus']._sendone(channel, event_type, data)
+            request.env["bus.bus"]._sendone(channel, event_type, data)
         except Exception:
             # Log but don't fail the operation if bus notification fails
             pass
@@ -120,6 +133,7 @@ class MrpParallelConsoleController(http.Controller):
                 {
                     "id": mo.id,
                     "name": mo.name,
+                    "origin": mo.origin or "",
                     "user_id": mo.user_id.id,
                     "product": mo.product_id.display_name,
                     "qty": mo.product_qty,
@@ -151,6 +165,7 @@ class MrpParallelConsoleController(http.Controller):
                     "tracking": mo.product_id.tracking,
                     "has_lot": bool(finished_lot),
                     "lot_name": finished_lot.name or "",
+                    "market_scope": getattr(mo, "mpc_market_scope", False),
                 }
             )
         return {"mos": result}
@@ -265,10 +280,14 @@ class MrpParallelConsoleController(http.Controller):
             is_parallel = bool(
                 getattr(wo.operation_id, "parallel_mode", False) == "parallel"
             )
-            planned_qty = wo.planned_qty if is_parallel and wo.planned_qty else mo.product_qty
+            planned_qty = (
+                wo.planned_qty if is_parallel and wo.planned_qty else mo.product_qty
+            )
             qc_pending = bool(
                 getattr(wo, "check_ids", False)
-                and wo.check_ids.filtered(lambda c: c.quality_state not in ("pass", "fail"))
+                and wo.check_ids.filtered(
+                    lambda c: c.quality_state not in ("pass", "fail")
+                )
             )
 
             time_tracking = []
@@ -313,17 +332,23 @@ class MrpParallelConsoleController(http.Controller):
                     reason_text = s.scrap_reason_id.display_name
 
                 if not reason_text:
-                    reason_text = getattr(s, "note", False) or getattr(s, "description", False) or (s.origin or "")
+                    reason_text = (
+                        getattr(s, "note", False)
+                        or getattr(s, "description", False)
+                        or (s.origin or "")
+                    )
 
-                scraps_data.append({
-                    "id": s.id,
-                    "name": s.name,
-                    "product_name": s.product_id.display_name,
-                    "qty": s.scrap_qty,
-                    "uom": s.product_uom_id.display_name,
-                    "reason": reason_text,
-                    "type": p_type,
-                })
+                scraps_data.append(
+                    {
+                        "id": s.id,
+                        "name": s.name,
+                        "product_name": s.product_id.display_name,
+                        "qty": s.scrap_qty,
+                        "uom": s.product_uom_id.display_name,
+                        "reason": reason_text,
+                        "type": p_type,
+                    }
+                )
 
             result.append(
                 {
@@ -367,14 +392,14 @@ class MrpParallelConsoleController(http.Controller):
                     or (
                         wo.workcenter_id.id in busy_map
                         and any(
-                            wid != wo.id for wid in busy_map.get(wo.workcenter_id.id, set())
+                            wid != wo.id
+                            for wid in busy_map.get(wo.workcenter_id.id, set())
                         )
                         and wo.state != "progress"
                     ),
                     "qc_pending": qc_pending,
                 }
             )
-
 
         # Compute gating flag: enable console interactions (can_close_production)
         # only if no pending component quantities remain. Relying on pickings
@@ -389,9 +414,13 @@ class MrpParallelConsoleController(http.Controller):
         if production and production.exists():
             # pending component moves with remaining quantity to process
             pending_moves = production.move_raw_ids.filtered(
-                lambda m: m.state not in ("done", "cancel") and float_compare(
-                    (m.product_uom_qty or 0.0), (getattr(m, "quantity_done", m.quantity) or 0.0), precision_rounding=(m.product_uom.rounding or 0.0001)
-                ) > 0
+                lambda m: m.state not in ("done", "cancel")
+                and float_compare(
+                    (m.product_uom_qty or 0.0),
+                    (getattr(m, "quantity_done", m.quantity) or 0.0),
+                    precision_rounding=(m.product_uom.rounding or 0.0001),
+                )
+                > 0
             )
             if pending_moves:
                 can_close_production = False
@@ -520,8 +549,12 @@ class MrpParallelConsoleController(http.Controller):
         workorder = log.workorder_id
         return self._get_qty_status(workorder)
 
-    @http.route("/mrp_parallel_console/get_time_tracking_action", type="json", auth="user")
-    def get_time_tracking_action(self, workorder_id, employee_ids=None, log_date=None, start=None, end=None):
+    @http.route(
+        "/mrp_parallel_console/get_time_tracking_action", type="json", auth="user"
+    )
+    def get_time_tracking_action(
+        self, workorder_id, employee_ids=None, log_date=None, start=None, end=None
+    ):
         _require_group("mrp.group_mrp_user")
         workorder = request.env[MRP_WORKORDER_MODEL].browse(workorder_id)
         if not workorder.exists():
@@ -555,10 +588,10 @@ class MrpParallelConsoleController(http.Controller):
         if window_end:
             domain.append(("date_start", "<=", window_end))
 
-
-
         # Use our specific view that shows Employee instead of User
-        view_id = request.env.ref("mrp_parallel_console.view_mrp_workcenter_productivity_tree_parallel_console").id
+        view_id = request.env.ref(
+            "mrp_parallel_console.view_mrp_workcenter_productivity_tree_parallel_console"
+        ).id
 
         action = {
             "type": "ir.actions.act_window",
@@ -614,7 +647,11 @@ class MrpParallelConsoleController(http.Controller):
             ("workorder_id", "=", workorder.id),
             "|",
             ("date_end", "=", False),  # Timer is currently running
-            ("date_end", ">=", now - relativedelta(minutes=5)),  # Timer finished recently
+            (
+                "date_end",
+                ">=",
+                now - relativedelta(minutes=5),
+            ),  # Timer finished recently
         ]
         if Productivity.search_count(recent_domain):
             return
@@ -666,7 +703,11 @@ class MrpParallelConsoleController(http.Controller):
         """
         registry = request.env.registry
         if "stock.scrap" not in registry:
-            return {"scrap_validated_count": 0, "scrap_skipped_count": 0, "scrap_skipped": []}
+            return {
+                "scrap_validated_count": 0,
+                "scrap_skipped_count": 0,
+                "scrap_skipped": [],
+            }
 
         Scrap = request.env["stock.scrap"]
         validated_count = 0
@@ -707,7 +748,11 @@ class MrpParallelConsoleController(http.Controller):
                         )
                         continue
 
-                    res = scrap.action_validate() if hasattr(scrap, "action_validate") else False
+                    res = (
+                        scrap.action_validate()
+                        if hasattr(scrap, "action_validate")
+                        else False
+                    )
                     if isinstance(res, dict):
                         # stock.scrap.action_validate() may return an action (insufficient qty wizard)
                         skipped.append(
@@ -827,7 +872,11 @@ class MrpParallelConsoleController(http.Controller):
         if company.mpc_qc_block_close:
             qc_action = self._mpc_get_pending_quality_action(productions, wos)
             if qc_action:
-                return {"status": "quality_pending", "action": qc_action, "post_close": True}
+                return {
+                    "status": "quality_pending",
+                    "action": qc_action,
+                    "post_close": True,
+                }
 
         return {"status": "ok", "action": action, **scrap_summary}
 
@@ -872,7 +921,9 @@ class MrpParallelConsoleController(http.Controller):
 
         return {
             "status": "ok",
-            "message": _("Workcenter removed successfully. Quantities were rebalanced."),
+            "message": _(
+                "Workcenter removed successfully. Quantities were rebalanced."
+            ),
             "production_id": mo.id,
         }
 
@@ -889,9 +940,7 @@ class MrpParallelConsoleController(http.Controller):
         employees = employee_model.search(domain, limit=limit)
         return [{"id": emp.id, "name": emp.name} for emp in employees]
 
-    @http.route(
-        "/mrp_parallel_console/assign_employees", type="json", auth="user"
-    )
+    @http.route("/mrp_parallel_console/assign_employees", type="json", auth="user")
     def assign_employees(self, workorder_ids=None, employee_ids=None):
         _require_group("mrp.group_mrp_user")
         workorder_model = request.env[MRP_WORKORDER_MODEL]
@@ -925,15 +974,15 @@ class MrpParallelConsoleController(http.Controller):
         return {
             "status": "ok",
             "message": message,
-            "mo_closed": all(wo.production_id.state in ("done", "cancel") for wo in workorders),
+            "mo_closed": all(
+                wo.production_id.state in ("done", "cancel") for wo in workorders
+            ),
         }
 
     # ---------------------------------------------------------
     # Scrap tools
     # ---------------------------------------------------------
-    @http.route(
-        "/mrp_parallel_console/get_scrap_context", type="json", auth="user"
-    )
+    @http.route("/mrp_parallel_console/get_scrap_context", type="json", auth="user")
     def get_scrap_context(self, workorder_id):
         _require_group("mrp.group_mrp_user")
         workorder = request.env[MRP_WORKORDER_MODEL].browse(workorder_id)
@@ -944,7 +993,11 @@ class MrpParallelConsoleController(http.Controller):
         products = []
         finished_lot = production.lot_producing_id
         if production.product_id:
-            finished_max = getattr(production, "qty_produced", False) or production.product_qty or 0.0
+            finished_max = (
+                getattr(production, "qty_produced", False)
+                or production.product_qty
+                or 0.0
+            )
             products.append(
                 {
                     "id": production.product_id.id,
@@ -952,24 +1005,38 @@ class MrpParallelConsoleController(http.Controller):
                     "type": "finished",
                     "max_qty": finished_max,
                     "default_lot_id": finished_lot.id if finished_lot else False,
-                    "default_lot_name": finished_lot.display_name if finished_lot else "",
-                    "source_location_id": production.location_dest_id.id if production.location_dest_id else False,
+                    "default_lot_name": finished_lot.display_name
+                    if finished_lot
+                    else "",
+                    "source_location_id": production.location_dest_id.id
+                    if production.location_dest_id
+                    else False,
                     "uom_name": production.product_uom_id.name,
                 }
             )
         for move in production.move_raw_ids:
             # For components: Use move location or production source location
-            src_loc = move.location_id.id if move.location_id else (production.location_src_id.id if production.location_src_id else False)
-            products.append({
-                "id": move.product_id.id,
-                "name": move.product_id.display_name,
-                "type": "component",
-                "max_qty": move.product_uom_qty,
-                "default_lot_id": False,
-                "default_lot_name": "",
-                "source_location_id": src_loc,
-                "uom_name": move.product_uom.name,
-            })
+            src_loc = (
+                move.location_id.id
+                if move.location_id
+                else (
+                    production.location_src_id.id
+                    if production.location_src_id
+                    else False
+                )
+            )
+            products.append(
+                {
+                    "id": move.product_id.id,
+                    "name": move.product_id.display_name,
+                    "type": "component",
+                    "max_qty": move.product_uom_qty,
+                    "default_lot_id": False,
+                    "default_lot_name": "",
+                    "source_location_id": src_loc,
+                    "uom_name": move.product_uom.name,
+                }
+            )
 
         unique_products = []
         seen = set()
@@ -991,7 +1058,7 @@ class MrpParallelConsoleController(http.Controller):
         for move in production.move_raw_ids:
             prod_id = move.product_id.id
             if prod_id not in move_lines_map:
-                move_lines_map[prod_id] = request.env['stock.move.line']
+                move_lines_map[prod_id] = request.env["stock.move.line"]
             move_lines_map[prod_id] |= move.move_line_ids
 
         product_lots_map = {}
@@ -1007,17 +1074,21 @@ class MrpParallelConsoleController(http.Controller):
                     {
                         "id": finished_lot.id,
                         "name": finished_lot.display_name,
-                        "quantity": getattr(finished_lot, "product_qty", production.product_qty)
+                        "quantity": getattr(
+                            finished_lot, "product_qty", production.product_qty
+                        )
                         or 0.0,
                     }
                 ]
             elif p.get("type") == "component":
-                lines = move_lines_map.get(p["id"], request.env['stock.move.line'])
+                lines = move_lines_map.get(p["id"], request.env["stock.move.line"])
                 lot_data = {}
                 for line in lines:
                     if not line.lot_id:
                         continue
-                    qty_line = line.qty_done if "qty_done" in line._fields else line.quantity
+                    qty_line = (
+                        line.qty_done if "qty_done" in line._fields else line.quantity
+                    )
                     entry = lot_data.setdefault(
                         line.lot_id.id,
                         {
@@ -1069,6 +1140,18 @@ class MrpParallelConsoleController(http.Controller):
                 )
             products_payload.append(payload)
 
+        # Default source location detection logic
+        # For FG: MO destination or Picking Type default
+        # For Components: MO source or Picking Type default
+        default_fg_src = (
+            production.location_dest_id
+            or production.picking_type_id.default_location_dest_id
+        )
+        default_comp_src = (
+            production.location_src_id
+            or production.picking_type_id.default_location_src_id
+        )
+
         return {
             "products": products_payload,
             "locations": [
@@ -1077,12 +1160,16 @@ class MrpParallelConsoleController(http.Controller):
             "scrap_locations": [
                 {"id": loc.id, "name": loc.display_name} for loc in scrap_locs
             ],
-            "default_location_id": production.location_dest_id.id if production.location_dest_id else (default_src.id if default_src else False),
+            "default_location_id": default_fg_src.id
+            if default_fg_src
+            else (default_comp_src.id if default_comp_src else False),
             "default_scrap_location_id": scrap_locs[:1].id if scrap_locs else False,
             "scrap_reasons": [
                 {"id": tag.id, "name": tag.display_name}
                 for tag in request.env["stock.scrap.reason.tag"].search([], limit=80)
-            ] if "stock.scrap.reason.tag" in request.env.registry else [],
+            ]
+            if "stock.scrap.reason.tag" in request.env.registry
+            else [],
         }
 
     @http.route("/mrp_parallel_console/create_scrap", type="json", auth="user")
@@ -1110,13 +1197,40 @@ class MrpParallelConsoleController(http.Controller):
         scrap_model = request.env["stock.scrap"]
         # Guard: cap scrap quantity for components at required quantity
         # Component quantity guard
-        raw_move = production.move_raw_ids.filtered(lambda m: m.product_id.id == product_id)[:1]
-        if raw_move and float_compare(quantity, raw_move.product_uom_qty, precision_rounding=raw_move.product_uom.rounding or 0.0001) > 0:
-            return {"error": _("Scrap quantity cannot exceed required component quantity (%s)") % raw_move.product_uom_qty}
+        raw_move = production.move_raw_ids.filtered(
+            lambda m: m.product_id.id == product_id
+        )[:1]
+        if (
+            raw_move
+            and float_compare(
+                quantity,
+                raw_move.product_uom_qty,
+                precision_rounding=raw_move.product_uom.rounding or 0.0001,
+            )
+            > 0
+        ):
+            return {
+                "error": _(
+                    "Scrap quantity cannot exceed required component quantity (%s)"
+                )
+                % raw_move.product_uom_qty
+            }
         # Finished product quantity guard
         if product_id == production.product_id.id:
-            if float_compare(quantity, production.product_qty, precision_rounding=production.product_uom_id.rounding or 0.0001) > 0:
-                return {"error": _("Scrap quantity cannot exceed finished product planned quantity (%s)") % production.product_qty}
+            if (
+                float_compare(
+                    quantity,
+                    production.product_qty,
+                    precision_rounding=production.product_uom_id.rounding or 0.0001,
+                )
+                > 0
+            ):
+                return {
+                    "error": _(
+                        "Scrap quantity cannot exceed finished product planned quantity (%s)"
+                    )
+                    % production.product_qty
+                }
 
         product = request.env["product.product"].browse(product_id)
         vals = {
@@ -1146,27 +1260,19 @@ class MrpParallelConsoleController(http.Controller):
                 scrap_reason_tag_ids = [int(scrap_reason_tag_ids)]
             vals["scrap_reason_tag_ids"] = [(6, 0, scrap_reason_tag_ids)]
 
-        # Auto-fill source location:
-        # - FG scrap: use finished move dest or MO dest
-        # - Component scrap: use matching raw move dest (pre-production) when available
-        source_loc = False
         if product_id == production.product_id.id:
-            finished_moves = production.move_finished_ids.filtered(
-                lambda m: m.product_id.id == product_id and m.state != "cancel"
+            source_loc = (
+                production.location_dest_id
+                or production.picking_type_id.default_location_dest_id
             )
-            source_loc = finished_moves[:1].location_dest_id if finished_moves else False
-            if not source_loc:
-                source_loc = production.location_dest_id or production.picking_type_id.default_location_dest_id
         else:
-            raw_move = production.move_raw_ids.filtered(
-                lambda m: m.product_id.id == product_id and m.state != "cancel"
-            )[:1]
-            source_loc = raw_move.location_dest_id if raw_move else False
-        if not source_loc:
-            source_loc = production.location_src_id or production.location_id
-        if not location_id:
-            location_id = source_loc.id if source_loc else location_id
-        vals["location_id"] = location_id
+            source_loc = (
+                production.location_src_id
+                or production.picking_type_id.default_location_src_id
+            )
+
+        if source_loc:
+            vals["location_id"] = source_loc.id
 
         if lot_id and "lot_id" in scrap_model._fields:
             vals["lot_id"] = lot_id
@@ -1175,42 +1281,25 @@ class MrpParallelConsoleController(http.Controller):
         elif lot_name and "lot_name" in scrap_model._fields:
             vals["lot_name"] = lot_name
 
-        # Auto-select scrap location:
-        # - Respect user-provided scrap_location_id if any.
-        # - For FG scrap, prefer MO destination (location_dest / picking type default) to avoid virtual/negative.
-        # - Else pick any scrap location flagged as such.
+        scrap_loc = False
         if scrap_location_id:
-            vals["scrap_location_id"] = scrap_location_id
-        else:
-            location_model = request.env["stock.location"]
-            scrap_loc = False
-            # Prefer real destination for finished products
+            scrap_loc = request.env["stock.location"].browse(scrap_location_id)
+
+        if not scrap_loc or not scrap_loc.exists():
             if product_id == production.product_id.id:
-                scrap_loc = production.location_dest_id or getattr(production.picking_type_id, "default_location_dest_id", False)
-            if not scrap_loc:
-                # Fallback: flagged scrap location under same root as source if possible
-                source_loc = location_model.browse(location_id) if location_id else False
-                scrap_domain = [("scrap_location", "=", True)]
-                root_id = False
-                if source_loc and source_loc.exists():
-                    getter = getattr(source_loc, "get_root", None)
-                    if getter:
-                        try:
-                            root = getter()
-                            if root:
-                                root_id = root.id
-                        except Exception:
-                            root_id = False
-                if root_id:
-                    scrap_domain.append(("id", "child_of", root_id))
-                scrap_loc = location_model.search(scrap_domain, limit=1)
-                if not scrap_loc:
-                    scrap_loc = location_model.search([("scrap_location", "=", True)], limit=1)
-            if scrap_loc:
-                vals["scrap_location_id"] = scrap_loc.id
+                scrap_loc = production.location_dest_id or getattr(
+                    production.picking_type_id, "default_location_dest_id", False
+                )
+
+        if not scrap_loc:
+            scrap_loc = request.env["stock.location"].search(
+                [("scrap_location", "=", True)], limit=1
+            )
+
+        if scrap_loc:
+            vals["scrap_location_id"] = scrap_loc.id
 
         scrap = scrap_model.create(vals)
-        # Log reason on the scrap chatter as a note (closer to native "Log note").
         if reason:
             try:
                 scrap.message_post(
@@ -1220,13 +1309,17 @@ class MrpParallelConsoleController(http.Controller):
                 )
             except Exception:
                 pass
-        # Log reason to MO chatter (no validation here; validate when closing MO)
         try:
-            production.message_post(body=_("Scrap created on console (draft): %s %s. Reason: %s") % (
-                quantity,
-                scrap.product_uom_name if hasattr(scrap, 'product_uom_name') else '',
-                reason or ''
-            ))
+            production.message_post(
+                body=_("Scrap created on console (draft): %s %s. Reason: %s")
+                % (
+                    quantity,
+                    scrap.product_uom_name
+                    if hasattr(scrap, "product_uom_name")
+                    else "",
+                    reason or "",
+                )
+            )
         except Exception:
             pass
         return {
@@ -1253,35 +1346,49 @@ class MrpParallelConsoleController(http.Controller):
 
         # Check component availability
         # If we have unreserved moves but stock is available, try to reserve it (Auto-fix for backorders/rounding issues)
-        if production.state in ('confirmed', 'progress', 'to_close'):
+        if production.state in ("confirmed", "progress", "to_close"):
             needs_reserve = False
-            for move in production.move_raw_ids.filtered(lambda m: m.state not in ('done', 'cancel')):
-                if float_compare(move.quantity, move.product_uom_qty, precision_rounding=move.product_uom.rounding) < 0:
+            for move in production.move_raw_ids.filtered(
+                lambda m: m.state not in ("done", "cancel")
+            ):
+                if (
+                    float_compare(
+                        move.quantity,
+                        move.product_uom_qty,
+                        precision_rounding=move.product_uom.rounding,
+                    )
+                    < 0
+                ):
                     needs_reserve = True
                     break
             if needs_reserve:
-                 production.action_assign()
+                production.action_assign()
 
         missing_components = []
-        for move in production.move_raw_ids.filtered(lambda m: m.state not in ('done', 'cancel')):
+        for move in production.move_raw_ids.filtered(
+            lambda m: m.state not in ("done", "cancel")
+        ):
             # Use quantity_available instead of reserved_availability (Odoo 18)
             product = move.product_id
             available_qty = product.with_context(
                 location=production.location_src_id.id
             ).qty_available
 
-            if float_compare(
-                available_qty,
-                move.product_uom_qty,
-                precision_rounding=move.product_uom.rounding or 0.0001
-            ) < 0:
+            if (
+                float_compare(
+                    available_qty,
+                    move.product_uom_qty,
+                    precision_rounding=move.product_uom.rounding or 0.0001,
+                )
+                < 0
+            ):
                 missing_components.append(product.display_name)
 
         if missing_components:
             return {
                 "sufficient": False,
                 "missing_components": missing_components,
-                "error": f"Insufficient components: {', '.join(missing_components)}"
+                "error": f"Insufficient components: {', '.join(missing_components)}",
             }
 
         return {"sufficient": True}
@@ -1320,7 +1427,10 @@ class MrpParallelConsoleController(http.Controller):
             if "maintenance_type" in MaintReq._fields:
                 domain.append(("maintenance_type", "in", ["corrective", "preventive"]))
             if MaintReq.search_count(domain):
-                return {"error": _("Workcenter %s is under maintenance request.") % wc.display_name}
+                return {
+                    "error": _("Workcenter %s is under maintenance request.")
+                    % wc.display_name
+                }
 
         # Busy: other workorders in progress on same workcenter
         other_progress = request.env[MRP_WORKORDER_MODEL].search_count(
@@ -1331,7 +1441,10 @@ class MrpParallelConsoleController(http.Controller):
             ]
         )
         if other_progress:
-            return {"error": _("Workcenter %s is busy with another workorder.") % wc.display_name}
+            return {
+                "error": _("Workcenter %s is busy with another workorder.")
+                % wc.display_name
+            }
 
         # Optional hook: mrp_workcenter_lock can define a check method
         # enforcing a single running job per workcenter. Call it when
@@ -1395,13 +1508,10 @@ class MrpParallelConsoleController(http.Controller):
         )
         return workorder.state, end
 
-
     # ---------------------------------------------------------
     # Quality check tools
     # ---------------------------------------------------------
-    @http.route(
-        "/mrp_parallel_console/create_quality_check", type="json", auth="user"
-    )
+    @http.route("/mrp_parallel_console/create_quality_check", type="json", auth="user")
     def create_quality_check(self, workorder_id, note=None, result="pass"):
         _require_group("mrp.group_mrp_user")
         workorder = request.env[MRP_WORKORDER_MODEL].browse(workorder_id)
@@ -1564,7 +1674,11 @@ class MrpParallelConsoleController(http.Controller):
         registry = request.env.registry
         company = production.company_id
         # If quality modules are not installed, skip QC enforcement entirely
-        if company.mpc_qc_block_close and "quality.check" in registry and "quality.point" in registry:
+        if (
+            company.mpc_qc_block_close
+            and "quality.check" in registry
+            and "quality.point" in registry
+        ):
             quality_check_model = request.env["quality.check"]
             quality_point_model = request.env["quality.point"]
 
@@ -1623,7 +1737,9 @@ class MrpParallelConsoleController(http.Controller):
     # ---------------------------------------------------------
     # Maintenance Integration
     # ---------------------------------------------------------
-    @http.route("/mrp_parallel_console/action_maintenance_request", type="json", auth="user")
+    @http.route(
+        "/mrp_parallel_console/action_maintenance_request", type="json", auth="user"
+    )
     def action_maintenance_request(self, workorder_id):
         _require_group("mrp.group_mrp_user")
         wo = request.env[MRP_WORKORDER_MODEL].browse(workorder_id)
@@ -1688,7 +1804,7 @@ class MrpParallelConsoleController(http.Controller):
         pending_pickings = self._console_pending_pickings(production)
         if not pending_pickings:
             # Attempt to reserve stock if no pickings are found (handle Backorder/Late reservation cases)
-            if production.state in ('confirmed', 'progress', 'to_close'):
+            if production.state in ("confirmed", "progress", "to_close"):
                 production.action_assign()
                 pending_pickings = self._console_pending_pickings(production)
 
@@ -1718,9 +1834,7 @@ class MrpParallelConsoleController(http.Controller):
             ],
         }
 
-    @http.route(
-        "/mrp_parallel_console/validate_picking", type="json", auth="user"
-    )
+    @http.route("/mrp_parallel_console/validate_picking", type="json", auth="user")
     def validate_picking(self, picking_id, moves):
         _require_group("stock.group_stock_user")
         picking = request.env[STOCK_PICKING_MODEL].browse(picking_id)
@@ -1751,10 +1865,9 @@ class MrpParallelConsoleController(http.Controller):
             for vals in new_lines:
                 matched_line = False
                 for line in move.move_line_ids:
-                    if (
-                        line.lot_id.id == vals.get("lot_id")
-                        and line.location_id.id == vals.get("location_id")
-                    ):
+                    if line.lot_id.id == vals.get(
+                        "lot_id"
+                    ) and line.location_id.id == vals.get("location_id"):
                         target_qty = vals.get("quantity", 0.0)
                         if "quantity" in line._fields:
                             line.quantity = target_qty
@@ -1811,7 +1924,7 @@ class MrpParallelConsoleController(http.Controller):
                         "company_id": picking.company_id.id,
                         "product_id": move.product_id.id,
                         "product_uom_id": move.product_uom.id,
-                        "quantity": qty,   # Changed from qty_done to quantity
+                        "quantity": qty,  # Changed from qty_done to quantity
                         "location_id": picking.location_id.id,
                         "location_dest_id": picking.location_dest_id.id,
                     }
@@ -1845,7 +1958,7 @@ class MrpParallelConsoleController(http.Controller):
                 "company_id": picking.company_id.id,
                 "product_id": move.product_id.id,
                 "product_uom_id": move.product_uom.id,
-                "quantity": qty,   # Changed from qty_done to quantity
+                "quantity": qty,  # Changed from qty_done to quantity
                 "location_id": location_id,
                 "location_dest_id": picking.location_dest_id.id,
             }
@@ -1877,7 +1990,11 @@ class MrpParallelConsoleController(http.Controller):
                 continue
             location = location_model.browse(location_id)
             if not location.exists():
-                raise UserError(_("Selected location no longer exists. Please reload and try again."))
+                raise UserError(
+                    _(
+                        "Selected location no longer exists. Please reload and try again."
+                    )
+                )
             lot = lot_id and lot_model.browse(lot_id) or False
             available = quant_model._get_available_quantity(
                 move.product_id, location, lot or False, strict=True
@@ -1913,9 +2030,7 @@ class MrpParallelConsoleController(http.Controller):
             return lot.id
         if move.product_id.tracking in ("lot", "serial"):
             raise UserError(
-                _(
-                    "Product %s requires a lot/serial number before validation."
-                )
+                _("Product %s requires a lot/serial number before validation.")
                 % move.product_id.display_name
             )
         return False
@@ -2038,7 +2153,9 @@ class MrpParallelConsoleController(http.Controller):
 
         return picking, production
 
-    @http.route("/mrp_parallel_console/get_picking_print_menu", type="json", auth="user")
+    @http.route(
+        "/mrp_parallel_console/get_picking_print_menu", type="json", auth="user"
+    )
     def get_picking_print_menu(self):
         """Return list of available report actions for stock pickings."""
         _require_group("stock.group_stock_user")
@@ -2057,7 +2174,9 @@ class MrpParallelConsoleController(http.Controller):
             )
         return {"reports": reports}
 
-    @http.route("/mrp_parallel_console/get_picking_print_action", type="json", auth="user")
+    @http.route(
+        "/mrp_parallel_console/get_picking_print_action", type="json", auth="user"
+    )
     def get_picking_print_action(self, picking_id=None, report_xml_id=None):
         """Return a specific print action for a stock picking."""
         _require_group("stock.group_stock_user")
@@ -2090,7 +2209,9 @@ class MrpParallelConsoleController(http.Controller):
             return {"error": _("No print action available for this picking.")}
         return {"action": action}
 
-    @http.route("/mrp_parallel_console/get_production_print_menu", type="json", auth="user")
+    @http.route(
+        "/mrp_parallel_console/get_production_print_menu", type="json", auth="user"
+    )
     def get_production_print_menu(self):
         """Return all actions bound to the MO Print menu."""
         _require_group("mrp.group_mrp_user")
@@ -2136,8 +2257,12 @@ class MrpParallelConsoleController(http.Controller):
         actions.sort(key=lambda item: item["name"].lower())
         return {"actions": actions}
 
-    @http.route("/mrp_parallel_console/get_production_print_action", type="json", auth="user")
-    def get_production_print_action(self, production_id=None, action_id=None, action_model=None):
+    @http.route(
+        "/mrp_parallel_console/get_production_print_action", type="json", auth="user"
+    )
+    def get_production_print_action(
+        self, production_id=None, action_id=None, action_model=None
+    ):
         """Execute a print action bound to manufacturing orders."""
         _require_group("mrp.group_mrp_user")
         if not production_id or not action_id or not action_model:
@@ -2184,7 +2309,11 @@ class MrpParallelConsoleController(http.Controller):
         next_id = False
         if sorted_pickings and len(sorted_pickings) > 1:
             # current pick is first; next is second
-            next_id = sorted_pickings[1].id if sorted_pickings[0] == picking else sorted_pickings[0].id
+            next_id = (
+                sorted_pickings[1].id
+                if sorted_pickings[0] == picking
+                else sorted_pickings[0].id
+            )
 
         # Try to reserve before opening
         if picking.state not in ("done", "cancel"):
@@ -2217,7 +2346,9 @@ class MrpParallelConsoleController(http.Controller):
         for move in picking.move_ids_without_package:
             existing_qty = 0.0
             for line in move.move_line_ids:
-                existing_qty += getattr(line, "quantity", getattr(line, "qty_done", 0.0)) or 0.0
+                existing_qty += (
+                    getattr(line, "quantity", getattr(line, "qty_done", 0.0)) or 0.0
+                )
 
             remaining = max((move.product_uom_qty or 0.0) - existing_qty, 0.0)
             if remaining <= 0:
@@ -2243,7 +2374,11 @@ class MrpParallelConsoleController(http.Controller):
             # Tracked: split by available quants FIFO
             domain = [
                 ("product_id", "=", move.product_id.id),
-                ("location_id", "child_of", move.location_id.id or picking.location_id.id),
+                (
+                    "location_id",
+                    "child_of",
+                    move.location_id.id or picking.location_id.id,
+                ),
                 ("lot_id", "!=", False),
                 ("quantity", ">", 0),
             ]
@@ -2269,6 +2404,7 @@ class MrpParallelConsoleController(http.Controller):
                 remaining -= take
 
             # If still remaining (no quants), leave it empty for user to fill in form
+
     def _serialize_picking(self, picking):
         data = {
             "id": picking.id,
@@ -2299,9 +2435,7 @@ class MrpParallelConsoleController(http.Controller):
 
     def _serialize_move(self, move, picking):
         product = move.product_id
-        on_hand = (
-            product.with_context(location=picking.location_id.id).qty_available
-        )
+        on_hand = product.with_context(location=picking.location_id.id).qty_available
         move_location = move.location_id or picking.location_id
         lots = self._get_available_lots(product, move_location)
         locations = self._get_available_locations(product, move_location)
@@ -2325,7 +2459,8 @@ class MrpParallelConsoleController(http.Controller):
                     "location_id": (ml.location_id or move_location).id,
                 }
                 for ml in move.move_line_ids
-            ] or [
+            ]
+            or [
                 {
                     "id": None,
                     "lot_id": False,
@@ -2398,7 +2533,9 @@ class MrpParallelConsoleController(http.Controller):
                 {
                     "id": loc.id,
                     "name": loc.complete_name or loc.display_name,
-                    "on_hand": group["quantity"],  # Similar to On Hand column in Odoo popup
+                    "on_hand": group[
+                        "quantity"
+                    ],  # Similar to On Hand column in Odoo popup
                 }
             )
         return locations

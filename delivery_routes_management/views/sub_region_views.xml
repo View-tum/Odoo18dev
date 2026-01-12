@@ -1,0 +1,36 @@
+<odoo>
+  <record id="view_sub_region_list" model="ir.ui.view">
+    <field name="name">delivery.sub.region.list</field>
+    <field name="model">delivery.sub.region</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="code"/>
+        <field name="name"/>
+        <field name="route_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_sub_region_form" model="ir.ui.view">
+    <field name="name">delivery.sub.region.form</field>
+    <field name="model">delivery.sub.region</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="code"/>
+            <field name="name"/>
+            <field name="description"/>
+            <field name="route_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_sub_region" model="ir.actions.act_window">
+    <field name="name">Subregions</field>
+    <field name="res_model">delivery.sub.region</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

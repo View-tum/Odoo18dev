@@ -1,0 +1,166 @@
+/* inventory_stock_card/static/src/scss/inventory_stock_card_report.scss */
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* ... (CSS อื่นๆ คงเดิม) ... */
+
+/* Print Optimizations */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .sc-header { background-color: #667eea !important; }
+  .sc-title { color: #ffffff !important; }
+  .sc-table thead th { background-color: #667eea !important; color: #ffffff !important; }
+  .sc-meta .label { background-color: #e9ecef !important; }
+  .balance-cell { background-color: #e7f3ff !important; }
+  .sc-table tbody tr:nth-child(even) { background-color: #f8f9fa !important; }
+}
+
+/* [แก้ไข] ตั้งค่า @page ให้เป็น Landscape */
+@page {
+  size: A4 landscape;  /* บังคับแนวนอน */
+  margin-top: 1.5cm;
+  margin-right: 0.5cm;
+  margin-bottom: 1cm;
+  margin-left: 0.5cm;
+}
+
+/* Header Section */
+.sc-header {
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 0 10px 0 !important;
+  border-radius: 0 !important;
+}
+
+.sc-title {
+  text-align: center !important;
+  font-size: 32px !important;  /* เพิ่มขนาดหัวเรื่อง */
+  font-weight: 800 !important;
+  color: #000 !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+/* Info Grid */
+.sc-info-container {
+  background: #f8f9fa !important;
+  border: 2px solid #667eea !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+.sc-meta { 
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 15px !important; /* เพิ่มขนาดตัวหนังสือส่วนหัว */
+}
+
+.sc-meta td { 
+  padding: 8px 12px !important;
+  vertical-align: top !important;
+}
+
+/* ... (Style เดิมของ .label, .value เก็บไว้) ... */
+.sc-meta .label { 
+  width: 15% !important;
+  color: #495057 !important;
+  font-weight: 600 !important;
+  background-color: #e9ecef !important;
+  border-right: 3px solid #667eea !important;
+}
+
+.sc-meta .value { 
+  width: 35% !important;
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  font-weight: 500 !important;
+}
+
+/* Table Styles */
+.sc-table-container {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border: 2px solid #667eea !important;
+  margin-top: 10px !important;
+}
+
+.sc-table { 
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 13px !important; /* เพิ่มจาก 11px เป็น 13px */
+  background: #ffffff !important;
+}
+
+.sc-table thead th {
+  background-color: #667eea !important;
+  color: #ffffff !important;
+  border: 1px solid #5568d3 !important;
+  padding: 10px 8px !important;
+  font-weight: 700 !important; /* หนาขึ้น */
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 13px !important; /* เพิ่มขนาดหัวตาราง */
+  text-transform: uppercase !important;
+}
+
+.sc-table tbody tr {
+  border-bottom: 1px solid #e9ecef !important;
+}
+
+.sc-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa !important;
+}
+
+.sc-table tbody td { 
+  border: 1px solid #dee2e6 !important;
+  padding: 8px 6px !important; /* เพิ่ม padding ให้ดูสบายตาขึ้น */
+  color: #495057 !important;
+}
+
+/* ตัด Opening Row Style ออก (ไม่ได้ใช้แล้ว) แต่เก็บ Balance Cell ไว้ */
+.balance-cell {
+  background-color: #e7f3ff !important;
+  font-weight: 600 !important;
+  color: #004085 !important;
+}
+
+/* Alignment & Utilities */
+.text-right { text-align: right !important; font-family: 'Courier New', monospace !important; }
+.text-center { text-align: center !important; }
+.numeric-positive { color: #28a745 !important; font-weight: 500 !important; }
+.numeric-negative { color: #dc3545 !important; font-weight: 500 !important; }
+
+/* Page Break & Divider */
+.page-break { page-break-before: always !important; margin-top: 40px !important; }
+.sc-table tr { page-break-inside: avoid !important; }
+.page-break + .sc-header { margin-top: 40px !important; }
+.pb-top { height: 0; }
+.page-break + .pb-top { height: 15mm; }
+
+.sc-divider {
+  height: 2px !important;
+  background-color: #667eea !important;
+  margin: 16px auto !important;
+  width: 50% !important;
+}
+
+/* Print Optimizations */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .sc-header { background-color: #667eea !important; }
+  .sc-title { color: #ffffff !important; }
+  .sc-table thead th { background-color: #667eea !important; color: #ffffff !important; }
+  .sc-meta .label { background-color: #e9ecef !important; }
+  .balance-cell { background-color: #e7f3ff !important; }
+  .sc-table tbody tr:nth-child(even) { background-color: #f8f9fa !important; }
+}
+
+@page {
+  margin-top: 1.5cm;
+  margin-right: 0.5cm;
+  margin-bottom: 1cm;
+  margin-left: 0.5cm;
+}

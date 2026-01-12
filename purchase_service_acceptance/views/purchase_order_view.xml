@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_inherit_service_acceptance" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.service.acceptance</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="has_service_product" invisible="1" />
+                <button name="action_view_service_acceptance"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-check-square-o"
+                    invisible="service_acceptance_count == 0">
+                    <field name="service_acceptance_count" widget="statinfo" string="Acceptances" />
+                </button>
+            </div>
+            <header position="inside">
+                <button name="action_create_service_acceptance"
+                    string="Create Service Acceptance"
+                    type="object"
+                    class="oe_highlight"
+                    invisible="state not in ('purchase', 'done') or not has_service_product" />
+            </header>
+            <xpath expr="//field[@name='order_line']/list//field[@name='qty_received']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='qty_received']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

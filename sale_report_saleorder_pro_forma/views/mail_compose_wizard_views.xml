@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Inherit mail compose wizard form -->
+  <record id="mail_compose_message_wizard_form_inherit_proforma" model="ir.ui.view">
+    <field name="name">mail.compose.message.wizard.form.inherit.proforma</field>
+    <field name="model">mail.compose.message</field>
+    <!-- external id ของฟอร์ม wizard ใน Odoo มักเป็นอันนี้ -->
+    <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+    <field name="arch" type="xml">
+
+      <!-- 1) ซ่อนแถบ attachment เฉพาะตอนกด Send PRO-FORMA (context proforma=True) -->
+      <!-- ฟิลด์นี้คือส่วนที่โชว์ "Order - SOE-00002.pdf" -->
+      <xpath expr="//field[@name='attachment_ids']" position="attributes">
+        <attribute name="invisible">context.get('proforma')</attribute>
+      </xpath>
+
+      <xpath expr="//footer" position="inside">
+
+        <button string="Pro Forma Invoice(EN)"
+                name="action_custom_proforma_export_pdf"
+                type="object"
+                class="btn-secondary"
+                invisible="not context.get('proforma')"/>
+
+        <button string="Pro Forma Invoice(TH)"
+                name="action_custom_proforma_export_pdf_th"
+                type="object"
+                class="btn-secondary"
+                invisible="not context.get('proforma')"/>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

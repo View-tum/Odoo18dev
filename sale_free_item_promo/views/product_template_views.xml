@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_product_template_form_inherit_free_item_promo" model="ir.ui.view">
+        <field name="name">product.template.form.free.item.promo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='description']" position="after">
+                <group string="Free Item Promo">
+                    <field name="enable_free_item"/>
+                    <field name="buy_item_qty" invisible="not enable_free_item"/>
+                    <field name="free_item_product_id" invisible="not enable_free_item"/>
+                    <field name="free_item_qty" invisible="not enable_free_item"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

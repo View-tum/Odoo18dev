@@ -1,0 +1,11 @@
+<odoo>
+    <record id="action_account_payment_collection_report" model="ir.actions.act_window">
+        <field name="name">Payment Collection Report</field>
+        <field name="res_model">account.payment.collection.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="account_reports_accounting_reports_menu" name="Accounting Reports" parent="account.menu_finance_reports" sequence="0"/>
+    <menuitem id="menu_accounting_reports_account_payment_collection_report" name="ใบฝากรับชำระ" parent="account_reports_accounting_reports_menu" sequence="10" action="action_account_payment_collection_report"/>
+</odoo>

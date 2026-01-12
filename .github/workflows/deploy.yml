@@ -1,0 +1,45 @@
+name: Deploy to Dev Server
+
+# Trigger the workflow on a push to the 'dev' branch
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    name: Deploy
+    # This MUST run on your server that's inside the VPN
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Latest Changes
+        run: |
+          echo "🚚 Starting deployment..."
+          
+          # Fix for 'fatal: detected dubious ownership' error
+          git config --global --add safe.directory /opt/odoo/custom/goldmints_addon
+          
+          echo "🔄 Pulling latest changes..."
+          cd /opt/odoo/custom/goldmints_addon
+          git pull
+
+      - name: Restart Odoo and Wait
+        run: |
+          echo "🐍 Activating virtual environment..."
+          source /opt/odoo/venv/bin/activate
+          
+          echo "🚀 Restarting Odoo service..."
+          # This requires the 'sudoers' change for your runner's user
+          sudo service odoo restart
+          
+          echo "⏱️ Waiting 15 seconds for Odoo to boot..."
+          sleep 15
+          
+          echo "🐍 Deactivating virtual environment..."
+          deactivate
+
+      - name: View Odoo Log
+        run: |
+          echo "📄 Tailing Odoo log after restart:"
+          tail -n 100 /var/log/odoo/odoo.log

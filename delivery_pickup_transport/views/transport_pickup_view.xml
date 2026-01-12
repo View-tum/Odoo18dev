@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Transporter Pickup -->
+  <record id="view_transport_pickup_tree" model="ir.ui.view">
+    <field name="name">transport.pickup.tree</field>
+    <field name="model">transport.pickup</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" readonly="is_editable == False"/>
+        <field name="date" readonly="is_editable == False"/>
+        <field name="responsible_id" options="{'no_create_edit': True}" readonly="is_editable == False"/>
+        <field name="carrier_id" options="{'no_create_edit': True}" readonly="is_editable == False"/>
+        <field name="vehicle_no" readonly="is_editable == False"/>
+        <field name="total_boxes" readonly="is_editable == False"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_transport_pickup_form" model="ir.ui.view">
+    <field name="name">transport.pickup.form</field>
+    <field name="model">transport.pickup</field>
+    <field name="arch" type="xml">
+      <form>
+      	<header>
+      		<button
+                name="button_done"
+                invisible="state in ('done')"
+                string="Mark as Done"
+                type="object"
+                class="oe_highlight"/>
+                
+      		<field name="state" widget="statusbar" statusbar_visible="draft,done" statusbar_colors='{"done":"blue"}'/>
+        <!--<button name="%(delivery_pickup_transport.action_report_delivery_send)d" string="Print Send Form" type="action" class="btn-primary"/>-->
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="is_editable" invisible="1" />
+              <field name="name" readonly="1"/>
+              <field name="date" readonly="is_editable == False"/>
+              <field name="company_id" readonly="1"/>
+              <field name="carrier_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+              <field name="driver_name" readonly="is_editable == False"/>
+              <field name="driver_phone" readonly="is_editable == False"/>
+              <field name="vehicle_no" readonly="is_editable == False"/>
+              <field name="responsible_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+              <field name="total_boxes"/>
+             <!-- <field name="trip_count"/>-->
+            </group>
+           <group string="Destination">
+             <!-- <field name="consignee_id"/>-->
+              <field name="consignee_contact" readonly="is_editable == False"/>
+              <field name="consignee_phone" readonly="is_editable == False"/>
+              <field name="license_plate_no" readonly="is_editable == False"/>
+              <field name="consignee_address" readonly="is_editable == False"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Items">
+              <field name="line_ids" readonly="is_editable == False">
+                <list editable="bottom">
+                  <field name="product_id" options="{'no_create' : True, 'no_create_edit': True}" optional="show"/>
+                  <field name="product_description" optional="show"/>
+                  <field name="product_qty"/>
+                  <field name="uom_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_transport_pickup" model="ir.actions.act_window">
+    <field name="name">Transporter Pickup</field>
+    <field name="res_model">transport.pickup</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+</odoo>
+

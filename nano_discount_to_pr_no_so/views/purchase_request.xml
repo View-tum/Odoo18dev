@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Purchase Request form: show nano_discount controls on PR lines -->
+    <record id="view_purchase_request_form_inherit_nano_discount" model="ir.ui.view">
+        <field name="name">purchase.request.form.inherit.nano.discount</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <!-- Add columns to line_ids tree, placed after estimated_cost for compatibility -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='estimated_cost']" position="after">
+                <field name="discount_type" optional="show"/>
+                <field name="discount_value" optional="show"/>
+            </xpath>
+
+            <!-- Add fields in the line form as well -->
+            <xpath expr="//field[@name='line_ids']" position="inside">
+                <form>
+                    <sheet>
+                        <group string="Discount">
+                            <field name="discount_type"/>
+                            <field name="discount_value"/>
+                        </group>
+                    </sheet>
+                </form>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add nano_discount fields to standalone PR Line tree -->
+    <record id="view_purchase_request_line_tree_inherit_nano_discount" model="ir.ui.view">
+        <field name="name">purchase.request.line.tree.inherit.nano.discount</field>
+        <field name="model">purchase.request.line</field>
+        <field name="inherit_id" ref="purchase_request.purchase_request_line_tree"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="discount_type" optional="show"/>
+                <field name="discount_value" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add nano_discount fields to standalone PR Line form -->
+    <record id="view_purchase_request_line_form_inherit_nano_discount" model="ir.ui.view">
+        <field name="name">purchase.request.line.form.inherit.nano.discount</field>
+        <field name="model">purchase.request.line</field>
+        <field name="inherit_id" ref="purchase_request.purchase_request_line_form"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='settings']" position="inside">
+                <group string="Discount">
+                    <field name="discount_type"/>
+                    <field name="discount_value"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

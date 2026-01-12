@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit_freeze_address" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.freeze.address</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">(freeze_address and state != 'draft') or move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <div class="o_address_format" invisible="state == 'draft' or not freeze_address">
+                    <field name="freeze_partner_id" nolabel="1" readonly="1" force_save="1" widget="res_partner_many2one" context="{'show_address': 0, 'show_vat': 0}" options="{'no_open': False}" class="fw-bold mb-1"/>
+                    <field name="freeze_address" nolabel="1" readonly="1" force_save="1" style="display: block; white-space: pre-wrap; color: #666666;" />
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

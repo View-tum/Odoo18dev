@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_partner_form_payment_condition_inherit" model="ir.ui.view">
+    <field name="name">res.partner.form.payment.condition.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//page[@name='sales_purchases']" position="inside">
+        <group string="เงื่อนไขการชำระเงิน (เพิ่มเติม)" name="ppc_conditions_group" colspan="4">
+          <group>
+            <field name="payment_extra_days"/>
+            <field name="notify_sales_on_overdue"/>
+          </group>
+          <group>
+            <field name="collect_on_day_enabled" invisible="1"/>
+            <field name="collect_on_day" invisible="1"/>
+          </group>
+           </group>
+          <group>
+          <div class="o_row">
+            <div class="o_form_label">หมายเหตุ: ระบบจะใช้ค่าปกติของ Odoo หากไม่ตั้งค่าฟิลด์เพิ่มเติมเหล่านี้.</div>
+          </div>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>

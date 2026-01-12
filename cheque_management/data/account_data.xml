@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Cheque Payment methods -->
+        <record id="account_payment_method_cheque_in" model="account.payment.method">
+            <field name="name">Cheque Payment</field>
+            <field name="code">cheque</field>
+            <field name="payment_type">inbound</field>
+        </record>
+        <record id="account_payment_method_cheque_out" model="account.payment.method">
+            <field name="name">Cheque Payment</field>
+            <field name="code">cheque</field>
+            <field name="payment_type">outbound</field>
+        </record>
+
+    </data>
+</odoo>

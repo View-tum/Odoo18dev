@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_picking_form_number" model="ir.ui.view">
+            <field name="name">stock.picking.form.number</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='move_ids_without_package']" position="before">
+                    <field name="is_number_line" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='move_ids_without_package']/list/field[1]" position="after">
+                    <field name="number" string="No."/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_stock_move_line_detailed_operation_list_number" model="ir.ui.view">
+            <field name="name">stock.move.line.list.number</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//list/field[1]" position="before">
+                    <field name="number" string="No."/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

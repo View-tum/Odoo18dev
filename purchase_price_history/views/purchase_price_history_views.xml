@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List view for price history (read-only) -->
+    <record id="view_purchase_price_history_tree" model="ir.ui.view">
+        <field name="name">purchase.price.history.tree</field>
+        <field name="model">purchase.price.history</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="product_id"/>
+                <field name="date_order"/>
+                <field name="partner_id"/>
+                <field name="price_unit"/>
+                <field name="avg_price"/>
+                <field name="currency_id"/>
+                <field name="qty"/>
+                <field name="po_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action window -->
+    <record id="action_purchase_price_history" model="ir.actions.act_window">
+        <field name="name">Price History</field>
+        <field name="res_model">purchase.price.history</field>
+        <field name="view_mode">list</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Smart Button on PO -->
+    <record id="purchase_order_form_inherit_price_history" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.price.history</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_price_history"
+                        type="object"
+                        class="oe_stat_button"
+                        groups="purchase.group_purchase_manager">
+                    <i class="fa fa-bar-chart o_stat_icon" aria-hidden="true"
+                       style="font-size: 22px; margin-right: 4px;"/>
+                    <span class="o_stat_text">Price History</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Smart button on Purchase Request -->
+    <record id="purchase_request_form_inherit_price_history" model="ir.ui.view">
+        <field name="name">purchase.request.form.inherit.price.history</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_price_history"
+                        type="object"
+                        class="oe_stat_button"
+                        groups="purchase_request.group_purchase_request_manager">
+                    <i class="fa fa-bar-chart o_stat_icon" aria-hidden="true"
+                       style="font-size: 22px; margin-right: 4px;"/>
+                    <span class="o_stat_text">Price History</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Show avg_purchase_price in PO Line Tree -->
+    <record id="purchase_order_line_tree_inherit_avg_price" model="ir.ui.view">
+        <field name="name">purchase.order.line.tree.inherit.avg.price</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="product_qty" position="after">
+                <field name="avg_purchase_price" readonly="1"/>
+            </field>
+        </field>
+    </record>
+    
+    <!-- Show avg_purchase_price in PO Line Form -->
+    <record id="purchase_order_line_form_inherit_avg_price" model="ir.ui.view">
+        <field name="name">purchase.order.line.form.inherit.avg.price</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase_request.purchase_order_line_form2_sub"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="avg_purchase_price" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+                <field name="avg_purchase_price" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_request_view_form_inherit_fixed_discount" model="ir.ui.view">
+        <field name="name">purchase.request.form.inherit</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='estimated_cost']" position="before">
+                <field name="avg_purchase_price" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

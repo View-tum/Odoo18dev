@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_account_invoice_payment_status_form" model="ir.ui.view">
+        <field name="name">account.invoice.payment.status.form</field>
+        <field name="model">account.invoice.payment.status</field>
+        <field name="arch" type="xml">
+            <form string="Account Invoice Payment Status">
+                <header>
+                    <button string="Preview" name="action_preview" type="object" class="btn-info"/>
+                    <button string="Print PDF" name="action_print_pdf" type="object" class="btn-primary"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group name="details_filters">
+                            <separator string="Filter Details"/>
+                            <field name="customer_id" options="{'no_create': True}"/>
+                        </group>
+
+                        <group name="Date range and report settings">
+                            <separator string="Date range and report settings"/>
+                            <label for="select_month" string="Select Period (Month/Year)"/>
+                            <div class="o_row">
+                                <field name="select_month" force_save="1" nolabel="1" placeholder="Select Month"/>
+                                <field name="select_year" force_save="1" nolabel="1" placeholder="Select Year"/>
+                            </div>
+                            <field name="date_from" force_save="1" required="1"/>
+                            <field name="date_to" force_save="1" required="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Invoices">
+                            <field name="line_ids" readonly="1" force_save="1">
+                                <list decoration-muted="payment_state == 'reversed'">
+                                    <field name="invoice_id" column_invisible="1"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="partner_id" optional="show" width="200px"/>
+                                    <field name="invoice_name" optional="show"/>
+                                    <field name="invoice_date" optional="show" width="150px" class="text-nowrap"/>
+                                    <field name="invoice_date_due" optional="show" width="150px" class="text-nowrap"/>
+                                    <field name="amount_total" sum="Total" optional="show"/>
+                                    <field name="amount_residual" sum="Total Due" optional="show"/>
+                                    <field name="payment_state" optional="show" widget="badge" decoration-success="payment_state == 'paid'" decoration-warning="payment_state == 'in_payment'" decoration-danger="payment_state == 'not_paid'" decoration-info="payment_state == 'partial'" width="150px" class="text-nowrap"/>
+                                    <field name="payment_date" optional="show" width="150px" class="text-nowrap"/>
+                                    <field name="statement_date" optional="show" width="150px" class="text-nowrap"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

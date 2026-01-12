@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="ir_cron_ppc_notify_overdue" model="ir.cron">
+    <field name="name">PPC: Notify Sales Overdue</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="state">code</field>
+    <field name="code">model._ppc_cron_notify_overdue()</field>
+
+    <!-- รันทุกวัน -->
+    <field name="interval_type">days</field>
+    <field name="interval_number">1</field>
+    
+    <!-- ตั้งเวลารอบถัดไป (ปรับตามต้องการ) -->
+    <field name="nextcall">2025-10-03 08:00:00</field>
+    <!-- ตัวอย่างหากต้องการคำนวณจากเวลาปัจจุบัน -->
+    <!-- <field name="nextcall" eval="(DateTime.now() + relativedelta(hours=1)).strftime('%Y-%m-%d %H:00:00')"/> -->
+
+    <!-- กำหนดให้ cron ทำงาน -->
+    <field name="active">True</field>
+    <field name="user_id" ref="base.user_root"/>
+    <field name="priority">5</field>
+  </record>
+</odoo>

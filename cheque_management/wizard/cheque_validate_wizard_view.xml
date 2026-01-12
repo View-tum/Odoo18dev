@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cheque_validate_wizard_form_view" model="ir.ui.view">
+            <field name="name">cheque.validate.wizard.form</field>
+            <field name="model">cheque.validate.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Cheque Validate">
+                    <group>
+                        <group>
+                            <field name="bank_account_journal_id" required="1"/>
+                            <field name="filtered_payment_method_line_ids" invisible="1"/>
+                            <field name="payment_method_line_id" required="1" domain="[('id', 'in', filtered_payment_method_line_ids)]"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Validate" name="action_cheque_validate" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cheque_validate_wiz" model="ir.actions.act_window">
+            <field name="name">Cheque Validate</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cheque.validate.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="cheque_validate_wizard_form_view"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<!--        <record id="account.action_bank_statement_tree" model="ir.actions.act_window">-->
+	<!--                <field name="view_mode">list,pivot,graph,form</field>-->
+	<!--        </record>-->
+
+	<record id="account.action_bank_statement_tree" model="ir.actions.act_window">
+		<field name="name">Bank Statements</field>
+		<field name="res_model">account.bank.statement</field>
+		<field name="view_mode">list,pivot,graph,form</field>
+		<field name="view_ids"
+			eval="[(5, 0, 0),
+        (0, 0, {'view_mode': 'list', 'view_id': ref('account.view_bank_statement_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('oi_bank_reconciliation.view_bank_statement_form')})]" />
+	</record>
+
+	<record id="account.action_view_bank_statement_tree" model="ir.actions.act_window">
+		<field name="view_mode">list,pivot,graph,form</field>
+	</record>
+
+</odoo>

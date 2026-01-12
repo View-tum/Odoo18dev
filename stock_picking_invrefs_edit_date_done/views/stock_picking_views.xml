@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_picking_form_inherit_add_invs_ref_after_origin" model="ir.ui.view">
+    <field name="name">stock.picking.form.inherit.add.invs.ref.after.origin</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form" />
+    <field name="priority" eval="21" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='date_done']" position="after">
+        <field name="show_invoice_info" invisible="1"/>
+        <field name="invoice_reference"
+               invisible="not show_invoice_info"
+               required="show_invoice_info" />
+        <field name="invoice_date"
+               invisible="not show_invoice_info"
+               required="show_invoice_info" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_picking_tree_inherit_add_invs_ref" model="ir.ui.view">
+    <field name="name">stock.picking.tree.inherit.add.invs.ref</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.vpicktree" />
+    <field name="arch" type="xml">  
+      <xpath expr="//field[@name='date_done']" position="after">
+        <field name="invoice_reference" />
+        <field name="invoice_date" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_picking_type_form_invoice_info" model="ir.ui.view">
+    <field name="name">stock.picking.type.form.invoice.info</field>
+    <field name="model">stock.picking.type</field>
+    <field name="inherit_id" ref="stock.view_picking_type_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//page[@name='general']/group[@name='first']/group[2]" position="inside">
+        <field name="require_invoice_info" />
+        <field name="propagate_invoice_info" invisible="not require_invoice_info" />
+      </xpath>
+    </field>
+  </record>
+</odoo>

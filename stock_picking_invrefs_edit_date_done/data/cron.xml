@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+  <record id="stock_picking_invrefs_dummy_cron" model="ir.cron">
+    <field name="name">[Dummy] Stock Picking InvRefs Cron</field>
+    <field name="active" eval="False"/>
+    <field name="model_id" ref="base.model_res_users"/>
+    <field name="state">code</field>
+    <field name="code">True</field>
+    <field name="interval_type">days</field>
+    <field name="interval_number">7</field>
+  </record>
+</odoo>
