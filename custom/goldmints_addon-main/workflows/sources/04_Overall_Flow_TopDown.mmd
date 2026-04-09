@@ -1,0 +1,55 @@
+graph TD
+    %% 1. Sales
+    subgraph Sales [ฝ่ายขาย]
+        SO_Create[สร้างใบรับสั่งขาย / Import SO] --> Credit_Check{ตรวจเครดิต & Pricelist}
+        Credit_Check -- ผ่าน --> SO_Confirm[ยืนยัน Sales Order]
+    end
+
+    SO_Confirm --> MPS[วางแผนผ่าน MPS / MTO Routing]
+
+    %% 2. Procurement
+    subgraph Procurement [งานจัดซื้อ]
+        MPS -- ดักยอดขาด --> PR_Create[เปิดใบขอซื้อ PR]
+        PR_Create --> PR_Approve[อนุมัติ PR ➡️ แตกเป็น PO]
+        PR_Approve --> PO_Confirm[สั่งซื้อสินค้า/วัตถุดิบ]
+    end
+
+    %% 3. Inventory - Inbound
+    subgraph Inventory [คลังสินค้า]
+        PO_Confirm --> WH_Receipt[รับของเข้า Receipt]
+        WH_Receipt --> Lot_Track[ตรวจเช็ค Lot / ดักลบ]
+    end
+
+    %% 4. Manufacturing
+    subgraph Manufacturing [ฝ่ายผลิต]
+        MPS -- ดีดคิวผลิต --> MO_Create[เปิดใบสั่งผลิต MO]
+        MO_Create --> Check_Avail{เช็คสต๊อกจัดสำรอง}
+        Check_Avail -- Ready --> Shopfloor[Parallel Console]
+        Shopfloor --> Scrap_Auto[แทงยอดขยะ Auto Scrap]
+        Shopfloor --> MO_Done[ผลิตเสร็จ & ปิด MO]
+    end
+
+    %% Flow connections
+    Lot_Track --> Check_Avail
+    MO_Done --> FG_Stock[คลังสินค้าสำเร็จรูป]
+    FG_Stock --> DO_Delivery[สร้างใบส่งของ DO]
+
+    %% 5. Accounting
+    subgraph Accounting [ฝ่ายบัญชี]
+        DO_Delivery --> Invoice[วางบิล Invoice]
+        Invoice --> Batch_Billing[รวมบิลรอบห้าง Batch]
+        Batch_Billing --> PDC_Payment[รับชำระด้วยเช็ค PDC]
+        PDC_Payment --> Cash_Clear[เคลียร์ริ่งกระทบยอด Real-time]
+    end
+
+    classDef sales fill:#f0f8ff,stroke:#0056b3,stroke-width:1px;
+    classDef procurement fill:#fff9e6,stroke:#ff9900,stroke-width:1px;
+    classDef inventory fill:#f2fff5,stroke:#28a745,stroke-width:1px;
+    classDef manufacturing fill:#fff2f2,stroke:#dc3545,stroke-width:1px;
+    classDef accounting fill:#f8f9fa,stroke:#343a40,stroke-width:1px;
+
+    class Sales sales;
+    class Procurement procurement;
+    class Inventory inventory;
+    class Manufacturing manufacturing;
+    class Accounting accounting;

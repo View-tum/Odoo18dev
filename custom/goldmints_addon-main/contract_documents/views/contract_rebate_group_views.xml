@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contract_rebate_group_list" model="ir.ui.view">
+        <field name="name">contract.rebate.group.list</field>
+        <field name="model">contract.rebate.group</field>
+        <field name="arch" type="xml">
+            <list string="Rebate Groups">
+                <field name="name" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_rebate_group_form" model="ir.ui.view">
+        <field name="name">contract.rebate.group.form</field>
+        <field name="model">contract.rebate.group</field>
+        <field name="arch" type="xml">
+            <form string="Rebate Group">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Group Name" />
+                        <h1>
+                            <field name="name" placeholder="e.g. Modern Trade Group" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" />
+                    </group>
+                    <notebook>
+                        <page string="Members" name="partners">
+                            <field name="partner_ids">
+                                <list>
+                                    <field name="name" />
+                                    <field name="email" />
+                                    <field name="phone" />
+                                    <field name="category_id" widget="many2many_tags" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_contract_rebate_group" model="ir.actions.act_window">
+        <field name="name">Rebate Groups</field>
+        <field name="res_model">contract.rebate.group</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Rebate Group
+            </p>
+            <p>
+                Group multiple customers together to calculate their combined sales for rebates.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_contract_rebate_group"
+              name="Rebate Groups"
+              parent="menu_contracts_by_partner"
+              action="action_contract_rebate_group"
+              sequence="20" />
+</odoo>

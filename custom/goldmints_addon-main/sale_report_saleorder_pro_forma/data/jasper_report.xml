@@ -1,0 +1,30 @@
+<!-- data/jasper_report.xml -->
+<odoo>
+    <record id="jasper_proforma_invoice_en" model="jasper.report">
+        <field name="name">Pro-Forma Invoice</field>
+        <field name="report_path">/Goldmints/Goldmints_15/pro_forma_invoice</field>
+
+        <!-- format -->
+        <field name="format">pdf</field>
+
+        <!-- flags -->
+        <field name="active">True</field>
+        <field name="multi">True</field>      <!-- Execute per record -->
+        <field name="preview">True</field>    <!-- Preview -->
+
+    </record>
+
+    <record id="jasper_proforma_invoice_th" model="jasper.report">
+        <field name="name">ใบแจ้งหนี้ Pro-Forma</field>
+        <field name="report_path">/Goldmints/Goldmints_15/pro_forma_invoice_th</field>
+
+        <!-- format -->
+        <field name="format">pdf</field>
+
+        <!-- flags -->
+        <field name="active">True</field>
+        <field name="multi">True</field>      <!-- Execute per record -->
+        <field name="preview">True</field>    <!-- Preview -->
+
+    </record>
+</odoo>

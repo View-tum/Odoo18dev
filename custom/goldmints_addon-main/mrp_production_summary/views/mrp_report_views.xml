@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_report_search_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.report.view.search.inherit</field>
+        <field name="model">mrp.report</field>
+        <field name="inherit_id" ref="mrp_account_enterprise.mrp_report_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='production_id']" position="after">
+                <field name="mps_week_name"/>
+                <field name="source_sale_order_id"/>
+            </xpath>
+            <xpath expr="//group/filter[@name='date_finished']" position="after">
+                <filter string="MPS Week" name="group_mps_week" context="{'group_by': 'mps_week_name'}"/>
+                <filter string="Source Sales Order" name="group_source_so" context="{'group_by': 'source_sale_order_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

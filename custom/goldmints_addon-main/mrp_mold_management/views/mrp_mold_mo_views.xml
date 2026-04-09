@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 1. Inherit MO Form for Buttons and Totals -->
+    <record id="mrp_production_mold_form_inherit" model="ir.ui.view">
+        <field name="name">mrp.production.mold.form.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(mrp_mold_management.action_mrp_mold_selection_wizard)d"
+                        type="action"
+                        string="Select Alternative"
+                        class="btn-primary"
+                        invisible="state not in ['draft', 'confirmed']"
+                        help="Manually pick a different Machine/Mold from the matrix"/>
+                <button name="action_suggest_machine_mold"
+                        type="object"
+                        string="Re-Suggest Machine &amp; Mold"
+                        class="btn-secondary"
+                        invisible="state not in ['draft', 'confirmed']"
+                        help="Re-run auto-selection to pick the best Machine &amp; Mold from Matrix"/>
+            </xpath>
+
+            <xpath expr="//group[@name='group_extra_info']" position="inside">
+                <field name="mold_cost_total" readonly="1" string="Total Mold Cost (Calculated)"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

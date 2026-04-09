@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List view for lines -->
+    <record id="view_account_group_payment_wizard_line_list" model="ir.ui.view">
+        <field name="name">account.group.payment.wizard.line.list</field>
+        <field name="model">account.group.payment.wizard.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="is_selected"/>
+                <field name="company_id"/>
+                <field name="move_id"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="amount_total"/>
+                <field name="amount_residual"/>
+                <field name="amount_to_pay"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action เปิด Wizard -->
+    <record id="action_account_group_payment_wizard" model="ir.actions.act_window">
+        <field name="name">จ่ายบิลกลุ่มบริษัท (แม่–ลูก)</field>
+        <field name="res_model">account.group.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- เมนูใต้ Customers -->
+    <menuitem id="menu_account_group_payment_wizard"
+              name="จ่ายบิลกลุ่มบริษัท (แม่–ลูก)"
+              parent="account.menu_finance_receivables"
+              action="action_account_group_payment_wizard"
+              sequence="50"/>
+
+    <!-- ฟอร์ม Wizard -->
+    <record id="view_account_group_payment_wizard_form" model="ir.ui.view">
+        <field name="name">account.group.payment.wizard.form</field>
+        <field name="model">account.group.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="จ่ายบิลกลุ่มบริษัท (แม่–ลูก)" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>จ่ายบิลกลุ่มบริษัท (แม่–ลูก)</h1>
+                    </div>
+
+                    <group>
+                        <group string="กลุ่มบริษัท">
+                            <field name="parent_company_id" required="1"/>
+                            <field name="child_company_ids" widget="many2many_tags"/>
+                            <field name="payer_type" required="1"/>
+                            <field name="payer_child_company_id"/>
+                            <field name="payer_company_id" invisible="1"/>
+                        </group>
+                        <group string="คู่ค้าและการจ่ายเงิน">
+                            <field name="partner_id" required="1"/>
+                            <field name="payment_journal_id" required="1"/>
+                            <field name="payment_date" required="1"/>
+                            <field name="total_selected_amount" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <p class="o_form_label">คำอธิบาย</p>
+                    <p>
+                        ใช้หน้าจอนี้เมื่อ:
+                        <br/>- บริษัทแม่ต้องการจ่ายบิลของตัวเองและของบริษัทลูกในครั้งเดียว
+                        <br/>- บริษัทลูกต้องการจ่ายบิลของตัวเอง หรือจ่ายแทนบริษัทแม่
+                    </p>
+
+                    <notebook>
+                        <page string="รายการบิลที่พบ">
+                            <field name="line_ids" mode="list" list_view_ref="account_group_payment_ic.view_account_group_payment_wizard_line_list"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <footer>
+                    <button name="action_search_bills"
+                            string="ค้นหาบิล"
+                            type="object"
+                            class="btn-secondary"/>
+                    <button name="action_confirm_payment"
+                            string="จ่ายเลย"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="ปิด"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

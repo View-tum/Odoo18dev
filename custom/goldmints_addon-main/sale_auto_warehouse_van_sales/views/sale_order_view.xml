@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Main View: Inherit from sale.view_order_form -->
+    <record id="view_order_form_van_sales_main" model="ir.ui.view">
+        <field name="name">sale.order.form.van.sales.main</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority">1000</field>
+        <field name="arch" type="xml">
+
+            <field name="name" position="after">
+                <field name="is_van_sales_user" invisible="1"/>
+            </field>
+
+            <!-- Hide validity_date -->
+            <xpath expr="//field[@name='validity_date']" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state == 'sale'</attribute>
+            </xpath>
+
+            <!-- Hide date_order occurrences and labels -->
+            <xpath expr="//div[hasclass('o_td_label')][1]" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state in ['sale', 'cancel']</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_order'][1]" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state in ['sale', 'cancel']</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_td_label')][2]" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state in ['draft', 'sent']</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_order'][2]" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state in ['draft', 'sent']</attribute>
+            </xpath>
+
+            <!-- Hide pricelist area -->
+            <xpath expr="//label[@for='pricelist_id']" position="attributes">
+                <attribute name="invisible">is_van_sales_user or not has_active_pricelist</attribute>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']/ancestor::div[hasclass('o_row')]" position="attributes">
+                <attribute name="invisible">is_van_sales_user or not has_active_pricelist</attribute>
+            </xpath>
+            <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+
+            <!-- Hide other fields -->
+            <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+            <xpath expr="//field[@name='sale_manual_currency_rate_active']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+            <xpath expr="//field[@name='document_ref']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+            <xpath expr="//field[@name='payment_total_amount']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+
+            <!-- Readonly for Warehouse -->
+            <xpath expr="//field[@name='warehouse_id']" position="attributes">
+                <attribute name="readonly">is_van_sales_user</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Inherit from sale_so_type view -->
+    <record id="view_order_form_van_sales_so_type" model="ir.ui.view">
+        <field name="name">sale.order.form.van.sales.so.type</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_so_type.sale_so_type_view_order_form"/>
+        <field name="priority">1100</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="attributes">
+                <attribute name="invisible">is_van_sales_user or state in ['sale', 'cancel']</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Van Sales specific Delivery Date using high priority -->
+    <record id="view_order_form_van_sales_commitment_date" model="ir.ui.view">
+        <field name="name">sale.order.form.van.sales.commitment.date</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority">1500</field>
+        <field name="arch" type="xml">
+            <!-- Insert commitment_date after so_type_id for Van Sales ONLY -->
+            <xpath expr="//field[@name='so_type_id']" position="after">
+                <field name="commitment_date"
+                       invisible="not is_van_sales_user"
+                       string="Delivery Date"
+                       required="is_van_sales_user"
+                       readonly="state in ['cancel', 'sale']"/>
+            </xpath>
+
+            <!-- Hide show_delivery_date_at_header's Delivery Date for Van Sales -->
+            <xpath expr="//field[@name='payment_term_id']/following-sibling::field[@name='commitment_date']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit from saleperson_pricelist_restrict view -->
+    <record id="view_order_form_van_sales_pricelist" model="ir.ui.view">
+        <field name="name">sale.order.form.van.sales.pricelist</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="saleperson_pricelist_restrict.view_order_form_pricelist_readonly_non_admin"/>
+        <field name="priority">1100</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pricelist_id']" position="attributes">
+                <attribute name="invisible">is_van_sales_user</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

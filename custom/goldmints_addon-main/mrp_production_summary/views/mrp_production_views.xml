@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_form_summary_button" model="ir.ui.view">
+        <field name="name">mrp.production.form.summary.button</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="after">
+                <field name="has_cost_overrun" invisible="1"/>
+                <widget name="web_ribbon" title="Cost Overrun" bg_color="text-bg-danger" invisible="not has_cost_overrun"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button"
+                        icon="fa-list-alt"
+                        type="action"
+                        name="%(mrp_production_summary_line_action)d"
+                        context="{'search_default_production_id': id, 'search_default_group_type': 1}"
+                        invisible="state not in ('done', 'confirmed', 'progress')">
+                    <span class="o_stat_text">Production<br/>Summary</span>
+                </button>
+            </xpath>
+            <xpath expr="//group[@name='group_extra_info']" position="before">
+                <group name="mo_time_summary" string="Time Summary" invisible="state not in ('confirmed', 'progress', 'done')">
+                    <label for="current_mo_duration_expected"/>
+                    <div>
+                        <field name="current_mo_duration_expected" widget="float_time" class="oe_inline"/>
+                        <span class="ms-1">Minutes</span>
+                    </div>
+                    <label for="hierarchy_duration_expected"/>
+                    <div>
+                        <field name="hierarchy_duration_expected" class="oe_inline"/>
+                        <span class="ms-1">Days</span>
+                    </div>
+                </group>
+                <group name="mo_cost_summary" string="Cost Summary" invisible="state not in ('done', 'progress')">
+                    <label for="total_cost_estimated" string="Standard vs Actual"/>
+                    <div>
+                        <field name="total_cost_estimated" widget="monetary" readonly="1" class="oe_inline" nolabel="1"/>
+                        <span class="mx-1">/</span>
+                        <field name="total_cost_actual" widget="monetary" readonly="1" class="oe_inline" nolabel="1" decoration-danger="has_cost_overrun"/>
+                        <span class="ms-1">THB</span>
+                    </div>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                    <page string="Cost Analysis" name="cost_analysis_tab">
+                        <field name="production_summary_line_ids" readonly="1">
+                            <list decoration-info="line_type == 'product'"
+                                  decoration-success="line_type == 'component'"
+                                  decoration-warning="line_type == 'operation'"
+                                  decoration-danger="line_type == 'mold'"
+                                  decoration-muted="line_type == 'employee'">
+                                <field name="line_type_order" column_invisible="1"/>
+                                <field name="line_type" widget="badge"/>
+                                <field name="product_name" string="Description"/>
+                                <field name="planned_qty" string="Planned"/>
+                                <field name="actual_qty" string="Actual"/>
+                                <field name="unit_cost_std" string="Std Rate/Unit"/>
+                                <field name="unit_cost_actual" string="Act Rate/Unit"/>
+                                <field name="cost_estimated" string="Est. Cost" sum="Total"/>
+                                <field name="cost_actual" string="Act. Cost" sum="Total" decoration-danger="total_variance &gt; 0"/>
+                                <field name="price_variance" string="Price Var" sum="Total" decoration-danger="price_variance &gt; 0"/>
+                                <field name="usage_variance" string="Usage Var" sum="Total" decoration-danger="usage_variance &gt; 0"/>
+                                <field name="efficiency_variance" string="Eff. Var" sum="Total" decoration-danger="efficiency_variance &gt; 0"/>
+                                <field name="total_variance" string="Total Var" sum="Total" decoration-danger="total_variance &gt; 0" decoration-bf="1"/>
+                            </list>
+                        </field>
+                    </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_product_movement_dashboard_batch" model="ir.sequence">
+        <field name="name">Product Movement Dashboard Batch</field>
+        <field name="code">product.movement.dashboard.batch</field>
+        <field name="prefix">PMD/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

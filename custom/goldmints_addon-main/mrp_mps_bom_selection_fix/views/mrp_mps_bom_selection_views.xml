@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mrp_mps_add_product_form_inherit_bom" model="ir.ui.view">
+        <field name="name">mrp.mps.add.product.form.inherit.autoload</field>
+        <field name="model">mrp.production.schedule</field>
+        <field name="inherit_id" ref="mrp_mps.mrp_mps_production_schedule_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bom_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="options">{'no_create_edit': True}</attribute>
+                <attribute name="string">Bill of Materials</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_wht_revenue_type_list" model="ir.ui.view">
+        <field name="name">wht.revenue.type.list</field>
+        <field name="model">wht.revenue.type</field>
+        <field name="arch" type="xml">
+            <list string="Revenue Types">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="wht_rate"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_wht_revenue_type_form" model="ir.ui.view">
+        <field name="name">wht.revenue.type.form</field>
+        <field name="model">wht.revenue.type</field>
+        <field name="arch" type="xml">
+            <form string="Revenue Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="wht_rate"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wht_revenue_type" model="ir.actions.act_window">
+        <field name="name">Revenue Types</field>
+        <field name="res_model">wht.revenue.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_wht_revenue_type" 
+              name="WHT Revenue Types" 
+              parent="account.account_account_menu" 
+              action="action_wht_revenue_type" 
+              sequence="2"/>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_production_view_form_inherit_sale_note" model="ir.ui.view">
+        <field name="name">mrp.production.view.form.inherit.sale.note</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Sale Info" name="sale_info">
+                    <group>
+                        <field name="sale_note" readonly="1" decoration-bf="1" />
+                        <field name="internal_note" readonly="1" decoration-it="1" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

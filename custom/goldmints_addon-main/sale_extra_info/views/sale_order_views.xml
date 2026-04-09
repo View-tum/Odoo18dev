@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_sale_extra_info" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.sale.extra.info</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//group[@name='sales_person']" position="inside">
+                <separator string="Proforma &amp; Credit Info" colspan="2"/>
+                <field name="proforma_invoice_no" readonly="proforma_invoice_no"/>
+                <field name="reference_pi"/>
+                <field name="partner_credit_balance"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

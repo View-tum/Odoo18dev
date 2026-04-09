@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_billing_tree_inherit_info" model="ir.ui.view">
+        <field name="name">account.billing.tree.inherit.info</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="closest_promised_date" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_billing_form_inherit_rename_promised" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit.rename.promised</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing_promised_date.view_account_billing_form_inherit_promised_date"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='promised_payment_date']" position="replace">
+                <field name="billing_schedule_date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account.payment.default</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='default_accounts']" position="after">
+                <block title="Default Payment Routings" id="default_payment_routings">
+                    <setting string="Vendor Payments (AP)"
+                        help="Default journal and method for paying vendor bills.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="pmt_ap_journal_id" class="col-lg-4 o_light_label" />
+                                <field name="pmt_ap_journal_id"
+                                    options="{'no_create': True, 'no_open': True}" />
+                            </div>
+                            <div class="row">
+                                <label for="pmt_ap_payment_method_id" class="col-lg-4 o_light_label" />
+                                <field name="pmt_ap_payment_method_id"
+                                    domain="[('journal_id', '=', pmt_ap_journal_id), ('payment_type', '=', 'outbound')]"
+                                    options="{'no_create': True, 'no_open': True}" />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting string="Customer Receipts (AR)"
+                        help="Default journal and method for receiving customer payments.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="pmt_ar_journal_id" class="col-lg-4 o_light_label" />
+                                <field name="pmt_ar_journal_id"
+                                    options="{'no_create': True, 'no_open': True}" />
+                            </div>
+                            <div class="row">
+                                <label for="pmt_ar_payment_method_id" class="col-lg-4 o_light_label" />
+                                <field name="pmt_ar_payment_method_id"
+                                    domain="[('journal_id', '=', pmt_ar_journal_id), ('payment_type', '=', 'inbound')]"
+                                    options="{'no_create': True, 'no_open': True}" />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

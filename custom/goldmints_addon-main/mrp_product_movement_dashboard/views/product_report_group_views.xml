@@ -1,0 +1,51 @@
+<odoo>
+    <record id="view_product_report_group_tree" model="ir.ui.view">
+        <field name="name">product.report.group.tree</field>
+        <field name="model">product.report.group</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_product_report_group_form" model="ir.ui.view">
+        <field name="name">product.report.group.form</field>
+        <field name="model">product.report.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Products">
+                            <field name="product_tmpl_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_report_group" model="ir.actions.act_window">
+        <field name="name">Product Report Groups</field>
+        <field name="res_model">product.report.group</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="menu_product_report_group"
+        name="Product Report Groups"
+        parent="stock.menu_stock_inventory_control"
+        action="action_product_report_group"
+        sequence="90"
+        groups="mrp.group_mrp_manager"
+    />
+</odoo>

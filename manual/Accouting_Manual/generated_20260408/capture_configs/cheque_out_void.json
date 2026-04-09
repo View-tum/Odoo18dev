@@ -1,0 +1,25 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "cheque_out_void_manual.png",
+  "post_nav_wait_ms": 3000,
+  "post_click_wait_ms": 2000,
+  "target_url": "http://localhost:8811/odoo/action-1372/553",
+  "highlight_selectors": [
+    {
+      "selector": "button[name='action_view_reversed_entries']",
+      "label": "1"
+    },
+    {
+      "selector": "[name='void_reason']",
+      "label": "2"
+    },
+    {
+      "selector": "button[name='action_reset_to_draft']",
+      "label": "3"
+    }
+  ]
+}

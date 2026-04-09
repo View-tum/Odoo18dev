@@ -1,0 +1,127 @@
+<!-- purchase_request_status_report/report/report_purchase_request_status_templates.xml -->
+<odoo>
+
+    <template id="pr_status_report">
+        <t t-call="web.basic_layout">
+
+            <t t-set="wiz" t-value="wizard"/>
+            <!-- ============================
+                 REPORT CONTENT
+                 ============================ -->
+
+            <div class="page pr-page">
+
+                <!-- Header -->
+                <div class="pr-header">
+                    <h2 class="pr-header-title">
+                        รายงานสถานะใบขอซื้อ
+                    </h2>
+                    <p class="pr-header-date">
+                        สร้างเมื่อ:
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+                    </p>
+                </div>
+
+                <!-- Filters -->
+                <div class="pr-filters">
+                    <table class="pr-filters-table-header">
+                        <tr>
+                            <td class="pr-filter-label">บริษัท:</td>
+                            <td class="pr-filter-value" t-esc="company.name"/>
+
+                            <td class="pr-filter-label">ช่วงวันที่:</td>
+                            <td class="pr-filter-value">
+                                <span t-esc="filters['date_from']"/>
+ -
+                                <span t-esc="filters['date_to']"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pr-filter-label">ผู้ขาย:</td>
+                            <td class="pr-filter-value" t-esc="filters['vendor'].name if filters['vendor'] else '-'"/>
+
+                            <td class="pr-filter-label">สินค้า:</td>
+                            <td class="pr-filter-value" t-esc="filters['product'].display_name if filters['product'] else '-'"/>
+                        </tr>
+                        <tr>
+                            <td class="pr-filter-label">สถานะ:</td>
+                            <td colspan="3" class="pr-filter-value">
+                                <span t-esc="dict([
+                                    ('draft', 'ใบขอเสนอราคา'),
+                                    ('pr_approval_lvl1', 'อนุมัติใบขอซื้อ ระดับ 1'),
+                                    ('pr_approval_lvl2', 'อนุมัติใบขอซื้อ ระดับ 2'),
+                                    ('approved', 'อนุมัติ'),
+                                    ('in_progress', 'กำลังดำเนินการ'),
+                                    ('done', 'เสร็จสิ้น'),
+                                    ('rejected', 'ปฏิเสธ'),
+                                    ('cancel', 'ยกเลิก')
+                                ]).get(filters['state'], 'ทั้งหมด')"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Data Table -->
+                <table class="pr-table">
+                    <thead>
+                        <tr>
+                            <th>เลขที่ใบขอซื้อ</th>
+                            <th class="text-center">วันที่ขอซื้อ</th>
+                            <th>ผู้ขาย</th>
+                            <th>สินค้า</th>
+                            <th class="text-right">จำนวน</th>
+                            <th class="text-center">หน่วยนับ</th>
+                            <th class="text-right">ต้นทุนประมาณการ</th>
+                            <th class="text-center">สถานะ</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr t-foreach="lines" t-as="l">
+                            <td>
+                                <span t-esc="l['request_name']"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-esc="l['request_date']"/>
+                            </td>
+                            <td>
+                                <span t-esc="l['vendor'].name if l['vendor'] else '-'"/>
+                            </td>
+                            <td>
+                                <span t-esc="l['product'].display_name if l['product'] else '-'"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(l['qty'])"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-esc="l['uom'].name if l['uom'] else '-'"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="'{:,.2f}'.format(l['estimated_cost'])"/>
+                            </td>
+
+                            <!-- Status Badge -->
+                            <td class="text-center">
+                                <span t-if="l['state'] == 'draft'" class="badge badge-draft">ใบขอเสนอราคา</span>
+                                <span t-elif="l['state'] == 'pr_approval_lvl1'" class="badge badge-lv1">อนุมัติใบขอซื้อ ระดับ 1</span>
+                                <span t-elif="l['state'] == 'pr_approval_lvl2'" class="badge badge-lv2">อนุมัติใบขอซื้อ ระดับ 2</span>
+                                <span t-elif="l['state'] == 'approved'" class="badge badge-approved">อนุมัติ</span>
+                                <span t-elif="l['state'] == 'in_progress'" class="badge badge-progress">กำลังดำเนินการ</span>
+                                <span t-elif="l['state'] == 'done'" class="badge badge-done">เสร็จสิ้น</span>
+                                <span t-elif="l['state'] == 'rejected'" class="badge badge-rejected">ปฏิเสธ</span>
+                                <span t-elif="l['state'] == 'cancel'" class="badge badge-cancel">ยกเลิก</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Footer -->
+                <div class="pr-footer">
+                    <strong>จำนวนรายการทั้งหมด:</strong>
+                    <span t-esc="len(lines)"/>
+                </div>
+            </div>
+
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,336 @@
+{
+  "bank_journal": {
+    "id": 51,
+    "code": "PBAY1",
+    "name": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+    "manual_in_line_id": 37,
+    "cheque_out_line_id": 79,
+    "cheque_in_line_id": 91
+  },
+  "template": {
+    "id": 1,
+    "name": "Standard Cheque"
+  },
+  "cheque_book": {
+    "id": 9,
+    "name": "UAT-MANUAL-CB-20260408-02",
+    "state": "done",
+    "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+    "draft_leaves": [
+      "860200003",
+      "860200004",
+      "860200005",
+      "860200006",
+      "860200007",
+      "860200008",
+      "860200009",
+      "860200010"
+    ]
+  },
+  "group_payment": {
+    "draft_id": 157,
+    "draft_state": "lines",
+    "draft_members": [
+      "UAT Manual Customer A 20260408",
+      "UAT Manual Customer B 20260408"
+    ],
+    "draft_lines": [
+      {
+        "move": "INV-E/26/04/00001",
+        "partner": "UAT Manual Customer A 20260408",
+        "amount_to_pay": 12000.0,
+        "selected": true
+      },
+      {
+        "move": "INV-E/26/04/00002",
+        "partner": "UAT Manual Customer B 20260408",
+        "amount_to_pay": 8000.0,
+        "selected": true
+      }
+    ],
+    "done_id": 142,
+    "done_state": "done",
+    "done_name": "Group Payment"
+  },
+  "cheques": {
+    "outbound_confirmed": {
+      "id": 551,
+      "name": "860200001",
+      "cheque_type": "inbound",
+      "state": "confirmed",
+      "partner": "UAT Manual Vendor 20260408",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 15000.0,
+      "memo": "UAT MANUAL OUTBOUND CONFIRMED 20260408",
+      "payment_ids": [
+        3562
+      ],
+      "payment_moves": [
+        {
+          "name": "PPBAY1/2026/00377",
+          "lines": [
+            {
+              "account_code": "212001",
+              "account_name": "เจ้าหนี้การค้า - ในประเทศ",
+              "label": "Cheque Payment: UAT-CQ-OUT-CF-20260408 : Cheque : 860200001",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 15000.0,
+              "credit": 0.0
+            },
+            {
+              "account_code": "212004",
+              "account_name": "เช็คจ่ายลงวันที่ล่วงหน้า",
+              "label": "Cheque Payment: UAT-CQ-OUT-CF-20260408 : Cheque : 860200001",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 0.0,
+              "credit": 15000.0
+            }
+          ]
+        }
+      ],
+      "deposit_move": {
+        "name": null,
+        "lines": []
+      },
+      "void_move": {
+        "name": null,
+        "lines": []
+      },
+      "reversed_entry_names": []
+    },
+    "outbound_paid": {
+      "id": 552,
+      "name": "860200002",
+      "cheque_type": "inbound",
+      "state": "paid",
+      "partner": "UAT Manual Vendor 20260408",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 18000.0,
+      "memo": "UAT MANUAL OUTBOUND PAID 20260408",
+      "payment_ids": [
+        3563
+      ],
+      "payment_moves": [
+        {
+          "name": "PPBAY1/2026/00378",
+          "lines": [
+            {
+              "account_code": "212001",
+              "account_name": "เจ้าหนี้การค้า - ในประเทศ",
+              "label": "Cheque Payment: UAT-CQ-OUT-PD-20260408 : Cheque : 860200002",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 18000.0,
+              "credit": 0.0
+            },
+            {
+              "account_code": "212004",
+              "account_name": "เช็คจ่ายลงวันที่ล่วงหน้า",
+              "label": "Cheque Payment: UAT-CQ-OUT-PD-20260408 : Cheque : 860200002",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 0.0,
+              "credit": 18000.0
+            }
+          ]
+        }
+      ],
+      "deposit_move": {
+        "name": "PBAY1/2026/00002",
+        "lines": [
+          {
+            "account_code": "111201",
+            "account_name": "BAY CA สามแยก #046-0-14721-8",
+            "label": "Bank Clearing for Cheque 860200002",
+            "partner": "UAT Manual Vendor 20260408",
+            "debit": 0.0,
+            "credit": 18000.0
+          },
+          {
+            "account_code": "212004",
+            "account_name": "เช็คจ่ายลงวันที่ล่วงหน้า",
+            "label": "Bank Clearing for Cheque 860200002",
+            "partner": "UAT Manual Vendor 20260408",
+            "debit": 18000.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      "void_move": {
+        "name": null,
+        "lines": []
+      },
+      "reversed_entry_names": []
+    },
+    "outbound_void": {
+      "id": 553,
+      "name": "860200003",
+      "cheque_type": "inbound",
+      "state": "cancelled",
+      "partner": "UAT Manual Vendor 20260408",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 9000.0,
+      "memo": "UAT MANUAL OUTBOUND VOID 20260408",
+      "payment_ids": [
+        3564
+      ],
+      "payment_moves": [
+        {
+          "name": "PPBAY1/2026/00379",
+          "lines": [
+            {
+              "account_code": "212001",
+              "account_name": "เจ้าหนี้การค้า - ในประเทศ",
+              "label": "Cheque Payment: UAT-CQ-OUT-VD-20260408 : Cheque : 860200003",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 9000.0,
+              "credit": 0.0
+            },
+            {
+              "account_code": "212004",
+              "account_name": "เช็คจ่ายลงวันที่ล่วงหน้า",
+              "label": "Cheque Payment: UAT-CQ-OUT-VD-20260408 : Cheque : 860200003",
+              "partner": "UAT Manual Vendor 20260408",
+              "debit": 0.0,
+              "credit": 9000.0
+            }
+          ]
+        }
+      ],
+      "deposit_move": {
+        "name": "PBAY1/2026/00003",
+        "lines": [
+          {
+            "account_code": "111201",
+            "account_name": "BAY CA สามแยก #046-0-14721-8",
+            "label": "Bank Clearing for Cheque 860200003",
+            "partner": "UAT Manual Vendor 20260408",
+            "debit": 0.0,
+            "credit": 9000.0
+          },
+          {
+            "account_code": "212004",
+            "account_name": "เช็คจ่ายลงวันที่ล่วงหน้า",
+            "label": "Bank Clearing for Cheque 860200003",
+            "partner": "UAT Manual Vendor 20260408",
+            "debit": 9000.0,
+            "credit": 0.0
+          }
+        ]
+      },
+      "void_move": {
+        "name": null,
+        "lines": []
+      },
+      "reversed_entry_names": [
+        "PBAY1/2026/00004",
+        "PBAY1/2026/00005"
+      ]
+    },
+    "inbound_confirmed": {
+      "id": 554,
+      "name": "RCV-INV-E/26/04/00003",
+      "cheque_type": "outbound",
+      "state": "confirmed",
+      "partner": "UAT Manual Customer C 20260408",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 9500.0,
+      "memo": "UAT MANUAL INBOUND CONFIRMED 20260408",
+      "payment_ids": [
+        3565
+      ],
+      "payment_moves": [
+        {
+          "name": "PPBAY1/2026/00380",
+          "lines": [
+            {
+              "account_code": "113001",
+              "account_name": "ลูกหนี้การค้า - ในประเทศ",
+              "label": "Cheque Payment: INV-E/26/04/00003 : Cheque : RCV-INV-E/26/04/00003",
+              "partner": "UAT Manual Customer C 20260408",
+              "debit": 0.0,
+              "credit": 297880.1
+            },
+            {
+              "account_code": "113005",
+              "account_name": "เช็ครับลงวันที่ล่วงหน้า",
+              "label": "Cheque Payment: INV-E/26/04/00003 : Cheque : RCV-INV-E/26/04/00003",
+              "partner": "UAT Manual Customer C 20260408",
+              "debit": 297880.1,
+              "credit": 0.0
+            }
+          ]
+        }
+      ],
+      "deposit_move": {
+        "name": null,
+        "lines": []
+      },
+      "void_move": {
+        "name": null,
+        "lines": []
+      },
+      "reversed_entry_names": []
+    },
+    "inbound_paid": {
+      "id": 555,
+      "name": "RCV-INV-E/26/04/00004",
+      "cheque_type": "outbound",
+      "state": "paid",
+      "partner": "UAT Manual Customer D 20260408",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 11000.0,
+      "memo": "UAT MANUAL INBOUND PAID 20260408",
+      "payment_ids": [
+        3566
+      ],
+      "payment_moves": [
+        {
+          "name": "PPBAY1/2026/00381",
+          "lines": [
+            {
+              "account_code": "113001",
+              "account_name": "ลูกหนี้การค้า - ในประเทศ",
+              "label": "Cheque Payment: INV-E/26/04/00004 : Cheque : RCV-INV-E/26/04/00004",
+              "partner": "UAT Manual Customer D 20260408",
+              "debit": 0.0,
+              "credit": 344913.8
+            },
+            {
+              "account_code": "113005",
+              "account_name": "เช็ครับลงวันที่ล่วงหน้า",
+              "label": "Cheque Payment: INV-E/26/04/00004 : Cheque : RCV-INV-E/26/04/00004",
+              "partner": "UAT Manual Customer D 20260408",
+              "debit": 344913.8,
+              "credit": 0.0
+            }
+          ]
+        }
+      ],
+      "deposit_move": {
+        "name": "PBAY1/2026/00006",
+        "lines": [
+          {
+            "account_code": "111201",
+            "account_name": "BAY CA สามแยก #046-0-14721-8",
+            "label": "Bank Clearing for Cheque RCV-INV-E/26/04/00004",
+            "partner": "UAT Manual Customer D 20260408",
+            "debit": 11000.0,
+            "credit": 0.0
+          },
+          {
+            "account_code": "113005",
+            "account_name": "เช็ครับลงวันที่ล่วงหน้า",
+            "label": "Bank Clearing for Cheque RCV-INV-E/26/04/00004",
+            "partner": "UAT Manual Customer D 20260408",
+            "debit": 0.0,
+            "credit": 11000.0
+          }
+        ]
+      },
+      "void_move": {
+        "name": null,
+        "lines": []
+      },
+      "reversed_entry_names": []
+    }
+  }
+}

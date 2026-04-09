@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6E7F99"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="40" y="40" font-family="Tahoma" font-size="26" font-weight="700" fill="#1B2F4D">Flow Diagram 2 คอลัมน์: MTS vs MTO (UAT)</text>
+<text x="120" y="95" font-family="Tahoma" font-size="22" font-weight="700" fill="#355C7D">MTS : FG-PNC-TH-01001</text>
+<text x="680" y="95" font-family="Tahoma" font-size="22" font-weight="700" fill="#355C7D">MTO : FG-MTK-IL-01001</text>
+<rect x="80" y="120" width="430" height="90" rx="14" ry="14" fill="#E8F1FF" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="96" y="148" font-family="Tahoma" font-size="17" fill="#263238">Replenishment</text>
+<text x="96" y="168" font-family="Tahoma" font-size="17" fill="#263238">Orderpoint 175</text>
+<text x="96" y="188" font-family="Tahoma" font-size="17" fill="#263238">GMP/Stock, auto, min/max = 0/0</text>
+<rect x="80" y="250" width="430" height="90" rx="14" ry="14" fill="#EEF7EA" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="96" y="278" font-family="Tahoma" font-size="17" fill="#263238">Route</text>
+<text x="96" y="298" font-family="Tahoma" font-size="17" fill="#263238">Manufacture (Pharma)</text>
+<rect x="80" y="380" width="430" height="110" rx="14" ry="14" fill="#FFF5E6" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="96" y="408" font-family="Tahoma" font-size="17" fill="#263238">Rule</text>
+<text x="96" y="428" font-family="Tahoma" font-size="17" fill="#263238">146 = manufacture</text>
+<text x="96" y="448" font-family="Tahoma" font-size="17" fill="#263238">source GMP/Stock/คลังลอย</text>
+<text x="96" y="468" font-family="Tahoma" font-size="17" fill="#263238">destination GMP/Stock</text>
+<rect x="80" y="530" width="430" height="90" rx="14" ry="14" fill="#F6EEFF" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="96" y="558" font-family="Tahoma" font-size="17" fill="#263238">Operation Type</text>
+<text x="96" y="578" font-family="Tahoma" font-size="17" fill="#263238">Manufacturing Pharma</text>
+<rect x="80" y="660" width="430" height="60" rx="14" ry="14" fill="#F7F7F7" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="96" y="688" font-family="Tahoma" font-size="17" fill="#263238">Putaway</text>
+<text x="96" y="708" font-family="Tahoma" font-size="17" fill="#263238">ทำงานตอน stock / component เข้าปลายทาง</text>
+<rect x="640" y="120" width="480" height="90" rx="14" ry="14" fill="#E8F1FF" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="656" y="148" font-family="Tahoma" font-size="17" fill="#263238">Replenishment</text>
+<text x="656" y="168" font-family="Tahoma" font-size="17" fill="#263238">SO Demand</text>
+<text x="656" y="188" font-family="Tahoma" font-size="17" fill="#263238">ไม่มี orderpoint</text>
+<rect x="640" y="250" width="480" height="90" rx="14" ry="14" fill="#EEF7EA" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="656" y="278" font-family="Tahoma" font-size="17" fill="#263238">Route</text>
+<text x="656" y="298" font-family="Tahoma" font-size="17" fill="#263238">MTO + Manufacture (Pharma) + Auto Transfer Semi (Pharma)</text>
+<rect x="640" y="380" width="480" height="110" rx="14" ry="14" fill="#FFF5E6" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="656" y="408" font-family="Tahoma" font-size="17" fill="#263238">Rule</text>
+<text x="656" y="428" font-family="Tahoma" font-size="17" fill="#263238">5 = pull จาก GMP/Stock ไป Customers</text>
+<text x="656" y="448" font-family="Tahoma" font-size="17" fill="#263238">146 = manufacture</text>
+<text x="656" y="468" font-family="Tahoma" font-size="17" fill="#263238">144 = transfer semi</text>
+<rect x="640" y="530" width="480" height="90" rx="14" ry="14" fill="#F6EEFF" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="656" y="558" font-family="Tahoma" font-size="17" fill="#263238">Operation Type</text>
+<text x="656" y="578" font-family="Tahoma" font-size="17" fill="#263238">Pick + Transfer Pharma + Manufacturing Pharma</text>
+<rect x="640" y="660" width="480" height="60" rx="14" ry="14" fill="#F7F7F7" stroke="#B8C7D9" stroke-width="1.5"/>
+<text x="656" y="688" font-family="Tahoma" font-size="17" fill="#263238">Putaway</text>
+<text x="656" y="708" font-family="Tahoma" font-size="17" fill="#263238">ใช้กับ material / semi ระหว่างทาง</text>
+<line x1="295" y1="210" x2="295" y2="250" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="295" y1="340" x2="295" y2="380" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="295" y1="490" x2="295" y2="530" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="295" y1="620" x2="295" y2="660" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="880" y1="210" x2="880" y2="250" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="880" y1="340" x2="880" y2="380" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="880" y1="490" x2="880" y2="530" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="880" y1="620" x2="880" y2="660" stroke="#6E7F99" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="80" y="742" font-family="Tahoma" font-size="15" fill="#4B5968">MTS = stock-first, เติม stock เมื่อขาด</text>
+<text x="640" y="742" font-family="Tahoma" font-size="15" fill="#4B5968">MTO = order-first, ลูกค้าสั่งก่อนแล้วค่อยย้อนกลับไปสร้าง supply</text>
+</svg>

@@ -1,0 +1,63 @@
+<odoo>
+    <record id="view_account_accrual_create_wizard" model="ir.ui.view">
+        <field name="name">account.accrual.create.wizard.form</field>
+        <field name="model">account.accrual.create.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Accrual">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="company_id" options="{'no_create': True}" />
+                            <field name="date" />
+                        </group>
+                        <group>
+                            <field name="period_start" />
+                            <field name="period_end" />
+                            <field name="accrual_account_id"
+                                placeholder="Fallback Account (Optional)" />
+                            <field name="currency_id" readonly="1" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="partner_id" optional="show" />
+                                    <field name="name" />
+                                    <field name="expense_account_id" />
+                                    <field name="analytic_account_id" />
+
+                                    <field name="amount" widget="monetary" />
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Documents">
+                            <group>
+                                <field name="attachment_ids" widget="many2many_binary" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                    <button string="Create Accrual"
+                        type="object"
+                        name="action_create_accrual"
+                        class="btn-primary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_accrual_create_wizard" model="ir.actions.act_window">
+        <field name="name">Create Accrual</field>
+        <field name="res_model">account.accrual.create.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

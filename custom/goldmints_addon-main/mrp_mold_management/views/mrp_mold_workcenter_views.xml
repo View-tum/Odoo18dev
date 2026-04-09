@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_mold_workcenter_form_premium" model="ir.ui.view">
+        <field name="name">mrp.workcenter.mold.form.premium</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <!-- 1. Header Badges for Mold State -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_mold"/>
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_reset_mold_life" type="object"
+                        class="oe_stat_button" icon="fa-refresh"
+                        string="Reset Life"
+                        invisible="not is_mold"
+                        confirm="Are you sure you want to reset the mold life? This action should only be performed after maintenance."/>
+                <button class="oe_stat_button" icon="fa-tachometer" type="object"
+                        name="action_open_mold_report"
+                        invisible="not is_mold">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="mold_life_current"/> / <field name="mold_life_limit"/>
+                        </span>
+                        <span class="o_stat_text">Shots Taken</span>
+                    </div>
+                </button>
+            </xpath>
+
+            <!-- 2. Refined Details Layout -->
+            <xpath expr="//group[@name='capacity']" position="after">
+                <group string="Mold Parameters" invisible="not is_mold">
+                    <group>
+                        <field name="mold_cost_hour" widget="monetary"/>
+                        <field name="mold_cavities"/>
+                    </group>
+                    <group>
+                        <field name="mold_life_limit"/>
+                        <field name="mold_state" widget="badge"
+                               decoration-success="mold_state == 'normal'"
+                               decoration-warning="mold_state == 'warning'"
+                               decoration-danger="mold_state == 'full'"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <!-- 3. Redesigned Matrix Tab -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Compatibility Matrix" name="compatibility_matrix"
+                      invisible="is_mold">
+                    <div class="alert alert-info" role="alert" style="margin-bottom: 10px;">
+                        <i class="fa fa-info-circle"/> Manage molds that are compatible with this machine.
+                    </div>
+                    <field name="allowed_mold_ids"
+                           widget="many2many">
+                        <list>
+                            <field name="name"/>
+                            <field name="mold_state" widget="badge"
+                                   decoration-success="mold_state == 'normal'"
+                                   decoration-warning="mold_state == 'warning'"
+                                   decoration-danger="mold_state == 'full'"/>
+                            <field name="mold_life_current" string="Usage"/>
+                            <field name="mold_life_limit" string="Limit"/>
+                        </list>
+                    </field>
+                </page>
+
+                <page string="Mold Matrix" name="mold_matrix"
+                      invisible="not is_mold">
+                    <group>
+                        <group string="Compatible Machines">
+                            <field name="compatible_machine_ids" widget="many2many_tags" readonly="1"/>
+                            <div class="text-muted">
+                                Machines are linked back from the Machine's Compatibility Matrix.
+                            </div>
+                        </group>
+                        <group string="Production Efficiency">
+                            <field name="mold_product_line_ids" nolabel="1">
+                                <list editable="bottom">
+                                    <field name="product_id" options="{'no_open': True, 'no_create': True}"/>
+                                    <field name="cycle_time"/>
+                                    <field name="units_per_hour" decoration-bf="1"/>
+                                </list>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Menu for Mold Matrix Report in Reporting -->
+</odoo>

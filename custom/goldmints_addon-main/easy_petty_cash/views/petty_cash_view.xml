@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_petty_cash_log_tree" model="ir.ui.view">
+        <field name="name">petty.cash.log.list</field>
+        <field name="model">petty.cash.log</field>
+        <field name="arch" type="xml">
+            <list string="Petty Cash Logbook"
+                decoration-success="transaction_type == 'in'"
+                decoration-muted="transaction_type == 'out'"
+                decoration-info="transaction_type == 'deposit'"
+                sample="1">
+                <field name="date" />
+                <field name="name" />
+                <field name="employee_id" widget="many2one_avatar_user" />
+                <field name="current_balance" string="Current Balance" optional="show"
+                    widget="monetary" decoration-danger="current_balance &lt; 0"
+                    decoration-success="current_balance &gt; 0" />
+                <field name="description" />
+                <field name="transaction_type" widget="badge"
+                    decoration-success="transaction_type == 'in'"
+                    decoration-muted="transaction_type == 'out'"
+                    decoration-info="transaction_type == 'deposit'" />
+                <field name="amount_signed" string="Total Balance" sum="Total"
+                    widget="monetary" decoration-bf="1" />
+                <field name="state" widget="badge"
+                    decoration-success="state == 'posted'"
+                    decoration-info="state == 'draft'" />
+                <field name="company_id" groups="base.group_multi_company" optional="hide" />
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_petty_cash_log_form_v8" model="ir.ui.view">
+        <field name="name">petty.cash.log.form</field>
+        <field name="model">petty.cash.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" string="Submit for Approval"
+                        type="object" class="oe_highlight"
+                        invisible="state != 'draft'" />
+
+                    <button name="action_manager_approve" string="Manager Approve"
+                        type="object" class="oe_highlight"
+                        groups="hr.group_hr_user,account.group_account_user"
+                        invisible="state != 'submitted'" />
+
+                    <button name="action_approve" string="Account Approve"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'manager_approved'" />
+
+                    <button name="action_confirm" string="Confirm Replenish"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'in'" />
+
+                    <button name="action_confirm" string="Confirm Deposit"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'deposit'" />
+
+                    <button name="action_confirm" string="Confirm Clearing"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'out'" />
+
+                    <button name="action_reject" string="Reject"
+                        type="object" class="btn-secondary"
+                        groups="hr.group_hr_user,account.group_account_user"
+                        invisible="state not in ['submitted', 'manager_approved', 'approved']" />
+
+                    <button name="action_draft"
+                        string="Reset to Draft"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'posted'"
+                        groups="account.group_account_manager"
+                        confirm="Are you sure you want to reset and unpost this entry?" />
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,submitted,manager_approved,approved,posted" />
+                </header>
+                <sheet>
+                    <field name="move_id" invisible="1" />
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_journal_entry"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-list"
+                            invisible="not move_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Journal Entry</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="transaction_type" class="oe_edit_only" />
+                        <h1>
+                            <field name="transaction_type" widget="radio"
+                                options="{'horizontal': true}"
+                                readonly="state != 'draft'" />
+                        </h1>
+                        <h2>
+                            <field name="name" placeholder="Document Number" />
+                        </h2>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="journal_id"
+                                groups="account.group_account_user"
+                                readonly="state == 'posted'"
+                                options="{'no_create': True}"
+                                invisible="1" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="date" readonly="state != 'draft'" />
+                            <field
+                                name="employee_id"
+                                readonly="state != 'draft'"
+                                options="{'no_create': True}" />
+                            <field name="manager_id" widget="many2one_avatar_user"
+                                readonly="state not in
+                            ['draft', 'submitted']"
+                                options="{'no_create': True}" />
+                            <field name="accountant_id" widget="many2one_avatar_user"
+                                readonly="state not in ['draft', 'submitted']"
+                                options="{'no_create': True}" />
+                        </group>
+                        <group>
+                            <field name="description" placeholder="Description..."
+                                readonly="state != 'draft'" />
+                            <field name="analytic_distribution" widget="analytic_distribution"
+                                groups="analytic.group_analytic_accounting"
+                                readonly="state != 'draft'" />
+                            <field name="partner_id"
+                                string="Vendor"
+                                placeholder="Vendor / Payee..."
+                                readonly="state != 'draft'"
+                                invisible="transaction_type in ['in', 'deposit']" />
+                            <field name="amount"
+                                string="Amount"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                invisible="transaction_type == 'out'"
+                                required="transaction_type in ['in', 'deposit']"
+                                readonly="state != 'draft'"
+                                force_save="1" />
+                        </group>
+                    </group>
+
+                    <group string="Budget Information" invisible="transaction_type != 'out'">
+                        <group name="budget_stats">
+                            <field name="petty_cash_limit" string="วงเงิน (Max Limit)"
+                                widget="monetary" />
+                            <field name="current_balance" string="ยอดเงินสดในมือ (Cash in Hand)"
+                                widget="monetary"
+                                decoration-danger="current_balance &lt; 0" />
+                            <field name="spent_amount" string="ยอดที่ใช้ไป (Amount Spent)"
+                                widget="monetary"
+                                decoration-warning="spent_amount &gt; 0" />
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                        <page string="Expense Lines" invisible="transaction_type != 'out'">
+                            <field name="line_ids"
+                                readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="product_id" options="{'no_create': True}" />
+                                    <field name="name" required="1" />
+                                    <field name="expense_account_id" options="{'no_create': True}"
+                                        optional="show" />
+                                    <field name="analytic_distribution"
+                                        widget="analytic_distribution" />
+                                    <field name="analytic_precision" column_invisible="True" />
+                                    <field name="vat_tax_id" options="{'no_create': True}" />
+                                    <field name="wht_tax_id" options="{'no_create': True}" />
+                                    <field name="amount" sum="Total Amount" />
+                                    <field name="amount_untaxed" optional="hide" />
+                                    <field name="amount_tax" sum="Total Tax" optional="show" />
+                                    <field name="tax_invoice_number" optional="hide" />
+                                    <field name="tax_invoice_date" optional="hide" />
+                                </list>
+                            </field>
+                            <group class="oe_subtotal_footer">
+                                <field name="total_untaxed" />
+                                <field name="total_tax" />
+                                <field name="total_amount" class="oe_subtotal_footer_separator" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_petty_cash_log_search" model="ir.ui.view">
+        <field name="name">petty.cash.log.search</field>
+        <field name="model">petty.cash.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Document No." />
+                <field name="description" string="Description" />
+                <field name="employee_id" />
+                <field name="partner_id" string="Vendor" />
+                <field name="journal_id" string="Journal" />
+
+                <filter string="My Records" name="my_records"
+                    domain="[('employee_id.user_id', '=', uid)]" />
+                <separator />
+                <filter string="Replenish (In)" name="filter_in"
+                    domain="[('transaction_type', '=', 'in')]" />
+                <filter string="Expense (Out)" name="filter_out"
+                    domain="[('transaction_type', '=', 'out')]" />
+                <filter string="Deposit (Bank)" name="filter_deposit"
+                    domain="[('transaction_type', '=', 'deposit')]" />
+                <separator />
+                <filter string="Draft" name="filter_draft"
+                    domain="[('state', '=', 'draft')]" />
+                <filter string="To Approve (Manager)" name="filter_to_approve_manager"
+                    domain="[('state', '=', 'submitted')]" />
+                <filter string="To Approve (Accountant)" name="filter_to_approve_account"
+                    domain="[('state', '=', 'manager_approved')]" />
+                <filter string="Posted" name="filter_posted"
+                    domain="[('state', '=', 'posted')]" />
+
+                <separator />
+                <filter string="Today" name="filter_today"
+                    domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]" />
+                <filter string="This Month" name="filter_this_month"
+                    domain="[('date', '&gt;=', context_today().strftime('%Y-%m-01'))]" />
+
+                <group expand="0" string="Group By">
+                    <filter string="Type" name="group_type"
+                        context="{'group_by': 'transaction_type'}" />
+                    <filter string="Employee" name="group_employee"
+                        context="{'group_by': 'employee_id'}" />
+                    <filter string="Status" name="group_state"
+                        context="{'group_by': 'state'}" />
+                    <filter string="Journal" name="group_journal"
+                        context="{'group_by': 'journal_id'}" />
+                    <filter string="วันที่ / Date" name="group_date" context="{'group_by': 'date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_log_pivot" model="ir.ui.view">
+        <field name="name">petty.cash.log.pivot</field>
+        <field name="model">petty.cash.log</field>
+        <field name="arch" type="xml">
+            <pivot string="Petty Cash Analysis" sample="1">
+                <field name="employee_id" type="row" />
+                <field name="journal_id" type="row" />
+                <field name="transaction_type" type="col" />
+                <field name="amount_signed" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_log_graph" model="ir.ui.view">
+        <field name="name">petty.cash.log.graph</field>
+        <field name="model">petty.cash.log</field>
+        <field name="arch" type="xml">
+            <graph string="Petty Cash Analysis" sample="1">
+                <field name="employee_id" />
+                <field name="amount_signed" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_petty_cash_log" model="ir.actions.act_window">
+        <field name="name">Petty Cash Logbook</field>
+        <field name="res_model">petty.cash.log</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create New Entry
+            </p>
+            <p>
+                Record petty cash expenses here. The system follows a multi-step approval workflow.
+            </p>
+        </field>
+    </record>
+</odoo>

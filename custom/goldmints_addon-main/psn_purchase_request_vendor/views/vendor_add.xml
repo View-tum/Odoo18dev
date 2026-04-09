@@ -1,0 +1,38 @@
+<odoo>
+    <record id="purchase_request_vendor_add" model="ir.ui.view">
+    <field name="name">purchase.request.vendor.add</field>
+    <field name="model">purchase.request</field>
+    <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='group_id']" position="after">
+            <field name="vendor"/>
+        </xpath>
+        <xpath expr="//field[@name='estimated_cost']" position="after">
+            <field name="vendor"/>
+        </xpath>
+    </field>
+    </record>
+
+
+    <record id="pr_line_make_po" model="ir.ui.view">
+        <field name="name">pr.line.make.po</field>
+        <field name="model">purchase.request.line.make.purchase.order</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_line_make_purchase_order"/>
+        <field name="arch" type="xml">
+            <field name="keep_description" position="after">
+                <field name="cost"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="pr_unit_price" model="ir.ui.view">
+        <field name="name">pr.unit.price</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+        <field name="arch" type="xml">
+            <field name="date_required" position="after">
+                <field name="unit_cost"/>
+            </field>
+        </field>
+    </record>
+</odoo>

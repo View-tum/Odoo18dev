@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_open_related_sale" model="ir.actions.server">
+        <field name="name">Open Related Sale Order</field>
+        <field name="model_id" ref="model_job_request"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+form_view = env.ref('sale.view_order_form')
+action = env['ir.actions.act_window']._for_xml_id('sale.action_orders')
+action['res_id'] = record.sale_id.id
+action['view_mode'] = 'form'
+action['views'] = [(form_view.id, 'form')]
+        ]]></field>
+    </record>
+</odoo>

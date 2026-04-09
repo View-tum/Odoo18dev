@@ -1,0 +1,21 @@
+flowchart TD
+    Start([เริ่มความต้องการ - Demand]) --> Check{ประเภทสินค้า / นโยบาย}
+    
+    Check -- "MTS (ทำสต๊อก)" --> MPS[📅 วางแผนผ่าน MPS]
+    MPS --> MPS_Replenish[✅ กด Replenish ดักยอดขาด]
+    MPS_Replenish --> MO_MTS[⚙️ สร้างใบสั่งผลิต MO]
+
+    Check -- "MTO (ทำตามสั่ง)" --> SO[📑 เปิดใบรับสั่งขาย Sale Order]
+    SO --> Confirm_SO[✅ กด Confirm ยืนยัน SO]
+    Confirm_SO --> Route_MTO[📌 วิ่งเส้น Replenish on Order]
+    Route_MTO --> MO_MTO[⚙️ สร้างใบสั่งผลิต MO หลัง SO ทันที]
+
+    MO_MTS --> Check_Stock[🔍 ตรวจเช็คจัดสำรองสต๊อก]
+    MO_MTO --> Check_Stock
+
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef action fill:#d4edda,stroke:#28a745,stroke-width:1px;
+    classDef trigger fill:#d1ecf1,stroke:#17a2b8,stroke-width:1px;
+    
+    class MPS_Replenish,Confirm_SO trigger;
+    class MO_MTS,MO_MTO action;

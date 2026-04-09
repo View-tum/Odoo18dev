@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wiz_acc_inv_status,wiz.acc.inv.status,model_account_invoice_payment_status,account.group_account_user,1,1,1,1
+access_line_acc_inv_status,line.acc.inv.status,model_account_invoice_payment_status_line,account.group_account_user,1,1,1,1
+
+access_delivery_route_user_read,delivery.route user read,delivery_routes_management.model_delivery_route,account.group_account_user,1,0,0,0
+access_delivery_sub_region_user_read,delivery.sub.region user read,delivery_routes_management.model_delivery_sub_region,account.group_account_user,1,0,0,0

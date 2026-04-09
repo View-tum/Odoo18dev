@@ -1,0 +1,15 @@
+flowchart LR
+    Start([เริ่ม]) --> SO[1. เปิดใบสั่งขาย <br> Check Limit]
+    SO --> MPS[2. วางแผนจัดสรร <br> MPS Plan]
+    MPS --> PO[3. สั่งซื้อวัสดุขาด <br> PR -> PO]
+    PO --> Warehouse[4. รับของเข้าคลัง <br> ย้ายส่งเบิกผลิต]
+    Warehouse --> Produce[5. ผลิตหน้างาน <br> Parallel Console]
+    Produce --> Delivery[6. จัดส่งสินค้า <br> ตามรูทรถ]
+    Delivery --> Account[7. วางบิล / รับเช็ค <br> Billing & PDC]
+    Account --> End([ปิดจบงานขาย])
+
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef main fill:#d4edda,stroke:#28a745,stroke-width:2px;
+    classDef custom fill:#d1ecf1,stroke:#17a2b8,stroke-width:2px;
+    
+    class SO,PO,Produce,Account custom;

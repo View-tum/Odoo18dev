@@ -1,0 +1,1164 @@
+{
+  "product.template": {
+    "fields": {
+      "name": {
+        "type": "char",
+        "comodel": null,
+        "string": "Name"
+      },
+      "default_code": {
+        "type": "char",
+        "comodel": null,
+        "string": "Internal Reference"
+      },
+      "manufacturing_type": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Manufacturing Type"
+      },
+      "route_ids": {
+        "type": "many2many",
+        "comodel": "stock.route",
+        "string": "Routes"
+      },
+      "active": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Active"
+      },
+      "company_id": {
+        "type": "many2one",
+        "comodel": "res.company",
+        "string": "Company"
+      },
+      "sequence": {
+        "type": "integer",
+        "comodel": null,
+        "string": "Sequence"
+      },
+      "warehouse_id": {
+        "type": "many2one",
+        "comodel": "stock.warehouse",
+        "string": "Warehouse"
+      },
+      "barcode": {
+        "type": "char",
+        "comodel": null,
+        "string": "Barcode"
+      }
+    },
+    "sample": [
+      {
+        "id": 8768,
+        "name": "001",
+        "default_code": "00763",
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 8766,
+        "name": "002",
+        "default_code": "00761",
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 8669,
+        "name": "10% on เงินมัดจำจ่ายล่วงหน้า",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 1,
+        "name": "Booking Fees",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 8703,
+        "name": "Building Improvement",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 7963,
+        "name": "Calendar",
+        "default_code": "MK-CLD-XX-00001",
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 8670,
+        "name": "Calibration ",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 7967,
+        "name": "Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+        "default_code": "FG-MTK-IL-01001",
+        "manufacturing_type": "pharma",
+        "route_ids": [
+          36,
+          1,
+          30
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": "8851447060049"
+      },
+      {
+        "id": 8671,
+        "name": "Computer",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      },
+      {
+        "id": 8723,
+        "name": "Employee Advance",
+        "default_code": false,
+        "manufacturing_type": false,
+        "route_ids": [
+          5
+        ],
+        "active": true,
+        "company_id": [],
+        "sequence": 1,
+        "warehouse_id": [],
+        "barcode": false
+      }
+    ]
+  },
+  "stock.route": {
+    "fields": {
+      "name": {
+        "type": "char",
+        "comodel": null,
+        "string": "Route"
+      },
+      "active": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Active"
+      },
+      "company_id": {
+        "type": "many2one",
+        "comodel": "res.company",
+        "string": "Company"
+      },
+      "sequence": {
+        "type": "integer",
+        "comodel": null,
+        "string": "Sequence"
+      },
+      "product_selectable": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Applicable on Product"
+      },
+      "product_categ_selectable": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Applicable on Product Category"
+      },
+      "packaging_selectable": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Applicable on Packaging"
+      },
+      "sale_selectable": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Selectable on Sales Order Line"
+      },
+      "supplied_wh_id": {
+        "type": "many2one",
+        "comodel": "stock.warehouse",
+        "string": "Supplied Warehouse"
+      }
+    },
+    "sample": [
+      {
+        "id": 35,
+        "name": "Auto Transfer RM (Packaging)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 16,
+        "name": "Mobile Warehouse: Supply Product from GOLD MINTS PRODUCTS CO., LTD.",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": [
+          2
+        ]
+      },
+      {
+        "id": 34,
+        "name": "Auto Transfer RM (Plastic)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 41,
+        "name": "Auto Transfer MTS (Packaging)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 18,
+        "name": "Auto Transfer Semi",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 40,
+        "name": "Auto Transfer MTS (Plastic)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 19,
+        "name": "Auto Transfer MTS",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 33,
+        "name": "Auto Transfer RM (Pharma)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 17,
+        "name": "Auto Transfer RM",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      },
+      {
+        "id": 36,
+        "name": "Auto Transfer Semi (Pharma)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "product_selectable": true,
+        "product_categ_selectable": true,
+        "packaging_selectable": false,
+        "sale_selectable": false,
+        "supplied_wh_id": []
+      }
+    ]
+  },
+  "stock.rule": {
+    "fields": {
+      "name": {
+        "type": "char",
+        "comodel": null,
+        "string": "Name"
+      },
+      "active": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Active"
+      },
+      "company_id": {
+        "type": "many2one",
+        "comodel": "res.company",
+        "string": "Company"
+      },
+      "sequence": {
+        "type": "integer",
+        "comodel": null,
+        "string": "Sequence"
+      },
+      "warehouse_id": {
+        "type": "many2one",
+        "comodel": "stock.warehouse",
+        "string": "Warehouse"
+      },
+      "route_id": {
+        "type": "many2one",
+        "comodel": "stock.route",
+        "string": "Route"
+      },
+      "action": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Action"
+      },
+      "procure_method": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Supply Method"
+      },
+      "location_src_id": {
+        "type": "many2one",
+        "comodel": "stock.location",
+        "string": "Source Location"
+      },
+      "location_dest_id": {
+        "type": "many2one",
+        "comodel": "stock.location",
+        "string": "Destination Location"
+      },
+      "picking_type_id": {
+        "type": "many2one",
+        "comodel": "stock.picking.type",
+        "string": "Operation Type"
+      },
+      "delay": {
+        "type": "integer",
+        "comodel": null,
+        "string": "Lead Time"
+      },
+      "propagate_cancel": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Cancel Next Move"
+      },
+      "group_propagation_option": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Propagation of Procurement Group"
+      },
+      "partner_address_id": {
+        "type": "many2one",
+        "comodel": "res.partner",
+        "string": "Partner Address"
+      },
+      "auto": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Automatic Move"
+      }
+    },
+    "sample": [
+      {
+        "id": 4,
+        "name": "WH: Input → Output",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          4
+        ],
+        "action": "push",
+        "procure_method": "make_to_order",
+        "location_src_id": [
+          9
+        ],
+        "location_dest_id": [
+          11
+        ],
+        "picking_type_id": [
+          8
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 5,
+        "name": "GMP: Stock → Customers (MTO)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          1
+        ],
+        "action": "pull",
+        "procure_method": "mts_else_mto",
+        "location_src_id": [
+          8
+        ],
+        "location_dest_id": [
+          5
+        ],
+        "picking_type_id": [
+          3
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 6,
+        "name": "WH: False → Customers",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          4
+        ],
+        "action": "buy",
+        "procure_method": "make_to_stock",
+        "location_src_id": [],
+        "location_dest_id": [
+          5
+        ],
+        "picking_type_id": [
+          1
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 7,
+        "name": "GMP: Stock (Buy)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          5
+        ],
+        "action": "buy",
+        "procure_method": "make_to_stock",
+        "location_src_id": [],
+        "location_dest_id": [
+          8
+        ],
+        "picking_type_id": [
+          1
+        ],
+        "delay": 0,
+        "propagate_cancel": true,
+        "group_propagation_option": "none",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 8,
+        "name": "GMP: Stock (Production)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          6
+        ],
+        "action": "manufacture",
+        "procure_method": "make_to_order",
+        "location_src_id": [
+          176
+        ],
+        "location_dest_id": [
+          8
+        ],
+        "picking_type_id": [
+          11
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "none",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 9,
+        "name": "GMP: Stock → Production (MTO)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          1
+        ],
+        "action": "pull",
+        "procure_method": "mts_else_mto",
+        "location_src_id": [
+          176
+        ],
+        "location_dest_id": [
+          15
+        ],
+        "picking_type_id": [
+          11
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 12,
+        "name": "WH: Stock → Subcontracting Location",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          9
+        ],
+        "action": "pull",
+        "procure_method": "make_to_stock",
+        "location_src_id": [
+          8
+        ],
+        "location_dest_id": [
+          19
+        ],
+        "picking_type_id": [
+          15
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 13,
+        "name": "WH: Stock → Subcontracting Location (MTO)",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          1
+        ],
+        "action": "pull",
+        "procure_method": "mts_else_mto",
+        "location_src_id": [
+          8
+        ],
+        "location_dest_id": [
+          19
+        ],
+        "picking_type_id": [
+          15
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 14,
+        "name": "WH: Subcontracting Location → Production",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          8
+        ],
+        "action": "pull",
+        "procure_method": "make_to_order",
+        "location_src_id": [
+          19
+        ],
+        "location_dest_id": [
+          15
+        ],
+        "picking_type_id": [
+          15
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      },
+      {
+        "id": 19,
+        "name": "WH: Output → Customers",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 20,
+        "warehouse_id": [
+          1
+        ],
+        "route_id": [
+          3
+        ],
+        "action": "push",
+        "procure_method": "make_to_order",
+        "location_src_id": [
+          11
+        ],
+        "location_dest_id": [
+          5
+        ],
+        "picking_type_id": [
+          2
+        ],
+        "delay": 0,
+        "propagate_cancel": false,
+        "group_propagation_option": "propagate",
+        "partner_address_id": [],
+        "auto": "manual"
+      }
+    ]
+  },
+  "stock.picking.type": {
+    "fields": {
+      "name": {
+        "type": "char",
+        "comodel": null,
+        "string": "Operation Type"
+      },
+      "active": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Active"
+      },
+      "company_id": {
+        "type": "many2one",
+        "comodel": "res.company",
+        "string": "Company"
+      },
+      "sequence": {
+        "type": "integer",
+        "comodel": null,
+        "string": "Sequence"
+      },
+      "warehouse_id": {
+        "type": "many2one",
+        "comodel": "stock.warehouse",
+        "string": "Warehouse"
+      },
+      "code": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Type of Operation"
+      },
+      "sequence_code": {
+        "type": "char",
+        "comodel": null,
+        "string": "Sequence Prefix"
+      },
+      "default_location_src_id": {
+        "type": "many2one",
+        "comodel": "stock.location",
+        "string": "Source Location"
+      },
+      "default_location_dest_id": {
+        "type": "many2one",
+        "comodel": "stock.location",
+        "string": "Destination Location"
+      },
+      "use_create_lots": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Create New Lots/Serial Numbers"
+      },
+      "use_existing_lots": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Use Existing Lots/Serial Numbers"
+      },
+      "show_operations": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Show Detailed Operations"
+      },
+      "barcode": {
+        "type": "char",
+        "comodel": null,
+        "string": "Barcode"
+      },
+      "reservation_method": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Reservation Method"
+      },
+      "create_backorder": {
+        "type": "selection",
+        "comodel": null,
+        "string": "Create Backorder"
+      },
+      "require_invoice_info": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Require Invoice Reference/Date"
+      },
+      "propagate_invoice_info": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Propagate Invoice Reference/Date"
+      },
+      "show_delivery_address": {
+        "type": "boolean",
+        "comodel": null,
+        "string": "Show Delivery Address"
+      }
+    },
+    "sample": [
+      {
+        "id": 1,
+        "name": "Receipts",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 0,
+        "warehouse_id": [
+          1
+        ],
+        "code": "incoming",
+        "sequence_code": "IN",
+        "default_location_src_id": [
+          4
+        ],
+        "default_location_dest_id": [
+          9
+        ],
+        "use_create_lots": true,
+        "use_existing_lots": false,
+        "show_operations": false,
+        "barcode": "GMPIN",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": true,
+        "propagate_invoice_info": true,
+        "show_delivery_address": false
+      },
+      {
+        "id": 7,
+        "name": "Internal Transfers",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 1,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "INT",
+        "default_location_src_id": [
+          8
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPINT",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 62,
+        "name": "Transfer Pharma",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 1,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "INT-PH",
+        "default_location_src_id": [
+          8
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": false,
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 64,
+        "name": "Transfer Plastic",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 1,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "INT-PL",
+        "default_location_src_id": [
+          8
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": false,
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 66,
+        "name": "Transfer Packaging",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 1,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "INT-PK",
+        "default_location_src_id": [
+          8
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": false,
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 6,
+        "name": "Storage",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 2,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "STOR",
+        "default_location_src_id": [
+          9
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPSTOR",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": true,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 3,
+        "name": "Pick",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 3,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "PICK",
+        "default_location_src_id": [
+          54
+        ],
+        "default_location_dest_id": [
+          11
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPPICK",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": true
+      },
+      {
+        "id": 2,
+        "name": "Delivery Orders",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 5,
+        "warehouse_id": [
+          1
+        ],
+        "code": "outgoing",
+        "sequence_code": "OUT",
+        "default_location_src_id": [
+          11
+        ],
+        "default_location_dest_id": [
+          5
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPOUT",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 8,
+        "name": "Cross Dock",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 6,
+        "warehouse_id": [
+          1
+        ],
+        "code": "internal",
+        "sequence_code": "XD",
+        "default_location_src_id": [
+          9
+        ],
+        "default_location_dest_id": [
+          11
+        ],
+        "use_create_lots": false,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPXD",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      },
+      {
+        "id": 11,
+        "name": "Manufacturing",
+        "active": true,
+        "company_id": [
+          1
+        ],
+        "sequence": 8,
+        "warehouse_id": [
+          1
+        ],
+        "code": "mrp_operation",
+        "sequence_code": "MO",
+        "default_location_src_id": [
+          176
+        ],
+        "default_location_dest_id": [
+          8
+        ],
+        "use_create_lots": true,
+        "use_existing_lots": true,
+        "show_operations": false,
+        "barcode": "GMPMANUF",
+        "reservation_method": "at_confirm",
+        "create_backorder": "ask",
+        "require_invoice_info": false,
+        "propagate_invoice_info": false,
+        "show_delivery_address": false
+      }
+    ]
+  }
+}

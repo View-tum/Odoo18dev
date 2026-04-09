@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="paper_format_psn_from_purchase_order_report" model="report.paperformat">
+            <field name="name">purchase oder request</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">63</field>
+            <field name="margin_bottom">58</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_spacing">62</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="action_report_purchase_order_employment" model="ir.actions.report">
+            <field name="name">ใบขอเสนอราคา / ใบสั่งซื้อ</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">psn_from_purchase_order.report_page</field>
+            <field name="report_file">psn_from_purchase_order.report_page</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="print_report_name">'Purchase Order - %s - %s' % (object.name, object.state)</field>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="paper_format_psn_from_purchase_order_report"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,246 @@
+{
+  "database": "11_codex_flowfix_20260330_120905",
+  "run_tag": "20260330052725",
+  "run_at": "2026-03-30T05:27:42.606951",
+  "passed_cases": [
+    "promo_free_item",
+    "foc_zero_mto",
+    "mto_standard",
+    "mts_min_max"
+  ],
+  "failed_cases": [],
+  "cases": [
+    {
+      "case": "promo_free_item",
+      "pass": true,
+      "order": {
+        "name": "S11575",
+        "state": "draft",
+        "invoice_status": "no",
+        "amount_total": 1236.0,
+        "pickings": [],
+        "invoices": []
+      },
+      "base_lines": [
+        {
+          "product": "FG-PSS-TH-01002",
+          "qty": 1.0,
+          "price_unit": 1236.0,
+          "is_free_item": false
+        },
+        {
+          "product": "FG-PSS-TH-01001",
+          "qty": 4.0,
+          "price_unit": 0.0,
+          "is_free_item": true
+        }
+      ],
+      "notes": [
+        "Promo logic was tested on quotation creation only.",
+        "This product is configured as pharma MTS, not MTO."
+      ]
+    },
+    {
+      "case": "foc_zero_mto",
+      "pass": true,
+      "order": {
+        "name": "SOB-263078",
+        "state": "sale",
+        "invoice_status": "invoiced",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/PICK/03580",
+          "GMP/OUT/02512"
+        ],
+        "invoices": [
+          "INV-D/26/03/00967"
+        ]
+      },
+      "mo_count_after_confirm": 1,
+      "mo_names_after_confirm": [
+        "GMP/MOPH/00031"
+      ],
+      "completed_mos": [
+        "GMP/MOPH/00031"
+      ],
+      "pickings_after_confirm": [
+        {
+          "name": "GMP/INT/00176",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/PICK/03580",
+          "type": "internal",
+          "state": "done"
+        }
+      ],
+      "pickings_after_processing": [
+        {
+          "name": "GMP/INT/00176",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/PICK/03580",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/OUT/02512",
+          "type": "outgoing",
+          "state": "done"
+        }
+      ],
+      "auto_invoice_after_confirm": [],
+      "auto_invoice_after_processing": [
+        "INV-D/26/03/00967"
+      ],
+      "invoice_state": "posted",
+      "invoice_total": 0.0,
+      "done_pickings": [
+        "GMP/PICK/03580",
+        "GMP/OUT/02512"
+      ],
+      "sale_line_delivery": [
+        {
+          "product": "FG-PNC-XX-01001",
+          "qty_ordered": 1.0,
+          "qty_delivered": 1.0,
+          "qty_invoiced": 1.0,
+          "is_foc": true
+        }
+      ],
+      "invoice_line_flags": [
+        {
+          "product": "FG-PNC-XX-01001",
+          "price_unit": 0.0,
+          "is_foc": true,
+          "foc_price_unit": 0.0
+        }
+      ],
+      "cogs_accounts": [
+        "116902",
+        "510002"
+      ],
+      "foc_expected_account": "600005",
+      "foc_expected_account_used": false,
+      "notes": [
+        "Invoice creation is validated after delivery completion.",
+        "The case passes only when the invoice is created and posted automatically."
+      ]
+    },
+    {
+      "case": "mto_standard",
+      "pass": true,
+      "order": {
+        "name": "SOB-263079",
+        "state": "sale",
+        "invoice_status": "invoiced",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/PICK/03581",
+          "GMP/OUT/02513"
+        ],
+        "invoices": [
+          "INV-D/26/03/00968"
+        ]
+      },
+      "mo_count_after_confirm": 1,
+      "mo_names_after_confirm": [
+        "GMP/MOPH/00032"
+      ],
+      "completed_mos": [
+        "GMP/MOPH/00032"
+      ],
+      "pickings_after_confirm": [
+        {
+          "name": "GMP/PICK/03581",
+          "type": "internal",
+          "state": "done"
+        }
+      ],
+      "pickings_after_processing": [
+        {
+          "name": "GMP/PICK/03581",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/OUT/02513",
+          "type": "outgoing",
+          "state": "done"
+        }
+      ],
+      "auto_invoice_after_confirm": [],
+      "auto_invoice_after_processing": [
+        "INV-D/26/03/00968"
+      ],
+      "invoice_state": "posted",
+      "invoice_total": 0.0,
+      "done_pickings": [
+        "GMP/PICK/03581",
+        "GMP/OUT/02513"
+      ],
+      "sale_line_delivery": [
+        {
+          "product": "FG-MTK-IL-01001",
+          "qty_ordered": 1.0,
+          "qty_delivered": 1.0,
+          "qty_invoiced": 1.0,
+          "is_foc": false
+        }
+      ],
+      "invoice_line_flags": [
+        {
+          "product": "FG-MTK-IL-01001",
+          "price_unit": 0.0,
+          "is_foc": false,
+          "foc_price_unit": 0.0
+        }
+      ],
+      "cogs_accounts": [
+        "116902",
+        "510001"
+      ],
+      "foc_expected_account": "600005",
+      "foc_expected_account_used": false,
+      "notes": [
+        "Invoice creation is validated after delivery completion.",
+        "The case passes only when the invoice is created and posted automatically."
+      ]
+    },
+    {
+      "case": "mts_min_max",
+      "pass": true,
+      "orderpoint_id": 175,
+      "orderpoint_route_id": false,
+      "orderpoint_min_before": 0.0,
+      "orderpoint_max_before": 0.0,
+      "replenish_target_level": 260.0,
+      "qty_on_hand_before": 130.0,
+      "qty_forecast_before": 130.0,
+      "qty_on_hand_after": 260.0,
+      "qty_forecast_after": 260.0,
+      "mo_count_after_replenish": 1,
+      "mo_names_after_replenish": [
+        "GMP/MOPH/00033"
+      ],
+      "replenishment_created_from_orderpoint": [
+        {
+          "name": "GMP/MOPH/00033",
+          "orderpoint_id": 175,
+          "origin": "FG-PNC-TH-01001"
+        }
+      ],
+      "completed_mos": [
+        "GMP/MOPH/00033"
+      ],
+      "pickings_after_run": [],
+      "notes": [
+        "This scenario validates true Min/Max replenishment from the orderpoint itself.",
+        "The case passes only when the orderpoint creates manufacturing and stock increases after completion."
+      ]
+    }
+  ]
+}

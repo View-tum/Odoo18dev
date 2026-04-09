@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_recurring_template_form_inherit_contract" model="ir.ui.view">
+        <field name="name">account.recurring.template.form.inherit.contract</field>
+        <field name="model">account.recurring.template</field>
+        <field name="inherit_id"
+            ref="account_recurring_payment.view_account_recurring_template_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_process_all_due_now" type="object"
+                    string="Process All Pending (Test)"
+                    class="btn-warning"
+                    invisible="computing_mode != 'rebate'"
+                    confirm="⚠️ คุณต้องการรันการจ่ายเงินทั้งหมดที่ค้างอยู่ (รวมถึงเดือนในอนาคต) เพื่อการทดสอบใช่หรือไม่?" />
+            </xpath>
+            <field name="rebate_type" position="after">
+                <field name="contract_id" invisible="computing_mode != 'rebate'" />
+            </field>
+        </field>
+    </record>
+</odoo>

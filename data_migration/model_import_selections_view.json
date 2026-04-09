@@ -1,0 +1,176 @@
+[
+  {
+    "model": "product.template",
+    "field": "manufacturing_type",
+    "selection": [
+      [
+        "plastic",
+        "Plastic"
+      ],
+      [
+        "pharma",
+        "Pharma"
+      ],
+      [
+        "packaging",
+        "Packaging"
+      ]
+    ]
+  },
+  {
+    "model": "mrp.workcenter",
+    "field": "manufacturing_type",
+    "selection": [
+      [
+        "plastic",
+        "Plastic"
+      ],
+      [
+        "pharma",
+        "Pharma"
+      ],
+      [
+        "packaging",
+        "Packaging"
+      ]
+    ]
+  },
+  {
+    "model": "stock.rule",
+    "field": "action",
+    "selection": [
+      [
+        "pull",
+        "Pull From"
+      ],
+      [
+        "push",
+        "Push To"
+      ],
+      [
+        "pull_push",
+        "Pull & Push"
+      ],
+      [
+        "manufacture",
+        "Manufacture"
+      ],
+      [
+        "buy",
+        "Buy"
+      ]
+    ]
+  },
+  {
+    "model": "stock.rule",
+    "field": "procure_method",
+    "selection": [
+      [
+        "make_to_stock",
+        "Take From Stock"
+      ],
+      [
+        "make_to_order",
+        "Trigger Another Rule"
+      ],
+      [
+        "mts_else_mto",
+        "Take From Stock, if unavailable, Trigger Another Rule"
+      ]
+    ]
+  },
+  {
+    "model": "stock.rule",
+    "field": "group_propagation_option",
+    "selection": [
+      [
+        "none",
+        "Leave Empty"
+      ],
+      [
+        "propagate",
+        "Propagate"
+      ],
+      [
+        "fixed",
+        "Fixed"
+      ]
+    ]
+  },
+  {
+    "model": "stock.rule",
+    "field": "auto",
+    "selection": [
+      [
+        "manual",
+        "Manual Operation"
+      ],
+      [
+        "transparent",
+        "Automatic No Step Added"
+      ]
+    ]
+  },
+  {
+    "model": "stock.picking.type",
+    "field": "code",
+    "selection": [
+      [
+        "incoming",
+        "Receipt"
+      ],
+      [
+        "outgoing",
+        "Delivery"
+      ],
+      [
+        "internal",
+        "Internal Transfer"
+      ],
+      [
+        "mrp_operation",
+        "Manufacturing"
+      ],
+      [
+        "repair_operation",
+        "Repair"
+      ]
+    ]
+  },
+  {
+    "model": "stock.picking.type",
+    "field": "reservation_method",
+    "selection": [
+      [
+        "at_confirm",
+        "At Confirmation"
+      ],
+      [
+        "manual",
+        "Manually"
+      ],
+      [
+        "by_date",
+        "Before scheduled date"
+      ]
+    ]
+  },
+  {
+    "model": "stock.picking.type",
+    "field": "create_backorder",
+    "selection": [
+      [
+        "ask",
+        "Ask"
+      ],
+      [
+        "always",
+        "Always"
+      ],
+      [
+        "never",
+        "Never"
+      ]
+    ]
+  }
+]

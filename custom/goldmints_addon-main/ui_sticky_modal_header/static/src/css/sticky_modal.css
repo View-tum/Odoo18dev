@@ -1,0 +1,32 @@
+
+/* Global Fix for Modal Sticky Headers */
+.o_dialog .modal-body {
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Ensure intermediate containers don't trap the sticky header */
+.o_dialog .o_list_view,
+.o_dialog .o_list_renderer,
+.o_dialog .o_content,
+.o_dialog .o_view_controller {
+    overflow: visible !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Force sticky on thead and th */
+.o_dialog .o_list_table thead,
+.o_dialog .o_list_table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background-color: #ffffff !important;
+}
+
+/* Compatibility for Odoo 18 table structure */
+.o_dialog .o_list_renderer table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+}

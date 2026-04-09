@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor Opp as ผู้คุม/ระบบ
+    participant MO as Manufacturing Order
+    participant Inv as Inventory System
+    participant Stock as คลังวัสดุ (WH/Stock)
+
+    Opp->>MO: 1. ยืนยันเอกสาร (Confirm)
+    MO->>Inv: 2. เรียกฟังก์ชัน [Check Availability]
+    
+    Inv->>Stock: 3. เช็คยอด On-hand บวกลบเศษ
+    
+    alt ของครบ (On-hand >= Demand)
+        Stock-->>Inv: สินค้าพอสำหรับยอดดนตรี
+        Inv-->>MO: ล็อคสต๊อก (Reserved) ✅<br> สถานะ: Ready (พร้อมผลิต)
+    else ของขาด (On-hand < Demand)
+        Stock-->>Inv: สินค้าดักขาด
+        Inv-->>MO: สถานะ: Waiting (รอวัสดุ) 🔴<br> ดักปัดยอดสีแดง
+        Inv->>Opp: ส่ง Trigger ส่ง Auto-PR / Order เพิ่มเติม
+    end

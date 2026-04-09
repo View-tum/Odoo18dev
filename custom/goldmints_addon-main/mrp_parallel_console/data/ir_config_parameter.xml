@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ensure overproduction auto-replenish is enabled by default -->
+    <data noupdate="0">
+        <record id="param_auto_replenish_overproduction" model="ir.config_parameter">
+            <field name="key">mrp_parallel_console.auto_replenish_overproduction</field>
+            <field name="value">True</field>
+        </record>
+    </data>
+</odoo>

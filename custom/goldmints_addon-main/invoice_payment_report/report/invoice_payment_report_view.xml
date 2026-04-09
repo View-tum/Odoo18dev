@@ -1,0 +1,33 @@
+<odoo>
+  <record id="view_invoice_payment_report_form" model="ir.ui.view">
+    <field name="name">invoice.payment.report.form</field>
+    <field name="model">invoice.payment.report</field>
+    <field name="arch" type="xml">
+      <form string="Invoice Payment Report">
+        <group name="section_details">
+            <field
+                name="salesperson_ids"
+                widget="many2many_tags"
+                required="True"/>
+            <field
+                name="date_from"
+                required = "salesperson_ids"
+                readonly = "not salesperson_ids"/>
+            <field
+                name="date_to"
+                required = "salesperson_ids"
+                readonly = "not salesperson_ids"/>
+            <field
+                name="report_id"
+                domain="[('model_id', '=', 'invoice.payment.report')]"
+                required = "salesperson_ids"
+                readonly = "not salesperson_ids"/>
+        </group>
+        <footer>
+          <button string="Confirm" name="action_confirm" type="object" class="btn-primary"/>
+          <button string="Cancel" special="cancel" class="btn-secondary"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

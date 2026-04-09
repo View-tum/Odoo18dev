@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_simulation" model="ir.ui.view">
+        <field name="name">sale.order.form.simulation</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority">2000</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <button name="action_open_simulation"
+                        string="Simulation Print"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="is_simulation_mode or state != 'sale'"/>
+
+                <button name="action_simulation_cleanup"
+                        string="Done (Delete Simulation)"
+                        type="object"
+                        class="btn-danger"
+                        invisible="not is_simulation_mode"/>
+            </xpath>
+
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="invisible">is_simulation_mode</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_simulation_mode" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div class="alert alert-info py-2 text-center fw-bold" role="alert" invisible="not is_simulation_mode">
+                    SIMULATION MODE: You are editing a temporary record. Changes will NOT affect the real order.
+                </div>
+            </xpath>
+
+            <xpath expr="//field[@name='proforma_invoice_no']" position="attributes">
+                <attribute name="readonly">proforma_invoice_no and not is_simulation_mode</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

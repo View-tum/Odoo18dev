@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- custom report template -->
+    <template id="request_layout">
+        <t t-if="not o" t-set="o" t-value="doc" />
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id" />
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()" />
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company" />
+            </t>
+        </t>
+                        
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row pt-2 pb-2" style="font-family: 'Kanit-Light';">
+                <t t-call="psn_from_purchase_order.report_compay_info"/>
+                <div class="col-3 text-end pd-3">
+                    <br/>
+                    <!-- Thai label -->
+                    <t t-set="state_label_th" t-value="{
+                        'draft': 'ใบขอเสนอราคา',
+                        'sent': 'ใบขอเสนอราคา (ส่งแล้ว)',
+                        'purchase': 'ใบสั่งซื้อ',
+                        'cancel': 'ยกเลิก'
+                    }.get(o.state, 'ไม่ทราบสถานะ')"/>
+
+                    <span t-if="o.state"  style="font-size: 25px;">
+                        <t t-esc="state_label_th"/>
+                    </span>
+                    <br/>
+                    <!-- English label -->
+                    <t t-set="state_label_en" t-value="{
+                        'draft': 'RFQ',
+                        'sent': 'RFQ (Send)',
+                        'sale': 'Purchase Order',
+                        'cancel': 'Cancel'
+                    }.get(o.state, 'Non State')"/>
+
+                    <span t-if="o.state" style="font-size: 25px;">
+                        <t t-esc="state_label_en"/>
+                    </span>
+
+                    <div t-if="report_type == 'pdf'" class="text-muted text-end col" style="font-size:12.5px">
+                        <li class="list-inline-item">
+                                <div class="row">
+                                    <span>page</span>
+                                    <span class="page" />/
+                                    <span class="topage" />
+                                </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <t t-call="psn_from_purchase_order.report_partner_info"/>
+        </div>
+
+        <!-- content  or article-->
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout"
+            t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+            t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div style="margin-top: -12px"></div>
+            <t t-raw="0" />
+        </div>
+
+        <!-- footer -->
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="last-page">
+                <t t-call="psn_from_purchase_order.report_footer"/>
+            </div>
+        </div>
+    </template>
+</odoo>

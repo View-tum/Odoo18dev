@@ -1,0 +1,32 @@
+<odoo noupdate="1">
+    <record id="product_report_group_fg_pharma" model="product.report.group">
+        <field name="name">FG Pharma</field>
+        <field name="code">FG_PHARMA</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="product_report_group_fg_plastic" model="product.report.group">
+        <field name="name">FG Plastic</field>
+        <field name="code">FG_PLASTIC</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="product_report_group_semi_finished" model="product.report.group">
+        <field name="name">Semi Finished</field>
+        <field name="code">SEMI_FINISHED</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="product_report_group_rm_chemical" model="product.report.group">
+        <field name="name">RM Chemical</field>
+        <field name="code">RM_CHEMICAL</field>
+        <field name="sequence">40</field>
+    </record>
+    <record id="product_report_group_rm_packaging" model="product.report.group">
+        <field name="name">RM Packaging</field>
+        <field name="code">RM_PACKAGING</field>
+        <field name="sequence">50</field>
+    </record>
+    <record id="product_report_group_other_inv" model="product.report.group">
+        <field name="name">Other Inventory</field>
+        <field name="code">OTHER_INV</field>
+        <field name="sequence">60</field>
+    </record>
+</odoo>

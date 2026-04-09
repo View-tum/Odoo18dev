@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account_payment_auto_difference</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='account_vendor_bills']" position="after">
+                <block title="Payment Auto Differences" id="auto_payment_difference_settings">
+                    <setting id="payment_auto_difference_setting" company_dependent="1"
+                        help="Automatically generate multi-deduction lines for payment differences.">
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label for="auto_diff_account_id" class="col-lg-5 o_light_label" />
+                                <field name="auto_diff_account_id" />
+                            </div>
+                            <div class="row mt8">
+                                <label for="auto_diff_label" class="col-lg-5 o_light_label" />
+                                <field name="auto_diff_label" />
+                            </div>
+                            <div class="row mt8" groups="analytic.group_analytic_accounting">
+                                <label for="auto_diff_analytic_distribution"
+                                    class="col-lg-5 o_light_label" />
+                                <field name="auto_diff_analytic_distribution"
+                                    widget="analytic_distribution" />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

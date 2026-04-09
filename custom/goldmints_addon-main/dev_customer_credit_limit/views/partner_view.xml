@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+         <record id="view_credit_readonly_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.partner_credit_limit.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='purchase']" position="after">
+                    <group string="Credit" name="credit">
+                            <field name="is_credit_group" invisible="1"/>
+                            <field name="check_credit" invisible="not is_credit_group"/>
+                            <field name="credit_limit" invisible="not check_credit" readonly="not is_credit_group"/>
+                            <field name="credit_limit_on_hold" invisible="not check_credit"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        
+        
+</odoo>

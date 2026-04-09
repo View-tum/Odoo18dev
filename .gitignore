@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Odoo specifics
+odoo.conf
+sessions/
+backups/
+filestore/
+*.log
+
+# Odoo Core & System Dependencies (Skip tracking to avoid huge commits and focus on Dev files only)
+python/
+vcredist/
+nssm/
+server/
+thirdparty/
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Agent/Local context
+.agent/
+.gemini/
+.playwright-cli/
+.Pic/
+tmp/
+tools/
+Photo/
+
+# Node
+node_modules/
+
+# Temp
+tmp_*
+*.tmp
+*.txt
+*.png
+*.log
+WHT_RD_V2_UI_Walkthrough*

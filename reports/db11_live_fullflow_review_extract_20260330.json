@@ -1,0 +1,659 @@
+{
+  "foc_invoice": {
+    "name": "INV-D/26/03/00960",
+    "state": "posted",
+    "company_foc_account": "600005",
+    "invoice_lines": [
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 12*1\n(Each carton contains 120 dozen)",
+        "account": "410002",
+        "debit": 0.0,
+        "credit": 0.0,
+        "display_type": "product",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": true
+      }
+    ],
+    "all_lines": [
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 12*1\n(Each carton contains 120 dozen)",
+        "account": "410002",
+        "debit": 0.0,
+        "credit": 0.0,
+        "display_type": "product",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": true
+      },
+      {
+        "name": "Output VAT 7% Tax Included",
+        "account": "215001",
+        "debit": 0.0,
+        "credit": 0.0,
+        "display_type": "tax",
+        "product": false,
+        "is_foc": false
+      },
+      {
+        "name": "CODEX-foc_zero_mto_live-20260330085840 - INV-D/26/03/00960",
+        "account": "113001",
+        "debit": 0.0,
+        "credit": 0.0,
+        "display_type": "payment_term",
+        "product": false,
+        "is_foc": false
+      },
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 1",
+        "account": "116902",
+        "debit": 0.0,
+        "credit": 1046.812629,
+        "display_type": "cogs",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": false
+      },
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 1",
+        "account": "510002",
+        "debit": 1046.812629,
+        "credit": 0.0,
+        "display_type": "cogs",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": false
+      }
+    ],
+    "cogs_lines": [
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 1",
+        "account": "116902",
+        "debit": 0.0,
+        "credit": 1046.812629,
+        "display_type": "cogs",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": false
+      },
+      {
+        "name": "[FG-PNC-XX-01001] Pim Saen Balm Oil (8cc Cotton) English Label 1",
+        "account": "510002",
+        "debit": 1046.812629,
+        "credit": 0.0,
+        "display_type": "cogs",
+        "product": "FG-PNC-XX-01001",
+        "is_foc": false
+      }
+    ]
+  },
+  "GMP/MOPH/00002": {
+    "product": "FG-PNC-XX-01001",
+    "state": "done",
+    "product_qty": 1.0,
+    "standard_price": 1046.812629,
+    "employee_cost_total": 0.0,
+    "mold_cost_total": 0.0,
+    "workorders": [
+      {
+        "name": "Operation 156",
+        "workcenter": "เครื่องปิดเทปกาวกล่อง",
+        "workcenter_costs_hour": 183.56,
+        "workcenter_employee_costs_hour": 131.04,
+        "duration_expected": 60.0,
+        "duration": 60.0,
+        "qty_produced": 1.0,
+        "mold_cost": 0.0,
+        "molds": []
+      }
+    ],
+    "raw_moves": [
+      {
+        "product": "FG-PNC-XX-02003",
+        "qty": 30.0,
+        "state": "done",
+        "svl_values": [
+          -718.372532
+        ],
+        "svl_total": -718.372532
+      },
+      {
+        "product": "PK-CAR-PN-03002",
+        "qty": 1.0,
+        "state": "done",
+        "svl_values": [
+          -8.840097
+        ],
+        "svl_total": -8.840097
+      },
+      {
+        "product": false,
+        "qty": 1.0,
+        "state": "done",
+        "svl_values": [
+          -5.0
+        ],
+        "svl_total": -5.0
+      }
+    ],
+    "finished_moves": [
+      {
+        "product": "FG-PNC-XX-01001",
+        "qty": 1.0,
+        "state": "done",
+        "svl_values": [
+          1046.812629
+        ],
+        "svl_total": 1046.812629
+      }
+    ],
+    "journal_entries": [
+      {
+        "name": "STJ/26/03/27298",
+        "ref": "GMP/MOPH/00002 - พิมเสนสำลี 8cc 1โหล ตปท",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00002 - พิมเสนสำลี 8cc 1โหล ตปท",
+            "account": "116032",
+            "debit": 0.0,
+            "credit": 718.372532,
+            "display_type": "product",
+            "product": "FG-PNC-XX-02003",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00002 - พิมเสนสำลี 8cc 1โหล ตปท",
+            "account": "116021",
+            "debit": 718.372532,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "FG-PNC-XX-02003",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27299",
+        "ref": "GMP/MOPH/00002 - ลังพิมเสนสำลี 30โหล 25x26.5x19",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00002 - ลังพิมเสนสำลี 30โหล 25x26.5x19",
+            "account": "116003",
+            "debit": 0.0,
+            "credit": 8.840097,
+            "display_type": "product",
+            "product": "PK-CAR-PN-03002",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00002 - ลังพิมเสนสำลี 30โหล 25x26.5x19",
+            "account": "116021",
+            "debit": 8.840097,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "PK-CAR-PN-03002",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27300",
+        "ref": "GMP/MOPH/00002 - เทปกาว",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00002 - เทปกาว",
+            "account": "116003",
+            "debit": 0.0,
+            "credit": 5.0,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00002 - เทปกาว",
+            "account": "116021",
+            "debit": 5.0,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27301",
+        "ref": "GMP/MOPH/00002 - Pim Saen Balm Oil (8cc Cotton) English Label 12*1\n(Each carton contains 120 dozen)",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00002 - Pim Saen Balm Oil (8cc Cotton) English Label 12*1\n(Each carton contains 120 dozen)",
+            "account": "116021",
+            "debit": 0.0,
+            "credit": 1046.812629,
+            "display_type": "product",
+            "product": "FG-PNC-XX-01001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00002 - Pim Saen Balm Oil (8cc Cotton) English Label 12*1\n(Each carton contains 120 dozen)",
+            "account": "116032",
+            "debit": 1046.812629,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "FG-PNC-XX-01001",
+            "is_foc": false
+          }
+        ]
+      }
+    ]
+  },
+  "GMP/MOPH/00008": {
+    "product": "FG-MTK-IL-03001",
+    "state": "done",
+    "product_qty": 576.0,
+    "standard_price": 16.556412,
+    "employee_cost_total": 0.0,
+    "mold_cost_total": 0.0,
+    "workorders": [
+      {
+        "name": "Operation 102",
+        "workcenter": "คนใส่พวงกุญแจ",
+        "workcenter_costs_hour": 0.0,
+        "workcenter_employee_costs_hour": 0.0,
+        "duration_expected": 5.76,
+        "duration": 5.76,
+        "qty_produced": 576.0,
+        "mold_cost": 0.0,
+        "molds": []
+      }
+    ],
+    "raw_moves": [
+      {
+        "product": "FG-MTK-IL-04001",
+        "qty": 576.0,
+        "state": "done",
+        "svl_values": [
+          -9100.8
+        ],
+        "svl_total": -9100.8
+      },
+      {
+        "product": "PK-KEY-PS-01001",
+        "qty": 576.0,
+        "state": "done",
+        "svl_values": [
+          -257.133312
+        ],
+        "svl_total": -257.133312
+      },
+      {
+        "product": "PK-LEA-PS-01001",
+        "qty": 576.0,
+        "state": "done",
+        "svl_values": [
+          -178.56
+        ],
+        "svl_total": -178.56
+      }
+    ],
+    "finished_moves": [
+      {
+        "product": "FG-MTK-IL-03001",
+        "qty": 576.0,
+        "state": "done",
+        "svl_values": [
+          9536.493312
+        ],
+        "svl_total": 9536.493312
+      }
+    ],
+    "journal_entries": [
+      {
+        "name": "STJ/26/03/27304",
+        "ref": "GMP/MOPH/00008 - พวงกุญแจ ห่วงโซ่ + วงกลม",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00008 - พวงกุญแจ ห่วงโซ่ + วงกลม",
+            "account": "116003",
+            "debit": 0.0,
+            "credit": 257.133312,
+            "display_type": "product",
+            "product": "PK-KEY-PS-01001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00008 - พวงกุญแจ ห่วงโซ่ + วงกลม",
+            "account": "116021",
+            "debit": 257.133312,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "PK-KEY-PS-01001",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27305",
+        "ref": "GMP/MOPH/00008 - เอกสารกำกับยา MARK II Israel",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00008 - เอกสารกำกับยา MARK II Israel",
+            "account": "116003",
+            "debit": 0.0,
+            "credit": 178.56,
+            "display_type": "product",
+            "product": "PK-LEA-PS-01001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00008 - เอกสารกำกับยา MARK II Israel",
+            "account": "116021",
+            "debit": 178.56,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "PK-LEA-PS-01001",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27306",
+        "ref": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล",
+            "account": "116031",
+            "debit": 0.0,
+            "credit": 9100.8,
+            "display_type": "product",
+            "product": "FG-MTK-IL-04001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล",
+            "account": "116021",
+            "debit": 9100.8,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "FG-MTK-IL-04001",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27307",
+        "ref": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล + พวงกุญแจ",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล + พวงกุญแจ",
+            "account": "116021",
+            "debit": 0.0,
+            "credit": 9536.493312,
+            "display_type": "product",
+            "product": "FG-MTK-IL-03001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00008 - ยาดม Mark II อิสราเอล + พวงกุญแจ",
+            "account": "116031",
+            "debit": 9536.493312,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "FG-MTK-IL-03001",
+            "is_foc": false
+          }
+        ]
+      }
+    ]
+  },
+  "GMP/MOPH/00011": {
+    "product": "FG-PNC-TH-01001",
+    "state": "done",
+    "product_qty": 250.0,
+    "standard_price": 0.195552,
+    "employee_cost_total": 0.0,
+    "mold_cost_total": 0.0,
+    "workorders": [
+      {
+        "name": "Operation 146",
+        "workcenter": "เครื่องปิดเทปกาวกล่อง",
+        "workcenter_costs_hour": 183.56,
+        "workcenter_employee_costs_hour": 131.04,
+        "duration_expected": 60.28,
+        "duration": 60.28,
+        "qty_produced": 250.0,
+        "mold_cost": 0.0,
+        "molds": []
+      }
+    ],
+    "raw_moves": [
+      {
+        "product": false,
+        "qty": 12500.0,
+        "state": "done",
+        "svl_values": [
+          0.0
+        ],
+        "svl_total": 0.0
+      },
+      {
+        "product": false,
+        "qty": 250.0,
+        "state": "done",
+        "svl_values": [
+          0.0
+        ],
+        "svl_total": 0.0
+      }
+    ],
+    "finished_moves": [
+      {
+        "product": "FG-PNC-TH-01001",
+        "qty": 250.0,
+        "state": "done",
+        "svl_values": [
+          316.078331
+        ],
+        "svl_total": 316.078331
+      }
+    ],
+    "journal_entries": [
+      {
+        "name": "STJ/26/03/27317",
+        "ref": "GMP/MOPH/00011 - พิมเสนสำลี 8cc (24x1)",
+        "lines": [
+          {
+            "name": "GMP/MOPH/00011 - พิมเสนสำลี 8cc (24x1)",
+            "account": "116021",
+            "debit": 0.0,
+            "credit": 316.078331,
+            "display_type": "product",
+            "product": "FG-PNC-TH-01001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPH/00011 - พิมเสนสำลี 8cc (24x1)",
+            "account": "116032",
+            "debit": 316.078331,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "FG-PNC-TH-01001",
+            "is_foc": false
+          }
+        ]
+      }
+    ]
+  },
+  "GMP/MOPL/00003": {
+    "product": "SM-JOI-PK-01001",
+    "state": "done",
+    "product_qty": 12.0,
+    "standard_price": 7.865903,
+    "employee_cost_total": 65.515397,
+    "mold_cost_total": 30.0,
+    "workorders": [
+      {
+        "name": "Operation 14",
+        "workcenter": "เครื่องฉีดพลาสติก 3",
+        "workcenter_costs_hour": 183.56,
+        "workcenter_employee_costs_hour": 131.04,
+        "duration_expected": 0.07,
+        "duration": 30.0,
+        "qty_produced": 11.0,
+        "mold_cost": 30.0,
+        "molds": [
+          "แม่พิมพ์พลาสติกตัวต่อสี W01"
+        ]
+      }
+    ],
+    "raw_moves": [
+      {
+        "product": "RM-PLA-PP-00001",
+        "qty": 0.02,
+        "state": "done",
+        "svl_values": [
+          -0.667283
+        ],
+        "svl_total": -0.667283
+      },
+      {
+        "product": "RM-MBS-PK-00002",
+        "qty": 0.01,
+        "state": "done",
+        "svl_values": [
+          -1.949999
+        ],
+        "svl_total": -1.949999
+      }
+    ],
+    "finished_moves": [
+      {
+        "product": "SM-JOI-PK-01001",
+        "qty": 12.0,
+        "state": "done",
+        "svl_values": [
+          94.390834,
+          30.0,
+          65.515397
+        ],
+        "svl_total": 189.906231
+      }
+    ],
+    "journal_entries": [
+      {
+        "name": "STJ/26/03/27318",
+        "ref": "GMP/MOPL/00003 - เม็ดพลาสติก HP648N 750KG",
+        "lines": [
+          {
+            "name": "GMP/MOPL/00003 - เม็ดพลาสติก HP648N 750KG",
+            "account": "116001",
+            "debit": 0.0,
+            "credit": 0.667283,
+            "display_type": "product",
+            "product": "RM-PLA-PP-00001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPL/00003 - เม็ดพลาสติก HP648N 750KG",
+            "account": "116021",
+            "debit": 0.667283,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "RM-PLA-PP-00001",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27319",
+        "ref": "GMP/MOPL/00003 - สีผสมพลาสติก สีชมพูเข้ม",
+        "lines": [
+          {
+            "name": "GMP/MOPL/00003 - สีผสมพลาสติก สีชมพูเข้ม",
+            "account": "116001",
+            "debit": 0.0,
+            "credit": 1.949999,
+            "display_type": "product",
+            "product": "RM-MBS-PK-00002",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPL/00003 - สีผสมพลาสติก สีชมพูเข้ม",
+            "account": "116021",
+            "debit": 1.949999,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "RM-MBS-PK-00002",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27320",
+        "ref": "GMP/MOPL/00003 - ตัวต่อสี W01 ชมพู",
+        "lines": [
+          {
+            "name": "GMP/MOPL/00003 - ตัวต่อสี W01 ชมพู",
+            "account": "116021",
+            "debit": 0.0,
+            "credit": 94.390834,
+            "display_type": "product",
+            "product": "SM-JOI-PK-01001",
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPL/00003 - ตัวต่อสี W01 ชมพู",
+            "account": "116011",
+            "debit": 94.390834,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": "SM-JOI-PK-01001",
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27321",
+        "ref": "GMP/MOPL/00003 - แม่พิมพ์พลาสติกตัวต่อสี W01",
+        "lines": [
+          {
+            "name": "GMP/MOPL/00003 - แม่พิมพ์พลาสติกตัวต่อสี W01",
+            "account": "116011",
+            "debit": 30.0,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPL/00003 - แม่พิมพ์พลาสติกตัวต่อสี W01",
+            "account": "590001",
+            "debit": 0.0,
+            "credit": 30.0,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          }
+        ]
+      },
+      {
+        "name": "STJ/26/03/27322",
+        "ref": "GMP/MOPL/00003 - Employee Cost",
+        "lines": [
+          {
+            "name": "GMP/MOPL/00003 - Employee Cost",
+            "account": "116021",
+            "debit": 65.515397,
+            "credit": 0.0,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          },
+          {
+            "name": "GMP/MOPL/00003 - Employee Cost",
+            "account": "590001",
+            "debit": 0.0,
+            "credit": 65.515397,
+            "display_type": "product",
+            "product": false,
+            "is_foc": false
+          }
+        ]
+      }
+    ]
+  }
+}

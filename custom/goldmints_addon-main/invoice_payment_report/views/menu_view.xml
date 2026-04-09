@@ -1,0 +1,14 @@
+<odoo>
+    <record id="action_invoice_payment_report" model="ir.actions.act_window">
+        <field name="name">Invoice Payment Report</field>
+        <field name="res_model">invoice.payment.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_accounting_reports_invoice_payment_report"
+        name="Invoice Payment Report"
+        parent="deposit_payment_report.account_reports_accounting_reports_menu"
+        sequence="20"
+        action="action_invoice_payment_report"/>
+</odoo>

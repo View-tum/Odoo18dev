@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_sale_extra_info" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale.extra.info</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='proforma_configuration']" position="inside">
+                <div class="content-group">
+                    <div class="mt16">
+                        <label for="proforma_sequence_id" class="o_light_label" string="Proforma Sequence"/>
+                        <field name="proforma_sequence_id" class="oe_inline" options="{'no_create': True}"/>
+                        <div class="text-muted">
+                            If set, Sale Orders will automatically generate a Proforma Invoice number upon confirmation.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

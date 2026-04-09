@@ -1,0 +1,36 @@
+<odoo>
+  <!-- Billing Report Form View -->
+  <record id="view_account_invoice_payment_report_form" model="ir.ui.view">
+    <field name="name">account.invoice.payment.report.form</field>
+    <field name="model">account.invoice.payment.report</field>
+    <field name="arch" type="xml">
+      <form string="Invoice Payment Report">
+        <group name="Invoice Payment report">
+          <group name="details_filters">
+            <separator string="รายละเอียดตัวกรอง"/>
+            <field name="team_id" force_save="1" placeholder="เลือกทีมขาย" options="{'no_create': True, 'no_open': True}"/>
+            <field name="salesperson_ids" force_save="1" readonly="not team_id" widget="many2many_tags" required="1" placeholder="เลือกพนักงานขาย" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+          </group>
+
+          <group name="Date range and report settings">
+            <separator string="ช่วงวันที่และรายงาน"/>
+            <!-- <label for="select_month" string="เลือกช่วงเวลา (เดือน/ปี)"/>
+            <div class="o_row">
+              <field name="select_month" force_save="1" nolabel="1" placeholder="เลือกเดือน"/>
+              <field name="select_year" force_save="1" nolabel="1" placeholder="เลือกปี"/>
+            </div> -->
+            <field name="date_from" force_save="1" required="1"/>
+            <field name="date_to" force_save="1" required="1"/>
+            <field name="report_id" force_save="1" required="1"/>
+          </group>
+        </group>
+
+        <footer>
+          <button name="action_print_pdf" string="Print PDF" type="object" class="btn-primary"/>
+          <button name="action_print_excel" string="Export Excel" type="object" class="btn-secondary"/>
+          <button string="Cancel" special="cancel" class="btn-link"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

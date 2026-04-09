@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_mrp_auto_merge" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.mrp.auto.merge</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="mrp.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='security_lead_time']" position="after">
+                <setting id="mo_auto_merge_enabled" string="Auto Merge MOs" help="Automatically merge Manufacturing Orders with the same BoM">
+                    <field name="mo_auto_merge_enabled"/>
+                </setting>
+                <setting id="mo_merge_date_range" string="Merge Date Range" help="MOs within this date range will be merged together" invisible="not mo_auto_merge_enabled">
+                    <div class="text-muted">
+                        Merge MOs within <field name="mo_merge_date_range" class="oe_inline"/> days
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_view_order_form_with_carrier_customization" model="ir.ui.view">
+            <field name="name">sale.order.form.document.ref</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="delivery.view_order_form_with_carrier" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='shipping_weight']" position="after">
+                	<field name="toransportation_mode"/>
+                	<field name="shipping_mark"/>
+                    <!--<field name="shipping_gross_weight"/>
+                    <field name="number_of_cartons"/>-->
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

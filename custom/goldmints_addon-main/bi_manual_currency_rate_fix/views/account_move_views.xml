@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit_reversal_button" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.reversal.button</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_reversal_moves"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-bars"
+                        invisible="reversal_move_count == 0">
+                    <field name="reversal_move_count" widget="statinfo" string="Credit Notes"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

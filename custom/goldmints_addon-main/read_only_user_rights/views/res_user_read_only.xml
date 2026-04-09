@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <button name="action_show_groups" position="after">
+                    <button name="set_read_only_user" invisible="read_only_type == 'none'" type="object" class="oe_stat_button" icon="fa-eye" help="Click for Apply Read only Access and Reset Read Only Access." string="Apply Read Only">
+                        <field name="read_only" invisible="1"/>
+                    </button>
+                </button>
+                <xpath expr="//sheet/div[hasclass('oe_title')]/group" position="replace">
+                    <group>
+                        <group>
+                            <field name="partner_id" readonly="1" required="0" groups="base.group_no_one" invisible="id == False"/>
+                            <field name="read_only_type" required="1"/>
+                             <field name="models_id" widget="many2many_tags"
+                                   invisible="read_only_type != 'specific'" required="read_only_type == 'specific'"/>
+                            <div class="text-warning" invisible="read_only_type != 'specific'" style="width:1000%">
+                                <i class="fa fa-exclamation-triangle" style="color: red;"/> Be careful to set the models. Once you save it, you can't perform any operation in entered model.
+                            </div>
+                            <field name="share" invisible="1"/>
+                        </group>
+                
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

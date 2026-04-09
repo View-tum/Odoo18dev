@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_create_bill_wizard_form" model="ir.ui.view">
+        <field name="name">create.bill.wizard.form</field>
+        <field name="model">create.bill.wizard</field>
+        <field name="arch" type="xml">
+            <form string="สร้าง Vendor Bill">
+                <div class="alert alert-warning" role="alert" style="margin-bottom: 15px;">
+                    <strong>แจ้งเตือน:</strong> เอกสาร Purchase Order ใบนี้ ถูกมัดรวมอยู่ในใบวางบิลเลขที่ <b><field name="billing_note_id" class="oe_inline"/></b><br/>
+                    ซึ่งประกอบไปด้วยรายการ PO ดังต่อไปนี้: <b><field name="po_names" class="oe_inline"/></b>
+                </div>
+                
+                <group>
+                    <field name="create_type" widget="radio"/>
+                    <field name="purchase_id" invisible="1"/>
+                </group>
+                
+                <footer>
+                    <button string="ยืนยัน" name="action_confirm" type="object" class="oe_highlight"/>
+                    <button string="ยกเลิก" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

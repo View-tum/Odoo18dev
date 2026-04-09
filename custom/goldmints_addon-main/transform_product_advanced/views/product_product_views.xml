@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_product_form_inherit_transform" model="ir.ui.view">
+        <field name="name">product.template.form.transform_product_advanced</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//div[@class='oe_button_box']" position="inside">
+                <button name="%(stock.stock_move_action)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-random">
+                    <field name="product_variant_id" invisible="1"/>
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Transform Moves</span>
+                        <span class="o_stat_value">
+                            <field name="product_variant_ids" invisible="1"/>
+                        </span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

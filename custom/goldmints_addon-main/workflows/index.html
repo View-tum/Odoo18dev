@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldMints - Odoo 18 Workflows Dashboard</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --sidebar-bg: #1e293b;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-color: #334155;
+            --hover-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+        }
+
+        .logo {
+            padding: 0 24px 24px 24px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item {
+            padding: 12px 24px;
+            cursor: pointer;
+            color: var(--text-sub);
+            transition: all 0.2s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--hover-color);
+            color: var(--text-main);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Main Canvas */
+        .canvas {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            align-items: center;
+        }
+
+        .header {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .view-frame {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            flex: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-height: 500px;
+            transition: opacity 0.3s ease;
+        }
+
+        .view-frame img {
+            max-width: 100%;
+            max-height: 550px;
+            border-radius: 8px;
+            background: white; /* Make diagrams pop cleanly if background is transparent */
+            padding: 20px;
+        }
+
+        .sidebar-detail {
+            flex: 2;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sidebar-detail h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .sidebar-detail ul {
+            list-style-type: none;
+        }
+
+        .sidebar-detail li {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .sidebar-detail li strong {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <span>🏭</span> GoldMints Workflows
+        </div>
+        <div class="nav-item active" onclick="switchTab('overview')">📌 00. Linear Flow</div>
+        <div class="nav-item" onclick="switchTab('big_picture')">📊 01. Detailed Big Picture</div>
+        <div class="nav-item" onclick="switchTab('sales')">📑 02. Sales Flow</div>
+        <div class="nav-item" onclick="switchTab('purchase')">🛒 03. Purchase Flow</div>
+        <div class="nav-item" onclick="switchTab('inventory')">📦 04. Inventory Flow</div>
+        <div class="nav-item" onclick="switchTab('manufacturing')">⚙️ 05. Manufacturing Flow</div>
+        <div class="nav-item" onclick="switchTab('accounting')">🧾 06. Accounting Flow</div>
+        
+        <div style="margin-top: auto; padding: 16px; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-sub);">
+            📖 คู่มือฟังก์ชันเจาะลึก (Markdown):<br>
+            <div style="margin-top: 8px; line-height: 1.6;">
+                • <a href="detailed_functions/00_Odoo_Core_Logics_MTS_MTO.md" style="color: var(--accent-color); text-decoration: none;">00. Core Logics (MTS/MTO)</a><br>
+                • <a href="detailed_functions/01_Detailed_Sales_Functions.md" style="color: var(--accent-color); text-decoration: none;">01. Sales Detailed</a><br>
+                • <a href="detailed_functions/02_Detailed_Purchase_Inventory.md" style="color: var(--accent-color); text-decoration: none;">02. Purchase & Inv</a><br>
+                • <a href="detailed_functions/03_Detailed_Manufacturing_Functions.md" style="color: var(--accent-color); text-decoration: none;">03. Manufacturing</a><br>
+                • <a href="detailed_functions/04_Detailed_Accounting_Functions.md" style="color: var(--accent-color); text-decoration: none;">04. Accounting</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas">
+        <div class="header">
+            <h1 id="tab_title">00. ภาพรวมการไหลเวียนแบบเส้นตรง (Linear Flow)</h1>
+            <p id="tab_subtitle">ขั้นตอนการทำงานตั้งแต่ต้นน้ำถึงปลายน้ำ ทำความเข้าใจได้ง่ายที่สุด</p>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="view-frame">
+                <img id="tab_img" src="images/00_Overall_Flow.png" alt="Workflow Diagram">
+            </div>
+
+            <div class="sidebar-detail" id="tab_details">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            overview: {
+                title: '00. ภาพรวมการไหลเวียนแบบเส้นตรง',
+                subtitle: 'ขั้นตอนการทำงานต้นน้ำยันปลายน้ำ ทำความเข้าใจได้ง่ายที่สุด',
+                img: 'images/00_Overall_Flow.png',
+                details: `
+                    <h2>🔍 จุดเด่นของภาพรวม</h2>
+                    <ul>
+                        <li><strong>Step 1:</strong> เปิด Sale Order (Check Limit) ไม่ให้ทีมขายสะสมยอดค้าง</li>
+                        <li><strong>Step 2:</strong> วางแผนขยายจัดสรรด้วย MPS Plan รายสัปดาห์</li>
+                        <li><strong>Step 3:</strong> จัดซื้อวัลดุขาดด่วนผ่าน Auto PR/PO</li>
+                        <li><strong>Step 4:</strong> รับของเข้าคลังตรวจเช็คลงล็อคใบงาน</li>
+                        <li><strong>Step 5:</strong> ผลิตหน้างาน Continuous Shopfloor ด้วย Console</li>
+                        <li><strong>Step 6:</strong> ปล่อยรถส่งสินค้าแบบพ่วงเส้นทาง</li>
+                        <li><strong>Step 7:</strong> วางบิลรวมดิวส่งห้าง และคุม Clearing เช็ค PDC</li>
+                    </ul>
+                `
+            },
+            big_picture: {
+                title: '01. Detailed Big Picture Ecosystem',
+                subtitle: 'มองลูปความเชื่อมโยงของทุกฟันเฟือง (Sales - MRP - Finance)',
+                img: 'images/01_Detailed_BigPicture.png',
+                details: `
+                    <h2>🏭 การทำงานร่วมกัน (Ecosystem)</h2>
+                    <ul>
+                        <li><strong>Sales & Planning:</strong> SO คุยกับ MPS เพื่อประเมิน Demand สินค้า</li>
+                        <li><strong>Planning & Purchase:</strong> MPS หรือ MO ตลาดขาด ส่ง Auto-Request ทันที</li>
+                        <li><strong>Execution & Scrap:</strong> Operator ผลิตจริง และ Scraps ดึงส่วนเกินคลังสำรองคอยซัพพอร์ตเงียบๆ</li>
+                        <li><strong>Production to FG:</strong> จบงานดึงย่อยเพื่อส่ง Logistics ตาม Layout</li>
+                    </ul>
+                `
+            },
+            sales: {
+                title: '02. Sales Flow Details',
+                subtitle: 'รายละเอียกระบบคำสั่งซื้อและคุมความปลอดภัยหนี้',
+                img: 'images/00_Overall_Flow.png', // Fallback or general diagram
+                details: `
+                    <h2>📑 เครื่องมือที่ใช้ (Customs)</h2>
+                    <ul>
+                        <li><strong>sale_order_import_goldmints:</strong> ดึงออเดอร์ Excel ห้างเข้าแบบ Batch</li>
+                        <li><strong>sale_credit_limit_warning:</strong> ตรวจสอบ AR ค้างเน่าก่อนยืนยัน confirm</li>
+                        <li><strong>mrp_mps_mo_tracking:</strong> สารบัญยอดขายปั่นดึงยอดเข้าแผนดักตีสต๊อก</li>
+                    </ul>
+                `
+            },
+            purchase: {
+                title: '03. Purchase & Budget flow',
+                subtitle: 'การขอจัดซื้อคลังวัตถุดิบและสแตนบายงบดุล',
+                img: 'images/01_Detailed_BigPicture.png',
+                details: `
+                    <h2>🛒 เครื่องมือที่ใช้ (Customs)</h2>
+                    <ul>
+                        <li><strong>purchase_request:</strong> เปิดใบงานสั่งวัตถุดิบขาดหน้างาน</li>
+                        <li><strong>oi_workflow_purchase_request:</strong> จัดสายอนุมัติ multi-levels คัดกรองงบ</li>
+                        <li><strong>purchase_price_history:</strong> ตัวเฝ้าระวังกรอบราคาเดิมจาก Supplier</li>
+                    </ul>
+                `
+            },
+            inventory: {
+                title: '04. Inventory Logistics flow',
+                subtitle: 'รับของ ทะลักเบิกหน้าโรงงาน และปล่อยรถวิ่งตามรูทรถ',
+                img: 'images/00_Overall_Flow.png',
+                details: `
+                    <h2>📦 เครื่องมือที่ใช้ (Customs)</h2>
+                    <ul>
+                        <li><strong>nano_transfer_product_lot:</strong> ตรวจ Traceability ล็อตวันที่เพื่อตามย้อนคดีปนเปื้อน</li>
+                        <li><strong>stock_no_negative:</strong> ล็อคสต๊อก ห้ามพนักงานเบิกติดลบเละเทะ</li>
+                        <li><strong>delivery_routes_management:</strong> คุมกระจายออร์เดอร์พ่วงรถคันเดียวประหยัดส่ง</li>
+                    </ul>
+                `
+            },
+            manufacturing: {
+                title: '05. Manufacturing Console System',
+                subtitle: 'หน้างานประกอบงานพลาสติคและน้ำยาแบบไหลต่อเนื่อง',
+                img: 'images/01_Detailed_BigPicture.png',
+                details: `
+                    <h2>⚙️ เครื่องมือที่ใช้ (Customs)</h2>
+                    <ul>
+                        <li><strong>mrp_parallel_console:</strong> หน้ากากคลุม Operator กด Start / Quick Done ทยอยจบเรซซิ่ง</li>
+                        <li><strong>mrp_scrap_auto_replenish:</strong> แทง Scrap ขยะแตก ดึงของหลักจากคอร์ใหญ่ป้อน Silently</li>
+                        <li><strong>Apply Console Close-Backorder:</strong> ปิดใบจบกะ รายไม่ถึงกำหนดตัดยอดสร้าง MO รองต่อเนื่อง</li>
+                    </ul>
+                `
+            },
+            accounting: {
+                title: '06. Accounting & Bill Management',
+                subtitle: 'ทบทุนเศษทิ้ง ปั้นบิลแจ้งรวมห้าง และรับ Clearing PDC',
+                img: 'images/00_Overall_Flow.png',
+                details: `
+                    <h2>🧾 เครื่องมือที่ใช้ (Customs)</h2>
+                    <ul>
+                        <li><strong>mrp_scrap_landed_cost:</strong> ทุนขยะและหักค่าคัดลวก ปรับบวกทุนยาดมที่เหลือได้ดี</li>
+                        <li><strong>account_billing_create:</strong> ดัก Delivery รวมใบเดียว รวบใบสลิปส่งออกดิวห้าง</li>
+                        <li><strong>sh_pdc:</strong> รับเช็คลงทะเบียน Clear Cheque เด้งระบบบอทดุลตรงวันหน้า</li>
+                    </ul>
+                `
+            }
+        };
+
+        function switchTab(tabKey) {
+            // Remove active classes
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            // Set active class
+            event.currentTarget.classList.add('active');
+            
+            // Update Content
+            const tabData = data[tabKey];
+            document.getElementById('tab_title').innerText = tabData.title;
+            document.getElementById('tab_subtitle').innerText = tabData.subtitle;
+            document.getElementById('tab_img').src = tabData.img;
+            document.getElementById('tab_details').innerHTML = tabData.details;
+        }
+
+        // Initialize First Tab
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('tab_details').innerHTML = data.overview.details;
+        });
+    </script>
+
+</body>
+</html>

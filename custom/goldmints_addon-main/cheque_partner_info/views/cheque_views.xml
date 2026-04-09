@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cheque_inbound_outbound_tree_inherit_partner_info" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.tree.inherit.partner.info</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="inherit_id" ref="cheque_management.cheque_inbound_outbound_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pay_partner_id']" position="after">
+                <field name="partner_user_id" optional="show"/>
+                <field name="partner_salesregion_id" optional="show"/>
+                <field name="partner_subregion_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_cheque_inbound_outbound_search_inherit_partner_info" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.search.inherit.partner.info</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="inherit_id" ref="cheque_management.cheque_inbound_outbound_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Salesperson" name="group_by_salesperson" context="{'group_by':'partner_user_id'}"/>
+                <filter string="Sales Region" name="group_by_salesregion" context="{'group_by':'partner_salesregion_id'}"/>
+                <filter string="Subregion" name="group_by_subregion" context="{'group_by':'partner_subregion_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_mps_production_schedule_form_view_inherit_autoload" model="ir.ui.view">
+        <field name="name">mrp.production.schedule.form.view.inherit.autoload</field>
+        <field name="model">mrp.production.schedule</field>
+        <field name="inherit_id" ref="mrp_mps.mrp_mps_production_schedule_form_view" />
+        <field name="arch" type="xml">
+            <!-- Locate bom_id (which is readonly in standard) and replace with editable one -->
+            <xpath expr="//field[@name='bom_id']" position="replace">
+                <field name="bom_id"
+                    options="{'no_create': True, 'no_open': True}"
+                    readonly="False" />
+            </xpath>
+
+            <!-- Add autoload_depth_mode and autoload_excluded_category_ids below bom_id -->
+            <xpath expr="//field[@name='bom_id']" position="after">
+                <field name="autoload_depth_mode"
+                    widget="radio"
+                    class="oe_inline"
+                    invisible="not bom_id"
+                />
+                <field name="autoload_excluded_category_ids"
+                    widget="many2many_tags"
+                    options="{'no_create': True}"
+                    invisible="not bom_id"
+                />
+            </xpath>
+
+
+            <!-- Add search filter for BOM structure -->
+            <!-- We need to inherit the search view, not the form view again. So we add a new record
+            inside existing file -->
+        </field>
+    </record>
+
+    <record id="view_mrp_production_schedule_search_inherit_autoload" model="ir.ui.view">
+        <field name="name">mrp.production.schedule.search.inherit.autoload</field>
+        <field name="model">mrp.production.schedule</field>
+        <field name="inherit_id" ref="mrp_mps.mrp_mps_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="bom_filter_product_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

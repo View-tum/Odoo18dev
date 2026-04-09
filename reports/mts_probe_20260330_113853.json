@@ -1,0 +1,157 @@
+{
+  "so": "SOB-263071",
+  "pickings": [
+    {
+      "id": 10270,
+      "name": "GMP/PICK/03571",
+      "type": "internal",
+      "state": "done",
+      "src": 8,
+      "dest": 11,
+      "moves": [
+        {
+          "id": 23437,
+          "product": "FG-PNC-TH-01001",
+          "qty": 130.0,
+          "state": "done",
+          "location": 8,
+          "dest": 11,
+          "move_lines": [
+            {
+              "id": 35269,
+              "lot": "MTS-FG-7985-20260330043956",
+              "qty": 130.0,
+              "src": 8,
+              "dest": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10271,
+      "name": "GMP/OUT/02504",
+      "type": "outgoing",
+      "state": "assigned",
+      "src": 11,
+      "dest": 5,
+      "moves": [
+        {
+          "id": 23442,
+          "product": "FG-PNC-TH-01001",
+          "qty": 130.0,
+          "state": "assigned",
+          "location": 11,
+          "dest": 5,
+          "move_lines": [
+            {
+              "id": 35277,
+              "lot": "MTS-FG-7985-20260330043956",
+              "qty": 130.0,
+              "src": 11,
+              "dest": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mos": [
+    {
+      "id": 210,
+      "name": "10",
+      "state": "done",
+      "src": 176,
+      "dest": 8,
+      "lot": "MTS-FG-7985-20260330043956",
+      "finished": [
+        {
+          "id": 23441,
+          "state": "done",
+          "qty": 9.0,
+          "move_lines": [
+            {
+              "id": 35275,
+              "lot": "MTS-FG-7985-20260330043956",
+              "qty": 9.0,
+              "src": 15,
+              "dest": 8
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quants": [
+    {
+      "location": 11,
+      "location_name": "GMP/Output",
+      "lot": "MTS-FG-7985-20260330043956",
+      "qty": 130.0,
+      "reserved": 130.0
+    },
+    {
+      "location": 8,
+      "location_name": "GMP/Stock",
+      "lot": "MTS-FG-7985-20260330043956",
+      "qty": 9.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 54,
+      "location_name": "GMP/Stock/FG",
+      "lot": "FC00126",
+      "qty": 21.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 54,
+      "location_name": "GMP/Stock/FG",
+      "lot": "FC00226",
+      "qty": 100.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 5,
+      "location_name": "Partners/Customers",
+      "lot": "FC00126",
+      "qty": 179.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 5,
+      "location_name": "Partners/Customers",
+      "lot": "FC00625",
+      "qty": 73.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 14,
+      "location_name": "Virtual Locations/Inventory adjustment",
+      "lot": "FC00625",
+      "qty": -73.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 15,
+      "location_name": "Virtual Locations/Production",
+      "lot": "FC00126",
+      "qty": -200.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 15,
+      "location_name": "Virtual Locations/Production",
+      "lot": "FC00226",
+      "qty": -100.0,
+      "reserved": 0.0
+    },
+    {
+      "location": 15,
+      "location_name": "Virtual Locations/Production",
+      "lot": "MTS-FG-7985-20260330043956",
+      "qty": -9.0,
+      "reserved": 0.0
+    }
+  ]
+}

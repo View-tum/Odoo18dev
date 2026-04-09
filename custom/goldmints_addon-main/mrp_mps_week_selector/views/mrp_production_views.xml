@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_list_inherit_mps_week" model="ir.ui.view">
+        <field name="name">mrp.production.list.mps.week</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_start']" position="after">
+                <field name="mps_week_name" string="MPS Week" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_production_search_inherit_mps_week" model="ir.ui.view">
+        <field name="name">mrp.production.search.mps.week</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='status']" position="after">
+                <filter name="group_mps_week" string="MPS Week"
+                        context="{'group_by': 'mps_week_name'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

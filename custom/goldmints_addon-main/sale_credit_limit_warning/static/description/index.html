@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Credit Limit Warning</title>
+</head>
+<body>
+    <div>
+        <h1>Sale Credit Limit Warning</h1>
+        <p>
+            This module extends Sales credit warning to show customer-level and company-group-level
+            credit exposure directly on quotations.
+        </p>
+
+        <h2>What It Calculates</h2>
+        <ul>
+            <li>Credit Limit</li>
+            <li>Credit Used (Invoiced)</li>
+            <li>Credit Used (SO Approved)</li>
+            <li>Credit Balance = Credit Limit - Invoiced - SO Approved</li>
+        </ul>
+
+        <h2>Alert Rule</h2>
+        <p>
+            An alert is shown when:
+            <strong>Credit Balance - Current SO &lt; 0</strong>
+            for either the customer or the company group.
+        </p>
+
+        <h2>User Action</h2>
+        <p>
+            A <strong>Check Credit</strong> button is added on quotation form
+            (Draft / Sent) to force display of the credit banner details.
+        </p>
+
+        <h2>Dependencies</h2>
+        <ul>
+            <li>sale</li>
+            <li>company_group_structure</li>
+        </ul>
+    </div>
+</body>
+</html>

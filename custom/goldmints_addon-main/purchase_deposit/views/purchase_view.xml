@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">view.purchase.order.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_cancel']" position="before">
+                <button
+                    name="%(purchase_deposit.action_view_purchase_advance_payment_inv)d"
+                    invisible="state != 'purchase'"
+                    type="action"
+                    string="Register Deposit"
+                    groups="base.group_no_one"
+                />
+            </xpath>
+            <!-- Show Create Bill button even if nothing received (to allow down payments) -->
+            <xpath expr="//header/button[@name='action_create_invoice'][1]" position="attributes">
+                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status == 'invoiced'</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_create_invoice'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

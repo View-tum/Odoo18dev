@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_withholding_tax_cert_form_inherit" model="ir.ui.view">
+        <field name="name">withholding.tax.cert.form.inherit.revenue.type</field>
+        <field name="model">withholding.tax.cert</field>
+        <field name="inherit_id" ref="l10n_th_account_tax.view_withholding_tax_cert_form"/> 
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='wht_line']//list//field[@name='wht_cert_income_desc']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            
+            <xpath expr="//field[@name='wht_line']//list//field[@name='wht_cert_income_desc']" position="before">
+                <field name="revenue_type_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='wht_line']//list//field[@name='wht_percent']" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+            
+        </field>
+    </record>
+
+    <template id="withholding_layout_report_inherit" inherit_id="l10n_th_account_wht_cert_form.withholding_layout_report">
+        <xpath expr="//t[@t-if=&quot;line_dict['wht_cert_income_type'] == '5'&quot;]" position="replace">
+            <t t-if="line_dict['wht_cert_income_type'] == '5'">
+                
+                <t t-set="lines_5" t-value="o.wht_line.filtered(lambda l: l.wht_cert_income_type == '5')"/>
+                
+                <t t-if="len(lines_5) == 1">
+                    <p class="type_5_description3">
+                        <t t-out="lines_5[0].revenue_type_id.name or lines_5[0].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].base)"/>
+                    </p>
+                    <p class="type_5_tax3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].amount)"/>
+                    </p>
+                </t>
+                
+                <t t-elif="len(lines_5) == 2">
+                    <p class="type_5_description3">
+                        <t t-out="lines_5[0].revenue_type_id.name or lines_5[0].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].base)"/>
+                    </p>
+                    <p class="type_5_tax3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].amount)"/>
+                    </p>
+                    
+                    <p class="type_5_description2">
+                        <t t-out="lines_5[1].revenue_type_id.name or lines_5[1].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base2">
+                        <t t-out="'{0:,.2f}'.format(lines_5[1].base)"/>
+                    </p>
+                    <p class="type_5_tax2">
+                        <t t-out="'{0:,.2f}'.format(lines_5[1].amount)"/>
+                    </p>
+                </t>
+                
+                <t t-else="">
+                    <p class="type_5_description3">
+                        <t t-out="lines_5[0].revenue_type_id.name or lines_5[0].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].base)"/>
+                    </p>
+                    <p class="type_5_tax3">
+                        <t t-out="'{0:,.2f}'.format(lines_5[0].amount)"/>
+                    </p>
+                    
+                    <p class="type_5_description2">
+                        <t t-out="lines_5[1].revenue_type_id.name or lines_5[1].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base2">
+                        <t t-out="'{0:,.2f}'.format(lines_5[1].base)"/>
+                    </p>
+                    <p class="type_5_tax2">
+                        <t t-out="'{0:,.2f}'.format(lines_5[1].amount)"/>
+                    </p>
+                    
+                    <p class="type_5_description1">
+                        <t t-out="lines_5[2].revenue_type_id.name or lines_5[2].wht_cert_income_desc"/>
+                    </p>
+                    <p class="type_5_base1">
+                        <t t-out="'{0:,.2f}'.format(lines_5[2].base)"/>
+                    </p>
+                    <p class="type_5_tax1">
+                        <t t-out="'{0:,.2f}'.format(lines_5[2].amount)"/>
+                    </p>
+                </t>
+                
+                <p class="type_5_date">
+                    <t t-out="date"/>
+                </p>
+
+                <p class="type_5_date2" t-if="len(lines_5) >= 2">
+                    <t t-out="date"/>
+                </p>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('company_vat')]" position="replace">
+            <div class="company_vat" style="display: none;"></div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('company_name')]" position="replace">
+            <div class="company_name" style="display: none;"></div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('company_address')]" position="replace">
+            <div class="company_address" style="display: none;"></div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_report_withholding_tax_cert')]" position="attributes">
+            <attribute name="t-attf-style">background-image:url('/wht_cert_revenue_type/static/src/img/WithholdingCert.png'); background-size:300mm 424mm; width:300mm; height:424mm;</attribute>
+        </xpath>
+
+        <xpath expr="//div[hasclass('o_report_withholding_tax_cert')]" position="inside">
+            <t t-set="date_parts" t-value="date.split('/') if date else ['', '', '']"/>
+            
+            <p class="custom_signature_day">
+                <t t-out="date_parts[0]"/>
+            </p>
+            <p class="custom_signature_month">
+                <t t-out="date_parts[1]"/>
+            </p>
+            <p class="custom_signature_year">
+                <t t-out="date_parts[2]"/>
+            </p>
+        </xpath>
+    </template>
+
+    <template id="wht_cert_form_inherit_copies" inherit_id="l10n_th_account_wht_cert_form.wht_cert_form">
+        
+        <xpath expr="//t[@t-call='l10n_th_account_wht_cert_form.withholding_layout_report']" position="replace">
+            <t t-foreach="[1, 2, 3, 4]" t-as="copy_num">
+                <t t-call="l10n_th_account_wht_cert_form.withholding_layout_report"/>
+            </t>
+        </xpath>
+        
+        <xpath expr="//t[@t-call='l10n_th_account_wht_cert_form.withholding_layout_preprint_report']" position="replace">
+            <t t-foreach="[1, 2, 3, 4]" t-as="copy_num">
+                <t t-call="l10n_th_account_wht_cert_form.withholding_layout_preprint_report"/>
+            </t>
+        </xpath>
+        
+    </template>
+</odoo>

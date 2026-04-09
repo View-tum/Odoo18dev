@@ -1,0 +1,267 @@
+.o_stock_count_report {
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: #2c3e50;
+  line-height: 1.5;
+}
+
+/* Header Section */
+.o_stock_count_report .report-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #2c3e50;
+}
+
+.o_stock_count_report .header-title {
+  margin-bottom: 20px;
+}
+
+.o_stock_count_report .header-title h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  text-transform: uppercase;
+}
+
+.o_stock_count_report .header-divider {
+  width: 60px;
+  height: 3px;
+  background: #34495e;
+}
+
+.o_stock_count_report .report-metadata {
+  background: #ecf0f1;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.o_stock_count_report .metadata-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.o_stock_count_report .metadata-row:last-child {
+  margin-bottom: 0;
+}
+
+.o_stock_count_report .metadata-item {
+  flex: 1;
+  font-size: 13px;
+}
+
+.o_stock_count_report .metadata-item .label {
+  font-weight: 600;
+  color: #34495e;
+  margin-right: 8px;
+}
+
+.o_stock_count_report .metadata-item .value {
+  color: #2c3e50;
+}
+
+/* Location Section */
+.o_stock_count_report .location-section {
+  margin-bottom: 24px;
+}
+
+.o_stock_count_report .location-section.page-break-before {
+  page-break-before: always;
+}
+
+.o_stock_count_report .location-header {
+  background: #ecf0f1;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-left: 4px solid #34495e;
+}
+
+.o_stock_count_report .location-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.o_stock_count_report .location-header .location-label {
+  color: #7f8c8d;
+  margin-right: 8px;
+}
+
+.o_stock_count_report .location-header .location-name {
+  color: #34495e;
+}
+
+/* Table Styles */
+.o_stock_count_report .stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.o_stock_count_report .stock-table thead tr th {
+  background: #2c3e50;
+  color: white;
+}
+
+.o_stock_count_report .stock-table thead th {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #1a252f;
+}
+
+.o_stock_count_report .stock-table thead th.text-center {
+  text-align: center;
+}
+
+.o_stock_count_report .stock-table thead th.text-end {
+  text-align: right;
+}
+
+.o_stock_count_report .stock-table tbody tr {
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.o_stock_count_report .stock-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.o_stock_count_report .stock-table tbody td {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  vertical-align: middle;
+}
+
+.o_stock_count_report .stock-table tbody td.text-center {
+  text-align: center;
+}
+
+.o_stock_count_report .stock-table tbody td.text-end {
+  text-align: right;
+  font-weight: 500;
+}
+
+.o_stock_count_report .stock-table tbody td.editable-cell {
+  background: #f8f9fa;
+  min-height: 28px;
+}
+
+.o_stock_count_report .product-cell .product-code {
+  color: #7f8c8d;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.o_stock_count_report .product-cell .product-name {
+  color: #2c3e50;
+}
+
+/* Column widths */
+.o_stock_count_report .col-no {
+  width: 4%;
+}
+.o_stock_count_report .col-location {
+  width: 18%;
+}
+.o_stock_count_report .col-product {
+  width: 28%;
+}
+.o_stock_count_report .col-lot {
+  width: 16%;
+}
+.o_stock_count_report .col-system-qty {
+  width: 12%;
+}
+.o_stock_count_report .col-counted-qty {
+  width: 12%;
+}
+.o_stock_count_report .col-uom {
+  width: 10%;
+}
+.o_stock_count_report .col-price {
+  width: 9%;
+}
+.o_stock_count_report .col-remark {
+  width: 9%;
+}
+
+/* Page Layout */
+.o_stock_count_report {
+  padding-bottom: 55mm; /* เผื่อชน footer เลขหน้าเล็กน้อยพอ */
+}
+
+.o_stock_count_report .last-page-only {
+  margin-top: 4mm;
+  page-break-inside: avoid;
+}
+
+/* Signature Section */
+.o_stock_count_report .signature-table {
+  width: 100%;
+  border: 1px solid #2c3e50;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: none;
+}
+
+.o_stock_count_report .signature-cell {
+  width: 50%;
+  vertical-align: top;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.o_stock_count_report .signature-cell-left {
+  border-right: 1px solid #bdc3c7;
+}
+
+.o_stock_count_report .signature-line {
+  height: 20px;
+  margin-bottom: 6px;
+}
+
+.o_stock_count_report .signature-info {
+  text-align: center;
+}
+
+.o_stock_count_report .signature-brackets {
+  font-size: 13px;
+  color: #2c3e50;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.o_stock_count_report .signature-role {
+  font-size: 13px;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.o_stock_count_report .signature-date {
+  font-size: 12px;
+  color: #2c3e50;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Print styles */
+@media print {
+  .o_stock_count_report .page-break-before {
+    page-break-before: always;
+  }
+
+  .o_stock_count_report .stock-table {
+    box-shadow: none;
+  }
+}

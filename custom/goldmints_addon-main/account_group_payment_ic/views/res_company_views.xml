@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_company_form_inherit_group_payment_ic" model="ir.ui.view">
+        <field name="name">res.company.form.group.payment.ic</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Intercompany (จ่ายแทนกันในกลุ่มบริษัท)">
+                    <group string="ตั้งค่าบัญชี Intercompany">
+                        <field name="property_intercompany_payable_id"
+                               string="Intercompany Payable (ติดบริษัทผู้จ่าย)"/>
+                        <field name="property_intercompany_receivable_id"
+                               string="Intercompany Receivable (ลูกหนี้ระหว่างบริษัท)"/>
+                    </group>
+                    <p class="o_form_label">คำอธิบาย</p>
+                    <p>
+                        ถ้ากำหนดบัญชี intercompany แล้ว ต้องมี Contact ผูกกับบริษัท (company.partner_id)
+                        เพื่อใช้กับ wizard จ่ายบิลกลุ่มบริษัทได้ถูกต้อง
+                    </p>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

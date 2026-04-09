@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cheque_inbound_outbound_form_inherit" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.form.inherit</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="inherit_id" ref="cheque_management.cheque_inbound_outbound_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_reset_to_draft']" position="after">
+                <button string="ปริ้นใบนำฝากธนาคาร" name="%(cheque_report.action_cheque_print)d" type="action" class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

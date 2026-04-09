@@ -1,0 +1,685 @@
+<html><body><div class="container-fluid">
+		<div class="row">
+			<main class="main-content col-md-12 px-md-4" style="margin: 0 auto; padding: 20px; max-width: 1200px;">
+				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1>Odoo oi_workflow Engine Documentation</h1>
+				</div>
+				<div>
+					<h2>Introduction</h2>
+					<p style="font-size: 1.1rem; line-height: 1.6; color: #333; margin-bottom: 1.5rem;"> This module is used to make the workflow of the Odoo application dynamic and customizable. It can be applied to any model in Odoo, either standard or custom models. While standard models like Sale Orders and Purchase Orders typically have static workflows, this module allows you to transform them into dynamic and fully customizable processes, giving you complete control over your workflow management.</p>
+				</div>
+				<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+				<div>
+					<h2>Features</h2>
+					<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
+						<div class="col">
+							<div class="card h-100 border-0" style="background-color: white; padding: 1.2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+								<div class="align-left mb-3" style="font-size: 2rem;">&#9881;&#65039;</div>
+								<h3 class="align-left" style="color: #4f0270; font-size: 1.2rem;">Dynamic Workflow
+								</h3>
+								<ul class="list-unstyled m-0">
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Create custom approval flows
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Define multiple approval levels
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Set conditional approvals
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Dynamic workflow approval
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- User Management Card -->
+						<div class="col">
+							<div class="card h-100 border-0" style="background-color: white; padding: 1.2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+								<div class="align-left mb-3" style="font-size: 2rem;">&#128101;</div>
+								<h3 class="align-left mb-3" style="color: #4f0270; font-size: 1.2rem;">User Management
+								</h3>
+								<ul class="list-unstyled m-0">
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Role-based approvals
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Delegate approval rights
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Set up approval committees "Group Approval"
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Notifications Card -->
+						<div class="col">
+							<div class="card h-100 border-0" style="background-color: white; padding: 1.2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+								<div class="align-left mb-3" style="font-size: 2rem;">&#128276;</div>
+								<h3 class="align-left mb-3" style="color: #4f0270; font-size: 1.2rem;">Notifications
+								</h3>
+								<ul class="list-unstyled m-0">
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Email notifications
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										In-app notifications
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Reminder system
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Custom notification templates
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Tracking & Reporting Card -->
+						<div class="col">
+							<div class="card h-100 border-0" style="background-color: white; padding: 1.2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+								<div class="align-left mb-3" style="font-size: 2rem;">&#128202;</div>
+								<h3 class="align-left mb-3" style="color: #4f0270; font-size: 1.2rem;">Tracking &amp;
+									Reporting</h3>
+								<ul class="list-unstyled m-0">
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Approval history tracking
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Audit trails
+									</li>
+									<li class="mb-2 position-relative">
+										<span style="left: 0; color: #4f0270;">&#8226;</span>
+										Status monitoring
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+				<div class="introduction-section" style="padding: 1.5rem; background-color: white; border-radius: 6px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+					<h2 style="margin-bottom: 1.5rem;">How to use</h2>
+
+					<!-- Standard Modules Card -->
+					<div style="margin-bottom: 1.5rem; padding: 1.5rem; border: 1px solid #dee2e6; border-radius: 8px; background-color: #f8f9fa;">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 0.5rem; color: #4f0270;">&#128268;
+							</i><h4 style="margin: 0;">Standard Modules
+						
+						</h4></div><p style="color: #6c757d; margin-bottom: 1rem;">You can download our plugins to integrate the
+							workflow engine to
+							standard modules like:
+						</p><ul style="list-style: none; padding-left: 1; margin-bottom: 1rem;">
+							<li class="mb-2 position-relative">
+								<span style="left: 0; color: #4f0270;"></span>
+								Purchase Order
+							
+							</li><li class="mb-2 position-relative">
+								<span style="left: 0; color: #4f0270;"></span>
+								Sale Order
+							
+							</li><li class="mb-2 position-relative">
+								<span style="left: 0; color: #4f0270;"></span>
+								...
+							
+						
+						</li></ul>&#160; &#160; &#160; &#160;<a href="https://apps.odoo.com/apps/modules/browse?search=oi_workflow" style="display: inline-block; padding: 0.375rem 0.75rem; background-color: #4f0270; color: white; text-decoration: none; border-radius: 0.25rem; border: 1px solid #4f0270; transition: background-color 0.3s ease;">Download Plugins
+						
+					</a></div>
+
+					<!-- Custom Modules Card -->
+					<div style="padding: 1.5rem; border: 1px solid #dee2e6; border-radius: 8px; background-color: #f8f9fa;">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 0.5rem; color: #4f0270;">&#128268;</i>
+							<h4 style="margin: 0;">Custom Modules</h4>
+						</div>
+						<p style="color: #6c757d; margin-bottom: 1rem;">Enable workflow for custom modules:</p>
+						<div style="padding-left: 0;">
+							<div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+								<span style="width: 24px; height: 24px; background-color: #4f0270; color: white; border-radius: 50%; 
+           display: flex; align-items: center; justify-content: center; font-size: 14px;
+           font-weight: bold; line-height: 24px; margin-right: 1rem;">&#160; 1</span>
+								<span>Go to Settings &gt; Technical &gt; Models</span>
+							</div>
+							<div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+								<span style="width: 24px; height: 24px; background-color: #4f0270; color: white; border-radius: 50%; 
+           display: flex; align-items: center; justify-content: center; font-size: 14px;
+           font-weight: bold; line-height: 24px; margin-right: 1rem;">&#160; 2</span>
+								<span>Select your target model</span>
+							</div>
+							<div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+								<span style="width: 24px; height: 24px; background-color: #4f0270; color: white; border-radius: 50%; 
+           display: flex; align-items: center; justify-content: center; font-size: 14px;
+           font-weight: bold; line-height: 24px; margin-right: 1rem;">&#160; 3</span>
+								<span>Enable "Approval Record" option</span>
+							</div>
+							<div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+								<span style="width: 24px; height: 24px; background-color: #4f0270; color: white; border-radius: 50%; 
+           display: flex; align-items: center; justify-content: center; font-size: 14px;
+           font-weight: bold; line-height: 24px; margin-right: 1rem;">&#160; 4</span>
+								<span>Save changes</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+				<div style="background-color: #f7f0fa; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+					<h2>Table of Contents</h2>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
+						<div>
+							<ul style="list-style: none; padding-left: 0;">
+								<li class="mb-2 position-relative">
+									<span style="left: 0; color: #4f0270;"></span>
+									<a href="#smart-buttons" style="color: #333; text-decoration: none;">Smart
+										Buttons</a>
+									<ul style="list-style: none;  margin-top: 0.5rem;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<a href="#approval-status" style="color: #333; text-decoration: none;">Approval Status</a>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<a href="#automation" style="color: #333; text-decoration: none;">Automation</a>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<a href="#custom-buttons" style="color: #333; text-decoration: none;">Custom
+												Buttons</a>
+										</li>
+									</ul>
+								</li>
+								<li class="mb-2 position-relative">
+									<span style="left: 0; color: #4f0270;"></span>
+									<a href="#field-configuration" style="color: #333; text-decoration: none;">Field
+										Configuration</a>
+								</li>
+								<li class="mb-2 position-relative">
+									<span style="left: 0; color: #4f0270;"></span>
+									<a href="#mass-approval" style="color: #333; text-decoration: none;">Mass Approval
+										Settings</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Smart Buttons Section -->
+				<section style="margin-top: 3rem;">
+					<h2>Approval Settings Configuration</h2>
+
+					<div style="border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+						<h4 id="smart-buttons" style="display: flex; align-items: center;">
+							<i style="font-size: 1.5rem; margin-right: 10px; color: #4f0270;">&#128280;</i>Smart Buttons
+						</h4>
+						<div class="row">
+							<div class="col-md-4">
+								<div style="background-color: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 15px; transition: all 0.3s ease;">
+									<h5 style="color: #4f0270;"><i class="bi bi-check-circle"></i> Approval Status</h5>
+									<p>Configure approval states and their conditions.</p>
+									<div style="margin-top: 1rem;">
+										<h6>Key Features:</h6>
+										<ul style="list-style: none; padding-left: 0; margin: 0;">
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;" stylte="" configuration:=""> Define
+													approval states with conditions
+											</strong></li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Committee Approval:</strong> Enable
+												multi-user approval requirements
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Approval Groups:</strong> Assign user
+												groups for each state
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Custom Conditions:</strong> Python
+												expressions for state transitions
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Activity Scheduling:</strong> Automated
+												activities for approvals
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div style="background-color: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 15px; transition: all 0.3s ease;">
+									<h5 style="color: #4f0270;"><i class="bi bi-code-square"></i> Automation</h5>
+									<p>Set up automated actions for workflow states.</p>
+									<div style="margin-top: 1rem;">
+										<h6>Features:</h6>
+										<ul style="list-style: none; padding-left: 0; margin: 0;">
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Triggers:</strong> On create, state
+												change
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Actions:</strong>
+												<ul style="list-style: none; ">
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														Email templates
+													</li>
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														Server actions
+													</li>
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														Custom Python code
+													</li>
+												</ul>
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Conditions:</strong> Domain filters for
+												automation
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">State Mapping:</strong> Define from/to
+												states
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div style="background-color: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 15px; transition: all 0.3s ease;">
+									<h5 style="color: #4f0270;"><i class="bi bi-gear"></i> Buttons</h5>
+									<p>Customize approval action buttons.</p>
+									<div style="margin-top: 1rem;">
+										<h6>Configuration Options:</h6>
+										<ul style="list-style: none; padding-left: 0; margin: 0;">
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Button Types:</strong>
+												<ul style="list-style: none; ">
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														Action buttons (Server actions)
+													</li>
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														State return buttons
+													</li>
+													<li class="mb-2 position-relative">
+														<span style="left: 0; color: #4f0270;"></span>
+														Custom workflow buttons
+													</li>
+												</ul>
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Visibility:</strong> Control by groups
+												or
+												conditions
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Styling:</strong> Custom classes and
+												icons
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Behavior:</strong> Confirmation
+												messages,
+												form validation
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Hotkeys:</strong> Keyboard shortcuts
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin: 30px 0; text-align: center; max-width: 100%; overflow: hidden;">
+							<img src="smart-buttons.png" alt="Workflow Engine Base Descriptions, Smart Buttons Configuration" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" class="shadow" title="Smart Buttons Configuration">
+							<p style="margin-top: 10px; color: #666; font-size: 0.9rem; font-style: italic;">Smart
+								Buttons</p>
+						</div>
+					</div>
+
+					<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+					<!-- Approval Status Section -->
+					<div id="approval-status" style="margin-bottom: 1.5rem;">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 10px; color: #4f0270;">&#10003;</i>
+							<h4 style="margin: 0;">Approval Status</h4>
+						</div>
+						<div class="row g-4">
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Basic Configuration</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Sequence</strong>
+											<p>Define the order of approval states in the workflow</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">State &amp; Name</strong>
+											<p>Set technical and display names for each state</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Auto Approve</strong>
+											<p>Enable automatic state transitions based on conditions</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Advanced Settings</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Committee Approval</strong>
+											<p>Set up multi-user approval requirements with configurable limits</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Conditions</strong>
+											<p>Define Python expressions for state transition logic</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Escalation</strong>
+											<p>Configure time-based escalation rules</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin: 30px 0; text-align: center; max-width: 100%; overflow: hidden;">
+							<img src="approval-status.png" alt="Workflow Engine Base Descriptions, Approval Status Configuration" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" class="shadow" title="Approval Status Configuration">
+							<p style="margin-top: 10px; color: #666; font-size: 0.9rem; font-style: italic;">Approval
+								Status Settings Interface</p>
+						</div>
+					</div>
+
+					<!-- Automation Section -->
+					<div id="automation" style="margin-bottom: 1.5rem;">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 10px; color: #4f0270;">&#9889;</i>
+							<h4 style="margin: 0;">Automation</h4>
+						</div>
+						<div class="row g-4">
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Triggers &amp; Conditions</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">On Create</strong>
+											<p>Automate actions when new records are created</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">On State Change</strong>
+											<p>Execute actions during state transitions</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Domain Filters</strong>
+											<p>Apply conditions to control when automations run</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Available Actions</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Email Templates</strong>
+											<p>Send automated notifications with customizable templates</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Server Actions</strong>
+											<p>Execute predefined server-side operations</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Custom Code</strong>
+											<p>Implement complex logic with Python code</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin: 30px 0; text-align: center; max-width: 100%; overflow: hidden;">
+							<img src="automation.png" alt="Workflow Engine Base Descriptions, Automation Configuration" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" class="shadow" title="Automation Configuration">
+							<p style="margin-top: 10px; color: #666; font-size: 0.9rem; font-style: italic;">Automation
+								Rules and Settings</p>
+						</div>
+					</div>
+
+					<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+					<!-- Field Configuration Section -->
+					<div id="field-configuration" style="margin-bottom: 1.5rem;">
+						<h2>Field Configuration</h2>
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 10px; color: #4f0270;">&#128295;</i>
+							<h4 style="margin: 0;">Field Configuration</h4>
+						</div>
+						<div class="row g-4">
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Static States</h5>
+									<p>Enable custom static statuses for the workflow:</p>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Custom States</strong>
+											<p>Define your own state names and sequences</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Reset Functionality</strong>
+											<p>Restore default states with one click</p>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">State Management</strong>
+											<p>Control state visibility with active/inactive toggle</p>
+										</li>
+									</ul>
+									<div style="margin-top: 1rem; padding: 1.5rem; background-color: #f8f9fa; border: 1px dashed #4f0270; border-radius: 8px;">
+										<h6>Tree View Structure</h6>
+										<ul style="list-style: none; padding-left: 0;">
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">State:</strong> Technical identifier
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Name:</strong> Display label
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Type:</strong> Before/After
+												classification
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Reject State:</strong> Rejection
+												indicator
+											</li>
+											<li class="mb-2 position-relative">
+												<span style="left: 0; color: #4f0270;"></span>
+												<strong style="color: #4f0270;">Active:</strong> Visibility control
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Status Bar Configuration</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Duration Tracking</strong>
+											<p>Monitor time spent in each status:</p>
+											<ul style="list-style: none; ">
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Track approval process efficiency
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Identify workflow bottlenecks
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Analyze approval patterns
+												</li>
+											</ul>
+										</li>
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Dynamic Status Bar</strong>
+											<p>Control status bar visibility:</p>
+											<ul style="list-style: none; ">
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Show/hide available states
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Dynamic state updates
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Visual workflow progression
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin: 30px 0; text-align: center; max-width: 100%; overflow: hidden;">
+							<img src="create-static-statuses.png" alt="Workflow Engine Base Descriptions, Field Configuration" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" class="shadow" title="Field Configuration">
+							<p style="margin-top: 10px; color: #666; font-size: 0.9rem; font-style: italic;">Field
+								Configuration Settings</p>
+						</div>
+					</div>
+
+					<hr style="margin: 40px 0; border: 0; height: 1px; background: linear-gradient(to right, transparent, #6a0398, transparent);">
+
+					<!-- Mass Approval Section -->
+					<div id="mass-approval" style="margin-bottom: 1.5rem;">
+						<div style="display: flex; align-items: center; margin-bottom: 1rem;">
+							<i style="font-size: 1.5rem; margin-right: 10px; color: #4f0270;">&#128101;</i>
+							<h4 style="margin: 0;">Mass Approval Settings</h4>
+						</div>
+						<div class="row g-4">
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Approval Actions</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Show Action Approve All</strong>
+											<p>Enable mass approval functionality:</p>
+											<ul style="list-style: none; ">
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Batch approval processing
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													List view approval actions
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Efficiency for bulk operations
+												</li>
+											</ul>
+											<div style="margin-top: 0.5rem; padding: 0.5rem; background-color: #f8f9fa; border-radius: 4px;">
+												<small style="color: #6c757d;">Note: Button visibility doesn't guarantee
+													approval rights</small>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div style="height: 100%; padding: 1.5rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+									<h5>Access Control</h5>
+									<ul style="list-style: none; padding-left: 0;">
+										<li class="mb-2 position-relative">
+											<span style="left: 0; color: #4f0270;"></span>
+											<strong style="color: #4f0270;">Approval All Groups</strong>
+											<p>Configure group-based access:</p>
+											<ul style="list-style: none; ">
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Select authorized groups
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Multiple group support
+												</li>
+												<li class="mb-2 position-relative">
+													<span style="left: 0; color: #4f0270;"></span>
+													Tag-based selection
+												</li>
+											</ul>
+											<div style="margin-top: 0.5rem; padding: 0.5rem; background-color: #f8f9fa; border-radius: 4px;">
+												<small style="color: #6c757d;">Only visible when "Show Action Approve
+													All" is enabled</small>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin: 30px 0; text-align: center; max-width: 100%; overflow: hidden;">
+							<img src="mass-approval.png" alt="Workflow Engine Base Descriptions, Workflow Engine Base Descriptions," style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" class="shadow" title="Mass Approval Configuration Panel">
+							<p style="margin-top: 10px; color: #666; font-size: 0.9rem; font-style: italic;">Mass
+								Approval Configuration Panel</p><h3 style='font-size: 1.40833rem; color: rgb(136, 44, 118); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif; text-align: left;'><br></h3><h3 style='text-align: center; font-size: 1.40833rem; color: rgb(136, 44, 118); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif;'>Demonstration<div class="oe_row text-center" style='width: 1108px; color: rgb(102, 102, 102); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif;'></div><div class="row text-center" style='color: rgb(102, 102, 102); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif;'></div></h3><h4 class="oe_slogan oe_spaced" style='box-sizing: border-box; margin-top: 32px; margin-bottom: 32px; font-weight: 300; line-height: 1.2; font-size: 24px; color: rgb(51, 51, 51); font-family: Lato, "Open Sans", Helvetica, Sans; text-align: center;'>Create a new "<b style="box-sizing: border-box; font-weight: bolder !important;">State</b>" and add an "<b style="box-sizing: border-box; font-weight: bolder !important;">Approval Group</b>" to it</h4><p class="oe_slogan oe_spaced"><img class="img-fluid o_we_custom_image rounded shadow" src="Create%20a%20new%20State%20and%20add%20an%C2%A0Approval%20Group%20to%20it%C2%A0.gif" alt="Workflow Engine Base Demonstration, Create a new State and add an Approval Group to it" title="Create a new State and add an Approval Group to it"><br></p><p class="oe_slogan oe_spaced"></p><div class="row text-center" style='box-sizing: border-box; display: flex; flex-wrap: wrap; margin-right: -16px; margin-left: -16px; text-align: center !important; color: rgb(102, 102, 102); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'></div><p></p><div class="oe_row text-center" style='box-sizing: border-box; text-align: center !important; width: 1108px; margin: 16px auto; color: rgb(102, 102, 102); font-family: Roboto, "Odoo Unicode Support Noto", sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'><h4 class="oe_slogan oe_spaced" style='box-sizing: border-box; margin-top: 32px; margin-bottom: 32px; font-weight: 300; line-height: 1.2; font-size: 24px; color: rgb(51, 51, 51); font-family: Lato, "Open Sans", Helvetica, Sans; text-align: center;'><font style="box-sizing: border-box; font-size: 18px;">Create and edit "</font><b style="box-sizing: border-box; font-weight: bolder !important;"><font style="box-sizing: border-box; font-size: 18px;">Buttons</font></b><font style="box-sizing: border-box; font-size: 18px;">" and make them visible in all "</font><b style="box-sizing: border-box; font-weight: bolder !important;"><font style="box-sizing: border-box; font-size: 18px;">States</font></b><font style="box-sizing: border-box; font-size: 18px;">" or specific states for approval or all users</font></h4><p class="oe_slogan oe_spaced"><img class="img-fluid o_we_custom_image rounded shadow" src="Create%20and%20edit%20Buttons%20and%C2%A0make%20them%20visible%20in%20all%20States%20or%20specific%20states%20for%20approval%20or%20all%20users.gif" alt="Workflow Engine Base Demonstration, Create and edit Buttons and make them visible in all States or specific states for approval or all users" title="Create and edit Buttons and make them visible in all States or specific states for approval or all users"><font style="box-sizing: border-box;"><br></font></p><h4 class="oe_slogan oe_spaced">Show created "<span style="font-weight: bolder !important;">Buttons</span>" and "<span style="font-weight: bolder !important;">Workflow Transition</span>"</h4><p class="oe_slogan oe_spaced"><img class="img-fluid o_we_custom_image rounded shadow" src="Show%20created%20Buttons%20and%20Workflow%20Transition.gif" alt="Workflow Engine Base Demonstration, Show created Buttons and Workflow Transition" title="Show created Buttons and Workflow Transition"><br></p><h4 class="oe_slogan oe_spaced">Show "<span style="font-weight: bolder !important;">Workflow Transition</span>"</h4><div><img class="img-fluid o_we_custom_image rounded shadow" src="Show%20Workflow%20Transition.gif" alt="Workflow Engine Base Demonstration, Show Workflow Transition" title="Show Workflow Transition"><br></div></div></div></div></section></main></div></div>
+
+<section class="oe_container"><div class="oe_mt16 oe_mb16"><h2 class="oe_slogan"><a href="https://youtu.be/sjAng0gseSY?si=LxtG7iqgjxLoPk17" target="_blank"><div class="oe_row text-center" style="width: 1108px;"></div><div class="row text-center"></div></a></h2><h4 class="oe_slogan oe_spaced">Want to discover more? Watch the app's tutorial on our&#160;<a href="https://www.youtube.com/@openinside_co"><span style="font-weight: bolder !important;"><font style="color: rgb(255, 0, 0);">YouTube!</font></span></a>&#160;Channel</h4><p class="oe_slogan oe_spaced"><a href="https://youtu.be/sjAng0gseSY?si=LxtG7iqgjxLoPk17" target="_blank" style='font-family: Lato, "Open Sans", Helvetica, Sans; font-size: 40px; background-color: rgb(255, 255, 255); font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit;'><img class="img-fluid o_we_custom_image rounded shadow" src="Workflow%20Engine%20thumbnail%20for%20YouTube%20v18.jpg" title="Workflow Engine Base Tutorial" style="width: 50%;"></a></p><h2 class="oe_slogan">Need Any Help?</h2></div><div class="oe_slogan"><a href="/" target="_blank"><img src="OI%20New%20Logo.jpg" style="width: 150px; margin-top: 25px;" class="center-block" title="Openinside Logo" alt="Openinside Co. W.L.L. Logo"></a></div><div class="oe_slogan"><a class="btn btn-primary btn-md mt8" style="color: #FFFFFF !important;" href="mailto:odoo@open-inside.com" target="_blank"><i class="fa fa-envelope"></i> Email</a>&#160;<a class="mt8 btn btn-primary" href="https://www.odoo.com/partners/openinside-co-w-l-l-20686?country_id=23" target="_blank"><i class="fa fa-phone"></i> Contact Us</a>&#160;<a class="mt8 btn btn-primary" href="https://apps.odoo.com/apps/modules/browse?search=openinside" target="_blank"><i class="fa fa-suitcase"></i> Our Products </a></div></section></body></html>

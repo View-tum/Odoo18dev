@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cheque_done_wizard_form_view" model="ir.ui.view">
+        <field name="name">cheque.done.wizard.form</field>
+        <field name="model">cheque.done.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Done Cheques - Payment Date">
+                <group>
+                    <group>
+                        <field name="payment_date" />
+                    </group>
+                </group>
+                <separator string="Cheques to be Done" />
+                <field name="line_ids" readonly="1">
+                    <list>
+                        <field name="cheque_name" />
+                        <field name="partner_name" />
+                        <field name="amount" widget="monetary" />
+                        <field name="currency_id" column_invisible="1" />
+                        <field name="cheque_state" />
+                        <field name="cheque_id" column_invisible="1" />
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm Done"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

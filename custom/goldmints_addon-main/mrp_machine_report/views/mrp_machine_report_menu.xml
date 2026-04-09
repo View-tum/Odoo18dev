@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action to open the wizard -->
+    <record id="action_mrp_machine_report_wizard" model="ir.actions.act_window">
+        <field name="name">Machine Report</field>
+        <field name="res_model">mrp.machine.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_mrp_machine_report_wizard_form"/>
+    </record>
+
+    <!-- Menu item under Manufacturing > Reporting -->
+    <menuitem id="menu_mrp_machine_report" name="Machine Report" parent="mrp.menu_mrp_reporting" action="action_mrp_machine_report_wizard" sequence="10"/>
+</odoo>

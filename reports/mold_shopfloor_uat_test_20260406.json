@@ -1,0 +1,83 @@
+{
+  "date": "2026-04-06",
+  "database": "uat",
+  "server": "http://localhost:8811",
+  "feature_scope": {
+    "show_mold_on_card": true,
+    "change_mold_from_card": true,
+    "warn_when_full_but_do_not_block": true,
+    "allow_continue_anyway": true,
+    "allow_change_mold_from_warning": true,
+    "reset_mold_life": true
+  },
+  "real_test_cases": [
+    {
+      "case_id": "MU14-01",
+      "name": "Card shows mold name and shot counter",
+      "result": "passed",
+      "details": "Verified on MO GMP/MOPL/00012 / WO 364. Card showed mold section, mold name, shot counter, and Mold button."
+    },
+    {
+      "case_id": "MU14-02",
+      "name": "Change mold from card before start",
+      "result": "passed",
+      "details": "Verified on WO 364. Clicking Mold opened selection dialog. Choosing TEST ALT MOLD SHOPFLOOR JOI PK W02 closed dialog, updated card, and backend mold_ids became 650."
+    },
+    {
+      "case_id": "MU14-03",
+      "name": "Full mold warning with Continue Anyway",
+      "result": "passed",
+      "details": "Verified on MO GMP/MOPL/00011 / WO 363 with mold 590 at 1000/1000 shots. Warning popup appeared and Continue Anyway started work successfully."
+    },
+    {
+      "case_id": "MU14-04",
+      "name": "Full mold warning with Change Mold then Start",
+      "result": "passed",
+      "details": "Verified on WO 364. Warning popup displayed, Change Mold opened selection dialog, choosing alternative mold updated card, and Start proceeded without repeated warning."
+    },
+    {
+      "case_id": "MU14-05",
+      "name": "Reset mold life after maintenance",
+      "result": "passed",
+      "details": "Verified on mold 590. Reset Life confirmation changed shots from 1000/1000 to 0/1000. Test value was restored afterward."
+    },
+    {
+      "case_id": "MU14-06",
+      "name": "Breakdown recovery path",
+      "result": "passed_with_note",
+      "details": "Stop/Resume operational path was verified from GMP Shop Floor. Dedicated breakdown button is not present on the card; maintenance handling remains a separate flow."
+    },
+    {
+      "case_id": "MU14-07",
+      "name": "Done/Cancel workorders do not reappear as active queue items",
+      "result": "not_closed",
+      "details": "Not signed off end-to-end in UAT this round because there was no suitable live sample with parallel sibling WO in Done/Cancel state on the same active queue to verify entirely through UI."
+    }
+  ],
+  "current_master_state_after_cleanup": {
+    "wo_363": {
+      "state": "ready",
+      "mold_id": 590
+    },
+    "wo_364": {
+      "state": "ready",
+      "mold_id": 650
+    },
+    "mold_590": {
+      "shots": "1000/1000"
+    },
+    "mold_650": {
+      "shots": "0/1000"
+    }
+  },
+  "workbook": "C:\\Users\\tumsu\\Downloads\\UAT_GoldMints_Test Scenario_MANUV2_detailed_teststeps_v3.xlsx",
+  "notes": [
+    "Breakdown case was added to the workbook as a UAT scenario and recovery path. It is a business-operation test path, not a newly added dedicated button in GMP Shop Floor.",
+    "Reset mold life uses the existing mold smart button on the Work Center form."
+  ],
+  "summary": {
+    "passed": 5,
+    "passed_with_note": 1,
+    "not_closed": 1
+  }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_daily_report_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.daily.report.wizard.form</field>
+        <field name="model">mrp.daily.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="รายงานโรงงานการผลิต">
+
+                <group>
+                    <field name="report_id" options="{'no_create': True, 'no_open': True}"/>
+                </group>
+
+                <group string="Date Range">
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+
+                <group string="Filters">
+                    <field name="factory_tag_ids" widget="many2many_tags" placeholder="Select Factory type..." options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                    <field name="product_ids" widget="many2many_tags" placeholder="Select Products..." options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                    <field name="mo_status" placeholder="All Status"/>
+                    <field name="workcenter_ids" widget="many2many_tags" placeholder="Select Workcenters..." options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                </group>
+
+                <footer>
+                    <button name="action_print_report" type="object" string="Print Report" class="btn-primary" icon="fa-print"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

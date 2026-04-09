@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_contract_document_tree" model="ir.ui.view">
+            <field name="name">contract.document.tree</field>
+            <field name="model">contract.document</field>
+            <field name="arch" type="xml">
+                <list string="Contract Documents" decoration-muted="state == 'cancel'"
+                    decoration-danger="state == 'expired'" decoration-success="state == 'open'"
+                    decoration-info="state == 'draft'">
+                    <field name="name" />
+                    <field name="partner_id" optional="show" />
+                    <field name="user_id" optional="show" />
+                    <field name="manager_id" optional="show" />
+                    <field name="reminder_days" optional="show" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="remaining_days" />
+                    <field name="state" />
+                </list>
+            </field>
+        </record>
+
+        <!-- A second tree view ordered by expiry date (nearest expiry first) -->
+        <record id="view_contract_document_tree_by_expiry" model="ir.ui.view">
+            <field name="name">contract.document.tree.expiry</field>
+            <field name="model">contract.document</field>
+            <field name="arch" type="xml">
+                <list string="Contract Documents (by Expiry)" decoration-muted="state == 'cancel'"
+                    decoration-danger="state == 'expired'" decoration-success="state == 'open'"
+                    decoration-info="state == 'draft'" default_order="date_end asc">
+                    <field name="name" />
+                    <field name="partner_id" optional="show" />
+                    <field name="user_id" optional="show" />
+                    <field name="manager_id" optional="show" />
+                    <field name="reminder_days" optional="show" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="remaining_days" />
+                    <field name="state" />
+                </list>
+            </field>
+        </record>
+
+        <record id="view_contract_document_form" model="ir.ui.view">
+            <field name="name">contract.document.form</field>
+            <field name="model">contract.document</field>
+            <field name="arch" type="xml">
+                <form string="Contract Document">
+                    <header>
+                        <button string="Confirm" type="object" name="action_confirm"
+                            invisible="state != 'draft'" class="btn-primary" />
+                        <button string="Cancel" type="object" name="action_cancel"
+                            invisible="state not in ('draft', 'open')" class="btn-secondary" />
+                        <button string="Expire" type="object" name="action_expire"
+                            invisible="state != 'open'" class="btn-secondary" />
+                        <button string="Reset to Draft" type="object" name="action_reset_to_draft"
+                            invisible="state == 'draft'" class="btn-secondary" />
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="draft,open,expired,cancel" />
+                        <button string="Run Daily Reminder Check" type="object" name="send_reminder"
+                            class="btn-secondary"
+                            help="Send reminders for contracts whose remaining days equal their configured threshold (7/30/60/90)"
+                            groups="base.group_system" />
+                        <button string="Test Email for This Contract" type="object"
+                            name="send_test_reminder"
+                            class="btn-warning"
+                            invisible="state != 'open'"
+                            help="Send a test reminder email for this specific contract (only for OPEN contracts)"
+                            groups="base.group_system" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="partner_id" />
+                                <field name="manager_id" />
+                                <field name="user_id" />
+                            </group>
+                            <group>
+                                <field name="attachment" filename="attachment_filename"
+                                    widget="attachment" />
+                                <field name="attachment_filename" invisible="1" />
+                                <field name="company_id" invisible="1" />
+                                <field name="currency_id" invisible="1" />
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Contract Dates">
+                                <field name="date_start" />
+                                <field name="date_end" />
+                                <field name="reminder_days" />
+                                <field name="remaining_days" readonly="1" />
+                                <field name="total_duration_days" readonly="1" />
+                            </group>
+                            <group string="Rebate Configuration">
+                                <field name="rebate_target_type" widget="radio" options="{'horizontal': true}"/>
+                                <field name="rebate_group_id" invisible="rebate_target_type != 'group'" required="rebate_target_type == 'group'"/>
+                                <field name="partner_id" string="Related Contact" invisible="rebate_target_type != 'partner'"/>
+                                <field name="payee_id" placeholder="Default to Related Contact" />
+                                <field name="rebate_period" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Rebate Tiers" name="rebate_tiers">
+                                <field name="rebate_tier_ids">
+                                    <list editable="bottom">
+                                        <field name="min_amount" />
+                                        <field name="rebate_rate" widget="percentage" />
+                                        <field name="fixed_amount" />
+                                    </list>
+                                </field>
+
+                                <group class="oe_subtotal_footer oe_right" invisible="not rebate_rate">
+                                    <field name="rebate_rate" string="Legacy Single Rate" readonly="1" widget="percentage"/>
+                                    <field name="rebate_target_amount" string="Legacy Target" readonly="1"/>
+                                </group>
+                            </page>
+                            <page string="Monthly Sales Summary">
+                                <button name="action_refresh_sales" type="object"
+                                    string="Refresh Sales Data" class="btn-primary mb-3"
+                                    icon="fa-refresh" />
+                                <field name="monthly_sales_summary_ids" readonly="1">
+                                    <list>
+                                        <field name="month_display" string="Month" />
+                                        <field name="sales_amount" string="Sales" />
+                                        <field name="ytd_amount" string="Check Vol." />
+                                        <field name="rate" string="Rate" widget="percentage" />
+                                        <field name="state" string="Status" widget="badge"
+                                            decoration-success="state == 'met'"
+                                            decoration-warning="state == 'pending'" />
+                                        <field name="est_rebate" string="Est. Rebate" />
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Rebate Paid History">
+                                <field name="rebate_paid_history_ids">
+                                    <list editable="bottom">
+                                        <field name="date" />
+                                        <field name="move_id" />
+                                        <field name="amount" />
+                                        <field name="note" />
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div> -->
+                </form>
+            </field>
+        </record>
+
+        <record id="view_contract_document_search" model="ir.ui.view">
+            <field name="name">contract.document.search</field>
+            <field name="model">contract.document</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="partner_id" string="Partner" />
+                    <field name="name" string="Document Name" />
+                    <field name="date_start" string="Start Date" />
+                    <field name="date_end" string="End Date" />
+                    <field name="state" string="State" />
+
+                    <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]" />
+                    <filter name="open" string="Open" domain="[('state', '=', 'open')]" />
+                    <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]" />
+                    <filter name="cancelled" string="Cancelled" domain="[('state', '=', 'cancel')]" />
+
+                    <separator />
+                    <filter name="expiring_soon" string="Expiring Soon (≤30 days)"
+                        domain="[('remaining_days', '&lt;=', 30), ('remaining_days', '&gt;=', 0), ('state', '=', 'open')]" />
+                    <filter name="overdue" string="Overdue"
+                        domain="[('remaining_days', '&lt;', 0), ('state', '=', 'open')]" />
+
+                    <separator />
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_partner" string="Partner"
+                            context="{'group_by': 'partner_id'}" />
+                        <filter name="group_by_state" string="State" context="{'group_by': 'state'}" />
+                        <filter name="group_by_expiry_month" string="Expiry Month"
+                            context="{'group_by': 'date_end:month'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

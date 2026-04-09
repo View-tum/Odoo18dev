@@ -1,0 +1,7 @@
+<odoo noupdate="1">
+    <record id="sale_sequence" model="ir.sequence.option">
+        <field name="name">Quotation / Order</field>
+        <field name="model">sale.order</field>
+        <field name="use_sequence_option" eval="False" />
+    </record>
+</odoo>

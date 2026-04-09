@@ -1,0 +1,19 @@
+<odoo>
+    <menuitem id="menu_easy_advance_log_root"
+        name="Cash Advances"
+        parent="hr_expense.menu_hr_expense_root"
+        sequence="5" />
+
+    <menuitem id="menu_easy_advance_log_main"
+        name="Advance Cash Log"
+        parent="menu_easy_advance_log_root"
+        action="action_advance_cash_log"
+        sequence="1" />
+    <!-- 2. For Accountants: Embedded in Accounting App -->
+    <menuitem id="menu_account_advance_log"
+        name="Cash Advance Logbook"
+        parent="account.menu_finance_entries"
+        action="action_advance_cash_log"
+        sequence="200"
+        groups="account.group_account_user" />
+</odoo>

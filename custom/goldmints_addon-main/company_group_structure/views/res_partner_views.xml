@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_company_group_hierarchy" model="ir.ui.view">
+        <field name="name">res.partner.company.group.hierarchy</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <hierarchy string="Company Groups"
+                       child_field="company_group_company_ids"
+                       parent_field="company_group_id">
+                <field name="name" />
+                <field name="company_group_id" />
+                <field name="ref" />
+                <field name="phone" />
+                <field name="email" />
+                <field name="credit_limit" groups="account.group_account_invoice,account.group_account_readonly" />
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <div class="o_card p-3"
+                             style="background:#ffffff; border:1px solid #e5e7eb; border-radius:10px; min-width:240px; max-width:320px;">
+                            <div class="fw-bold text-dark">
+                                <field name="name" />
+                            </div>
+                            <div class="text-muted small" t-if="record.company_group_id.value">
+                                Company Group: <field name="company_group_id"/>
+                            </div>
+                            <div class="mt-2 small" t-if="record.phone.raw_value">
+                                Phone: <field name="phone"/>
+                            </div>
+                            <div class="small" t-if="record.email.raw_value">
+                                Email: <field name="email"/>
+                            </div>
+                            <div class="small" t-if="record.ref.raw_value">
+                                Reference: <field name="ref"/>
+                            </div>
+                            <div class="small" groups="account.group_account_invoice,account.group_account_readonly">
+                                Credit Limit: <t t-esc="record.credit_limit.display_value || record.credit_limit.value || 0"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+
+    <record id="view_partner_form_inherit_company_group_structure" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.company.group.structure</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_title mb24']" position="after">
+                <group>
+                    <field name="company_group_id"
+                           string="Company Group"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_company_group_hierarchy" model="ir.actions.act_window">
+        <field name="name">Company Groups</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">hierarchy,form</field>
+        <field name="view_id" ref="view_company_group_hierarchy" />
+        <field name="domain">['&amp;', ('company_type', '=', 'company'), '|', ('company_group_id', '!=', False), ('company_group_company_ids', '!=', False)]</field>
+        <field name="context">{'default_company_type': 'company'}</field>
+    </record>
+
+    <record id="view_company_group_credit_report_list" model="ir.ui.view">
+        <field name="name">res.partner.company.group.credit.report.list</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <list string="Credit Limit Report">
+                <field name="name"/>
+                <field name="company_group_id" string="Company Group" />
+                <field name="ref" />
+                <field name="credit_limit" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_outstanding" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_to_invoice" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_open_quotations" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_total_due" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_over_credit" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_remaining_credit" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_oldest_unpaid_invoice_date" groups="account.group_account_invoice,account.group_account_readonly"  optional="hide"/>
+                <field name="report_last_payment_date" groups="account.group_account_invoice,account.group_account_readonly" optional="hide"/>
+                <field name="report_days_sales_outstanding" groups="account.group_account_invoice,account.group_account_readonly" optional="hide"/>
+                <field name="report_credit_status" groups="account.group_account_invoice,account.group_account_readonly" />
+                <field name="report_payment_term_id" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_company_group_credit_report" model="ir.actions.act_window">
+        <field name="name">Company Group Credit Limit Report</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_company_group_credit_report_list" />
+        <field name="domain">['&amp;', ('company_type', '=', 'company'), '|', ('company_group_id', '!=', False), ('company_group_company_ids', '!=', False)]</field>
+        <field name="context">{'default_company_type': 'company'}</field>
+    </record>
+
+    <menuitem id="menu_company_groups" name="Company Groups"
+        parent="contacts.menu_contacts"
+        action="action_company_group_hierarchy"
+        sequence="34" />
+
+    <menuitem id="menu_company_group_credit_report" name="Company Group Credit Report"
+        parent="contacts.menu_contacts"
+        action="action_company_group_credit_report"
+        sequence="35" />
+</odoo>

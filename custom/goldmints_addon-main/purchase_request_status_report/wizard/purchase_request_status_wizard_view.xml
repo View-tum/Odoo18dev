@@ -1,0 +1,49 @@
+<!-- purchase_request_status_report/views/purchase_request_status_wizard_view.xml -->
+<odoo>
+    <record id="view_purchase_request_status_report_wizard" model="ir.ui.view">
+        <field name="name">purchase.request.status.report.wizard.form</field>
+        <field name="model">purchase.request.status.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Request Status Report">
+                <group name="criteria">
+                    <group>
+                        <field name="company_id"
+                               options="{'no_create_edit': True, 'no_open': True}"
+                               groups="base.group_multi_company"/>
+                        <field name="vendor_id"/>
+                        <field name="product_id"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="state"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_export_html"
+                            string="View"
+                            type="object"
+                            class="oe_highlight"
+                            default_focus="1"/>
+                    <button name="button_export_pdf"
+                            string="Export PDF"
+                            type="object"/>
+                    <button name="button_export_xlsx"
+                            string="Export XLSX"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="oe_link"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Window action for wizard -->
+    <record id="action_purchase_request_status_report_wizard" model="ir.actions.act_window">
+        <field name="name">Purchase Request Status</field>
+        <field name="res_model">purchase.request.status.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

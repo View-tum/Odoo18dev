@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_workcenter_view_tree_inherit_type" model="ir.ui.view">
+        <field name="name">mrp.workcenter.list.inherit.type</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="manufacturing_type" widget="badge" 
+                       decoration-info="manufacturing_type == 'plastic'" 
+                       decoration-warning="manufacturing_type == 'pharma'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_workcenter_form_inherit_type" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form.inherit.type</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group[1]" position="inside">
+                <group string="Factory Details">
+                    <field name="manufacturing_type"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

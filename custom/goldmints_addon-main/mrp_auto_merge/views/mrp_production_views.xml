@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- MO Tree View: Add Source SO column -->
+    <record id="mrp_production_tree_view_inherit_so" model="ir.ui.view">
+        <field name="name">mrp.production.list.inherit.so</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="button_smart_unplan" string="Unplan Chain" type="object" class="btn-secondary" groups="mrp.group_mrp_user"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="source_sale_order_id" optional="show" widget="many2one_barcode"/>
+                <field name="is_mto" widget="boolean" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_production_form_view_inherit_unplan" model="ir.ui.view">
+        <field name="name">mrp.production.form.inherit.unplan</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_unplan']" position="after">
+                <button name="button_smart_unplan" string="Unplan Chain" type="object" invisible="not is_planned" groups="mrp.group_mrp_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- MO Search View: Add Filter and Group By -->
+    <record id="view_mrp_production_filter_inherit_so" model="ir.ui.view">
+        <field name="name">mrp.production.select.inherit.so</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="source_sale_order_id" string="Source Sales Order" operator="child_of"/>
+            </xpath>
+            <xpath expr="//filter[@name='filter_ready']" position="after">
+                <separator/>
+                <filter string="MTO Orders" name="filter_mto" domain="[('is_mto', '=', True)]"/>
+                <filter string="MTS Orders" name="filter_mts" domain="[('is_mto', '=', False)]"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Source Sales Order" name="group_by_source_so" context="{'group_by': 'source_sale_order_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

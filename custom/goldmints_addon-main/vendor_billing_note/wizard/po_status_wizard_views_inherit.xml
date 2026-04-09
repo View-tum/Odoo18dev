@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_po_status_report_wizard_inherit_billing" model="ir.ui.view">
+        <field name="name">po.status.report.wizard.inherit.billing</field>
+        <field name="model">purchase.order.status.report.wizard</field>
+        <field name="inherit_id" ref="purchase_order_status_report.view_purchase_order_status_report_wizard"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//header/button[@name='button_export_xlsx']" position="after">
+                <button name="action_create_billing_note" string="Create Billing Note" 
+                        type="object" class="btn-primary" invisible="not has_selected_lines"/>
+                        
+                <field name="has_selected_lines" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//list/field[@name='order_id']" position="before">
+                <field name="is_selected" string=" "/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

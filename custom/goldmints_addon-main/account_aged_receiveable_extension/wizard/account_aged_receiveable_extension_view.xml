@@ -1,0 +1,58 @@
+<odoo>
+    <record id="view_account_aged_receiveable_extension_form" model="ir.ui.view">
+        <field name="name">account.aged.receiveable.extension.form</field>
+        <field name="model">account.aged.receiveable.extension</field>
+        <field name="arch" type="xml">
+            <form string="Aged Receivable Report">
+                <header>
+                    <button name="action_preview" string="Preview" type="object" class="btn-info"/>
+                    <button name="action_export_excel" string="Export Excel" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="รายละเอียดตัวกรอง">
+                            <field name="route_id" force_save="1" readonly="team_id or customer_ids" placeholder="เลือกสายรถ (หากเลือกแล้วจะระบุพนักงานขายหรือลูกค้าไม่ได้)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="subregion_ids" force_save="1" widget="many2many_tags" readonly="not route_id" placeholder="เลือกเขตย่อย (ต้องเลือกสายรถก่อน)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="customer_ids" force_save="1" widget="many2many_tags" readonly="team_id or route_id" placeholder="เลือกลูกค้า (หากเลือกแล้วจะระบุพนักงานขายหรือสายรถไม่ได้)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                            <field name="team_id" force_save="1" readonly="customer_ids or route_id" placeholder="เลือกทีมขาย (หากเลือกแล้วจะระบุลูกค้าหรือสายรถไม่ได้)" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="salesperson_ids" force_save="1" widget="many2many_tags" readonly="not team_id" placeholder="เลือกพนักงานขาย (ต้องเลือกทีมขายก่อน)" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="payment_term_extension" widget="radio"/>
+                        </group>
+                        <group string="ช่วงวันที่">
+                            <field name="date_at"/>
+                            <field name="date_type" widget="radio"/>
+                            <field name="target_move" widget="radio"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="ผลลัพธ์">
+                            <field name="line_ids" readonly="1">
+                                <list create="0" delete="0" default_order="days_overdue desc">
+                                    <field name="invoice_date" optional="show"/>
+                                    <field name="invoice_id" optional="show"/>
+                                    <field name="sale_order_id" optional="show"/>
+                                    <field name="partner_ref" optional="show"/>
+                                    <field name="partner_id" optional="show"/>
+                                    <field name="payment_term_id" optional="show"/>
+                                    <field name="salesperson_id" optional="show"/>
+                                    <field name="date_maturity" optional="show"/>
+                                    <field name="days_overdue" optional="show"/>
+
+                                    <field name="invoice_currency_id" optional="hide"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="amount_residual" sum="Total Balance" optional="hide"/>
+                                    <field name="amount_not_due" sum="Current" optional="show" decoration-success="1"/>
+                                    <field name="amount_1_30" sum="1-30 Days" optional="show"/>
+                                    <field name="amount_31_60" sum="31-60 Days" optional="show"/>
+                                    <field name="amount_61_90" sum="61-90 Days" optional="show"/>
+                                    <field name="amount_over_90" sum="> 90 Days" optional="show" decoration-danger="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

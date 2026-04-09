@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_account_aged_receiveable_extension" model="ir.actions.act_window">
+        <field name="name">รายงานอายุลูกหนี้</field>
+        <field name="res_model">account.aged.receiveable.extension</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_account_aged_receiveable_extension" name="รายงานอายุลูกหนี้" parent="account.account_reports_partners_reports_menu" action="action_account_aged_receiveable_extension" sequence="20"/>
+</odoo>

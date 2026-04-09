@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <title>Purchase Asset Flow Diagram (Swimlane)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      margin: 24px;
+      line-height: 1.5;
+      color: #222;
+    }
+    h1, h2, h3 { margin: 0 0 12px; }
+    .note {
+      background: #f5f7fb;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px;
+      margin: 16px 0 24px;
+    }
+    ul { margin-top: 8px; }
+    .mermaid {
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fff;
+      overflow-x: auto;
+    }
+  </style>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "default" });
+  </script>
+</head>
+<body>
+  <h1>Purchase Asset Flow Diagram (Swimlane)</h1>
+  <div class="note">
+    อ้างอิงจากการตรวจ flow และ custom ในฐาน <code>view</code><br />
+    โมดูลหลัก: <code>purchase</code>, <code>stock</code>, <code>account</code>,
+    <code>account_asset_management</code>, <code>auto_asset_from_vendor_bill</code>
+  </div>
+
+  <div class="mermaid">
+flowchart LR
+  subgraph U["ผู้ใช้งาน / จัดซื้อ"]
+    U1["กำหนดความต้องการซื้อ Asset"] --> U2["สร้าง RFQ / PO"]
+    U2 --> U3["ยืนยัน PO"]
+  end
+
+  subgraph P["Purchase"]
+    P1["สร้างใบสั่งซื้อจาก Vendor และสินค้า"] --> P2["PO อยู่สถานะ Purchase Order"]
+    P2 --> P3{"ต้องรับสินค้าก่อนวางบิลหรือไม่"}
+    P3 -->|"ใช่"| P4["ส่งงานไป Inventory เพื่อรับเข้า"]
+    P3 -->|"ไม่ใช่"| P5["สร้าง Vendor Bill ได้ทันที"]
+  end
+
+  subgraph I["Inventory"]
+    I1["สร้าง Receipt จาก PO"] --> I2["ตรวจรับสินค้า / ใส่จำนวนรับจริง"]
+    I2 --> I3["Validate Receipt"]
+    I3 --> I4["สต็อกเพิ่ม และ PO อัปเดต Received Qty"]
+  end
+
+  subgraph A["Accounting"]
+    A1["สร้าง Vendor Bill จาก PO / Receipt"] --> A2["ตรวจภาษี ราคา บัญชีค่าใช้จ่าย"]
+    A2 --> A3["Post Vendor Bill"]
+    A3 --> A4{"บิลมีสินค้าที่ Category = Treat as Asset หรือไม่"}
+    A4 -->|"มี"| A5["ระบบแสดงปุ่ม Create Assets บน Vendor Bill"]
+    A4 -->|"ไม่มี"| A9["จบเป็น AP ปกติ ไม่สร้าง Asset"]
+    A5 --> A6["ผู้ใช้กด Create Assets"]
+    A6 --> A7["Wizard ดึง bill lines ที่เป็น Asset ขึ้นมา"]
+    A7 --> A8["เลือก Asset Model / Split Individual / Existing Asset / Parent Asset"]
+  end
+
+  subgraph M["Asset Management"]
+    M1["ระบบสร้าง Asset Draft และลิงก์กลับไปที่ Vendor Bill"] --> M2["ตรวจชื่อทรัพย์สิน เลขทรัพย์สิน มูลค่า วันที่ได้มา"]
+    M2 --> M3["กรอก Responsible / Asset Location / บัญชีที่เกี่ยวข้อง"]
+    M3 --> M4["Validate Asset"]
+    M4 --> M5["Compute Depreciation Board"]
+    M5 --> M6["ระบบเตรียมงวดค่าเสื่อม"]
+    M6 --> M7["Post Depreciation Journal ตามงวด"]
+    M7 --> M8["Asset อยู่ในสถานะใช้งาน และติดตามต่อจนปิด / จำหน่าย"]
+  end
+
+  U1 --> P1
+  U3 --> P2
+  P4 --> I1
+  P5 --> A1
+  I4 --> A1
+  A8 --> M1
+  </div>
+
+  <h2>เงื่อนไข setup ที่ต้องมี</h2>
+  <ul>
+    <li>Product Category ต้องติ๊ก <code>Treat as Asset</code></li>
+    <li>Product ต้องกำหนด <code>Asset Model</code></li>
+    <li>ผู้ใช้ต้องมีสิทธิ์ทำ Purchase, Vendor Bill และ Asset</li>
+  </ul>
+
+  <h2>จุดสำคัญของ custom</h2>
+  <ul>
+    <li><code>auto_asset_from_vendor_bill</code>: เพิ่มปุ่ม <code>Create Assets</code> บน Vendor Bill</li>
+    <li><code>account_asset_customization</code>: เพิ่ม Responsible และ Asset Location</li>
+    <li><code>account_asset_number</code>: เพิ่มเลขทรัพย์สิน</li>
+    <li><code>account_asset_history</code>: เก็บประวัติการเปลี่ยนสถานะทรัพย์สิน</li>
+  </ul>
+</body>
+</html>

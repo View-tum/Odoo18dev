@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_report_as_finished_ax_form" model="ir.ui.view">
+        <field name="name">report_as_finished.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[1]" position="inside">
+                <field name="ax_report_as_finish" readonly="1" invisible="picking_type_sequence_code != 'AXIN'"/>
+                <field name="ax_prod_id" readonly="1" invisible="picking_type_sequence_code != 'AXIN'"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

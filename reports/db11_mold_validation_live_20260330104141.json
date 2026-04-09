@@ -1,0 +1,266 @@
+{
+  "database": "11",
+  "run_tag": "20260330104141",
+  "run_at": "2026-03-30T10:41:51.492799",
+  "selected_cases": [
+    "pls_up_w01"
+  ],
+  "passed_cases": [
+    "pls_up_w01"
+  ],
+  "failed_cases": [],
+  "cases": [
+    {
+      "case": "pls_up_w01",
+      "pass": true,
+      "product_code": "SM-PLS-UP-01001",
+      "mo_name": "GMP/MOPL/00009",
+      "picking_type": "Manufacturing Plastic",
+      "auto_mold_match": true,
+      "mold_setup": {
+        "machine_id": 567,
+        "machine_name": "เครื่องฉีดพลาสติก 5",
+        "mold_id": 579,
+        "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+        "matrix_line_id": 12,
+        "cycle_time": 30.0,
+        "units_per_hour": 120.0,
+        "mold_cost_hour": 60.0,
+        "mold_life_limit": 1000,
+        "mold_life_current_before": 0,
+        "mold_life_current_after": 92
+      },
+      "initial_workorders": [
+        {
+          "id": 219,
+          "name": "Operation 57",
+          "state": "waiting",
+          "workcenter_id": 567,
+          "workcenter_name": "เครื่องฉีดพลาสติก 5",
+          "duration_expected": 0.04,
+          "duration": 0.0,
+          "qty_production": 12.0,
+          "qty_produced": 0.0,
+          "console_qty": 0.0,
+          "mold_ids": [
+            579
+          ],
+          "mold_names": [
+            "แม่พิมพ์พลาสติกตัวบน W01"
+          ],
+          "mold_cost": 0.0,
+          "employee_names": []
+        },
+        {
+          "id": 220,
+          "name": "Operation 57",
+          "state": "waiting",
+          "workcenter_id": 569,
+          "workcenter_name": "เครื่องฉีดพลาสติก 7",
+          "duration_expected": 0.04,
+          "duration": 0.0,
+          "qty_production": 12.0,
+          "qty_produced": 0.0,
+          "console_qty": 0.0,
+          "mold_ids": [
+            579
+          ],
+          "mold_names": [
+            "แม่พิมพ์พลาสติกตัวบน W01"
+          ],
+          "mold_cost": 0.0,
+          "employee_names": []
+        }
+      ],
+      "final_workorders": [
+        {
+          "id": 219,
+          "name": "Operation 57",
+          "state": "done",
+          "workcenter_id": 567,
+          "workcenter_name": "เครื่องฉีดพลาสติก 5",
+          "duration_expected": 0.07,
+          "duration": 9.99,
+          "qty_production": 23.0,
+          "qty_produced": 0.0,
+          "console_qty": 0.0,
+          "mold_ids": [
+            579
+          ],
+          "mold_names": [
+            "แม่พิมพ์พลาสติกตัวบน W01"
+          ],
+          "mold_cost": 9.99,
+          "employee_names": []
+        },
+        {
+          "id": 220,
+          "name": "Operation 57",
+          "state": "done",
+          "workcenter_id": 569,
+          "workcenter_name": "เครื่องฉีดพลาสติก 7",
+          "duration_expected": 0.08,
+          "duration": 9.99,
+          "qty_production": 23.0,
+          "qty_produced": 0.0,
+          "console_qty": 0.0,
+          "mold_ids": [
+            579
+          ],
+          "mold_names": [
+            "แม่พิมพ์พลาสติกตัวบน W01"
+          ],
+          "mold_cost": 9.99,
+          "employee_names": []
+        }
+      ],
+      "scrap": {
+        "name": "SP/00006",
+        "state": "done",
+        "qty": 1.0,
+        "lot": "pls_up_w01-FG-8031-20260330104141"
+      },
+      "pickings": [],
+      "open_pickings": [],
+      "matrix_candidates": [
+        {
+          "machine_id": 563,
+          "machine_name": "เครื่องฉีดพลาสติก 1",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 564,
+          "machine_name": "เครื่องฉีดพลาสติก 2",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 565,
+          "machine_name": "เครื่องฉีดพลาสติก 3",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 566,
+          "machine_name": "เครื่องฉีดพลาสติก 4",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 567,
+          "machine_name": "เครื่องฉีดพลาสติก 5",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 568,
+          "machine_name": "เครื่องฉีดพลาสติก 6",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 569,
+          "machine_name": "เครื่องฉีดพลาสติก 7",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        },
+        {
+          "machine_id": 570,
+          "machine_name": "เครื่องฉีดพลาสติก 8",
+          "mold_id": 579,
+          "mold_name": "แม่พิมพ์พลาสติกตัวบน W01",
+          "cycle_time": 30.0,
+          "units_per_hour": 120.0,
+          "mold_state": "normal"
+        }
+      ],
+      "documents": {
+        "labor_move": "STJ/26/03/27345",
+        "mold_move": "STJ/26/03/27344"
+      },
+      "costing": {
+        "mo_name": "GMP/MOPL/00009",
+        "product_code": "SM-PLS-UP-01001",
+        "state": "done",
+        "product_qty": 23.0,
+        "finished_qty": 23.0,
+        "cost_method": "fifo",
+        "valuation": "real_time",
+        "standard_price_before": 0.07,
+        "standard_price_after": 2.7021,
+        "raw_cost_total": 1.0009,
+        "labor_cost_total": 10.9954,
+        "mold_cost_total": 19.98,
+        "employee_cost_total": 10.9954,
+        "mold_cost_field_total": 19.98,
+        "finished_value_total": 93.1233,
+        "actual_unit_cost": 4.0488,
+        "calculated_total_cost": 31.9763,
+        "valuation_variance": 61.1469,
+        "valuation_logic_ok": false,
+        "journal_entries": [
+          "STJ/26/03/27342",
+          "STJ/26/03/27343",
+          "STJ/26/03/27344",
+          "STJ/26/03/27345"
+        ],
+        "labor_move": "STJ/26/03/27345",
+        "mold_move": "STJ/26/03/27344",
+        "finished_minus_raw_total": 92.1224,
+        "residual_after_custom_total": 61.147,
+        "machine_actual_total": 61.1255,
+        "machine_std_total": 0.4589,
+        "core_labor_actual_total": 0.0,
+        "core_labor_std_total": 0.3276,
+        "machine_plus_core_labor_actual_total": 61.1255,
+        "residual_vs_machine_only": 0.0215,
+        "residual_vs_machine_plus_core_labor": 0.0215,
+        "labor_logic": "custom_only",
+        "productivity_lines": [
+          {
+            "id": 20,
+            "employee": "Administrator",
+            "workcenter": "เครื่องฉีดพลาสติก 5",
+            "date_start": "2026-03-30 10:31:49.375666",
+            "date_end": "2026-03-30 10:41:49",
+            "duration": 10.0,
+            "employee_cost": 0.0,
+            "total_cost": 0.0
+          },
+          {
+            "id": 21,
+            "employee": "Administrator",
+            "workcenter": "เครื่องฉีดพลาสติก 7",
+            "date_start": "2026-03-30 10:31:49.403271",
+            "date_end": "2026-03-30 10:41:49",
+            "duration": 10.0,
+            "employee_cost": 0.0,
+            "total_cost": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

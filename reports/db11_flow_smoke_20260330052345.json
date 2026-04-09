@@ -1,0 +1,235 @@
+{
+  "database": "11_codex_flowfix_20260330_120905",
+  "run_tag": "20260330052345",
+  "run_at": "2026-03-30T05:25:02.709388",
+  "passed_cases": [
+    "promo_free_item",
+    "foc_zero_mto",
+    "mto_standard"
+  ],
+  "failed_cases": [
+    "mts_min_max"
+  ],
+  "cases": [
+    {
+      "case": "promo_free_item",
+      "pass": true,
+      "order": {
+        "name": "S11567",
+        "state": "draft",
+        "invoice_status": "no",
+        "amount_total": 1236.0,
+        "pickings": [],
+        "invoices": []
+      },
+      "base_lines": [
+        {
+          "product": "FG-PSS-TH-01002",
+          "qty": 1.0,
+          "price_unit": 1236.0,
+          "is_free_item": false
+        },
+        {
+          "product": "FG-PSS-TH-01001",
+          "qty": 4.0,
+          "price_unit": 0.0,
+          "is_free_item": true
+        }
+      ],
+      "notes": [
+        "Promo logic was tested on quotation creation only.",
+        "This product is configured as pharma MTS, not MTO."
+      ]
+    },
+    {
+      "case": "foc_zero_mto",
+      "pass": true,
+      "order": {
+        "name": "SOB-263072",
+        "state": "sale",
+        "invoice_status": "invoiced",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/TRPK/00007",
+          "GMP/INT/00174",
+          "GMP/PICK/03574",
+          "GMP/OUT/02506"
+        ],
+        "invoices": [
+          "INV-D/26/03/00962"
+        ]
+      },
+      "mo_count_after_confirm": 1,
+      "mo_names_after_confirm": [
+        "GMP/MOPH/00021"
+      ],
+      "completed_mos": [
+        "GMP/MOPH/00021"
+      ],
+      "pickings_after_confirm": [
+        {
+          "name": "GMP/INT/00174",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/PICK/03574",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/TRPK/00007",
+          "type": "internal",
+          "state": "done"
+        }
+      ],
+      "pickings_after_processing": [
+        {
+          "name": "GMP/INT/00174",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/PICK/03574",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/TRPK/00007",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/OUT/02506",
+          "type": "outgoing",
+          "state": "done"
+        }
+      ],
+      "auto_invoice_after_confirm": [],
+      "auto_invoice_after_processing": [
+        "INV-D/26/03/00962"
+      ],
+      "invoice_state": "posted",
+      "invoice_total": 0.0,
+      "done_pickings": [
+        "GMP/TRPK/00007",
+        "GMP/INT/00174",
+        "GMP/PICK/03574",
+        "GMP/OUT/02506"
+      ],
+      "sale_line_delivery": [
+        {
+          "product": "FG-PNC-XX-01001",
+          "qty_ordered": 1.0,
+          "qty_delivered": 1.0,
+          "qty_invoiced": 1.0,
+          "is_foc": true
+        }
+      ],
+      "invoice_line_flags": [
+        {
+          "product": "FG-PNC-XX-01001",
+          "price_unit": 0.0,
+          "is_foc": true,
+          "foc_price_unit": 0.0
+        }
+      ],
+      "cogs_accounts": [
+        "116902",
+        "510002"
+      ],
+      "foc_expected_account": "600005",
+      "foc_expected_account_used": false,
+      "notes": [
+        "Invoice creation is validated after delivery completion.",
+        "The case passes only when the invoice is created and posted automatically."
+      ]
+    },
+    {
+      "case": "mto_standard",
+      "pass": true,
+      "order": {
+        "name": "SOB-263073",
+        "state": "sale",
+        "invoice_status": "invoiced",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/PICK/03575",
+          "GMP/OUT/02507"
+        ],
+        "invoices": [
+          "INV-D/26/03/00963"
+        ]
+      },
+      "mo_count_after_confirm": 1,
+      "mo_names_after_confirm": [
+        "GMP/MOPH/00022"
+      ],
+      "completed_mos": [
+        "GMP/MOPH/00022"
+      ],
+      "pickings_after_confirm": [
+        {
+          "name": "GMP/PICK/03575",
+          "type": "internal",
+          "state": "done"
+        }
+      ],
+      "pickings_after_processing": [
+        {
+          "name": "GMP/PICK/03575",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/OUT/02507",
+          "type": "outgoing",
+          "state": "done"
+        }
+      ],
+      "auto_invoice_after_confirm": [],
+      "auto_invoice_after_processing": [
+        "INV-D/26/03/00963"
+      ],
+      "invoice_state": "posted",
+      "invoice_total": 0.0,
+      "done_pickings": [
+        "GMP/PICK/03575",
+        "GMP/OUT/02507"
+      ],
+      "sale_line_delivery": [
+        {
+          "product": "FG-MTK-IL-01001",
+          "qty_ordered": 1.0,
+          "qty_delivered": 1.0,
+          "qty_invoiced": 1.0,
+          "is_foc": false
+        }
+      ],
+      "invoice_line_flags": [
+        {
+          "product": "FG-MTK-IL-01001",
+          "price_unit": 0.0,
+          "is_foc": false,
+          "foc_price_unit": 0.0
+        }
+      ],
+      "cogs_accounts": [
+        "116902",
+        "510001"
+      ],
+      "foc_expected_account": "600005",
+      "foc_expected_account_used": false,
+      "notes": [
+        "Invoice creation is validated after delivery completion.",
+        "The case passes only when the invoice is created and posted automatically."
+      ]
+    },
+    {
+      "case": "mts_min_max",
+      "pass": false,
+      "error": "You cannot validate this stock operation because the stock level of the product '[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)' lot MTS-FG-7985-20260330052345 would become negative (-121.0) on the stock location 'GMP/Stock' and negative stock is not allowed for this product and/or location.",
+      "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 563, in _run\n  File \"<string>\", line 506, in _run_mts_case\n  File \"<string>\", line 261, in _complete_mos\n  File \"<string>\", line 196, in _process_pending_pickings\n  File \"<string>\", line 177, in _validate_picking\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\stock_picking_invrefs_edit_date_done\\models\\stock_picking.py\", line 249, in button_validate\n    res = super().button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale_project_stock\\models\\stock_picking.py\", line 11, in button_validate\n    res = super().button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\mrp_parallel_console\\models\\stock_picking.py\", line 10, in button_validate\n    res = super(StockPicking, self).button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\effective_date_change_patch\\models\\stock_picking.py\", line 15, in button_validate\n    res = super(StockPicking, self).button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\sale_auto_confirm_invoice\\models\\stock_picking.py\", line 13, in button_validate\n    res = super().button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\effective_date_change_patch\\models\\stock_picking.py\", line 6, in silent_button_validate\n    return super(update_effective.UpdateEffective, self).button_validate()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\lot_manufacturing_date\\models\\stock_picking.py\", line 15, in button_validate\n    res = super().button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock_picking_batch\\models\\stock_picking.py\", line 145, in button_validate\n    res = super().button_validate()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_picking.py\", line 1428, in button_validate\n    pickings_to_backorder.with_context(cancel_backorder=False)._action_done()\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale_stock\\models\\stock.py\", line 120, in _action_done\n    res = super()._action_done()\n          ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\quality_control\\models\\stock_picking.py\", line 86, in _action_done\n    return super(StockPicking, self)._action_done()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\mrp_subcontracting\\models\\stock_picking.py\", line 54, in _action_done\n    res = super(StockPicking, self)._action_done()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_picking.py\", line 1256, in _action_done\n    todo_moves._action_done(cancel_backorder=self.env.context.get('cancel_backorder'))\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock_account\\models\\stock_move.py\", line 349, in _action_done\n    res = super()._action_done(cancel_backorder=cancel_backorder)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\mrp\\models\\stock_move.py\", line 534, in _action_done\n    return super(StockMove, moves)._action_done(cancel_backorder)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_move.py\", line 2054, in _action_done\n    moves_todo.mapped('move_line_ids').sorted()._action_done()\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\purchase_request\\models\\stock_move_line.py\", line 126, in _action_done\n    res = super()._action_done()\n          ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock_account\\models\\stock_move_line.py\", line 90, in _action_done\n    return super()._action_done()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_move_line.py\", line 686, in _action_done\n    available_qty, in_date = ml._synchronize_quant(-ml.quantity_product_uom, ml.location_id)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_move_line.py\", line 708, in _synchronize_quant\n    available_qty, in_date = self.env['stock.quant']._update_available_quantity(self.product_id, location, quantity, lot_id=lot, package_id=package, owner_id=owner, in_date=in_date)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_quant.py\", line 1087, in _update_available_quantity\n    quant.write(vals)\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\stock\\models\\stock_quant.py\", line 363, in write\n    return super(StockQuant, self).write(vals)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\simplify_access_management\\models\\models.py\", line 496, in write\n    return super().write(vals)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\models.py\", line 4813, in write\n    real_recs._validate_fields(vals, inverse_fields)\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\models.py\", line 1631, in _validate_fields\n    check(self)\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\stock_no_negative\\models\\stock_quant.py\", line 43, in check_negative_qty\n    raise ValidationError(\nodoo.exceptions.ValidationError: You cannot validate this stock operation because the stock level of the product '[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)' lot MTS-FG-7985-20260330052345 would become negative (-121.0) on the stock location 'GMP/Stock' and negative stock is not allowed for this product and/or location.\n"
+    }
+  ]
+}

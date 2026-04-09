@@ -1,0 +1,281 @@
+{
+  "date": "2026-04-06",
+  "database": "uat",
+  "scope": "manufacturing_shopfloor_auto",
+  "cases": [
+    {
+      "id": "AUTO-01",
+      "name": "custom auto modules installed",
+      "status": "passed",
+      "result": {
+        "modules": {
+          "mrp_parallel_console": true,
+          "mrp_mold_management": true,
+          "mrp_scrap_auto_replenish": true,
+          "mrp_workcenter_lock": true,
+          "late_backorder_recovery": true,
+          "mrp_scrap_finished_Good": true
+        }
+      }
+    },
+    {
+      "id": "AUTO-02",
+      "name": "workcenter lock blocks second start on same machine",
+      "status": "passed",
+      "result": {
+        "workcenter": "TMP LOCK WC",
+        "first_workorder": "TMP LOCK WC - LOCK OP",
+        "second_workorder": "TMP LOCK WC - LOCK OP 2",
+        "block_message": "ไม่สามารถเริ่มงานได้ เนื่องจาก Work Center นี้กำลังทำงานอยู่แล้ว\n\nWork Center: TMP LOCK WC\nWork Order ที่กำลังทำงาน: TMP LOCK WC - LOCK OP\n\nกรุณาจบหรือหยุดงานเดิมก่อนเริ่มงานใหม่บนเครื่องนี้."
+      }
+    },
+    {
+      "id": "AUTO-03",
+      "name": "parallel split distributes planned qty by capacity",
+      "status": "passed",
+      "result": {
+        "mo": "TMP PAR SPLIT MO",
+        "workorders": [
+          {
+            "name": "TMP PAR FAST - PAR SPLIT OP",
+            "workcenter": "TMP PAR FAST",
+            "planned_qty": 6.0
+          },
+          {
+            "name": "TMP PAR SLOW - PAR SPLIT OP",
+            "workcenter": "TMP PAR SLOW",
+            "planned_qty": 3.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "AUTO-04",
+      "name": "mold matrix auto-assigns mold and duration",
+      "status": "passed",
+      "result": {
+        "mo": "TMP MOLD MO",
+        "workorder": "TMP MOLD MACHINE - MOLD OP (TMP MOLD TOOL)",
+        "assigned_mold": "TMP MOLD TOOL",
+        "duration_expected": 2.5
+      }
+    },
+    {
+      "id": "AUTO-05",
+      "name": "parallel mold guard prevents duplicate mold usage",
+      "status": "passed",
+      "result": {
+        "mo": "TMP GUARD MO",
+        "active_workorders": [
+          {
+            "name": "TMP GUARD A - GUARD OP (TMP GUARD MOLD)",
+            "state": "ready",
+            "molds": [
+              "TMP GUARD MOLD"
+            ]
+          }
+        ],
+        "cancelled_workorders": [
+          {
+            "name": "TMP GUARD B - GUARD OP",
+            "state": "cancel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AUTO-06",
+      "name": "mold UI helper shows only on mold-capable workorders",
+      "status": "passed",
+      "result": {
+        "mold_workorder": "TMP UI MOLD MACHINE - UI MOLD OP (TMP UI MOLD TOOL)",
+        "mold_ui": true,
+        "plain_workorder": "TMP UI PLAIN MACHINE - UI PLAIN OP",
+        "plain_ui": false
+      }
+    },
+    {
+      "id": "AUTO-07",
+      "name": "console timer and qty logs aggregate effective quantity",
+      "status": "passed",
+      "result": {
+        "workorder": "TMP TIMER WC - TIMER OP",
+        "start": "2026-04-06 10:13:24",
+        "stop": "2026-04-06 10:13:24",
+        "effective_qty": 5.0
+      }
+    },
+    {
+      "id": "AUTO-08",
+      "name": "employee cost total computes from productivity logs",
+      "status": "passed",
+      "result": {
+        "mo": "TMP LABOR MO",
+        "employee_cost_total": 120.0
+      }
+    },
+    {
+      "id": "AUTO-09",
+      "name": "overproduction sync updates MO and component demand",
+      "status": "passed",
+      "result": {
+        "mo": "TMP OVER MO",
+        "new_product_qty": 12.0,
+        "new_component_qty": 12.0
+      }
+    },
+    {
+      "id": "AUTO-10",
+      "name": "scrap wizard limits products to MO raw and finished goods",
+      "status": "passed",
+      "result": {
+        "workorder": "TMP SCRAP WC - SCRAP OP",
+        "allowed_product_ids": [
+          9089,
+          9090
+        ]
+      }
+    },
+    {
+      "id": "AUTO-11",
+      "name": "scrap auto-replenish uses same-location stock when available",
+      "status": "passed",
+      "result": {
+        "mo": "TMP SCRAP SAME MO",
+        "raw_move_qty": 7.0,
+        "scrap_id": 5
+      }
+    },
+    {
+      "id": "AUTO-12",
+      "name": "scrap auto-replenish creates internal transfer when source is short",
+      "status": "passed",
+      "result": {
+        "mo": "TMP SCRAP INT MO",
+        "raw_move_qty": 7.0,
+        "replenishment_picking": "GMP/TRPH/00022"
+      }
+    },
+    {
+      "id": "AUTO-13",
+      "name": "late backorder recovery recreates stock picking backorder",
+      "status": "passed",
+      "result": {
+        "original_picking": "GMP/TRPH/00023",
+        "late_backorder": "GMP/TRPH/00024",
+        "late_qty": 6.0
+      }
+    },
+    {
+      "id": "AUTO-14",
+      "name": "late backorder recovery recreates MO backorder",
+      "status": "passed",
+      "result": {
+        "original_mo": "TMP LATE BO MO",
+        "late_backorder_mo": "TMP LATE BO MO-001",
+        "late_qty": 6.0
+      }
+    }
+  ],
+  "summary": {
+    "shell_cases": 14,
+    "reference_ui_cases": 10,
+    "total_cases": 24,
+    "passed": 24,
+    "failed": 0,
+    "overall_ok": true
+  },
+  "reference_ui_cases": [
+    {
+      "id": "UI-MOLD-01",
+      "name": "dashboard loads mold jobs",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/01_dashboard.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-02",
+      "name": "mold card shows mold and shots",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/02_mold_card.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-03",
+      "name": "full mold warning appears on start",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/03_full_mold_warning.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-04",
+      "name": "continue anyway starts workorder",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/04_continue_anyway_started.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-05",
+      "name": "change mold dialog opens from card",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/06_change_mold_dialog.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-06",
+      "name": "selecting mold from card updates card",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/07_change_mold_result.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-07",
+      "name": "change mold from warning and start with alternative mold",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/08_change_from_warning_result.png",
+        "reports/mold_shopfloor_uat_20260406_images/09_changed_mold_started.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-08",
+      "name": "reset life resets shots to zero",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/10_reset_life_result.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-09",
+      "name": "non-mold workcenter hides mold UI",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/05_non_mold_card_hidden.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-10",
+      "name": "breakdown entry point available under More menu",
+      "status": "passed",
+      "source": "reports\\mold_shopfloor_uat_full_20260406.json",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/11_more_menu_report_issue.png"
+      ]
+    }
+  ]
+}

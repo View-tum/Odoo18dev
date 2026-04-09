@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_advance_cash" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.advance.cash</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="91" />
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='account']" position="inside">
+                <block title="Easy Advance Cash" id="easy_advance_cash_setting_block">
+                    <setting id="advance_cash_default"
+                        title="Default Configuration for Advance Cash"
+                        help="Configure defaults for Advance Cash logs.">
+                        <group>
+                            <field name="advance_cash_journal_id" options="{'no_create': True}" />
+                            <field name="advance_cash_reimbursement_journal_id"
+                                options="{'no_create': True}" />
+                            <field name="advance_cash_reimbursement_account_id"
+                                options="{'no_create': True}" />
+                            <field name="advance_cash_return_account_id"
+                                options="{'no_create': True}" />
+                            <field name="analytic_precision" invisible="1" />
+                            <field name="advance_cash_analytic_distribution"
+                                widget="analytic_distribution"
+                                options="{'account_field': 'advance_cash_journal_id'}" />
+                        </group>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

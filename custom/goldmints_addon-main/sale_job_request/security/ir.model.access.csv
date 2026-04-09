@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_job_request_user,access.job.request.user,model_job_request,base.group_user,1,1,1,0
+access_job_request_manager,access.job.request.manager,model_job_request,base.group_system,1,1,1,1
+access_job_request_line_user,access.job.request.line.user,model_job_request_line,base.group_user,1,1,1,1
+access_job_request_line_manager,access.job.request.line.manager,model_job_request_line,base.group_system,1,1,1,1

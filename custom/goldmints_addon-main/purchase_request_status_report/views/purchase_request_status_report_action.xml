@@ -1,0 +1,27 @@
+<!-- purchase_request_status_report/views/report_data.xml -->
+<odoo>
+
+    <record id="action_report_purchase_request_status" model="ir.actions.report">
+        <field name="name">Purchase Request Status</field>
+        <field name="model">purchase.request.status.report.wizard</field>
+        <!-- default เป็น qweb-pdf -->
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_request_status_report.pr_status_report</field>
+        <field name="report_file">purchase_request_status_report.pr_status_report</field>
+        <!-- ให้ชื่อไฟล์มาจาก wizard เหมือน cost_sheet -->
+        <field name="print_report_name">object._get_report_base_filename()</field>
+        <!-- ผูก paperformat แบบเดียวกับ cost_sheet -->
+        <field name="paperformat_id"
+               ref="purchase_request_status_report.paperformat_pr_status_a4"/>
+    </record>
+
+    <!-- XLSX -->
+    <record id="action_report_purchase_request_status_xlsx" model="ir.actions.report">
+        <field name="name">Purchase Request Status</field>
+        <field name="model">purchase.request.status.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">purchase_request_status_report.pr_status_report_xlsx</field>
+        <field name="print_report_name">object._get_report_base_filename()</field>
+    </record>
+
+</odoo>

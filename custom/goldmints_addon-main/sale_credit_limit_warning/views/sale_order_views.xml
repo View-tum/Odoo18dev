@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_sale_credit_limit_warning" model="ir.ui.view">
+        <field name="name">sale.order.form.credit.limit.warning</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_check_credit"
+                    type="object"
+                    string="Check Credit"
+                    class="btn-secondary"
+                    invisible="state not in ('draft', 'sent') or not partner_id or credit_banner_mode == 'show'"
+                />
+                <button
+                    name="action_check_credit"
+                    type="object"
+                    string="Hide Credit"
+                    class="btn-secondary"
+                    invisible="state not in ('draft', 'sent') or not partner_id or credit_banner_mode != 'show'"
+                />
+            </xpath>
+            <xpath expr="//div[field[@name='partner_credit_warning']]" position="replace">
+                <div
+                    class="alert alert-warning px-2 py-2"
+                    role="alert"
+                    invisible="partner_credit_warning_html == ''"
+                >
+                    <field name="partner_credit_warning_html" widget="html" nolabel="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//form/sheet" position="before">
+                <field name="credit_banner_mode" invisible="1"/>
+                <field name="partner_credit_warning_html" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="mrp_cost_structure_inherit_mold" inherit_id="mrp_account_enterprise.mrp_cost_structure">
+        <xpath expr="//t[@name='operations']" position="after">
+            <t t-if="line.get('molds')">
+                <div name="molds" class="mt-3">
+                    <h3 class="o_mrp_header">Molds Cost</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Mold</th>
+                                <th class="text-end">Working Time</th>
+                                <th class="text-end">Cost/Hour</th>
+                                <th class="text-end">Total Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="line['molds']" t-as="mold">
+                                <td class="text-start">
+                                    <span t-esc="mold['name']"/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="mold['time']" t-options='{"widget": "float_time"}'/> Hours
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="mold['cost_hourly']"
+                                          t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="mold['total_cost']"
+                                          t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

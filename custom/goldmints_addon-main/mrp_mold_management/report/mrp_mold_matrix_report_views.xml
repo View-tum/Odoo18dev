@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_mold_matrix_report_list" model="ir.ui.view">
+        <field name="name">mrp.mold.matrix.report.list</field>
+        <field name="model">mrp.mold.matrix.report</field>
+        <field name="arch" type="xml">
+            <list string="Mold Compatibility Matrix" create="0" edit="0" delete="0">
+                <field name="machine_id" widget="many2one_avatar"/>
+                <field name="mold_id" widget="many2one_avatar"/>
+                <field name="product_id"/>
+                <field name="mold_state" widget="badge"
+                       decoration-success="mold_state == 'normal'"
+                       decoration-warning="mold_state == 'warning'"
+                       decoration-danger="mold_state == 'full'"/>
+                <field name="mold_life_current" string="Current Shots"/>
+                <field name="mold_life_limit" string="Shot Limit"/>
+                <field name="cycle_time"/>
+                <field name="units_per_hour"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mrp_mold_matrix_report_pivot" model="ir.ui.view">
+        <field name="name">mrp.mold.matrix.report.pivot</field>
+        <field name="model">mrp.mold.matrix.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Mold Analysis" sample="1">
+                <field name="machine_id" type="row"/>
+                <field name="mold_id" type="col"/>
+                <field name="mold_life_current" type="measure"/>
+                <field name="cycle_time" type="measure"/>
+                <field name="units_per_hour" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_mrp_mold_matrix_report" model="ir.actions.act_window">
+        <field name="name">Mold Compatibility Matrix</field>
+        <field name="res_model">mrp.mold.matrix.report</field>
+        <field name="view_mode">list,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data found for the compatibility matrix.
+            </p>
+            <p>
+                Ensure you have configured Machine-Mold pairings and Mold-Product pairings on the Workcenter forms.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_mrp_mold_matrix_report"
+              name="Mold Compatibility Report"
+              parent="mrp.menu_mrp_reporting"
+              action="action_mrp_mold_matrix_report"
+              sequence="50"/>
+</odoo>

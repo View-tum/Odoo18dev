@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_inherit_mps" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.mps</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Manufacturing MPS Allocation">
+                    <group>
+                        <group string="Plastic Factory">
+                            <field name="in_group_%(mrp_mps_manufacturing_type.group_mrp_mps_plastic)d" string="Access MPS Plastic"/>
+                            <field name="in_group_%(mrp_mps_manufacturing_type.group_mrp_manager_plastic)d" string="Manager Action Plastic"/>
+                        </group>
+                        <group string="Pharma Factory">
+                            <field name="in_group_%(mrp_mps_manufacturing_type.group_mrp_mps_pharma)d" string="Access MPS Pharma"/>
+                            <field name="in_group_%(mrp_mps_manufacturing_type.group_mrp_manager_pharma)d" string="Manager Action Pharma"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

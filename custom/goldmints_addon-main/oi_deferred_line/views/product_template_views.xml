@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_product_template_form_inherit_oi_deferred_line" model="ir.ui.view">
+            <field name="name">product.template.form.inherit.oi.deferred.line</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='invoicing']" position="inside">
+                    <group string="Deferred Defaults">
+                        <group>
+                            <field name="property_deferred_expense_journal_id"/>
+                            <field name="property_deferred_expense_account_id"/>
+                        </group>
+                        <group>
+                            <field name="property_deferred_revenue_journal_id"/>
+                            <field name="property_deferred_revenue_account_id"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

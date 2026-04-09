@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_production_form_late_backorder_recovery" model="ir.ui.view">
+        <field name="name">mrp.production.form.late.backorder.recovery</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="can_create_late_backorder" invisible="1"/>
+                <field name="late_backorder_remaining_qty" invisible="1"/>
+                <button name="action_create_late_backorder"
+                        type="object"
+                        string="Create Backorder"
+                        class="btn-primary"
+                        invisible="not can_create_late_backorder"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

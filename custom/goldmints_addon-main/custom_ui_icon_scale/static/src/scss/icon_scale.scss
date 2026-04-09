@@ -1,0 +1,25 @@
+:root {
+    --odoo-custom-icon-scale: 1.0;
+    --odoo-custom-icon-spacing: 0px;
+}
+
+.o_form_status_indicator_buttons {
+    .o_form_button_save i,
+    .o_form_button_cancel i {
+        display: inline-block;
+        transition: transform 0.2s ease-in-out, margin 0.2s ease-in-out;
+        transform: scale(var(--odoo-custom-icon-scale, 1.0));
+        margin: 0 var(--odoo-custom-icon-spacing, 0px) !important;
+
+        // Ensure the container doesn't crop the scaled icon
+        width: auto !important;
+        height: auto !important;
+    }
+}
+
+// target other occurrences of cloud-upload and times if needed
+.fa-cloud-upload, .fa-times {
+    &.o_scale_aware {
+         transform: scale(var(--odoo-custom-icon-scale, 1.0));
+    }
+}

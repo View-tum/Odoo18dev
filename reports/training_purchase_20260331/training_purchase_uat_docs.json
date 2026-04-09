@@ -1,0 +1,184 @@
+{
+  "urls": {
+    "home": "http://127.0.0.1:8811/odoo?db=uat",
+    "product_category_rm": "http://127.0.0.1:8811/odoo?db=uat#id=115&model=product.category&view_type=form",
+    "vendor_master": "http://127.0.0.1:8811/odoo?db=uat#id=70302&model=res.partner&view_type=form",
+    "rm_pr_draft": "http://127.0.0.1:8811/odoo?db=uat#id=4&model=purchase.request&view_type=form",
+    "rm_pr_approved": "http://127.0.0.1:8811/odoo?db=uat#id=6&model=purchase.request&view_type=form",
+    "rm_po": "http://127.0.0.1:8811/odoo?db=uat#id=79&model=purchase.order&view_type=form",
+    "rm_receipt": "http://127.0.0.1:8811/odoo?db=uat#id=10292&model=stock.picking&view_type=form",
+    "rm_scrap": "http://127.0.0.1:8811/odoo?db=uat#id=2&model=stock.scrap&view_type=form",
+    "asset_pr": "http://127.0.0.1:8811/odoo?db=uat#id=7&model=purchase.request&view_type=form",
+    "asset_receipt": "http://127.0.0.1:8811/odoo?db=uat#id=10294&model=stock.picking&view_type=form",
+    "asset_bill": "http://127.0.0.1:8811/odoo?db=uat#id=68315&model=account.move&view_type=form",
+    "consu_pr": "http://127.0.0.1:8811/odoo?db=uat#id=8&model=purchase.request&view_type=form",
+    "consu_receipt": "http://127.0.0.1:8811/odoo?db=uat#id=10295&model=stock.picking&view_type=form",
+    "service_po": "http://127.0.0.1:8811/odoo?db=uat#id=81&model=purchase.order&view_type=form",
+    "service_acceptance": "http://127.0.0.1:8811/odoo?db=uat#id=1&model=service.acceptance&view_type=form",
+    "service_bill": "http://127.0.0.1:8811/odoo?db=uat#id=68316&model=account.move&view_type=form"
+  },
+  "records": {
+    "rm_pr_draft": {
+      "id": 4,
+      "name": "PR00004",
+      "state": "draft",
+      "origin": "TRN-PUR-RM-DRAFT-2",
+      "line_ids": [
+        2
+      ]
+    },
+    "rm_pr_approved": {
+      "id": 6,
+      "name": "PR00006",
+      "state": "approved",
+      "origin": "TRN-PUR-RM-APPROVED-2",
+      "line_ids": [
+        4
+      ]
+    },
+    "rm_po": {
+      "id": 79,
+      "name": "P00017",
+      "state": "done",
+      "picking_ids": [
+        10292
+      ],
+      "origin": "TRN-PUR-RM-PO1"
+    },
+    "rm_picking": {
+      "id": 10292,
+      "name": "GMP/IN/00034",
+      "state": "done",
+      "move_line_ids": [
+        35486
+      ],
+      "location_dest_id": [
+        9,
+        "GMP/HOLD-V"
+      ],
+      "invoice_reference": "TRN-RM-INV-01",
+      "invoice_date": "2026-03-31"
+    },
+    "rm_scrap": {
+      "id": 2,
+      "name": "SP/00001",
+      "state": "done",
+      "origin": "TRN-PUR-RM-SCRAP"
+    },
+    "asset_location": {
+      "id": 234,
+      "name": "Training Asset",
+      "complete_name": "GMP/Stock/Training Asset"
+    },
+    "asset_pr": {
+      "id": 7,
+      "name": "PR00007",
+      "state": "draft",
+      "origin": "TRN-PUR-ASSET-PR1",
+      "line_ids": [
+        5
+      ]
+    },
+    "asset_po": {
+      "id": 80,
+      "name": "P00018",
+      "state": "done",
+      "picking_ids": [
+        10294
+      ],
+      "origin": "TRN-PUR-ASSET-PO1"
+    },
+    "asset_picking": {
+      "id": 10294,
+      "name": "GMP/IN/00035",
+      "state": "done",
+      "move_line_ids": [
+        35489
+      ],
+      "location_dest_id": [
+        234,
+        "GMP/Stock/Training Asset"
+      ],
+      "invoice_reference": "TRN-ASSET-INV-01",
+      "invoice_date": "2026-03-31"
+    },
+    "asset_bill": {
+      "id": 68315,
+      "name": false,
+      "state": "draft",
+      "invoice_origin": "P00018"
+    },
+    "consu_pr": {
+      "id": 8,
+      "name": "PR00008",
+      "state": "draft",
+      "origin": "TRN-PUR-CONSU-PR1",
+      "line_ids": [
+        6
+      ]
+    },
+    "consu_po": {
+      "id": 82,
+      "name": "P00020",
+      "state": "done",
+      "picking_ids": [
+        10295
+      ],
+      "origin": "TRN-PUR-CONSU-PO1"
+    },
+    "consu_picking": {
+      "id": 10295,
+      "name": "GMP/IN/00036",
+      "state": "done",
+      "move_line_ids": [
+        35490
+      ],
+      "location_dest_id": [
+        9,
+        "GMP/HOLD-V"
+      ],
+      "invoice_reference": "TRN-CONSU-INV-01",
+      "invoice_date": "2026-03-31"
+    },
+    "service_po": {
+      "id": 81,
+      "name": "P00019",
+      "state": "done",
+      "order_line": [
+        283
+      ]
+    },
+    "service_acceptance": {
+      "id": 1,
+      "name": "SA/2026/0001",
+      "state": "done",
+      "acceptance_line_ids": [
+        1
+      ]
+    },
+    "service_bill": {
+      "id": 68316,
+      "name": false,
+      "state": "draft",
+      "invoice_origin": "P00019"
+    }
+  },
+  "screenshots": {
+    "01_home_dashboard.png": "home",
+    "02_product_category_rm.png": "product_category_rm",
+    "03_vendor_master.png": "vendor_master",
+    "04_create_pr.png": "rm_pr_draft",
+    "05_approve_pr.png": "rm_pr_approved",
+    "06_confirm_po.png": "rm_po",
+    "07_receipt_lot.png": "rm_receipt",
+    "08_scrap_operation.png": "rm_scrap",
+    "09_asset_pr.png": "asset_pr",
+    "10_asset_location.png": "asset_receipt",
+    "11_asset_bill.png": "asset_bill",
+    "12_consumable_pr.png": "consu_pr",
+    "13_consumable_receipt.png": "consu_receipt",
+    "14_service_po.png": "service_po",
+    "15_service_entry.png": "service_acceptance",
+    "16_vendor_bill_je.png": "service_bill"
+  }
+}

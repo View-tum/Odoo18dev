@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_advance_return_wizard_form" model="ir.ui.view">
+        <field name="name">advance.return.wizard.form</field>
+        <field name="model">advance.return.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee_id" />
+                    <field name="balance" />
+                    <field name="amount" />
+                    <field name="journal_id" options="{'no_create': True}" />
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm Return" type="object"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_advance_return_wizard" model="ir.actions.act_window">
+        <field name="name">เคลียร์เงินยืมคงเหลือ (Clear Outstanding)</field>
+        <field name="res_model">advance.return.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_advance_return_wizard"
+        parent="menu_easy_advance_log_root"
+        action="action_advance_return_wizard"
+        sequence="20" />
+</odoo>

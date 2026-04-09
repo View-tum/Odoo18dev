@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_petty_cash_log_user,petty.cash.log.user,model_petty_cash_log,base.group_user,1,1,1,1
+access_petty_cash_log_accountant,petty.cash.log.accountant,model_petty_cash_log,account.group_account_user,1,1,1,1
+access_petty_cash_log_manager,petty.cash.log.manager,model_petty_cash_log,account.group_account_manager,1,1,1,1
+access_petty_cash_payment_wizard,petty.cash.payment.wizard,model_petty_cash_payment_wizard,base.group_user,1,1,1,1
+access_petty_cash_log_line_user,petty.cash.log.line.user,model_petty_cash_log_line,base.group_user,1,1,1,1

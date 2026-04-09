@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_filter_contact_only" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.filter.contact.only</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="10000"/>
+        <field name="arch" type="xml">
+            <!-- 1. Customer Selection Filter -->
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="domain">['|', ('parent_id', '=', False), ('is_company', '=', True), '|', ('type', '=', 'contact'), ('type', '=', False), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+            </xpath>
+
+            <!-- 2. Invoice Address Filter (Include self + invoice children) -->
+            <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+                <attribute name="domain">['|', ('id', '=', partner_id), '&amp;', ('commercial_partner_id', '=', partner_id), ('type', '=', 'invoice')]</attribute>
+            </xpath>
+
+            <!-- 3. Delivery Address Filter (Include self + delivery children) -->
+            <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                <attribute name="domain">['|', ('id', '=', partner_id), '&amp;', ('commercial_partner_id', '=', partner_id), ('type', '=', 'delivery')]</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

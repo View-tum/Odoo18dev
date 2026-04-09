@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_account_payment_tree_inherit_salesperson" model="ir.ui.view">
+        <field name="name">account.payment.list.inherit.salesperson</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

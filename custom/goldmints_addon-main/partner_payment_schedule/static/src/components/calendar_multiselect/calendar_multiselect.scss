@@ -1,0 +1,68 @@
+.pps_calendar_multiselect {
+    font-family: inherit;
+    max-width: 280px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+}
+
+.pps_calendar_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pps_calendar_title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.pps_calendar_weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.pps_calendar_days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+.pps_day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.pps_day:hover:not(.empty) {
+    background: #e9ecef;
+}
+
+.pps_day.selected {
+    background: #714B67;
+    color: #fff;
+    font-weight: 600;
+}
+
+.pps_day.empty {
+    cursor: default;
+}
+
+.pps_selected_summary {
+    margin-top: 10px;
+    text-align: center;
+    color: #6c757d;
+}

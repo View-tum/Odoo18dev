@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.jasper</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="100" />
+		<field name="inherit_id" ref="base.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//form" position="inside">
+				<app name="oi_jasper_report" data-string="Jasper Report" string="Jasper Report"
+					groups="base.group_system">
+					<block title="Jasper Report" name="oi_jasper_report_setting_container">
+						<setting>
+							<field name="jasper_report_url" string="Server URL"
+								placeholder="http://localhost:8080/jasperserver" />
+						</setting>
+						<setting>
+							<field name="jasper_report_user" string="Login Username" />
+						</setting>
+						<setting>
+							<field name="jasper_report_password" string="Login Password"
+								password="True" />
+						</setting>
+						<setting>
+							<button name="jasper_test" type="object" string="Test Connection"
+								class="btn btn-primary" />
+						</setting>
+						<setting>
+							<button name="oi_jasper_report.act_window_jasper_report"
+								icon="fa-arrow-right" type="action" string="Manage Reports"
+								class="btn-link o_web_settings_access_rights" />
+						</setting>
+						<setting>
+							<field name="jasper_post_chatter" string="Post to Chatter on Print" />
+						</setting>
+					</block>
+				</app>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_billing_villa_xlsx" model="ir.actions.report">
+        <field name="name">ใบวางบิล วิลล่า มาร์เก็ต (Template)</field>
+        <field name="model">account.billing</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">acc_billing_villa_template.billing_xlsx</field>
+        <field name="binding_model_id"
+               ref="account_billing.model_account_billing"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

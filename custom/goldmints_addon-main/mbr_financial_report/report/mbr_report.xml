@@ -1,0 +1,35 @@
+<odoo>
+    
+    
+     <!-- Explicit ir.actions.report record -->
+<record id="action_report_mbr" model="ir.actions.report">
+        <field name="name">MBR Report</field>
+        <field name="model">mbr.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">mbr_financial_report.mbr_report_template</field>
+        <field name="report_file">mbr_financial_report.mbr_report_template</field>
+        <!-- optional extra fields like paperformat_id, print_report_name, etc. -->
+</record>
+
+   <record id="action_report_mbr_html" model="ir.actions.report">
+        <field name="name">MBR Report Preview</field>
+        <field name="model">mbr.report.wizard</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">mbr_financial_report.mbr_report_template</field>
+        <field name="report_file">mbr_financial_report.mbr_report_template</field>
+    </record>
+
+   <record id="action_report_mbr_xlsx" model="ir.actions.report">
+    <field name="name">MBR Report (XLSX)</field>
+    <field name="model">mbr.report.wizard</field>
+    <field name="report_type">xlsx</field>
+    <!-- The template name used by your report_xlsx class -->
+    <field name="report_name">mbr_financial_report.mbr_report_xlsx</field>
+    <field name="report_file">mbr_financial_report.mbr_report_xlsx</field>
+    <!-- Optional: disable binding so it doesn’t show inside forms -->
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="print_report_name">'%s MBR.xlsx' % (dict(object._fields.get(\"month\").selection).get(object.month, \"MBR\"))</field>
+</record>
+
+</odoo>

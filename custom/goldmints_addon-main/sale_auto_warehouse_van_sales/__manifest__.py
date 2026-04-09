@@ -1,0 +1,27 @@
+{
+    "name": "Sale: Auto & Lock Warehouse for Van Sales",
+    "summary": "Automatically assign and lock warehouse on sales orders for van sales users.",
+    "version": "18.0.1.0.0",
+    "category": "Sales",
+    "author": "Wolapart",
+    "website": "https://365infotech.co.th",
+    "license": "OPL-1",
+    "depends": [
+        "sale_management",
+        "sale_stock",
+        "stock",
+        "sale_document_ref",
+        "bi_manual_currency_exchange_rate",
+        "sale_order_payments_button",
+        "sale_so_type",
+        "saleperson_pricelist_restrict",
+        "show_delivery_date_at_header",
+    ],
+    "data": [
+        "security/groups.xml",
+        "views/sale_order_view.xml",
+    ],
+    "application": False,
+    "installable": True,
+}
+

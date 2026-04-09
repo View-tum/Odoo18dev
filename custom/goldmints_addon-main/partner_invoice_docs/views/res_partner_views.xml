@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_partner_form_invoice_docs" model="ir.ui.view">
+        <field name="name">res.partner.form.invoice.docs</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Invoice Supporting Documents" name="invoice_docs_page">
+                    <group>
+                        <group string="จำนวนเอกสารที่ต้องใช้แนบ (ใบ)">
+                            <field name="inv_doc_white"/>
+                            <field name="inv_doc_yellow"/>
+                            <field name="inv_doc_pink"/>
+                            <field name="inv_doc_po"/>
+                        </group>
+                        <group string="รายละเอียดเพิ่มเติม">
+                            <field name="inv_doc_description" placeholder="กรอกรายละเอียด..."/>
+                            <field name="inv_doc_sorting_note" placeholder="ระบุการเรียงเอกสาร..."/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

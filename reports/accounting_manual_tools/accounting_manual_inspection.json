@@ -1,0 +1,2031 @@
+{
+  "menus": {
+    "account_customer_group_payment.menu_account_customer_group_payment": {
+      "id": 934,
+      "name": "รับชำระเงินกลุ่มลูกค้า",
+      "path": "Accounting > Customers > รับชำระเงินกลุ่มลูกค้า",
+      "action": 1528
+    },
+    "cheque_management.menu_cheque_root": {
+      "id": 847,
+      "name": "Cheque",
+      "path": "Cheque",
+      "action": null
+    },
+    "cheque_management.menu_cheque_book": {
+      "id": 851,
+      "name": "Cheque Book",
+      "path": "Cheque > Cheque Book",
+      "action": 1362
+    },
+    "cheque_management.menu_cheque_inbound_outbound": {
+      "id": 854,
+      "name": "Cheque",
+      "path": "Cheque > Cheque",
+      "action": null
+    },
+    "cheque_management.menu_cheque_transactions": {
+      "id": 956,
+      "name": "Cheque Transactions",
+      "path": "Cheque > Cheque > Cheque Transactions",
+      "action": 1556
+    },
+    "cheque_management.menu_cheque_inbound": {
+      "id": 855,
+      "name": "Cheque Paying",
+      "path": "Cheque > Cheque > Cheque Paying",
+      "action": 1372
+    },
+    "cheque_management.menu_cheque_outbound": {
+      "id": 856,
+      "name": "Cheque Receiving",
+      "path": "Cheque > Cheque > Cheque Receiving",
+      "action": 1373
+    },
+    "cheque_management.menu_cheque_paid": {
+      "id": 968,
+      "name": "Paid Cheque",
+      "path": "Cheque > Cheque > Paid Cheque",
+      "action": 1588
+    },
+    "cheque_management.menu_cheque_void": {
+      "id": 966,
+      "name": "Void Cheque",
+      "path": "Cheque > Cheque > Void Cheque",
+      "action": 1586
+    },
+    "cheque_management.menu_cheque_configuration": {
+      "id": 849,
+      "name": "Configuration",
+      "path": "Cheque > Configuration",
+      "action": null
+    },
+    "cheque_management.menu_cheque_management_config": {
+      "id": 850,
+      "name": "Settings",
+      "path": "Cheque > Configuration > Settings",
+      "action": 1361
+    }
+  },
+  "journals": [
+    {
+      "id": 7,
+      "name": "Cash",
+      "code": "CSH1",
+      "type": "cash",
+      "is_cheque_incoming": false,
+      "is_cheque_outgoing": false,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 101,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111100 เงินสด",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 102,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111100 เงินสด",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "name": "Cash Mobile",
+      "code": "CSH5",
+      "type": "cash",
+      "is_cheque_incoming": false,
+      "is_cheque_outgoing": false,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 119,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111101 เงินสดรับจากการขาย",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 120,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111101 เงินสดรับจากการขาย",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "name": "Cheque for Customer Invoices",
+      "code": "BNK1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 114,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111201 BAY CA สามแยก #046-0-14721-8",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 115,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 116,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111201 BAY CA สามแยก #046-0-14721-8",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 118,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "name": "Cheque for Vendor Bills",
+      "code": "BNK2",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 122,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 125,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "111004 Outstanding Payments",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 123,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 124,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 126,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "name": "เงินฝากธนาคาร UOB CA The Third Place #814-300-155-5",
+      "code": "RUOB1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 109,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111205 UOB CA The Third Place #814-300-155-5",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 112,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 110,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111205 UOB CA The Third Place #814-300-155-5",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 111,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 113,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "code": "PBAY1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 37,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111201 BAY CA สามแยก #046-0-14721-8",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 91,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 38,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111201 BAY CA สามแยก #046-0-14721-8",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 79,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงเทพ สี่แยกบางนา #240-300280-7",
+      "code": "RBBL1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 46,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111204 BBL CA สี่แยกบางนา#240-300280-7",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 92,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 39,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111204 BBL CA สี่แยกบางนา#240-300280-7",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 55,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 80,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "เงินฝากธนาคารสกุลเงิน JPY -ธ.กสิกรไทย#",
+      "code": "JKBK",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 51,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111307 KBANK FCD YEN#......................",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 93,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 44,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111307 KBANK FCD YEN#......................",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 56,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 81,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "เงินฝากธนาคารสกุลเงิน USD -ธ.กสิกรไทย#",
+      "code": "KBK-U",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 50,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111306 KBANK FCD USD#.....................",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 94,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 43,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111306 KBANK FCD USD#.....................",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 57,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 82,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "เงินฝากธนาคารออมทรัพย์-ธ.กรุงไทย สรรพาวุธ #180-0-01184-9",
+      "code": "RKTB1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 49,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111305 KTB S/A ถ.สรรพาวุธ#180-0-01184-9",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 96,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 42,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111305 KTB S/A ถ.สรรพาวุธ#180-0-01184-9",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 59,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 84,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "เงินฝากธนาคารออมทรัพย์-ธ.กสิกรไทย เซ็นทรัลบางนา #011-3-18586-4",
+      "code": "RKBK1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 47,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111302 KBANK S/A Centralบางนา#011-3-18586-4",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 95,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 40,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111302 KBANK S/A Centralบางนา#011-3-18586-4",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 58,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 83,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "เงินฝากธนาคารออมทรัพย์-ธ.ไทยพาณิชย์ บางนา #015-441363-4",
+      "code": "RSCB1",
+      "type": "bank",
+      "is_cheque_incoming": true,
+      "is_cheque_outgoing": true,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 48,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111304 SCB S/A บางนา#015-441363-4",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 97,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "113005 เช็ครับลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 41,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111304 SCB S/A บางนา#015-441363-4",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 60,
+          "name": "Checks",
+          "code": "check_printing",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 85,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": "212004 เช็คจ่ายลงวันที่ล่วงหน้า",
+          "is_cheque_line": true,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "name": "เงินสดจากการขาย (กทม.)",
+      "code": "CSH2",
+      "type": "cash",
+      "is_cheque_incoming": false,
+      "is_cheque_outgoing": false,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 103,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111101 เงินสดรับจากการขาย",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 104,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111101 เงินสดรับจากการขาย",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "name": "เงินสดจากการขาย (ตจว.)",
+      "code": "CSH3",
+      "type": "cash",
+      "is_cheque_incoming": false,
+      "is_cheque_outgoing": false,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 105,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111103 บัญชีพักเงินสด",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 106,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111103 บัญชีพักเงินสด",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "เงินสดย่อย",
+      "code": "PC",
+      "type": "cash",
+      "is_cheque_incoming": false,
+      "is_cheque_outgoing": false,
+      "dynamic_templates": [],
+      "incoming_lines": [
+        {
+          "id": 52,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111120 เงินสดย่อย",
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        },
+        {
+          "id": 99,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "incoming_cheque_account": []
+        }
+      ],
+      "outgoing_lines": [
+        {
+          "id": 45,
+          "name": "Manual Payment",
+          "code": "manual",
+          "payment_account": "111120 เงินสดย่อย",
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        },
+        {
+          "id": 87,
+          "name": "Cheque Payment",
+          "code": "cheque",
+          "payment_account": false,
+          "is_cheque_line": false,
+          "outgoing_cheque_account": []
+        }
+      ]
+    }
+  ],
+  "company_groups": [],
+  "open_customer_invoices": [
+    {
+      "id": 68308,
+      "name": "INV-D/26/04/00001",
+      "ref": "",
+      "partner": "ร้านค้า นนท์, ร้านค้า นนท์ใบแจ้งหนี้",
+      "invoice_date": "2026-04-01",
+      "amount_total": 706919.75,
+      "amount_residual": 706919.75,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67962,
+      "name": "INV-D/26/03/00887",
+      "ref": "",
+      "partner": "นายวิเชียร ทับสกุล",
+      "invoice_date": "2026-03-27",
+      "amount_total": 80512.5,
+      "amount_residual": 80512.5,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 65213,
+      "name": "INV-D/26/03/00779",
+      "ref": "",
+      "partner": "สัวเภสัช",
+      "invoice_date": "2026-03-25",
+      "amount_total": 3098.9,
+      "amount_residual": 3098.9,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68200,
+      "name": "INV-D/26/03/00959",
+      "ref": "",
+      "partner": "ร้านอ๊อด",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68197,
+      "name": "INV-D/26/03/00958",
+      "ref": "",
+      "partner": "ร้านธนญง",
+      "invoice_date": "2026-03-24",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68195,
+      "name": "INV-D/26/03/00957",
+      "ref": "",
+      "partner": "ร้าน 20 บาท",
+      "invoice_date": "2026-03-24",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68191,
+      "name": "INV-D/26/03/00955",
+      "ref": "",
+      "partner": "สหวัฒนาพาณิชย์",
+      "invoice_date": "2026-03-24",
+      "amount_total": 1714.0,
+      "amount_residual": 1714.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68189,
+      "name": "INV-D/26/03/00954",
+      "ref": "",
+      "partner": "ร้านการ์ตูน",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68187,
+      "name": "INV-D/26/03/00953",
+      "ref": "",
+      "partner": "ท้ายซอย",
+      "invoice_date": "2026-03-24",
+      "amount_total": 360.0,
+      "amount_residual": 360.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68185,
+      "name": "INV-D/26/03/00952",
+      "ref": "",
+      "partner": "ร้านโอภาศ",
+      "invoice_date": "2026-03-24",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68183,
+      "name": "INV-D/26/03/00951",
+      "ref": "",
+      "partner": "นิตยา",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68181,
+      "name": "INV-D/26/03/00950",
+      "ref": "",
+      "partner": "ร้านพูลสุข",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68179,
+      "name": "INV-D/26/03/00949",
+      "ref": "",
+      "partner": "ร้านตุ้ม",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68177,
+      "name": "INV-D/26/03/00948",
+      "ref": "",
+      "partner": "เค.เอส. (ซุ้มขายน้ำ)",
+      "invoice_date": "2026-03-24",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68175,
+      "name": "INV-D/26/03/00947",
+      "ref": "",
+      "partner": "ดำรงค์พานิช",
+      "invoice_date": "2026-03-24",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68173,
+      "name": "INV-D/26/03/00946",
+      "ref": "",
+      "partner": "เจ.เอส.มาร์ท",
+      "invoice_date": "2026-03-24",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68193,
+      "name": "INV-D/26/03/00956",
+      "ref": "",
+      "partner": "ร้านบุญทำ",
+      "invoice_date": "2026-03-23",
+      "amount_total": 360.0,
+      "amount_residual": 360.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67733,
+      "name": "INV-D/26/03/00844",
+      "ref": "",
+      "partner": "พรรณี",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67731,
+      "name": "INV-D/26/03/00843",
+      "ref": "",
+      "partner": "โก้เก๋",
+      "invoice_date": "2026-03-23",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67729,
+      "name": "INV-D/26/03/00842",
+      "ref": "",
+      "partner": "ซื่อสัตย์พานิช",
+      "invoice_date": "2026-03-23",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67727,
+      "name": "INV-D/26/03/00841",
+      "ref": "",
+      "partner": "ร้าน โสภณ",
+      "invoice_date": "2026-03-23",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67725,
+      "name": "INV-D/26/03/00840",
+      "ref": "",
+      "partner": "กาญจนาเภสัช",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67723,
+      "name": "INV-D/26/03/00839",
+      "ref": "",
+      "partner": "ร้านพีพี",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67721,
+      "name": "INV-D/26/03/00838",
+      "ref": "",
+      "partner": "ร้านโพธิ์ตระการ",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67719,
+      "name": "INV-D/26/03/00837",
+      "ref": "",
+      "partner": "คุณเกรียงชัย",
+      "invoice_date": "2026-03-23",
+      "amount_total": 857.0,
+      "amount_residual": 857.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67717,
+      "name": "INV-D/26/03/00836",
+      "ref": "",
+      "partner": "ศิริโรจน์ 2",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67715,
+      "name": "INV-D/26/03/00835",
+      "ref": "",
+      "partner": "มนตรี ( ร้านชำ )",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 67713,
+      "name": "INV-D/26/03/00834",
+      "ref": "",
+      "partner": "วิไลลักษณ์",
+      "invoice_date": "2026-03-23",
+      "amount_total": 180.0,
+      "amount_residual": 180.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68171,
+      "name": "INV-D/26/03/00945",
+      "ref": "",
+      "partner": "เงินแท้พาณิชย์",
+      "invoice_date": "2026-03-22",
+      "amount_total": 2472.0,
+      "amount_residual": 2472.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    },
+    {
+      "id": 68168,
+      "name": "INV-D/26/03/00944",
+      "ref": "",
+      "partner": "ประชาเวชภัณฑ์",
+      "invoice_date": "2026-03-22",
+      "amount_total": 1174.2,
+      "amount_residual": 1174.2,
+      "payment_state": "not_paid",
+      "journal": "Domestic Customer Invoice",
+      "currency": "THB"
+    }
+  ],
+  "open_vendor_bills": [
+    {
+      "id": 68333,
+      "name": "APD/26/04/00003",
+      "ref": false,
+      "partner": "UAT Test Vendor",
+      "invoice_date": "2026-04-02",
+      "amount_total": 64200.0,
+      "amount_residual": 64200.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 68320,
+      "name": "APD/26/04/00001",
+      "ref": "",
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2026-04-01",
+      "amount_total": 1070.0,
+      "amount_residual": 1070.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67411,
+      "name": "APD/25/12/00001",
+      "ref": false,
+      "partner": "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด",
+      "invoice_date": "2025-12-27",
+      "amount_total": -3404.63,
+      "amount_residual": -3404.63,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67410,
+      "name": "APD/25/12/00002",
+      "ref": false,
+      "partner": "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด",
+      "invoice_date": "2025-12-27",
+      "amount_total": 152449.11,
+      "amount_residual": 152449.11,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67467,
+      "name": "APD/25/12/00003",
+      "ref": false,
+      "partner": "บริษัท เอ็น.อาร์.พัฒนา จำกัด",
+      "invoice_date": "2025-12-23",
+      "amount_total": 4104000.0,
+      "amount_residual": 4104000.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67466,
+      "name": "APD/25/12/00004",
+      "ref": false,
+      "partner": "บริษัท เอ็น.อาร์.พัฒนา จำกัด",
+      "invoice_date": "2025-12-23",
+      "amount_total": 630000.0,
+      "amount_residual": 630000.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67403,
+      "name": "APD/25/12/00005",
+      "ref": false,
+      "partner": "บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด",
+      "invoice_date": "2025-12-20",
+      "amount_total": 418234.75,
+      "amount_residual": 418234.75,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67526,
+      "name": "APD/25/12/00006",
+      "ref": false,
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 37129.0,
+      "amount_residual": 37129.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67525,
+      "name": "APD/25/12/00007",
+      "ref": false,
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 67140.36,
+      "amount_residual": 67140.36,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67524,
+      "name": "APD/25/12/00008",
+      "ref": false,
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 68758.2,
+      "amount_residual": 68758.2,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67523,
+      "name": "APD/25/12/00009",
+      "ref": false,
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 275296.02,
+      "amount_residual": 275296.02,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67522,
+      "name": "APD/25/12/00010",
+      "ref": false,
+      "partner": "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 266923.27,
+      "amount_residual": 266923.27,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67477,
+      "name": "APD/25/12/00011",
+      "ref": false,
+      "partner": "บริษัท อุตสาหกรรม วินิลเทค จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 3103.0,
+      "amount_residual": 3103.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67476,
+      "name": "APD/25/12/00012",
+      "ref": false,
+      "partner": "บริษัท อุตสาหกรรม วินิลเทค จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 22481.98,
+      "amount_residual": 22481.98,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67427,
+      "name": "APD/25/12/00013",
+      "ref": false,
+      "partner": "บริษัท เวิลด์เฮ้าส์ จำกัด",
+      "invoice_date": "2025-12-19",
+      "amount_total": 207580.0,
+      "amount_residual": 207580.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67402,
+      "name": "APD/25/12/00014",
+      "ref": false,
+      "partner": "บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด",
+      "invoice_date": "2025-12-18",
+      "amount_total": 1291784.89,
+      "amount_residual": 1291784.89,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67418,
+      "name": "APD/25/12/00015",
+      "ref": false,
+      "partner": "ห้างหุ้นส่วนจำกัด อี.เยอร์เกนส์",
+      "invoice_date": "2025-12-17",
+      "amount_total": 3597340.0,
+      "amount_residual": 3597340.0,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67409,
+      "name": "APD/25/12/00016",
+      "ref": false,
+      "partner": "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด",
+      "invoice_date": "2025-12-16",
+      "amount_total": 152926.86,
+      "amount_residual": 152926.86,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67460,
+      "name": "APD/25/12/00017",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -6.58,
+      "amount_residual": -6.58,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67459,
+      "name": "APD/25/12/00018",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -17.57,
+      "amount_residual": -17.57,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67458,
+      "name": "APD/25/12/00019",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -23.01,
+      "amount_residual": -23.01,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67457,
+      "name": "APD/25/12/00020",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -23.71,
+      "amount_residual": -23.71,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67456,
+      "name": "APD/25/12/00021",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -26.66,
+      "amount_residual": -26.66,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67455,
+      "name": "APD/25/12/00022",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -44.58,
+      "amount_residual": -44.58,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67454,
+      "name": "APD/25/12/00023",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -121.98,
+      "amount_residual": -121.98,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67453,
+      "name": "APD/25/12/00024",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": -597.83,
+      "amount_residual": -597.83,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67452,
+      "name": "APD/25/12/00025",
+      "ref": false,
+      "partner": "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": 64764.96,
+      "amount_residual": 64764.96,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67414,
+      "name": "APD/25/12/00026",
+      "ref": false,
+      "partner": "บริษัท วรกิจออโต้ชริ้งค์แพค จำกัด",
+      "invoice_date": "2025-12-15",
+      "amount_total": 11886.63,
+      "amount_residual": 11886.63,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67408,
+      "name": "APD/25/12/00027",
+      "ref": false,
+      "partner": "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด",
+      "invoice_date": "2025-12-13",
+      "amount_total": 152781.02,
+      "amount_residual": 152781.02,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    },
+    {
+      "id": 67461,
+      "name": "APD/25/12/00029",
+      "ref": false,
+      "partner": "ห้างหุ้นส่วนสามัญนิติบุคคล เอ็งจิ้นแซเชียง",
+      "invoice_date": "2025-12-12",
+      "amount_total": 1167631.08,
+      "amount_residual": 1167631.08,
+      "payment_state": "not_paid",
+      "journal": "Domestic Vendor Bills",
+      "currency": "THB"
+    }
+  ],
+  "cheque_templates": [
+    {
+      "id": 1,
+      "name": "Standard Cheque",
+      "width": 720.0,
+      "height": 362.88
+    },
+    {
+      "id": 2,
+      "name": "UOB",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 3,
+      "name": "KTB",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 4,
+      "name": "K Bank",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 5,
+      "name": "BBL",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 6,
+      "name": "TTB",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 7,
+      "name": "BAY",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 8,
+      "name": "SCB",
+      "width": 175.0,
+      "height": 90.0
+    },
+    {
+      "id": 9,
+      "name": "GSB",
+      "width": 175.0,
+      "height": 90.0
+    }
+  ],
+  "existing_cheque_books": [],
+  "existing_cheques": [
+    {
+      "id": 544,
+      "name": "00399779",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท อิ่มอุดมโอสถ จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 73606.0,
+      "payment": false
+    },
+    {
+      "id": 543,
+      "name": "88046351",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท คลังยาบางปะกอก จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 86568.0,
+      "payment": false
+    },
+    {
+      "id": 542,
+      "name": "05190020",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "สุวรรณเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 3525.0,
+      "payment": false
+    },
+    {
+      "id": 541,
+      "name": "10030751",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ร้านสหกรณ์การขนส่ง จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 15359.95,
+      "payment": false
+    },
+    {
+      "id": 540,
+      "name": "08129496",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท เอ. เมนารินี (ประเทศไทย) จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 1123502.5,
+      "payment": false
+    },
+    {
+      "id": 539,
+      "name": "46562635",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ร้าน มาร์ช ฟาร์มาซี",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 25006.0,
+      "payment": false
+    },
+    {
+      "id": 538,
+      "name": "88055120",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ประจัญเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 13418.0,
+      "payment": false
+    },
+    {
+      "id": 537,
+      "name": "10218118",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท เอ็นดูเภสัช จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 83752.0,
+      "payment": false
+    },
+    {
+      "id": 536,
+      "name": "08527896",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "หจก. เต็กเฮงเลี่ยงกี่",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 62714.0,
+      "payment": false
+    },
+    {
+      "id": 535,
+      "name": "10221773",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ยูแคร์ จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 15785.0,
+      "payment": false
+    },
+    {
+      "id": 534,
+      "name": "03242107",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "สมชายเวชภัณฑ์",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 380133.0,
+      "payment": false
+    },
+    {
+      "id": 533,
+      "name": "88052042",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ช้างทองเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 17290.0,
+      "payment": false
+    },
+    {
+      "id": 532,
+      "name": "00685519",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "กมลเวชเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 5994.0,
+      "payment": false
+    },
+    {
+      "id": 531,
+      "name": "10187484",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "หจก. เตียเซ่งหลี",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 124320.05,
+      "payment": false
+    },
+    {
+      "id": 530,
+      "name": "49267201",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เอพริล 27 ดรัก แอนด์ เฮลท์ แคร์",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 28881.0,
+      "payment": false
+    },
+    {
+      "id": 529,
+      "name": "01181067",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บนเมืองเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 13418.0,
+      "payment": false
+    },
+    {
+      "id": 528,
+      "name": "50699680",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เอพริล 27 ดรัก แอนด์ เฮลท์ แคร์",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 19472.0,
+      "payment": false
+    },
+    {
+      "id": 527,
+      "name": "01181068",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บนเมืองเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 15200.0,
+      "payment": false
+    },
+    {
+      "id": 526,
+      "name": "88011165",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "หจก. ยิ่งยงเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 26837.0,
+      "payment": false
+    },
+    {
+      "id": 525,
+      "name": "00138854",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "สยามเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 6331.0,
+      "payment": false
+    },
+    {
+      "id": 524,
+      "name": "37044892",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ไพศาลเวชภัณฑ์",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 92577.0,
+      "payment": false
+    },
+    {
+      "id": 523,
+      "name": "02184875",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "พิฆเณศวร์เภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 2472.0,
+      "payment": false
+    },
+    {
+      "id": 522,
+      "name": "02189003",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ซี.เอส.วี. เมดิซีน จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 67093.75,
+      "payment": false
+    },
+    {
+      "id": 521,
+      "name": "88400080",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เต็กอันตึ๊ง",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 1786.0,
+      "payment": false
+    },
+    {
+      "id": 520,
+      "name": "88020125",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ยิ่นซิ่วเกาะโอสถ จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 91223.0,
+      "payment": false
+    },
+    {
+      "id": 519,
+      "name": "01122549",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เจริญสุขเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 2286.0,
+      "payment": false
+    },
+    {
+      "id": 518,
+      "name": "90000004",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "พิพัฒน์ฟาร์มาซี",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 14577.0,
+      "payment": false
+    },
+    {
+      "id": 517,
+      "name": "88027423",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "พูลสวัสดิ์เภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 38902.0,
+      "payment": false
+    },
+    {
+      "id": 516,
+      "name": "25252867",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บ้านยากงไกรลาศ",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 7609.0,
+      "payment": false
+    },
+    {
+      "id": 515,
+      "name": "10498662",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ไทยพัฒนาเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 13418.0,
+      "payment": false
+    },
+    {
+      "id": 514,
+      "name": "10224064",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท เอ็นดูเภสัช จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 300513.0,
+      "payment": false
+    },
+    {
+      "id": 513,
+      "name": "88009415",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ชาญเภสัช จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 101863.0,
+      "payment": false
+    },
+    {
+      "id": 512,
+      "name": "57064486",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท สยามฟาร์มาซี (2018) จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 455287.0,
+      "payment": false
+    },
+    {
+      "id": 511,
+      "name": "88022949",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท เอ็น.บี.ฟาร์มา จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 86141.41,
+      "payment": false
+    },
+    {
+      "id": 510,
+      "name": "08527923",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "หจก. เต็กเฮงเลี่ยงกี่",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 44222.0,
+      "payment": false
+    },
+    {
+      "id": 509,
+      "name": "88039259",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "แสงทองเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 59470.0,
+      "payment": false
+    },
+    {
+      "id": 507,
+      "name": "01008509",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บุญยงค์เภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 28576.0,
+      "payment": false
+    },
+    {
+      "id": 506,
+      "name": "00829017",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เทียนอันตึ๊ง",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 15703.0,
+      "payment": false
+    },
+    {
+      "id": 505,
+      "name": "25126911",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ยงอันตึ๊ง",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 28286.0,
+      "payment": false
+    },
+    {
+      "id": 504,
+      "name": "10280711",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ถาวรเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 12200.0,
+      "payment": false
+    },
+    {
+      "id": 503,
+      "name": "22913313",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ธงชัยเวชภัณฑ์",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 41705.0,
+      "payment": false
+    },
+    {
+      "id": 502,
+      "name": "00271708",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "นครเภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 40256.0,
+      "payment": false
+    },
+    {
+      "id": 501,
+      "name": "00367185",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ก เภสัช",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 13418.0,
+      "payment": false
+    },
+    {
+      "id": 500,
+      "name": "54597547",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ชัยอนันต์โอสถ",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 5871.0,
+      "payment": false
+    },
+    {
+      "id": 499,
+      "name": "10182170",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ไพศาลโอสถ",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 14225.0,
+      "payment": false
+    },
+    {
+      "id": 498,
+      "name": "88034547",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "สมศักดิ์ฟาร์มาซี",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 42750.0,
+      "payment": false
+    },
+    {
+      "id": 497,
+      "name": "10000460",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "เทียนชัยโอสถ",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 16316.0,
+      "payment": false
+    },
+    {
+      "id": 496,
+      "name": "00125011",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ทิวไร่ จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 13701.0,
+      "payment": false
+    },
+    {
+      "id": 495,
+      "name": "55037978",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "ไทยแลนด์ฟาร์มาซี",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 5222.0,
+      "payment": false
+    },
+    {
+      "id": 494,
+      "name": "88009416",
+      "type": "outbound",
+      "state": "confirmed",
+      "partner": "บริษัท ชาญเภสัช จำกัด",
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "amount": 92173.0,
+      "payment": false
+    }
+  ]
+}

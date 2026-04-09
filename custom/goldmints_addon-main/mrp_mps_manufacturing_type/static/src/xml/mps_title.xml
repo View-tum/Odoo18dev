@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- Wrapper template with a name (required) -->
+    <t t-name="mrp_mps_manufacturing_type.mps_title" owl="1">
+        <!-- Extend the existing MPS MainComponent template -->
+        <t t-extend="mrp_mps.MainComponent">
+            <!-- Replace the <h1> that currently shows 'Master Production Schedule' -->
+            <t t-jquery=".o_mps_header h1" t-operation="replace">
+                <!-- Use the action name set in JS: 'Plastic MPS', 'Pharma MPS', etc. -->
+                <h1 t-esc="props.action.name"/>
+            </t>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_free_item_promo" model="ir.ui.view">
+        <field name="name">res.partner.form.free.item.promo</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+           <!-- <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="string">Company group members</attribute>
+                <attribute name="placeholder">Company Group</attribute>
+                <attribute name="invisible">0</attribute>
+            </xpath>-->
+           <!-- <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>-->
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Sales Note">
+                    <group>
+                        <field name="customer_credit_rating"/>
+                        <field name="shop_type"/>
+                        <field name="customer_group"/>
+                        <field name="change_delivery_address"/>
+                        <field name="memo"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="view_partner_list_inherit_delivery" model="ir.ui.view">
+	    <field name="name">res.partner.list.inherit.delivery</field>
+	    <field name="model">res.partner</field>
+	    <field name="inherit_id" ref="base.view_partner_tree"/>
+	    <field name="arch" type="xml">
+		    <xpath expr="//field[@name='complete_name']" position="attributes">
+		      <attribute name="width">280px</attribute>
+		   </xpath>
+		   <xpath expr="//field[@name='street']" position="attributes">
+		      <attribute name="width">320px</attribute>
+		   </xpath>
+		    <xpath expr="//field[@name='complete_name']" position="after">
+			  <field name="ref" optional="show" width="50px"/>
+		   </xpath>
+		    <xpath expr="//field[@name='country_id']" position="attributes">
+		      <attribute name="width">60px</attribute>
+		   </xpath>
+		   <xpath expr="//field[@name='city']" position="attributes">
+		      <attribute name="width">60px</attribute>
+		   </xpath>
+		   <xpath expr="//field[@name='phone']" position="attributes">
+		      <attribute name="optional">hide</attribute>
+		   </xpath>
+		   <xpath expr="//field[@name='email']" position="attributes">
+		      <attribute name="optional">hide</attribute>
+		   </xpath>
+		    <xpath expr="//field[@name='vat']" position="attributes">
+		      <attribute name="optional">hide</attribute>
+		   </xpath>
+	    </field>
+  </record>
+    
+    
+</odoo>

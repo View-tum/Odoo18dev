@@ -1,0 +1,259 @@
+<odoo>
+    <record id="view_advance_cash_log_tree" model="ir.ui.view">
+        <field name="name">advance.cash.log.tree</field>
+        <field name="model">advance.cash.log</field>
+        <field name="arch" type="xml">
+            <list string="Advance Cash Log"
+                decoration-danger="transaction_type == 'payout'"
+                decoration-muted="transaction_type == 'expense'"
+                decoration-success="transaction_type == 'return'"
+                decoration-info="state == 'draft'"
+                sample="1">
+                <field name="date" />
+                <field name="name" />
+                <field name="employee_id" widget="many2one_avatar_user" />
+                <field name="current_balance" string="Current Balance" optional="show"
+                    widget="monetary" decoration-danger="current_balance &lt; 0"
+                    decoration-success="current_balance &gt; 0" />
+                <field name="description" />
+                <field name="transaction_type" widget="badge"
+                    decoration-danger="transaction_type == 'payout'"
+                    decoration-muted="transaction_type == 'expense'"
+                    decoration-success="transaction_type == 'return'" />
+                <field name="amount_signed" string="Total Balance" sum="Total"
+                    widget="monetary" decoration-bf="1" />
+                <field name="state" widget="badge"
+                    decoration-success="state == 'posted'"
+                    decoration-info="state == 'draft'" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_advance_cash_log_form" model="ir.ui.view">
+        <field name="name">advance.cash.log.form</field>
+        <field name="model">advance.cash.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" string="Submit for Approval"
+                        type="object" class="oe_highlight"
+                        invisible="state != 'draft'" />
+
+                    <!-- Step 1: Manager Approval (Awaiting Submitted) -->
+                    <button name="action_manager_approve" string="Manager Approve"
+                        type="object" class="oe_highlight"
+                        groups="hr.group_hr_user,account.group_account_user"
+                        invisible="state != 'submitted'" />
+
+                    <!-- Step 2: Account Approval (Awaiting Manager Approved) -->
+                    <button name="action_approve" string="Account Approve"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'manager_approved'" />
+
+                    <!-- Final Action: Confirm/Post (Awaiting Approved) -->
+                    <button name="action_confirm" string="Confirm Payment"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'payout'" />
+
+                    <button name="action_confirm" string="Confirm Clearing"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'expense'" />
+
+                    <button name="action_confirm" string="Confirm Return"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="state != 'approved' or transaction_type != 'return'" />
+
+                    <button name="action_reject" string="Reject"
+                        type="object" class="btn-secondary"
+                        groups="hr.group_hr_user,account.group_account_user"
+                        invisible="state not in ['submitted', 'manager_approved', 'approved']" />
+
+                    <button name="action_create_reimbursement"
+                        string="Reimburse Excess"
+                        type="object" class="oe_highlight"
+                        groups="account.group_account_user"
+                        invisible="transaction_type != 'expense' or current_balance &gt;= 0 or reimburse_move_id or state != 'posted'" />
+
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,submitted,manager_approved,approved,posted" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_reimbursement"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-money"
+                            invisible="not reimburse_move_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Reimburse</span>
+                                <field name="reimburse_payment_state" widget="badge"
+                                    decoration-success="reimburse_payment_state == 'paid'"
+                                    decoration-info="reimburse_payment_state == 'in_payment'" />
+                            </div>
+                        </button>
+                        <button name="action_open_journal_entry"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-list"
+                            invisible="not move_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Journal Entry</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="transaction_type" class="oe_edit_only" />
+                        <h1>
+                            <field name="transaction_type" widget="radio"
+                                options="{'horizontal': true}"
+                                readonly="state != 'draft'" />
+                        </h1>
+                        <h2>
+                            <field name="name" placeholder="Document Number" />
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="journal_id"
+                                groups="account.group_account_user"
+                                readonly="state == 'posted'" />
+                            <field name="date" readonly="state != 'draft'" />
+                            <field
+                                name="employee_id"
+                                readonly="state != 'draft'"
+                                options="{'no_create': True}" />
+                            <label for="current_balance" />
+                            <div
+                                class="o_row">
+                                <field name="current_balance"
+                                    widget="monetary"
+                                    options="{'currency_field': 'currency_id'}"
+                                    decoration-danger="current_balance &lt; 0"
+                                    decoration-success="current_balance &gt; 0" />
+                                <button name="action_sync_employee_balance" type="object"
+                                    icon="fa-refresh" class="btn-link" title="Refresh/Sync Balance"
+                                    groups="account.group_account_user" />
+                            </div>
+                            <field name="manager_id" widget="many2one_avatar_user"
+                                readonly="state not in
+                            ['draft', 'submitted']"
+                                options="{'no_create': True}" />
+                            <field name="accountant_id" widget="many2one_avatar_user"
+                                readonly="state not in ['draft', 'submitted']"
+                                options="{'no_create': True}" />
+                        </group>
+                        <group>
+                            <field name="description" placeholder="Description..."
+                                readonly="state != 'draft'" />
+                            <field name="analytic_precision" invisible="1" />
+                            <field name="analytic_distribution"
+                                widget="analytic_distribution"
+                                options="{'account_field': 'journal_id'}"
+                                readonly="state != 'draft'" />
+                            <field name="amount"
+                                readonly="state != 'draft' or transaction_type == 'expense'"
+                                force_save="1" />
+                            <field name="currency_id" invisible="1" />
+                        </group>
+                    </group>
+
+                    <notebook
+                        invisible="transaction_type != 'expense'">
+                        <page string="Expense Lines">
+                            <field name="line_ids"
+                                readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="product_id" options="{'no_create': True}" />
+                                    <field name="description" required="1" />
+                                    <field name="expense_account_id" options="{'no_create': True}"
+                                        optional="show" />
+                                    <field name="analytic_distribution"
+                                        widget="analytic_distribution" />
+                                    <field name="analytic_precision" column_invisible="True" />
+                                    <field name="vat_tax_id" options="{'no_create': True}" />
+                                    <field name="wht_tax_id" options="{'no_create': True}" />
+                                    <field name="amount" sum="Total Amount" />
+                                    <field name="amount_untaxed" optional="hide" />
+                                    <field name="amount_tax" sum="Total Tax" optional="show" />
+                                    <field name="tax_invoice_number" optional="hide" />
+                                    <field name="tax_invoice_date" optional="hide" />
+                                </list>
+                            </field>
+
+                            <!-- Summary Footer -->
+                            <group class="oe_subtotal_footer">
+                                <field name="total_untaxed" />
+                                <field name="total_tax" />
+                                <field name="total_amount" class="oe_subtotal_footer_separator" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_advance_cash_log_search" model="ir.ui.view">
+        <field name="name">advance.cash.log.search</field>
+        <field name="model">advance.cash.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" />
+                <field name="description" />
+                <filter string="My Advances" name="my_advances"
+                    domain="[('employee_id.user_id', '=', uid)]" />
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]" />
+                <filter string="Posted" name="posted" domain="[('state', '=', 'posted')]" />
+                <group expand="1" string="Group By">
+                    <filter string="Employee" name="group_employee"
+                        context="{'group_by': 'employee_id'}" />
+                    <filter string="Type" name="group_type"
+                        context="{'group_by': 'transaction_type'}" />
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_advance_cash_log_pivot" model="ir.ui.view">
+        <field name="name">advance.cash.log.pivot</field>
+        <field name="model">advance.cash.log</field>
+        <field name="arch" type="xml">
+            <pivot string="Advance Analysis" sample="1">
+                <field name="employee_id" type="row" />
+                <field name="transaction_type" type="col" />
+                <field name="amount_signed" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_advance_cash_log_graph" model="ir.ui.view">
+        <field name="name">advance.cash.log.graph</field>
+        <field name="model">advance.cash.log</field>
+        <field name="arch" type="xml">
+            <graph string="Advance Analysis" sample="1">
+                <field name="employee_id" />
+                <field name="amount_signed" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_advance_cash_log" model="ir.actions.act_window">
+        <field name="name">Cash Advances</field>
+        <field name="res_model">advance.cash.log</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new document
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<!-- mrp_mps_manufacturing_type/security/mps_groups.xml -->
+<odoo>
+    <record model="ir.module.category" id="module_category_manufacturing_mps">
+        <field name="name">Manufacturing MPS Allocation</field>
+        <field name="description">Assign users to specific manufacturing factory types.</field>
+        <field name="sequence">15</field>
+    </record>
+
+    <record id="group_mrp_mps_plastic" model="res.groups">
+        <field name="name">MPS Plastic</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+    </record>
+
+    <record id="group_mrp_mps_pharma" model="res.groups">
+        <field name="name">MPS Pharma</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+    </record>
+
+    <record id="group_mrp_mps_packaging" model="res.groups">
+        <field name="name">MPS Packaging</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+    </record>
+
+    <!-- Specialized Manager Groups for Notifications -->
+    <record id="group_mrp_manager_plastic" model="res.groups">
+        <field name="name">Manufacturing Manager (Plastic)</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+        <field name="implied_ids" eval="[(4, ref('mrp.group_mrp_manager'))]"/>
+    </record>
+
+    <record id="group_mrp_manager_pharma" model="res.groups">
+        <field name="name">Manufacturing Manager (Pharma)</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+        <field name="implied_ids" eval="[(4, ref('mrp.group_mrp_manager'))]"/>
+    </record>
+
+    <record id="group_mrp_manager_packaging" model="res.groups">
+        <field name="name">Manufacturing Manager (Packaging)</field>
+        <field name="category_id" ref="mrp_mps_manufacturing_type.module_category_manufacturing_mps"/>
+        <field name="implied_ids" eval="[(4, ref('mrp.group_mrp_manager'))]"/>
+    </record>
+</odoo>

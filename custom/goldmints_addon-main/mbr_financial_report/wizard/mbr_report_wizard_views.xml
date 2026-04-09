@@ -1,0 +1,50 @@
+<odoo>
+	<data>
+	    <record id="view_mbr_report_wizard" model="ir.ui.view">
+	        <field name="name">mbr.report.wizard.form</field>
+	        <field name="model">mbr.report.wizard</field>
+	        <field name="arch" type="xml">
+	            <form string="MBR Report">
+	                <group>
+	                    <field name="company_id"/>
+	                    <field name="year"/>
+	                    <field name="month"/>
+	                    <field name="target_move"/>
+	                    <field name="journal_ids" widget="many2many_tags"/>
+	                    <field name="scale"/>
+	                </group>
+	                <group string="Comparison">
+	                    <field name="compare"/>
+	                    <field name="compare_date_from" invisible="not compare" required="compare"/>
+	                    <field name="compare_date_to" invisible="not compare" required="compare"/>
+	                </group>
+	                <footer>
+	                    <button string="Preview" type="object"
+	                            name="action_export_xlsx"
+	                            class="btn-primary"/>
+	                    <button string="Cancel" special="cancel"
+	                            class="btn-secondary"/>
+	                </footer>
+	            </form>
+	        </field>
+	    </record>
+	
+	    <record id="action_mbr_report_wizard" model="ir.actions.act_window">
+	        <field name="name">MBR Report</field>
+	        <field name="res_model">mbr.report.wizard</field>
+	        <field name="view_mode">form</field>
+	        <field name="target">new</field>
+	    </record>
+	
+	    <menuitem id="menu_mbr_report_root"
+	              name="MBR Reports"
+	              parent="account.account_reports_management_menu"
+	              sequence="99"/>
+	    <menuitem id="menu_mbr_report"
+	              name="MBR (Monthly Business Review)"
+	              parent="menu_mbr_report_root"
+	              action="action_mbr_report_wizard"/>
+       
+   
+      </data>
+</odoo>

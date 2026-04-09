@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard: Select Mold BoM on Confirm -->
+    <record id="view_mrp_production_mold_bom_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.production.mold.bom.wizard.form</field>
+        <field name="model">mrp.production.mold.bom.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Mold BoM">
+                <sheet>
+                    <group>
+                        <field name="production_id" readonly="1"/>
+                        <field name="bom_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" type="object" name="action_apply" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Add context flag on MO Confirm button to trigger wizard when needed -->
+    <record id="mrp_mold_management_mrp_production_confirm_context" model="ir.ui.view">
+        <field name="name">mrp.production.form.mold.confirm.context</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <attribute name="context">{'show_mold_bom_wizard': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Wizard: Change Mold BoM after Confirm -->
+    <record id="view_mrp_production_mold_bom_change_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.production.mold.bom.change.wizard.form</field>
+        <field name="model">mrp.production.mold.bom.change.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Mold BoM">
+                <sheet>
+                    <group>
+                        <field name="production_id" readonly="1"/>
+                        <field name="bom_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Apply" type="object" name="action_apply" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Button on MO form (Confirmed only) -->
+    <record id="mrp_mold_management_mrp_production_change_bom_button" model="ir.ui.view">
+        <field name="name">mrp.production.form.mold.change.bom.button</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_change_mold_bom"
+                        type="object"
+                        string="Change BoM"
+                        class="btn-secondary"
+                        invisible="state != 'confirmed'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

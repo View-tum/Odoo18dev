@@ -1,0 +1,19 @@
+/* Job Request order lines styling */
+.o_jr_lines tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.o_jr_lines .o_jr_seq {
+  font-weight: 600;
+  color: #4c4c4c;
+  font-size: 14px;
+  padding-right: 8px;
+}
+.o_jr_lines .o_data_cell input, .o_jr_lines .o_data_cell textarea {
+  transition: box-shadow 0.15s ease;
+}
+.o_jr_lines .o_data_cell input:hover, .o_jr_lines .o_data_cell textarea:hover {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+.o_jr_lines {
+  table-layout: auto;
+}

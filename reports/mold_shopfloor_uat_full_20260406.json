@@ -1,0 +1,133 @@
+{
+  "date": "2026-04-06",
+  "environment": "uat",
+  "url": "http://localhost:8811/odoo?db=uat",
+  "summary": {
+    "total_cases": 10,
+    "passed": 10,
+    "failed": 0,
+    "overall_ok": true
+  },
+  "test_data": {
+    "mold_warning_mo": "GMP/MOPL/00011",
+    "mold_change_mo": "GMP/MOPL/00012",
+    "non_mold_mo": "GMP/MOPH/00021",
+    "full_mold": {
+      "id": 590,
+      "name": "แม่พิมพ์พลาสติกตัวต่อสี W02"
+    },
+    "alt_mold": {
+      "id": 650,
+      "name": "TEST ALT MOLD SHOPFLOOR JOI PK W02"
+    }
+  },
+  "cases": [
+    {
+      "id": "UI-MOLD-01",
+      "name": "dashboard loads mold jobs",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/01_dashboard.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-02",
+      "name": "mold card shows mold and shots",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/02_mold_card.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-03",
+      "name": "full mold warning appears on start",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/03_full_mold_warning.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-04",
+      "name": "continue anyway starts workorder",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/04_continue_anyway_started.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-05",
+      "name": "change mold dialog opens from card",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/06_change_mold_dialog.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-06",
+      "name": "selecting mold from card updates card",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/07_change_mold_result.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-07",
+      "name": "change mold from warning and start with alternative mold",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/08_change_from_warning_result.png",
+        "reports/mold_shopfloor_uat_20260406_images/09_changed_mold_started.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-08",
+      "name": "reset life resets shots to zero",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/10_reset_life_result.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-09",
+      "name": "non-mold workcenter hides mold UI",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/05_non_mold_card_hidden.png"
+      ]
+    },
+    {
+      "id": "UI-MOLD-10",
+      "name": "breakdown entry point available under More menu",
+      "status": "passed",
+      "evidence": [
+        "reports/mold_shopfloor_uat_20260406_images/11_more_menu_report_issue.png"
+      ]
+    }
+  ],
+  "cleanup": {
+    "workorders": [
+      {
+        "id": 363,
+        "state": "ready",
+        "console_qty": 0
+      },
+      {
+        "id": 364,
+        "state": "ready",
+        "console_qty": 0
+      }
+    ],
+    "molds": [
+      {
+        "id": 590,
+        "current_shots": 1000,
+        "limit_shots": 1000
+      },
+      {
+        "id": 650,
+        "current_shots": 0,
+        "limit_shots": 1000
+      }
+    ]
+  }
+}

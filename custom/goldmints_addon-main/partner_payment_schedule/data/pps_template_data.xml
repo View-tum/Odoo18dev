@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="template_tofu_skincare" model="pps.template">
+        <field name="name">Tofu Skincare Style (11th &amp; 27th)</field>
+        <field name="mode">dom</field>
+        <field name="dom_day_ids" eval="[(6, 0, [ref('pps_dom_11'), ref('pps_dom_27')])]"/>
+        <field name="time_float">10.0</field>
+        <field name="description">รับชำระเงินทุกวันที่ 11 และ 27 ของเดือน</field>
+    </record>
+
+    <record id="template_every_friday" model="pps.template">
+        <field name="name">ทุกวันศุกร์ (Weekly Friday)</field>
+        <field name="mode">dow</field>
+        <field name="dow_weekday_ids" eval="[(6, 0, [ref('pps_weekday_fri')])]"/>
+        <field name="week_rule">every</field>
+        <field name="description">รับชำระเงินทุกวันศุกร์ของสัปดาห์</field>
+    </record>
+</odoo>

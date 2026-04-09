@@ -1,0 +1,70 @@
+COMMON_LIST = [
+    {"id": "1", "box": (13, 61, 53, 99), "legend": "ปุ่ม New"},
+    {"id": "2", "box": (13, 94, 912, 123), "legend": "ช่อง Search / Filter"},
+    {"id": "3", "box": (7, 135, 918, 169), "legend": "แถวชื่อคอลัมน์"},
+    {"id": "4", "box": (7, 169, 918, 205), "legend": "ตัวอย่างรายการข้อมูล"},
+]
+
+ANNOTATIONS = {
+    "iv01_home.png": [
+        {"id": "1", "box": (500, 269, 578, 351), "legend": "ไอคอน Inventory"},
+        {"id": "2", "box": (288, 268, 368, 351), "legend": "ไอคอน Purchase"},
+        {"id": "3", "box": (562, 18, 723, 48), "legend": "พื้นที่ User Menu และการแจ้งเตือน"},
+    ],
+    "iv02_login.png": [
+        {"id": "1", "box": (256, 159, 464, 189), "legend": "ช่อง Email / Login"},
+        {"id": "2", "box": (256, 223, 464, 252), "legend": "ช่อง Password"},
+        {"id": "3", "box": (257, 307, 464, 336), "legend": "ปุ่ม Log in"},
+        {"id": "4", "box": (396, 140, 463, 243), "legend": "ลิงก์ Choose a user / Reset Password"},
+    ],
+    "iv03_inventory_overview.png": [
+        {"id": "1", "box": (13, 94, 912, 123), "legend": "ช่อง Search"},
+        {"id": "2", "box": (7, 140, 918, 507), "legend": "การ์ด Receipts"},
+        {"id": "3", "box": (7, 511, 918, 779), "legend": "การ์ด Internal Transfers"},
+        {"id": "4", "box": (490, 166, 639, 229), "legend": "ตัวเลขสถานะบนการ์ด"},
+    ],
+    "iv04_user_profile.png": [
+        {"id": "1", "box": (24, 178, 292, 444), "legend": "ข้อมูลผู้ใช้ฝั่งซ้าย"},
+        {"id": "2", "box": (592, 188, 663, 260), "legend": "รูปโปรไฟล์"},
+        {"id": "3", "box": (24, 447, 679, 479), "legend": "แถบแท็บ Preferences / Security"},
+        {"id": "4", "box": (24, 479, 679, 899), "legend": "พื้นที่ตั้งค่า Preferences"},
+    ],
+    "iv05_warehouses.png": COMMON_LIST,
+    "iv06_locations.png": COMMON_LIST,
+    "iv07_operation_types.png": COMMON_LIST,
+    "iv08_replenishment.png": [
+        {"id": "1", "box": (13, 61, 53, 99), "legend": "ปุ่ม New"},
+        {"id": "2", "box": (13, 94, 912, 123), "legend": "Search และ Filter"},
+        {"id": "3", "box": (37, 135, 918, 169), "legend": "แถวชื่อคอลัมน์ Replenishment"},
+        {"id": "4", "box": (37, 169, 918, 205), "legend": "รายการเติมสต็อกตัวอย่าง"},
+    ],
+    "iv09_routes.png": COMMON_LIST,
+    "iv10_putaway_rules.png": COMMON_LIST,
+    "iv11_uom_categories.png": COMMON_LIST,
+    "iv12_product_categories.png": COMMON_LIST,
+    "iv13_products.png": [
+        {"id": "1", "box": (13, 61, 53, 99), "legend": "ปุ่ม New"},
+        {"id": "2", "box": (13, 94, 358, 123), "legend": "Search / Filter"},
+        {"id": "3", "box": (839, 61, 911, 99), "legend": "ปุ่มสลับมุมมอง"},
+        {"id": "4", "box": (12, 143, 358, 229), "legend": "ตัวอย่าง Product Card"},
+    ],
+    "iv15_receipts.png": COMMON_LIST,
+    "iv16_deliveries.png": COMMON_LIST,
+    "iv17_returns_entry.png": [
+        {"id": "1", "box": (14, 145, 109, 170), "legend": "ปุ่ม Print / Return"},
+        {"id": "2", "box": (487, 144, 714, 170), "legend": "สถานะเอกสาร"},
+        {"id": "3", "box": (14, 181, 714, 404), "legend": "ข้อมูลหลักของเอกสาร Delivery"},
+        {"id": "4", "box": (14, 408, 714, 633), "legend": "แท็บ Operations และตารางสินค้า"},
+    ],
+    "iv18_internal_transfers.png": COMMON_LIST,
+    "iv19_scrap.png": COMMON_LIST,
+    "iv20_physical_inventory.png": [
+        {"id": "1", "box": (13, 61, 117, 99), "legend": "ปุ่ม New / Apply All"},
+        {"id": "2", "box": (13, 94, 912, 123), "legend": "ช่อง Search"},
+        {"id": "3", "box": (7, 135, 918, 169), "legend": "แถวชื่อคอลัมน์ Inventory Adjustments"},
+        {"id": "4", "box": (7, 169, 918, 205), "legend": "รายการตรวจนับตัวอย่าง"},
+    ],
+    "iv21_landed_costs.png": COMMON_LIST,
+    "iv22_stock_report.png": COMMON_LIST,
+    "iv23_moves_history.png": COMMON_LIST,
+}

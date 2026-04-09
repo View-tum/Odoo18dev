@@ -1,0 +1,42 @@
+flowchart TD
+    %% Sales & Planning
+    SubSO[📥 Sale Order / Import] --> ScanLimit{ตรวจสอบวงเงิน <br> Credit Limit}
+    ScanLimit -- ยอดเกิน --> Block[⛔ Block การยืนยัน]
+    ScanLimit -- ผ่าน --> ConfirmSO[✅ Approve SO]
+    
+    ConfirmSO --> MPS[📅 Master Production Schedule <br> mrp_mps_mo_tracking]
+    MPS -. อิง Forecast & Safety Stock .-> MPS
+
+    %% Procurement
+    MPS -- ตรวจสอบวัสดุขาด --> PR[🗒️ Purchase Request <br> oi_workflow_purchase_request]
+    PR -- อนุมัติแบบหลายระดับ --> PO[🛒 Purchase Order]
+    PO --> Receipt[📦 Inventory Receipt <br> รับเข้า Main Store]
+
+    %% Manufacturing Execution
+    MPS -- สร้างคำสั่งผลิต --> MO[⚙️ Manufacturing Order]
+    MO --> Parallel[🎛️ Shopfloor Console <br> mrp_parallel_console]
+    
+    %% Continuous Execution
+    Parallel -- Start / Quick Done --> Produce[👷 Operations ผลิตต่อเนื่อง]
+    Produce -- บันทึกเสียหายเศษวัสดุ --> Scrap[⚠️ Auto-Replenish Scrap <br> ดึงของจาก Main Store]
+    Scrap --> Produce
+    
+    %% Inventory & Logistics
+    Produce -- คีย์จบงานสิ้นกะ/สัปดาห์ --> FG_Store[🏢 Finished Goods Store]
+    Parallel -- MO Close / Backorder --> FG_Store
+    
+    FG_Store --> DO[🚚 Delivery Order <br> delivery_routes_management]
+    ConfirmSO -. ดึงออกเพื่อส่งลูกค้า .-> DO
+
+    %% Accounting
+    DO -- ยืนยันส่งมอบ --> Invoice[🧾 Customer Invoice]
+    Invoice --> Billing[📁 Account Billing <br> รวมบิลตามรอบพาร์ตเนอร์]
+    Billing --> Paid[💰 Payment / PDC <br> รับเช็ค / sh_pdc]
+
+    Receipt -. ทำ Invoice พักหนี้ .-> VendorBill[🧾 Vendor Bill]
+
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef main fill:#d4edda,stroke:#28a745,stroke-width:1px;
+    classDef custom fill:#d1ecf1,stroke:#17a2b8,stroke-width:1px;
+    
+    class ScanLimit,PR,Parallel,Scrap,Billing,Paid custom;

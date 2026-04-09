@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_withholding_tax_report_wizard" model="ir.ui.view">
+        <field name="name">withholding.tax.report.wizard.view</field>
+        <field name="model">withholding.tax.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Withholding Tax Report Options">
+                <group>
+                    <field name="company_wht_report_format" invisible="1" />
+                    <group>
+                        <field name="income_tax_form" />
+                        <field name="show_cancel" />
+                    </group>
+                    <group>
+                        <field
+                            name="date_range_id"
+                            options="{'no_create_edit': True, 'no_open': True}"
+                        />
+                        <field name="date_from" />
+                        <field name="date_to" />
+                        <field name="company_id" groups="base.group_multi_company" />
+                    </group>
+                </group>
+                <group
+                    string="Revenue Department V2 TXT"
+                    invisible="company_wht_report_format != 'rd' or income_tax_form not in ['pnd3', 'pnd53']"
+                >
+                    <group>
+                        <field name="rd_sender_id" />
+                        <field name="rd_sender_nid" />
+                        <field name="rd_sender_branch" />
+                        <field name="rd_sender_role" />
+                        <field name="rd_dept_name" />
+                        <field name="rd_lto" />
+                    </group>
+                    <group>
+                        <field name="rd_branch_type" />
+                        <field name="rd_form_type" />
+                        <field name="rd_submission_seq" />
+                        <field name="rd_form_flag" />
+                        <field name="rd_user_id" />
+                        <field name="rd_sur_amt" />
+                        <field name="rd_trans_amt" />
+                    </group>
+                </group>
+                <group
+                    string="RD Sections"
+                    invisible="company_wht_report_format != 'rd' or income_tax_form not in ['pnd3', 'pnd53']"
+                >
+                    <group invisible="income_tax_form != 'pnd3'">
+                        <field name="rd_section3" />
+                        <field name="rd_section48" />
+                        <field name="rd_section50" />
+                    </group>
+                    <group invisible="income_tax_form != 'pnd53'">
+                        <field name="rd_section3" />
+                        <field name="rd_section65" />
+                        <field name="rd_section69" />
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="button_export_html"
+                        string="View"
+                        type="object"
+                        default_focus="1"
+                        class="oe_highlight"
+                    />
+                    <button
+                        name="button_export_pdf"
+                        string="Export PDF"
+                        type="object"
+                    />
+                    <button
+                        name="button_export_xlsx"
+                        string="Export XLSX"
+                        type="object"
+                    />
+                    <button
+                        name="button_export_txt"
+                        string="Export TXT"
+                        type="object"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_withholding_tax_report_wizard" model="ir.actions.act_window">
+        <field name="name">WHT Income Tax Report</field>
+        <field name="res_model">withholding.tax.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_withholding_tax_report_wizard" />
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+/* --- แก้ไขใหม่ตามโครงสร้าง Odoo 18 --- */
+
+/* เจาะจงไปที่ class .o-we-hint ที่อยู่ข้างใน my_bold_note */
+.my_bold_note .odoo-editor-editable .o-we-hint::before {
+    content: attr(placeholder) !important;
+    font-weight: 700 !important;           /* ยังคงตัวหนาไว้ */
+    font-size: 16px !important;            /* ลดขนาดลงเหลือ 16px (จากเดิม 20px) */
+    color: #999999 !important;             /* เปลี่ยนเป็นสีเทาจางๆ (Standard Placeholder Gray) */
+    opacity: 1 !important;
+    position: absolute;                    /* ล็อกตำแหน่งไว้เหมือนเดิม */
+    z-index: 0 !important;                 /* ให้มันอยู่ชั้นล่างสุด จะได้ไม่บังปุ่มกด */
+}
+
+/* กันพลาด: บางที Odoo อาจจะใช้ ::after ในบางบราวเซอร์ */
+.my_bold_note .odoo-editor-editable .o-we-hint::after {
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: #999999 !important;
+}

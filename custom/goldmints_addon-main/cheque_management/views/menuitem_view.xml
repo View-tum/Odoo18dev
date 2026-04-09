@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- Cheque Main Menu View -->
+    <menuitem id="menu_cheque_root"
+        name="Cheque"
+        web_icon="cheque_management,static/description/icon.png"
+        groups="cheque_management.group_cheque_user,cheque_management.group_cheque_manager"
+        sequence="20"/>
+
+    <!-- Reporting Main Menu View -->
+    <menuitem 
+        id="cheque_report_root" 
+        name="Reporting" 
+        parent="cheque_management.menu_cheque_root" 
+        groups="cheque_management.group_cheque_user,cheque_management.group_cheque_manager"
+        sequence="7"/>
+
+    <!-- Configuration Main Menu View -->
+    <menuitem id="menu_cheque_configuration"
+        name="Configuration"        
+        parent="cheque_management.menu_cheque_root"
+        groups="cheque_management.group_cheque_user,cheque_management.group_cheque_manager"
+        sequence="20"/>
+
+</odoo>

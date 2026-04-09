@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_purchase_receipt_migration_batch" model="ir.sequence">
+        <field name="name">Purchase Receipt Migration Batch</field>
+        <field name="code">purchase.receipt.migration.batch</field>
+        <field name="prefix">PRMB/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

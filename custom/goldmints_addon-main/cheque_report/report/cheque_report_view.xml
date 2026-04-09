@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cheque_report_form" model="ir.ui.view">
+        <field name="name">cheque.report.form</field>
+        <field name="model">cheque.report</field>
+        <field name="arch" type="xml">
+            <form string="Print Cheque">
+                <group>
+                    <field name="cheque_ids" widget="many2many_tags" force_save="1" readonly="1"/>
+                    <field name="cheque_date" force_save="1" placeholder="เลือกวันที่เช็ค"/>
+                    <field name="report_id" force_save="1" placeholder="เลือกรายงาน" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                </group>
+                <footer>
+                    <button string="Print" name="action_print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cheque_print" model="ir.actions.act_window">
+        <field name="name">Print Cheque</field>
+        <field name="res_model">cheque.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_server_cheque_report_batch" model="ir.actions.server">
+        <field name="name">ปริ้นใบนำฝากธนาคาร (หลายใบ)</field>
+        <field name="model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_view_types">list</field>
+        <field name="binding_type">report</field>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = env.ref('cheque_report.action_cheque_print').read()[0]
+                action['context'] = {
+                    'default_cheque_id': records[0].id, 
+                    'active_ids': records.ids
+                }
+                action = action
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_account_billing_create_form" model="ir.ui.view">
+        <field name="name">account.billing.create.form</field>
+        <field name="model">account.billing.create</field>
+        <field name="arch" type="xml">
+            <form string="Create Billing">
+
+                <sheet>
+                    <group name="main_group">
+                        <separator string="ประเภทใบวางบิล"/>
+                        <group name="header_left">
+                            <field name="billing_mode" widget="radio" options="{'horizontal': false}"/>
+                        </group>
+                        <group name="header_right">
+                            <field name="threshold_date_type" widget="radio" options="{'horizontal': false}"/>
+                        </group>
+                    </group>
+
+                    <group name="details_filters">
+                        <separator string="รายละเอียดตัวกรอง"/>
+                        <field name="route_id" force_save="1" readonly="team_id or customer_ids" placeholder="เลือกสายรถ (หากเลือกแล้วจะระบุพนักงานขายหรือลูกค้าไม่ได้)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                        <field name="subregion_ids" force_save="1" widget="many2many_tags" readonly="not route_id" required="route_id" placeholder="เลือกเขตย่อย (ต้องเลือกสายรถก่อน)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                        <field name="customer_ids" force_save="1" widget="many2many_tags" readonly="team_id or route_id" placeholder="เลือกลูกค้า (หากเลือกแล้วจะระบุพนักงานขายหรือสายรถไม่ได้)" options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+                        <field name="team_id" force_save="1" readonly="customer_ids or route_id" placeholder="เลือกทีมขาย (หากเลือกแล้วจะระบุลูกค้าหรือสายรถไม่ได้)" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="salesperson_id" force_save="1" readonly="not team_id" placeholder="เลือกพนักงานขาย (ต้องเลือกทีมขายก่อน)" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+
+                    <group name="Date range and report settings">
+                        <separator string="ช่วงวันที่"/>
+                        <field name="date_from" force_save="1" required="1"/>
+                        <field name="date_to" force_save="1" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_create_billing" string="Create Billing" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

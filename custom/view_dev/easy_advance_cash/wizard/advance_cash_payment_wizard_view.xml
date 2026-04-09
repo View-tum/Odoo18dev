@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_advance_cash_payment_wizard_form" model="ir.ui.view">
+        <field name="name">advance.cash.payment.wizard.form</field>
+        <field name="model">advance.cash.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pay">
+                <!-- Invisible fields -->
+                <field name="advance_id" invisible="1" />
+                <field name="transaction_type" invisible="1" />
+                <field name="currency_id" invisible="1" />
+                <field name="is_cheque_method" invisible="1" />
+                <field name="parent_fund_journal_id" invisible="1" />
+                <field name="payment_type_filter" invisible="1" />
+
+                <!-- Two-column layout matching Standard Odoo Pay popup -->
+                <group>
+                    <group name="group1">
+                        <field name="payment_journal_id" string="Journal"
+                            options="{'no_create': True, 'no_open': True}" required="1" />
+                        <field name="payment_method_line_id" string="Payment Method"
+                            required="1"
+                            options="{'no_create': True, 'no_open': True}" />
+                    </group>
+                    <group name="group2">
+                        <label for="amount" />
+                        <div class="o_row">
+                            <field name="amount" widget="monetary"
+                                options="{'currency_field': 'currency_id'}" readonly="1" />
+                        </div>
+                        <field name="payment_date" string="Payment Date" required="1" />
+                    </group>
+                </group>
+
+                <!-- Cheque Details (Outbound - Payout) -->
+                <group string="Cheque Details (Payout)"
+                    invisible="not is_cheque_method or transaction_type != 'payout'">
+                    <group>
+                        <field name="cheque_id"
+                            required="is_cheque_method and transaction_type == 'payout'"
+                            options="{'no_create': True}" />
+                    </group>
+                    <group>
+                        <field name="cheque_date"
+                            required="is_cheque_method and transaction_type == 'payout'" />
+                    </group>
+                </group>
+
+                <!-- Cheque Details (Inbound - Return) -->
+                <group string="Cheque Details (Return)"
+                    invisible="not is_cheque_method or transaction_type != 'return'">
+                    <group>
+                        <field name="cheque_number_in"
+                            required="is_cheque_method and transaction_type == 'return'" />
+                        <field name="cheque_branch_in" />
+                    </group>
+                    <group>
+                        <field name="cheque_bank_in"
+                            required="is_cheque_method and transaction_type == 'return'" />
+                    </group>
+                </group>
+
+                <footer>
+                    <button name="action_confirm_payment" string="Create Payment" type="object"
+                        class="oe_highlight" />
+                    <button string="Discard" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_advance_cash_payment_wizard" model="ir.actions.act_window">
+        <field name="name">Pay</field>
+        <field name="res_model">advance.cash.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

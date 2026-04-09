@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_expired_products_report_form" model="ir.ui.view">
+    <field name="name">expired.products.report.form</field>
+    <field name="model">expired.products.report</field>
+    <field name="arch" type="xml">
+      <form string="Expired Products Report">
+        <sheet>
+          <group>
+            <group string="Product Selection">
+              <field name="product_category_id" options="{'no_create': True, 'no_open': True}" placeholder="Select a product category..."/>
+              <field name="product_ids" widget="many2many_tags" options="{'no_create': True}" placeholder="Select products..."/>
+            </group>
+            <group string="Report Configuration">
+              <field name="select_year"/>
+              <field name="select_month"/>
+              <field name="date_from" readonly="select_month" force_save="1" placeholder="Start date..."/>
+              <field name="date_to" readonly="select_month" force_save="1" placeholder="End date..." />
+              <field name="report_id" domain="[('model_id', '=', 'expired.products.report')]" required="1" options="{'no_create': True, 'no_open': True}"/>
+            </group>
+          </group>
+        </sheet>
+        <footer>
+          <!-- ปุ่ม Jasper PDF เดิม -->
+          <button name="action_confirm"
+                  string="Export PDF"
+                  type="object"
+                  class="btn-primary"/>
+
+          <!-- ปุ่ม XLSX ใหม่ -->
+          <button name="action_export_xlsx"
+                  string="Export XLSX"
+                  type="object"
+                  class="btn-secondary"/>
+
+          <button string="Cancel"
+                  class="btn btn-link"
+                  special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

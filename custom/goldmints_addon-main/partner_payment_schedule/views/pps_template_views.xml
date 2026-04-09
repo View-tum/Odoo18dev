@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_pps_template" model="ir.actions.act_window">
+        <field name="name">รอบการจ่ายเงิน/วางบิล (Template)</field>
+        <field name="res_model">pps.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                สร้างเทมเพลตรอบการชำระเงินใหม่
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_pps_template" name="PPS Templates" parent="menu_pps_root"
+        action="action_pps_template" sequence="10" />
+
+    <record id="view_pps_template_tree" model="ir.ui.view">
+        <field name="name">pps.template.tree</field>
+        <field name="model">pps.template</field>
+        <field name="arch" type="xml">
+            <list string="PPS Templates">
+                <field name="name" />
+                <field name="schedule_type" />
+                <field name="mode" />
+                <field name="active" widget="boolean_toggle" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pps_template_form" model="ir.ui.view">
+        <field name="name">pps.template.form</field>
+        <field name="model">pps.template</field>
+        <field name="arch" type="xml">
+            <form string="PPS Template">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="เช่น 'Tofu Skincare Style' หรือ '15/30 Cycle'" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="พื้นฐาน">
+                            <field name="schedule_type" widget="radio" options="{'horizontal': true}" />
+                            <field name="mode" widget="radio" options="{'horizontal': true}" />
+                            <field name="time_float" widget="float_time" />
+                        </group>
+                        <group string="เงื่อนไขธุรกิจ">
+                            <field name="billing_cutoff_day" />
+                            <field name="payment_lead_time" />
+                            <field name="active" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="การตั้งค่ารอบ" name="schedule_config">
+                            <group invisible="mode != 'dom'">
+                                <group string="ระบุวันที่">
+                                    <field name="dom_everyday" />
+                                    <field name="dom_day_ids" widget="many2many_tags"
+                                        options="{'no_create': True}"
+                                        invisible="dom_everyday == True" />
+                                </group>
+                            </group>
+                            <group invisible="mode != 'dow'">
+                                <group string="ระบุวันในสัปดาห์">
+                                    <field name="dow_weekday_ids" widget="many2many_tags"
+                                        options="{'no_create': True}" />
+                                    <field name="week_rule" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="คำอธิบายเพิ่มเติม" name="description">
+                            <field name="description" placeholder="ระบุรายละเอียดเพิ่มเติม..." />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_footer">
+        <div class="row border-top border-bottom border-dark pt-2 pb-2" 
+             style="font-family: 'Kanit-Light'; font-size: 13.64px; page-break-inside: avoid;">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-9 mb-0 p-3 text-center" style="background-color: #d0d0d0;">
+                        <t t-set="currency" t-value="o.currency_id"/>
+                        <t t-esc="currency.with_context({'lang': 'th_TH'}).amount_to_text(o.amount_total)"/>
+                    </div>
+                    <div class="col-3 mb-0"></div>
+                </div>
+                <div class="row pl-3">
+                    <div class="col-8 mb-0 pt-1 text-left">
+                        <span>หมายเหตุ :</span>
+                    </div>
+                    <div class="col-2 mb-0"></div>
+                </div>
+                <div class="row pl-3">
+                    <div class="col-8 mb-0 pt-1 text-left">
+                        <span t-field="o.notes"/>
+                    </div>
+                    <div class="col-2 mb-0"></div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="row pt-1" style="background-color: #d0d0d0;">
+                    <div class="col-7 pr-0 mr-0 mb-0 text-left">
+                        <span>รวมเป็นเงิน</span>
+                    </div>
+                    <div class="col-5 pl-0 ml-0 mb-0 text-end">
+                        <span t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 2}'/>
+                    </div>
+                </div>
+                <!-- Tax Calculation for Odoo 17 -->
+                <div class="row pt-1" style="background-color: #d0d0d0;">
+                            <div class="col-7 pr-0 mr-0 mb-0 text-left">
+                                <span>มูลค่าที่คํานวณภาษี</span>
+                            </div>
+                            <div class="col-5 pl-0 ml-0 mb-0 text-end">
+                                <span t-esc="o.amount_tax" t-options='{"widget": "float", "precision": 2}'/>
+                            </div>
+                </div>
+                <div class="row pb-1" style="background-color: #d0d0d0;">
+                    <div class="col-7 pr-0 mr-0 mb-0 text-left">
+                        <span>มูลค่าสุทธิ</span>
+                    </div>
+                    <div class="col-5 pl-0 ml-0 mb-0 text-end">
+                        <span t-esc="o.amount_total" t-options='{"widget": "float", "precision": 2}'/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signatures Section -->
+        <div class="row p-0 m-0" style="font-family: 'Kanit-Light'; font-size: 13.64px">
+            <div class="col-1"></div>
+            <div class="col-4 text-center" style="padding: 0 36px 0 36px;">
+                <div class="border-bottom border-dark m-0 p-0" style="height: 80px;">
+                    <div class="pt-5">
+                        <span t-field="o.user_id.name"/>
+                    </div>
+                </div>
+                <div style="padding-top:2px">
+                    <span>ผู้สั่งซื้อ</span>
+                </div>
+                <div style="padding-top: 15px;">
+                    <span><t t-esc="o.date_order.strftime('%d/%m/%Y')"/></span>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4 text-center" style="padding: 0 36px 0 36px;">
+                <t t-set="last_review" t-value="o.review_ids and o.review_ids[-1] or None"/>
+                <div class="border-bottom border-dark m-0 p-0" style="height: 80px;">
+                    <div class="pt-5">
+                        <t t-if="last_review">
+                            <span><t t-esc="last_review.done_by.partner_id.name"/></span>
+                            <br/>
+                        </t>
+                    </div>
+                </div>
+                <div class="pt-1" style="padding-top:30px">
+                    <span>ผู้อนุมัติ</span>
+                </div>
+                <div style="padding-top: 15px;">
+                    <t t-if="last_review and last_review.reviewed_date">
+                        <span>
+                            <t t-esc="last_review.reviewed_date.strftime('%d/%m/%Y')"/>
+                        </span>
+                        <br/>
+                    </t>
+                    <t t-else="">
+                        <span>Date............../............../..............</span>
+                    </t>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </template>
+</odoo>

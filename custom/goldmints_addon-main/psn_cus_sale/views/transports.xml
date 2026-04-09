@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="transports_view_form" model="ir.ui.view">
+        <field name="name">transports.view.form</field>
+        <field name="model">transports</field>
+        <field name="arch" type="xml">
+            <form string="Transports">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Services"/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="transports_view_tree" model="ir.ui.view">
+        <field name="name">transports.view.list</field>
+        <field name="model">transports</field>
+        <field name="arch" type="xml">
+            <list string="Transports" editable="bottom" sample="1">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="transports_action" model="ir.actions.act_window">
+        <field name="name">transports</field>
+        <field name="res_model">transports</field>
+        <field name="view_id" ref="sales_team.crm_team_view_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create CRM Tags
+            </p><p>
+                Use Tags to manage and track your Opportunities (product structure, sales type, ...)
+            </p>
+        </field>
+    </record>
+</odoo>

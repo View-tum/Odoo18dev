@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="addons/sale_order_365_shipping_policy.list">
+      <field name="name">addons/sale_order_365_shipping_policy list</field>
+      <field name="model">addons/sale_order_365_shipping_policy.addons/sale_order_365_shipping_policy</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="addons/sale_order_365_shipping_policy.action_window">
+      <field name="name">addons/sale_order_365_shipping_policy window</field>
+      <field name="res_model">addons/sale_order_365_shipping_policy.addons/sale_order_365_shipping_policy</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="addons/sale_order_365_shipping_policy.action_server">
+      <field name="name">addons/sale_order_365_shipping_policy server</field>
+      <field name="model_id" ref="model_addons/sale_order_365_shipping_policy_addons/sale_order_365_shipping_policy"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="addons/sale_order_365_shipping_policy" id="addons/sale_order_365_shipping_policy.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="addons/sale_order_365_shipping_policy.menu_1" parent="addons/sale_order_365_shipping_policy.menu_root"/>
+    <menuitem name="Menu 2" id="addons/sale_order_365_shipping_policy.menu_2" parent="addons/sale_order_365_shipping_policy.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="addons/sale_order_365_shipping_policy.menu_1_list" parent="addons/sale_order_365_shipping_policy.menu_1"
+              action="addons/sale_order_365_shipping_policy.action_window"/>
+    <menuitem name="Server to list" id="addons/sale_order_365_shipping_policy" parent="addons/sale_order_365_shipping_policy.menu_2"
+              action="addons/sale_order_365_shipping_policy.action_server"/>
+-->
+  </data>
+</odoo>

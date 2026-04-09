@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="po_service_indicator_view_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.service.indicator</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="before">
+                <field name="has_service_lines" invisible="1" />
+                <field name="service_status" widget="statusbar"
+                    statusbar_visible="not_validated,validated"
+                    invisible="has_service_lines == False" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_purchase_service_lines" model="ir.actions.act_window">
+        <field name="name">Service Lines</field>
+        <field name="res_model">purchase.order.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[("order_id","=",active_id),("product_id.type","=","service")]</field>
+        <field name="context">{"search_default_order_id": active_id}</field>
+    </record>
+
+    <record id="action_validate_service_status" model="ir.actions.server">
+        <field name="name">Validate Service</field>
+        <field name="model_id" ref="purchase.model_purchase_order" />
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+for r in records:
+    if r.has_service_lines:
+        service_lines = r.order_line.filtered(lambda l: l.product_id and l.product_id.type == 'service')
+        if service_lines and all(l.qty_received >= l.product_qty for l in service_lines):
+            r.write({'service_status': 'validated', 'service_validated': True})
+        
+        ]]></field>
+    </record>
+
+    <record id="po_service_indicator_view_buttons" model="ir.ui.view">
+        <field name="name">purchase.order.form.service.indicator.buttons</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <button name="%(po_service_indicator.action_open_service_validate_wizard)d"
+                    string="Validate"
+                    class="oe_highlight"
+                    invisible="not has_service_lines or service_validated or state not in ('purchase','done')"
+                    type="action" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

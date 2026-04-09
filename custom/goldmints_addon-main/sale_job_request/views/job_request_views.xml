@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_job_request_form" model="ir.ui.view">
+        <field name="name">job.request.form</field>
+        <field name="model">job.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                        invisible="state != 'draft'" />
+                    <button name="action_inprogress" type="object" string="In Progress"
+                        invisible="state != 'confirm'" />
+                    <button name="action_done" type="object" string="Done" class="btn-success"
+                        invisible="state != 'in_progress'" />
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary"
+                        invisible="state == 'cancelled'" />
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft"
+                        class="btn-secondary" invisible="state != 'cancelled'" />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,confirm,in_progress,done" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_pickings"
+                            icon="fa-truck" invisible="not picking_count">
+                            <field name="picking_count" widget="statinfo" string="Delivery Orders" />
+                        </button>
+                        <button class="oe_stat_button" type="action"
+                            name="%(sale_job_request.action_open_related_sale)d"
+                            invisible="not sale_id" icon="fa-shopping-cart">
+                            <field name="sale_id" widget="statinfo" string="Sale Order" />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sale_id" string="Sale Order" readonly="state != 'draft'" />
+                            <field name="partner_id" readonly="sale_id or state == 'done'" />
+                            <field name="commitment_date" readonly="sale_id or state == 'done'" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="user_ids" widget="many2many_tags" readonly="state == 'done'" />
+                        </group>
+                        <group>
+                            <field name="note" placeholder="ระบุสิ่งที่ต้องการทำเพิ่มเติม" readonly="state == 'done'" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines">
+                            <field name="sale_line_ids" nolabel="1" invisible="not sale_id" readonly="state == 'done'">
+                                <list editable="bottom" class="o_jr_lines">
+                                    <field name="jr_line_number" readonly="1" class="o_jr_seq"
+                                        widget="sequence" />
+                                    <field name="product_id" column_invisible="1" />
+                                    <field name="name" string="Product" />
+                                    <field name="product_uom_qty" />
+                                    <field name="product_uom" />
+                                    <field name="jr_note" placeholder="บันทึกเพิ่มเติมต่อรายการ"
+                                        width="600px" />
+                                </list>
+                            </field>
+                            <field name="jr_line_ids" nolabel="1" invisible="sale_id" readonly="state == 'done'">
+                                <list editable="bottom">
+                                    <field name="jr_line_number" readonly="1" />
+                                    <field name="product_id" />
+                                    <field name="name" />
+                                    <field name="product_uom_qty" />
+                                    <field name="product_uom" groups="uom.group_uom" />
+                                    <field name="jr_note" placeholder="บันทึกเพิ่มเติมต่อรายการ"
+                                        width="600px" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Pickings">
+                            <field name="picking_ids" context="{'default_sale_id': sale_id}" readonly="state == 'done'" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record id="view_job_request_list" model="ir.ui.view">
+        <field name="name">job.request.list</field>
+        <field name="model">job.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" />
+                <field name="sale_id" />
+                <field name="partner_id" />
+                <field name="user_ids" widget="many2many_tags" />
+                <field name="state" />
+                <field name="commitment_date" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_job_request" model="ir.actions.act_window">
+        <field name="name">Job Requests</field>
+        <field name="res_model">job.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_job_request_root"
+        name="Job Requests"
+        web_icon="sale_job_request,static/description/icon.png"
+        sequence="5" />
+    <menuitem id="menu_job_request" name="Job Requests" parent="menu_job_request_root"
+        action="action_job_request" />
+</odoo>

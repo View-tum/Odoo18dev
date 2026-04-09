@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit_restrict_journal_entry" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.restrict.journal.entry</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <!-- Restrict original button to Managers only -->
+            <xpath expr="//button[@name='button_draft']" position="attributes">
+                <attribute name="groups">account.group_account_manager</attribute>
+            </xpath>
+            <!-- Create new button for Invoice users (Bookkeepers) but hide if it's a Journal Entry -->
+            <xpath expr="//button[@name='button_draft']" position="after">
+                <button name="button_draft"
+                        string="Reset to Draft"
+                        type="object"
+                        class="btn-secondary"
+                        groups="account.group_account_invoice"
+                        invisible="state not in ('posted', 'cancel') or move_type == 'entry'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

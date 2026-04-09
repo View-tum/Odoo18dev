@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_labor_cost_management" model="ir.module.category">
+        <field name="name">Labor Cost Management</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="group_mrp_labor_cost_alerts" model="res.groups">
+        <field name="name">Labor Cost Variance Alerts</field>
+        <field name="category_id" ref="module_category_labor_cost_management"/>
+        <field name="comment">Users in this group will receive notifications when actual labor costs deviate significantly from standard costs.</field>
+    </record>
+</odoo>

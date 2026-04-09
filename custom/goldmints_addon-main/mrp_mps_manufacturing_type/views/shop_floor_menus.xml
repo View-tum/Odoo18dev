@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Plastic Shop Floor Action -->
+    <record id="action_shop_floor_plastic" model="ir.actions.client">
+        <field name="name">Plastic Shop Floor</field>
+        <field name="tag">mrp_parallel_console.main_root</field>
+        <field name="context">{
+            'default_manufacturing_type': 'plastic',
+            'manufacturing_type': 'plastic'
+        }</field>
+    </record>
+
+    <!-- Pharma Shop Floor Action -->
+    <record id="action_shop_floor_pharma" model="ir.actions.client">
+        <field name="name">Pharma Shop Floor</field>
+        <field name="tag">mrp_parallel_console.main_root</field>
+        <field name="context">{
+            'default_manufacturing_type': 'pharma',
+            'manufacturing_type': 'pharma'
+        }</field>
+    </record>
+
+    <!-- Menus: Re-organized for Factory Separation -->
+    
+
+
+
+    <!-- Plastic Shop Floor: Move to top level under GMP Shop Floor -->
+    <menuitem id="menu_shop_floor_plastic"
+              name="Plastic Shop Floor"
+              action="action_shop_floor_plastic"
+              parent="mrp_parallel_console.menu_parallel_shopfloor_root"
+              sequence="10"/>
+
+    <!-- Pharma Shop Floor: Move to top level under GMP Shop Floor -->
+    <menuitem id="menu_shop_floor_pharma"
+              name="Pharma Shop Floor"
+              action="action_shop_floor_pharma"
+              parent="mrp_parallel_console.menu_parallel_shopfloor_root"
+              sequence="20"/>
+
+</odoo>

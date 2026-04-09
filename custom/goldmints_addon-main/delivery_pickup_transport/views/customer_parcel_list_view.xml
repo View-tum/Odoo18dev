@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Customer parcel List-->
+  <record id="view_customer_parcel_list_tree" model="ir.ui.view">
+    <field name="name">customer.parcel.list.tree</field>
+    <field name="model">customer.parcel.list</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name" readonly="is_editable == False"/>
+        <field name="date" readonly="is_editable == False"/>
+        <field name="responsible_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+        <field name="company_id" readonly="is_editable == False"/>
+        <field name="total_boxes"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_customer_parcel_list_form" model="ir.ui.view">
+    <field name="name">customer.parcel.list.form</field>
+    <field name="model">customer.parcel.list</field>
+    <field name="arch" type="xml">
+      <form>
+      	<header>
+      		<button
+                name="button_done"
+                invisible="state in ('done')"
+                string="Mark as Done"
+                type="object"
+                class="oe_highlight"/>
+                
+      		<field name="state" widget="statusbar" statusbar_visible="draft,done" statusbar_colors='{"done":"blue"}'/>
+        <!--<button name="%(delivery_pickup_transport.action_report_delivery_send)d" string="Print Send Form" type="action" class="btn-primary"/>-->
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="is_editable" invisible="1" />
+              <field name="name" readonly="1"/>
+              <field name="date" readonly="is_editable == False"/>
+            </group>
+            <group>
+               <field name="carrier_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+               <field name="responsible_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+               <field name="total_boxes"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Items">
+              <field name="line_ids" readonly="is_editable == False">
+                <list editable="bottom">
+                  <field name="customer_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+                  <field name="note" optional="show"/>
+                  <field name="product_qty"/>
+                  <field name="uom_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_customer_parcel_list" model="ir.actions.act_window">
+    <field name="name">Customer parcel List</field>
+    <field name="res_model">customer.parcel.list</field>
+    <field name="view_mode">list,form</field>
+  </record>
+ 
+</odoo>

@@ -1,0 +1,41 @@
+{
+  "date": "2026-04-06",
+  "database": "uat",
+  "module": "mrp_scrap_landed_cost",
+  "status": "passed",
+  "checks": {
+    "module_installed": true,
+    "dependency_mrp_landed_costs_installed": true,
+    "legacy_scrap_record_model_exists": false,
+    "configured_service_product": true,
+    "service_product": {
+      "id": 9038,
+      "name": "Scarp",
+      "type": "service",
+      "landed_cost_ok": true,
+      "is_scrap_cost": true
+    }
+  },
+  "flow_test": {
+    "test_category": {
+      "id": 2,
+      "name": "All / FG",
+      "valuation": "real_time",
+      "cost_method": "fifo"
+    },
+    "temporary_mo": "TMP SCRAP LC MO",
+    "temporary_mo_state": "done",
+    "temporary_scrap": "SP/00005",
+    "temporary_scrap_state": "done",
+    "temporary_scrap_landed_cost_id": 3,
+    "cost_finalized": true,
+    "failure_messages": [],
+    "direct_error": null,
+    "created_landed_cost_names": [
+      "LC/2026/0003"
+    ]
+  },
+  "risks": [
+    "Legacy model 'mrp.scrap.record' is absent in UAT. The module now has to rely on stock.scrap only."
+  ]
+}

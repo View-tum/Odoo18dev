@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="partner_payment_schedule.CalendarMultiSelect">
+        <div class="pps_calendar_multiselect">
+            <div class="pps_calendar_header">
+                <button type="button" class="btn btn-sm btn-secondary" t-on-click="prevMonth">&lt;</button>
+                <span class="pps_calendar_title">
+                    <t t-esc="monthName"/> <t t-esc="state.currentYear"/>
+                </span>
+                <button type="button" class="btn btn-sm btn-secondary" t-on-click="nextMonth">&gt;</button>
+            </div>
+            <div class="pps_calendar_weekdays">
+                <span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span>
+            </div>
+            <div class="pps_calendar_days">
+                <t t-foreach="daysInMonth" t-as="cell" t-key="cell_index">
+                    <span
+                        t-att-class="'pps_day ' + (cell.day ? (isSelected(cell.dateStr) ? 'selected' : '') : 'empty')"
+                        t-att-data-date="cell.dateStr"
+                        t-on-click="onDayClick">
+                        <t t-if="cell.day" t-esc="cell.day"/>
+                    </span>
+                </t>
+            </div>
+            <div class="pps_selected_summary">
+                <small>เลือกแล้ว: <t t-esc="state.selectedDates.length"/> วัน</small>
+            </div>
+        </div>
+    </t>
+</templates>

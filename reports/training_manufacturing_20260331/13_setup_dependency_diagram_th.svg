@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+  <style>
+    .title { font: 700 26px Arial, sans-serif; fill: #1f2937; }
+    .subtitle { font: 400 15px Arial, sans-serif; fill: #4b5563; }
+    .box { fill: #f8fafc; stroke: #475569; stroke-width: 2; rx: 16; ry: 16; }
+    .boxAlt { fill: #eef6ff; stroke: #2563eb; stroke-width: 2; rx: 16; ry: 16; }
+    .label { font: 700 20px Arial, sans-serif; fill: #0f172a; }
+    .desc { font: 400 14px Arial, sans-serif; fill: #334155; }
+    .arrow { stroke: #0f172a; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0f172a" />
+    </marker>
+  </defs>
+
+  <text x="60" y="55" class="title">Setup Dependency Diagram</text>
+  <text x="60" y="82" class="subtitle">Warehouse -&gt; Location -&gt; Operation Type -&gt; Route -&gt; Rule -&gt; Product/Orderpoint -&gt; Putaway</text>
+
+  <rect x="80" y="130" width="260" height="90" class="boxAlt"/>
+  <text x="110" y="165" class="label">1. Warehouse</text>
+  <text x="110" y="190" class="desc">กำหนดกรอบใหญ่ของคลัง</text>
+  <text x="110" y="210" class="desc">เช่น GMP, M-WH</text>
+
+  <rect x="80" y="270" width="260" height="110" class="box"/>
+  <text x="110" y="305" class="label">2. Locations</text>
+  <text x="110" y="330" class="desc">กำหนด source / destination</text>
+  <text x="110" y="350" class="desc">เช่น GMP/Stock, GMP/Output,</text>
+  <text x="110" y="370" class="desc">GMP/Stock/คลังลอย</text>
+
+  <rect x="80" y="430" width="260" height="120" class="box"/>
+  <text x="110" y="465" class="label">3. Operation Type</text>
+  <text x="110" y="490" class="desc">แม่แบบเอกสาร</text>
+  <text x="110" y="510" class="desc">sequence, default source/destination</text>
+  <text x="110" y="530" class="desc">เช่น Receipt, Transfer, MO</text>
+
+  <rect x="460" y="130" width="280" height="100" class="boxAlt"/>
+  <text x="490" y="165" class="label">4. Route</text>
+  <text x="490" y="190" class="desc">policy ของ flow</text>
+  <text x="490" y="210" class="desc">เช่น Buy, Manufacture, MTO</text>
+
+  <rect x="460" y="290" width="280" height="140" class="box"/>
+  <text x="490" y="325" class="label">5. Rule</text>
+  <text x="490" y="350" class="desc">คำสั่งจริงของระบบ</text>
+  <text x="490" y="370" class="desc">Action, Source, Destination,</text>
+  <text x="490" y="390" class="desc">Operation Type, Lead Time</text>
+  <text x="490" y="410" class="desc">Rule อยู่ใต้ Route และอ้าง Operation Type</text>
+
+  <rect x="850" y="130" width="280" height="130" class="boxAlt"/>
+  <text x="880" y="165" class="label">6. Product / Orderpoint</text>
+  <text x="880" y="190" class="desc">จุดที่ route ถูกใช้จริง</text>
+  <text x="880" y="210" class="desc">product route, category route,</text>
+  <text x="880" y="230" class="desc">SO line route, orderpoint trigger</text>
+  <text x="880" y="250" class="desc">เป็นจุดเริ่มของ replenishment</text>
+
+  <rect x="850" y="340" width="280" height="110" class="box"/>
+  <text x="880" y="375" class="label">7. Putaway</text>
+  <text x="880" y="400" class="desc">จัดเก็บลง location ย่อย</text>
+  <text x="880" y="420" class="desc">หลังของถึง destination ใหญ่แล้ว</text>
+  <text x="880" y="440" class="desc">ไม่ได้เป็น procurement trigger</text>
+
+  <rect x="850" y="520" width="280" height="110" class="box"/>
+  <text x="880" y="555" class="label">8. End-to-End Test</text>
+  <text x="880" y="580" class="desc">ตรวจ document, move,</text>
+  <text x="880" y="600" class="desc">stock location และ putaway จริง</text>
+
+  <path d="M210 220 L210 270" class="arrow"/>
+  <path d="M210 380 L210 430" class="arrow"/>
+  <path d="M340 180 L460 180" class="arrow"/>
+  <path d="M600 230 L600 290" class="arrow"/>
+  <path d="M740 180 L850 180" class="arrow"/>
+  <path d="M990 260 L990 340" class="arrow"/>
+  <path d="M990 450 L990 520" class="arrow"/>
+
+  <text x="65" y="700" class="label">หลักการจำง่าย</text>
+  <text x="65" y="730" class="desc">Warehouse / Location = โครงสร้างคลัง</text>
+  <text x="65" y="755" class="desc">Operation Type = เอกสารที่ user เห็น</text>
+  <text x="65" y="780" class="desc">Route = นโยบาย</text>
+  <text x="380" y="730" class="desc">Rule = วิธีทำจริง</text>
+  <text x="380" y="755" class="desc">Product / Orderpoint = จุดใช้งานจริงและ trigger</text>
+  <text x="380" y="780" class="desc">Putaway = การจัดเก็บปลายทาง</text>
+</svg>

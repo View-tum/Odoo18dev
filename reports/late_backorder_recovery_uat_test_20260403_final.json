@@ -1,0 +1,61 @@
+{
+  "database": "uat",
+  "module_name": "late_backorder_recovery",
+  "module_installed": true,
+  "stock": {
+    "operation_type": "Transfer Pharma",
+    "original_id": 10321,
+    "state_after_no_backorder": "done",
+    "can_create_late_backorder_after_cancel": true,
+    "late_backorder_move_count": 1,
+    "has_standard_backorder_link_before": false,
+    "late_backorder_action": {
+      "type": "ir.actions.act_window",
+      "res_model": "stock.picking",
+      "res_id": 10322,
+      "view_mode": "form",
+      "views": [
+        [
+          false,
+          "form"
+        ]
+      ],
+      "target": "current"
+    },
+    "late_backorder_id": 10322,
+    "late_backorder_state": "assigned",
+    "late_backorder_qty": 6.0,
+    "can_create_late_backorder_after_create": false,
+    "has_standard_backorder_link_after": true,
+    "ok": true
+  },
+  "mrp": {
+    "operation_type": "Manufacturing Pharma",
+    "original_id": 236,
+    "state_after_no_backorder": "done",
+    "qty_produced": 4.0,
+    "remaining_qty": 6.0,
+    "can_create_late_backorder_after_cancel": true,
+    "has_late_backorder_link_before": false,
+    "late_backorder_action": {
+      "type": "ir.actions.act_window",
+      "res_model": "mrp.production",
+      "res_id": 237,
+      "view_mode": "form",
+      "views": [
+        [
+          false,
+          "form"
+        ]
+      ],
+      "target": "current"
+    },
+    "late_backorder_id": 237,
+    "late_backorder_state": "confirmed",
+    "late_backorder_qty": 6.0,
+    "can_create_late_backorder_after_create": false,
+    "has_late_backorder_link_after": true,
+    "ok": true
+  },
+  "overall_ok": true
+}

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_report_group_user,product.report.group user,model_product_report_group,mrp.group_mrp_user,1,0,0,0
+access_product_report_group_manager,product.report.group manager,model_product_report_group,mrp.group_mrp_manager,1,1,1,1
+access_product_movement_dashboard_batch_user,product.movement.dashboard.batch user,model_product_movement_dashboard_batch,mrp.group_mrp_user,1,1,1,0
+access_product_movement_dashboard_batch_manager,product.movement.dashboard.batch manager,model_product_movement_dashboard_batch,mrp.group_mrp_manager,1,1,1,1
+access_product_movement_dashboard_line_user,product.movement.dashboard.line user,model_product_movement_dashboard_line,mrp.group_mrp_user,1,1,1,0
+access_product_movement_dashboard_line_manager,product.movement.dashboard.line manager,model_product_movement_dashboard_line,mrp.group_mrp_manager,1,1,1,1

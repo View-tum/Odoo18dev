@@ -1,0 +1,163 @@
+<!-- account_accrual_wizard/views/account_accrual_views.xml -->
+<odoo>
+    <!-- LIST -->
+    <record id="view_account_accrual_tree" model="ir.ui.view">
+        <field name="name">account.accrual.tree</field>
+        <field name="model">account.accrual</field>
+        <field name="arch" type="xml">
+            <list string="Accruals"
+                decoration-info="state == 'draft'"
+                decoration-success="state == 'posted'"
+                decoration-muted="state == 'reversed'">
+                <field name="date" />
+                <field name="name" string="Number" />
+                <field name="description" />
+                <field name="amount_total" widget="monetary" />
+                <field name="amount_open" widget="monetary" optional="show" />
+                <field name="journal_id" optional="hide" />
+                <field name="state" />
+                <field name="company_id" column_invisible="1" />
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM -->
+    <record id="view_account_accrual_form" model="ir.ui.view">
+        <field name="name">account.accrual.form</field>
+        <field name="model">account.accrual</field>
+        <field name="arch" type="xml">
+            <form string="Accrual">
+                <header>
+                    <button name="action_post"
+                        type="object"
+                        string="Confirm &amp; Post"
+                        class="oe_highlight"
+                        invisible="state != 'draft'" />
+                    <button name="action_reverse"
+                        type="object"
+                        string="Reverse Entry"
+                        class="btn-secondary"
+                        invisible="state != 'posted'" />
+                    <field name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,posted,reversed" />
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_entries"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-list"
+                            invisible="entry_count == 0">
+                            <field name="entry_count" widget="statinfo" string="Entries" />
+                        </button>
+                        <button name="action_view_bills"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            invisible="bill_count == 0">
+                            <field name="bill_count" widget="statinfo" string="Matched Bills" />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name"
+                                placeholder="ACCR/..." readonly="1" />
+                        </h1>
+                        <label for="description" class="oe_edit_only" />
+                        <h2>
+                            <field name="description"
+                                placeholder="e.g. Utilities Accrual Dec 2025" />
+                        </h2>
+                    </div>
+
+                    <group>
+                        <group string="General Info">
+                            <field name="date" />
+                            <label for="period_start" string="Period" />
+                            <div class="o_row">
+                                <field name="period_start" />
+                                <span class="mx-2">?</span>
+                                <field name="period_end" />
+                            </div>
+                            <field name="company_id" groups="base.group_multi_company" />
+                            <field name="currency_id" readonly="1" />
+                        </group>
+
+                        <group string="Accounting">
+                            <field name="journal_id" options="{'no_create': True}" />
+                            <field name="accrual_account_id"
+                                placeholder="Fallback Account (Optional)" />
+                            <separator string="Totals" />
+                            <field name="amount_total" widget="monetary" readonly="1" />
+                            <field name="amount_open" widget="monetary" readonly="1" />
+                            <field name="days_outstanding" readonly="1" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id" />
+                                    <field name="partner_id" optional="show" />
+                                    <field name="name" />
+                                    <field name="expense_account_id" />
+                                    <field name="analytic_account_id" />
+
+                                    <field name="amount" widget="monetary" />
+                                </list>
+                            </field>
+                        </page>
+
+
+                        <page string="Documents">
+                            <group>
+                                <field name="attachment_ids" widget="many2many_binary" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH -->
+    <record id="view_account_accrual_search" model="ir.ui.view">
+        <field name="name">account.accrual.search</field>
+        <field name="model">account.accrual</field>
+        <field name="arch" type="xml">
+            <search string="Accruals">
+                <field name="name" string="Number" />
+                <field name="description" />
+                <field name="company_id" />
+                <filter string="Open"
+                    name="filter_open"
+                    domain="[('state','=','posted'),('amount_open','>',0)]" />
+                <filter string="Draft"
+                    name="filter_draft"
+                    domain="[('state','=','draft')]" />
+                <group expand="0" string="Group By">
+                    <filter string="State"
+                        name="group_state"
+                        context="{'group_by':'state'}" />
+                    <filter string="Company"
+                        name="group_company"
+                        context="{'group_by':'company_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_account_accrual" model="ir.actions.act_window">
+        <field name="name">Accruals</field>
+        <field name="res_model">account.accrual</field>
+        <field name="view_mode">list,form,pivot</field>
+        <field name="search_view_id" ref="view_account_accrual_search" />
+    </record>
+</odoo>

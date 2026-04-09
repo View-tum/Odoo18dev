@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vendor_billing_note_form" model="ir.ui.view">
+        <field name="name">vendor.billing.note.form</field>
+        <field name="model">vendor.billing.note</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Billing Note">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_create_bill" string="Create Bill" type="object" class="oe_highlight" invisible="state not in ('confirmed', 'partial_billed')"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="state not in ('draft', 'confirmed', 'partial_billed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,partial_billed,billed"/>
+                </header>
+                <sheet>
+
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_view_purchase_order"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-shopping-cart"
+                                invisible="purchase_count == 0"> 
+                            <field name="purchase_count" widget="statinfo" string="Purchase Orders"/>
+                        </button>
+
+                        <button name="action_view_vendor_bills"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                invisible="bill_count == 0">
+                            <field name="bill_count" widget="statinfo" string="Vendor Bills"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <span class="o_form_label">Billing Note</span>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="purchase_ids" widget="many2many_tags" readonly="1"/>
+                            <field name="vendor_ref" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="due_date" readonly="state != 'draft'"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="payment_state" widget="badge" 
+                                   decoration-danger="payment_state == 'not_paid'" 
+                                   decoration-warning="payment_state == 'partial'" 
+                                   decoration-success="payment_state == 'paid'"
+                                   invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Billing Lines" name="billing_lines">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom" create="0"> 
+                                    <field name="purchase_line_id" column_invisible="True"/>
+                                    <field name="purchase_order_id" widget="many2one" optional="show"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="name"/>
+                                    <field name="quantity" options="{'dp': 2}"/>
+                                    <field name="price_unit" readonly="1" options="{'dp': 2}"/>
+                                    <field name="tax_ids" widget="many2many_tags" readonly="1" column_invisible="True"/>
+                                    <field name="price_subtotal" readonly="1"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                            <group>
+                                <group>
+                                    <field name="note" nolabel="1" placeholder="Terms and Conditions / Internal Notes..."/>
+                                </group>
+                                
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    
+                                    <field name="amount_credit_notes" widget="monetary" options="{'currency_field': 'currency_id'}" invisible="amount_credit_notes == 0"/>
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label" invisible="amount_credit_notes == 0">
+                                        <label for="amount_net_due" string="Amount Due"/>
+                                    </div>
+                                    <field name="amount_net_due" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" decoration-success="1" invisible="amount_credit_notes == 0"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vendor_billing_note_tree" model="ir.ui.view">
+        <field name="name">vendor.billing.note.tree</field>
+        <field name="model">vendor.billing.note</field>
+        <field name="arch" type="xml">
+            <list string="Vendor Billing Notes" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="vendor_ref"/>
+                <field name="partner_id"/>
+                <field name="date"/>
+                <field name="due_date" optional="show"/>
+                <field name="amount_total" sum="Total Amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'confirmed'" decoration-warning="state == 'billed'"/>
+                <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state == 'partial'" decoration-success="payment_state == 'paid'"/>
+                <field name="currency_id" column_invisible="True"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_vendor_billing_note" model="ir.actions.act_window">
+        <field name="name">Billing Notes</field>
+        <field name="res_model">vendor.billing.note</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Vendor Billing Note
+          </p>
+        </field>
+    </record>
+
+    <record id="view_vendor_billing_note_search" model="ir.ui.view">
+        <field name="name">vendor.billing.note.search</field>
+        <field name="model">vendor.billing.note</field>
+        <field name="arch" type="xml">
+            <search string="Search Billing Notes">
+                <field name="name" string="Billing Note No."/>
+                <field name="partner_id" string="Vendor"/>
+                <field name="purchase_ids" string="Purchase Order"/>
+                
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter string="Billed (ตั้งหนี้แล้ว)" name="billed" domain="[('state', '=', 'billed')]"/>
+                <separator/>
+                <filter string="Not Paid (ยังไม่จ่ายเงิน)" name="not_paid" domain="[('payment_state', '=', 'not_paid')]"/>
+                <filter string="Paid (จ่ายเงินแล้ว)" name="paid" domain="[('payment_state', '=', 'paid')]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Vendor" name="group_by_partner" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Status" name="group_by_state" context="{'group_by': 'state'}"/>
+                    <filter string="Payment Status" name="group_by_payment" context="{'group_by': 'payment_state'}"/>
+                    <filter string="Responsible Person" name="group_by_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Billing Date" name="group_by_date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_vendor_billing_note_pivot" model="ir.ui.view">
+        <field name="name">vendor.billing.note.pivot</field>
+        <field name="model">vendor.billing.note</field>
+        <field name="arch" type="xml">
+            <pivot string="Billing Notes Analysis" sample="1">
+                <field name="date" type="row" interval="month"/>
+                <field name="payment_state" type="row"/>
+                <field name="amount_untaxed" type="measure"/>
+                <field name="amount_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_vendor_billing_note_graph" model="ir.ui.view">
+        <field name="name">vendor.billing.note.graph</field>
+        <field name="model">vendor.billing.note</field>
+        <field name="arch" type="xml">
+            <graph string="Billing Notes Analysis" type="bar" sample="1">
+                <field name="date" interval="month"/>
+                <field name="payment_state"/>
+                <field name="amount_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <menuitem id="menu_vendor_billing_note" 
+              name="Billing Notes" 
+              parent="purchase.menu_procurement_management" 
+              action="action_vendor_billing_note" 
+              sequence="20"/>
+
+    <menuitem id="menu_vendor_billing_note_account" 
+              name="Billing Notes" 
+              parent="account.menu_finance_payables" 
+              action="action_vendor_billing_note" 
+              sequence="0"/>
+
+</odoo>

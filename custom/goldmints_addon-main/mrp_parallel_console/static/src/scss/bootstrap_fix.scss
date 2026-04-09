@@ -1,0 +1,157 @@
+
+@function _mpc__alpha_unit($alpha) {
+  @if type-of($alpha) != "number" {
+    @return $alpha;
+  }
+
+  @if unit($alpha) == "%" {
+    @return $alpha / 100%;
+  }
+
+  @return $alpha;
+}
+
+@function _mpc__set_alpha($color, $alpha) {
+  $alpha_u: _mpc__alpha_unit($alpha);
+
+  @if type-of($alpha_u) != "number" {
+    @return unquote("rgba(#{$color}, #{$alpha})");
+  }
+
+  $current: opacity($color);
+
+  @if $alpha_u > $current {
+    @return opacify($color, $alpha_u - $current);
+  }
+
+  @return transparentize($color, $current - $alpha_u);
+}
+
+@function rgba($args...) {
+  $len: length($args);
+
+  @if $len == 1 {
+    @return nth($args, 1);
+  }
+
+  @if $len == 2 {
+    $color: nth($args, 1);
+    $alpha: nth($args, 2);
+
+    @if type-of($color) == "color" {
+      @return _mpc__set_alpha($color, $alpha);
+    }
+
+    @return unquote("rgba(#{$color}, #{$alpha})");
+  }
+
+  @if $len == 3 {
+    $r: nth($args, 1);
+    $g: nth($args, 2);
+    $b: nth($args, 3);
+
+    @if type-of($r) == "number" and type-of($g) == "number" and type-of($b) == "number" {
+      @return rgb($r, $g, $b);
+    }
+
+    @return unquote("rgba(#{$r}, #{$g}, #{$b})");
+  }
+
+  @if $len == 4 {
+    $r: nth($args, 1);
+    $g: nth($args, 2);
+    $b: nth($args, 3);
+    $alpha: nth($args, 4);
+
+    @if type-of($r) == "number" and type-of($g) == "number" and type-of($b) == "number" {
+      $alpha_u: _mpc__alpha_unit($alpha);
+      @if type-of($alpha_u) == "number" {
+        @return transparentize(rgb($r, $g, $b), 1 - $alpha_u);
+      }
+      @return unquote("rgba(#{$r}, #{$g}, #{$b}, #{$alpha})");
+    }
+
+    @return unquote("rgba(#{$r}, #{$g}, #{$b}, #{$alpha})");
+  }
+
+  @return unquote("rgba(#{$args})");
+}
+
+@function _mpc__all_numbers($args...) {
+  @for $i from 1 through length($args) {
+    @if type-of(nth($args, $i)) != "number" {
+      @return false;
+    }
+  }
+  @return true;
+}
+
+@function _mpc__all_comparable_numbers($args...) {
+  @if not _mpc__all_numbers($args...) {
+    @return false;
+  }
+
+  @if length($args) < 2 {
+    @return true;
+  }
+
+  $first: nth($args, 1);
+  @for $i from 2 through length($args) {
+    @if not comparable($first, nth($args, $i)) {
+      @return false;
+    }
+  }
+  @return true;
+}
+
+@function min($args...) {
+  $len: length($args);
+  @if $len == 0 {
+    @return null;
+  }
+
+  @if $len == 1 {
+    @return nth($args, 1);
+  }
+
+  @if _mpc__all_comparable_numbers($args...) {
+    $result: nth($args, 1);
+    @for $i from 2 through length($args) {
+      $value: nth($args, $i);
+      @if $value < $result {
+        $result: $value;
+      }
+    }
+    @return $result;
+  }
+
+  @return unquote("min(#{$args})");
+}
+
+@function max($args...) {
+  $len: length($args);
+  @if $len == 0 {
+    @return null;
+  }
+
+  @if $len == 1 {
+    @return nth($args, 1);
+  }
+
+  @if _mpc__all_comparable_numbers($args...) {
+    $result: nth($args, 1);
+    @for $i from 2 through length($args) {
+      $value: nth($args, $i);
+      @if $value > $result {
+        $result: $value;
+      }
+    }
+    @return $result;
+  }
+
+  @return unquote("max(#{$args})");
+}
+
+@function clamp($min, $value, $max) {
+  @return unquote("clamp(#{$min}, #{$value}, #{$max})");
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Easy Advance Cash",
+    "version": "1.1",
+    "summary": "สมุดคุมเงินยืมทดรองจ่าย (Transaction Log) แบบหน้าเดียวจบ",
+    "description": "บันทึก ยืม-เคลียร์-คืน",
+    "author": "Wolapart",
+    "category": "Accounting",
+    "depends": ["account", "hr_expense", "cheque_management"],
+    "data": [
+        "security/ir.model.access.csv",
+        "security/record_rules.xml",
+        "data/sequence.xml",
+        "views/res_config_settings_views.xml",
+        "views/advance_cash_view.xml",
+        "views/account_journal_view.xml",
+        "views/menu.xml",
+        "wizard/advance_cash_payment_wizard_view.xml",
+        "views/hr_employee_view.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="model_cheque_inbound_outbound_action_state_deposit" model="ir.actions.server">
+        <field name="name">Deposit The Cheques</field>
+        <field name="model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            action = records.action_state_deposit()
+        </field>
+    </record>
+
+    <record id="model_cheque_inbound_outbound_action_state_paid" model="ir.actions.server">
+        <field name="name">Done The Cheques</field>
+        <field name="model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            action = records.action_state_paid()
+        </field>
+    </record>
+
+    <record id="model_cheque_inbound_outbound_action_state_cancel" model="ir.actions.server">
+        <field name="name">Cancel The Cheques</field>
+        <field name="model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="binding_model_id" ref="cheque_management.model_cheque_inbound_outbound"/>
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+            action = records.action_state_cancel()
+        </field>
+    </record>
+</odoo>

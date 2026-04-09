@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_exchange_domain" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.exchange.domain</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='expense_currency_exchange_account_id']" position="attributes">
+                <attribute name="domain">[
+                    ('deprecated', '=', False),
+                    ('account_type', 'in', ('expense', 'expense_depreciation', 'expense_direct_cost', 'income_other'))
+                ]</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='income_currency_exchange_account_id']" position="attributes">
+                <attribute name="domain">[
+                    ('deprecated', '=', False),
+                    ('account_type', 'in', ('income', 'income_other', 'expense', 'expense_direct_cost'))
+                ]</attribute>
+            </xpath>
+
+            <xpath expr="//setting[@id='default_taxes']" position="after">
+                <setting id="auto_reconcile_reversals" string="Credit/Debit Notes" help="Automatically reconcile credit and debit notes when they are posted.">
+                    <field name="auto_reconcile_reversals"/>
+                </setting>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

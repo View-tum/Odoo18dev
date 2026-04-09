@@ -1,0 +1,148 @@
+{
+  "database": "11_codex_flowtest_20260330_113347",
+  "run_tag": "20260330043433",
+  "run_at": "2026-03-30T04:34:55.066939",
+  "passed_cases": [
+    "promo_free_item"
+  ],
+  "failed_cases": [
+    "foc_zero_mto",
+    "mto_standard",
+    "mts_min_max"
+  ],
+  "cases": [
+    {
+      "case": "promo_free_item",
+      "pass": true,
+      "order": {
+        "name": "S11563",
+        "state": "draft",
+        "invoice_status": "no",
+        "amount_total": 1236.0,
+        "pickings": [],
+        "invoices": []
+      },
+      "base_lines": [
+        {
+          "product": "FG-PSS-TH-01002",
+          "qty": 1.0,
+          "price_unit": 1236.0,
+          "is_free_item": false
+        },
+        {
+          "product": "FG-PSS-TH-01001",
+          "qty": 4.0,
+          "price_unit": 0.0,
+          "is_free_item": true
+        }
+      ],
+      "notes": [
+        "Promo logic was tested on quotation creation only.",
+        "This product is configured as pharma MTS, not MTO."
+      ]
+    },
+    {
+      "case": "foc_zero_mto",
+      "pass": false,
+      "order": {
+        "name": "SOB-263069",
+        "state": "sale",
+        "invoice_status": "no",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/OUT/02504",
+          "GMP/PICK/03571"
+        ],
+        "invoices": []
+      },
+      "mo_count_after_confirm": 0,
+      "mo_names_after_confirm": [],
+      "completed_mos": [],
+      "pickings_after_confirm": [
+        {
+          "name": "GMP/PICK/03571",
+          "type": "internal",
+          "state": "done"
+        }
+      ],
+      "auto_invoice_after_confirm": [],
+      "invoice_ids_before_manual_create": [],
+      "manual_invoice_created": [],
+      "invoice_error": "Cannot create an invoice. No items are available to invoice.\n\nTo resolve this issue, please ensure that:\n   • The products have been delivered before attempting to invoice them.\n   • The invoicing policy of the product is configured correctly.\n\nIf you want to invoice based on ordered quantities instead:\n   • For consumable or storable products, open the product, go to the 'General Information' tab and change the 'Invoicing Policy' from 'Delivered Quantities' to 'Ordered Quantities'.\n   • For services (and other products), change the 'Invoicing Policy' to 'Prepaid/Fixed Price'.\n",
+      "invoice_traceback": "Traceback (most recent call last):\n  File \"<string>\", line 370, in _run_sales_flow_case\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale_timesheet\\models\\sale_order.py\", line 152, in _create_invoices\n    moves = super()._create_invoices(grouped=grouped, final=final, date=date)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\sale_auto_confirm_invoice\\models\\sale_order.py\", line 30, in _create_invoices\n    moves = super()._create_invoices(grouped=grouped, final=final, date=date)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale\\models\\sale_order.py\", line 1568, in _create_invoices\n    raise UserError(self._nothing_to_invoice_error_message())\nodoo.exceptions.UserError: Cannot create an invoice. No items are available to invoice.\n\nTo resolve this issue, please ensure that:\n   • The products have been delivered before attempting to invoice them.\n   • The invoicing policy of the product is configured correctly.\n\nIf you want to invoice based on ordered quantities instead:\n   • For consumable or storable products, open the product, go to the 'General Information' tab and change the 'Invoicing Policy' from 'Delivered Quantities' to 'Ordered Quantities'.\n   • For services (and other products), change the 'Invoicing Policy' to 'Prepaid/Fixed Price'.\n\n",
+      "invoice_state": false,
+      "invoice_total": 0.0,
+      "done_pickings": [
+        "GMP/PICK/03571"
+      ],
+      "sale_line_delivery": [
+        {
+          "product": "FG-MTS-XX-01001",
+          "qty_ordered": 1.0,
+          "qty_delivered": 0.0,
+          "qty_invoiced": 0.0,
+          "is_foc": true
+        }
+      ],
+      "invoice_line_flags": [],
+      "cogs_accounts": [],
+      "foc_expected_account": "600005",
+      "foc_expected_account_used": false,
+      "notes": [
+        "Invoices are not created automatically on SO confirm in the current custom code.",
+        "Invoices are posted automatically when _create_invoices() is called."
+      ]
+    },
+    {
+      "case": "mto_standard",
+      "pass": false,
+      "error": "Record does not exist or has been deleted.\n(Record: sale.order(16573,), User: 1)",
+      "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 557, in _run\n  File \"<string>\", line 552, in <lambda>\n  File \"<string>\", line 347, in _run_sales_flow_case\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\fields.py\", line 1272, in __get__\n    raise MissingError(\"\\n\".join([\nodoo.exceptions.MissingError: Record does not exist or has been deleted.\n(Record: sale.order(16573,), User: 1)\n"
+    },
+    {
+      "case": "mts_min_max",
+      "pass": false,
+      "order": {
+        "name": "SOB-263071",
+        "state": "sale",
+        "invoice_status": "no",
+        "amount_total": 0.0,
+        "pickings": [
+          "GMP/PICK/03572",
+          "GMP/OUT/02505"
+        ],
+        "invoices": []
+      },
+      "orderpoint_id": 175,
+      "orderpoint_route_id": false,
+      "orderpoint_min": 0.0,
+      "orderpoint_max": 0.0,
+      "mo_count_after_confirm": 0,
+      "mo_count_after_scheduler": 0,
+      "mo_names_after_scheduler": [],
+      "scheduler_created_from_orderpoint": [],
+      "completed_mos": [],
+      "pickings_after_run": [
+        {
+          "name": "GMP/PICK/03572",
+          "type": "internal",
+          "state": "done"
+        },
+        {
+          "name": "GMP/OUT/02505",
+          "type": "outgoing",
+          "state": "assigned"
+        }
+      ],
+      "invoice_created": [],
+      "auto_invoice_after_confirm": [],
+      "invoice_error": "Cannot create an invoice. No items are available to invoice.\n\nTo resolve this issue, please ensure that:\n   • The products have been delivered before attempting to invoice them.\n   • The invoicing policy of the product is configured correctly.\n\nIf you want to invoice based on ordered quantities instead:\n   • For consumable or storable products, open the product, go to the 'General Information' tab and change the 'Invoicing Policy' from 'Delivered Quantities' to 'Ordered Quantities'.\n   • For services (and other products), change the 'Invoicing Policy' to 'Prepaid/Fixed Price'.\n",
+      "invoice_traceback": "Traceback (most recent call last):\n  File \"<string>\", line 496, in _run_mts_case\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale_timesheet\\models\\sale_order.py\", line 152, in _create_invoices\n    moves = super()._create_invoices(grouped=grouped, final=final, date=date)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"c:\\365_project\\thecool18e\\dev\\custom\\goldmints_addon-main\\sale_auto_confirm_invoice\\models\\sale_order.py\", line 30, in _create_invoices\n    moves = super()._create_invoices(grouped=grouped, final=final, date=date)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\server\\odoo\\addons\\sale\\models\\sale_order.py\", line 1568, in _create_invoices\n    raise UserError(self._nothing_to_invoice_error_message())\nodoo.exceptions.UserError: Cannot create an invoice. No items are available to invoice.\n\nTo resolve this issue, please ensure that:\n   • The products have been delivered before attempting to invoice them.\n   • The invoicing policy of the product is configured correctly.\n\nIf you want to invoice based on ordered quantities instead:\n   • For consumable or storable products, open the product, go to the 'General Information' tab and change the 'Invoicing Policy' from 'Delivered Quantities' to 'Ordered Quantities'.\n   • For services (and other products), change the 'Invoicing Policy' to 'Prepaid/Fixed Price'.\n\n",
+      "invoice_state": false,
+      "notes": [
+        "Order confirmation alone should not create MO for MTS.",
+        "Scheduler should create procurement from orderpoint when forecast goes negative."
+      ]
+    }
+  ]
+}

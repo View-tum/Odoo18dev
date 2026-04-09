@@ -1,0 +1,24 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_sales_region_form_inherit_type" model="ir.ui.view">
+        <field name="name">sales.region.form.inherit.type</field>
+        <field name="model">delivery.sales.region</field>
+        <field name="inherit_id" ref="delivery_routes_management.view_sales_region_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="region_type" widget="radio" options="{'horizontal': false 'no_create': True, 'no_open': True, 'no_create_edit': True}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_region_list_inherit_type" model="ir.ui.view">
+        <field name="name">sales.region.list.inherit.type</field>
+        <field name="model">delivery.sales.region</field>
+        <field name="inherit_id" ref="delivery_routes_management.view_sales_region_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="region_type" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo> -->

@@ -1,0 +1,21 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "journal_incoming_manual.png",
+  "post_nav_wait_ms": 3000,
+  "post_click_wait_ms": 2000,
+  "target_url": "http://localhost:8811/odoo/action-278/51",
+  "highlight_selectors": [
+    {
+      "selector": "[name='is_cheque_incoming']",
+      "label": "1"
+    },
+    {
+      "selector": "[name='inbound_payment_method_line_ids']",
+      "label": "2"
+    }
+  ]
+}

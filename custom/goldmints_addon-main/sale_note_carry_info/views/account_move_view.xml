@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_move_form_invoice_with_note" model="ir.ui.view">
+            <field name="name">account.move.form.note</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/notebook" position="inside">
+                    <page string="Sale Note" name ="sale_note" invisible="move_type not in ('out_invoice', 'out_refund')">
+                        <group>
+                            <field name="sale_note" nolabel="1" placeholder="Carried from Sale Order"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

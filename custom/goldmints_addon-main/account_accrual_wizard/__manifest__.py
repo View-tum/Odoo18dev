@@ -1,0 +1,21 @@
+{
+    "name": "Accrual Wizard & Allocation",
+    "version": "18.0.1.0.0",
+    "summary": "Accrual wizard, allocation, auto reverse, attachments & logs",
+    "author": "View",
+    "website": "https://example.com",
+    "category": "Accounting",
+    "license": "LGPL-3",
+    "depends": ["account", "analytic", "mail"],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/ir_sequence_data.xml",
+        "data/accrual_cron.xml",
+        "views/product_views.xml",
+        "views/account_accrual_views.xml",
+        "views/accrual_wizard_views.xml",
+        "views/menu_views.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

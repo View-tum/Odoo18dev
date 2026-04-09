@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_summary_line_list" model="ir.ui.view">
+        <field name="name">mrp.production.summary.line.list</field>
+        <field name="model">mrp.production.summary.line</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0"
+                  decoration-info="line_type == 'product'"
+                  decoration-success="line_type == 'component'"
+                  decoration-warning="line_type == 'operation'"
+                  decoration-danger="line_type == 'mold'"
+                  decoration-muted="line_type == 'employee'"
+                  default_order="production_id desc, line_type_order asc">
+
+                <field name="line_type_order" column_invisible="1"/>
+
+                <field name="production_id"
+                       decoration-bf="1"/>
+                <field name="line_type"
+                       widget="badge"
+                       decoration-info="line_type == 'product'"
+                       decoration-success="line_type == 'component'"
+                       decoration-warning="line_type == 'operation'"
+                       decoration-danger="line_type == 'mold'"/>
+                <field name="product_name" string="Description"/>
+                <field name="product_id" optional="hide"/>
+
+                <field name="planned_qty"
+                       string="Planned"
+                       sum="Total"
+                       decoration-bf="line_type == 'product'"/>
+                <field name="actual_qty"
+                       string="Actual"
+                       sum="Total"
+                       decoration-bf="line_type == 'product'"
+                       decoration-danger="actual_qty &gt; planned_qty and line_type == 'component'"/>
+                <field name="uom_id" string="UoM" optional="show"/>
+
+                <field name="duration_expected"
+                       string="Exp. Duration (min)"
+                       optional="show"
+                       sum="Total"
+                       widget="float_time"/>
+                <field name="duration_actual"
+                       string="Act. Duration (min)"
+                       optional="show"
+                       sum="Total"
+                       widget="float_time"
+                       decoration-danger="duration_actual &gt; duration_expected * 1.1"/>
+
+                <field name="workcenter_id" string="Work Center" optional="show"/>
+
+                <field name="unit_cost_std"
+                       string="Std Rate/Unit"
+                       optional="show"/>
+                <field name="unit_cost_actual"
+                       string="Act Rate/Unit"
+                       optional="show"/>
+
+                <field name="cost_estimated"
+                       string="Est. Cost"
+                       sum="Total"
+                       optional="show"/>
+                <field name="cost_actual"
+                       string="Act. Cost"
+                       sum="Total"
+                       optional="show"
+                       decoration-danger="total_variance &gt; 0"/>
+
+                <field name="price_variance"
+                       string="Price Var"
+                       sum="Total"
+                       optional="show"
+                       decoration-danger="price_variance &gt; 0"
+                       decoration-success="price_variance &lt; 0"/>
+                <field name="usage_variance"
+                       string="Usage Var"
+                       sum="Total"
+                       optional="show"
+                       decoration-danger="usage_variance &gt; 0"
+                       decoration-success="usage_variance &lt; 0"/>
+                <field name="efficiency_variance"
+                       string="Efficiency Var"
+                       sum="Total"
+                       optional="show"
+                       decoration-danger="efficiency_variance &gt; 0"
+                       decoration-success="efficiency_variance &lt; 0"/>
+                <field name="total_variance"
+                       string="Total Var"
+                       sum="Total"
+                       optional="show"
+                       decoration-danger="total_variance &gt; 0"
+                       decoration-success="total_variance &lt; 0"
+                       decoration-bf="1"/>
+
+                <field name="source_document"
+                       string="Source"
+                       optional="show"/>
+                <field name="source_vendor_id"
+                       string="Vendor"
+                       optional="show"/>
+                <field name="source_mo_id"
+                       string="Source MO"
+                       optional="show"/>
+                <field name="lot_id"
+                       string="Lot/Serial"
+                       optional="hide"/>
+
+                <field name="mps_week_name" optional="hide"/>
+                <field name="source_sale_order_id" optional="hide"/>
+
+                <field name="procurement_group_id"
+                       string="Backorder Group"
+                       optional="show"/>
+                <field name="production_state" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="mrp_production_summary_line_search" model="ir.ui.view">
+        <field name="name">mrp.production.summary.line.search</field>
+        <field name="model">mrp.production.summary.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="production_id"/>
+                <field name="product_id"/>
+                <field name="product_name"/>
+                <field name="workcenter_id"/>
+                <field name="source_vendor_id"/>
+                <field name="source_mo_id"/>
+                <field name="lot_id"/>
+                <field name="procurement_group_id"/>
+                <field name="mps_week_name"/>
+                <field name="source_sale_order_id"/>
+
+                <filter name="filter_product" string="Finished Products"
+                        domain="[('line_type', '=', 'product')]"
+                        icon="fa-cube"/>
+                <filter name="filter_component" string="Components"
+                        domain="[('line_type', '=', 'component')]"
+                        icon="fa-cogs"/>
+                <filter name="filter_operation" string="Operations"
+                        domain="[('line_type', '=', 'operation')]"
+                        icon="fa-clock-o"/>
+                <filter name="filter_employee" string="Employees"
+                        domain="[('line_type', '=', 'employee')]"
+                        icon="fa-users"/>
+                <filter name="filter_mold" string="Molds"
+                        domain="[('line_type', '=', 'mold')]"
+                        icon="fa-industry"/>
+
+                <separator/>
+
+                <filter name="filter_done" string="Done"
+                        domain="[('production_state', '=', 'done')]"/>
+                <filter name="filter_confirmed" string="Confirmed"
+                        domain="[('production_state', '=', 'confirmed')]"/>
+
+                <separator/>
+
+                <filter name="filter_has_vendor" string="Has Vendor"
+                        domain="[('source_vendor_id', '!=', False)]"/>
+                <filter name="filter_has_source_mo" string="Has Source MO"
+                        domain="[('source_mo_id', '!=', False)]"/>
+
+                <group expand="0" string="Group By">
+                    <filter name="group_mo" string="Manufacturing Order"
+                            context="{'group_by': 'production_id'}"/>
+                    <filter name="group_backorder" string="Backorder Group"
+                            context="{'group_by': 'procurement_group_id'}"/>
+                    <filter name="group_type" string="Line Type"
+                            context="{'group_by': 'line_type'}"/>
+                    <filter name="group_product" string="Product"
+                            context="{'group_by': 'product_id'}"/>
+                    <filter name="group_workcenter" string="Work Center"
+                            context="{'group_by': 'workcenter_id'}"/>
+                    <filter name="group_vendor" string="Source Vendor"
+                            context="{'group_by': 'source_vendor_id'}"/>
+                    <filter name="group_source_mo" string="Source MO"
+                            context="{'group_by': 'source_mo_id'}"/>
+                    <filter name="group_mps_week" string="MPS Week"
+                            context="{'group_by': 'mps_week_name'}"/>
+                    <filter name="group_sale_order" string="Source Sales Order"
+                            context="{'group_by': 'source_sale_order_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="mrp_production_cost_dashboard_list" model="ir.ui.view">
+        <field name="name">mrp.production.cost.dashboard.list</field>
+        <field name="model">mrp.production</field>
+        <field name="priority">999</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0"
+                  decoration-danger="cost_health == 'overrun'"
+                  decoration-success="cost_health == 'underrun'"
+                  decoration-info="cost_health == 'normal'">
+                <field name="name" string="MO Reference" decoration-bf="1"/>
+                <field name="product_id"/>
+                <field name="state" widget="badge"/>
+                <field name="total_cost_estimated" string="Est. Total Cost" sum="Total"/>
+                <field name="total_cost_actual" string="Act. Total Cost" sum="Total"/>
+                <field name="cost_variance" string="Variance" sum="Total" decoration-bf="1"/>
+                <field name="cost_health" widget="badge" 
+                       decoration-danger="cost_health == 'overrun'"
+                       decoration-success="cost_health == 'underrun'"
+                       decoration-info="cost_health == 'normal'"/>
+                <button name="action_view_cost_breakdown" type="object" string="Cost Breakdown" class="oe_link" icon="fa-list"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="mrp_production_cost_dashboard_action" model="ir.actions.act_window">
+        <field name="name">MO Cost Dashboard</field>
+        <field name="res_model">mrp.production</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state', '=', 'done')]</field>
+        <field name="view_id" ref="mrp_production_cost_dashboard_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No completed Manufacturing Orders to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="mrp_production_summary_line_action" model="ir.actions.act_window">
+        <field name="name">Production Summary</field>
+        <field name="res_model">mrp.production.summary.line</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="mrp_production_summary_line_search"/>
+        <field name="context">{'search_default_group_mo': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No production summary data yet.
+            </p>
+            <p>
+                Complete Manufacturing Orders to see the production summary with materials, operations, and traceability.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="mrp_production_summary_menu"
+              name="Production Cost Dashboard"
+              parent="mrp.menu_mrp_reporting"
+              action="mrp_production_cost_dashboard_action"
+              sequence="30"/>
+
+</odoo>

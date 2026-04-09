@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Asset Hierarchy View Enhancement -->
+    <record id="view_account_asset_hierarchy_group_value" model="ir.ui.view">
+        <field name="name">account.asset.hierarchy.group.value</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset_related_assets.view_account_asset_hierarchy_tree" />
+        <field name="arch" type="xml">
+            <!-- Add field to the root of hierarchy -->
+            <xpath expr="//hierarchy" position="inside">
+                <field name="total_group_value" />
+            </xpath>
+
+            <!-- Inject Total Group Value into the template -->
+            <xpath expr="//div[hasclass('row')]" position="inside">
+                <div class="col-12" t-if="record.child_count.raw_value &gt; 0">
+                    <div class="d-flex justify-content-between align-items-center px-2 py-1 rounded"
+                         style="background:#fff4e5; min-height:32px; border: 1px dashed #ffa000;">
+                        <div class="text-warning-emphasis fw-bold small">Total Group</div>
+                        <div class="fw-bold small text-dark">
+                            <t t-esc="record.total_group_value.display_value || record.total_group_value.value"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Asset Form View Enhancement -->
+    <record id="view_account_asset_form_group_value" model="ir.ui.view">
+        <field name="name">account.asset.form.group.value</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='original_value']" position="after">
+                <field name="total_group_value" invisible="not children_ids and not parent_id" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Asset List View Enhancement -->
+    <record id="view_account_asset_tree_group_value" model="ir.ui.view">
+        <field name="name">account.asset.tree.group.value</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='original_value']" position="after">
+                <field name="total_group_value" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

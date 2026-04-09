@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_product_category_form_inherit_asset_flag" model="ir.ui.view">
+        <field name="name">product.category.form.asset.flag</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group[@name='account_property']" position="after">
+	            <group string="Asset Settings">
+	                <field name="is_fixed_asset"/>
+	                <!--<field name="asset_profile_id"/>
+            		<field name="auto_create_asset"/>-->
+	            </group>
+	        </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_production_filter_intl" model="ir.ui.view">
+        <field name="name">mrp.production.select.intl</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_ready']" position="after">
+                <separator />
+                <filter string="International" name="filter_intl"
+                    domain="[('mpc_market_scope', '=', 'inter')]" />
+                <filter string="Domestic" name="filter_domestic"
+                    domain="[('mpc_market_scope', '=', 'domestic')]" />
+                <separator />
+            </xpath>
+        </field>
+    </record>
+</odoo>

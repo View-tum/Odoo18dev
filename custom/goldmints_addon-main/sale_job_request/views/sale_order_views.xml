@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_order_form_inherit_job_request" model="ir.ui.view">
+        <field name="name">sale.order.form.job.request</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="action_view_job_request" icon="fa-clipboard" invisible="not job_request_count">
+                    <field name="job_request_count" widget="statinfo" string="Job Request"/>
+                </button>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_create_job_request" type="object" string="Create Job Request" class="btn-primary" invisible="job_request_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

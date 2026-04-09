@@ -1,0 +1,126 @@
+{
+  "SOB-263069": {
+    "state": "sale",
+    "amount_total": 0.0,
+    "invoice_status": "invoiced",
+    "lines": [
+      {
+        "product": "FG-PNC-XX-01001",
+        "qty": 1.0,
+        "delivered": 1.0,
+        "invoiced": 1.0,
+        "price_unit": 0.0,
+        "is_foc": true,
+        "foc_price_unit": 0.0
+      }
+    ],
+    "pickings": [
+      {
+        "name": "GMP/PICK/03571",
+        "type": "Pick",
+        "code": "internal",
+        "state": "done",
+        "origin": "SOB-263069 - CODEX-foc_zero_mto_live-20260330085840",
+        "moves": [
+          {
+            "product": "FG-PNC-XX-01001",
+            "qty_demand": 1.0,
+            "qty_done": 1.0,
+            "forecast": 0.0,
+            "state": "done",
+            "src": "GMP/Stock",
+            "dst": "GMP/Output"
+          }
+        ]
+      },
+      {
+        "name": "GMP/OUT/02504",
+        "type": "Delivery Orders",
+        "code": "outgoing",
+        "state": "done",
+        "origin": "SOB-263069 - CODEX-foc_zero_mto_live-20260330085840",
+        "moves": [
+          {
+            "product": "FG-PNC-XX-01001",
+            "qty_demand": 1.0,
+            "qty_done": 1.0,
+            "forecast": 0.0,
+            "state": "done",
+            "src": "GMP/Output",
+            "dst": "Partners/Customers"
+          }
+        ]
+      }
+    ]
+  },
+  "SOB-263070": {
+    "state": "sale",
+    "amount_total": 0.0,
+    "invoice_status": "invoiced",
+    "lines": [
+      {
+        "product": "FG-MTK-IL-01001",
+        "qty": 1.0,
+        "delivered": 1.0,
+        "invoiced": 1.0,
+        "price_unit": 0.0,
+        "is_foc": false,
+        "foc_price_unit": 0.0
+      }
+    ],
+    "pickings": [
+      {
+        "name": "GMP/PICK/03572",
+        "type": "Pick",
+        "code": "internal",
+        "state": "done",
+        "origin": "SOB-263070 - CODEX-mto_standard_live-20260330085840",
+        "moves": [
+          {
+            "product": "FG-MTK-IL-01001",
+            "qty_demand": 1.0,
+            "qty_done": 1.0,
+            "forecast": 0.0,
+            "state": "done",
+            "src": "GMP/Stock",
+            "dst": "GMP/Output"
+          }
+        ]
+      },
+      {
+        "name": "GMP/OUT/02505",
+        "type": "Delivery Orders",
+        "code": "outgoing",
+        "state": "done",
+        "origin": "SOB-263070 - CODEX-mto_standard_live-20260330085840",
+        "moves": [
+          {
+            "product": "FG-MTK-IL-01001",
+            "qty_demand": 1.0,
+            "qty_done": 1.0,
+            "forecast": 0.0,
+            "state": "done",
+            "src": "GMP/Output",
+            "dst": "Partners/Customers"
+          }
+        ]
+      }
+    ]
+  },
+  "GMP/TRPL/00001": {
+    "state": "assigned",
+    "origin": "GMP/MOPL/00001",
+    "sale": false,
+    "moves": [
+      {
+        "product": "SM-PNC-BT-03001",
+        "qty_demand": 360.0,
+        "qty_done": 360.0,
+        "forecast": 360.0,
+        "state": "assigned",
+        "src": "GMP/Stock/Semi",
+        "dst": "GMP/Stock/"
+      }
+    ]
+  }
+}

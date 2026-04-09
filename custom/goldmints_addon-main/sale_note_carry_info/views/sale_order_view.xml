@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="view_order_form_with_note_page" model="ir.ui.view">
+            <field name="name">sale.order.form.note.page</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Sale Note">
+                        <group>
+                            <field name="sale_note" placeholder="Write sale note here..."/>
+                        </group>
+                        <group>
+                            <field name="internal_note" placeholder="Copied from customer internal note..."/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

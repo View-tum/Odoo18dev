@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_account_payment_register_form_inherit_allocation" model="ir.ui.view">
+        <field name="name">account.payment.register.form.inherit.allocation</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']" position="after">
+                <field name="is_multi_allocation_enabled" invisible="1"/>
+            </xpath>
+            <xpath expr="//group" position="after">
+                <group string="Invoices Allocation" invisible="not is_multi_allocation_enabled or not allocation_line_ids">
+                    <field name="allocation_line_ids" nolabel="1" colspan="2" force_save="1">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="move_line_id" column_invisible="True" force_save="1" />
+                            <field name="amount_residual_original" column_invisible="True" force_save="1" />
+                            <field name="move_id" string="เลขที่ใบแจ้งหนี้" />
+                            <field name="amount_total" string="ยอดทั้งหมด" readonly="1" force_save="1" />
+                            <field name="amount_residual" string="ยอดคงเหลือ" />
+                            <field name="amount_to_pay" string="ยอดจ่าย" sum="Total" />
+                            <field name="currency_id" column_invisible="1" />
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

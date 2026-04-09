@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldMints - Interactive Canvas Workflow (Figma Style)</title>
+    <!-- Vis.js Network for Canvas Rendering -->
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-canvas: #1e1e1e; /* Figma style dark gray */
+            --grid-color: #2c2c2c;
+            --text-main: #ffffff;
+            --panel-bg: rgba(30, 41, 59, 0.95);
+            --sidebar-border: #334155;
+            --accent-color: #0ea5e9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+        }
+
+        /* Figma Grid Background */
+        #mynetwork {
+            flex: 1;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            cursor: grab;
+        }
+
+        #mynetwork:active {
+            cursor: grabbing;
+        }
+
+        /* Top Bar Info */
+        .top-bar {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--panel-bg);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--sidebar-border);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .top-bar h1 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        /* Info Side Panel (Miro / Figma Inspect style) */
+        .side-panel {
+            width: 350px;
+            background: var(--panel-bg);
+            border-left: 1px solid var(--sidebar-border);
+            height: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: -4px 0 16px rgba(0,0,0,0.4);
+            z-index: 10;
+            transition: transform 0.3s ease;
+            transform: translateX(100%); /* Start Hidden */
+        }
+
+        .side-panel.active {
+            transform: translateX(0);
+        }
+
+        .side-panel h2 {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--sidebar-border);
+            padding-bottom: 12px;
+        }
+
+        .side-panel .desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .side-panel .addons {
+            margin-top: 12px;
+        }
+
+        .side-panel .addons h3 {
+            font-size: 0.9rem;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .side-panel .addons label {
+            display: inline-block;
+            background: #0369a1;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <h1><i class="fa-solid fa-square-poll-vertical"></i> GoldMints Figma Canvas</h1>
+        <p>ซูม เมาส์ลาก หรือคลิกกล่อง Node เพื่อดูรายละเอียดใน Module</p>
+    </div>
+
+    <!-- The Canvas Board -->
+    <div id="mynetwork"></div>
+
+    <!-- Inspector Panel -->
+    <div class="side-panel" id="side-panel">
+        <button class="close-btn" onclick="togglePanel(false)"><i class="fa-solid fa-xmark"></i></button>
+        <h2 id="panel-title">Node Title</h2>
+        <div class="desc" id="panel-desc">รายละเอียด Node...</div>
+        <div class="addons" id="panel-addons">
+            <!-- Custom Addons go here -->
+        </div>
+    </div>
+
+    <script>
+        // Nodes array representing the linear workflow
+        const nodeData = [
+            { id: 1, label: '\uf290\n1. Sales Import', color: { background: '#22c55e', border: '#16a34a' }, x: 0, y: 0, 
+              title: 'ระบบรับแจ้งยอดขาย', desc: 'ดึงออเดอร์จากไฟล์ Excel ห้างหลายๆ สาขาเข้ามาทีเดียว พร้อมตรวจสอบเครดิตค้างจ่าย (Credit Limit) เพื่อไม่ให้หนี้พอกพูนก่อนส่งมอบงาน', addons: ['sale_order_import_goldmints', 'partner_credit_limit_sale_block'] },
+            
+            { id: 2, label: '\uf073\n2. MPS Planning', color: { background: '#3b82f6', border: '#2563eb' }, x: 250, y: 0, 
+              title: 'ระบบจัดสรรดักตาราง (MPS)', desc: 'นำความคาดการณ์ (Forecast) และยอดขายจริง มาปั่นหมุนรันปริมาณการผลิตยาดมสัปดาห์ปัจจุบัน-ถัดไปเพื่อสั่งคำตัดผลิตขาด', addons: ['mrp_mps_mo_tracking'] },
+            
+            { id: 3, label: '\uf110\n3. Purchase (PR/PO)', color: { background: '#a855f7', border: '#9333ea' }, x: 500, y: 0, 
+              title: 'ระบบอนุมัติเบิกสั่งซื้อ', desc: 'หาก MPS ตรวจสอบวัสดุและชิ้นส่วนขาดหน้าตัก ระบบสร้างใบขอซื้อ (PR) ดึงเข้าตรวจสอบงบ (Budget) อนุมัติแบบ Multi-step ก่อนดีดเป็นเอกสารใบสั่งซื้อ PO', addons: ['purchase_request', 'oi_workflow_purchase_request'] },
+            
+            { id: 4, label: '\uf07c\n4. Inventory Receipt', color: { background: '#eab308', border: '#ca8a04' }, x: 750, y: 0, 
+              title: 'รับของเข้าและย้ายเบิกจ่าย', desc: 'คัดตรวจเบอร์ล็อค Lot / Serial ป้องกันสต๊อกเบิกติดลบ `no_negative` ที่หน้างาน และย้ายของจากคลังใหญ่ (Main Store) สูงศูนย์รวมเตรียมผลิต', addons: ['nano_transfer_product_lot', 'stock_no_negative'] },
+            
+            { id: 5, label: '\uf013\n5. Manufacturing', color: { background: '#ef4444', border: '#dc2626' }, x: 1000, y: 0, 
+              title: 'ระบบคอนโซลผลิตต่อเนื่อง', desc: 'พนักงานใช้ Parallel Console บีบยอด Start-Done รายวินาที และจัดการเคลมขยะแตก Scrap โดยระบบเติมวัสดุให้ Silently แบบ Backoffice', addons: ['mrp_parallel_console', 'mrp_scrap_auto_replenish'] },
+            
+            { id: 6, label: '\uf0d1\n6. Delivery Route', color: { background: '#14b8a6', border: '#0d9488' }, x: 1250, y: 0, 
+              title: 'จัดเส้นทางรวมรถขับส่ง', desc: 'กรุ๊ปข้อมูลจัดส่งสินค้าตาม Delivery Routes เพื่อปล่อยโหลดพิกัดการขับรถคันเดียวประหยัดเวลาส่งเศษยอดให้สั้นลง', addons: ['delivery_routes_management'] },
+            
+            { id: 7, label: '\uf53d\n7. Billing & PDC', color: { background: '#0ea5e9', border: '#0284c7' }, x: 1500, y: 0, 
+              title: 'การเงินรับชำระบิลเช็ค', desc: 'รวบรวม Delivery Slip ย่อยทำใบสรุปยอด (Billing Billing) ส่งห้าง และเก็บสถานะเช็คฝาก Clearing ผ่านเช็ค PDC (Post-Dated Cheque)', addons: ['account_billing_create', 'sh_pdc'] }
+        ];
+
+        // Format nodes for Vis.js to look like cards/icons with FontAwesome
+        const nodes = new vis.DataSet(nodeData.map(n => ({
+            id: n.id,
+            label: n.label,
+            shape: 'box',
+            font: { face: 'Segoe UI', size: 14, color: '#ffffff', multi: true },
+            margin: 16,
+            borderWidth: 2,
+            shadow: { enabled: true, color: 'rgba(0,0,0,0.5)', size: 8 },
+            color: n.color,
+            x: n.x,
+            y: n.y,
+            fixed: { x: true, y: true } // Lock to linear grid style
+        })));
+
+        // Define linear transitions
+        const edges = new vis.DataSet([
+            { from: 1, to: 2, arrows: 'to', color: { color: '#475569' }, width: 2 },
+            { from: 2, to: 3, arrows: 'to', color: { color: '#475569' }, width: 2 },
+            { from: 3, to: 4, arrows: 'to', color: { color: '#475569' }, width: 2 },
+            { from: 4, to: 5, arrows: 'to', color: { color: '#475569' }, width: 2 },
+            { from: 5, to: 6, arrows: 'to', color: { color: '#475569' }, width: 2 },
+            { from: 6, to: 7, arrows: 'to', color: { color: '#475569' }, width: 2 }
+        ]);
+
+        const container = document.getElementById('mynetwork');
+        const data = { nodes: nodes, edges: edges };
+        const options = {
+            physics: false, // Turn off so positions x, y stay locked like Figma
+            nodes: {
+                font: { size: 14 }
+            },
+            interaction: {
+                hover: true,
+                zoomView: true,
+                dragView: true
+            }
+        };
+
+        const network = new vis.Network(container, data, options);
+
+        // Click Event to open Inspector Panel
+        network.on("click", function (params) {
+            if (params.nodes.length > 0) {
+                const nodeId = params.nodes[0];
+                const nodeObj = nodeData.find(n => n.id === nodeId);
+                
+                if (nodeObj) {
+                    document.getElementById('panel-title').innerText = nodeObj.title;
+                    document.getElementById('panel-desc').innerHTML = `<strong>สรุปแนวทาง:</strong><br>${nodeObj.desc}`;
+                    
+                    // Render addons as labels
+                    let addonsHtml = '<h3>🧩 Custom Addons:</h3>';
+                    nodeObj.addons.forEach(a => {
+                        addonsHtml += `<label>${a}</label>`;
+                    });
+                    document.getElementById('panel-addons').innerHTML = addonsHtml;
+
+                    togglePanel(true);
+                }
+            } else {
+                togglePanel(false); // clicked background
+            }
+        });
+
+        function togglePanel(show) {
+            const panel = document.getElementById('side-panel');
+            if (show) panel.classList.add('active');
+            else panel.classList.remove('active');
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<odoo>
+  <record id="view_partner_form_approval" model="ir.ui.view">
+    <field name="name">res.partner.form.approval</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+
+      <!-- Create a header since the base form has none -->
+      <xpath expr="//form/sheet" position="before">
+        <header>
+          <button name="action_approve"
+                  type="object"
+                  string="Approve"
+                  class="oe_highlight"
+                  invisible="approval_state == 'approved'"
+                  groups="account.group_account_manager"/>
+          <field name="approval_state" widget="statusbar" statusbar_visible="draft,approved"/>
+        </header>
+      </xpath>
+
+      <!-- Approval tab -->
+      <xpath expr="//form/sheet/notebook" position="inside">
+        <page string="Approval">
+          <group>
+            <field name="approval_state" readonly="1"/>
+            <field name="ecom_exempt"/>
+          </group>
+        </page>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

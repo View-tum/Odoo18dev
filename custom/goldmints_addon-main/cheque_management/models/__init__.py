@@ -1,0 +1,15 @@
+from . import (
+    account_journal,
+    account_move,
+    account_payment,
+    bank_statement_reconcile,
+    cheque_book,
+    cheque_inbound_outbound,
+    cheque_lists_report,
+    dynamic_cheque,
+    dynamic_cheque_report,
+    res_company,
+    res_config_settings,
+    res_partner,
+    res_partner_payee_name,
+)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_bom_form_view_inherit_step" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherit.step</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add Step Coverage and Step Batch Size to the component list -->
+            <xpath expr="//field[@name='bom_line_ids']/list/field[@name='product_qty']" position="after">
+                <field name="step_coverage_qty" optional="show" width="100px"/>
+                <field name="step_batch_qty" optional="show" width="100px"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

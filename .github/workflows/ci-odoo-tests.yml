@@ -1,0 +1,50 @@
+name: Odoo module tests (CI)
+
+on:
+  push:
+    paths:
+      - 'custom/**'
+      - 'server/**'
+  pull_request:
+    paths:
+      - 'custom/**'
+      - 'server/**'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: odoo_ci
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres" --health-interval=5s --health-timeout=5s --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f server/requirements.txt ]; then pip install -r server/requirements.txt; fi
+
+      - name: Run Odoo tests for sample module
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: |
+          # Ensure addons path points to the repo locations
+          ADDONS_PATH="server/addons,custom/addons,custom/view_dev,custom/goldmints_addon-main"
+          python server/odoo-bin -u view_dev_sample -d test_ci_view_dev --stop-after-init --test-enable --addons-path=$ADDONS_PATH --db_user=postgres --db_password=postgres

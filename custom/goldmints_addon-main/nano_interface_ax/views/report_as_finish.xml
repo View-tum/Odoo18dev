@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tmp_prod_journal_table_search" model="ir.ui.view">
+        <field name="name">tmp.prod.journal.table.search</field>
+        <field name="model">tmp.prod.journal.table</field>
+        <field name="arch" type="xml">
+            <search string="Search Journal">
+                <field name="ax_journal_id" string="Journal ID"/>
+                <field name="ax_prod_id" string="Production ID"/>
+                <field name="ax_description" string="Description"/>
+
+                <separator/>
+                <filter string="To Process (Draft &amp; Error)" name="filter_to_process"
+                        domain="[('is_imported', 'in', ('draft', 'error'))]"/>
+                <filter string="Errors Only" name="filter_error"
+                        domain="[('is_imported', '=', 'error')]"/>
+                <separator/>
+                <filter string="Imported Success" name="filter_imported"
+                        domain="[('is_imported', '=', 'imported')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'is_imported'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_tmp_prod_journal_prod_search" model="ir.ui.view">
+        <field name="name">tmp.prod.journal.prod.search</field>
+        <field name="model">tmp.prod.journal.prod</field>
+        <field name="arch" type="xml">
+            <search string="Search Journal">
+                <field name="ax_journal_id" string="Journal ID"/>
+
+                <separator/>
+                <filter string="To Process (Draft &amp; Error)" name="filter_to_process"
+                        domain="[('is_imported', 'in', ('draft', 'error'))]"/>
+                <filter string="Errors Only" name="filter_error"
+                        domain="[('is_imported', '=', 'error')]"/>
+                <separator/>
+                <filter string="Imported Success" name="filter_imported"
+                        domain="[('is_imported', '=', 'imported')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'is_imported'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_tmp_prod_journal_table_list" model="ir.ui.view">
+        <field name="name">tmp.prod.journal.table.list</field>
+        <field name="model">tmp.prod.journal.table</field>
+        <field name="arch" type="xml">
+            <list string="Journal Table" create="false" edit="false" delete="false">
+                <field name="ax_journal_id" optional="show"/>
+                <field name="ax_description" optional="show"/>
+                <field name="ax_prod_id" optional="show"/>
+                <field name="is_imported" optional="show"/>
+                <field name="imported_date" optional="show"/>
+                <field name="error_log" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_tmp_prod_journal_prod_list" model="ir.ui.view">
+        <field name="name">tmp.prod.journal.prod.list</field>
+        <field name="model">tmp.prod.journal.prod</field>
+        <field name="arch" type="xml">
+            <list string="Journal Line" create="false" edit="false" delete="false">
+                <field name="ax_journal_id" optional="show"/>
+                <field name="ax_voucher" optional="show"/>
+                <field name="ax_line_num" optional="show"/>
+                <field name="ax_item_id" optional="show"/>
+                <field name="ax_invent_batch_id" optional="show"/>
+                <field name="ax_invent_trans_id" optional="show"/>
+                <field name="ax_quantity" optional="show"/>
+                <field name="is_imported" optional="show"/>
+                <field name="imported_date" optional="show"/>
+                <field name="error_log" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_tmp_prod_journal_table_import_incremental" model="ir.actions.server">
+        <field name="name">Import Lines (Incremental)</field>
+        <field name="model_id" ref="model_tmp_prod_journal_table"/>
+        <field name="binding_model_id" ref="model_tmp_prod_journal_table"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_import_incremental()
+        </field>
+    </record>
+
+    <record id="action_journal_table" model="ir.actions.act_window">
+        <field name="name">Journal Table</field>
+        <field name="res_model">tmp.prod.journal.table</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_filter_to_process': 1}</field>
+        <field name="view_id" ref="view_tmp_prod_journal_table_list"/>
+    </record>
+
+    <record id="action_journal_line" model="ir.actions.act_window">
+        <field name="name">Journal Line</field>
+        <field name="res_model">tmp.prod.journal.prod</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_filter_to_process': 1}</field>
+        <field name="view_id" ref="view_tmp_prod_journal_prod_list"/>
+    </record>
+
+    <menuitem
+            id="menu_ax_interface"
+            name="AX Interface"
+            parent="stock.menu_stock_root"
+            sequence="50"
+    />
+
+    <menuitem
+            name="Import Journal Table"
+            action="action_journal_table"
+            id="menu_journal_table"
+            parent="menu_ax_interface"
+            sequence="10"
+    />
+
+    <menuitem
+            name="Import Journal Line"
+            action="action_journal_line"
+            id="menu_journal_line"
+            parent="menu_ax_interface"
+            sequence="20"
+    />
+
+</odoo>
+

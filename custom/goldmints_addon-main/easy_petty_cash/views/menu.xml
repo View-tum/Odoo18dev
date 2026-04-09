@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 1. For Employees: Dropdown in Expenses App -->
+    <menuitem id="menu_easy_petty_cash_root"
+        name="Petty Cash"
+        parent="hr_expense.menu_hr_expense_root"
+        sequence="6" />
+
+    <menuitem id="menu_easy_petty_cash_main"
+        name="Petty Cash Logbook"
+        parent="menu_easy_petty_cash_root"
+        action="action_petty_cash_log"
+        sequence="1" />
+
+    <!-- 2. For Accountants: Embedded in Accounting App -->
+    <menuitem id="menu_account_petty_cash_log"
+        name="Petty Cash Logbook"
+        parent="account.menu_finance_entries"
+        action="action_petty_cash_log"
+        sequence="201"
+        groups="account.group_account_user" />
+</odoo>

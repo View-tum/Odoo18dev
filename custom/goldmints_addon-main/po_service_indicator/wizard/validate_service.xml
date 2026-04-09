@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_purchase_service_validate_wizard_form" model="ir.ui.view">
+        <field name="name">purchase.service.validate.wizard.form</field>
+        <field name="model">purchase.service.validate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Validate Service Quantities">
+                <group>
+                    <field name="order_id"/>
+                </group>
+                <group>
+                    <field name="line_ids"
+                           context="{'list_view_ref': 'po_service_indicator.view_purchase_service_validate_wizard_line_list'}"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_delete': True}"
+                           create="false" delete="false"/>
+                </group>
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_service_validate_wizard_line_list" model="ir.ui.view">
+        <field name="name">purchase.service.validate.wizard.line.list</field>
+        <field name="model">purchase.service.validate.wizard.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" create="false" delete="false">
+                <field name="product_id" readonly="1"/>
+                <field name="uom_id" readonly="1"/>
+                <field name="current_qty" readonly="1"/>
+                <field name="current_received" readonly="1"/>
+                <field name="quantity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_open_service_validate_wizard" model="ir.actions.act_window">
+        <field name="name">Validate Service</field>
+        <field name="res_model">purchase.service.validate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'active_id': active_id}</field>
+    </record>
+</odoo>

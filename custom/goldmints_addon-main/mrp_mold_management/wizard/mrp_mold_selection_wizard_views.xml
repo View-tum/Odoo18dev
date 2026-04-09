@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_mold_selection_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.mold.selection.wizard.form</field>
+        <field name="model">mrp.mold.selection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Machine &amp; Mold Alternative">
+                <sheet>
+                    <group>
+                        <field name="product_id" readonly="1"/>
+                    </group>
+                    <p class="text-muted">
+                        Below are all compatible Machine-Mold combinations for this product found in the matrix.
+                        Select one to override the current assignment.
+                    </p>
+                    <field name="line_ids" nolabel="1">
+                        <list create="0" delete="0">
+                            <field name="machine_id"/>
+                            <field name="mold_id"/>
+                            <field name="shots_remaining" decoration-warning="mold_state == 'warning'" decoration-danger="mold_state == 'full'"/>
+                            <field name="mold_state" widget="badge"
+                                   decoration-success="mold_state == 'normal'"
+                                   decoration-warning="mold_state == 'warning'"
+                                   decoration-danger="mold_state == 'full'"/>
+                            <field name="cycle_time"/>
+                            <field name="units_per_hour" decoration-bf="1"/>
+                            <button name="action_select" type="object" string="Choose" class="btn-primary"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mrp_mold_warning_wizard_form" model="ir.ui.view">
+        <field name="name">mrp.mold.warning.wizard.form</field>
+        <field name="model">mrp.mold.warning.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Mold Life Warning">
+                <field name="production_id" invisible="1"/>
+                <div class="alert alert-danger" role="alert">
+                    <i class="fa fa-warning"/> <strong>Warning:</strong> One or more molds selected for this order have reached their life limit.
+                </div>
+                <field name="message" readonly="1" nolabel="1"/>
+                <footer>
+                    <button name="action_confirm_anyway" string="Confirm Anyway" type="object" class="btn-danger"/>
+                    <button name="action_select_alternative" string="Select Alternative" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mrp_mold_selection_wizard" model="ir.actions.act_window">
+        <field name="name">Select Alternative Machine/Mold</field>
+        <field name="res_model">mrp.mold.selection.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

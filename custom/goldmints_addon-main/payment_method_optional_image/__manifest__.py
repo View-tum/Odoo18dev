@@ -1,0 +1,15 @@
+{
+    "name": "Payment Method Optional Image",
+    "summary": "Make image field optional in Payment Methods",
+    "version": "18.0.1.0.0",
+    "category": "Accounting/Payment",
+    "author": "365 infotech",
+    "website": "https://www.365infotech.co.th/",
+    "license": "LGPL-3",
+    "depends": ["payment"],
+    "data": [],
+    "assets": {},
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}

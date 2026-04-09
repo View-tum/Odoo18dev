@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="mrp_mps.mrp_mps" t-inherit="mrp_mps.mrp_mps" t-inherit-mode="extension">
+        <xpath expr="//thead[hasclass('table-light')]/tr[hasclass('o_mps_period')]" position="before">
+            <tr class="o_mps_week_checkboxes">
+                <th style="vertical-align:middle;">
+                    <input type="checkbox"
+                           t-att-checked="allPeriodsSelected"
+                           t-on-change="toggleAllPeriodSelection"
+                           title="Select / Deselect All"
+                           class="form-check-input"
+                           style="cursor:pointer;"/>
+                </th>
+                <th class="small text-muted" style="vertical-align:middle;">Plan</th>
+                <th class="text-center"
+                    t-foreach="manufacturingPeriods" t-as="period"
+                    t-key="'cb_' + period_index"
+                    style="vertical-align:middle;">
+                    <input type="checkbox"
+                           t-att-checked="isPeriodSelected(period_index)"
+                           t-on-change="() => this.togglePeriodSelection(period_index)"
+                           class="form-check-input"
+                           style="cursor:pointer;"
+                           t-att-title="period"/>
+                </th>
+            </tr>
+        </xpath>
+    </t>
+
+</templates>

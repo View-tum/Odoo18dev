@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_expired_products_report" model="ir.actions.act_window">
+        <field name="name">Expired Products Report</field>
+        <field name="res_model">expired.products.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_expired_products_report" name="รายงานสินค้าหมดอายุ" parent="stock.menu_warehouse_report" action="action_expired_products_report" sequence="30"/>
+</odoo>

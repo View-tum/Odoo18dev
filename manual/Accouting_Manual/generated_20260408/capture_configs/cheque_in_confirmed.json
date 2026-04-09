@@ -1,0 +1,29 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "cheque_in_confirmed_manual.png",
+  "post_nav_wait_ms": 3000,
+  "post_click_wait_ms": 2000,
+  "target_url": "http://localhost:8811/odoo/action-1373/554",
+  "highlight_selectors": [
+    {
+      "selector": "[name='pay_partner_id']",
+      "label": "1"
+    },
+    {
+      "selector": "[name='amount']",
+      "label": "2"
+    },
+    {
+      "selector": "button[name='action_bank_deposit']",
+      "label": "3"
+    },
+    {
+      "selector": "button[name='print_dynamic_cheque_report']",
+      "label": "4"
+    }
+  ]
+}
