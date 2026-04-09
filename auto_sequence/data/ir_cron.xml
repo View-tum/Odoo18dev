@@ -1,0 +1,16 @@
+<odoo>
+  <record id="ir_cron_auto_sequence_prefill" model="ir.cron">
+    <field name="name">Autopilot: Prefill Sequence Date Ranges</field>
+    <field name="model_id" ref="base.model_ir_sequence"/>
+    <field name="state">code</field>
+    <field name="code">model.cron_prefill_date_ranges()</field>
+
+    <!-- ตั้งให้รันทุก 1 วัน -->
+    <field name="interval_type">days</field>
+    <field name="interval_number">1</field>
+
+    <!-- ฟิลด์อื่นที่ใช้ได้และควรใส่ -->
+    <field name="active">True</field>
+    <field name="user_id" ref="base.user_root"/>
+  </record>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_ax_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.ax.sale.order.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='partner_details']" position="inside">
+                <field name="is_export" readonly="1"/>
+                <field name="exported_date" readonly="1"/>
+                <field name="ax_sale_order" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

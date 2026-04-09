@@ -1,0 +1,79 @@
+<odoo>
+      <record id="view_sale_analysis_report_form" model="ir.ui.view">
+            <field name="name">sale.analysis.report.form</field>
+            <field name="model">sale.analysis.report</field>
+            <field name="arch" type="xml">
+                  <form string="Sale Analysis Report">
+                        <group name="section_details">
+                              <group name="filter_criteria">
+                                    <separator string="Data filtering criteria"/>
+                                    <field name="filter_by" required="True"/>
+                                    <field name="market_scope" force_save="1" widget="radio" invisible="filter_by != 'market_region'" required="filter_by == 'market_region'"/>
+                                    <field name="sale_region_id" force_save="1" invisible="not filter_by or filter_by == 'market_region'" readonly="salesperson_ids"/>
+                                    <field name="salesperson_ids" force_save="1" widget="many2many_tags" invisible="filter_by != 'salesperson'" required="filter_by == 'salesperson' and not sale_region_id" readonly="sale_region_id"/>
+                                    <field name="product_category_id" force_save="1" invisible="filter_by != 'product'" required="filter_by == 'product' and not product_ids" readonly="product_ids"/>
+                                    <field name="product_ids" force_save="1" widget="many2many_tags" invisible="filter_by != 'product'" required="filter_by == 'product' and not product_category_id" readonly="product_category_id"/>
+                              </group>
+
+                              <group name="report_range">
+                                    <separator string="Date range and report settings"/>
+
+                                    <label for="select_month" string="Select Period (Month/Year)"/>
+                                    <div class="o_row">
+                                          <field name="select_month" nolabel="1" placeholder="Select Month"/>
+                                          <field name="select_year" nolabel="1" placeholder="Select Year"/>
+                                    </div>
+
+                                    <field name="date_from" required="filter_by" readonly="not filter_by"/>
+                                    <field name="date_to" required="filter_by" readonly="not filter_by"/>
+                                    <field name="report_id" domain="[('model_id', '=', 'sale.analysis.report')]" readonly="not filter_by"/>
+                                    <field name="is_commission_confirmed" force_save="1" invisible="filter_by != 'salesperson'"/>
+                              </group>
+                        </group>
+
+                        <notebook>
+                              <page string="Preview Data">
+                                    <field name="line_ids" readonly="1">
+                                          <list decoration-muted="amount_commission == 0 and parent.filter_by == 'salesperson'">
+
+                                                <field name="salesperson_id" optional="show" column_invisible="parent.filter_by == 'top_ten'"/>
+
+                                                <field name="product_name" optional="show" string="Product" column_invisible="parent.filter_by not in ['product', 'top_ten', 'market_region']"/>
+
+                                                <field name="sale_order_name" optional="show" string="SO No." column_invisible="parent.filter_by == 'top_ten'"/>
+                                                <field name="customer_name" optional="show" string="Customer" column_invisible="parent.filter_by == 'top_ten'"/>
+
+                                                <field name="rank_type" optional="show" string="Ranking Type" column_invisible="parent.filter_by != 'top_ten'"/>
+
+                                                <field name="product_uom_qty" optional="show" string="Quantity (Units)" sum="Total Qty" column_invisible="parent.filter_by not in ['product', 'top_ten', 'market_region']"/>
+
+                                                <field name="invoice_name" optional="show" string="INV No." column_invisible="parent.filter_by != 'salesperson'"/>
+                                                <field name="credit_note_name" optional="show" string="CN No." column_invisible="parent.filter_by != 'salesperson'"/>
+
+                                                <field name="amount_sale_total" optional="show" string="Sales Amount" sum="Total Sale" column_invisible="parent.filter_by == 'market_region'"/>
+
+                                                <field name="amount_invoice_total" optional="show" string="Sales (INV)" sum="Total INV" column_invisible="parent.filter_by != 'salesperson'"/>
+                                                <field name="amount_credit_note_total" optional="show" string="Sales (CN)" sum="Total Credit Note" column_invisible="parent.filter_by != 'salesperson'"/>
+                                                <field name="amount_payment_total" optional="show" string="Collected" sum="Total Paid" column_invisible="parent.filter_by != 'salesperson'"/>
+                                                <field name="amount_commission" optional="show" string="Commission" sum="Total Comm" column_invisible="parent.filter_by != 'salesperson'"/>
+
+                                                <field name="currency_name" optional="show" string="Currency" column_invisible="parent.filter_by != 'market_region'"/>
+                                                <field name="exchange_rate" optional="show" string="Exchange Rate" column_invisible="parent.filter_by != 'market_region'"/>
+                                                <field name="amount_foreign" optional="show" string="Amount (Foreign)" sum="Total Foreign" column_invisible="parent.filter_by != 'market_region'"/>
+                                                <field name="amount_thb" optional="show" string="Amount (THB)" sum="Total THB" column_invisible="parent.filter_by != 'market_region'"/>
+
+                                          </list>
+                                    </field>
+                              </page>
+                        </notebook>
+
+                        <footer>
+                              <button string="Preview" name="action_compute_lines" type="object" class="btn-info" invisible="not filter_by"/>
+                              <button string="Print PDF" name="action_jasper" type="object" class="btn-primary"/>
+                              <button string="Export Excel" name="action_export_excel" type="object" class="btn-secondary"/>
+                              <button string="Cancel" special="cancel" class="btn btn-link"/>
+                        </footer>
+                  </form>
+            </field>
+      </record>
+</odoo>

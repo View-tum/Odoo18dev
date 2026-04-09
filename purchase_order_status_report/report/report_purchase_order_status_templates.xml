@@ -1,0 +1,128 @@
+<!-- purchase_order_status_report/report/report_purchase_order_status_templates.xml -->
+<odoo>
+    <template id="po_status_report">
+        <t t-call="web.basic_layout">
+
+            <t t-set="wiz" t-value="wizard"/>
+
+            <div class="page po-page">
+
+                <!-- Header -->
+                <div class="po-header">
+                    <h2 class="po-header-title">
+                        รายงานสถานะใบสั่งซื้อ
+                    </h2>
+                    <p class="po-header-date">
+                        สร้างเมื่อ:
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+                    </p>
+                </div>
+
+                <!-- Filters -->
+                <div class="po-filters">
+                    <table class="po-filters-table-header">
+                        <tr>
+                            <td class="po-filter-label">บริษัท:</td>
+                            <td class="po-filter-value" t-esc="company.name"/>
+
+                            <td class="po-filter-label">ช่วงวันที่:</td>
+                            <td class="po-filter-value">
+                                <span t-esc="filters['date_from']"/> -
+                                <span t-esc="filters['date_to']"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="po-filter-label">ผู้ขาย:</td>
+                            <td class="po-filter-value"
+                                t-esc="filters['vendor'].name if filters['vendor'] else '-'"/>
+
+                            <td class="po-filter-label">สินค้า:</td>
+                            <td class="po-filter-value"
+                                t-esc="filters['product'].display_name if filters['product'] else '-'"/>
+                        </tr>
+                        <tr>
+                            <td class="po-filter-label">สถานะใบสั่งซื้อ:</td>
+                            <td class="po-filter-value">
+                                <span t-if="filters['state']"
+                                      t-esc="get_state_label(filters['state'])"/>
+                                <span t-if="not filters['state']">ทั้งหมด</span>
+                            </td>
+
+                            <td class="po-filter-label">สถานะการวางบิล:</td>
+                            <td class="po-filter-value">
+                                <span t-if="filters['invoice_status']"
+                                      t-esc="get_invoice_label(filters['invoice_status'])"/>
+                                <span t-if="not filters['invoice_status']">ทั้งหมด</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Data Table -->
+                <table class="po-table">
+                    <thead>
+                        <tr>
+                            <th>เลขที่ใบสั่งซื้อ</th>
+                            <th>อ้างอิง</th>
+                            <th class="text-center">วันที่สั่งซื้อ</th>
+                            <th class="text-center">วันที่คาดว่าจะมาถึง</th>
+                            <th>ผู้ขาย</th>
+                            <th>สินค้า</th>
+                            <th class="text-right">จำนวน</th>
+                            <th class="text-center">หน่วยนับ</th>
+                            <th class="text-right">ราคาต่อหน่วย</th>
+                            <th class="text-right">ยอดไม่รวมภาษี</th>
+                            <th class="text-center">สถานะใบสั่งซื้อ</th>
+                            <th class="text-center">สถานะการวางบิล</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr t-foreach="lines" t-as="l">
+                            <td><span t-esc="l['order_name']"/></td>
+                            <td><span t-esc="l['source_document']"/></td>
+                            <td class="text-center"><span t-esc="l['order_date']"/></td>
+                            <td class="text-center"><span t-esc="l['expected_arrival']"/></td>
+                            <td><span t-esc="l['vendor'].name if l['vendor'] else '-'"/></td>
+                            <td><span t-esc="l['product'].display_name if l['product'] else '-'"/></td>
+                            <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty'])"/></td>
+                            <td class="text-center"><span t-esc="l['uom'].name if l['uom'] else '-'"/></td>
+                            <td class="text-right"><span t-esc="'{:,.4f}'.format(l['unit_price'])"/></td>
+                            <td class="text-right"><span t-esc="'{:,.2f}'.format(l['subtotal'])"/></td>
+
+                            <!-- Order Status -->
+                            <td class="text-center">
+                                <span t-if="l['state'] == 'draft'" class="badge badge-draft">ใบขอเสนอราคา</span>
+                                <span t-elif="l['state'] == 'sent'" class="badge badge-lv1">ส่งใบขอเสนอราคาแล้ว</span>
+                                <span t-elif="l['state'] == 'to approve'" class="badge badge-lv2">รออนุมัติ</span>
+                                <span t-elif="l['state'] == 'purchase'" class="badge badge-approved">ใบสั่งซื้อ</span>
+                                <span t-elif="l['state'] == 'done'" class="badge badge-done">ล็อกแล้ว</span>
+                                <span t-elif="l['state'] == 'rejected'" class="badge badge-rejected">ปฏิเสธ</span>
+                                <span t-elif="l['state'] == 'cancel'" class="badge badge-cancel">ยกเลิก</span>
+                            </td>
+                            <!-- Billing Status -->
+                            <td class="text-center">
+                                <span t-if="l['invoice_status'] == 'no'" class="badge badge-draft">
+                                    ยังไม่ต้องวางบิล
+                                </span>
+                                <span t-elif="l['invoice_status'] == 'to invoice'" class="badge badge-progress">
+                                    รอวางบิล
+                                </span>
+                                <span t-elif="l['invoice_status'] == 'invoiced'" class="badge badge-approved">
+                                    วางบิลครบแล้ว
+                                </span>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Footer -->
+                <div class="po-footer">
+                    <strong>จำนวนรายการทั้งหมด:</strong> <span t-esc="len(lines)"/>
+                </div>
+            </div>
+
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,25 @@
+{
+    "name": "Sale Commission Management",
+    "summary": "Manage sales commissions based on defined rules and rates.",
+    "version": "18.0.1.0.2",
+    "author": "365 infotech",
+    "website": "https://www.365infotech.co.th/",
+    "license": "LGPL-3",
+    "category": "Sales",
+    "depends": [
+        "base",
+        "account",
+        "sale",
+        "sale_management",
+        "delivery_routes_management",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/sale_commission_rule_view.xml",
+        "views/sale_commission_rate_view.xml",
+        "views/sale_commission_timestamp_view.xml",
+        "views/sale_menus.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

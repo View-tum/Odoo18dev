@@ -1,0 +1,21 @@
+{
+    'name': 'PSN From Purchase TH',
+    'version': '18.0.1.0.0',
+    'author': 'PSN SOFT Co., Ltd.',
+    'website': 'https://psnsoft.com/',
+    "license": "AGPL-3",
+    "category": "Purchase",
+    'depends': ['purchase','psn_company_address_ext','psn_show_signature','custom_fonts',],
+    'data': [
+        'report/components/report_template_company_info.xml',
+        'report/components/report_header_partner_info.xml',
+        'report/components/report_main_content.xml',
+        'report/components/report_footer.xml',
+        'report/psn_from_purchase_order_th_template.xml',
+        'report/report_psn_from_purchase_orde_th_page.xml',
+        'report/set_up_action_report.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}

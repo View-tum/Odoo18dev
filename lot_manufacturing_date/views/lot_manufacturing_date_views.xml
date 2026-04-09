@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="stock_lot_view_form_inherit_manufacturing_date" model="ir.ui.view">
+            <field name="name">stock.lot.form.inherit.manufacturing.date</field>
+            <field name="model">stock.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expiration_date']" position="before">
+                    <field name="manufacturing_date" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_lot_view_tree_inherit_manufacturing_date" model="ir.ui.view">
+            <field name="name">stock.lot.tree.inherit.manufacturing.date</field>
+            <field name="model">stock.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="manufacturing_date" optional="show" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="stock_move_line_operation_tree_inherit_manufacturing_date" model="ir.ui.view">
+            <field name="name">stock.move.line.operation.tree.inherit.manufacturing.date</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_name']" position="after">
+                    <field name="manufacturing_date"
+                           string="Manufacturing Date"
+                           widget="datetime"
+                           column_invisible="False"
+                           groups="stock.group_production_lot"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

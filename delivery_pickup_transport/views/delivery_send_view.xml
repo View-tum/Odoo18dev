@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Send to Warehouse -->
+  <record id="view_delivery_send_tree" model="ir.ui.view">
+    <field name="name">delivery.send.tree</field>
+    <field name="model">delivery.send</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="date"/>
+        <field name="responsible_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+        <field name="consignee_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+        <field name="transport_partner_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+        <field name="total_boxes"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_delivery_send_form" model="ir.ui.view">
+    <field name="name">delivery.send.form</field>
+    <field name="model">delivery.send</field>
+    <field name="arch" type="xml">
+      <form>
+      	<header>
+      		<button
+                name="button_done"
+                invisible="state in ('done')"
+                string="Mark as Done"
+                type="object"
+                class="oe_highlight"/>
+                
+      		<field name="state" widget="statusbar" statusbar_visible="draft,done" statusbar_colors='{"done":"blue"}'/>
+        <!--<button name="%(delivery_pickup_transport.action_report_delivery_send)d" string="Print Send Form" type="action" class="btn-primary"/>-->
+        </header>
+        <sheet>
+          <!--<header>
+            <button name="%(delivery_pickup_transport.action_report_delivery_send)d" string="Print Send Form" type="action" class="btn-primary"/>
+          </header>-->
+          <group>
+            <group>
+              <field name="is_editable" invisible="1" />
+              <field name="name" readonly="1"/>
+              <field name="date" readonly="is_editable == False"/>
+              <field name="company_id" readonly="1"/>
+              <field name="transport_partner_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+              <field name="consignee_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+              <field name="vehicle_no" readonly="is_editable == False"/>
+              <field name="responsible_id" options="{'no_create' : True, 'no_create_edit': True}" readonly="is_editable == False"/>
+               <field name="remark" readonly="is_editable == False"/>
+            </group>
+            <group string="Destination">
+              <field name="consignee_contact" readonly="is_editable == False"/>
+              <field name="consignee_phone" readonly="is_editable == False"/>
+              <field name="license_plate_no" readonly="is_editable == False"/>
+              <field name="consignee_address" readonly="is_editable == False"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Items">
+              <field name="line_ids" readonly="is_editable == False">
+                <list editable="bottom">
+                  <field name="product_id" options="{'no_create' : True, 'no_create_edit': True}" optional="show"/>
+                  <field name="product_description" optional="show"/>
+                  <!--<field name="note" optional="show"/>-->
+                  <field name="product_qty"/>
+                  <field name="uom_id" options="{'no_create' : True, 'no_create_edit': True}"/>
+                </list>
+              </field>
+            </page>
+           <!-- <page string="Receiving">
+              <group>
+                <field name="receive_by"/>
+                <field name="receive_date"/>
+                <field name="total_boxes" readonly="1"/>
+              </group>
+            </page>-->
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_delivery_send" model="ir.actions.act_window">
+    <field name="name">Transport Warehouse</field>
+    <field name="res_model">delivery.send</field>
+    <field name="view_mode">list,form</field>
+  </record>
+ 
+</odoo>

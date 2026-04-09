@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_sale_analysis_report" model="ir.actions.act_window">
+        <field name="name">Sales Analysis Report</field>
+        <field name="res_model">sale.analysis.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_sale_analysis_saleman_xlsx" model="ir.actions.report">
+        <field name="name">Sale Analysis Saleman Xlsx</field>
+        <field name="model">sale.analysis.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sale_analysis_report.sale_analysis_saleman_xlsx</field>
+        <field name="report_file">sale_analysis_report.sale_analysis_saleman_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="print_report_name">object._get_report_filename()</field>
+    </record>
+
+    <record id="action_sale_analysis_product_xlsx" model="ir.actions.report">
+        <field name="name">Sale Analysis Product Xlsx</field>
+        <field name="model">sale.analysis.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sale_analysis_report.sale_analysis_product_xlsx</field>
+        <field name="report_file">sale_analysis_report.sale_analysis_product_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="print_report_name">object._get_report_filename()</field>
+    </record>
+
+    <record id="action_sale_analysis_market_region_xlsx" model="ir.actions.report">
+        <field name="name">Sale Analysis Market Region Xlsx</field>
+        <field name="model">sale.analysis.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sale_analysis_report.sale_analysis_market_region_xlsx</field>
+        <field name="report_file">sale_analysis_report.sale_analysis_market_region_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="print_report_name">object._get_report_filename()</field>
+    </record>
+
+    <record id="action_sale_analysis_top_ten_xlsx" model="ir.actions.report">
+        <field name="name">Sale Analysis Top 10 Xlsx</field>
+        <field name="model">sale.analysis.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sale_analysis_report.sale_analysis_top_ten_xlsx</field>
+        <field name="report_file">sale_analysis_report.sale_analysis_top_ten_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="print_report_name">object._get_report_filename()</field>
+    </record>
+</odoo>

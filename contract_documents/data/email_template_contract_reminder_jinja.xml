@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_contract_reminder_jinja" model="mail.template">
+            <field name="name">Contract Expiry Reminder (Jinja)</field>
+            <field name="model_id" ref="contract_documents.model_contract_document"/>
+            <!-- Leave email_from empty; sender is provided explicitly by code -->
+            <field name="email_from"/>
+
+            <!-- IMPORTANT: Avoid Jinja in inline_template fields on Odoo 18.
+                 We leave email_to empty so code supplies recipients directly. -->
+            <field name="email_to"/>
+
+            <!-- Keep a simple static subject/body; final content is overridden at send-time via email_values. -->
+            <field name="subject">แจ้งเตือน: สัญญาใกล้หมดอายุ</field>
+            <field name="body_html" type="html"><![CDATA[
+<p>ระบบได้ส่งอีเมลแจ้งเตือนหมดอายุสัญญาแล้ว (รายละเอียดจะถูกใส่โดยระบบระหว่างการส่ง).</p>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

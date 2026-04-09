@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_product_pricelist_form_ppc" model="ir.ui.view">
+    <field name="name">product.pricelist.form.ppc</field>
+    <field name="model">product.pricelist</field>
+    <field name="inherit_id" ref="product.product_pricelist_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/notebook" position="inside">
+        <page string="Payment Conditions">
+          <group>
+            <field name="ppc_override"/>
+          </group>
+          <div class="o_row" modifiers="{'invisible': [('ppc_override', '=', True)]}">
+            <div class="o_form_label">หมายเหตุ: หากไม่เปิด Override ระบบจะใช้เงื่อนไขจากข้อมูลคู่ค้า.</div>
+          </div>
+          <group modifiers="{'invisible': [('ppc_override', '=', False)]}">
+            <field name="ppc_collect_on_day_enabled"/>
+            <field name="ppc_collect_on_day"
+                   modifiers="{'invisible': [('ppc_collect_on_day_enabled', '=', False)],
+                               'required': [('ppc_collect_on_day_enabled', '=', True)]}"/>
+            <field name="ppc_payment_extra_days"/>
+          </group>
+          <div class="o_row" modifiers="{'invisible': [('ppc_override', '=', False)]}">
+            <div class="o_form_label">หมายเหตุ: เมื่อเปิดใช้ค่านี้จะทับค่าที่ตั้งไว้บนคู่ค้าในการคำนวณวันครบกำหนด.</div>
+          </div>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

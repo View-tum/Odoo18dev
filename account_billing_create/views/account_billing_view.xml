@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_account_billing_form_inherit_custom" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit.custom</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form"/>
+        <field name="arch" type="xml">
+            <field name="threshold_date" position="before">
+                <field name="start_date" invisible="not start_date"/>
+            </field>
+        </field>
+    </record>
+</odoo>

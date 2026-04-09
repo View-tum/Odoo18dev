@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_mold_mo_form" model="ir.ui.view">
+        <field name="name">mrp.production.mold.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='miscellaneous']/group" position="inside">
+                <group string="Mold Cost Summary">
+                    <field name="mold_cost_total" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

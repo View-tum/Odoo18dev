@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_sale_quotation_order_stamp_sign" inherit_id="sale.report_saleorder_document">
+       <xpath expr="//div[hasclass('page')]" position="inside">
+            <div class="row " name="signature">
+                <div class="col-12" t-attf-style="text-align:#{doc.company_id.stamp_position};">
+                    <div class="d-inline-flex">
+                        <div>
+                            <div>
+                                <t t-if="doc.user_id.user_signature">
+                                    <img t-att-src="image_data_uri(doc.user_id.user_signature)"
+                                         style="width:150px;"
+                                    />
+                                </t>
+                            </div>
+                            <div style="text-align:center;">
+                                <t t-esc="doc.user_id.name"/>
+                            </div>
+                        </div>
+                        <div>
+                            <t t-if="doc.company_id.company_stamp">
+                                <img t-att-src="image_data_uri(doc.company_id.company_stamp)"
+                                     style="height:80px;width:80px;"
+                                />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

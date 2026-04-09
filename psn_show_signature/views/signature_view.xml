@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_report_form_inherit_signature" model="ir.ui.view">
+        <field name="name">ir.actions.report.form.signature</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view"/>  <!-- Corrected inherit_id -->
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='paperformat_id']" position="after">
+                <field name="show_signature"/>
+            </xpath>
+            <xpath expr="//field[@name='print_report_name']" position="after">
+                <field name="signature_image" widget="image" 
+                       class="oe_avatar" 
+                       style="max-width: 200px; max-height: 70px; float: left; margin-right: 10px;"
+                       help="Maximum Width is 200px, Height is 70px"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

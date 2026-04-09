@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_advance_payment_inv_inherit_auto_confirm" model="ir.ui.view">
+        <field name="name">Invoice Orders (auto confirm) - button label</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <field name="is_mobile_warehouse" invisible="1"/>
+                <field name="mobile_account_missing" invisible="1"/>
+                <field name="mobile_account_warning" invisible="1"/>
+                <div class="o_row" invisible="not is_mobile_warehouse">
+                    <label for="mobile_payment_method" class="o_form_label">Payment Method</label>
+                    <field name="mobile_payment_method" class="ms-2"/>
+                </div>
+                <div class="text-danger" invisible="not is_mobile_warehouse or not mobile_account_missing">
+                    <field name="mobile_account_warning" widget="html"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='advance_payment_method']" position="attributes">
+                <attribute name="invisible">count &gt; 1</attribute>
+                <attribute name="widget">mobile_advance_payment_method</attribute>
+            </xpath>
+            <xpath expr="//footer/button[@name='create_invoices']" position="replace">
+                <button name="create_invoices" type="object"
+                        id="create_invoice_open"
+                        string="Create Invoice"
+                        class="btn-primary"
+                        data-hotkey="q"
+                        invisible="is_mobile_warehouse"/>
+            </xpath>
+            <xpath expr="//footer/button[@name='create_invoices']" position="after">
+                <button name="action_create_invoice_mobile" type="object"
+                        string="Create Invoice"
+                        class="btn-primary"
+                        invisible="not is_mobile_warehouse"
+                        readonly="mobile_account_missing"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

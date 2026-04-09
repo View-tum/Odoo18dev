@@ -1,0 +1,18 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_analysis_report_manager,access.sale.analysis.report.manager,model_sale_analysis_report,sales_team.group_sale_manager,1,1,1,1
+access_sale_analysis_report_account,access.sale.analysis.report.account,model_sale_analysis_report,account.group_account_user,1,1,1,1
+
+access_sale_analysis_report_line_manager,access.sale.analysis.report.line.manager,model_sale_analysis_report_line,sales_team.group_sale_manager,1,1,1,1
+access_sale_analysis_report_line_account,access.sale.analysis.report.line.account,model_sale_analysis_report_line,account.group_account_user,1,1,1,1
+
+access_sale_analysis_report_config_admin,access.sale.analysis.report.config.admin,model_sale_analysis_report_config,base.group_system,1,1,1,1
+access_sale_analysis_report_config_user,access.sale.analysis.report.config.user,model_sale_analysis_report_config,base.group_user,1,0,0,0
+
+access_delivery_route_sale_manager_read,delivery.route sale manager read,delivery_routes_management.model_delivery_route,sales_team.group_sale_manager,1,0,0,0
+access_delivery_sub_region_sale_manager_read,delivery.sub.region sale manager read,delivery_routes_management.model_delivery_sub_region,sales_team.group_sale_manager,1,0,0,0
+
+access_delivery_route_account_user_read,delivery.route account user read,delivery_routes_management.model_delivery_route,account.group_account_user,1,0,0,0
+access_delivery_sub_region_account_user_read,delivery.sub.region account user read,delivery_routes_management.model_delivery_sub_region,account.group_account_user,1,0,0,0
+
+access_delivery_sales_region_sale_manager_read,delivery.sales.region sale manager read,delivery_routes_management.model_delivery_sales_region,sales_team.group_sale_manager,1,0,0,0
+access_delivery_sales_region_account_user_read,delivery.sales.region account user read,delivery_routes_management.model_delivery_sales_region,account.group_account_user,1,0,0,0

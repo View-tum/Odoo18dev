@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record id="view_account_payment_search" model="ir.ui.view">
+		<field name="name">account.payment.search.reconciliation</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_search" />
+		<field name="mode">primary</field>
+		<field name="priority">100</field>
+		<field name="arch" type="xml">
+			<field name="journal_id" position="replace" />
+			<search>
+				<field name="amount" />
+			</search>
+		</field>
+	</record>
+
+	<record id="view_account_payment_list" model="ir.ui.view">
+		<field name="name">account.payment.list.reconciliation</field>
+		<field name="model">account.payment</field>
+		<field name="priority">100</field>
+		<field name="arch" type="xml">
+			<list>
+				<field name="date" />
+				<field name="name" />
+				<field name="journal_id" optional="hide" />
+				<field name="payment_method_id" optional="hide" />
+				<field name="partner_id" optional="show" />
+				<field name="company_id" optional="hide" groups="base.group_multi_company" />
+				<field name="amount" sum="Amount" />
+				<field name="state" optional="hide" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'posted'" />
+				<field name="currency_id" optional="hide" groups="base.group_multi_currency" />
+			</list>
+		</field>
+	</record>
+
+	<record id="view_account_payment_list_statement_generate" model="ir.ui.view">
+		<field name="name">account.payment.list.statement.generate</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_tree" />
+		<field name="mode">primary</field>
+		<field name="arch" type="xml">
+			<header position="replace" />
+		</field>
+	</record>
+
+</odoo>

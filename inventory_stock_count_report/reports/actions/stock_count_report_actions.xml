@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock_count_report_action_pdf" model="ir.actions.report">
+        <field name="name">Stock Count Report</field>
+        <field name="model">inventory.stock.count.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">inventory_stock_count_report.stock_count_report_template</field>
+        <field name="report_file">inventory_stock_count_report.stock_count_report_template</field>
+        <field name="paperformat_id" ref="inventory_stock_count_report.paperformat_stock_count_a4"/>
+        <field name="print_report_name">'Stock Count - %s' % (object._get_selected_location_names())</field>
+        <field name="binding_model_id" ref="model_inventory_stock_count_report_wizard" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

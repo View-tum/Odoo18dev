@@ -1,0 +1,118 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fiscal_year_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+
+            <app name="account" position="inside">
+
+                <block title="Update Fiscal Year/Period to Old Records">
+                    <setting id="update_old_records_setting" company_dependent="1" help="Show taxes in purchase order form">
+                        <button name="update_old_records" type="object" string="Update Old Records" class="btn-primary" />
+                    </setting>
+                </block>
+
+                <block string="Enable Approval work Flow">
+                    <setting id="" help="Enable Approval work Flow">
+                        <field name="sh_enable_approval" />
+                    </setting>
+                </block>
+
+                <block string="Restrict record creation for Closed Fiscal Period or Closed Fiscal Year">
+
+                    <setting id="" help="Restrict record creation for Closed Fiscal Period or Closed Fiscal Year">
+                        <field name="sh_restrict_for_close_period" />
+                    </setting>
+                </block>
+
+            </app>
+
+        </field>
+    </record>
+    <record id="sh_invoice_form_view_inherit" model="ir.ui.view">
+        <field name="name">sh.move.form.view.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <field name="invoice_date" position="after">
+                <field name="period_id" />
+                <field name="fiscal_year" />
+            </field>
+        </field>
+    </record>
+    <record id="sh_invoice_list_view_inherit" model="ir.ui.view">
+        <field name="name">sh.move.list.view.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <field name="invoice_origin" position="before">
+                <field name="period_id" />
+                <field name="fiscal_year" />
+            </field>
+        </field>
+    </record>
+    <record id="sh_move_search_view_inherit" model="ir.ui.view">
+        <field name="name">sh.move.search.view.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_move_filter" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="period_id" />
+                <field name="fiscal_year" />
+            </field>
+            <xpath expr="//search/group/filter[@name='by_date']" position="after">
+                <filter string="Period" name="period_id" domain="[]" context="{'group_by': 'period_id'}" />
+                <filter string="Fiscal Year" name="fiscal_year" domain="[]" context="{'group_by': 'fiscal_year'}" />
+            </xpath>
+        </field>
+    </record>
+    <record id="sh_invoice_search_view_inherit" model="ir.ui.view">
+        <field name="name">sh.move.search.view.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="period_id" />
+                <field name="fiscal_year" />
+            </field>
+            <xpath expr="//search/group/filter[@name='invoicedate']" position="after">
+                <filter string="Period" name="period_id" domain="[]" context="{'group_by': 'period_id'}" />
+                <filter string="Fiscal Year" name="fiscal_year" domain="[]" context="{'group_by': 'fiscal_year'}" />
+            </xpath>
+        </field>
+    </record>
+    <record id="sh_view_account_journal_form" model="ir.ui.view">
+        <field name="name">account.journal.form</field>
+        <field name="model">account.journal</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+
+            <field name="default_account_id" position="before">
+            
+                <label for="default_account_id" string="Default Account" help="If set, this account is used to opening and closeing balance entries." invisible="type != 'opening'" groups="account.group_account_readonly"/>
+
+            </field>
+
+
+            <xpath expr="//page[@id='inbound_payment_settings']" position="attributes">
+                <attribute name="invisible">type not in ['cash', 'bank','opening']</attribute>
+
+            </xpath>
+            <xpath expr="//page[@id='outbound_payment_settings']" position="attributes">
+                <attribute name="invisible">type not in ['cash', 'bank','opening']</attribute>
+
+            </xpath>
+
+            <field name="code" position="after">
+
+                <field name="payment_debit_account_id" invisible="type != 'opening'"/>
+                <field name="payment_credit_account_id" invisible="type != 'opening'"/>
+            </field>
+
+
+        </field>
+    </record>
+</odoo>

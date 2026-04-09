@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_users_form_inherit_sale_admin" model="ir.ui.view">
+        <field name="name">res.users.form.sale.admin</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <!-- Add a new page inside the main notebook (robust across versions) -->
+            <xpath expr="//form/sheet/notebook" position="inside">
+                <page string="Sales Controls" name="sales_controls">
+                    <group>
+                        <field name="sale_admin"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

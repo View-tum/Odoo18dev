@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- Cheque Lists Form View -->
+	<record id="cheque_lists_history_form" model="ir.ui.view">
+        <field name="name">Cheque Lists Report Form</field>
+        <field name="model">cheque.lists.history</field>
+        <field name="arch" type="xml">
+            <form string="Cheque Lists History" create="false" edit="false">
+                <header>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group expand="0">
+                        <group expand="0">
+                            <field name="cheque_book_id"/>
+                            <field name="bank_account_journal_id" />
+                            <field name="date"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group expand="0">
+                            <field name="cheque_no"/>
+                            <field name="cheque_date"/>
+                            <field name="pay_to"/>
+                            <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="memo"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+	<!-- Cheque Lists List View -->
+	<record id="cheque_lists_history_list_view" model="ir.ui.view">
+        <field name="name">Cheque Lists Report List</field>
+        <field name="model">cheque.lists.history</field>
+        <field name="arch" type="xml">
+            <list string="Cheque Lists Report History" create="false" edit="false">
+                <field name="company_id" invisible="1"/>
+                <field name="cheque_book_id" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="cheque_no"/>
+                <field name="cheque_date"/>
+                <field name="pay_to"/>
+                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="memo"/>
+                <field name="status" decoration-success="status == 'paid'" decoration-warning="status == 'waiting_confirm'" decoration-info="status == 'draft'" decoration-muted="status == 'cancelled'" decoration-danger="status == 'return'" widget="badge"/>
+                <field name="cheque_book_no"/>
+                <field name="bank_account_journal_id"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+	<!-- Cheque Lists Search View -->
+	<record id="cheque_lists_history_search_view" model="ir.ui.view">
+        <field name="name">Cheque Lists Report Search</field>
+        <field name="model">cheque.lists.history</field>
+        <field name="arch" type="xml">
+            <search string="Cheque Lists History">
+                <field name="cheque_book_id" string="Cheque Book No"/>
+                <field name="bank_account_journal_id" string="Bank Account"/>
+                <field name="date" string="Cheque Book Date"/>
+                <field name="cheque_no" string="Cheque No."/>
+                <field name="cheque_date" string="Cheque Date"/>
+                <field name="pay_to" string="Pay To"/>
+                <field name="memo" string="Memo"/>
+                <separator/>
+
+                <filter string="Cheque Book No" context="{'group_by':'cheque_book_id'}" name="group_cheque_book_id"/>
+                <filter string="Bank Account" context="{'group_by':'bank_account_journal_id'}" name="group_bank_account_journal_id"/>
+                <filter string="Cheque Book Date" context="{'group_by':'date'}" name="group_date"/>
+
+                <separator/>
+
+                <filter string="Cheque Date" context="{'group_by':'cheque_date'}" name="group_cheque_date"/>
+                <filter string="Pay To" context="{'group_by':'pay_to'}" name="pay_to_groupby"/>
+                <filter string="Status" context="{'group_by':'status'}" name="status_groupby"/>
+
+                <searchpanel>
+                    <field name="bank_account_journal_id" icon="fa-filter" limit="0"/>
+                    <field name="status" icon="fa-filter" limit="0"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- Cheque Lists Pivot View -->
+    <record id="cheque_lists_history_pivot_view" model="ir.ui.view">
+        <field name="name">Cheque Lists Report Pivot</field>
+        <field name="model">cheque.lists.history</field>
+        <field name="arch" type="xml">
+            <pivot string="Cheque Lists Analysis">
+                <field name="cheque_book_no" type="row"/>
+                <field name="cheque_no" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Cheque Lists Action View -->
+	<record id="cheque_lists_report_action_view" model="ir.actions.act_window">
+        <field name="name">Cheque Lists</field>
+        <field name="res_model">cheque.lists.history</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="search_view_id" ref="cheque_lists_history_search_view"/>
+        <field name="context">{'search_default_group_cheque_book_id':1}</field>
+    </record>
+
+	<!-- Cheque Lists Report Menu View -->
+    <menuitem 
+        id="cheque_lists_report" 
+        name="Cheque Lists" 
+        parent="cheque_report_root" 
+        sequence="5" 
+        action="cheque_lists_report_action_view"/>
+
+</odoo>

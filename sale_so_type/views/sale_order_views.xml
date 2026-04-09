@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_so_type_view_order_form" model="ir.ui.view">
+        <field name="name">sale.so.type.view.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="so_type_id" options="{'no_create': True}" />
+                <field name="market_scope" invisible="1"/>
+                <field name="inter_vat_id" invisible="market_scope != 'inter'" force_save="1"/>
+            </xpath>
+            <xpath expr="//field[@name='number']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

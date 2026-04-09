@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_reporting_analysis_report" name="Sales Analysis Reports" parent="sale.menu_sale_report" sequence="5"/>
+    <menuitem id="menu_reporting_analysis_report_sale_analysis_report" name="รายงานวิเคราะห์การขาย" parent="menu_reporting_analysis_report" sequence="10" action="action_sale_analysis_report" groups="sales_team.group_sale_manager,account.group_account_user"/>
+    <menuitem id="menu_sale_analysis_commission_log" name="ประวัติคอมมิชชั่น" parent="menu_reporting_analysis_report" sequence="20" action="sale_commission_management.action_sale_commission_timestamp" groups="sales_team.group_sale_manager,account.group_account_user"/>
+</odoo>
+

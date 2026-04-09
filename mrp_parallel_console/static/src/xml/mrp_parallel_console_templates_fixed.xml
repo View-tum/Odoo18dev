@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="mrp_parallel_console.HomeAction">
+        <WithSearch t-props="withSearchProps" t-slot-scope="search">
+            <ParallelShopfloorHome
+                action="props.action"
+                searchDomain="search.domain"
+                searchContext="search.context"
+                searchProps="search"/>
+        </WithSearch>
+    </t>
+
+    <t t-name="mrp_parallel_console.Home">
+        <div class="o_mrp_parallel_home h-100 d-flex flex-column">
+            <div class="o_control_panel d-flex flex-shrink-0 align-items-center p-3">
+                <div class="o_cp_left d-flex align-items-center">
+                </div>
+                <div class="o_cp_center flex-grow-1 d-flex justify-content-center align-items-center">
+                    <SearchBar/>
+                </div>
+                <div class="o_cp_right d-flex align-items-center">
+                    <button type="button" class="btn btn-secondary"
+                            t-on-click="loadMos">
+                        <i class="fa fa-refresh mr-1"/>Refresh
+                    </button>
+                </div>
+            </div>
+
+            <div class="o_content flex-grow-1 overflow-auto">
+                <t t-if="state.loading">
+                    <div class="o_mrp_loading_state">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="o_mrp_loading_text">Loading Manufacturing Orders...</div>
+                    </div>
+                </t>
+                <t t-else="">
+                    <t t-if="!state.mos.length">
+                        <div class="o_mrp_empty_state">
+                            <i class="fa fa-inbox"/>
+                            <div class="o_mrp_empty_text">
+                                No Manufacturing Orders to process.<br/>
+                                <small class="text-muted">Create a new MO to get started</small>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="container-fluid p-3">
+                            <div class="row">
+                                <t t-foreach="state.mos" t-as="mo" t-key="mo.id">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-header">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <strong t-esc="mo.name" class="text-truncate" style="font-size: 1.1em;"/>
+                                                </div>
+                                                <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
+                                                <div class="mt-2">
+                                                    <span t-att-class="stateBadgeClass(mo) + ' text-uppercase'">
+                                                        <t t-esc="mo.state_label or mo.state"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="o_mrp_info_row">
+                                                    <span class="o_mrp_icon icon-qty"></span>
+                                                    <span class="o_mrp_info_label">Quantity</span>
+                                                    <span class="o_mrp_info_value">
+                                                        <t t-esc="mo.qty"/> <t t-esc="mo.uom"/>
+                                                    </span>
+                                                </div>
+                                                <div class="o_mrp_info_row">
+                                                    <span class="o_mrp_icon icon-workorder"></span>
+                                                    <span class="o_mrp_info_label">Workorders</span>
+                                                    <span class="o_mrp_info_value">
+                                                        <span class="d-flex align-items-center mb-1">
+                                                            <span class="o_mrp_status_indicator status-ready mr-2"></span>
+                                                            <t t-esc="mo.ready_wo_count"/> Ready
+                                                        </span>
+                                                        <span class="d-flex align-items-center mb-1">
+                                                            <span class="o_mrp_status_indicator status-progress mr-2"></span>
+                                                            <t t-esc="mo.progress_wo_count"/> In Progress
+                                                        </span>
+                                                        <span class="d-flex align-items-center">
+                                                            <span class="o_mrp_status_indicator status-done mr-2"></span>
+                                                            <t t-esc="mo.done_wo_count"/> Done
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-right">
+                                                <t t-if="mo.can_confirm">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-primary mr-2"
+                                                            t-on-click="() => this.confirmMo(mo)">
+                                                        <i class="fa fa-check mr-1"/>Confirm
+                                                    </button>
+                                                </t>
+                                                <t t-if="mo.can_manual_close">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-outline-danger mr-2"
+                                                            t-on-click="() => this.closeMo(mo)">
+                                                        Close
+                                                    </button>
+                                                </t>
+                                                <t t-if="mo.can_open_console">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-primary"
+                                                            t-on-click="() => this.openConsole(mo)">
+                                                        Open Console
+                                                    </button>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="mrp_parallel_console.WorkorderCard">
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong t-esc="wo.name"/>
+                        <div class="o_mrp_card_subtitle">
+                            <t t-esc="wo.workcenter_name"/>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox"
+                               class="form-check-input"
+                               t-att-checked="isSelected(wo) ? 'checked' : null"
+                               t-on-change="() => this.toggleSelect(wo)"/>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="o_mrp_info_row">
+                        <span class="o_mrp_icon icon-qty"></span>
+                        <span class="o_mrp_info_label">Planned Qty</span>
+                        <span class="o_mrp_info_value" t-esc="wo.planned_qty or 0.0"/>
+                    </div>
+                    <div class="o_mrp_info_row">
+                        <span class="o_mrp_icon icon-qty"></span>
+                        <span class="o_mrp_info_label">Console Qty</span>
+                        <div class="o_mrp_info_value">
+                            <input type="number" step="0.01"
+                                   class="form-control form-control-sm"
+                                   t-att-value="wo.console_qty or 0"
+                                   t-on-input="(ev) => this.updateCardConsoleQty(wo, ev.target.value)"
+                                   t-on-blur="(ev) => this.saveCardConsoleQty(wo, ev.target.value)"
+                                   t-att-disabled="state.canCloseProduction ? null : true"/>
+                        </div>
+                    </div>
+                    <div class="o_mrp_info_row" t-if="wo.lot_name">
+                        <span class="o_mrp_icon icon-barcode"></span>
+                        <span class="o_mrp_info_label">Lot/Serial</span>
+                        <span class="o_mrp_info_value">
+                            <span class="badge badge-info" t-esc="wo.lot_name"/>
+                        </span>
+                    </div>
+                    <div class="o_mrp_info_row">
+                        <span class="o_mrp_icon icon-time"></span>
+                        <span class="o_mrp_info_label">Time</span>
+                        <div class="o_mrp_info_value">
+                            <div class="d-flex justify-content-between small">
+                                <span><t t-esc="formatDisplayDatetime(wo.console_date_start)"/></span>
+                                <span><t t-esc="formatDisplayDatetime(wo.console_date_finished)"/></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o_mrp_info_row">
+                        <span class="o_mrp_icon icon-employee"></span>
+                        <span class="o_mrp_info_label">Employees</span>
+                        <div class="o_mrp_info_value">
+                            <t t-if="wo.employees and wo.employees.length">
+                                <t t-foreach="wo.employees" t-as="emp" t-key="emp.id">
+                                    <span class="badge badge-light mr-1" t-esc="emp.name"/>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <span class="text-muted small">None</span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="o_mrp_info_row">
+                        <span class="o_mrp_icon icon-state"></span>
+                        <span class="o_mrp_info_label">State</span>
+                        <span class="o_mrp_info_value">
+                            <span t-att-class="'o_mrp_status_indicator status-' + (wo.state or 'ready')"></span>
+                            <t t-esc="wo.state_label or wo.state"/>
+                        </span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                        <div class="d-flex flex-wrap gap-2">
+                            <t t-if="!isRunning(wo)">
+                                <button type="button"
+                                        t-att-class="'btn btn-sm btn-success' + ((state.moClosed or !state.canCloseProduction or wo.state != 'ready') ? ' disabled' : '')"
+                                        t-att-disabled="(state.moClosed or !state.canCloseProduction or wo.state != 'ready') ? true : null"
+                                        t-on-click="() => this.startWo(wo)">
+                                    <span class="fa fa-play me-1" aria-hidden="true"/>Start
+                                </button>
+                            </t>
+                            <t t-else="">
+                                <button type="button"
+                                        t-att-class="'btn btn-sm btn-danger' + (state.moClosed ? ' disabled' : '')"
+                                        t-att-disabled="(state.moClosed or !state.canCloseProduction) ? true : null"
+                                        t-on-click="() => this.stopWo(wo)">
+                                    <span class="fa fa-stop me-1" aria-hidden="true"/>Stop
+                                </button>
+                            </t>
+                            <button type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    t-on-click="() => this.openScrapModal(wo)">
+                                <i class="fa fa-trash me-1"/>Scrap
+                            </button>
+                            <button type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    t-on-click="() => this.createQC(wo)">
+                                <i class="fa fa-check-circle me-1"/>QC
+                            </button>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    t-on-click="() => this.openDrawer(wo)">
+                                <i class="fa fa-list me-1"/>Details
+                            </button>
+                            <t t-if="isRunning(wo)">
+                                <button type="button"
+                                        t-att-class="'btn btn-sm btn-primary' + (state.moClosed ? ' disabled' : '')"
+                                        t-att-disabled="(state.moClosed or !state.canCloseProduction) ? true : null"
+                                        t-on-click="() => this.finishWo(wo)">
+                                    <span class="fa fa-check me-1" aria-hidden="true"/>Done
+                                </button>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

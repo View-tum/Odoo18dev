@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_request_form_precision" model="ir.ui.view">
+        <field name="name">purchase.request.form.precision</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request_line_discount_taxes.view_purchase_request_form_inherit_discount_taxes" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                <attribute name="options">{"currency_field": "currency_id", "digits": [16, 3]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_tax']" position="attributes">
+                <attribute name="options">{"currency_field": "currency_id", "digits": [16, 3]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='estimated_cost'][@nolabel='1']" position="attributes">
+                <attribute name="options">{"currency_field": "currency_id", "digits": [16, 3]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

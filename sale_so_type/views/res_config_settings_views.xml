@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale.so.type</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='sale_management']" position="inside">
+                <block title="Foreign Sales" id="sale_so_type_foreign_settings">
+                    <setting help="Default VAT for foreign sales (SO Type = Foreign)">
+                        <field name="inter_vat_id"/>
+                    </setting>
+                    <setting help="Default Journal for foreign sales (SO Type = Foreign)">
+                        <field name="inter_journal_id"/>
+                    </setting>
+                    <setting help="Default Fiscal Position for foreign sales (SO Type = Foreign)">
+                        <field name="inter_fiscal_position_id"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- ฟอร์มตัวช่วยสร้างรายงาน -->
+    <record id="view_trip_closing_wizard_form" model="ir.ui.view">
+        <field name="name">trip.closing.wizard.form</field>
+        <field name="model">trip.closing.wizard</field>
+        <field name="arch" type="xml">
+            <form string="รายงานปิดทริป">
+                <group>
+                    <field name="period_id" 
+                        options="{'no_create': True}"
+                        domain="[('date_start', '&lt;=', context_today())]"/>
+                    <field name="date_start" 
+                        widget="date" 
+                        readonly="period_id" 
+                        force_save="1"
+                        options="{'max_date': 'today'}"/>
+                    <field name="date_end" 
+                        widget="date" 
+                        readonly="period_id" 
+                        force_save="1"
+                        options="{'max_date': 'today'}"/>
+                </group>
+
+                <group>
+                    <field name="driver_id" options="{'no_create': True}"/>
+                    <field name="location_id" options="{'no_create': True}"/>
+                </group>
+
+                <footer>
+                    <button string="View" type="object" name="action_view_html" class="btn-primary"/>
+                    <button string="Export PDF" type="object" name="action_print_pdf" class="btn-secondary"/>
+                    <button string="Export Excel" type="object" name="action_export_xlsx" class="btn-secondary"/>
+                    <button string="Cancel" class="btn btn-link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- แอคชันเปิดตัวช่วยสร้างรายงาน -->
+    <record id="action_trip_closing_wizard" model="ir.actions.act_window">
+        <field name="name">รายงานปิดทริป</field>
+        <field name="res_model">trip.closing.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_trip_closing_wizard"
+              name="รายงานปิดทริป"
+              parent="stock.menu_warehouse_report"
+              action="action_trip_closing_wizard"/>
+</odoo>

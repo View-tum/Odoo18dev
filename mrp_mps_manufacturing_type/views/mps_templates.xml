@@ -1,0 +1,11 @@
+<odoo>
+    <!-- Inherit the MPS action template to change the title -->
+    <template id="mrp_mps_action_inherit_title" inherit_id="mrp_mps.mrp_mps_action">
+        <!-- This xpath assumes there is an element with text "Master Production Schedule".
+             Adjust the xpath to match your real DOM if needed. -->
+        <xpath expr=".//h1[normalize-space()='Master Production Schedule']" position="replace">
+            <!-- Use the action name: will be "Plastic MPS", "Pharma MPS", etc. -->
+            <h1 t-esc="props.action.name"/>
+        </xpath>
+    </template>
+</odoo>

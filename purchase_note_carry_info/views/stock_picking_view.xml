@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+    <record id="view_picking_form_with_purchase_note" model="ir.ui.view">
+      <field name="name">stock.picking.form.purchase_note.page</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook" position="inside">
+          <page string="Purchase Note" name="picking_purchase_note_page"
+          invisible="picking_type_code != 'incoming' and sequence_code not in ('QC', 'STOR')">
+            <group>
+              <field name="purchase_note" nolabel="1" readonly="1" placeholder="Carried from Purchase Order"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

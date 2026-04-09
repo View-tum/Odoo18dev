@@ -1,0 +1,229 @@
+                /* === ROOT and PAGE === */
+                .pf-page { 
+                    padding-bottom: 40mm;
+                    font-family: 'Helvetica', 'Arial', sans-serif;
+                    color: #1a1a1a;
+                    line-height: 1.4;
+                }
+
+                /* === TOP HEADER (Company Info) === */
+                .pf-top-right { 
+                    text-align: right; 
+                    font-size: 10px; 
+                    line-height: 1.5;
+                    margin-bottom: 20px;
+                    color: #333;
+                }
+                .pf-top-right > div:first-child {
+                    font-weight: 700;
+                    font-size: 11px;
+                    color: #000;
+                    margin-bottom: 4px;
+                }
+
+                /* === TITLE === */
+                .pf-header { 
+                    text-align: center; 
+                    margin: 25px 0 20px;
+                    border-bottom: 2px solid #000;
+                    padding-bottom: 12px;
+                }
+                .pf-header .title { 
+                    font-size: 24px; 
+                    font-weight: 700; 
+                    letter-spacing: 1px;
+                    color: #000;
+                    margin: 0 0 6px 0;
+                }
+                .pf-header .number { 
+                    font-size: 13px; 
+                    font-weight: 600;
+                    color: #444;
+                }
+
+                /* === GRID LAYOUT : NO GAP, FULL WIDTH === */
+                .pf-grid {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin: 0 0 20px 0;
+
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: flex;
+                }
+
+                /* 2 คอลัมน์ชิดกัน 50/50 */
+                .pf-col {
+                    width: 50%;
+                    -webkit-box-flex: 0;
+                    -webkit-flex: 0 0 50%;
+                    flex: 0 0 50%;
+
+                    min-width: 0;
+                    box-sizing: border-box;
+                }
+
+                /* กล่องกินเต็มคอลัมน์ */
+                .pf-block {
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+
+                /* กันข้อความยาวดัน layout */
+                .pf-block,
+                .pf-block * {
+                    word-break: break-word;
+                    overflow-wrap: anywhere;
+                }
+
+                /* === BLOCKS === */
+                .pf-block { 
+                    border: 1.5px solid #d0d0d0;
+                    border-radius: 4px;
+                    padding: 12px 14px;
+                    background: #fafafa;
+                }
+                .pf-block-title { 
+                    font-size: 10px; 
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    color: #555;
+                    margin-bottom: 8px;
+                    border-bottom: 1px solid #e0e0e0;
+                    padding-bottom: 4px;
+                }
+                .pf-k { 
+                    display: inline-block; 
+                    min-width: 130px; 
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 10px;
+                }
+
+                /* === DIVIDER === */
+                .pf-divider { 
+                    border-top: 1px solid #d0d0d0;
+                    margin: 18px 0;
+                }
+
+                /* === TABLE === */
+                .pf-table { 
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 8px;
+                    font-size: 10px;
+                }
+                .pf-table th, .pf-table td { 
+                    border: 1px solid #333;
+                    padding: 8px 10px;
+                    vertical-align: top;
+                }
+                .pf-table th { 
+                    background: #e8e8e8;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-size: 9px;
+                    letter-spacing: 0.3px;
+                    color: #222;
+                }
+                .pf-table td {
+                    background: #fff;
+                }
+                .right { 
+                    text-align: right;
+                }
+
+                /* === TOTALS === */
+                .pf-totals { 
+                    width: 45%;
+                    margin-left: auto;
+                    margin-top: 15px;
+                    border: 1.5px solid #d0d0d0;
+                    border-radius: 4px;
+                    overflow: hidden;
+                }
+                .pf-totals table { 
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+                .pf-totals td { 
+                    padding: 8px 12px;
+                    font-size: 11px;
+                    border-bottom: 1px solid #e8e8e8;
+                }
+                .pf-totals tr:last-child td {
+                    border-bottom: none;
+                }
+                .pf-totals .label { 
+                    color: #444;
+                    font-weight: 500;
+                }
+                .pf-totals .grand { 
+                    font-weight: 700;
+                    color: rgb(0, 0, 0);
+                    font-size: 13px;
+                    background: #f5f5f5;
+                }
+
+                /* === NOTES === */
+                .pf-notes { 
+                    margin-top: 25px;
+                    font-size: 9px;
+                    color: #555;
+                    padding: 12px;
+                    background: #f9f9f9;
+                    border-left: 3px solid #999;
+                    line-height: 1.6;
+                }
+                .pf-notes .note-title { 
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 6px;
+                    text-transform: uppercase;
+                    font-size: 9px;
+                }
+
+                /* === FOOTER === */
+                .pf-footer {
+                    color: #000;
+                    font-size: 8px;
+                    border-top: 1px solid #000;
+                    padding-top: 4px;
+                }
+                .pf-footer-row {
+                    width: 100%;
+                    border: none;
+                }
+                .pf-footer-row td {
+                    vertical-align: top;
+                    padding: 0;
+                }
+                .pf-footer-left {
+                    text-align: left;
+                    white-space: nowrap;
+                }
+                .pf-footer-right {
+                    text-align: right;
+                    white-space: nowrap;
+                }
+
+                .pf-address { line-height: 1.35; }
+                .pf-contact { margin-top: 4px; line-height: 1.35; }
+
+                /* === MEDIA QUERIES === */
+                @media screen {
+                    .pf-footer { 
+                        position: static;
+                        margin-top: 20px;
+                    }
+                }
+
+                @media print {
+                    .pf-footer {
+                        position: fixed;
+                        left: 0;
+                        right: 0;
+                        bottom: 3mm;
+                    }
+                }

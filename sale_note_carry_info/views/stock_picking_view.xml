@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_picking_form_with_note" model="ir.ui.view">
+            <field name="name">stock.picking.form.note</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='note']" position="replace">
+                    <page string="Sale Note" name="sale_note"  invisible="sequence_code not in ('PICK', 'PACK', 'OUT')">
+                        <group>
+                            <field name="sale_note" nolabel="1" placeholder="Carried from Sale Order"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

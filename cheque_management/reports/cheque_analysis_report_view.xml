@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Cheque Analysis Report Pivot View -->
+    <record id="cheque_analysis_report_pivot_view" model="ir.ui.view">
+        <field name="name">cheque.analysis.report.pivot.view</field>
+        <field name="model">cheque.analysis.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Cheque Analysis" disable_linking="True" display_quantity="true" sample="1">
+                <field name="name" type="row"/>
+                <field name="cheque_amount" type="measure"/>
+                <field name="payment_amount" type="measure"/>
+                <field name="total_amount" type="measure"/>
+                <field name="transform_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Cheque Analysis Report Graph View -->
+    <record id="cheque_analysis_report_graph_view" model="ir.ui.view">
+        <field name="name">cheque.analysis.report.graph.view</field>
+        <field name="model">cheque.analysis.report</field>
+        <field name="arch" type="xml">
+            <graph string="Cheque Analysis" type="line" sample="1" disable_linking="1">
+                <field name="cheque_date" interval="day" type="col"/>
+                <field name="payment_date" interval="day" type="col"/>
+                <field name="cheque_amount" type="measure"/>
+                <field name="payment_amount" type="measure"/>
+                <field name="total_amount" type="measure"/>
+                <field name="transform_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Cheque Analysis Report Search View -->
+    <record id="cheque_analysis_report_search_view" model="ir.ui.view">
+        <field name="name">cheque.analysis.report.search.view</field>
+        <field name="model">cheque.analysis.report</field>
+        <field name="arch" type="xml">
+            <search string="Cheque Analysis">
+                <field name="name" string="Cheque No."/>
+                <filter string="Bank Account" name="bank_account_journal_id"/>
+                <filter string="Partner" name="pay_partner_id"/>
+                <filter string="State" name="state"/>
+                <filter string="Cheque Book" name="cheque_book_id"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Partner" name="group_pay_partner_id" context="{'group_by':'pay_partner_id'}"/>
+                    <filter string="Bank Account" name="group_bank_account_journal_id" context="{'group_by':'bank_account_journal_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by':'state'}"/>
+                    <filter string="Cheque Book" name="group_cheque_book_id" context="{'group_by':'cheque_book_id'}"/>
+                    <filter string="Cheque Date" name="cheque_date_order_month" context="{'group_by': 'cheque_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Cheque Analysis Report Action View -->
+    <record id="cheque_analysis_report_action_view" model="ir.actions.act_window">
+        <field name="name">Cheque Analysis</field>
+        <field name="res_model">cheque.analysis.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="view_id"></field>  <!-- force empty -->
+        <field name="help">Cheque Analysis allows you to easily check and analyse your company cheque history and performance.</field>
+        <field name="target">current</field>
+    </record>
+
+    <!-- Cheque Analysis Report Menu View -->
+    <menuitem 
+        id="cheque_analysis_report" 
+        name="Cheque Analysis" 
+        parent="cheque_report_root" 
+        sequence="1" 
+        action="cheque_analysis_report_action_view"/>
+
+</odoo>

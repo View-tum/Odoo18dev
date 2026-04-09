@@ -1,0 +1,10 @@
+<odoo>
+  <record id="action_account_stock_card_rng8" model="ir.actions.act_window">
+    <field name="name">บัญชีรับ-จ่าย (แบบ รง.8)</field>
+    <field name="res_model">account.stock.card.rng8</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <menuitem id="menu_account_stock_card_rng8" name="รง.8" parent="account_payment_collection_report.account_reports_accounting_reports_menu" action="action_account_stock_card_rng8" sequence="60"/>
+</odoo>

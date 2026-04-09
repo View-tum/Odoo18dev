@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Paperformat: Cost Sheet A4 Portrait -->
+    <record id="paperformat_cost_sheet_a4" model="report.paperformat">
+        <field name="name">Cost Sheet A4</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">15</field>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- QWeb Report Action -->
+    <record id="action_report_cost_sheet" model="ir.actions.report">
+        <field name="name">Cost Sheet</field>
+        <field name="model">cost.sheet.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cost_sheet.report_cost_sheet</field>
+        <field name="report_file">cost_sheet.report_cost_sheet</field>
+        <field name="print_report_name">object._get_report_base_filename()</field>
+        <field name="paperformat_id" ref="cost_sheet.paperformat_cost_sheet_a4"/>
+    </record>
+
+        <!-- XLSX Report Action -->
+    <record id="action_report_cost_sheet_xlsx" model="ir.actions.report">
+        <field name="name">Cost Sheet Excel</field>
+        <field name="model">cost.sheet.wizard</field>
+        <field name="report_type">xlsx</field>
+        <!-- ต้องตรงกับ _name ของ class XLSX ด้านบน แต่ตัด prefix 'report.' ออก -->
+        <field name="report_name">cost_sheet.report_cost_sheet_xlsx</field>
+        <field name="report_file">cost_sheet.report_cost_sheet_xlsx</field>
+        <field name="print_report_name">object._get_report_base_filename()</field>
+        <field name="binding_model_id" ref="model_cost_sheet_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- QWeb Template -->
+    <template id="report_cost_sheet" name="Cost Sheet" t-name="cost_sheet.report_cost_sheet">
+        <t t-call="web.basic_layout">
+
+            <style>
+                /* Page break settings */
+                .page-break {
+                    page-break-before: always !important;
+                    margin-top: 40px !important;
+                }
+
+                .page-break + .sc-header {
+                    margin-top: 40px !important;
+                }
+
+                @page {
+                    margin-top: 1.0cm;
+                    margin-right: 1cm;
+                    margin-bottom: 1cm;
+                    margin-left: 1cm;
+                }
+
+                /* Typography */
+                body {
+                    font-family: 'Helvetica', 'Arial', sans-serif;
+                    font-size: 10pt;
+                    color: #333;
+                    line-height: 1.4;
+                }
+
+                /* Header styling */
+                .report-title {
+                    text-align: center;
+                    font-size: 20pt;
+                    font-weight: bold;
+                    color: #2c3e50;
+                    margin: 0 0 25px 0;
+                    padding-bottom: 10px;
+                    border-bottom: 3px solid #3498db;
+                    letter-spacing: 1px;
+                }
+
+                /* Info box styling */
+                .info-section {
+                    background-color: #f8f9fa;
+                    border: 1px solid #dee2e6;
+                    border-radius: 5px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .info-row {
+                    margin-bottom: 6px;
+                    display: flex;
+                }
+
+                .info-label {
+                    font-weight: bold;
+                    color: #495057;
+                    min-width: 160px;
+                    display: inline-block;
+                }
+
+                .info-value {
+                    color: #212529;
+                }
+
+                .description-box {
+                    background-color: #fff3cd;
+                    border: 1px solid #ffc107;
+                    border-left: 4px solid #ffc107;
+                    padding: 12px;
+                    margin: 15px 0;
+                    border-radius: 3px;
+                }
+
+                .description-box .info-label {
+                    color: #856404;
+                }
+
+                /* Table styling */
+                .data-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 15px;
+                }
+
+                .data-table thead {
+                    background-color: #3498db;
+                    color: white;
+                }
+
+                .data-table thead th {
+                    padding: 12px 10px;
+                    font-weight: bold;
+                    text-align: left;
+                    border: 1px solid #2980b9;
+                    font-size: 10pt;
+                }
+
+                .data-table tbody td {
+                    padding: 10px;
+                    border: 1px solid #dee2e6;
+                    background-color: white;
+                }
+
+                .data-table tbody tr:nth-child(even) {
+                    background-color: #f8f9fa;
+                }
+
+
+
+                .data-table .total-row td {
+                    background-color: #d6eaf8 !important;
+                    font-weight: bold;
+                    border-top: 2px solid #3498db;
+                }
+
+                .data-table .summary-row td {
+                    background-color: #ebf5fb !important;
+                    font-weight: bold;
+                }
+
+                .text-right {
+                    text-align: right;
+                }
+
+                .text-center {
+                    text-align: center;
+                }
+
+                /* Section headers */
+                .section-title {
+                    font-size: 13pt;
+                    font-weight: bold;
+                    color: #2c3e50;
+                    margin: 25px 0 15px 0;
+                    padding-bottom: 8px;
+                    border-bottom: 2px solid #3498db;
+                }
+
+                /* Number formatting */
+                .amount {
+                    font-family: 'Courier New', monospace;
+                    font-weight: 500;
+                }
+
+                /* Product table specific */
+                .product-table thead th {
+                    font-size: 9pt;
+                    padding: 10px 8px;
+                }
+
+                .product-table tbody td {
+                    font-size: 9pt;
+                    padding: 8px;
+                }
+            </style>
+
+            <!-- payload จาก AbstractModel -->
+            <t t-set="data" t-value="payload or {}"/>
+            <t t-set="sheets" t-value="data.get('sheets', [])"/>
+
+            <!-- วนทีละ sheet = 1 หน้า -->
+            <t t-foreach="sheets" t-as="sheet" t-foreach-index="sheet_idx">
+                <div t-attf-class="#{sheet_idx and 'page-break' or ''}"></div>
+
+                <!-- TITLE -->
+                <h1 class="report-title">COST SHEET</h1>
+
+                <!-- HEADER INFO -->
+                <div class="info-section">
+                    <div class="info-row">
+                        <span class="info-label">Company:</span>
+                        <span class="info-value"><t t-esc="sheet.get('company') or ''"/></span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Period:</span>
+                        <span class="info-value">
+                            <t t-esc="sheet.get('date_from')"/> - <t t-esc="sheet.get('date_to')"/>
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Landed Cost:</span>
+                        <span class="info-value">
+                            <t t-esc="sheet.get('title') or ''"/>
+                            <t t-if="sheet.get('lc_date')">
+                                (<t t-esc="sheet.get('lc_date')"/>)
+                            </t>
+                        </span>
+                    </div>
+
+                    <t t-if="sheet.get('vendor')">
+                        <div class="info-row">
+                            <span class="info-label">Vendor:</span>
+                            <span class="info-value"><t t-esc="sheet.get('vendor')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('vendor_bill')">
+                        <div class="info-row">
+                            <span class="info-label">Vendor Bill:</span>
+                            <span class="info-value"><t t-esc="sheet.get('vendor_bill')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('journal_entry')">
+                        <div class="info-row">
+                            <span class="info-label">Journal Entry:</span>
+                            <span class="info-value"><t t-esc="sheet.get('journal_entry')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('journal')">
+                        <div class="info-row">
+                            <span class="info-label">Journal:</span>
+                            <span class="info-value"><t t-esc="sheet.get('journal')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('pickings')">
+                        <div class="info-row">
+                            <span class="info-label">Transfers:</span>
+                            <span class="info-value"><t t-esc="sheet.get('pickings')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('transfer_journal_entry')">
+                        <div class="info-row">
+                            <span class="info-label">Transfer Journal Entry:</span>
+                            <span class="info-value"><t t-esc="sheet.get('transfer_journal_entry')"/></span>
+                        </div>
+                    </t>
+
+                    <t t-if="sheet.get('transfer_journal')">
+                        <div class="info-row">
+                            <span class="info-label">Transfer Journal:</span>
+                            <span class="info-value"><t t-esc="sheet.get('transfer_journal')"/></span>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- DESCRIPTION -->
+                <t t-if="sheet.get('description')">
+                    <div class="description-box">
+                        <span class="info-label">Description:</span>
+                        <span class="info-value"><t t-esc="sheet.get('description')"/></span>
+                    </div>
+                </t>
+
+                <!-- ตาราง 1: Cost Components -->
+                <h4 class="section-title">Cost Components</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 70%;">Item</th>
+                            <th class="text-right" style="width: 30%;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="sheet.get('lines', [])" t-as="line">
+                            <tr>
+                                <td><t t-esc="line.get('name')"/></td>
+                                <td class="text-right amount">
+                                    <t t-esc="money(line.get('amount') or 0.0)"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr class="total-row">
+                            <td class="text-right">Total Landed Cost</td>
+                            <td class="text-right amount">
+                                <t t-esc="money(sheet.get('total') or 0.0)"/>
+                            </td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td class="text-right">Total Quantity</td>
+                            <td class="text-right amount">
+                                <t t-esc="sheet.get('qty_total') or 0.0"/>
+                            </td>
+                        </tr>
+
+                        <tr class="summary-row">
+                            <td class="text-right">Goods Unit Cost</td>
+                            <td class="text-right amount">
+                                <t t-esc="money(sheet.get('base_unit_cost') or 0.0)"/>
+                            </td>
+                        </tr>
+
+                        <tr class="summary-row">
+                            <td class="text-right">Landed Cost / Unit</td>
+                            <td class="text-right amount">
+                                <t t-esc="money(sheet.get('landed_unit_cost') or 0.0)"/>
+                            </td>
+                        </tr>
+
+                        <tr class="summary-row">
+                            <td class="text-right">Total Unit Cost</td>
+                            <td class="text-right amount">
+                                <t t-esc="money(sheet.get('unit_cost') or 0.0)"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- ตาราง 2: Allocation by Product -->
+                <t t-if="sheet.get('product_lines')">
+                    <h4 class="section-title">Allocation by Product</h4>
+                    <table class="data-table product-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Product</th>
+                                <th class="text-right" style="width: 10%;">Quantity</th>
+                                <th class="text-right" style="width: 15%;">Additional Cost</th>
+                                <th class="text-right" style="width: 15%;">Final Cost</th>
+                                <th class="text-right" style="width: 15%;">Add. Cost / Unit</th>
+                                <th class="text-right" style="width: 15%;">Final Cost / Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="sheet.get('product_lines')" t-as="pline">
+                                <tr>
+                                    <td><t t-esc="pline.get('name')"/></td>
+                                    <td class="text-right amount">
+                                        <t t-esc="pline.get('qty') or 0.0"/>
+                                    </td>
+                                    <td class="text-right amount">
+                                        <t t-esc="money(pline.get('additional') or 0.0)"/>
+                                    </td>
+                                    <td class="text-right amount">
+                                        <t t-esc="money(pline.get('final') or 0.0)"/>
+                                    </td>
+                                    <td class="text-right amount">
+                                        <t t-esc="money(pline.get('unit_cost_add') or 0.0)"/>
+                                    </td>
+                                    <td class="text-right amount">
+                                        <t t-esc="money(pline.get('unit_cost_final') or 0.0)"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+
+                <!-- Page break ถ้าไม่ใช่ sheet สุดท้าย -->
+                <div t-if="sheet_idx != (len(sheets) - 1)" class="page-break"></div>
+
+            </t> <!-- /foreach sheets -->
+
+        </t>
+    </template>
+</odoo>

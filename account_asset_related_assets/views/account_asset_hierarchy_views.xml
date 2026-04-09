@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_asset_hierarchy_tree" model="ir.ui.view">
+        <field name="name">account.asset.hierarchy</field>
+        <field name="model">account.asset</field>
+        <field name="arch" type="xml">
+            <hierarchy
+                string="Asset Hierarchy"
+                child_field="children_ids"
+                parent_field="parent_id"
+            >
+                <field name="name" string="Asset" />
+                <field name="parent_id" />
+                <field name="child_count" />
+                <field name="company_id" />
+                <field name="state" />
+                <field name="original_value" />
+                <field name="book_value" />
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <t t-set="state_code" t-value="record.state.raw_value || record.state.value"/>
+                        <t t-set="state_color">
+                            <t t-if="state_code == 'open'">#0f9d58</t>
+                            <t t-elif="['running', 'close'].includes(state_code)">#0d6efd</t>
+                            <t t-elif="state_code == 'draft'">#6c757d</t>
+                            <t t-else="">#d6336c</t>
+                        </t>
+                        <t t-set="childCount" t-value="(record.child_count.raw_value || record.child_count.value || 0)"/>
+                        <div class="o_asset_card"
+                             t-attf-style="border-left:4px solid {{state_color}}; background:linear-gradient(135deg,#fdfefe,#f3f6ff); box-shadow:0 8px 18px rgba(15,23,42,0.08); border-radius:14px; padding:14px; min-width:240px; max-width:320px; width:100%; box-sizing:border-box;">
+                            <div class="d-flex align-items-start justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2 pe-2">
+                                    <span class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                                          t-attf-style="width:36px; height:36px; background:{{state_color}}15; color:{{state_color}};">
+                                        <i class="fa fa-sitemap"></i>
+                                    </span>
+                                    <div>
+                                        <div class="fw-bold text-dark"><field name="name" /></div>
+                                        <div class="text-muted small" t-if="record.parent_id.value">
+                                            Parent: <t t-esc="record.parent_id.display_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_asset_state_badge text-white fw-semibold"
+                                     t-attf-style="background:{{state_color}}; padding:4px 8px; border-radius:999px; font-size:12px; min-width:68px; text-align:center;">
+                                    <field name="state" />
+                                </div>
+                            </div>
+                            <div class="row gx-2 gy-1">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between align-items-center px-2 py-1 rounded"
+                                         style="background:#f0f4ff; min-height:32px;">
+                                        <div class="text-muted small">Original</div>
+                                        <div class="fw-semibold small text-dark">
+                                            <t t-esc="record.original_value.display_value || record.original_value.value"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between align-items-center px-2 py-1 rounded"
+                                         style="background:#f7f7fb; min-height:32px;">
+                                        <div class="text-muted small">Book</div>
+                                        <div class="fw-semibold small text-dark">
+                                            <t t-esc="record.book_value.display_value || record.book_value.value"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 flex-wrap mt-3">
+                                <t t-if="!record.parent_id.value &amp;&amp; childCount">
+                                    <a class="badge rounded-pill text-decoration-none flex-shrink-0"
+                                       t-attf-href="/web#action=account_asset_related_assets.action_account_asset_children&amp;active_id={{record.id.raw_value || record.id.value}}&amp;context=%7B%22active_id%22%3A{{record.id.raw_value || record.id.value}}%7D"
+                                       style="background:rgba(13,110,253,.12); color:#0d6efd;">
+                                        <i class="fa fa-stream me-1"></i>
+                                        <t t-esc="childCount"/> child<t t-if="childCount != 1">ren</t>
+                                    </a>
+                                </t>
+                                <span class="badge rounded-pill flex-shrink-0"
+                                      style="background:#eef4f9; color:#334155;">
+                                    <i class="fa fa-building me-1"></i>
+                                    <field name="company_id"/>
+                                </span>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+
+    <record id="action_account_asset_hierarchy" model="ir.actions.act_window">
+        <field name="name">Asset Hierarchy</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">hierarchy,form</field>
+        <field name="view_id" ref="view_account_asset_hierarchy_tree" />
+        <field name="context">{}</field>
+    </record>
+
+    <record id="action_account_asset_children" model="ir.actions.act_window">
+        <field name="name">Asset Children</field>
+        <field name="res_model">account.asset</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[("parent_id", "=", context.get("active_id"))]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="menu_account_asset_hierarchy"
+        name="Asset Hierarchy"
+        parent="account.menu_finance_entries"
+        action="action_account_asset_hierarchy"
+        sequence="55"
+        groups="account.group_account_readonly"
+    />
+</odoo>

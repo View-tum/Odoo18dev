@@ -1,0 +1,24 @@
+<odoo>
+    <record id="action_delivery_report" model="ir.actions.act_window">
+        <field name="name">Delivery Route Report</field>
+        <field name="res_model">delivery.route.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="delivery_report_folder"
+        name="Reporting"
+        parent="delivery_routes_management.menu_delivery_root"
+        sequence="10"/>
+
+    <menuitem id="delivery_reports_menu"
+        name="Delivery Reports"
+        parent="delivery_report_folder"
+        sequence="10"/>
+
+    <menuitem id="delivery_reports_delivery_route_report"
+        name="Delivery Route Report"
+        parent="delivery_reports_menu"
+        sequence="10"
+        action="action_delivery_report"/>
+</odoo>

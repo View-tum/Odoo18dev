@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="report_dynamic_check_print_document">
+		<t t-call="web.html_container">
+			<t t-set="payment_id" t-value="payment_id.with_context(lang=payment_id.pay_partner_id.lang)"/>
+			<div class="page">
+				<div style="position:relative;">
+
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.od_top_margin) + 'px;'">
+						<t t-if="cheque_format.is_origin_date == True">
+							<span t-esc="payment_id.date.strftime('%d%m%Y')" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.od_font_size) + 'px;' + 'margin-top:' + str(cheque_format.od_top_margin) + 'px;'+'margin-left:' + str(cheque_format.od_left_margin) + 'px;'"/>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.opt_top_margin) + 'px;' + 'width: 100%;'">
+						<t t-if="cheque_format.is_origin_pay_to == True">
+							<span t-esc="payment_id.partner_name" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.opt_font_size) + 'px;'+'margin-top:' + str(cheque_format.opt_top_margin) + 'px;'+'margin-left:' + str(cheque_format.opt_left_margin) + 'px;'+'width:' + str(cheque_format.opt_width) + 'px;'"/>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.opd_top_margin) + 'px;'">
+						<t t-if="cheque_format.is_origin_pay_date == True">
+							<span t-esc="payment_id.date.strftime('%d%m%Y')" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.opd_font_size) + 'px;' + 'margin-top:' + str(cheque_format.opd_top_margin) + 'px;'+'margin-left:' + str(cheque_format.opd_left_margin) + 'px;'"/>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.oa_top_margin) + 'px;'">
+						<t t-if="cheque_format.is_origin_amount == True">
+							<span t-esc="'{:,.2f}'.format(payment_id.amount)" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.oa_font_size) + 'px;'+'margin-top:' + str(cheque_format.oa_top_margin) + 'px;'+'margin-left:' + str(cheque_format.oa_left_margin) + 'px;'+'width:' + str(cheque_format.oa_width) + 'px;'"/>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.or_top_margin) + 'px;'">
+						<t t-if="cheque_format.is_origin_remark == True">
+							<span t-esc="payment_id.memo" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.or_font_size) + 'px;'+'margin-top:' + str(cheque_format.or_top_margin) + 'px;'+'margin-left:' + str(cheque_format.or_left_margin) + 'px;'+'width:' + str(cheque_format.opt_width) + 'px;'"/>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;'">
+						<t t-if="cheque_format.is_line == True">
+							<hr t-att-style="'position:absolute;' + 'border-width:0;' + 'margin-top:' + str(cheque_format.line_top_margin) + 'px;'+'margin-left:' + str(cheque_format.line_left_margin) + 'px;' + 'width:' + str(cheque_format.line_width) + 'px;' + 'height:' + str(cheque_format.line_size) + 'px;' + 'background-color:' + str(cheque_format.line_color) + ';' + '-webkit-transform:rotate(' + str(cheque_format.line_rotate) +'deg);'"/>
+						</t>
+					</div>
+
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.ac_top_margin) + 'px;'">
+						<t t-if="payment_id.ac_payee == True">
+							<span t-att-style="'font-size:' + str(cheque_format.ac_font_size) + 'px;' + 'margin-top:' + str(cheque_format.ac_top_margin) + 'px;' + 'margin-left:' + str(cheque_format.ac_left_margin) + 'px;'+'text-decoration: underline overline;'+'font-family: Palatino, serif;' + 'px;' + 'width:' + str(cheque_format.ac_width) + 'px;' + 'color:' + str(cheque_format.ac_color) + ';'"> A/C Payee Only </span>
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.top_margin) + 'px;'">
+						<span t-esc="payment_id.cheque_date.strftime('%d%m%Y')" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.font_size) + 'px;' + 'margin-top:' + str(cheque_format.top_margin) + 'px;'+'margin-left:' + str(cheque_format.left_margin) + 'px;'+'letter-spacing:' + str(cheque_format.char_spacing) + 'px;'"/>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.payee_top_margin) + 'px;' + 'width: 100%;'">
+						<span t-esc="payment_id.partner_name" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.payee_font_size) + 'px;'+'margin-top:' + str(cheque_format.payee_top_margin) + 'px;'+'margin-left:' + str(cheque_format.payee_left_margin) + 'px;'+'width:' + str(cheque_format.payee_width) + 'px;'"/>
+					</div>
+
+
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.fl_top_margin) + 'px;' + 'width: 100%;'">
+						<t t-if="cheque_format.sc_currency_name == True and cheque_format.sc_currency_name_position == 'before'">
+							<span  t-esc="payment_id.company_id.currency_id.name" t-att-style=" 'font-weight: bold;' + 'margin-top:' + str(cheque_format.fl_top_margin) + 'px;'+'margin-left:' + str(cheque_format.fl_left_margin) + 'px;'"/>
+						</t>
+						<!-- <span t-field="payment_id.amount_total_words" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.sc_font_size) + 'px;'+'margin-top:' + str(cheque_format.fl_top_margin) + 'px;'+ 'px;'+'width:' + str(cheque_format.fl_width) + 'px;'+'margin-left:' + str(cheque_format.fl_left_margin) + 'px;'"/> -->
+
+
+						<span t-if="get_amount_in_word_line(payment_id,cheque_format)">
+							<span t-esc="get_amount_in_word_line(payment_id,cheque_format)['first_line'] or ''"  	t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.sc_font_size) + 'px;'+'margin-top:' + str(cheque_format.fl_top_margin) + 'px;'+ 'px;'+'width:' + str(cheque_format.fl_width) + 'px;'+'margin-left:' + str(cheque_format.fl_left_margin) + 'px;'"/> <br/>
+							<t t-if="get_amount_in_word_line(payment_id,cheque_format)['second_line']">
+								<div t-esc="get_amount_in_word_line(payment_id,cheque_format)['second_line']" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.sc_font_size) + 'px;'+'margin-top:' + str(cheque_format.sc_top_margin) + 'px;'+'margin-left:' + str(cheque_format.sc_left_margin) + 'px;'+'width:' + str(cheque_format.sc_width) + 'px;'+ 'width: 100%;'"/>
+							</t>
+						</span>
+						<span t-if="not get_amount_in_word_line(payment_id,cheque_format)">
+							<span t-att-style="'font-size:' + str(cheque_format.sc_font_size) + 'px;'+'margin-top:' + str(cheque_format.fl_top_margin) + 'px;'+ 'px;'+'width:' + str(cheque_format.fl_width) + 'px;'"/>
+						</span>
+
+
+
+						<t t-if="cheque_format.sc_currency_name == True and cheque_format.sc_currency_name_position == 'after'">
+							<span  t-esc="payment_id.currency_id.name" t-att-style=" 'font-weight: bold;' + 'margin-top:' + str(cheque_format.fl_top_margin) + 'px;'+'margin-left:' + str(cheque_format.fl_left_margin) + 'px;'"/>
+						</t>
+					</div>
+
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.af_top_margin) + 'px;'">
+						<span t-esc="'{:,.2f}'.format(payment_id.amount)" t-att-style="'font-weight: bold;' + 'font-size:' + str(cheque_format.af_font_size) + 'px;'+'margin-top:' + str(cheque_format.af_top_margin) + 'px;'+'margin-left:' + str(cheque_format.af_left_margin) + 'px;'+'width:' + str(cheque_format.af_width) + 'px;'"/>
+					</div>
+
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.comp_top_margin) + 'px;'">
+						<t t-if="cheque_format.comapny_name == True">
+							<span t-esc="payment_id.company_id.name or request.env.user.company_id.name" t-att-style="'font-size:' + str(cheque_format.comp_font_size) + 'px;'+'margin-top:' + str(cheque_format.comp_top_margin) + 'px;'+'margin-left:' + str(cheque_format.comp_left_margin) + 'px;' + 'width:' + str(cheque_format.comp_width) + 'px;'" />
+						</t>
+					</div>
+					<div t-att-style="'position:absolute;' + 'margin-top:'+ str(cheque_format.sb_top_margin) + 'px;'">
+						<t t-if="cheque_format.is_signature_box == True">
+							<div t-att-style="'width:' + str(cheque_format.sb_width) + 'px;'+'height:' + str(cheque_format.sb_hight)+'px;'+'margin-top:' + str(cheque_format.sb_top_margin) +'px;'+'margin-left:' + str(cheque_format.sb_left_margin) + 'px;'+'border: 3px solid gray;'"></div>
+						</t>
+					</div>
+				</div>
+				<!-- <div style="page-break-after: always;"/> -->
+			</div>
+		</t>
+	</template>
+
+	<template id="report_dynamic_check_print">
+        <t t-call="web.html_container">
+            <t t-set="total_docs" t-value="docs"/>
+			<t t-set="index" t-value="0"/>
+			<t t-foreach="docs" t-as="payment_id">
+			    <t t-call="cheque_management.report_dynamic_check_print_document"
+			       t-lang="payment_id.pay_partner_id.lang"/>
+			    <t t-if="index + 1 != len(total_docs)">
+			        <div style="page-break-after: always;"/>
+			    </t>
+			    <t t-set="index" t-value="index + 1"/>
+			</t>
+        </t>
+    </template>
+
+</odoo>

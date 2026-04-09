@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_account_payment_inherit_form_view" model="ir.ui.view">
+        <field name="name">account.payment.inherit.form.view</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form" />
+        <field name="arch" type="xml">
+            <button name="action_draft" position="after">
+                <button name="sh_cancel" string="Cancel" type="object" 
+                groups="sh_all_in_one_cancel_adv.group_sh_account_cancel" 
+                invisible="state != 'paid'"></button>
+            </button>
+        </field>
+    </record>
+</odoo>

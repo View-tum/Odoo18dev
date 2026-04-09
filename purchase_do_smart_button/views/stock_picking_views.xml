@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_picking_form_inherit_po_button" model="ir.ui.view">
+    <field name="name">stock.picking.form.po.smart.button</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@class='oe_button_box' and @name='button_box']" position="inside">
+        <button
+          name="action_view_pos"
+          type="object"
+          class="oe_stat_button"
+          icon="fa-shopping-cart"
+          groups="purchase.group_purchase_user,stock.group_stock_user"
+          invisible="po_count == 0 or not show_po_button">
+          <field name="po_count" widget="statinfo" string="Purchase Orders"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+</odoo>

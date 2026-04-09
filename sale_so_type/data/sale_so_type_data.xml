@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="sale_sequence_type_short" model="sale.sequence.type">
+        <field name="name">ใบกำกับภาษีแบบย่อ</field>
+    </record>
+    <record id="sale_sequence_type_full" model="sale.sequence.type">
+        <field name="name">ใบกำกับภาษีแบบเต็ม</field>
+    </record>
+    <record id="sale_sequence_type_international" model="sale.sequence.type">
+        <field name="name">ใบสั่งขายต่างประเทศ</field>
+    </record>
+</odoo>

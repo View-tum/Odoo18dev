@@ -1,0 +1,35 @@
+<odoo>
+  <record id="view_sale_commission_rule_list" model="ir.ui.view">
+    <field name="name">sale.commission.rule.list</field>
+    <field name="model">sale.commission.rule</field>
+    <field name="arch" type="xml">
+      <list string="Commission Rules">
+        <field name="commission_trigger"/>
+        <field name="region_ids" widget="many2many_tags"/>
+        <field name="rate_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_sale_commission_rule_form" model="ir.ui.view">
+    <field name="name">sale.commission.rule.form</field>
+    <field name="model">sale.commission.rule</field>
+    <field name="arch" type="xml">
+      <form string="Commission Rules">
+        <sheet>
+          <group>
+            <field name="commission_trigger"/>
+            <field name="region_ids" widget="many2many_tags"/>
+            <field name="rate_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_sale_commission_rule" model="ir.actions.act_window">
+    <field name="name">Commission Rules</field>
+    <field name="res_model">sale.commission.rule</field>
+    <field name="view_mode">list,form</field>
+  </record>
+</odoo>

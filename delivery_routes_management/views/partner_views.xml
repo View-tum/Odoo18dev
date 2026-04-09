@@ -1,0 +1,28 @@
+<odoo>
+  <!-- Customer form: insert after Salesperson (user_id) -->
+  <record id="view_partner_form_inherit_delivery" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit.delivery</field>
+    <field name="model">res.partner</field>
+    <!-- Use contacts form in Odoo 18 -->
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='user_id']" position="after">
+        <field name="salesregion_id"/>
+        <field name="subregion_id"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Contacts list: insert after Salesperson column if present -->
+  <record id="view_partner_list_inherit_delivery" model="ir.ui.view">
+    <field name="name">res.partner.list.inherit.delivery</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='user_id']" position="after">
+        <field name="salesregion_id"/>
+        <field name="subregion_id"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

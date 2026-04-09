@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List view for lines -->
+    <record id="view_account_customer_group_payment_line_list" model="ir.ui.view">
+        <field name="name">account.customer.group.payment.line.list</field>
+        <field name="model">account.customer.group.payment.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom" create="false" delete="false">
+                <field name="is_selected"/>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="amount_total"/>
+                <field name="amount_residual"/>
+                <field name="amount_to_pay"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Tree view for main model -->
+    <record id="view_account_customer_group_payment_tree" model="ir.ui.view">
+        <field name="name">account.customer.group.payment.tree</field>
+        <field name="model">account.customer.group.payment</field>
+        <field name="arch" type="xml">
+            <list string="Group Payments">
+                <field name="name"/>
+                <field name="payment_date"/>
+                <field name="payer_partner_id"/>
+                <field name="total_selected_amount"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'lines'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_account_customer_group_payment" model="ir.actions.act_window">
+        <field name="name">รับชำระเงินกลุ่มบริษัท (แม่–ลูก)</field>
+        <field name="res_model">account.customer.group.payment</field>
+        <field name="view_mode">list,form</field>
+        <field name="target">current</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- เมนูในแท็บ Customers -->
+    <menuitem id="menu_account_customer_group_payment"
+              name="รับชำระเงินกลุ่มบริษัท (แม่–ลูก)"
+              parent="account.menu_finance_receivables"
+              action="action_account_customer_group_payment"
+              sequence="60"/>
+
+    <!-- ฟอร์ม -->
+    <record id="view_account_customer_group_payment_form" model="ir.ui.view">
+        <field name="name">account.customer.group.payment.form</field>
+        <field name="model">account.customer.group.payment</field>
+        <field name="arch" type="xml">
+            <form string="รับชำระเงินกลุ่มบริษัท (แม่–ลูก)">
+                <header>
+                    <button name="action_search_moves"
+                            string="ค้นหาเอกสาร"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="state == 'done'"/>
+                    <button name="action_confirm_payment"
+                            string="รับชำระเลย"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state == 'done'"/>
+                    <button name="action_print_receipt"
+                            string="พิมพ์ใบสำคัญ"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'done'"/>
+                    <button name="action_view_payments"
+                            string="ดูรายการชำระเงิน"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="state != 'done'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,lines,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="กลุ่มลูกค้า">
+                            <field name="group_root_partner_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="parent_partner_id" required="1" readonly="state == 'done'"/>
+                            <field name="child_partner_ids" widget="many2many_tags" readonly="state == 'done'"/>
+                            <field name="payer_partner_id" required="1" readonly="state == 'done'"/>
+                        </group>
+                        <group string="การรับชำระ">
+                            <field name="payment_journal_id" required="1" readonly="state == 'done'"/>
+                            <field name="payment_date" required="1" readonly="state == 'done'"/>
+                            <field name="memo" readonly="state == 'done'"/>
+                            <field name="summary_info" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <group invisible="state == 'done'">
+                        <group string="ตัวกรองเพิ่มเติม">
+                            <field name="filter_date_from"/>
+                            <field name="filter_date_to"/>
+                            <field name="filter_min_amount"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="เอกสารที่พบ">
+                            <field name="line_ids" mode="list" list_view_ref="account_customer_group_payment.view_account_customer_group_payment_line_list" readonly="state == 'done'"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Extend Account Payment Form -->
+    <record id="view_account_payment_form_inherit_group_payment" model="ir.ui.view">
+        <field name="name">account.payment.form.inherit.group.payment</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="memo" position="after">
+                <field name="group_payment_memo" invisible="not group_payment_memo"/>
+            </field>
+        </field>
+    </record>
+</odoo>

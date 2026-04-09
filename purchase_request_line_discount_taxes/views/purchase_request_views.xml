@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_request_form_inherit_discount_taxes" model="ir.ui.view">
+        <field name="name">purchase.request.form.inherit.discount.vats</field>
+        <field name="model">purchase.request</field>
+        <field name="inherit_id" ref="purchase_request.view_purchase_request_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='date_required']"
+                position="after">
+                <field name="discount" optional="show" />
+                <field name="taxes_id" optional="show" widget="many2many_tags"
+                    context="{'default_type_tax_use':'purchase','search_view_ref':'account.account_tax_view_search'}"
+                    domain="[('type_tax_use','=','purchase'), ('active','=',True), '|', ('company_id','=', company_id), ('company_id','=', False), '|', ('country_id','=', False), ('country_id','=', tax_country_id)]"
+                />
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']" position="inside">
+                <form>
+                    <sheet>
+                        <group string="Pricing">
+                            <field name="discount" />
+                            <field name="taxes_id" widget="many2many_tags"
+                                context="{'default_type_tax_use':'purchase','search_view_ref':'account.account_tax_view_search'}"
+                                domain="[('type_tax_use','=','purchase'), ('active','=',True), '|', ('company_id','=', company_id), ('company_id','=', False), '|', ('country_id','=', False), ('country_id','=', tax_country_id)]"
+                            />
+                        </group>
+                    </sheet>
+                </form>
+            </xpath>
+
+            <xpath
+                expr="//group[contains(@class, 'oe_subtotal_footer') and contains(@class, 'oe_right')]"
+                position="replace">
+                <group class="oe_subtotal_footer oe_right">
+                    <field name="currency_id" invisible="1" />
+                    <label for="amount_untaxed" class="oe_inline" />
+                    <field name="amount_untaxed" nolabel="1" widget="monetary"
+                        options="{'currency_field': 'currency_id'}" />
+                    <label for="amount_tax" class="oe_inline" />
+                    <field name="amount_tax" nolabel="1" widget="monetary"
+                        options="{'currency_field': 'currency_id'}" />
+                    <label for="estimated_cost" class="oe_inline" />
+                    <field name="estimated_cost" nolabel="1" widget="monetary"
+                        options="{'currency_field': 'currency_id'}" />
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_account_billing_create" model="ir.actions.act_window">
+        <field name="name">Create Billing</field>
+        <field name="res_model">account.billing.create</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_account_billing_create" name="สร้างใบวางบิล" parent="account.menu_finance_receivables" action="action_account_billing_create" sequence="10"/>
+</odoo>

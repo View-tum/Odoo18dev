@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mrp_routing_workcenter_mold_line_tree" model="ir.ui.view">
+        <field name="name">mrp.routing.workcenter.mold.line.list</field>
+        <field name="model">mrp.routing.workcenter.mold.line</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="workcenter_id"/>
+                <field name="mold_id" required="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="mrp_mold_operation_form" model="ir.ui.view">
+        <field name="name">mrp.routing.workcenter.mold.form</field>
+        <field name="model">mrp.routing.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='description']" position="after">
+                <field name="is_parallel_active" invisible="1"/>
+                <group string="Molds" invisible="is_parallel_active">
+                    <field name="mold_ids" widget="many2many_tags"/>
+                </group>
+                <group string="Mold Mapping (Parallel)" invisible="not is_parallel_active">
+                    <field name="mold_line_ids" nolabel="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

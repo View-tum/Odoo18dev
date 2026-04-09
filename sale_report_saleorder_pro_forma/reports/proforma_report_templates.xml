@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="proforma_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="pf-page">
+                        <t t-set="company" t-value="doc.company_id"/>
+                        <t t-set="currency" t-value="doc.currency_id or company.currency_id"/>
+
+                        <!-- Header company block -->
+                        <div class="pf-top-right">
+                            <div>
+                                <t t-esc="company.name"/>
+                            </div>
+                            <div t-field="company.partner_id" t-options='{"widget":"contact","fields":["address","email","vat"],"no_marker": True}'/>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="pf-header">
+                            <p class="title">PRO-FORMA INVOICE</p>
+                            <div class="number">
+                                <t t-esc="doc.name"/>
+                            </div>
+                        </div>
+
+                        <!-- Parties + Meta -->
+                        <div class="pf-grid">
+                            <!-- Seller -->
+                            <div class="pf-col">
+                                <div class="pf-block">
+                                    <div class="pf-block-title">Seller</div>
+                                    <t t-set="s" t-value="doc.company_id.partner_id"/>
+
+                                    <!-- Seller name -->
+                                    <div style="font-weight:700; margin-bottom:4px;">
+                                        <t t-esc="s.name or ''"/>
+                                    </div>
+
+                                    <!-- Seller address (Thai order): street, street2, city, state, zip, country -->
+                                    <div class="pf-address">
+                                        <t t-if="s.street">
+                                            <t t-esc="s.street"/><br/>
+                                        </t>
+                                        <t t-if="s.street2">
+                                            <t t-esc="s.street2"/><br/>
+                                        </t>
+
+                                        <t t-set="addr_line"
+                                        t-value="'%s%s%s%s' % (
+                                                (s.city or ''),
+                                                (' ' + (s.state_id.name or '') if s.state_id else ''),
+                                                (' ' + (s.zip or '') if s.zip else ''),
+                                                (', ' + (s.country_id.name or '') if s.country_id else '')
+                                        )"/>
+
+                                        <t t-if="addr_line.strip()">
+                                            <t t-esc="addr_line.strip()"/>
+                                        </t>
+                                    </div>
+
+                                    <!-- Seller contact -->
+                                    <div class="pf-contact">
+                                        <t t-if="s.phone or s.mobile">
+                                            <t t-esc="s.phone or s.mobile"/>
+                                        </t>
+                                        <t t-if="(s.phone or s.mobile) and s.email">, </t>
+                                        <t t-if="s.email">
+                                            <t t-esc="s.email"/>
+                                        </t>
+                                        <t t-if="s.vat">
+                                            <br/>VAT: <t t-esc="s.vat"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bill To + Meta -->
+                            <div class="pf-col">
+                                <div class="pf-block">
+                                    <div class="pf-block-title">Bill To</div>
+
+                                    <!-- รายละเอียดอื่น: ใช้ contact widget แต่ไม่แสดง name -->
+                                    <t t-set="p" t-value="doc.partner_invoice_id"/>
+
+                                    <!-- ชื่อ -->
+                                    <div style="font-weight:700; margin-bottom:4px;">
+                                        <t t-esc="p.name or ''"/>
+                                    </div>
+
+                                    <!-- ที่อยู่แบบไทย -->
+                                    <div class="pf-address">
+                                        <t t-if="p.street"><t t-esc="p.street"/><br/></t>
+                                        <t t-if="p.street2"><t t-esc="p.street2"/><br/></t>
+
+                                        <t t-set="addr_line"
+                                        t-value="'%s%s%s%s' % (
+                                                (p.city or ''),
+                                                (' ' + (p.state_id.name or '') if p.state_id else ''),
+                                                (' ' + (p.zip or '') if p.zip else ''),
+                                                (', ' + (p.country_id.name or '') if p.country_id else '')
+                                        )"/>
+                                        <t t-if="addr_line.strip()"><t t-esc="addr_line.strip()"/></t>
+                                    </div>
+
+                                    <!-- phone / email / vat -->
+                                    <div class="pf-contact">
+                                        <t t-if="p.phone or p.mobile">
+                                            <t t-esc="p.phone or p.mobile"/>
+                                        </t>
+                                        <t t-if="(p.phone or p.mobile) and p.email">, </t>
+                                        <t t-if="p.email">
+                                            <t t-esc="p.email"/>
+                                        </t>
+                                        <t t-if="p.vat">
+                                            <br/>VAT: <t t-esc="p.vat"/>
+                                        </t>
+                                    </div>
+
+                                    <div style="margin-top:10px; font-size: 10px;">
+                                        <div style="margin-bottom: 3px;">
+                                            <span class="pf-k">Issued Date:</span>
+                                            <t t-if="doc.date_order">
+                                                <t t-esc="doc.date_order.date()"/>
+                                            </t>
+                                            <t t-else="">—</t>
+                                        </div>
+
+                                        <div style="margin-bottom: 3px;">
+                                            <span class="pf-k">Valid Until:</span>
+                                            <t t-if="doc.validity_date">
+                                                <t t-esc="doc.validity_date"/>
+                                            </t>
+                                            <t t-else="">—</t>
+                                        </div>
+
+                                        <div style="margin-bottom: 3px;" t-if="doc.client_order_ref">
+                                            <span class="pf-k">Customer Ref (PO):</span>
+                                            <t t-esc="doc.client_order_ref"/>
+                                        </div>
+
+                                        <div style="margin-bottom: 3px;">
+                                            <span class="pf-k">Salesperson:</span>
+                                            <t t-esc="doc.user_id.name if doc.user_id else ''"/>
+                                        </div>
+
+                                        <div style="margin-bottom: 3px;" t-if="doc.payment_term_id">
+                                            <span class="pf-k">Payment Terms:</span>
+                                            <t t-esc="doc.payment_term_id.name"/>
+                                        </div>
+
+                                        <div>
+                                            <span class="pf-k">Currency:</span>
+                                            <t t-esc="currency.name"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ship To (Optional) -->
+                                <div class="pf-block" style="margin-top:12px;" t-if="doc.partner_shipping_id and doc.partner_shipping_id != doc.partner_invoice_id">
+                                    <div class="pf-block-title">Ship To</div>
+                                    <div t-field="doc.partner_shipping_id" t-options='{"widget":"contact","fields":["name","address","phone","email"],"no_marker": True}'/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pf-divider"/>
+
+                        <!-- Lines -->
+                        <t t-set="lines" t-value="doc._get_order_lines_to_report()"/>
+                        <table class="pf-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:50%;">Description</th>
+                                    <th class="right" style="width:8%;">Qty</th>
+                                    <th style="width:10%;">UoM</th>
+                                    <th class="right" style="width:12%;">Unit Price</th>
+                                    <th style="width:12%;">Taxes</th>
+                                    <th class="right" style="width:14%;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="lines" t-as="line">
+                                    <tr t-if="not line.display_type">
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="right">
+                                            <span t-field="line.product_uom_qty"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line.product_uom.name if line.product_uom else ''"/>
+                                        </td>
+                                        <td class="right">
+                                            <span t-field="line.price_unit" t-options='{"widget":"monetary","display_currency": currency}'/>
+                                        </td>
+                                        <td>
+                                            <t t-if="line.tax_id">
+                                                <t t-foreach="line.tax_id" t-as="tax">
+                                                    <div>
+                                                        <t t-esc="tax.invoice_label or tax.name"/>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                            <t t-else="">—</t>
+                                        </td>
+                                        <td class="right">
+                                            <span t-field="line.price_subtotal" t-options='{"widget":"monetary","display_currency": currency}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <!-- Totals -->
+                        <div class="pf-totals">
+                            <table>
+                                <tr>
+                                    <td class="label">Untaxed Amount</td>
+                                    <td class="right">
+                                        <span t-field="doc.amount_untaxed" t-options='{"widget":"monetary","display_currency": currency}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Taxes</td>
+                                    <td class="right">
+                                        <span t-field="doc.amount_tax" t-options='{"widget":"monetary","display_currency": currency}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label grand">Total</td>
+                                    <td class="right grand">
+                                        <span t-field="doc.amount_total" t-options='{"widget":"monetary","display_currency": currency}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer pf-footer">
+                            <div class="pf-footer-row">
+                                <tr>
+                                    <td class="pf-footer-left">
+                                        <t t-if="company.partner_id.phone">
+                                            <t t-esc="company.partner_id.phone"/>
+                                        </t>
+                                        <t t-if="company.partner_id.phone and company.partner_id.vat"> | </t>
+                                        <t t-if="company.partner_id.vat">
+                                            <t t-esc="company.partner_id.vat"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

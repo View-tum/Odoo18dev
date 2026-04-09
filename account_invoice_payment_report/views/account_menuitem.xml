@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_account_invoice_payment_report" model="ir.actions.act_window">
+        <field name="name">Invoice Payment Report</field>
+        <field name="res_model">account.invoice.payment.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_accounting_reports_account_invoice_payment_report" name="ใบชำระเงินตามใบแจ้งหนี้" parent="account_payment_collection_report.account_reports_accounting_reports_menu" sequence="40" action="action_account_invoice_payment_report"/>
+</odoo>

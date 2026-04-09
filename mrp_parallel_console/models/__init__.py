@@ -1,0 +1,18 @@
+from . import (
+    mrp_bom_parallel,
+    mrp_console_employee_wizard,
+    mrp_console_qty_wizard,
+    mrp_mps_parallel_machines,
+    mrp_production_console_apply,
+    mrp_production_employee_cost,
+    mrp_production_parallel_split,
+    mrp_report_cost,
+    mrp_workcenter_cost,
+    mrp_workorder_console_fields,
+    mrp_workorder_parallel_duration,
+    mrp_workorder_planner_parallel,
+    mrp_workorder_qty_log,
+    mrp_workorder_realtime,
+    res_company,
+    stock_move_line,
+)

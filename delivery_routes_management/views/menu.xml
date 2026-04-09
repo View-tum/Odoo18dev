@@ -1,0 +1,12 @@
+<odoo>
+  <menuitem id="menu_delivery_root" name="Delivery"  web_icon="delivery_routes_management,static/description/logo.png" sequence="10"/>
+  <menuitem id="menu_delivery_config" name="Configuration" parent="menu_delivery_root" sequence="20"/>
+  <menuitem id="menu_delivery_ops" name="Operations" parent="menu_delivery_root" sequence="1"/>
+
+  <menuitem id="menu_sales_region" name="Sales Regions" parent="sale.menu_sale_config" action="delivery_routes_management.action_sales_region" sequence="22"/>
+  <menuitem id="menu_delivery_route" name="Delivery Routes" parent="menu_delivery_config" action="delivery_routes_management.action_delivery_route"/>
+  <menuitem id="menu_sub_region" name="Subregions" parent="menu_delivery_config" action="delivery_routes_management.action_sub_region"/>
+
+  <!-- Open default Contacts (res.partner) form/list --> 
+  <menuitem id="menu_delivery_customers" name="Customers" parent="menu_delivery_ops" action="contacts.action_contacts"/>
+</odoo>

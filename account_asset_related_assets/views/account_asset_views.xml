@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_asset_related_assets_form" model="ir.ui.view">
+        <field name="name">account.asset.related.assets.form</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='main_page']//group[@name='asset_values']/field[@name='asset_group_id']" position="after">
+                <field
+                    name="related_asset_ids"
+                    widget="many2many_tags"
+                    domain="[('id', '!=', id)]"
+                    options="{'no_create_edit': True}"
+                    context="{'default_company_id': company_id}"
+                    invisible="parent_id"
+                />
+                <field
+                    name="is_parent_asset"
+                    readonly="1"
+                    invisible="not is_parent_asset"
+                />
+                <field
+                    name="is_child_asset"
+                    readonly="1"
+                    invisible="not is_child_asset"
+                />
+                <field
+                    name="child_count"
+                    readonly="1"
+                    invisible="not is_parent_asset"
+                />
+                <field
+                    name="parent_id"
+                    domain="[('id', '!=', id)]"
+                    context="{'default_company_id': company_id}"
+                    readonly="is_child_asset"
+                    invisible="not parent_id"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_asset_search_inherit_related_assets" model="ir.ui.view">
+        <field name="name">account.asset.search.inherit.related.assets</field>
+        <field name="model">account.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter string="Has Child Assets" name="has_child_assets" domain="[('related_asset_ids', '!=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Show both parent and child assets in the main Assets action -->
+    <record id="account_asset.action_account_asset_form" model="ir.actions.act_window">
+        <field name="domain">[('state', '!=', 'model')]</field>
+    </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_precision" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.precision</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='general_settings']" position="inside">
+                <block title="Display Precision" name="precision_block">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <setting string="Sales" help="Decimal places for Sale Order fields">
+                                <field name="precision_sale" />
+                            </setting>
+                            <setting string="Purchasing" help="Decimal places for Purchase Order and Request fields">
+                                <field name="precision_purchase" />
+                            </setting>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <setting string="Manufacturing" help="Decimal places for Manufacturing Order fields">
+                                <field name="precision_mrp" />
+                            </setting>
+                            <setting string="Accounting" help="Decimal places for Invoice and Journal Entry fields">
+                                <field name="precision_account" />
+                            </setting>
+                            <setting string="Stock Picking" help="Decimal places for Stock Picking and Move fields">
+                                <field name="precision_stock" />
+                            </setting>
+                            <setting string="Product" help="Decimal places for Product form fields">
+                                <field name="precision_product" />
+                            </setting>
+                        </div>
+                    </div>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

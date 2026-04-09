@@ -1,0 +1,461 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_all_in_one_cancel_adv
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-15 10:53+0000\n"
+"PO-Revision-Date: 2021-02-15 10:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_account_cancel_adv
+msgid "Account Cancel Feature"
+msgstr "Kontoabruf-Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_all_in_one_cancel_adv_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_journal_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_move_cancel_multi_action
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__expense_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__landed_cost_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__mrp_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__stock_scrap__state__cancel
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.purchase_order_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sale_order_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_account_move_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_account_payment_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_hr_expense_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_hr_expense_sheet_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_landed_cost_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_mrp_production_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_pos_order_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_stock_inv_adjust_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_stock_inv_scrap_inherit_form_view
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_stock_picking_inherit_form_view
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_all_in_one_cancel_adv_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_payment_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_purchase_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_inventory_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_move_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_picking_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_scrap_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_cancel_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_sheet_cancel_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_mrp_cancel_delete_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_pos_cancel_delete_multi_action
+msgid "Cancel & Delete"
+msgstr "Abbrechen & Delete."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_journal_delete_multi_action
+msgid "Cancel & Reset Delete"
+msgstr "Löschen abbrechen und zurücksetzen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_all_in_one_cancel_adv_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_journal_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_payment_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_purchase_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_inventory_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_move_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_picking_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_scrap_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_cancel_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_sheet_cancel_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_mrp_cancel_draft_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_pos_cancel_draft_multi_action
+msgid "Cancel & Reset Draft"
+msgstr "Abbrechen und Rücksetzen von Entwurf"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__cancel_bill
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__cancel_bill
+msgid "Cancel Bill and Payment"
+msgstr "Bill und Zahlung stornieren"
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_cancel_invoice_config_settings
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_cancel_stock_config_settings
+msgid "Cancel Configuration"
+msgstr "Konfiguration abbrechen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__cancel_delivery
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__pos_cancel_delivery
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__cancel_delivery
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__pos_cancel_delivery
+msgid "Cancel Delivery Order"
+msgstr "Lieferanweisung abbrechen."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_cancel_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_expense_sheet_cancel_multi_action
+msgid "Cancel Expense"
+msgstr "Aufwand stornieren"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_inventory_multi_action
+msgid "Cancel Inventory"
+msgstr "Lagerbestand stornieren."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__pos_cancel_invoice
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__pos_cancel_invoice
+msgid "Cancel Invoice"
+msgstr "Rechnungsabwehr aufheben."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__cancel_invoice
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__cancel_invoice
+msgid "Cancel Invoice and Payment"
+msgstr "Rechnungswesen und Zahlung stornieren"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_mrp_cancel_multi_action
+msgid "Cancel Manufacturing"
+msgstr "Fertigung abbrechen."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__adj_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__invoice_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__payment_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__picking_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__po_operation_type__cancel
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__scrap_operation_type__cancel
+msgid "Cancel Only"
+msgstr "Nur abbrechen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_order_multi_action
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_purchase_order_multi_action
+msgid "Cancel Order"
+msgstr "Bestellung stornieren"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_account_payment_multi_action
+msgid "Cancel Payment"
+msgstr "Zahlung abbrechen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_picking_multi_action
+msgid "Cancel Picking"
+msgstr "Kommissionierung abbrechen."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__cancel_receipt
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__cancel_receipt
+msgid "Cancel Receipt"
+msgstr "Empfang stornieren."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.actions.server,name:sh_all_in_one_cancel_adv.sh_cancel_stock_scrap_multi_action
+msgid "Cancel Scrap"
+msgstr "Schrott stornieren"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__adj_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__expense_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__invoice_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__landed_cost_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__mrp_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__payment_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__picking_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__po_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__pos_operation_type__cancel_delete
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__scrap_operation_type__cancel_delete
+msgid "Cancel and Delete"
+msgstr "Stornieren und löschen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__adj_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__expense_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__invoice_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__landed_cost_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__mrp_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__payment_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__picking_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__po_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__pos_operation_type__cancel_draft
+#: model:ir.model.fields.selection,name:sh_all_in_one_cancel_adv.selection__res_company__scrap_operation_type__cancel_draft
+msgid "Cancel and Reset to Draft"
+msgstr "Stornieren und zurücksetzen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurationseinstellungen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_move__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_payment__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense_sheet__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_pos_order__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_inventory__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_landed_cost__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_move__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_scrap__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_hr_expense
+msgid "Expense"
+msgstr "Aufwand"
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_expense_config_cancel_form_inherit
+msgid "Expense Cancel Configuration"
+msgstr "Kosten abbrechen Konfiguration."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_expense_cancel
+msgid "Expense Cancel Feature"
+msgstr "Kostenabbrechen-Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr "Spesenabrechnung"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_move__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_payment__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense_sheet__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_mrp_production__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_pos_order__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_purchase_order__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_sale_order__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_inventory__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_landed_cost__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_move__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_picking__id
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_scrap__id
+msgid "ID"
+msgstr "ICH WÜRDE"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_stock_inventory
+msgid "Inventory"
+msgstr "Inventar"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__invoice_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__invoice_operation_type
+msgid "Invoice Operation Type"
+msgstr "Rechnungs-Oprision-Typ."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_account_move
+msgid "Journal Entry"
+msgstr "Tagebucheintrag"
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_stock_landed_cost_config_cancel_form_inherit
+msgid "Landed Cost Cancel Configuration"
+msgstr "Gelandete Kosten stornieren Konfiguration"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_stock_landed_cost_cancel
+msgid "Landed Cost Cancel Feature"
+msgstr "Landed Cost Cancel Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_move____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_account_payment____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_hr_expense_sheet____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_mrp_production____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_pos_order____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_inventory____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_landed_cost____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_move____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_picking____last_update
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_scrap____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_mrp_cancel
+msgid "MRP Cancel Feature"
+msgstr "MRP Cancel Feature."
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_mrp_config_cancel_form_inherit
+msgid "Manufacturing Cancel Configuration"
+msgstr "Fertigung abbrechen Konfiguration."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__expense_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__landed_cost_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__mrp_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__po_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__pos_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__expense_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__landed_cost_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__mrp_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__po_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__pos_operation_type
+msgid "Operation Type"
+msgstr "Operationsart"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_pos_cancel
+msgid "POS Cancel Feature"
+msgstr "POS-Abbrechen-Funktion."
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_pos_config_cancel_form_inherit
+msgid "POS Order Cancel Configuration"
+msgstr "POS bestellen Cancel-Konfiguration"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__payment_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__payment_operation_type
+msgid "Payment Operation Type"
+msgstr "Zahlungs-Operationstyp."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_account_payment
+msgid "Payments"
+msgstr "Zahlungen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Verkaufsstelle Bestellungen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_mrp_production
+msgid "Production Order"
+msgstr "Produktionsauftrag"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_purchase_cancel
+msgid "Purchase Cancel Feature"
+msgstr "Kaufen Sie CANCE-FEATUR."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_purchase_order
+msgid "Purchase Order"
+msgstr "Auftragsbestätigung"
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_purchase_config_cancel_form_inherit
+msgid "Purchase Order Cancel Configuration"
+msgstr "Bestellbestellung Cancel Configuration"
+
+#. module: sh_all_in_one_cancel_adv
+#: model_terms:ir.ui.view,arch_db:sh_all_in_one_cancel_adv.sh_sale_config_cancel_form_inherit
+msgid "Sale Order Cancel Configuration"
+msgstr "Verkauf Bestellung Cancel Configuration"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_sale_cancel
+msgid "Sales Cancel Feature"
+msgstr "Verkäufe Abbrechen"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_sale_order
+msgid "Sales Order"
+msgstr "Kundenauftrag"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_stock_scrap
+msgid "Scrap"
+msgstr "Schrott"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__scrap_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__scrap_operation_type
+msgid "Scrap Operation Type"
+msgstr "Traffor-Operationstyp."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_stock_scrap__state
+msgid "Status"
+msgstr "Status"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__adj_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__adj_operation_type
+msgid "Stock Adjustement Operation Type"
+msgstr "Aktieneinstellungs-Operationstyp"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_stock_adjustment_cancel
+msgid "Stock Adjustment Cancel Feature"
+msgstr "Aktieneinstellung abbrechen Feature"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_stock_landed_cost
+msgid "Stock Landed Cost"
+msgstr "Landete Kosten"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_stock_move
+msgid "Stock Move"
+msgstr "Stock Move."
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_stock_move_cancel
+msgid "Stock Move Cancel Feature"
+msgstr "Vorratsmove Cancel-Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_company__picking_operation_type
+#: model:ir.model.fields,field_description:sh_all_in_one_cancel_adv.field_res_config_settings__picking_operation_type
+msgid "Stock Picking Operation Type"
+msgstr "Lagerungstyp"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_stock_scrap_cancel
+msgid "Stock Scrap Cancel Feature"
+msgstr "Lagerschrott-Abbrechen-Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:res.groups,name:sh_all_in_one_cancel_adv.group_sh_stock_cancel
+msgid "Stock Transfer Cancel Feature"
+msgstr "Lagerübertragung Cancel Funktion"
+
+#. module: sh_all_in_one_cancel_adv
+#: model:ir.model,name:sh_all_in_one_cancel_adv.model_stock_picking
+msgid "Transfer"
+msgstr "Überweisen"

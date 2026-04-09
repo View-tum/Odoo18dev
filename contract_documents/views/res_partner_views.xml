@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_contracts" model="ir.ui.view">
+            <field name="name">res.partner.form.contracts</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook" position="inside">
+                    <page string="Contracts">
+                        <field name="contract_document_ids" mode="list,form"
+                            context="{'default_user_id': uid, 'default_partner_id': id, 'form_view_ref': 'contract_documents.view_contract_document_form'}"
+                            options="{'no_create': False, 'no_create_edit': False}"
+                            create="1" edit="1" delete="1">
+                            <list string="Contracts">
+                                <field name="name" />
+                                <field name="user_id" optional="show" />
+                                <field name="date_start" />
+                                <field name="date_end" />
+                                <field name="state" />
+                                <button name="action_preview_attachment" type="object"
+                                    string="Preview" class="btn-sm oe_highlight" />
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_trip_closing">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="docs and docs[0] or False"/>
+
+            <!-- Header/Footer สำหรับทุกหน้า -->
+            <div class="header">
+                <!-- ถ้ายังไม่อยากใส่อะไร ปล่อยว่างได้ -->
+            </div>
+
+            <div class="footer">
+                <div class="text-right page-number">
+                    หน้า <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+
+            <!-- =========================================================
+                 PAGE 1 - รายการสินค้า (Landscape)
+                 ========================================================= -->
+            <t t-foreach="vehicles_data" t-as="v">
+            <t t-set="trip_nos" t-value="v.get('trip_numbers') or v.get('trip_nos') or []"/>
+                <div class="page">
+                    <div class="page page-landscape">
+                        <div class="outer-box">
+                            <h3>สรุปปิดการปฏิบัติงานหน่วยรถขายนอก</h3>
+                            <h4 t-esc="period_label"/>
+
+                            <!-- header top -->
+                            <div class="header-section">
+                                <table class="no-border">
+                                    <tr>
+                                        <td style="width: 50%;">
+                                            <div>
+                                                <span class="header-label">หน่วยรถขาย:</span>
+                                                <t t-esc="v.get('carsale_location_name') or ''"/>
+                                            </div>
+                                            <div>
+                                                <span class="header-label">พนักงานขาย/คนขับ:</span>
+                                                <span t-esc="doc and doc.driver_id.name or ''"/>
+                                            </div>
+                                        </td>
+                                        <td style="width: 50%;">
+                                            <div>
+                                                <span class="header-label">ช่วงวันที่:</span>
+                                                <span t-esc="format_th_date(doc.date_start)"/> - <span t-esc="format_th_date(doc.date_end)"/>
+                                            </div>
+                                            <div>
+                                                <span class="header-label">วันที่พิมพ์รายงาน:</span>
+                                                <span t-esc="report_date"/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- product table -->
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="col-date" rowspan="2">ว.ด.ป.</th>
+                                        <th class="col-product" rowspan="2">รายการ</th>
+                                        <th t-att-colspan="len(trip_nos) or 1">ครั้งที่</th>
+                                        <th class="col-total"  rowspan="2">รวม</th>
+                                        <th class="col-remain" rowspan="2">เหลือ</th>
+                                        <th class="col-cash"   rowspan="2">ชดเชย</th>
+                                        <th class="col-credit" rowspan="2">ชดเชยพิเศษ</th>
+                                        <th class="col-sample" rowspan="2">ตัวอย่าง</th>
+                                        <th class="col-conv"   rowspan="2">แปลงสินค้าออก</th>
+                                        <th class="col-conv"   rowspan="2">รับสินค้าเข้า<br/>จากการแปลง</th>
+                                        <th class="col-sold"   rowspan="2">ขาย</th>
+                                        <th class="col-price"  rowspan="2">ราคา</th>
+                                        <th class="col-amount" rowspan="2">จำนวนเงิน</th>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="trip_nos">
+                                            <t t-foreach="trip_nos" t-as="tn">
+                                                <th class="col-trip"><t t-esc="tn"/></th>
+                                            </t>
+                                        </t>
+                                        <t t-else="">
+                                            <th class="col-trip">-</th>
+                                        </t>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="v.get('lines', [])" t-as="line">
+                                        <tr>
+                                        <td class="text-center">
+                                            <t t-esc="format_th_date(line.get('latest_transfer_date'))"/>
+                                        </td>
+                                        <td class="text-left"><t t-esc="line.get('product_name')"/></td>
+
+                                        <t t-set="trip_qty_list" t-value="line.get('trip_qty') or line.get('trip_qtys') or []"/>
+                                        <t t-if="trip_nos">
+                                            <t t-foreach="trip_qty_list" t-as="q">
+                                                <td class="text-center"><t t-esc="q if q else ''"/></td>
+                                            </t>
+                                        </t>
+                                        <t t-else="">
+                                            <td class="text-center"></td>
+                                        </t>
+
+                                        <td class="text-center">
+                                            <t t-esc="line.get('transfer_total') or line.get('trip_total') or 0.0"/>
+                                        </td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+
+                                        <td class="text-right"><t t-esc="line.get('sold_qty', 0.0)"/></td>
+                                        <td class="text-right"><t t-esc="line.get('price', 0.0)"/></td>
+                                        <td class="text-right"><t t-esc="line.get('amount_money', 0.0)"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <!-- bottom summary -->
+                            <table class="no-border" style="margin-top: 10px;">
+                                <tr>
+                                    <!-- ไมล์ / น้ำมัน -->
+                                    <td style="width: 55%; vertical-align: top;">
+                                        <table style="width: 100%; border-collapse: collapse;" class="no-border">
+                                            <tr>
+                                                <td style="width: 60%; vertical-align: top; padding-right: 5px;">
+                                                    <!-- ส่วนซ้าย -->
+                                                    <div style="border:1px solid #000; padding:6px;">
+                                                        <table class="no-border" style="width: 100%;">
+                                                            <tr>
+                                                                <td style="width:60%;">เลขไมล์ไป</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>เลขไมล์กลับ</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>(ส่วนต่าง)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>ค่าน้ำมันรถ</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2" style="padding-top:8px;">
+                                                                    ผู้แทนเข้าบริหารวันที่
+                                                                    <br/>
+                                                                    มอบบัญชีวันที่
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                                
+                                                <td style="width: 40%; vertical-align: top; padding-left: 5px;">
+                                                    <!-- ส่วนขวา -->
+                                                    <div style="border:1px solid #000; padding:6px;">
+                                                        <table class="no-border" style="width: 100%;">
+                                                            <tr>
+                                                                <td>วันที่เดินทาง</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>วันที่กลับ</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <t t-set="sum1" t-value="v.get('totals') or {}"/>
+                                    <t t-set="currency" t-value="env.company.currency_id"/>
+
+                                    <!-- รวมยอดขาย / ส่วนลด / คืนของ / สุทธิ -->
+                                    <td style="width: 45%; vertical-align: top;">
+                                        <table class="summary-table">
+                                            <tr>
+                                                <td class="summary-label">ยอดขายก่อนส่วนลด</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('gross_sales', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="summary-label">หัก ส่วนลด</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('discount_amount', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="summary-label">ยอดขายหลังส่วนลด (ไม่รวม VAT)</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('untaxed_amount', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="summary-label">VAT</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('vat_amount', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="summary-label">ยอดขายรวมภาษี</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('total_amount', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="summary-label">หัก คืนของ/ลดหนี้</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('return_amount', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="summary-total">
+                                                <td class="summary-label">ยอดขายสุทธิ</td>
+                                                <td class="summary-value text-right">
+                                                    <span t-esc="sum1.get('net_sales', 0.0)"
+                                                        t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+            <t t-set="all_bank_transfers" t-value="[]"/>
+            <t t-foreach="vehicles_data or []" t-as="x">
+                <t t-set="all_bank_transfers" t-value="all_bank_transfers + (x.get('bank_transfers') or [])"/>
+            </t>
+
+            <t t-set="all_cheques" t-value="[]"/>
+            <t t-foreach="vehicles_data or []" t-as="x">
+                <t t-set="all_cheques" t-value="all_cheques + (x.get('cheques') or [])"/>
+            </t>
+
+            <t t-set="cash_summary" t-value="(vehicles_data and vehicles_data[0].get('totals')) or {}"/>
+            <t t-set="final_summary" t-value="(vehicles_data and vehicles_data[0].get('final_summary')) or {}"/>
+            <t t-set="cheque_total" t-value="sum([(x.get('amount') or 0.0) for x in (all_cheques or [])])"/>
+            <t t-set="cheque_summary" t-value="{'total_amount': cheque_total, 'on_hand_amount': cheque_total}"/>
+
+            <t t-if="False">
+
+                <!-- =========================================================
+                    PAGE 2 - สรุปเงินสด / ฝากธนาคาร (Portrait)
+                    ========================================================= -->
+                <div class="page-break"/>
+                <div class="page page-portrait">
+                    <h3>สรุปปิดการปฏิบัติงานหน่วยรถขายนอก</h3>
+                    <h4>สรุปยอดเงินและฝากเข้าบัญชี</h4>
+
+                    <div class="header-section">
+                        <table class="no-border">
+                            <tr>
+                                <td style="width: 60%;">
+                                    <span class="header-label">หน่วยรถขาย:</span>
+                                    <span t-esc="', '.join([(x.get('vehicle_name') or x.get('carsale_location_name') or '') for x in (vehicles_data or [])])"/>
+                                </td>
+                                <td style="width: 40%;">
+                                    <span class="header-label">ช่วงวันที่:</span>
+                                    <span t-esc="format_th_date(doc.date_start)"/> - <span t-esc="format_th_date(doc.date_end)"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <table class="no-border">
+                        <tr>
+                            <!-- ฝั่งซ้าย: cash_summary เน้น flow เงินสด -->
+                            <td style="width: 50%; vertical-align: top; padding-right:4px;">
+                                <table class="summary-table">
+                                    <tr>
+                                        <td class="summary-label">ยอดขายรวม</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('total_sale')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">หักส่วนลด</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('discount')"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="summary-total">
+                                        <td class="summary-label">ยอดขายสุทธิ</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('net_sale')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รับเป็นเงินสด</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('cash_received')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รับเป็นโอนเข้าบัญชี</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('transfer_received')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รับเป็นเช็ค</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('cheque_received')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ขายเชื่อ</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('credit_sale')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ค่าใช้จ่ายทริป</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('expenses')"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="summary-total">
+                                        <td class="summary-label">ยอดเงินสดต้องส่ง</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cash_summary.get('final_cash_to_submit')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <!-- ฝั่งขวา: final_summary มองภาพรวมรวมเงินสด+โอน+ลูกหนี้ -->
+                            <td style="width: 50%; vertical-align: top; padding-left:4px;">
+                                <table class="summary-table">
+                                    <tr>
+                                        <td class="summary-label">ยอดขายรวม (ตามสรุปทริป)</td>
+                                        <!-- <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_sale')"/>
+                                        </td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ส่วนลดรวม</td>
+                                        <!-- <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_discount')"/>
+                                        </td> -->
+                                    </tr>
+                                    <tr class="summary-total">
+                                        <td class="summary-label">ยอดขายสุทธิ</td>
+                                        <!-- <td class="summary-value">
+                                            <span t-esc="final_summary.get('net_sale')"/>
+                                        </td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รวมเงินสดรับ</td>
+                                        <!-- <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_cash_received')"/>
+                                        </td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รวมยอดโอนเข้าบัญชี</td>
+                                        <!-- <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_transfer_received')"/>
+                                        </td> -->
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">รวมเช็คที่ได้รับ</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cheque_summary.get('total_amount')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">เช็คคงเหลือยังไม่ฝาก</td>
+                                        <td class="summary-value">
+                                            <span t-esc="cheque_summary.get('on_hand_amount')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ยอดขายเชื่อ (ลูกหนี้)</td>
+                                        <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_credit_sale')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ค่าใช้จ่ายรวม</td>
+                                        <td class="summary-value">
+                                            <span t-esc="final_summary.get('total_expenses')"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="summary-label">ยอดที่ไม่คิดค่าคอมมิชชั่น</td>
+                                        <td class="summary-value">
+                                            <span t-esc="final_summary.get('amount_not_commissioned')"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="summary-total">
+                                        <td class="summary-label">ยอดรวมสุทธิ</td>
+                                        <td class="summary-value">
+                                            <span t-esc="final_summary.get('grand_total')"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+
+                <t t-set="currency" t-value="env.company.currency_id"/>
+
+                <!-- =========================================================
+                    PAGE 3 - รายการลูกค้าโอนเงิน (Portrait)
+                    ========================================================= -->
+                <div class="page-break"/>
+                <div class="page page-portrait page-with-footer">
+                    <div class="page-body">
+                        <h3>สรุปปิดการปฏิบัติงานหน่วยรถขายนอก</h3>
+                        <h4>รายการโอนเงินเข้าบัญชีและเช็คที่ได้รับ</h4>
+
+                        <div class="header-section">
+                            <table class="no-border">
+                                <tr>
+                                    <td style="width: 60%;">
+                                        <span class="header-label">หน่วยรถขาย:</span>
+                                        <span t-esc="', '.join([(x.get('vehicle_name') or x.get('carsale_location_name') or '') for x in (vehicles_data or [])])"/>
+                                    </td>
+                                    <td style="width: 40%;">
+                                        <span class="header-label">ช่วงวันที่:</span>
+                                        <span t-esc="format_th_date(doc.date_start)"/> - <span t-esc="format_th_date(doc.date_end)"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- 3.1 รายการลูกค้าโอนเงินเข้าบัญชี -->
+                        <h4 style="text-align:left; font-size:13px; margin-top:5px;">
+                            1) รายการลูกค้าโอนเงินเข้าบัญชี
+                        </h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 26%;">ชื่อลูกค้า</th>
+                                    <th style="width: 14%;">เลขที่อ้างอิง / ใบแจ้งหนี้</th>
+                                    <th style="width: 14%;">วันที่โอน</th>
+                                    <th style="width: 16%;">ธนาคาร</th>
+                                    <th style="width: 16%;">เลขที่บัญชี</th>
+                                    <th style="width: 14%;">จำนวนเงิน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="all_bank_transfers" t-as="bt">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-esc="bt.get('partner_name')"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="bt.get('ref') or bt.get('communication')"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="format_th_date(bt.get('payment_date'))"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="bt.get('bank_name') or bt.get('journal_name')"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="bt.get('bank_acc_number')"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="bt.get('amount')"
+                                                t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <!-- บรรทัดผลรวมยอดโอนเข้าบัญชี -->
+                                <tr class="summary-total">
+                                    <td colspan="5" class="text-right">รวมยอดโอนทั้งหมด</td>
+                                    <td class="text-right">
+                                        <t t-set="bank_total"
+                                            t-value="sum([(x.get('amount') or 0.0) for x in (all_bank_transfers or [])])"/>
+                                        <span t-esc="bank_total"
+                                            t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 3.2 รายการเช็คที่ได้รับจากลูกค้า -->
+                        <h4 style="text-align:left; font-size:13px; margin-top:12px;">
+                            2) รายการเช็คที่ได้รับจากลูกค้า
+                        </h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 14%;">เลขที่เช็ค</th>
+                                    <th style="width: 14%;">วันที่เช็ค</th>
+                                    <th style="width: 28%;">ชื่อลูกค้า</th>
+                                    <th style="width: 16%;">ธนาคาร</th>
+                                    <th style="width: 14%;">เลขที่บัญชี</th>
+                                    <th style="width: 14%;">จำนวนเงิน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="all_cheques" t-as="cq">
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="cq.get('cheque_number')"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="format_th_date(cq.get('cheque_date'))"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="cq.get('partner_name')"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="cq.get('bank_name') or cq.get('journal_name')"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="cq.get('bank_acc_number')"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="cq.get('amount')"
+                                                t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="summary-total">
+                                    <td colspan="5" class="text-right">รวมเช็คทั้งหมด</td>
+                                    <td class="text-right">
+                                        <span t-esc="cheque_summary.get('total_amount')"
+                                            t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- กล่องกระทบยอด + ลายเซ็น ให้ทำตัวเหมือน footer ของหน้า 3 -->
+                    <div class="recon-signature-wrapper">
+
+                        <!-- กล่องกระทบยอด 3 ช่อง -->
+                        <table class="no-border" style="margin-top:25px;">
+                            <tr>
+                                <td style="width:33%; padding:0 4px;">
+                                    <div class="recon-box">
+                                        <div class="text-bold">
+                                            จ่ายเงินสดให้บริษัท (รอบถัดไป)
+                                        </div>
+                                        <div class="text-right" style="margin-top:8px;">
+                                            <span t-esc="cash_summary.get('final_cash_to_submit')"/>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:33%; padding:0 4px;">
+                                    <div class="recon-box">
+                                        <div class="text-bold">
+                                            ลูกหนี้ที่มีเงื่อนไขซึ่งไม่คิด %<br/>
+                                            ผู้แทนต้องนำส่งเงินสด (รอบถัดไป)
+                                        </div>
+                                        <div class="text-right" style="margin-top:8px;">
+                                            <span t-esc="final_summary.get('amount_not_commissioned')"/>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:33%; padding:0 4px;">
+                                    <div class="recon-box">
+                                        <div class="text-bold">ยอดรวมทั้งหมด</div>
+                                        <div class="text-right" style="margin-top:8px;">
+                                            <span t-esc="final_summary.get('grand_total')"
+                                                t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- ลายเซ็น 3 ช่อง -->
+                        <table class="no-border" style="margin-top:35px;">
+                            <tr>
+                                <td style="width:33%; padding:0 5px;">
+                                    <div class="signature-box">
+                                        <div class="signature-title">ผู้ขับรถ / พนักงานขาย</div>
+                                        <div class="signature-line">
+                                            (................................................)
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:33%; padding:0 5px;">
+                                    <div class="signature-box">
+                                        <div class="signature-title">ผู้ตรวจนับสินค้า</div>
+                                        <div class="signature-line">
+                                            (................................................)
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:33%; padding:0 5px;">
+                                    <div class="signature-box">
+                                        <div class="signature-title">บัญชี / การเงิน</div>
+                                        <div class="signature-line">
+                                            (................................................)
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+            <!-- =========================================================
+                 PAGE 4 - กระทบยอดสุดท้าย + ลายเซ็น (Portrait)
+                 =========================================================
+            <div class="page-break"/>
+            <div class="page page-portrait">
+                <h3>สรุปปิดการปฏิบัติงานหน่วยรถขายนอก</h3>
+                <h4>กระทบยอดและลายเซ็น</h4>
+
+                <div class="header-section">
+                    <table class="no-border">
+                        <tr>
+                            <td style="width: 60%;">
+                                <span class="header-label">หน่วยรถขาย:</span>
+                                <span t-esc="doc.vehicle_id.display_name or ''"/>
+                            </td>
+                            <td style="width: 40%;">
+                                <span class="header-label">ช่วงวันที่:</span>
+                                <span t-esc="doc.date_start"/> - <span t-esc="doc.date_end"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="no-border" style="margin-top:10px;">
+                    <tr>
+                        <td style="width:33%; padding:0 4px;">
+                            <div class="recon-box">
+                                <div class="text-bold">จ่ายเงินสดให้บริษัท (รอบถัดไป)</div>
+                                <div class="text-right" style="margin-top:8px;">
+                                    <span t-esc="cash_summary.get('final_cash_to_submit')"/>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:33%; padding:0 4px;">
+                            <div class="recon-box">
+                                <div class="text-bold">
+                                    ลูกหนี้ที่มีเงื่อนไขซึ่งไม่คิด %<br/>
+                                    ผู้แทนต้องนำส่งเงินสด (รอบถัดไป)
+                                </div>
+                                <div class="text-right" style="margin-top:8px;">
+                                    <span t-esc="final_summary.get('amount_not_commissioned')"/>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:33%; padding:0 4px;">
+                            <div class="recon-box">
+                                <div class="text-bold">ยอดรวมทั้งหมด</div>
+                                <div class="text-right" style="margin-top:8px;">
+                                    <span t-esc="final_summary.get('grand_total')"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="no-border" style="margin-top:35px;">
+                    <tr>
+                        <td style="width:33%; padding:0 5px;">
+                            <div class="signature-box">
+                                <div class="signature-title">ผู้ขับรถ / พนักงานขาย</div>
+                                <div class="signature-line">
+                                    (................................................)
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:33%; padding:0 5px;">
+                            <div class="signature-box">
+                                <div class="signature-title">ผู้ตรวจนับสินค้า</div>
+                                <div class="signature-line">
+                                    (................................................)
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:33%; padding:0 5px;">
+                            <div class="signature-box">
+                                <div class="signature-title">บัญชี / การเงิน</div>
+                                <div class="signature-line">
+                                    (................................................)
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div> -->
+
+        </t>
+    </template>
+</odoo>

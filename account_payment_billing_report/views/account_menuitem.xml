@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_account_payment_billing_report" model="ir.actions.act_window">
+        <field name="name">Payment Billings Summary Report</field>
+        <field name="res_model">account.payment.billing.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_accounting_reports_account_payment_billing_report" name="ใบสรุปเก็บเงิน" parent="account_payment_collection_report.account_reports_accounting_reports_menu" sequence="30" action="action_account_payment_billing_report"/>
+</odoo>

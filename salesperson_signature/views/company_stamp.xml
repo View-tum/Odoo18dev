@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_company_stamp_view">
+            <field name="name">res.company.custom.stamp</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Stamp" name="company_stamp">
+                        <group string="Stamp">
+                            <field name="company_stamp"
+                                   class="oe_avatar"
+                                   style="float:left"
+                                   widget="image"
+                            />
+                              <field name="stamp_position"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

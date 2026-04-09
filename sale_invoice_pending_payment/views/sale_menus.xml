@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_sale_invoice_pending_payment" model="ir.actions.act_window">
+        <field name="name">Cheque Pending Payment</field>
+        <field name="res_model">sale.invoice.pending.payment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_sale_invoice_pending_payment" name="เช็ครอตัดจ่าย" parent="sale.sale_order_menu" action="action_sale_invoice_pending_payment" sequence="50" groups="sales_team.group_sale_manager,account.group_account_user"/>
+</odoo>

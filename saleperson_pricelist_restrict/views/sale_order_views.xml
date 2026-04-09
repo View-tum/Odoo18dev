@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_order_form_pricelist_readonly_non_admin" model="ir.ui.view">
+        <field name="name">sale.order.form.pricelist.readonly.nonadmin</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+        		<xpath expr="//field[@name='pricelist_id']" position="before">
+			        <field name="is_sale_admin" invisible='1'/>
+			   </xpath>
+        	
+            <!-- Make Pricelist read-only if the current user is NOT a sale admin -->
+              <xpath expr="//field[@name='pricelist_id']" position="attributes">
+		        <attribute name="readonly">not is_sale_admin</attribute>
+		      </xpath>
+		      
+		      <xpath expr="//field[@name='payment_term_id']" position="attributes">
+		        <attribute name="readonly">not is_sale_admin</attribute>
+		      </xpath>
+		      
+        </field>
+    </record>
+</odoo>

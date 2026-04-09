@@ -1,0 +1,508 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_parallel_console
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-01 00:00+0000\n"
+"PO-Revision-Date: 2025-12-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: th\n"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.client,name:mrp_parallel_console.mrp_parallel_console_action_root
+msgid "GMP Shop Floor"
+msgstr "หน้าจอควบคุมการผลิต (GMP)"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.client,name:mrp_parallel_console.mrp_parallel_console_action_workorder_console
+msgid "Workorder Parallel Console"
+msgstr "หน้าจอสั่งงานเครื่องจักรแบบขนาน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.mrp_parallel_console_routing_wc_tree_dialog
+msgid "Operation"
+msgstr "ขั้นตอนการผลิต"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.mrp_parallel_console_routing_wc_tree_dialog
+msgid "Bill of Material"
+msgstr "สูตรการผลิต (BoM)"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.mrp_parallel_console_routing_wc_tree_dialog
+msgid "Work Center"
+msgstr "เครื่องจักร / จุดปฏิบัติงาน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.mrp_parallel_console_routing_wc_tree_dialog
+msgid "Duration Computation"
+msgstr "วิธีคำนวณเวลาผลิต"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.mrp_parallel_console_routing_wc_tree_dialog
+msgid "Duration (min)"
+msgstr "เวลาที่ใช้ (นาที)"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_mrp_mps_select_machines_wizard
+msgid "Select Machines"
+msgstr "เลือกเครื่องจักรที่จะผลิต"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_mrp_mps_select_machines_wizard
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_mrp_mps_select_machines_wizard
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Refresh"
+msgstr "โหลดข้อมูลใหม่"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Loading Manufacturing Orders..."
+msgstr "กำลังโหลดข้อมูลใบสั่งผลิต..."
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "No Manufacturing Orders to process."
+msgstr "ไม่มีใบสั่งผลิตที่ต้องดำเนินการในขณะนี้"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Create a new MO to get started"
+msgstr "สร้างใบสั่งผลิตใหม่เพื่อเริ่มงาน"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Quantity"
+msgstr "จำนวนผลิต"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Workorders"
+msgstr "รายการงานย่อย"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Ready"
+msgstr "พร้อมผลิต"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "In Progress"
+msgstr "กำลังผลิต"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Done"
+msgstr "เสร็จสิ้น"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Details"
+msgstr "ดูรายละเอียด"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Scrap"
+msgstr "แจ้งของเสีย"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "QC"
+msgstr "ตรวจสอบคุณภาพ (QC)"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Start"
+msgstr "เริ่มงาน"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Stop"
+msgstr "หยุดงาน"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Workorder"
+msgstr "งานย่อย"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Product"
+msgstr "สินค้าที่ผลิต"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Production"
+msgstr "ใบสั่งผลิต"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Scheduled Date"
+msgstr "วันที่กำหนดส่ง"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Components"
+msgstr "วัตถุดิบ/ส่วนประกอบ"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Lot/Serial Number"
+msgstr "เลขล็อต/ซีเรียล"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "To Consume"
+msgstr "จำนวนที่ต้องใช้"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Reserved"
+msgstr "จองของแล้ว"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Consumed"
+msgstr "ใช้ไปจริง"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Register Production"
+msgstr "บันทึกยอดผลิตเสร็จ"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Validate"
+msgstr "ยืนยันความถูกต้อง"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Close"
+msgstr "ปิดหน้าต่าง"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Print"
+msgstr "พิมพ์เอกสาร"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Save"
+msgstr "บันทึก"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Discard"
+msgstr "ยกเลิกการแก้ไข"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Add a line"
+msgstr "เพิ่มรายการใหม่"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Delete"
+msgstr "ลบรายการ"
+
+#. module: mrp_parallel_console
+#. odoo-javascript
+#: code:addons/mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml:0
+msgid "Edit"
+msgstr "แก้ไข"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_employee_wizard_form
+msgid "Assign Employees"
+msgstr "ระบุพนักงานเข้าทำงาน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_employee_wizard_form
+msgid "Employees"
+msgstr "รายชื่อพนักงาน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_employee_wizard_form
+msgid "Apply"
+msgstr "บันทึกและนำไปใช้"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_create_lot_wizard_form
+msgid "Set Production Quantity & LOT"
+msgstr "ระบุยอดผลิตและกำหนดเลขล็อต"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_create_lot_wizard_form
+msgid "+ Create LOT"
+msgstr "+ สร้างเลขล็อตใหม่"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_qty_wizard_form
+msgid "Planned Qty"
+msgstr "ยอดตามแผน"
+
+#. module: mrp_parallel_console
+#: model_terms:ir.ui.view,arch_db:mrp_parallel_console.view_parallel_console_qty_wizard_form
+msgid "Console"
+msgstr "หน้าจอสั่งงาน"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_production__mpc_allowed_wc_ids
+msgid "Allowed Parallel Workcenters"
+msgstr "เครื่องจักรที่อนุญาตให้ผลิตพร้อมกันได้"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_production__mpc_lock_parallel_wc
+msgid "Lock Parallel Workcenters"
+msgstr "ล็อคเครื่องจักร (ห้ามเพิ่มอัตโนมัติ)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_routing_workcenter__parallel_mode
+msgid "Parallel Mode"
+msgstr "โหมดการทำงานขนาน"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields.selection,name:mrp_parallel_console.selection__mrp_routing_workcenter__parallel_mode__single
+msgid "Single Workcenter"
+msgstr "เครื่องจักรเดียว (ปกติ)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields.selection,name:mrp_parallel_console.selection__mrp_routing_workcenter__parallel_mode__parallel
+msgid "Parallel Workcenters"
+msgstr "หลายเครื่องจักรพร้อมกัน (Parallel)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_workorder__planned_qty
+msgid "Planned Quantity (Parallel)"
+msgstr "ยอดที่วางแผน (สำหรับเครื่องนี้)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_workorder__console_qty
+msgid "Console Quantity"
+msgstr "ยอดที่ทำจริง (Console)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_workorder__console_start_date
+msgid "Console Start Time"
+msgstr "เวลาเริ่มงานจริง"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_workorder__console_end_date
+msgid "Console End Time"
+msgstr "เวลาจบงานจริง"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_workorder__console_employee_ids
+msgid "Console Employees"
+msgstr "พนักงานที่ปฏิบัติงาน"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.act_window,name:mrp_parallel_console.action_mrp_mps_select_machines_wizard
+msgid "Select Parallel Machines for MPS Line"
+msgstr "เลือกเครื่องจักรสำหรับแผนการผลิตนี้"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_mps_select_machines_wizard__mps_production_schedule_id
+msgid "MPS Line"
+msgstr "รายการแผนการผลิตหลัก (MPS)"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_mps_select_machines_wizard__machine_ids
+msgid "Parallel Machines"
+msgstr "เครื่องจักรที่ใช้ผลิต"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,help:mrp_parallel_console.field_mrp_mps_select_machines_wizard__machine_ids
+msgid "Workcenters to use when creating MOs from this MPS line."
+msgstr "เลือกเครื่องจักรที่จะถูกระบุในใบสั่งผลิต (MO) ที่สร้างจากแผนนี้"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_employee_wizard__workorder_ids
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_qty_wizard__workorder_ids
+msgid "Work Orders"
+msgstr "รายการงานย่อย"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,help:mrp_parallel_console.field_mrp_parallel_console_employee_wizard__employee_ids
+msgid "Employees to assign to the selected workorders."
+msgstr "พนักงานที่จะถูกมอบหมายให้ทำงานในรายการที่เลือก"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_qty_wizard__production_id
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_assign_lot_wizard__production_id
+msgid "Manufacturing Order"
+msgstr "ใบสั่งผลิต"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_qty_wizard__line_ids
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_create_lot_wizard__line_ids
+msgid "Workorder Lines"
+msgstr "รายการงานย่อย"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_qty_wizard_line__recorded_qty
+msgid "Quantity"
+msgstr "จำนวน"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_qty_wizard_line__lot_id
+msgid "Finished Lot/Serial"
+msgstr "เลขล็อต/ซีเรียลที่ผลิตเสร็จ"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_console_create_lot_wizard__lot_name
+msgid "Lot Name"
+msgstr "ชื่อล็อต"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.act_window,name:mrp_parallel_console.action_mrp_parallel_assign_lot_wizard
+msgid "Assign LOT to Production"
+msgstr "ระบุเลขล็อตให้กับการผลิต"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_parallel_assign_lot_wizard__lot_id
+msgid "LOT / Serial"
+msgstr "เลขล็อต / ซีเรียล"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.act_window,name:mrp_parallel_console.action_mrp_work_center_delete_wizard
+msgid "Delete Work Center Wizard"
+msgstr "หน้าจอลบเครื่องจักรออกจากงาน"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_work_center_delete_wizard__work_center_line_ids
+msgid "Work Centers"
+msgstr "เครื่องจักร"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.act_window,name:mrp_parallel_console.action_mrp_work_center_add_wizard
+msgid "Add Work Center Wizard"
+msgstr "หน้าจอเพิ่มเครื่องจักรเข้างาน"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_work_center_add_wizard__work_center_line_ids
+msgid "Available Work Centers"
+msgstr "เครื่องจักรที่ว่างอยู่"
+
+#. module: mrp_parallel_console
+#: model:ir.actions.act_window,name:mrp_parallel_console.action_mrp_work_center_adjust_qty_wizard
+msgid "Adjust Planned Qty Wizard"
+msgstr "หน้าจอปรับปรุงยอดแผนการผลิต"
+
+#. module: mrp_parallel_console
+#: model:ir.model.fields,field_description:mrp_parallel_console.field_mrp_work_center_adjust_qty_line__locked
+msgid "Lock"
+msgstr "ล็อคยอด"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "Please select at least one work center to delete."
+msgstr "กรุณาเลือกเครื่องจักรอย่างน้อยหนึ่งเครื่องเพื่อลบ"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "No work orders found for selected lines."
+msgstr "ไม่พบรายการงานย่อยสำหรับรายการที่เลือก"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "You cannot remove this work order because it is in state %s."
+msgstr "คุณไม่สามารถลบงานนี้ได้เนื่องจากสถานะคือ %s"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "You cannot remove this work order because some quantity has already been produced."
+msgstr "คุณไม่สามารถลบงานนี้ได้เนื่องจากมีการผลิตไปแล้วบางส่วน"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "You cannot remove this work order because time tracking entries already exist."
+msgstr "คุณไม่สามารถลบงานนี้ได้เนื่องจากมีการบันทึกเวลาทำงานไปแล้ว"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "You cannot delete all work centers. At least one must remain."
+msgstr "คุณไม่สามารถลบเครื่องจักรออกทั้งหมดได้ ต้องเหลือไว้อย่างน้อยหนึ่งเครื่อง"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "Please select at least one work center to add."
+msgstr "กรุณาเลือกเครื่องจักรอย่างน้อยหนึ่งเครื่องเพื่อเพิ่ม"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "No work orders found for this manufacturing order. Plan the MO before adding more work centers."
+msgstr "ไม่พบรายการงานย่อยสำหรับใบสั่งผลิตนี้ กรุณากด 'วางแผน (Plan)' ก่อนเพิ่มเครื่องจักร"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "No base work order found to copy from."
+msgstr "ไม่พบงานต้นแบบที่จะคัดลอกข้อมูล"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "Not enough available work centers to add."
+msgstr "ไม่มีเครื่องจักรว่างเพียงพอที่จะเพิ่ม"
+
+#. module: mrp_parallel_console
+#. odoo-python
+#: code:addons/mrp_parallel_console/wizard/mrp_work_center_management.py:0
+msgid "Locked quantities exceed the MO quantity."
+msgstr "ยอดที่ล็อคไว้รวมกันเกินกว่ายอดสั่งผลิตรวม (MO)"

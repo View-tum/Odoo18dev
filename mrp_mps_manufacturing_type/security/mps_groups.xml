@@ -1,0 +1,12 @@
+<!-- mrp_mps_manufacturing_type/security/mps_groups.xml -->
+<odoo>
+    <record id="group_mrp_mps_plastic" model="res.groups">
+        <field name="name">MPS Plastic</field>
+        <field name="category_id" ref="base.module_category_manufacturing_manufacturing"/>
+    </record>
+
+    <record id="group_mrp_mps_pharma" model="res.groups">
+        <field name="name">MPS Pharma</field>
+        <field name="category_id" ref="base.module_category_manufacturing_manufacturing"/>
+    </record>
+</odoo>

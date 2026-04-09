@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_order_form_custom_po_edit_lock" model="ir.ui.view">
+            <field name="name">purchase.order.form.custom_po_edit_lock</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <field name="is_po_locked" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="readonly">state in ['done', 'cancel'] or is_po_locked</attribute>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="attributes">
+                    <attribute name="readonly">state in ['done', 'cancel'] or is_po_locked</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="readonly">state in ['done', 'cancel'] or is_po_locked</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="readonly">state in ['done', 'cancel'] or is_po_locked</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

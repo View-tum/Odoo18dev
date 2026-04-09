@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cheque_return_wizard_form_view" model="ir.ui.view">
+            <field name="name">cheque.return.wizard.form</field>
+            <field name="model">cheque.return.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="partner_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="return_account_id" readonly="is_change_account_return == False" force_save="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="is_change_account_return"/>
+                        </group>
+                        <group>
+                            <field name="void_reason"/>
+                        </group>
+                        <group/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="action_confirm_cheque_return" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cheque_return_wiz" model="ir.actions.act_window">
+            <field name="name">Cheque Void</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cheque.return.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="cheque_return_wizard_form_view"/>
+        </record>
+    </data>
+</odoo>

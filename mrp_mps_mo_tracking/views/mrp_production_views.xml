@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Add column is_from_mps + mps_line_id in MO tree view -->
+    <record id="view_mrp_production_tree_from_mps" model="ir.ui.view">
+        <field name="name">mrp.production.tree.from.mps</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="mps_batch_id" string="MPS Group" />
+            </xpath>
+            <xpath expr="//list" position="inside">
+                <field name="is_from_mps" widget="boolean" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mrp_production_search_from_mps" model="ir.ui.view">
+        <field name="name">mrp.production.search.from.mps</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+
+                <separator />
+
+                <filter string="From MPS" name="from_mps"
+                    domain="[('is_from_mps', '=', True)]" />
+
+                <group expand="0" string="Group By">
+                    <filter string="MPS Group" name="group_by_mps_batch"
+                        context="{'group_by': 'mps_batch_id'}" />
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

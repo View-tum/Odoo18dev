@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="purchase_order_form_view_price_guard" model="ir.ui.view">
+    <field name="name">purchase.order.form.inherit.price.guard</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//header" position="before">
+        <div class="o_price_guard_banner alert alert-warning" role="alert"
+          invisible="not has_final_price_violation"> ⚠️ <strong>Price Over Limit:</strong> Some
+          lines exceed the Final Allowed Price. Please review before confirming. </div>
+      </xpath>
+
+      <xpath expr="//field[@name='order_line']/*[name()='tree' or name()='list']"
+        position="attributes">
+        <attribute name="decoration-danger">is_over_final_limit</attribute>
+      </xpath>
+      <xpath expr="//field[@name='order_line']/*[name()='tree' or name()='list']" position="inside">
+        <field name="final_allowed_price" readonly="1" optional="hide" />
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

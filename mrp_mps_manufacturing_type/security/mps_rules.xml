@@ -1,0 +1,18 @@
+<!-- mrp_mps_manufacturing_type/security/mps_rules.xml -->
+<odoo>
+    <!-- Plastic users: only see Plastic manufacturing_type in MPS -->
+    <record id="rule_mrp_mps_plastic_only" model="ir.rule">
+        <field name="name">MPS Plastic Only</field>
+        <field name="model_id" ref="mrp_mps.model_mrp_production_schedule"/>
+        <field name="groups" eval="[(4, ref('mrp_mps_manufacturing_type.group_mrp_mps_plastic'))]"/>
+        <field name="domain_force">[('manufacturing_type', '=', 'plastic')]</field>
+    </record>
+
+    <!-- Pharma users: only see Pharma manufacturing_type in MPS -->
+    <record id="rule_mrp_mps_pharma_only" model="ir.rule">
+        <field name="name">MPS Pharma Only</field>
+        <field name="model_id" ref="mrp_mps.model_mrp_production_schedule"/>
+        <field name="groups" eval="[(4, ref('mrp_mps_manufacturing_type.group_mrp_mps_pharma'))]"/>
+        <field name="domain_force">[('manufacturing_type', '=', 'pharma')]</field>
+    </record>
+</odoo>

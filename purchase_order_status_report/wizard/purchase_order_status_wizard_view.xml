@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_purchase_order_status_report_wizard" model="ir.ui.view">
+        <field name="name">purchase.order.status.report.wizard.form</field>
+        <field name="model">purchase.order.status.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Purchase Order Status Report">
+                <group>
+                    <group>
+                        <!-- เอา company ออกแล้ว เหลือแค่ Vendor / Product -->
+                        <field name="vendor_id"/>
+                        <field name="product_id"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="state"/>
+                        <field name="invoice_status"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_export_html" string="View"
+                            type="object" class="btn-primary"/>
+                    <button name="button_export_pdf" string="Export PDF"
+                            type="object" class="btn-secondary"/>
+                    <button name="button_export_xlsx" string="Export XLSX"
+                            type="object" class="btn-secondary"/>
+                    <button string="Cancel" class="btn-link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_purchase_order_status_report_wizard" model="ir.actions.act_window">
+        <field name="name">Purchase Order Status Report</field>
+        <field name="res_model">purchase.order.status.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_purchase_order_status_report_wizard"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
