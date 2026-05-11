@@ -1,0 +1,30 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "_tmp_cheque_config_nav.png",
+  "target_url": "http://localhost:8811/odoo/action-1362",
+  "actions": [
+    {
+      "type": "click",
+      "selector": "button[data-menu-xmlid='cheque_management.menu_cheque_configuration']",
+      "wait_ms": 1500
+    }
+  ],
+  "highlight_selectors": [
+    {
+      "selector": "button[data-menu-xmlid='cheque_management.menu_cheque_configuration']",
+      "label": "1"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.menu_cheque_management_config']",
+      "label": "2"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.dynamic_cheque_config_menu']",
+      "label": "3"
+    }
+  ]
+}

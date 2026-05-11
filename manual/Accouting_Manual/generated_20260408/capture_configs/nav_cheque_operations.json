@@ -1,0 +1,40 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "nav_cheque_operations_real.png",
+  "target_url": "http://localhost:8811/odoo/action-1362",
+  "actions": [
+    {
+      "type": "click",
+      "selector": "button[data-menu-xmlid='cheque_management.menu_cheque_inbound_outbound']",
+      "wait_ms": 1600
+    }
+  ],
+  "highlight_selectors": [
+    {
+      "selector": "button[data-menu-xmlid='cheque_management.menu_cheque_inbound_outbound']",
+      "label": "1"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.menu_cheque_transactions']",
+      "label": "2"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.menu_cheque_inbound']",
+      "label": "3"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.menu_cheque_outbound']",
+      "label": "4"
+    },
+    {
+      "selector": "a[data-menu-xmlid='cheque_management.menu_cheque_paid']",
+      "label": "5"
+    }
+  ],
+  "post_nav_wait_ms": 3500,
+  "post_click_wait_ms": 1800
+}

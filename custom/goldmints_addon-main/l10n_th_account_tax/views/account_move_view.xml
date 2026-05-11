@@ -109,7 +109,14 @@
                 expr="//field[@name='line_ids']//field[@name='tax_tag_ids']"
                 position="after"
             >
-                <field name="manual_tax_invoice" optional="hide" />
+                <field name="manual_tax_invoice" optional="show" />
+            </xpath>
+            <!-- Add manual tax checkbox to the main invoice lines tab for easier access -->
+            <xpath
+                expr="//page/field[@name='invoice_line_ids']/list/field[@name='tax_ids']"
+                position="after"
+            >
+                <field name="manual_tax_invoice" optional="show" />
             </xpath>
             <page id="other_tab" position="before">
                 <page

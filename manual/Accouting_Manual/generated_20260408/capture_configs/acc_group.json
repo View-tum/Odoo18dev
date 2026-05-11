@@ -1,0 +1,26 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "_tmp_acc_group_nav.png",
+  "target_url": "http://localhost:8811/odoo/accounting",
+  "actions": [
+    {
+      "type": "click",
+      "selector": "button[data-menu-xmlid='account.menu_finance_receivables']",
+      "wait_ms": 1500
+    }
+  ],
+  "highlight_selectors": [
+    {
+      "selector": "button[data-menu-xmlid='account.menu_finance_receivables']",
+      "label": "1"
+    },
+    {
+      "selector": "a[data-menu-xmlid='account_customer_group_payment.menu_account_customer_group_payment']",
+      "label": "2"
+    }
+  ]
+}
