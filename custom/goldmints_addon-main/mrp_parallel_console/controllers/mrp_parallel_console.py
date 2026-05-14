@@ -55,7 +55,7 @@ def _selection_label(record, field_name, value):
         selection = selection(record.env)
     lookup = dict(selection or [])
     val = lookup.get(value, value)
-    
+
     translations = {
         "Waiting for another WO": "รอการผลิตก่อนหน้า",
         "Waiting for components": "รอวัตถุดิบ",
@@ -287,64 +287,109 @@ class MrpParallelConsoleController(http.Controller):
     @http.route("/mrp_parallel_console/get_data", type="json", auth="user")
     def get_data(self, production_id=None):
         _require_group("mrp.group_mrp_user")
-        # When opening from a specific MO, show all its workorders except canceled.
         if production_id:
             domain = [("production_id", "=", production_id), ("state", "!=", "cancel")]
         else:
-            domain = [
-                ("state", "in", ["ready", "progress", "pending", "waiting", "draft"])
-            ]
+            domain = [("state", "in", ["ready", "progress", "pending", "waiting", "draft"])]
 
         workorder_model = request.env[MRP_WORKORDER_MODEL]
         workorders = workorder_model.search(domain, order="id")
 
+        if not workorders:
+            return {
+                "workorders": [],
+                "can_close_production": True,
+                "can_start_production": True,
+                "production_state": False,
+                "production_display": "",
+                "mo_closed": False,
+                "production_tracking": False,
+                "production_lot_id": False,
+                "production_lot_name": "",
+                "mpc_supervisor_checked": False,
+                "mpc_supervisor_name": False,
+                "mpc_supervisor_check_date": False,
+            }
+
+        # 1. Prefetch basic related fields
+        workorders.mapped("production_id")
+        workorders.mapped("workcenter_id")
+        workorders.mapped("employee_ids")
+        workorders.mapped("mpc_employee_production_ids")
+        if hasattr(workorder_model, "check_ids"):
+            workorders.mapped("check_ids")
+        if hasattr(workorder_model, "mold_ids"):
+            workorders.mapped("mold_ids")
+
+        productions = workorders.mapped("production_id")
+        productions.mapped("move_raw_ids.move_line_ids")
+        productions.mapped("product_id")
+
+        # 2. Workcenter Status
         wc_ids = workorders.mapped("workcenter_id").ids
-        busy_map = {}
+        busy_map = defaultdict(set)
         if wc_ids:
-            progress_wos = workorder_model.search(
-                [("workcenter_id", "in", wc_ids), ("state", "=", "progress")]
-            )
+            progress_wos = workorder_model.search([("workcenter_id", "in", wc_ids), ("state", "=", "progress")])
             for pwo in progress_wos:
-                busy_map.setdefault(pwo.workcenter_id.id, set()).add(pwo.id)
+                busy_map[pwo.workcenter_id.id].add(pwo.id)
 
         maintenance_wcs = set()
-        workcenters = workorders.mapped("workcenter_id")
-        for wc in workcenters:
+        for wc in workorders.mapped("workcenter_id"):
             if getattr(wc, "maintenance_state", False) == "maintenance":
                 maintenance_wcs.add(wc.id)
         if "maintenance.request" in request.env.registry and wc_ids:
             MaintReq = request.env["maintenance.request"]
-            domain = [("workcenter_id", "in", wc_ids)]
-            # consider unfinished requests as blocking
+            maint_domain = [("workcenter_id", "in", wc_ids)]
             if "state" in MaintReq._fields:
-                domain.append(("state", "not in", ["done", "cancel"]))
+                maint_domain.append(("state", "not in", ["done", "cancel"]))
             elif "stage_id" in MaintReq._fields:
                 stage_field = MaintReq._fields.get("stage_id")
                 stage_model = getattr(stage_field, "comodel_name", False)
                 if stage_model and "done" in request.env[stage_model]._fields:
-                    domain.append(("stage_id.done", "=", False))
+                    maint_domain.append(("stage_id.done", "=", False))
             if "maintenance_type" in MaintReq._fields:
-                domain.append(("maintenance_type", "in", ["corrective", "preventive"]))
-            maintenance_wcs |= set(MaintReq.search(domain).mapped("workcenter_id.id"))
+                maint_domain.append(("maintenance_type", "in", ["corrective", "preventive"]))
+            maintenance_wcs |= set(MaintReq.search(maint_domain).mapped("workcenter_id.id"))
 
-        # Draft scrap log per workorder (for modal display)
+        # 3. Draft Scraps
         draft_scraps_map = defaultdict(list)
-        if workorders:
-            draft_scraps = request.env["stock.scrap"].search(
-                [
-                    ("workorder_id", "in", workorders.ids),
-                    ("state", "=", "draft"),
-                ]
-            )
-            for scrap in draft_scraps:
-                draft_scraps_map[scrap.workorder_id.id].append(scrap)
+        draft_scraps = request.env["stock.scrap"].search([("workorder_id", "in", workorders.ids), ("state", "=", "draft")])
+        for scrap in draft_scraps:
+            draft_scraps_map[scrap.workorder_id.id].append(scrap)
 
-        result = []
-        production_state = None
-        for wo in workorders:
-            mo = wo.production_id
-            production_state = production_state or mo.state
-            # components at MO level (simple summary)
+        # 4. Qty Logs
+        qty_logs_map = defaultdict(list)
+        all_qty_logs = request.env["mrp.workorder.qty.log"].search([("workorder_id", "in", workorders.ids)], order="create_date asc, id asc")
+        all_qty_logs.mapped("employee_ids")
+        for log in all_qty_logs:
+            qty_logs_map[log.workorder_id.id].append(log)
+
+        # 5. Time Tracking (Productivity)
+        time_tracking_map = defaultdict(list)
+        Productivity = request.env.get("mrp.workcenter.productivity")
+        if Productivity:
+            all_prod_lines = Productivity.search([("workorder_id", "in", workorders.ids)], order="date_start desc, id desc")
+            all_prod_lines.mapped("employee_id")
+            for line in all_prod_lines:
+                time_tracking_map[line.workorder_id.id].append(line)
+
+        # 6. MO Component Summaries (Cached per MO) & Stock Availability
+        products_by_loc = defaultdict(set)
+        for mo in productions:
+            if mo.location_src_id:
+                for move in mo.move_raw_ids:
+                    if move.state not in ("done", "cancel"):
+                        products_by_loc[mo.location_src_id.id].add(move.product_id.id)
+
+        quant_availability_map = {}
+        Product = request.env["product.product"]
+        for loc_id, prod_ids in products_by_loc.items():
+            prods = Product.browse(list(prod_ids)).with_context(location=loc_id)
+            for p in prods:
+                quant_availability_map[(p.id, loc_id)] = p.qty_available
+
+        mo_components_cache = {}
+        for mo in productions:
             components = []
             production_ratio = 1.0
             if mo.qty_producing > 0 and mo.product_qty > 0:
@@ -353,31 +398,40 @@ class MrpParallelConsoleController(http.Controller):
             for move in mo.move_raw_ids:
                 if move.state in ("done", "cancel"):
                     continue
-
                 rounding = move.product_uom.rounding or 0.000001
-                # ในกรณี Underproduction ยอดที่ "ควรใช้" (Required) ต้องลดลงตามสัดส่วน
                 original_required = move.product_uom_qty
                 required = float_round(original_required * production_ratio, precision_rounding=rounding)
-
-                consumed = getattr(move, "quantity_done", move.quantity)
-                remaining = float_round(required - consumed, precision_rounding=rounding)
-                components.append(
-                    {
-                        "product_id": move.product_id.id,
-                        "product_name": move.product_id.display_name,
-                        "required_qty": required,
-                        "consumed_qty": consumed,
-                        "remaining_qty": remaining,
-                        "original_required": original_required, # เก็บไว้อ้างอิงถ้าจำเป็น
-                    }
+                consumed = float_round(
+                    sum(
+                        getattr(ml, "qty_done", None) or getattr(ml, "quantity", 0.0) or 0.0
+                        for ml in move.move_line_ids
+                        if getattr(ml, "picked", True)
+                    ),
+                    precision_rounding=rounding,
                 )
+                remaining = max(float_round(required - consumed, precision_rounding=rounding), 0.0)
+                components.append({
+                    "product_id": move.product_id.id,
+                    "product_name": move.product_id.display_name,
+                    "required_qty": required,
+                    "consumed_qty": consumed,
+                    "remaining_qty": remaining,
+                    "original_required": original_required,
+                })
+            mo_components_cache[mo.id] = components
+
+        # BUILD RESULTS
+        result = []
+        production_state = None
+        for wo in workorders:
+            mo = wo.production_id
+            production_state = production_state or mo.state
+            components = mo_components_cache.get(mo.id, [])
 
             employees = [{"id": emp.id, "name": emp.name} for emp in wo.employee_ids]
 
-            qty_logs = request.env["mrp.workorder.qty.log"].search(
-                [("workorder_id", "=", wo.id)], order="create_date asc, id asc"
-            )
-            qty_logs_sum = sum(qty_logs.mapped("qty"))
+            qty_logs = qty_logs_map.get(wo.id, [])
+            qty_logs_sum = sum(log.qty for log in qty_logs)
             qty_logs_payload = [
                 {
                     "id": log.id,
@@ -385,9 +439,7 @@ class MrpParallelConsoleController(http.Controller):
                     "note": log.note or "",
                     "create_date": log.create_date,
                     "log_date": log.log_date,
-                    "employees": [
-                        {"id": emp.id, "name": emp.name} for emp in log.employee_ids
-                    ],
+                    "employees": [{"id": emp.id, "name": emp.name} for emp in log.employee_ids],
                 }
                 for log in qty_logs
             ]
@@ -402,166 +454,109 @@ class MrpParallelConsoleController(http.Controller):
                 for ep in wo.mpc_employee_production_ids
             ]
 
-            # Lot/Serial Number logic
             lot_name = ""
-            # In Odoo 18, workorder field is 'finished_lot_id'
             if getattr(wo, "finished_lot_id", False):
                 lot_name = wo.finished_lot_id.name
             elif getattr(mo, "lot_producing_id", False):
                 lot_name = mo.lot_producing_id.name
 
-            is_parallel = bool(
-                getattr(wo.operation_id, "parallel_mode", False) == "parallel"
-            )
-            planned_qty = (
-                wo.planned_qty if is_parallel and wo.planned_qty else mo.product_qty
-            )
+            is_parallel = bool(getattr(wo.operation_id, "parallel_mode", False) == "parallel")
+            planned_qty = wo.planned_qty if is_parallel and wo.planned_qty else mo.product_qty
             qc_pending = bool(
                 getattr(wo, "check_ids", False)
-                and wo.check_ids.filtered(
-                    lambda c: c.quality_state not in ("pass", "fail")
-                )
+                and wo.check_ids.filtered(lambda c: c.quality_state not in ("pass", "fail"))
             )
 
             time_tracking = []
-            Productivity = request.env.get("mrp.workcenter.productivity")
             if Productivity:
-                prod_lines = Productivity.search(
-                    [("workorder_id", "=", wo.id)], order="date_start desc, id desc"
-                )
-                for line in prod_lines:
+                for line in time_tracking_map.get(wo.id, []):
                     duration = getattr(line, "duration", 0.0) or 0.0
                     hours = int(duration // 60)
                     minutes = int(round(duration % 60))
-                    duration_display = f"{hours:02d}:{minutes:02d}"
-                    time_tracking.append(
-                        {
-                            "id": line.id,
-                            "employee": getattr(line, "employee_id", False)
-                            and line.employee_id.display_name
-                            or "",
-                            "duration": duration,
-                            "duration_display": duration_display,
-                            "start": getattr(line, "date_start", False),
-                            "end": getattr(line, "date_end", False),
-                            "productivity": getattr(line, "loss_id", False)
-                            and line.loss_id.display_name
-                            or "",
-                        }
-                    )
+                    time_tracking.append({
+                        "id": line.id,
+                        "employee": getattr(line, "employee_id", False) and line.employee_id.display_name or "",
+                        "duration": duration,
+                        "duration_display": f"{hours:02d}:{minutes:02d}",
+                        "start": getattr(line, "date_start", False),
+                        "end": getattr(line, "date_end", False),
+                        "productivity": getattr(line, "loss_id", False) and line.loss_id.display_name or "",
+                    })
 
-            draft_scraps = draft_scraps_map.get(wo.id, [])
             scraps_data = []
-            for s in draft_scraps:
-                # Determine type: finished if matches MO product, else component
-                is_finished = s.product_id == mo.product_id
-                p_type = "finished" if is_finished else "component"
-
-                # Get reason from tags if available, else fallback
+            for s in draft_scraps_map.get(wo.id, []):
+                p_type = "finished" if s.product_id == mo.product_id else "component"
                 reason_text = ""
                 if "scrap_reason_tag_ids" in s._fields and s.scrap_reason_tag_ids:
                     reason_text = ", ".join(s.scrap_reason_tag_ids.mapped("name"))
                 elif hasattr(s, "scrap_reason_id") and s.scrap_reason_id:
                     reason_text = s.scrap_reason_id.display_name
-
                 if not reason_text:
-                    reason_text = (
-                        getattr(s, "note", False)
-                        or getattr(s, "description", False)
-                        or (s.origin or "")
-                    )
+                    reason_text = getattr(s, "note", False) or getattr(s, "description", False) or (s.origin or "")
+                scraps_data.append({
+                    "id": s.id,
+                    "name": s.name,
+                    "product_name": s.product_id.display_name,
+                    "qty": s.scrap_qty,
+                    "uom": s.product_uom_id.display_name,
+                    "reason": reason_text,
+                    "type": p_type,
+                })
 
-                scraps_data.append(
-                    {
-                        "id": s.id,
-                        "name": s.name,
-                        "product_name": s.product_id.display_name,
-                        "qty": s.scrap_qty,
-                        "uom": s.product_uom_id.display_name,
-                        "reason": reason_text,
-                        "type": p_type,
-                    }
-                )
+            effective_qty = qty_logs_sum if qty_logs else (wo.console_qty or 0.0)
 
-            effective_qty = self._get_effective_console_qty(wo)
-
-            # Custom logic: If 'waiting' for components but ANY component has stock, treat as 'ready'
+            # Fast Waiting check using pre-fetched availability
             display_state = wo.state
-            if display_state == "waiting":
-                for move in mo.move_raw_ids.filtered(lambda m: m.state not in ("done", "cancel")):
-                    available_qty = move.product_id.with_context(location=mo.location_src_id.id).qty_available
-                    if float_compare(available_qty, 0.0, precision_rounding=move.product_uom.rounding or 0.000001) > 0:
-                        display_state = "ready"
-                        break
+            if display_state == "waiting" and mo.location_src_id:
+                for move in mo.move_raw_ids:
+                    if move.state not in ("done", "cancel"):
+                        avail = quant_availability_map.get((move.product_id.id, mo.location_src_id.id), 0.0)
+                        if float_compare(avail, 0.0, precision_rounding=move.product_uom.rounding or 0.000001) > 0:
+                            display_state = "ready"
+                            break
 
-            result.append(
-                {
-                    "id": wo.id,
-                    "name": wo.name,
-                    "operation_name": wo.operation_id.name or "",
-                    "workcenter_name": wo.workcenter_id.display_name,
-                    "production_id": mo.id,
-                    "production_name": mo.display_name,
-                    "planned_qty": planned_qty,
-                    "console_qty": effective_qty,
-                    "qty_logs_sum": qty_logs_sum,
-                    "qty_logs": qty_logs_payload,
-                    "produced_qty": wo.qty_produced,
-                    "state": display_state,
-                    "state_label": _selection_label(wo, "state", display_state),
-                    "console_date_start": wo.console_date_start,
-                    "console_date_finished": wo.console_date_finished,
-                    "employees": employees,
-                    "components": components,
-                    "lot_name": lot_name,
-                    "scraps": scraps_data,
-                    "time_tracking": time_tracking,
-                    "production_tracking": mo.product_id.tracking,
-                    "machine_status": (
-                        "maintenance"
-                        if wo.workcenter_id.id in maintenance_wcs
-                        else (
-                            "busy"
-                            if (
-                                wo.workcenter_id.id in busy_map
-                                and any(
-                                    wid != wo.id
-                                    for wid in busy_map.get(wo.workcenter_id.id, set())
-                                )
-                                and wo.state != "progress"
-                            )
-                            else "available"
-                        )
-                    ),
-                    "is_locked": (wo.workcenter_id.id in maintenance_wcs)
-                    or (
-                        wo.workcenter_id.id in busy_map
-                        and any(
-                            wid != wo.id
-                            for wid in busy_map.get(wo.workcenter_id.id, set())
-                        )
-                        and wo.state != "progress"
-                    ),
-                    "qc_pending": qc_pending,
-                    "mpc_require_employee_production": (
-                        wo.workcenter_id.mpc_require_employee_production
-                        and self._mpc_enforce_employee_breakdown()
-                    ),
-                    "mpc_employee_production_ids": employee_productions,
-                    "employee_production_note": wo.mpc_employee_production_note or "",
-                    "mpc_supervisor_checked": wo.mpc_supervisor_checked,
-                    "mpc_supervisor_name": wo.mpc_supervisor_id.name if wo.mpc_supervisor_id else False,
-                    "mpc_supervisor_check_date": wo.mpc_supervisor_check_date,
-                    "show_mold_ui": self._mpc_should_show_mold_ui(wo),
-                    "molds": self._mpc_get_workorder_mold_payload(wo),
-                }
+            is_machine_busy = (
+                wo.workcenter_id.id in busy_map
+                and any(wid != wo.id for wid in busy_map[wo.workcenter_id.id])
+                and wo.state != "progress"
             )
 
-        # Compute gating flags:
-        # - can_close_production: only if no pending pickings remain
-        # - can_start_production: allow workorders even if pickings are pending
-        # only if no pending pickings remain. Allow closing even if component
-        # quantities don't match - Odoo will create backorder automatically.
+            result.append({
+                "id": wo.id,
+                "name": wo.name,
+                "operation_name": wo.operation_id.name or "",
+                "workcenter_name": wo.workcenter_id.display_name,
+                "production_id": mo.id,
+                "production_name": mo.display_name,
+                "planned_qty": planned_qty,
+                "console_qty": effective_qty,
+                "qty_logs_sum": qty_logs_sum,
+                "qty_logs": qty_logs_payload,
+                "produced_qty": wo.qty_produced,
+                "state": display_state,
+                "state_label": _selection_label(wo, "state", display_state),
+                "console_date_start": wo.console_date_start,
+                "console_date_finished": wo.console_date_finished,
+                "employees": employees,
+                "components": components,
+                "lot_name": lot_name,
+                "scraps": scraps_data,
+                "time_tracking": time_tracking,
+                "production_tracking": mo.product_id.tracking,
+                "machine_status": "maintenance" if wo.workcenter_id.id in maintenance_wcs else ("busy" if is_machine_busy else "available"),
+                "is_locked": (wo.workcenter_id.id in maintenance_wcs) or is_machine_busy,
+                "qc_pending": qc_pending,
+                "mpc_require_employee_production": (wo.workcenter_id.mpc_require_employee_production and self._mpc_enforce_employee_breakdown()),
+                "mpc_employee_production_ids": employee_productions,
+                "employee_production_note": wo.mpc_employee_production_note or "",
+                "mpc_supervisor_checked": wo.mpc_supervisor_checked,
+                "mpc_supervisor_name": wo.mpc_supervisor_id.name if wo.mpc_supervisor_id else False,
+                "mpc_supervisor_check_date": wo.mpc_supervisor_check_date,
+                "show_mold_ui": self._mpc_should_show_mold_ui(wo),
+                "molds": self._mpc_get_workorder_mold_payload(wo),
+            })
+
+        # Gating flags
         can_close_production = True
         can_start_production = True
         production = None
@@ -569,6 +564,7 @@ class MrpParallelConsoleController(http.Controller):
             production = request.env[MRP_PRODUCTION_MODEL].browse(production_id)
         elif workorders:
             production = workorders[0].production_id
+
         if production and production.exists():
             pending_pickings = self._console_pending_pickings(production)
             if pending_pickings:
@@ -578,6 +574,7 @@ class MrpParallelConsoleController(http.Controller):
         mo_closed = False
         production_tracking = None
         production_lot = False
+
         if production and production.exists():
             production_state = production.state
             production_display = production.display_name
@@ -600,7 +597,6 @@ class MrpParallelConsoleController(http.Controller):
             "mpc_supervisor_name": production.mpc_supervisor_id.name if production and production.exists() and production.mpc_supervisor_id else False,
             "mpc_supervisor_check_date": fields.Datetime.to_string(production.mpc_supervisor_check_date) if production and production.exists() and production.mpc_supervisor_check_date else False,
         }
-
     # ---------------------------------------------------------
     # Update console fields (qty, dates, employees)
     # ---------------------------------------------------------
@@ -908,7 +904,7 @@ class MrpParallelConsoleController(http.Controller):
 
         current_user = request.env.user
         now = fields.Datetime.now()
-        
+
         vals = {
             "mpc_supervisor_checked": checked,
             "mpc_supervisor_id": current_user.id if checked else False,
@@ -932,7 +928,7 @@ class MrpParallelConsoleController(http.Controller):
 
         current_user = request.env.user
         now = fields.Datetime.now()
-        
+
         vals = {
             "mpc_supervisor_checked": checked,
             "mpc_supervisor_id": current_user.id if checked else False,
@@ -1098,6 +1094,16 @@ class MrpParallelConsoleController(http.Controller):
         for mo in productions:
             mo._console_sync_component_overconsumption()
 
+        # Overproduction must expand BOM demand and reserve additional
+        # component lots before the lot prerequisite check below. Otherwise the
+        # check compares the larger finished quantity against the old reserved
+        # component lines and blocks valid overproduction flows too early.
+        for mo in productions:
+            total_qty = finished_qty_map.get(mo.id, 0.0)
+            rounding = mo.product_uom_id.rounding or 0.000001
+            if float_compare(total_qty, mo.product_qty, precision_rounding=rounding) > 0:
+                mo._console_sync_demand_and_replenish(total_qty)
+
         # Validate all lot prerequisites before mutating WO state so the console
         # does not leave workorders done while the MO is still blocked on lots.
         for mo in productions:
@@ -1206,6 +1212,56 @@ class MrpParallelConsoleController(http.Controller):
                     missing_names.append(move.product_id.display_name)
 
         return ", ".join(set(missing_names)) if missing_names else False
+
+    @http.route("/mrp_parallel_console/prepare_material_lots", type="json", auth="user")
+    def prepare_material_lots(self, production_id=None):
+        """Prepare component quantities/lots before opening Material Lot Lists."""
+        _require_group("mrp.group_mrp_user")
+        if not production_id:
+            return {"error": _("No manufacturing order found.")}
+
+        production = request.env[MRP_PRODUCTION_MODEL].browse(production_id)
+        if not production.exists():
+            return {"error": _("Manufacturing order not found.")}
+
+        rounding = production.product_uom_id.rounding or 0.000001
+        try:
+            target_qty = production._console_compute_total_qty(
+                production.workorder_ids,
+                mode="progress",
+            )
+        except UserError:
+            target_qty = 0.0
+
+        if float_compare(target_qty, 0.0, precision_rounding=rounding) <= 0:
+            target_qty = production.qty_producing or production.product_qty
+        target_qty = float_round(max(target_qty or 0.0, 0.0), precision_rounding=rounding)
+
+        if float_compare(target_qty, production.product_qty, precision_rounding=rounding) > 0:
+            production._console_sync_demand_and_replenish(target_qty)
+        if float_compare(
+            production.qty_producing or 0.0,
+            target_qty,
+            precision_rounding=rounding,
+        ) != 0:
+            production.qty_producing = target_qty
+
+        warning = False
+        production.with_context(mpc_allow_partial_lot_prepare=True)._console_fill_auto_component_moves(
+            target_qty
+        )
+        missing_lots = self._get_missing_lot_names(
+            production,
+            finished_qty_map={production.id: target_qty},
+        )
+        if missing_lots:
+            warning = _("Some component lots are still short: %s. Please review before finishing.") % missing_lots
+
+        return {
+            "status": "ok",
+            "target_qty": target_qty,
+            "warning": warning,
+        }
 
     # ---------------------------------------------------------
     # Delete workorder from console (remove machine)
@@ -1683,6 +1739,135 @@ class MrpParallelConsoleController(http.Controller):
     # ---------------------------------------------------------
     # Start / Stop from console (server timestamp)
     # ---------------------------------------------------------
+    def _component_reservation_diagnostic(self, move):
+        product = move.product_id
+        source_location = move.location_id or move.raw_material_production_id.location_src_id
+        rounding = move.product_uom.rounding or 0.000001
+        demand_qty = move.product_uom_qty or 0.0
+        reserved_qty = move.quantity or 0.0
+        shortage_qty = max(demand_qty - reserved_qty, 0.0)
+
+        Quant = request.env[STOCK_QUANT_MODEL].sudo()
+        lot = move.move_line_ids.mapped('lot_id')[:1]
+        physical_free_qty_product_uom = Quant._get_available_quantity(
+            product,
+            source_location,
+            lot_id=lot if lot else None,
+            strict=False,
+        )
+        try:
+            usable_free_qty_product_uom = move._get_available_quantity(
+                source_location,
+                lot_id=lot if lot else None,
+                strict=False,
+            )
+        except Exception:
+            usable_free_qty_product_uom = physical_free_qty_product_uom
+
+        physical_free_qty_move_uom = product.uom_id._compute_quantity(
+            physical_free_qty_product_uom,
+            move.product_uom,
+        )
+        usable_free_qty_move_uom = product.uom_id._compute_quantity(
+            usable_free_qty_product_uom,
+            move.product_uom,
+        )
+        on_hand_qty_product_uom = product.with_context(
+            location=source_location.id,
+        ).qty_available
+
+        quant_domain = [
+            ('product_id', '=', product.id),
+            ('location_id', 'child_of', source_location.id),
+        ]
+        if lot:
+            quant_domain.append(('lot_id', '=', lot.id))
+        quants = Quant.search(quant_domain)
+        reserved_quant_qty = product.uom_id._compute_quantity(
+            sum(quants.mapped('reserved_quantity')),
+            move.product_uom,
+        )
+        lot_names = ', '.join(quants.mapped('lot_id.name')[:5]) or '-'
+        lot_expirations = []
+        for quant in quants.filtered(lambda q: q.lot_id)[:5]:
+            lot_date = (
+                getattr(quant.lot_id, 'expiration_date', False)
+                or getattr(quant.lot_id, 'removal_date', False)
+                or '-'
+            )
+            lot_expirations.append("%s:%s" % (quant.lot_id.name, lot_date))
+        lot_expiration_names = ', '.join(lot_expirations) or '-'
+        owner_names = ', '.join(quants.mapped('owner_id.display_name')[:5]) or '-'
+        package_names = ', '.join(quants.mapped('package_id.name')[:5]) or '-'
+        use_expiration = bool(
+            getattr(product, 'use_expiration_date', False)
+            or getattr(product.product_tmpl_id, 'use_expiration_date', False)
+        )
+
+        if move.procure_method == 'make_to_order' and move.move_orig_ids:
+            reason = _("Waiting for upstream supply before this component can be reserved.")
+        elif float_compare(on_hand_qty_product_uom, 0.0, precision_rounding=product.uom_id.rounding or rounding) <= 0:
+            reason = _("No on-hand stock in the MO source location.")
+        elif (
+            use_expiration
+            and float_compare(physical_free_qty_move_uom, shortage_qty, precision_rounding=rounding) >= 0
+            and float_compare(usable_free_qty_move_uom, shortage_qty, precision_rounding=rounding) < 0
+        ):
+            reason = _("Stock exists, but available lots are expired or not usable for the required date.")
+        elif float_compare(usable_free_qty_move_uom, shortage_qty, precision_rounding=rounding) < 0:
+            reason = _("On-hand stock exists, but free quantity is not enough after existing reservations.")
+        elif product.tracking != 'none' and not move.move_line_ids.mapped('lot_id'):
+            reason = _("Tracked product: reservation may require a matching lot/serial.")
+        else:
+            reason = _("Free stock exists, but Odoo could not reserve it. Check lot, package, owner, removal strategy, or rounding.")
+
+        message = _(
+            "%(product)s | Source: %(source)s | Demand: %(demand).6g %(uom)s | "
+            "Reserved on MO: %(reserved).6g %(uom)s | Usable Free: %(usable_free).6g %(uom)s | "
+            "Physical Free: %(physical_free).6g %(uom)s | "
+            "Reserved by quants: %(quant_reserved).6g %(uom)s | Route method: %(procure)s | "
+            "Tracking: %(tracking)s | Lots: %(lots)s | Lot Dates: %(lot_dates)s | "
+            "Owner: %(owners)s | Package: %(packages)s | "
+            "Reason: %(reason)s"
+        ) % {
+            'product': product.display_name,
+            'source': source_location.display_name,
+            'demand': demand_qty,
+            'reserved': reserved_qty,
+            'usable_free': usable_free_qty_move_uom,
+            'physical_free': physical_free_qty_move_uom,
+            'quant_reserved': reserved_quant_qty,
+            'uom': move.product_uom.name,
+            'procure': move.procure_method,
+            'tracking': product.tracking,
+            'lots': lot_names,
+            'lot_dates': lot_expiration_names,
+            'owners': owner_names,
+            'packages': package_names,
+            'reason': reason,
+        }
+        return {
+            'product_id': product.id,
+            'product_name': product.display_name,
+            'source_location_id': source_location.id,
+            'source_location_name': source_location.display_name,
+            'demand_qty': demand_qty,
+            'reserved_qty': reserved_qty,
+            'free_qty': usable_free_qty_move_uom,
+            'usable_free_qty': usable_free_qty_move_uom,
+            'physical_free_qty': physical_free_qty_move_uom,
+            'reserved_quant_qty': reserved_quant_qty,
+            'uom': move.product_uom.name,
+            'procure_method': move.procure_method,
+            'tracking': product.tracking,
+            'lots': lot_names,
+            'lot_dates': lot_expiration_names,
+            'owners': owner_names,
+            'packages': package_names,
+            'reason': reason,
+            'message': message,
+        }
+
     @http.route("/mrp_parallel_console/check_components", type="json", auth="user")
     def check_components(self, workorder_id):
         """Check if all components are available before starting workorder."""
@@ -1713,33 +1898,35 @@ class MrpParallelConsoleController(http.Controller):
                     needs_reserve = True
                     break
             if needs_reserve:
-                production.action_assign()
+                production.move_raw_ids.filtered(
+                    lambda m: m.state not in ("done", "cancel")
+                )._action_assign()
 
         missing_components = []
+        diagnostics = []
         for move in production.move_raw_ids.filtered(
             lambda m: m.state not in ("done", "cancel")
         ):
-            # Use quantity_available instead of reserved_availability (Odoo 18)
-            product = move.product_id
-            available_qty = product.with_context(
-                location=production.location_src_id.id
-            ).qty_available
-
             if (
                 float_compare(
-                    available_qty,
+                    move.quantity,
                     move.product_uom_qty,
                     precision_rounding=move.product_uom.rounding or 0.000001,
                 )
                 < 0
             ):
-                missing_components.append(product.display_name)
+                missing_components.append(move.product_id.display_name)
+                diagnostics.append(self._component_reservation_diagnostic(move))
 
         if missing_components:
+            diagnostic_messages = "\n".join(item["message"] for item in diagnostics[:5])
             return {
                 "sufficient": False,
                 "missing_components": missing_components,
-                "error": f"Insufficient components: {', '.join(missing_components)}",
+                "diagnostics": diagnostics,
+                "error": _(
+                    "Some components could not be reserved:\n%s"
+                ) % diagnostic_messages,
             }
 
         return {"sufficient": True}
@@ -1836,23 +2023,49 @@ class MrpParallelConsoleController(http.Controller):
                 % wc.display_name
             }
 
-        # Optional hook: mrp_workcenter_lock can define a check method
-        # enforcing a single running job per workcenter. Call it when
-        # available so console start respects the same rule as the
-        # standard Start button, but do nothing if the module is not
-        # installed.
         check_method = getattr(
             workorder, "_check_single_job_per_workcenter_before_start", None
         )
         if check_method:
             check_method()
 
+        production = workorder.production_id
+        component_warning = False
+        if production and production.state in ("confirmed", "progress", "to_close"):
+            unreserved = production.move_raw_ids.filtered(
+                lambda m: m.state not in ("done", "cancel")
+                and float_compare(
+                    m.quantity,
+                    m.product_uom_qty,
+                    precision_rounding=m.product_uom.rounding or 0.000001,
+                )
+                < 0
+            )
+            if unreserved:
+                try:
+                    unreserved._action_assign()
+                except Exception:
+                    pass
+                still_missing = unreserved.filtered(
+                    lambda m: float_compare(
+                        m.quantity,
+                        m.product_uom_qty,
+                        precision_rounding=m.product_uom.rounding or 0.000001,
+                    )
+                    < 0
+                )
+                if still_missing:
+                    component_warning = True
+
         workorder.action_console_start_timer()
-        return {
+        result = {
             "status": "ok",
             "start": fields.Datetime.to_string(workorder.console_date_start),
             "state": workorder.state,
         }
+        if component_warning:
+            result["component_warning"] = True
+        return result
 
     @http.route(
         "/mrp_parallel_console/get_mold_selection_action", type="json", auth="user"
@@ -1932,6 +2145,22 @@ class MrpParallelConsoleController(http.Controller):
 
         if workorder.console_date_start and not workorder.console_date_finished:
             workorder.action_console_stop_timer()
+
+        production = workorder.production_id
+        rounding = production.product_uom_id.rounding or 0.000001
+        total_qty = production._console_compute_total_qty(
+            production.workorder_ids, mode="progress"
+        )
+        if float_compare(total_qty, production.product_qty, precision_rounding=rounding) > 0:
+            production._console_sync_demand_and_replenish(total_qty)
+        if float_compare(
+            production.qty_producing or 0.0,
+            total_qty,
+            precision_rounding=rounding,
+        ) != 0:
+            production.qty_producing = total_qty
+        production._console_fill_auto_component_moves(total_qty)
+
         workorder.with_context(mpc_skip_quality_checks=True).button_finish()
         end = fields.Datetime.to_string(
             workorder.console_date_finished or fields.Datetime.now()
@@ -1941,6 +2170,13 @@ class MrpParallelConsoleController(http.Controller):
     @http.route("/mrp_parallel_console/quick_done", type="json", auth="user")
     def quick_done(self, workorder_id, qty):
         _require_group("mrp.group_mrp_user")
+        try:
+            qty = float(qty or 0.0)
+        except (TypeError, ValueError):
+            return {"error": _("Invalid production quantity.")}
+        if qty <= 0:
+            return {"error": _("Production quantity must be greater than zero.")}
+
         workorder = request.env[MRP_WORKORDER_MODEL].browse(workorder_id)
         if not workorder.exists():
             return {"error": WORKORDER_NOT_FOUND}
@@ -1969,21 +2205,25 @@ class MrpParallelConsoleController(http.Controller):
                 )
             }
 
-        planned_qty = workorder.qty_production or 0.0
         done_qty = workorder.console_qty or 0.0
-        max_qty = planned_qty - done_qty
-
-        if float_compare(qty, max_qty, precision_digits=2) > 0:
-            return {
-                "error": _(
-                    "Quantity %s exceeds maximum allowed (%s)."
-                ) % (qty, max_qty)
-            }
 
         if workorder.state in ("ready", "waiting", "pending"):
             workorder.action_console_start_timer()
 
         workorder.console_qty = (workorder.console_qty or 0.0) + qty
+
+        production = workorder.production_id
+        rounding = production.product_uom_id.rounding or 0.000001
+        total_qty = done_qty + qty
+        if float_compare(total_qty, production.product_qty, precision_rounding=rounding) > 0:
+            production._console_sync_demand_and_replenish(total_qty)
+        if float_compare(
+            production.qty_producing or 0.0,
+            total_qty,
+            precision_rounding=rounding,
+        ) != 0:
+            production.qty_producing = total_qty
+        production._console_fill_auto_component_moves(total_qty)
 
         if workorder.console_date_start and not workorder.console_date_finished:
             workorder.action_console_stop_timer()
@@ -2502,9 +2742,20 @@ class MrpParallelConsoleController(http.Controller):
                     )
                 )
             lot = lot_id and lot_model.browse(lot_id) or False
-            available = quant_model._get_available_quantity(
+            available_product_uom = quant_model._get_available_quantity(
                 move.product_id, location, lot or False, strict=True
             )
+            available = move.product_id.uom_id._compute_quantity(
+                available_product_uom,
+                move.product_uom,
+                rounding_method="HALF-UP",
+            )
+            reserved_on_move = self._get_move_reserved_qty(
+                move,
+                location,
+                lot or False,
+            )
+            available += reserved_on_move
             if float_compare(available, needed_qty, precision_rounding=precision) < 0:
                 raise UserError(
                     _(
@@ -2520,6 +2771,28 @@ class MrpParallelConsoleController(http.Controller):
                 )
 
         return vals_list
+
+    @staticmethod
+    def _get_move_reserved_qty(move, location, lot=False):
+        """Return quantity already reserved/entered on this move for the same lot/location."""
+        rounding = move.product_uom.rounding or 0.000001
+        qty = 0.0
+        for line in move.move_line_ids:
+            if (line.location_id or move.location_id) != location:
+                continue
+            if lot and line.lot_id != lot:
+                continue
+            if not lot and line.lot_id:
+                continue
+            line_qty = line.quantity or 0.0
+            if line.product_uom_id and line.product_uom_id != move.product_uom:
+                line_qty = line.product_uom_id._compute_quantity(
+                    line_qty,
+                    move.product_uom,
+                    rounding_method="HALF-UP",
+                )
+            qty += line_qty
+        return float_round(qty, precision_rounding=rounding)
 
     def _resolve_lot_for_move(self, move, picking, lot_id, lot_name, lot_model):
         if lot_id:
@@ -2898,7 +3171,7 @@ class MrpParallelConsoleController(http.Controller):
                     )
                 continue
 
-            # Tracked: split by available quants FIFO
+            # Tracked: split by available quants FIFO — batch create to avoid large TX
             domain = [
                 ("product_id", "=", move.product_id.id),
                 (
@@ -2910,12 +3183,30 @@ class MrpParallelConsoleController(http.Controller):
                 ("quantity", ">", 0),
             ]
             quants = Quant.search(domain, order="in_date asc", limit=200)
+            batch_vals = []
             for quant in quants:
                 if remaining <= 0:
                     break
-                take = min(quant.quantity, remaining)
+                available = Quant._get_available_quantity(
+                    move.product_id,
+                    quant.location_id,
+                    lot_id=quant.lot_id,
+                    package_id=quant.package_id,
+                    owner_id=quant.owner_id,
+                    strict=True,
+                )
+                if quant.product_uom_id != move.product_uom:
+                    available = quant.product_uom_id._compute_quantity(
+                        available,
+                        move.product_uom,
+                        rounding_method="HALF-UP",
+                    )
+                available = float_round(available, precision_rounding=rounding)
+                if available <= 0:
+                    continue
+                take = min(available, remaining)
                 take = float_round(take, precision_rounding=rounding)
-                MoveLine.create(
+                batch_vals.append(
                     {
                         "move_id": move.id,
                         "picking_id": picking.id,
@@ -2930,6 +3221,8 @@ class MrpParallelConsoleController(http.Controller):
                     }
                 )
                 remaining -= take
+            if batch_vals:
+                MoveLine.with_context(no_recompute=True).create(batch_vals)
 
 
             # If still remaining (no quants), leave it empty for user to fill in form
@@ -2966,8 +3259,8 @@ class MrpParallelConsoleController(http.Controller):
         product = move.product_id
         on_hand = product.with_context(location=picking.location_id.id).qty_available
         move_location = move.location_id or picking.location_id
-        lots = self._get_available_lots(product, move_location)
-        locations = self._get_available_locations(product, move_location)
+        lots = self._get_available_lots(product, move_location, move=move)
+        locations = self._get_available_locations(product, move_location, move=move)
         return {
             "move_id": move.id,
             "product_id": product.id,
@@ -2982,9 +3275,9 @@ class MrpParallelConsoleController(http.Controller):
             "move_lines": [
                 {
                     "id": ml.id,
-                    "lot_id": ml.lot_id.id,
-                    "lot_name": ml.lot_id.display_name,
-                    "qty_done": getattr(ml, "qty_done", ml.quantity),
+                    "lot_id": ml.lot_id.id if ml.lot_id else False,
+                    "lot_name": ml.lot_id.display_name if ml.lot_id else "",
+                    "qty_done": getattr(ml, "qty_done", None) or ml.quantity or 0.0,
                     "location_id": (ml.location_id or move_location).id,
                 }
                 for ml in move.move_line_ids
@@ -3002,7 +3295,7 @@ class MrpParallelConsoleController(http.Controller):
             "available_locations": locations,
         }
 
-    def _get_available_lots(self, product, location):
+    def _get_available_lots(self, product, location, move=None):
         if product.tracking not in ("lot", "serial"):
             return []
         quant_model = request.env[STOCK_QUANT_MODEL]
@@ -3014,12 +3307,35 @@ class MrpParallelConsoleController(http.Controller):
         ]
         groups = quant_model.read_group(
             domain,
-            ["location_id", "lot_id", "quantity:sum"],
+            ["location_id", "lot_id", "quantity:sum", "reserved_quantity:sum"],
             ["location_id", "lot_id"],
+            lazy=False,
         )
         lots = []
         for group in groups:
             if not group.get("lot_id") or not group.get("location_id"):
+                continue
+            lot = request.env[STOCK_LOT_MODEL].browse(group["lot_id"][0])
+            loc = request.env["stock.location"].browse(group["location_id"][0])
+            reserved_on_move = (
+                self._get_move_reserved_qty(move, loc, lot)
+                if move
+                else 0.0
+            )
+            free_product_uom_qty = (
+                (group.get("quantity") or 0.0)
+                - (group.get("reserved_quantity") or 0.0)
+            )
+            if move and product.uom_id != move.product_uom:
+                free_qty = product.uom_id._compute_quantity(
+                    free_product_uom_qty,
+                    move.product_uom,
+                    rounding_method="HALF-UP",
+                )
+            else:
+                free_qty = free_product_uom_qty
+            quantity = free_qty + reserved_on_move
+            if quantity <= 0:
                 continue
             lots.append(
                 {
@@ -3027,12 +3343,12 @@ class MrpParallelConsoleController(http.Controller):
                     "name": group["lot_id"][1],
                     "location_id": group["location_id"][0],
                     "location_name": group["location_id"][1],
-                    "quantity": group["quantity"],
+                    "quantity": quantity,
                 }
             )
         return lots
 
-    def _get_available_locations(self, product, root_location=None):
+    def _get_available_locations(self, product, root_location=None, move=None):
         """Return locations under root that have stock for this product."""
         Quant = request.env["stock.quant"]
         Location = request.env["stock.location"]
@@ -3047,7 +3363,7 @@ class MrpParallelConsoleController(http.Controller):
 
         groups = Quant.read_group(
             domain,
-            ["location_id", "quantity:sum"],
+            ["location_id", "quantity:sum", "reserved_quantity:sum"],
             ["location_id"],
             orderby="location_id",
         )
@@ -3058,13 +3374,39 @@ class MrpParallelConsoleController(http.Controller):
                 continue
             loc_id = group["location_id"][0]
             loc = Location.browse(loc_id)
+            reserved_on_move = 0.0
+            if move:
+                for line in move.move_line_ids.filtered(
+                    lambda ml, current_loc=loc: (ml.location_id or move.location_id) == current_loc
+                ):
+                    line_qty = line.quantity or 0.0
+                    if line.product_uom_id and line.product_uom_id != move.product_uom:
+                        line_qty = line.product_uom_id._compute_quantity(
+                            line_qty,
+                            move.product_uom,
+                            rounding_method="HALF-UP",
+                        )
+                    reserved_on_move += line_qty
+            free_product_uom_qty = (
+                (group.get("quantity") or 0.0)
+                - (group.get("reserved_quantity") or 0.0)
+            )
+            if move and product.uom_id != move.product_uom:
+                free_qty = product.uom_id._compute_quantity(
+                    free_product_uom_qty,
+                    move.product_uom,
+                    rounding_method="HALF-UP",
+                )
+            else:
+                free_qty = free_product_uom_qty
+            free_qty += reserved_on_move
+            if free_qty <= 0:
+                continue
             locations.append(
                 {
                     "id": loc.id,
                     "name": loc.complete_name or loc.display_name,
-                    "on_hand": group[
-                        "quantity"
-                    ],  # Similar to On Hand column in Odoo popup
+                    "on_hand": free_qty,
                 }
             )
         return locations

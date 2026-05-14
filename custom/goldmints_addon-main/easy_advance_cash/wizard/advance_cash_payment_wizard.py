@@ -100,6 +100,9 @@ class AdvanceCashPaymentWizard(models.TransientModel):
     is_cheque_method = fields.Boolean(
         string="Is Cheque Method", compute="_compute_is_cheque_method"
     )
+    is_bank_draft_method = fields.Boolean(
+        string="Is Bank Draft Method", compute="_compute_is_bank_draft_method"
+    )
 
     cheque_id = fields.Many2one(
         "cheque.book.lines",
@@ -116,6 +119,12 @@ class AdvanceCashPaymentWizard(models.TransientModel):
     cheque_number_in = fields.Char(string="Cheque Number (In)")
     cheque_bank_in = fields.Many2one("res.bank", string="Issue Bank")
     cheque_branch_in = fields.Char(string="Branch")
+    bank_draft_number = fields.Char(string="Bank Draft Number")
+    bank_draft_bank_id = fields.Many2one("res.bank", string="Issue Bank")
+    bank_draft_branch = fields.Char(string="Branch")
+    bank_draft_date = fields.Date(
+        string="Bank Draft Date", default=fields.Date.context_today
+    )
 
     @api.depends("payment_method_line_id", "transaction_type")
     def _compute_is_cheque_method(self):
@@ -130,6 +139,24 @@ class AdvanceCashPaymentWizard(models.TransientModel):
                         is_cheque = rec.payment_method_line_id.is_cheque_incoming_line
             rec.is_cheque_method = is_cheque
 
+    @api.depends("payment_method_line_id", "transaction_type")
+    def _compute_is_bank_draft_method(self):
+        for rec in self:
+            is_bank_draft = False
+            method_line = rec.payment_method_line_id
+            if method_line:
+                if rec.transaction_type == "payout":
+                    is_bank_draft = bool(
+                        getattr(method_line, "is_bank_draft_outgoing_line", False)
+                        or method_line.payment_method_id.code == "bank_draft"
+                    )
+                elif rec.transaction_type == "return":
+                    is_bank_draft = bool(
+                        getattr(method_line, "is_bank_draft_incoming_line", False)
+                        or method_line.payment_method_id.code == "bank_draft"
+                    )
+            rec.is_bank_draft_method = is_bank_draft
+
     def action_confirm_payment(self):
         """Pass data back to main model action_confirm"""
         self.ensure_one()
@@ -142,6 +169,11 @@ class AdvanceCashPaymentWizard(models.TransientModel):
             "cheque_number_in": self.cheque_number_in,
             "cheque_bank_in": self.cheque_bank_in,
             "cheque_branch_in": self.cheque_branch_in,
+            "is_bank_draft_method": self.is_bank_draft_method,
+            "bank_draft_number": self.bank_draft_number,
+            "bank_draft_bank_id": self.bank_draft_bank_id,
+            "bank_draft_branch": self.bank_draft_branch,
+            "bank_draft_date": self.bank_draft_date,
             "payment_date": self.payment_date,
         }
         # Call main model confirm with data

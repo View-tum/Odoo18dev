@@ -1,0 +1,119 @@
+{
+  "model": {
+    "id": 11545,
+    "name": "โปรแกรมคอมพิวเตอร์",
+    "state": "model",
+    "original_value": 0.0,
+    "book_value": 0.0,
+    "salvage_value": 0.0,
+    "model": "",
+    "fixed_asset_account": "124001 โปรแกรมคอมพิวเตอร์",
+    "depreciation_account": "124004 ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+    "expense_account": "600096 ค่าตัดจำหน่าย - โปรแกรมคอมพิวเตอร์",
+    "journal": "Depreciation Journal",
+    "acquisition_date": "2025-12-20",
+    "disposal_date": ""
+  },
+  "sell_asset": {
+    "id": 11575,
+    "name": "MANUAL FA SELL 20260410",
+    "state": "close",
+    "original_value": 60000.0,
+    "book_value": 0.0,
+    "salvage_value": 0.0,
+    "model": "โปรแกรมคอมพิวเตอร์",
+    "fixed_asset_account": "124001 โปรแกรมคอมพิวเตอร์",
+    "depreciation_account": "124004 ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+    "expense_account": "600096 ค่าตัดจำหน่าย - โปรแกรมคอมพิวเตอร์",
+    "journal": "Depreciation Journal",
+    "acquisition_date": "2026-01-01",
+    "disposal_date": "2026-04-10"
+  },
+  "sale_invoice": {
+    "id": 68944,
+    "name": "INV-E/26/04/00005",
+    "ref": "MANUAL-ASSET-SELL-20260410",
+    "amount_total": 55000.0,
+    "partner": "บริษัท อังกฤษตรางู (แอล.พี.) จำกัด",
+    "date": "2026-04-10",
+    "journal": "International Customer Invoice (USD)"
+  },
+  "sale_move": {
+    "id": 68946,
+    "name": "DCJ/26/04/00002",
+    "date": "2026-04-10",
+    "lines": [
+      {
+        "account_code": "124001",
+        "account_name": "โปรแกรมคอมพิวเตอร์",
+        "label": "MANUAL FA SELL 20260410: Sale",
+        "debit": 0.0,
+        "credit": 60000.0
+      },
+      {
+        "account_code": "124004",
+        "account_name": "ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+        "label": "MANUAL FA SELL 20260410: Sale",
+        "debit": 3333.333333,
+        "credit": 0.0
+      },
+      {
+        "account_code": "410000",
+        "account_name": "รายได้จากการขายในประเทศ",
+        "label": "MANUAL FA SELL 20260410: Sale",
+        "debit": 1724569.0,
+        "credit": 0.0
+      },
+      {
+        "account_code": "430000",
+        "account_name": "รายได้อื่น",
+        "label": "MANUAL FA SELL 20260410: Sale",
+        "debit": 0.0,
+        "credit": 1667902.333333
+      }
+    ]
+  },
+  "dispose_asset": {
+    "id": 11576,
+    "name": "MANUAL FA DISPOSE 20260410",
+    "state": "close",
+    "original_value": 36000.0,
+    "book_value": 0.0,
+    "salvage_value": 0.0,
+    "model": "โปรแกรมคอมพิวเตอร์",
+    "fixed_asset_account": "124001 โปรแกรมคอมพิวเตอร์",
+    "depreciation_account": "124004 ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+    "expense_account": "600096 ค่าตัดจำหน่าย - โปรแกรมคอมพิวเตอร์",
+    "journal": "Depreciation Journal",
+    "acquisition_date": "2026-01-01",
+    "disposal_date": "2026-04-10"
+  },
+  "disposal_move": {
+    "id": 68958,
+    "name": "DCJ/26/04/00004",
+    "date": "2026-04-10",
+    "lines": [
+      {
+        "account_code": "124001",
+        "account_name": "โปรแกรมคอมพิวเตอร์",
+        "label": "MANUAL FA DISPOSE 20260410: Disposal",
+        "debit": 0.0,
+        "credit": 36000.0
+      },
+      {
+        "account_code": "124004",
+        "account_name": "ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+        "label": "MANUAL FA DISPOSE 20260410: Disposal",
+        "debit": 2000.0,
+        "credit": 0.0
+      },
+      {
+        "account_code": "510000",
+        "account_name": "ต้นทุนขายในประเทศ",
+        "label": "MANUAL FA DISPOSE 20260410: Disposal",
+        "debit": 34000.0,
+        "credit": 0.0
+      }
+    ]
+  }
+}

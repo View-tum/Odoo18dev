@@ -1,11 +1,6 @@
-
-
-
-from math import floor
-
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from odoo.tools import float_compare, float_round
+from odoo.tools import float_compare, float_is_zero, float_round
 
 
 class MrpProduction(models.Model):
@@ -33,15 +28,30 @@ class MrpProduction(models.Model):
     def _link_workorders_and_moves(self):
         res = super()._link_workorders_and_moves()
         # Drop/cancel WOs on blocked (maintenance) workcenters before any split logic
-        self._mpc_remove_blocked_workorders()
+        ready_mos = self.filtered(lambda mo: mo.state != "draft")
+        ready_mos._mpc_remove_blocked_workorders()
         # After standard linking, ensure parallel workorders exist and
         # distribute quantities across them.
-        if not self.env.context.get('mpc_disable_auto_split'):
-            self._mpc_auto_split_parallel_workorders(create_missing=True)
+        #
+        # During mrp.production.action_confirm(), core calls this method while
+        # the MO can still be draft. Creating extra workorders at that point can
+        # force a recompute of finished moves and Odoo may try to delete linked
+        # MTO moves, which is blocked by standard stock constraints.
+        if ready_mos and not self.env.context.get("mpc_disable_auto_split"):
+            ready_mos._mpc_auto_split_parallel_workorders(create_missing=True)
         # Fix dependencies for parallel workorders so that workorders
         # of the same parallel operation do not block each other and
         # can start at the same time.
-        self._mpc_fix_parallel_dependencies()
+        ready_mos._mpc_fix_parallel_dependencies()
+        return res
+
+    def action_confirm(self):
+        res = super().action_confirm()
+        if not self.env.context.get("mpc_disable_auto_split"):
+            ready_mos = self.filtered(lambda mo: mo.state in ("confirmed", "progress", "to_close"))
+            ready_mos._mpc_remove_blocked_workorders()
+            ready_mos._mpc_auto_split_parallel_workorders(create_missing=True)
+            ready_mos._mpc_fix_parallel_dependencies()
         return res
 
     def _plan_workorders(self, replan=False):
@@ -49,8 +59,9 @@ class MrpProduction(models.Model):
         res = super()._plan_workorders(replan=replan)
         # Ensure blocked (maintenance) workcenters are cleaned even on manual replan,
         # then rebuild/redistribute and recreate missing WOs if the machine is free again.
-        self._mpc_remove_blocked_workorders()
-        self._mpc_auto_split_parallel_workorders(create_missing=True)
+        ready_mos = self.filtered(lambda mo: mo.state != "draft")
+        ready_mos._mpc_remove_blocked_workorders()
+        ready_mos._mpc_auto_split_parallel_workorders(create_missing=True)
         return res
 
     def write(self, vals):
@@ -63,6 +74,7 @@ class MrpProduction(models.Model):
         res = super().write(vals)
 
         if qty_changed:
+            mos_to_rebuild = self.env["mrp.production"]
             for mo in self:
                 old_qty = previous_qty.get(mo.id)
                 if old_qty is None:
@@ -71,13 +83,15 @@ class MrpProduction(models.Model):
                 if float_compare(old_qty, mo.product_qty, precision_rounding=rounding) == 0:
                     continue
 
+                mos_to_rebuild |= mo
+                # Update non-parallel (sequential) workorders that were covering the full MO qty
                 for wo in mo.workorder_ids:
                     if wo.state in ("done", "cancel"):
                         continue
                     op = wo.operation_id
                     if op and op.parallel_mode == "parallel":
                         continue
-                    updates = {}
+
                     wo_rounding = (
                         wo.product_uom_id.rounding
                         if "product_uom_id" in wo._fields and wo.product_uom_id
@@ -86,9 +100,11 @@ class MrpProduction(models.Model):
                     if not wo.planned_qty or float_compare(
                         wo.planned_qty, old_qty, precision_rounding=wo_rounding
                     ) == 0:
-                        updates["planned_qty"] = mo.product_qty
-                    if updates:
-                        wo.write(updates)
+                        wo.write({"planned_qty": mo.product_qty})
+
+            if mos_to_rebuild:
+                mos_to_rebuild._mpc_auto_split_parallel_workorders(create_missing=False)
+
         return res
 
     # ---------------------------------------------------------
@@ -127,7 +143,6 @@ class MrpProduction(models.Model):
             'context': {'active_id': self.id}
         }
 
-
     def button_plan(self):
         """Plan MO using the standard workflow."""
         return super().button_plan()
@@ -135,8 +150,13 @@ class MrpProduction(models.Model):
     def _post_run_manufacture(self, post_production_values):
         """Ensure new MOs created from procurement split quantities correctly."""
         res = super()._post_run_manufacture(post_production_values)
-        productions = self.filtered(lambda mo: mo.mpc_allowed_wc_ids)
+        # Split if we have explicit allowed machines OR if the BoM has parallel operations
+        productions = self.filtered(
+            lambda mo: mo.mpc_allowed_wc_ids
+            or any(op.parallel_mode == 'parallel' for op in mo.bom_id.operation_ids)
+        )
         if productions:
+            # For new MOs, we don't lock yet so missing WOs can be created from BoM ops
             productions.mpc_lock_parallel_wc = False
             productions._mpc_auto_split_parallel_workorders(create_missing=True)
         return res
@@ -187,7 +207,11 @@ class MrpProduction(models.Model):
             * invalidate workorder_ids
         This ensures new workorders added via wizard appear in console UI.
         """
-        for mo in self:
+        if self.env.context.get("mpc_auto_split_in_progress"):
+            return
+
+        productions = self.with_context(mpc_auto_split_in_progress=True)
+        for mo in productions:
 
             skip_cleanup = mo.env.context.get("mpc_skip_cleanup")
 
@@ -211,15 +235,29 @@ class MrpProduction(models.Model):
     # ------------------------------------------------------------------
     # Maintenance / blocked workcenter helpers
     # ------------------------------------------------------------------
-    def _mpc_is_wc_blocked(self, wc_id):
-        wc = self.env["mrp.workcenter"].browse(wc_id)
-        m_state = getattr(wc, "maintenance_state", False)
-        if m_state and m_state not in ("normal", "available"):
-            return True
+    def _mpc_get_blocked_wc_ids(self, wc_ids):
+        """Batch check which workcenters are blocked (maintenance)."""
+        if not wc_ids:
+            return set()
 
-        if "maintenance.request" in self.env.registry:
+        workcenters = self.env["mrp.workcenter"].browse(wc_ids)
+        blocked_ids = set()
+
+        # 1) Check maintenance_state (standard field if maintenance is installed)
+        # We pre-read to avoid N+1 if maintenance is installed
+        existing_fields = self.env["mrp.workcenter"]._fields
+        if "maintenance_state" in existing_fields:
+            for wc_data in workcenters.read(["maintenance_state"]):
+                if wc_data.get("maintenance_state") and wc_data["maintenance_state"] not in ("normal", "available"):
+                    blocked_ids.add(wc_data["id"])
+
+        # 2) Check for active maintenance requests
+        remaining_wc_ids = set(wc_ids) - blocked_ids
+        if remaining_wc_ids and "maintenance.request" in self.env.registry:
             maintenance_model = self.env["maintenance.request"].sudo()
-            domain = [("workcenter_id", "=", wc_id)]
+            domain = [("workcenter_id", "in", list(remaining_wc_ids))]
+
+            # Dynamic stage check
             if "state" in maintenance_model._fields:
                 domain.append(("state", "not in", ["done", "cancel"]))
             elif "stage_id" in maintenance_model._fields:
@@ -227,23 +265,38 @@ class MrpProduction(models.Model):
                 stage_model = getattr(stage_field, "comodel_name", False)
                 if stage_model and "done" in self.env[stage_model]._fields:
                     domain.append(("stage_id.done", "=", False))
-            if maintenance_model.search_count(domain):
-                return True
-        return False
+
+            requests = maintenance_model.search(domain)
+            blocked_ids |= set(requests.mapped("workcenter_id.id"))
+
+        return blocked_ids
+
+    def _mpc_is_wc_blocked(self, wc_id):
+        """Single check; calls batch method."""
+        return wc_id in self._mpc_get_blocked_wc_ids([wc_id])
 
     def _mpc_remove_blocked_workorders(self):
         """Cancel workorders assigned to blocked workcenters (maintenance)."""
         for mo in self:
-            # Group by operation so we keep at least one WO when all machines are blocked.
+            active_wos = mo.workorder_ids.filtered(
+                lambda wo: wo.state not in ("done", "cancel") and wo.operation_id
+            )
+            if not active_wos:
+                continue
+
+            wc_ids = active_wos.mapped("workcenter_id.id")
+            blocked_wc_ids = self._mpc_get_blocked_wc_ids(wc_ids)
+            if not blocked_wc_ids:
+                continue
+
+            # Group by operation to ensure we keep at least one WO
             ops = {}
-            for wo in mo.workorder_ids:
-                if wo.state in ("done", "cancel") or not wo.operation_id:
-                    continue
+            for wo in active_wos:
                 ops.setdefault(wo.operation_id, self.env["mrp.workorder"])
                 ops[wo.operation_id] |= wo
 
-            for op, op_wos in ops.items():
-                blocked = op_wos.filtered(lambda wo: self._mpc_is_wc_blocked(wo.workcenter_id.id))
+            for op_wos in ops.values():
+                blocked = op_wos.filtered(lambda wo: wo.workcenter_id.id in blocked_wc_ids)
                 unblocked = op_wos - blocked
                 # If everything is blocked, keep them (user will start after maintenance).
                 if blocked and unblocked:
@@ -279,10 +332,11 @@ class MrpProduction(models.Model):
         return float(capacity) * eff * oee
 
     def _mpc_split_qty_by_capacity(self, total_qty, workorders):
-        """Split integer qty across workorders using capacity weights."""
+        """Split float qty across workorders using capacity weights, respecting UOM rounding."""
         if not workorders or not total_qty:
             return []
 
+        rounding = self.product_uom_id.rounding or 0.01
         wo_list = list(workorders)
         weights = [
             self._mpc_get_wc_capacity_weight(wo.workcenter_id) for wo in wo_list
@@ -294,50 +348,49 @@ class MrpProduction(models.Model):
             n = len(wo_list)
             if n == 0:
                 return []
-            base = int(floor(total_qty / n))
-            result = [(wo, base) for wo in wo_list]
-            remainder = int(total_qty - base * n)
-            for i in range(remainder):
-                wo, qty = result[i]
-                result[i] = (wo, qty + 1)
-            return result
+            base_qty = float_round(total_qty / n, precision_rounding=rounding)
+            result_qtys = [base_qty] * n
+
+            # Adjust remainder
+            diff = float_round(total_qty - sum(result_qtys), precision_rounding=rounding)
+            if not float_is_zero(diff, precision_rounding=rounding):
+                result_qtys[0] = float_round(result_qtys[0] + diff, precision_rounding=rounding)
+            return list(zip(wo_list, result_qtys))
 
         ideal = [total_qty * w / total_weight for w in weights]
-        base = [int(floor(x)) for x in ideal]
-        assigned = sum(base)
-        remainder = int(total_qty - assigned)
+        # We use floor rounding initially, but with UOM precision
+        base = [float_round(x, precision_rounding=rounding, rounding_method="DOWN") for x in ideal]
+        remainder = float_round(total_qty - sum(base), precision_rounding=rounding)
 
-        fractions = [(ideal[i] - base[i], i) for i in range(len(wo_list))]
-        fractions.sort(reverse=True)
+        if not float_is_zero(remainder, precision_rounding=rounding):
+            # Sort by who lost the most in rounding
+            fractions = sorted(
+                [(ideal[i] - base[i], i) for i in range(len(wo_list))],
+                key=lambda x: x[0],
+                reverse=True
+            )
 
-        idx = 0
-        while remainder > 0 and fractions:
-            _, i = fractions[idx]
-            base[i] += 1
-            remainder -= 1
-            idx = (idx + 1) % len(fractions)
+            # Distribute remainder by smallest possible increments (rounding)
+            idx = 0
+            while not float_is_zero(remainder, precision_rounding=rounding) and idx < len(fractions):
+                _, i = fractions[idx]
+                base[i] = float_round(base[i] + rounding, precision_rounding=rounding)
+                remainder = float_round(remainder - rounding, precision_rounding=rounding)
+                idx = (idx + 1) % len(fractions)
 
-        return [(wo_list[i], base[i]) for i in range(len(wo_list))]
+            # Safety catch: if still a tiny remainder due to math precision
+            if not float_is_zero(remainder, precision_rounding=rounding):
+                base[0] = float_round(base[0] + remainder, precision_rounding=rounding)
+
+        return list(zip(wo_list, base))
 
     def _mpc_auto_split_one_mo(self, create_missing=False):
-        """Distribute MO quantity across workorders (no fraction for parallel).
-
-        Rules:
-        - Optionally create missing workorders for parallel operations
-          (one per configured workcenter).
-        - For non-parallel operations:
-          * If planned_qty is empty => set to full MO quantity.
-        - For parallel operations (operation.parallel_mode = 'parallel'):
-          * Group workorders by operation.
-          * Use integer part of MO quantity for splitting.
-          * Example: 101 / 4 => 26, 25, 25, 25.
-          * First workorders in the group get +1 until remainder is exhausted.
-        - If console_qty is empty, default = planned_qty.
-        """
+        """Distribute MO quantity across parallel workorders (incremental)."""
         self.ensure_one()
 
-        # 0) When requested, ensure we have one workorder per configured
-        #    parallel workcenter for each operation.
+        # Lock the MO row in PostgreSQL to prevent concurrent edits while splitting
+        self.env.cr.execute("SELECT id FROM mrp_production WHERE id = %s FOR NO KEY UPDATE", [self.id])
+
         if create_missing:
             self._mpc_create_parallel_workorders()
 
@@ -345,7 +398,7 @@ class MrpProduction(models.Model):
         if mo_qty <= 0:
             return
 
-        int_qty = int(round(mo_qty))
+        rounding = self.product_uom_id.rounding or 0.000001
 
         parallel_groups = {}
         for wo in self.workorder_ids:
@@ -353,48 +406,45 @@ class MrpProduction(models.Model):
                 continue
             op = wo.operation_id
             if not op or op.parallel_mode != "parallel":
-                # no parallel: ensure planned_qty is at least full MO qty
                 if not wo.planned_qty:
-                    wo.planned_qty = mo_qty
+                    wo.with_context(
+                        mpc_disable_auto_split=True,
+                        mpc_skip_autosplit=True,
+                    ).write({"planned_qty": mo_qty})
                 continue
 
             key = op.id
             parallel_groups.setdefault(key, self.env["mrp.workorder"])
             parallel_groups[key] |= wo
 
-        base_qty = max(int_qty, 0)
-        touched_wos = self.env["mrp.workorder"]
         for _op_id, wos in parallel_groups.items():
             wos = wos.sorted("id")
-            machine_qty = len(wos)
-            if machine_qty <= 0:
+            if not wos:
                 continue
 
-            splits = self._mpc_split_qty_by_capacity(base_qty, wos)
-            if not splits:
-                qty_per_machine = base_qty // machine_qty if machine_qty else 0
-                remainder = base_qty % machine_qty if machine_qty else 0
-                splits = [
-                    (
-                        wos[idx],
-                        qty_per_machine + (1 if idx < remainder else 0),
-                    )
-                    for idx in range(machine_qty)
-                ]
+            # Calculate total already produced in this parallel group
+            total_produced = sum(wos.mapped("qty_produced"))
 
-            for wo, split_qty in splits:
-                wo.write(
-                    {
-                        "planned_qty": split_qty,
-                        "console_qty": 0.0,
-                    }
-                )
-                touched_wos |= wo
+            # The pool of quantity we can still distribute among these machines
+            pool_qty = max(0, mo_qty - total_produced)
 
-        if touched_wos:
-            touched_wos._recompute_parallel_siblings()
+            # Distribute the pool based on capacity
+            splits = self._mpc_split_qty_by_capacity(pool_qty, wos)
 
+            touched_wos = self.env["mrp.workorder"]
+            for wo, split_pool_qty in splits:
+                # New planned qty = what it already produced + its share of the remaining pool
+                new_planned = float_round(wo.qty_produced + split_pool_qty, precision_rounding=rounding)
 
+                # Update only if changed to avoid unnecessary writes/syncs
+                if float_compare(wo.planned_qty, new_planned, precision_rounding=rounding) != 0:
+                    wo.with_context(
+                        mpc_disable_auto_split=True,
+                        mpc_skip_autosplit=True,
+                    ).write({"planned_qty": new_planned})
+                    touched_wos |= wo
+
+            (touched_wos or wos)._recompute_parallel_siblings()
 
 
     def _mpc_create_parallel_workorders(self):
@@ -431,7 +481,7 @@ class MrpProduction(models.Model):
                 continue
 
             # Drop workcenters currently under maintenance and cancel existing WOs on them
-            blocked_wc_ids = {wc_id for wc_id in desired_wc_ids if self._mpc_is_wc_blocked(wc_id)}
+            blocked_wc_ids = self._mpc_get_blocked_wc_ids(list(desired_wc_ids))
             if blocked_wc_ids:
                 # If all desired are blocked, keep at least the original set so the op is not lost.
                 if len(blocked_wc_ids) == len(desired_wc_ids):
@@ -465,13 +515,11 @@ class MrpProduction(models.Model):
                     lambda wo: wo.workcenter_id.id in extra_wc_ids
                 )
                 if to_remove:
-                    # อย่าลบ workorder ทิ้งใน flow MPS ให้ cancel แทน
                     to_remove.write({"state": "cancel"})
                     wos -= to_remove
-                    existing_wc_ids -= extra_wc_ids
 
             wos = wos.filtered(lambda wo: wo.exists())
-            existing_wc_ids = set(wos.mapped("workcenter_id").ids)
+            existing_wc_ids = set(wos.mapped("workcenter_id.id"))
             missing_wc_ids = desired_wc_ids - existing_wc_ids
             if not missing_wc_ids:
                 continue
@@ -483,6 +531,7 @@ class MrpProduction(models.Model):
                 continue
             template = template[0]
 
+            vals_list = []
             for wc_id in missing_wc_ids:
                 vals = {
                     "name": template.name,
@@ -492,11 +541,16 @@ class MrpProduction(models.Model):
                     "operation_id": op.id,
                     "state": template.state if template.state not in ("done", "cancel", "progress") else "ready",
                 }
-                Workorder.create(vals)
+                vals_list.append(vals)
+
+            if vals_list:
+                Workorder.with_context(
+                    mpc_skip_autosplit=True,
+                    mpc_skip_duration_recompute=True,
+                ).create(vals_list)
 
     def _mpc_fix_parallel_dependencies(self):
-        """Adjust blocked_by dependencies for parallel workorders.
-
+        """
         For each operation configured in parallel mode, all workorders
         belonging to that operation should start together once their
         predecessors are done, and must not block each other.
@@ -605,36 +659,22 @@ class MrpWorkorder(models.Model):
         """After deleting workorders, re-split the remaining parallel group."""
         productions = self.mapped("production_id")
 
-        for mo in productions:
-            remaining_wc_ids = (
-                (mo.workorder_ids - self)
-                .filtered(lambda wo: wo.state not in ("done", "cancel"))
-                .mapped("workcenter_id")
-                .ids
-            )
-            mo.mpc_allowed_wc_ids = [(6, 0, remaining_wc_ids)]
-            mo.mpc_lock_parallel_wc = True
-
+        # Before unlinking, capture which WOs are being removed to prevent re-balancing them
         res = super().unlink()
+
         if productions:
             for mo in productions:
-                # Always sync allowed machine list to the current set of
-                # workcenters for this MO. This ensures that manual
-                # deletions from the console or MO form become the new
-                # "truth" for how many machines this MO should use.
+                # Sync allowed machine list to the current set of workcenters
                 mo.mpc_allowed_wc_ids = [
-                    (
-                        6,
-                        0,
-                        mo.workorder_ids.filtered(
-                            lambda wo: wo.state not in ("done", "cancel")
-                        ).mapped("workcenter_id").ids,
-                    )
+                    (6, 0, mo.workorder_ids.filtered(
+                        lambda wo: wo.state not in ("done", "cancel")
+                    ).mapped("workcenter_id").ids)
                 ]
                 mo.mpc_lock_parallel_wc = True
-            # After manual deletions, only redistribute quantities across
-            # remaining workorders; we don't recreate missing ones.
-            productions._mpc_auto_split_parallel_workorders(create_missing=False)
+
+                # Trigger incremental re-balancing
+                mo._mpc_auto_split_one_mo(create_missing=False)
+                mo._mpc_fix_parallel_dependencies()
         return res
 
     @api.model
@@ -690,61 +730,14 @@ class MrpWorkorder(models.Model):
                         ).mapped("workcenter_id").ids
                     )
                     mo.mpc_allowed_wc_ids = [(6, 0, list(allowed_wc_ids))]
-                # Only redistribute across existing workorders; do not
-                # recreate missing ones when lines are added manually.
-                productions.with_context(mpc_skip_cleanup=True)._mpc_auto_split_parallel_workorders(
-                    create_missing=False
-                )
 
-        # Safety: ensure non-parallel workorders carry planned_qty/console_qty
-        # so expected duration is not zeroed out unintentionally.
-        for wo in workorders:
-            op = wo.operation_id
-            if op and op.parallel_mode == "parallel":
-                continue
-            if wo.production_id and not wo.planned_qty and wo.production_id.product_qty:
-                qty = wo.production_id.product_qty
-                vals = {"planned_qty": qty}
-                if vals:
-                    wo.write(vals)
+                # Trigger re-splitting to distribute quantities to new machines.
+                # _mpc_auto_split_one_mo() is intentionally single-record.
+                for mo in productions:
+                    mo._mpc_auto_split_one_mo(create_missing=False)
+                productions._mpc_fix_parallel_dependencies()
 
         return workorders[0] if single else workorders
-
-    def _mpc_cleanup_parallel_duplicates(self):
-        """Deduplicate parallel workorders sharing the same operation/workcenter."""
-        # Allow callers (e.g., Add Work Center wizard) to skip cleanup to avoid
-        # deleting just-created workorders in the same request.
-        if self.env.context.get("mpc_skip_cleanup"):
-            return
-
-        Workorder = self.env["mrp.workorder"]
-        for mo in self:
-            dupe_map = {}
-            for wo in mo.workorder_ids.filtered(
-                lambda w: (
-                    w.operation_id
-                    and w.operation_id.parallel_mode == "parallel"
-                    and w.state not in ("done", "cancel")
-                )
-            ):
-                key = (wo.operation_id.id, wo.workcenter_id.id)
-                dupe_map.setdefault(key, Workorder)
-                dupe_map[key] |= wo
-            to_remove = Workorder
-            for group in dupe_map.values():
-                if len(group) <= 1:
-                    continue
-                # keep oldest (smallest id), remove the rest
-                sorted_group = group.sorted("id")
-                to_remove |= sorted_group[1:]
-            if to_remove:
-                # ห้ามลบ workorder ทิ้ง เพราะอาจถูกอ้างอิง (เช่น MPS)
-                # เปลี่ยนเป็นยกเลิกสถานะ (cancel) แทนเพื่อไม่ให้ core พัง
-                to_remove.write({"state": "cancel"})
-
-    def button_plan(self):
-        """Plan MO using core scheduling (parallel logic handled elsewhere)."""
-        return super().button_plan()
 
     @api.constrains("planned_qty")
     def _check_planned_qty_reasonable(self):

@@ -1,0 +1,30 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "manufacturing_scrap_form_real.png",
+  "target_url": "http://localhost:8811/odoo/action-645/13",
+  "actions": [],
+  "highlight_selectors": [
+    {
+      "selector": "[name='product_id']",
+      "label": "1"
+    },
+    {
+      "selector": "[name='scrap_qty']",
+      "label": "2"
+    },
+    {
+      "selector": "[name='location_id']",
+      "label": "3"
+    },
+    {
+      "selector": "[name='scrap_location_id']",
+      "label": "4"
+    }
+  ],
+  "post_nav_wait_ms": 4500,
+  "post_click_wait_ms": 2200
+}

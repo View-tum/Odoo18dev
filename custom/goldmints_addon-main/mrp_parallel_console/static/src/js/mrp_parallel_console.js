@@ -1028,6 +1028,26 @@ export class ParallelWorkorderConsole extends Component {
             this.notification.add(_t("No manufacturing order found."), { type: "warning" });
             return;
         }
+        try {
+            const prepareRes = await rpc("/mrp_parallel_console/prepare_material_lots", {
+                production_id: this.productionId,
+            });
+            if (prepareRes && prepareRes.error) {
+                this.notification.add(prepareRes.error, { type: "danger" });
+                return;
+            }
+            if (prepareRes && prepareRes.warning) {
+                this.notification.add(prepareRes.warning, {
+                    type: "warning",
+                    sticky: true,
+                });
+            }
+        } catch (error) {
+            this.notification.add(
+                error?.message || _t("Unable to prepare material lots."),
+                { type: "warning", sticky: true }
+            );
+        }
         // Solution 2.1: Open minimal MO form in a dialog optimized for iPad
         // Using a proper ir.actions.act_window fixed the RPC "Expected singleton" error
         await this.actionService.doAction("mrp_parallel_console.action_mrp_production_minimal", {
@@ -2526,16 +2546,10 @@ export class ParallelWorkorderConsole extends Component {
         }
 
         let startedCount = 0;
-        let skippedMissingComponents = 0;
+        let componentWarningCount = 0;
         let errorCount = 0;
         let skippedMoldWarning = 0;
         for (const id of readyIds) {
-            const checkRes = await rpc("/mrp_parallel_console/check_components", {
-                workorder_id: id,
-            });
-            if (checkRes && (!checkRes.sufficient || checkRes.error)) {
-                this.notification.add(checkRes.error || _t("Insufficient components for this workorder."), { type: "warning" });
-            }
             let res = await rpc("/mrp_parallel_console/start_workorder", { workorder_id: id });
             const card = this.state.workorders.find((w) => w.id === id);
             if (res && res.status === "mold_warning" && card) {
@@ -2569,6 +2583,9 @@ export class ParallelWorkorderConsole extends Component {
                 Object.assign(card, updates);
                 this._syncActiveWo(card.id, updates);
             }
+            if (res && res.component_warning) {
+                componentWarningCount += 1;
+            }
             startedCount += 1;
         }
 
@@ -2580,6 +2597,13 @@ export class ParallelWorkorderConsole extends Component {
             errorCount;
 
         if (startedCount && !skippedCount) {
+            if (componentWarningCount) {
+                this.notification.add(
+                    `Started selected workorders. Component availability warnings: ${componentWarningCount}.`,
+                    { type: "warning" }
+                );
+                return;
+            }
             this.notification.add(_t("Started selected workorders."), { type: "success" });
             return;
         }
@@ -2597,6 +2621,9 @@ export class ParallelWorkorderConsole extends Component {
             }
             if (skippedMoldWarning) {
                 parts.push(`mold review: ${skippedMoldWarning}`);
+            }
+            if (componentWarningCount) {
+                parts.push(`component warnings: ${componentWarningCount}`);
             }
             if (errorCount) {
                 parts.push(`errors: ${errorCount}`);

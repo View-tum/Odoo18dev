@@ -16,6 +16,11 @@ class AccountMoveTaxInvoice(models.Model):
 
     tax_invoice_number = fields.Char(copy=False)
     tax_invoice_date = fields.Date(copy=False)
+    branch = fields.Char(
+        string="Tax Branch",
+        copy=False,
+        help="Branch ID, e.g., 0000, 0001, ...",
+    )
     report_late_mo = fields.Selection(
         [
             ("0", "0 month"),
@@ -145,6 +150,30 @@ class AccountMoveTaxInvoice(models.Model):
             else:
                 report_late = str(difference.months)
             self.report_late_mo = report_late
+
+    @api.onchange("partner_id")
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.branch = (self.partner_id.branch or "0").zfill(5)
+        else:
+            self.branch = False
+
+    @api.onchange("branch")
+    def _onchange_branch(self):
+        if self.branch:
+            self.branch = self.branch.zfill(5)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "branch" in vals and vals["branch"]:
+                vals["branch"] = vals["branch"].zfill(5)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        if "branch" in vals and vals["branch"]:
+            vals["branch"] = vals["branch"].zfill(5)
+        return super().write(vals)
 
     def unlink(self):
         """Do not allow remove the last tax_invoice of move_line"""

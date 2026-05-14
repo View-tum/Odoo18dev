@@ -45,7 +45,7 @@ class StockCountDataService:
                     "uom_name": product.uom_id.name if wizard.show_uom else "",
                     "rounding": product.uom_id.rounding or 0.01,
                     # ✅ Price: ใช้ต้นทุน (ถ้าต้องการราคาขาย เปลี่ยนเป็น product.list_price)
-                    "price": product.standard_price or 0.0,
+                    # "price": product.standard_price or 0.0,
                 }
 
         is_prefill = (wizard.mode == "prefill")
@@ -68,7 +68,7 @@ class StockCountDataService:
                 "counted_qty": qty_rounded if is_prefill else "",
 
                 # ✅ Price (ต้นทุน) - ถ้าจะใช้ราคาขายเปลี่ยนเป็น product.list_price
-                "price": (info.get("price") or 0.0) if is_prefill else "",
+                # "price": (info.get("price") or 0.0) if is_prefill else "",
 
                 "note": "",
             })

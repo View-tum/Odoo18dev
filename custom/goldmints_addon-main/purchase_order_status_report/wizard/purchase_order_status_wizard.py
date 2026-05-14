@@ -120,7 +120,12 @@ class PurchaseOrderStatusReportWizard(models.TransientModel):
         for data in lines_data:
             line_vals.append((0, 0, {
                 "order_id": data.get("order_id"),
+                "po_line_id": data.get("po_line_id"),
+                "picking_id": data.get("picking_id"),
+                "service_acceptance_id": data.get("service_acceptance_id"),
                 "source_document": data.get("source_document"),
+                "receipt_ref": data.get("receipt_ref"),
+                "inv_ref": data.get("inv_ref"),
                 "date_order": data.get("order_date"),
                 "expected_arrival": data.get("expected_arrival"),
                 "vendor_id": data.get("vendor").id if data.get("vendor") else False,
@@ -131,13 +136,43 @@ class PurchaseOrderStatusReportWizard(models.TransientModel):
                 "uom_id": data.get("uom").id if data.get("uom") else False,
                 "unit_price": data.get("unit_price"),
                 "subtotal": data.get("subtotal"),
+                "is_pending": data.get("is_pending", False),
+                "is_header": data.get("is_header", False),
+                "receipt_date": data.get("receipt_date"),
                 "state": data.get("state"),
                 "invoice_status": data.get("invoice_status"),
                 "billing_note_status": data.get("billing_note_status"),
+                "is_billable": data.get("is_billable", True),
+                "is_already_billed": data.get("is_already_billed", False),
             }))
 
         self.line_ids = line_vals
 
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": self._name,
+            "res_id": self.id,
+            "view_mode": "form",
+            "target": "current",
+        }
+
+    def action_select_all(self):
+        self.ensure_one()
+        for line in self.line_ids:
+            if line.is_billable:
+                line.is_selected = True
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": self._name,
+            "res_id": self.id,
+            "view_mode": "form",
+            "target": "current",
+        }
+
+    def action_unselect_all(self):
+        self.ensure_one()
+        for line in self.line_ids:
+            line.is_selected = False
         return {
             "type": "ir.actions.act_window",
             "res_model": self._name,

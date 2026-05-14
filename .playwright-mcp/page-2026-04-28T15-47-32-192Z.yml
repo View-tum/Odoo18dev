@@ -1,0 +1,321 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e7]
+        - generic [ref=e8]: Sales
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "To Invoice" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: To Invoice
+        - button "Products" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Products
+        - button "After-Sale Services" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: After-Sale Services
+        - button "Reporting" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: Reporting
+        - button "Configuration" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Configuration
+      - menu [ref=e22]:
+        - button "Attendance" [ref=e23] [cursor=pointer]:
+          - img "Attendance" [ref=e24]: 
+        - button "Messages 2" [ref=e26] [cursor=pointer]:
+          - img "Messages" [ref=e27]: 
+          - generic [ref=e28]: "2"
+        - button "Activities 47" [ref=e29] [cursor=pointer]:
+          - img "Activities" [ref=e30]: 
+          - generic [ref=e31]: "47"
+        - button "Toggle Studio" [ref=e33] [cursor=pointer]:
+          - img [ref=e34]: 
+        - button "" [disabled] [ref=e36]:
+          - generic [ref=e37]: 
+        - button "User" [ref=e39] [cursor=pointer]:
+          - img "User" [ref=e40]
+          - text: 
+  - generic [ref=e42]:
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - generic [ref=e47]:
+          - button "New" [ref=e48] [cursor=pointer]
+          - toolbar "Main actions" [ref=e49]:
+            - button "Upload" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]:
+          - generic [ref=e54]: Quotations
+          - button "" [ref=e58] [cursor=pointer]:
+            - generic [ref=e59]: 
+      - search [ref=e61]:
+        - search [ref=e62]:
+          - button "Search..." [ref=e63] [cursor=pointer]:
+            - img [ref=e64]: 
+          - generic [ref=e65]:
+            - listitem "search" [ref=e66]:
+              - button " " [ref=e68] [cursor=pointer]:
+                - generic [ref=e69]: 
+                - generic [ref=e71]: 
+              - generic [ref=e72]:
+                - generic "My Quotations" [ref=e73]
+                - button "Remove" [ref=e74] [cursor=pointer]: 
+            - searchbox "Search..." [active] [ref=e75]
+        - button "" [expanded] [ref=e76] [cursor=pointer]
+      - generic [ref=e77]:
+        - search [ref=e78]:
+          - navigation "Pager" [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: 1-3
+              - text: / 3
+            - generic [ref=e82]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+        - navigation [ref=e83]:
+          - button "" [ref=e84] [cursor=pointer]:
+            - generic [ref=e85]: 
+          - button "" [ref=e86] [cursor=pointer]:
+            - generic [ref=e87]: 
+          - button "" [ref=e88] [cursor=pointer]:
+            - generic [ref=e89]: 
+          - button "" [ref=e90] [cursor=pointer]:
+            - generic [ref=e91]: 
+          - button "" [ref=e92] [cursor=pointer]:
+            - generic [ref=e93]: 
+          - button "" [ref=e94] [cursor=pointer]:
+            - generic [ref=e95]: 
+    - table [ref=e98]:
+      - rowgroup [ref=e99]:
+        - row "Number  AX Sale Order  Creation Date  Customer  Salesperson  Activities Total  Status  " [ref=e100]:
+          - columnheader [ref=e101] [cursor=pointer]:
+            - checkbox [ref=e103]
+          - columnheader "Number " [ref=e104] [cursor=pointer]:
+            - generic [ref=e105]:
+              - generic [ref=e106]: Number
+              - generic [ref=e107]: 
+          - columnheader "AX Sale Order " [ref=e109] [cursor=pointer]:
+            - generic [ref=e110]:
+              - generic [ref=e111]: AX Sale Order
+              - generic [ref=e112]: 
+          - columnheader "Creation Date " [ref=e114] [cursor=pointer]:
+            - generic [ref=e115]:
+              - generic [ref=e116]: Creation Date
+              - generic [ref=e117]: 
+          - columnheader "Customer " [ref=e119] [cursor=pointer]:
+            - generic [ref=e120]:
+              - generic [ref=e121]: Customer
+              - generic [ref=e122]: 
+          - columnheader "Salesperson " [ref=e124] [cursor=pointer]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: Salesperson
+              - generic [ref=e127]: 
+          - columnheader "Activities" [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: Activities
+              - text: 
+          - columnheader "Total " [ref=e133] [cursor=pointer]:
+            - generic [ref=e134]:
+              - generic [ref=e135]: Total
+              - generic [ref=e136]: 
+          - columnheader "Status " [ref=e138] [cursor=pointer]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: Status
+              - generic [ref=e141]: 
+          - columnheader "" [ref=e143]:
+            - button "" [ref=e145] [cursor=pointer]:
+              - generic [ref=e146]: 
+      - rowgroup [ref=e147]:
+        - row "SOB-263079 04/22/2026 08:51:32 ร้านค้า ทับทิม Administrator Show activities 100,000.00 ฿ Cancelled" [ref=e148]:
+          - cell [ref=e149]:
+            - checkbox [ref=e151] [cursor=pointer]
+          - cell "SOB-263079" [ref=e152] [cursor=pointer]
+          - cell [ref=e153] [cursor=pointer]
+          - cell "04/22/2026 08:51:32" [ref=e154] [cursor=pointer]
+          - cell "ร้านค้า ทับทิม" [ref=e155] [cursor=pointer]
+          - cell "Administrator" [ref=e156] [cursor=pointer]:
+            - generic [ref=e158]:
+              - img [ref=e160]
+              - generic [ref=e161]: Administrator
+          - cell "Show activities" [ref=e162] [cursor=pointer]:
+            - button "Show activities" [ref=e164]:
+              - img [ref=e165]: 
+          - cell "100,000.00 ฿" [ref=e166] [cursor=pointer]:
+            - generic [ref=e167]: 100,000.00 ฿
+          - cell "Cancelled" [ref=e168] [cursor=pointer]:
+            - generic [ref=e170]: Cancelled
+          - cell [ref=e171]
+        - row "SOB-263078 04/22/2026 08:37:05 ร้านค้า ทับทิม Administrator Show activities 1,000,000.00 ฿ Cancelled" [ref=e172]:
+          - cell [ref=e173]:
+            - checkbox [ref=e175] [cursor=pointer]
+          - cell "SOB-263078" [ref=e176] [cursor=pointer]
+          - cell [ref=e177] [cursor=pointer]
+          - cell "04/22/2026 08:37:05" [ref=e178] [cursor=pointer]
+          - cell "ร้านค้า ทับทิม" [ref=e179] [cursor=pointer]
+          - cell "Administrator" [ref=e180] [cursor=pointer]:
+            - generic [ref=e182]:
+              - img [ref=e184]
+              - generic [ref=e185]: Administrator
+          - cell "Show activities" [ref=e186] [cursor=pointer]:
+            - button "Show activities" [ref=e188]:
+              - img [ref=e189]: 
+          - cell "1,000,000.00 ฿" [ref=e190] [cursor=pointer]:
+            - generic [ref=e191]: 1,000,000.00 ฿
+          - cell "Cancelled" [ref=e192] [cursor=pointer]:
+            - generic [ref=e194]: Cancelled
+          - cell [ref=e195]
+        - row "SOB-263077 04/02/2026 10:32:55 ร้านค้า ทับทิม Administrator Show activities 1,000,000.00 ฿ Cancelled" [ref=e196]:
+          - cell [ref=e197]:
+            - checkbox [ref=e199] [cursor=pointer]
+          - cell "SOB-263077" [ref=e200] [cursor=pointer]
+          - cell [ref=e201] [cursor=pointer]
+          - cell "04/02/2026 10:32:55" [ref=e202] [cursor=pointer]
+          - cell "ร้านค้า ทับทิม" [ref=e203] [cursor=pointer]
+          - cell "Administrator" [ref=e204] [cursor=pointer]:
+            - generic [ref=e206]:
+              - img [ref=e208]
+              - generic [ref=e209]: Administrator
+          - cell "Show activities" [ref=e210] [cursor=pointer]:
+            - button "Show activities" [ref=e212]:
+              - img [ref=e213]: 
+          - cell "1,000,000.00 ฿" [ref=e214] [cursor=pointer]:
+            - generic [ref=e215]: 1,000,000.00 ฿
+          - cell "Cancelled" [ref=e216] [cursor=pointer]:
+            - generic [ref=e218]: Cancelled
+          - cell [ref=e219]
+      - rowgroup [ref=e220]:
+        - row "2,100,000.00 ฿" [ref=e221]:
+          - cell [ref=e222]
+          - cell [ref=e223]
+          - cell [ref=e224]
+          - cell [ref=e225]
+          - cell [ref=e226]
+          - cell [ref=e227]
+          - cell [ref=e228]
+          - cell "2,100,000.00 ฿" [ref=e229]
+          - cell [ref=e230]
+          - cell [ref=e231]
+  - generic:
+    - menu [ref=e240]:
+      - generic [ref=e241]:
+        - generic [ref=e242]:
+          - generic [ref=e243]: 
+          - heading "Filters" [level=5] [ref=e244]
+        - menuitemcheckbox " My Quotations" [checked] [ref=e245] [cursor=pointer]
+        - separator [ref=e246]
+        - menuitemcheckbox "Quotations" [ref=e247] [cursor=pointer]
+        - menuitemcheckbox "Sales Orders" [ref=e248] [cursor=pointer]
+        - separator [ref=e249]
+        - button "Create Date" [ref=e251] [cursor=pointer]
+        - separator [ref=e252]
+        - menuitem "Add Custom Filter" [ref=e253] [cursor=pointer]
+      - generic [ref=e254]:
+        - generic [ref=e255]:
+          - generic [ref=e256]: 
+          - heading "Group By" [level=5] [ref=e257]
+        - menuitemcheckbox "Salesperson" [ref=e258] [cursor=pointer]
+        - menuitemcheckbox "Customer" [ref=e259] [cursor=pointer]
+        - button "Order Date" [ref=e261] [cursor=pointer]
+        - separator [ref=e262]
+        - combobox [ref=e263] [cursor=pointer]:
+          - option "Activity State"
+          - option "Apply Manual Exchange"
+          - option "Blocked Free Item Products"
+          - option "Campaign"
+          - option "Company"
+          - option "Country code"
+          - option "Created by"
+          - option "Creation Date"
+          - option "Credit Banner Mode"
+          - option "Currency"
+          - option "Customer"
+          - option "Customer Reference"
+          - option "Default Sales Price Include"
+          - option "Delivery Address"
+          - option "Delivery Date"
+          - option "Delivery Message"
+          - option "Delivery Method"
+          - option "Delivery Status"
+          - option "Delivery cost should be recomputed"
+          - option "Effective Date"
+          - option "Expiration"
+          - option "Export Payment Term"
+          - option "Export Shipping Policy"
+          - option "Exported Date"
+          - option "Fiscal Position"
+          - option "Foreign VAT"
+          - option "Headers/Footers"
+          - option "Incoterm"
+          - option "Incoterm Location"
+          - option "Invoice Address"
+          - option "Invoice Status"
+          - option "Invoicing Journal"
+          - option "Is Exported?"
+          - option "Is Number Line"
+          - option "Job Request"
+          - option "Last Status Updated"
+          - option "Last Updated by"
+          - option "Last Updated on"
+          - option "Locked"
+          - option "Manually Applied Coupons"
+          - option "Manually Triggered Rules"
+          - option "Market Scope"
+          - option "Medium"
+          - option "Mode of Transportation"
+          - option "Number of Cartons"
+          - option "Online payment"
+          - option "Online signature"
+          - option "Opportunity"
+          - option "Order Date"
+          - option "Order Reference"
+          - option "Payment Ref."
+          - option "Payment Terms"
+          - option "Pending Email Template"
+          - option "Pricelist"
+          - option "Procurement Group"
+          - option "Proforma Invoice No."
+          - option "Project"
+          - option "Project Account"
+          - option "Quotation Template"
+          - option "Quote calculator"
+          - option "Reference PI"
+          - option "SO Type"
+          - option "Sale Number (AX)"
+          - option "Sales Team"
+          - option "Salesperson"
+          - option "Security Token"
+          - option "Sequence Option"
+          - option "Shipping Method"
+          - option "Shipping Policy"
+          - option "Signed By"
+          - option "Signed On"
+          - option "Simulation Mode"
+          - option "Simulation Origin"
+          - option "Source"
+          - option "Source Document"
+          - option "Status"
+          - option "Tags"
+          - option "Tax Calculation Rounding Method"
+          - option "Terms & Conditions format"
+          - option "Timesheet Encoding Unit"
+          - option "Transactions"
+          - option "Warehouse"
+          - option "เลขที่เอกสาร"
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - generic [ref=e266]: 
+          - heading "Favorites" [level=5] [ref=e267]
+        - menuitemcheckbox "Quotations " [ref=e268] [cursor=pointer]:
+          - generic [ref=e269]:
+            - generic [ref=e270]: Quotations
+            - generic "Delete item" [ref=e271]: 
+        - menuitemcheckbox "To Approve " [ref=e272] [cursor=pointer]:
+          - generic [ref=e273]:
+            - generic [ref=e274]: To Approve
+            - generic "Delete item" [ref=e275]: 
+        - separator [ref=e276]
+        - button "Save current search" [ref=e278] [cursor=pointer]
+    - alert [ref=e234]:
+      - generic [ref=e236]:
+        - button "Close" [ref=e237] [cursor=pointer]
+        - generic [ref=e239]: It seems the records with IDs 6243 cannot be found. They might have been deleted.

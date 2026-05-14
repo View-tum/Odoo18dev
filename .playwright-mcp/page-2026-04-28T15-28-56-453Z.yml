@@ -1,0 +1,145 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e142] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e143]
+        - generic [ref=e144]: Sales
+      - menu [ref=e145]:
+        - button "Orders" [ref=e146] [cursor=pointer]:
+          - generic [ref=e147]: Orders
+        - button "To Invoice" [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]: To Invoice
+        - button "Products" [ref=e150] [cursor=pointer]:
+          - generic [ref=e151]: Products
+        - button "After-Sale Services" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: After-Sale Services
+        - button "Reporting" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Reporting
+        - button "Configuration" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 47" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "47"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e158]:
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - generic [ref=e163]:
+          - button "New" [ref=e164] [cursor=pointer]
+          - toolbar "Main actions" [ref=e165]:
+            - button "Upload" [ref=e167] [cursor=pointer]
+        - generic [ref=e168]:
+          - generic [ref=e170]: Quotations
+          - button "" [ref=e174] [cursor=pointer]:
+            - generic [ref=e175]: 
+      - search [ref=e177]:
+        - search [ref=e178]:
+          - button "Search..." [ref=e179] [cursor=pointer]:
+            - img [ref=e180]: 
+          - generic [ref=e181]:
+            - listitem "search" [ref=e182]:
+              - button " " [ref=e184] [cursor=pointer]:
+                - generic [ref=e185]: 
+                - generic [ref=e187]: 
+              - generic [ref=e188]:
+                - generic "My Quotations" [ref=e189]
+                - button "Remove" [ref=e190] [cursor=pointer]: 
+            - listitem "search" [ref=e349]:
+              - button "Order " [ref=e351] [cursor=pointer]:
+                - text: Order
+                - generic [ref=e353]: 
+              - generic [ref=e354]:
+                - generic "SOD-263215" [ref=e355]
+                - button "Remove" [ref=e356] [cursor=pointer]: 
+            - searchbox "Search..." [active] [ref=e191]
+        - button "" [ref=e192] [cursor=pointer]
+      - navigation [ref=e199]:
+        - button "" [ref=e200] [cursor=pointer]:
+          - generic [ref=e201]: 
+        - button "" [ref=e202] [cursor=pointer]:
+          - generic [ref=e203]: 
+        - button "" [ref=e204] [cursor=pointer]:
+          - generic [ref=e205]: 
+        - button "" [ref=e206] [cursor=pointer]:
+          - generic [ref=e207]: 
+        - button "" [ref=e208] [cursor=pointer]:
+          - generic [ref=e209]: 
+        - button "" [ref=e210] [cursor=pointer]:
+          - generic [ref=e211]: 
+    - generic [ref=e213]:
+      - generic [ref=e358]:
+        - button "" [ref=e359] [cursor=pointer]:
+          - generic [ref=e360]: 
+          - img [ref=e362]
+        - heading "Beat competitors with stunning quotations!" [level=2] [ref=e363]
+        - paragraph [ref=e364]: Boost sales with online payments or signatures, upsells, and a great customer portal.
+        - link "Check a sample. It's clean!" [ref=e365] [cursor=pointer]:
+          - /url: https://www.odoo.com/documentation/18.0/_downloads/312a470653db882b08ad72eb30cb4088/sample_quotation.pdf
+      - table [ref=e214]:
+        - rowgroup [ref=e215]:
+          - row "Number  AX Sale Order  Creation Date  Customer  Salesperson  Activities Total  Status  " [ref=e216]:
+            - columnheader [ref=e217] [cursor=pointer]:
+              - checkbox [ref=e219]
+            - columnheader "Number " [ref=e220] [cursor=pointer]:
+              - generic [ref=e221]:
+                - generic [ref=e222]: Number
+                - generic [ref=e223]: 
+            - columnheader "AX Sale Order " [ref=e225] [cursor=pointer]:
+              - generic [ref=e226]:
+                - generic [ref=e227]: AX Sale Order
+                - generic [ref=e228]: 
+            - columnheader "Creation Date " [ref=e230] [cursor=pointer]:
+              - generic [ref=e231]:
+                - generic [ref=e232]: Creation Date
+                - generic [ref=e233]: 
+            - columnheader "Customer " [ref=e235] [cursor=pointer]:
+              - generic [ref=e236]:
+                - generic [ref=e237]: Customer
+                - generic [ref=e238]: 
+            - columnheader "Salesperson " [ref=e240] [cursor=pointer]:
+              - generic [ref=e241]:
+                - generic [ref=e242]: Salesperson
+                - generic [ref=e243]: 
+            - columnheader "Activities" [ref=e245]:
+              - generic [ref=e246]:
+                - generic [ref=e247]: Activities
+                - text: 
+            - columnheader "Total " [ref=e249] [cursor=pointer]:
+              - generic [ref=e250]:
+                - generic [ref=e251]: Total
+                - generic [ref=e252]: 
+            - columnheader "Status " [ref=e254] [cursor=pointer]:
+              - generic [ref=e255]:
+                - generic [ref=e256]: Status
+                - generic [ref=e257]: 
+            - columnheader "" [ref=e259]:
+              - button "" [ref=e261] [cursor=pointer]:
+                - generic [ref=e262]: 
+        - rowgroup
+        - rowgroup [ref=e336]:
+          - row [ref=e366]:
+            - cell [ref=e338]
+            - cell [ref=e339]
+            - cell [ref=e340]
+            - cell [ref=e341]
+            - cell [ref=e342]
+            - cell [ref=e343]
+            - cell [ref=e344]
+            - cell [ref=e367]
+            - cell [ref=e346]
+            - cell [ref=e347]

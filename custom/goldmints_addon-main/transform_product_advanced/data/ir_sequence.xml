@@ -6,4 +6,11 @@
         <field name="padding">6</field>
         <field name="company_id" eval="False"/>
     </record>
+    <record id="seq_rma_transform_return" model="ir.sequence">
+        <field name="name">RMA Transform Return Sequence</field>
+        <field name="code">transform_product_advanced.rma_transform_return</field>
+        <field name="prefix">RMATR/%(year)s/%(month)s/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
 </odoo>

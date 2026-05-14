@@ -64,7 +64,10 @@
                     <thead>
                         <tr>
                             <th>เลขที่ใบสั่งซื้อ</th>
-                            <!-- <th>อ้างอิง</th> -->
+                            <th>อ้างอิง</th>
+                            <th>ใบรับสินค้า/บริการ (SA/Receipt)</th>
+                            <th class="text-center">วันที่รับ</th>
+                            <th>เลขที่ใบแจ้งหนี้ (Inv Ref)</th>
                             <th class="text-center">วันที่สั่งซื้อ</th>
                             <th class="text-center">วันที่คาดว่าจะมาถึง</th>
                             <th>ผู้ขาย</th>
@@ -82,19 +85,44 @@
                     </thead>
 
                     <tbody>
-                        <tr t-foreach="lines" t-as="l">
-                            <td><span t-esc="l['order_name']"/></td>
-                            <!-- <td><span t-esc="l['source_document']"/></td> -->
-                            <td class="text-center"><span t-esc="l['order_date']"/></td>
-                            <td class="text-center"><span t-esc="l['expected_arrival']"/></td>
-                            <td><span t-esc="l['vendor'].name if l['vendor'] else '-'"/></td>
-                            <td><span t-esc="l['product'].display_name if l['product'] else '-'"/></td>
-                            <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty'])"/></td>
+                        <tr t-foreach="lines" t-as="l" t-att-class="'po-row-header' if l.get('is_header') else 'po-row-detail' + (' is-pending' if l.get('is_pending') else '')">
+                            <td>
+                                <span t-esc="l['order_name']" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
+                            </td>
+                            <td>
+                                <span t-if="l['is_header']" t-esc="l['source_document']"/>
+                            </td>
+                            <td><span t-esc="l['receipt_ref']"/></td>
+                            <td class="text-center">
+                                <span t-if="l['receipt_date']" t-esc="l['receipt_date']"/>
+                            </td>
+                            <td><span t-esc="l['inv_ref']"/></td>
+                            <td class="text-center">
+                                <span t-if="l['is_header']" t-esc="l['order_date']"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-if="l['is_header']" t-esc="l['expected_arrival']"/>
+                            </td>
+                            <td>
+                                <span t-esc="l['vendor'].name if l['vendor'] else '-'" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
+                            </td>
+                            <td>
+                                <span t-esc="l['product'].display_name if l['product'] else '-'" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-if="l['is_header'] or l['qty'] > 0" t-esc="'{:,.2f}'.format(l['qty'])"/>
+                            </td>
                             <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty_received'])"/></td>
                             <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty_pending_invoice'])"/></td>
-                            <td class="text-center"><span t-esc="l['uom'].name if l['uom'] else '-'"/></td>
-                            <td class="text-right"><span t-esc="'{:,.2f}'.format(l['unit_price'])"/></td>
-                            <td class="text-right"><span t-esc="'{:,.2f}'.format(l['subtotal'])"/></td>
+                            <td class="text-center">
+                                <span t-if="l['is_header']" t-esc="l['uom'].name if l['uom'] else '-'"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-if="l['is_header']" t-esc="'{:,.2f}'.format(l['unit_price'])"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-if="l['is_header']" t-esc="'{:,.2f}'.format(l['subtotal'])"/>
+                            </td>
 
                             <td class="text-center">
                                 <span t-if="l['state'] == 'draft'" class="badge badge-draft">ใบขอเสนอราคา</span>

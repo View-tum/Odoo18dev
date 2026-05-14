@@ -128,7 +128,8 @@
                         <list editable="bottom" create="0" delete="1">
                             <field name="move_state" column_invisible="1" />
                             <field name="account_id" optional="hide" />
-                            <field name="partner_id" optional="hide" />
+                            <field name="partner_id" optional="show" />
+                            <field name="branch" optional="show" />
                             <field name="tax_invoice_number" />
                             <field name="tax_invoice_date" />
                             <field name="report_late_mo" optional="show" />
@@ -216,6 +217,7 @@
                                 <field name="report_date" />
                             </div>
                             <field name="partner_id" />
+                            <field name="branch" />
                             <field name="account_id" readonly="1" />
                             <field name="tax_line_id" readonly="1" />
                             <field name="tax_base_amount" />
@@ -254,6 +256,7 @@
                 <field name="report_late_mo" />
                 <field name="report_date" />
                 <field name="partner_id" />
+                <field name="branch" />
                 <field name="account_id" />
                 <field name="tax_line_id" />
                 <field name="tax_base_amount" />

@@ -1,0 +1,538 @@
+{
+  "database": "goldmints_uat_manu",
+  "selected_codes": [
+    "FG-PNC-TH-01001",
+    "FG-PSS-TH-01005",
+    "SM-PLS-UP-01001",
+    "FG-MTK-IL-01001",
+    "SM-JOI-PK-02001"
+  ],
+  "missing_selected_codes": [],
+  "all_tree_product_count": 15,
+  "manufactured_product_count": 5,
+  "leaf_product_count": 7,
+  "edge_count": 11,
+  "before_quant_count": 4,
+  "before_quantity_total": 0.0,
+  "before_reserved_total": 52.0,
+  "unreserved_move_count": 13,
+  "unreserve_errors": [],
+  "mid_quant_count_after_unreserve": 3,
+  "mid_reserved_total_after_unreserve": 12.0,
+  "apply_errors": [],
+  "after_quant_count": 3,
+  "after_quant_rows": [
+    {
+      "quant_id": 13073,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU03-02",
+      "lot": "CODX-SEED-MU03-02-10463",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    },
+    {
+      "quant_id": 13077,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU04-02",
+      "lot": "CODX-SEED-MU04-02-10467",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    },
+    {
+      "quant_id": 13079,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU04-03",
+      "lot": "CODX-SEED-MU04-03-10469",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    }
+  ],
+  "prepared_selected_products": [
+    {
+      "code": "FG-MTK-IL-01001",
+      "name": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "uom": "Unit",
+      "uom_rounding": 0.0001,
+      "tracking": "lot",
+      "qty_available": 0.0,
+      "virtual_available": -10000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "has_bom": true,
+      "bom": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "bom_components": 2,
+      "orderpoints": []
+    },
+    {
+      "code": "FG-PNC-TH-01001",
+      "name": "[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)",
+      "uom": "Unit",
+      "uom_rounding": 0.0001,
+      "tracking": "lot",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ],
+      "has_bom": true,
+      "bom": "[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)",
+      "bom_components": 2,
+      "orderpoints": [
+        {
+          "id": 175,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "Manufacture (Pharma)",
+          "qty_to_order": 0.0
+        }
+      ]
+    },
+    {
+      "code": "FG-PSS-TH-01005",
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "uom": "Unit",
+      "uom_rounding": 0.0001,
+      "tracking": "lot",
+      "qty_available": 0.0,
+      "virtual_available": -1526.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ],
+      "has_bom": true,
+      "bom": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "bom_components": 3,
+      "orderpoints": [
+        {
+          "id": 249,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "Manufacture (Pharma)",
+          "qty_to_order": 362.0
+        }
+      ]
+    },
+    {
+      "code": "SM-JOI-PK-02001",
+      "name": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "uom": "Pcs",
+      "uom_rounding": 0.01,
+      "tracking": "lot",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ],
+      "has_bom": true,
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "bom_components": 2,
+      "orderpoints": [
+        {
+          "id": 47,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "Manufacture",
+          "qty_to_order": 0.0
+        }
+      ]
+    },
+    {
+      "code": "SM-PLS-UP-01001",
+      "name": "[SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "uom": "Pcs",
+      "uom_rounding": 0.01,
+      "tracking": "lot",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ],
+      "has_bom": true,
+      "bom": "BOM-001-32: [SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "bom_components": 2,
+      "orderpoints": []
+    }
+  ],
+  "tree_products": [
+    {
+      "code": "",
+      "name": "พิมเสนสำลี 8cc 2โหล",
+      "is_selected": false,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Buy"
+      ]
+    },
+    {
+      "code": "",
+      "name": "เทปกาว",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "",
+      "name": "ลังพิมเสนสำลี 100โหล",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "FG-MTK-IL-01001",
+      "name": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "is_selected": true,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": -10000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ]
+    },
+    {
+      "code": "FG-MTK-IL-02001",
+      "name": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+      "is_selected": false,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ]
+    },
+    {
+      "code": "FG-PNC-TH-01001",
+      "name": "[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)",
+      "is_selected": true,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ]
+    },
+    {
+      "code": "FG-PSS-TH-01005",
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "is_selected": true,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": -1526.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ]
+    },
+    {
+      "code": "FG-PSS-TH-02001",
+      "name": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "is_selected": false,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "qty_available": 0.0,
+      "virtual_available": 40.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)"
+      ]
+    },
+    {
+      "code": "PK-CAR-PS-01003",
+      "name": "[PK-CAR-PS-01003] ลังยาดม PS 80โหล สีขาว",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "PK-CAR-PS-02003",
+      "name": "[PK-CAR-PS-02003] ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy",
+        "Replenish on Order (MTO)"
+      ]
+    },
+    {
+      "code": "RM-MBS-PK-00002",
+      "name": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Kgs",
+      "rounding": 1e-06,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "RM-MBS-WH-00001",
+      "name": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Kgs",
+      "rounding": 1e-06,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "RM-PLA-PP-00001",
+      "name": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "is_selected": false,
+      "has_bom": false,
+      "is_leaf": true,
+      "uom": "Kgs",
+      "rounding": 1e-06,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ]
+    },
+    {
+      "code": "SM-JOI-PK-02001",
+      "name": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "is_selected": true,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ]
+    },
+    {
+      "code": "SM-PLS-UP-01001",
+      "name": "[SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "is_selected": true,
+      "has_bom": true,
+      "is_leaf": false,
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "parent_code": "FG-MTK-IL-01001",
+      "component_code": "FG-MTK-IL-02001",
+      "component": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+      "qty": 24.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-MTK-IL-01001",
+      "component_code": "PK-CAR-PS-02003",
+      "component": "[PK-CAR-PS-02003] ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+      "qty": 1.0,
+      "uom": "Pcs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PNC-TH-01001",
+      "component_code": "",
+      "component": "พิมเสนสำลี 8cc 2โหล",
+      "qty": 50.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-PNC-TH-01001",
+      "component_code": "",
+      "component": "ลังพิมเสนสำลี 100โหล",
+      "qty": 1.0,
+      "uom": "Unit",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "FG-PSS-TH-02001",
+      "component": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "qty": 16.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "PK-CAR-PS-01003",
+      "component": "[PK-CAR-PS-01003] ลังยาดม PS 80โหล สีขาว",
+      "qty": 1.0,
+      "uom": "Pcs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "",
+      "component": "เทปกาว",
+      "qty": 1.0,
+      "uom": "Unit",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-JOI-PK-02001",
+      "component_code": "RM-PLA-PP-00001",
+      "component": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-JOI-PK-02001",
+      "component_code": "RM-MBS-PK-00002",
+      "component": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-PLS-UP-01001",
+      "component_code": "RM-PLA-PP-00001",
+      "component": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 8.792,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-PLS-UP-01001",
+      "component_code": "RM-MBS-WH-00001",
+      "component": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "qty": 0.108,
+      "uom": "Kgs",
+      "has_child_bom": false
+    }
+  ],
+  "sample_before_quant_rows": [
+    {
+      "quant_id": 11879,
+      "product_code": "FG-PSS-TH-01005",
+      "product": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "location": "M-WH/Stock/CARSALEU6",
+      "lot": "AA00426",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 40.0
+    },
+    {
+      "quant_id": 13073,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU03-02",
+      "lot": "CODX-SEED-MU03-02-10463",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    },
+    {
+      "quant_id": 13077,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU04-02",
+      "lot": "CODX-SEED-MU04-02-10467",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    },
+    {
+      "quant_id": 13079,
+      "product_code": "FG-PSS-TH-02001",
+      "product": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "location": "GMP/Stock/CODX SRC MU04-03",
+      "lot": "CODX-SEED-MU04-03-10469",
+      "package": "",
+      "owner": "",
+      "quantity": 0.0,
+      "reserved_quantity": 4.0
+    }
+  ]
+}

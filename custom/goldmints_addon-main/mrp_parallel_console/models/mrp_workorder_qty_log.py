@@ -27,3 +27,25 @@ class MrpWorkorderQtyLog(models.Model):
         help="Employees who produced this quantity entry.",
     )
     company_id = fields.Many2one(related="workorder_id.company_id", store=True, readonly=True)
+
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        for record in records:
+            if record.workorder_id.production_id:
+                record.workorder_id.production_id._console_sync_qty_producing()
+        return records
+
+    def write(self, vals):
+        res = super().write(vals)
+        if "qty" in vals:
+            for record in self:
+                if record.workorder_id.production_id:
+                    record.workorder_id.production_id._console_sync_qty_producing()
+        return res
+
+    def unlink(self):
+        productions = self.mapped("workorder_id.production_id")
+        res = super().unlink()
+        for production in productions:
+            production._console_sync_qty_producing()
+        return res

@@ -21,6 +21,8 @@ class ServiceAcceptance(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancelled')
     ], string='Status', default='draft', tracking=True)
+    invoice_ref = fields.Char(string='Inv Ref', copy=False, tracking=True)
+    invoice_date = fields.Date(string='Invoice Date', copy=False, tracking=True)
     purchase_count = fields.Integer(
         compute='_compute_purchase_count', string='Purchase Orders')
     acceptance_line_ids = fields.One2many('service.acceptance.line', 'acceptance_id',

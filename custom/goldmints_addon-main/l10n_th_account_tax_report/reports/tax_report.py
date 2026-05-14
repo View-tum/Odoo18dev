@@ -12,14 +12,14 @@ class ThaiTaxReport(models.AbstractModel):
     def _query_select_tax(self):
         return """
             ROW_NUMBER() OVER (ORDER BY tax_date, tax_invoice_number) AS row_number,
-            company_id, account_id, partner_id, tax_invoice_number,
+            company_id, account_id, partner_id, branch, tax_invoice_number,
             TO_CHAR(tax_date, 'DD/MM/YYYY') AS tax_date,
             name, sum(tax_base_amount) tax_base_amount,
             sum(tax_amount) tax_amount
         """
 
     def _query_select_sub_tax(self):
-        return """t.id, t.company_id, ml.account_id, t.partner_id,
+        return """t.id, t.company_id, ml.account_id, t.partner_id, t.branch,
             CASE WHEN ml.parent_state = 'posted' AND t.reversing_id IS NULL
                 THEN t.tax_invoice_number
             ELSE
@@ -41,7 +41,7 @@ class ThaiTaxReport(models.AbstractModel):
         """
 
     def _query_groupby_tax(self):
-        return "company_id, account_id, partner_id, tax_invoice_number, tax_date, name"
+        return "company_id, account_id, partner_id, branch, tax_invoice_number, tax_date, name"
 
     def _domain_where_clause_tax(self, show_cancel):
         condition = "IN ('posted', 'cancel')" if show_cancel else "= 'posted'"
@@ -111,7 +111,7 @@ class ThaiTaxReport(models.AbstractModel):
                 {
                     "partner_name": partner_id.display_name,
                     "partner_vat": partner_id.vat,
-                    "partner_branch": partner_id.company_registry,
+                    "partner_branch": line.get("branch") or partner_id.branch or partner_id.company_registry,
                 }
             )
             total_base += line["tax_base_amount"]

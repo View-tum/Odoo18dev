@@ -24,13 +24,26 @@
                         </group>
                     </group>
                     
+
+
                     <notebook>
                         <page string="Preview Data" invisible="not line_ids">
                             <field name="line_ids">
-                                <list string="Report Lines" class="custom_report_table" editable="bottom" create="false" delete="false">
+                                <list string="Report Lines" class="custom_report_table" editable="bottom" create="false" delete="false"
+                                      decoration-warning="is_pending"
+                                      decoration-bf="is_header or (is_billable and not is_already_billed)"
+                                      decoration-muted="is_already_billed">
+                                    <field name="is_pending" column_invisible="1"/>
+                                    <field name="is_header" column_invisible="1"/>
+                                    <field name="is_billable" column_invisible="1"/>
+                                    <field name="is_already_billed" column_invisible="1"/>
                                     
-                                    <field name="order_id" readonly="1"/>
+                                    <field name="is_selected" string=" " readonly="not is_billable"/>
+                                    <field name="order_id" string="ใบสั่งซื้อ" readonly="1"/>
                                     <field name="source_document" readonly="1"/>
+                                    <field name="receipt_ref" string="ใบรับสินค้า/บริการ (SA/Receipt)" readonly="1"/>
+                                    <field name="receipt_date" readonly="1"/>
+                                    <field name="inv_ref" string="เลขที่ใบแจ้งหนี้ (Inv Ref)" readonly="1"/>
                                     <field name="date_order" readonly="1"/>
                                     <field name="expected_arrival" readonly="1"/>
                                     <field name="vendor_id" readonly="1"/>

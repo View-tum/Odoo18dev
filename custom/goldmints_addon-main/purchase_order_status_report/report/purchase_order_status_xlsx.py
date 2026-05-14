@@ -99,6 +99,61 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
                 "font_size": 10,
             }
         )
+        
+        # Header Row Format (Bold & Light Grey background)
+        header_row_fmt = workbook.add_format({
+            "bold": True,
+            "border": 1,
+            "valign": "vcenter",
+            "font_size": 10,
+            "fg_color": "#f8f9fa",
+        })
+        
+        header_row_num_fmt = workbook.add_format({
+            "bold": True,
+            "border": 1,
+            "align": "right",
+            "valign": "vcenter",
+            "num_format": "#,##0.00",
+            "font_size": 10,
+            "fg_color": "#f8f9fa",
+        })
+
+        header_row_date_fmt = workbook.add_format({
+            "bold": True,
+            "border": 1,
+            "align": "center",
+            "valign": "vcenter",
+            "num_format": "yyyy-mm-dd",
+            "font_size": 10,
+            "fg_color": "#f8f9fa",
+        })
+
+        # Detail Row Format
+        detail_row_fmt = workbook.add_format({
+            "border": 1,
+            "valign": "vcenter",
+            "font_size": 10,
+            "font_color": "#5f6368",
+        })
+        
+        detail_row_num_fmt = workbook.add_format({
+            "border": 1,
+            "align": "right",
+            "valign": "vcenter",
+            "num_format": "#,##0.00",
+            "font_size": 10,
+            "font_color": "#5f6368",
+        })
+        
+        detail_row_date_fmt = workbook.add_format({
+            "border": 1,
+            "align": "center",
+            "valign": "vcenter",
+            "num_format": "yyyy-mm-dd",
+            "font_size": 10,
+            "font_color": "#5f6368",
+        })
 
         status_formats = {
             "draft": workbook.add_format(
@@ -261,7 +316,7 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
 
         # --------- Header ---------
         row = 0
-        sheet.merge_range(row, 0, row, 14, "รายงานสถานะใบสั่งซื้อ", title_fmt) # ขยายเป็น 14
+        sheet.merge_range(row, 0, row, 18, "รายงานสถานะใบสั่งซื้อ", title_fmt) # ขยายเป็น 18
         sheet.set_row(row, 25)
         row += 2
 
@@ -294,10 +349,10 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
         sheet.merge_range(row, 1, row, 3, billing_filter, filter_value_fmt)
         row += 2
 
-        # --------- Column headers (สลับให้ Status มาก่อน Billing) ---------
+        # --------- Column headers ---------
         headers = [
-            "เลขที่ใบสั่งซื้อ", "อ้างอิง", "วันที่สั่งซื้อ", "วันที่คาดว่าจะมาถึง",
-            "ผู้ขาย", "สินค้า", "จำนวน", "รับสินค้า/บริการ", "ค้างรับชำระ",
+            "เลขที่ใบสั่งซื้อ", "อ้างอิง", "ใบรับสินค้า/บริการ (SA/Receipt)", "วันที่รับของ", "เลขที่ใบแจ้งหนี้ (Inv Ref)", "วันที่สั่งซื้อ", "วันที่คาดว่าจะมาถึง",
+            "ผู้ขาย", "สินค้า", "จำนวนสั่ง", "จำนวนรับ", "จำนวนค้างรับ", "จำนวนค้างตั้งหนี้",
             "หน่วยนับ", "ราคาต่อหน่วย", "ยอดไม่รวมภาษี", 
             "สถานะใบสั่งซื้อ", "สถานะการวางบิล", "สถานะการตั้งหนี้"
         ]
@@ -306,55 +361,79 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
         sheet.set_row(row, 30)
         row += 1
 
-        # --------- Data lines (เขียน Status ก่อน Billing) ---------
+        # --------- Data lines ---------
         for line in lines:
+            is_header = line.get("is_header")
+            
+            # Select Formats based on row type
+            fmt_text = header_row_fmt if is_header else detail_row_fmt
+            fmt_num = header_row_num_fmt if is_header else detail_row_num_fmt
+            fmt_date = header_row_date_fmt if is_header else detail_row_date_fmt
+            
             col = 0
-            # เขียน 12 คอลัมน์แรกเหมือนเดิม...
-            sheet.write(row, col, line.get("order_name", ""), text_fmt); col += 1
-            sheet.write(row, col, line.get("source_document", ""), text_fmt); col += 1
-            sheet.write(row, col, line.get("order_date") or "", date_center_fmt); col += 1
-            sheet.write(row, col, line.get("expected_arrival") or "", date_center_fmt); col += 1
-            sheet.write(row, col, line.get("vendor").name if line.get("vendor") else "", text_fmt); col += 1
-            sheet.write(row, col, line.get("product").display_name if line.get("product") else "", text_fmt); col += 1
-            sheet.write(row, col, line.get("qty", 0.0), num_fmt); col += 1
-            sheet.write(row, col, line.get("qty_received", 0.0), num_fmt); col += 1
-            sheet.write(row, col, line.get("qty_pending_invoice", 0.0), num_fmt); col += 1
-            sheet.write(row, col, line.get("uom").name if line.get("uom") else "", text_center_fmt); col += 1
-            sheet.write(row, col, line.get("unit_price", 0.0), num_fmt); col += 1
-            sheet.write(row, col, line.get("subtotal", 0.0), num_fmt); col += 1
+            
+            # Identity Columns (Always show, but lighter for Detail)
+            sheet.write(row, col, line.get("order_name", ""), fmt_text); col += 1
+            sheet.write(row, col, line.get("source_document", "") if is_header else "", fmt_text); col += 1
+            
+            # Receipt Info (Show on all)
+            sheet.write(row, col, line.get("receipt_ref", ""), fmt_text); col += 1
+            sheet.write(row, col, line.get("receipt_date") or "", fmt_date); col += 1
+            sheet.write(row, col, line.get("inv_ref", ""), fmt_text); col += 1
+            
+            # Dates & Vendor/Product (Always show, but lighter for Detail)
+            sheet.write(row, col, line.get("order_date") or "" if is_header else "", fmt_date); col += 1
+            sheet.write(row, col, line.get("expected_arrival") or "" if is_header else "", fmt_date); col += 1
+            sheet.write(row, col, (line.get("vendor").name if line.get("vendor") else ""), fmt_text); col += 1
+            sheet.write(row, col, (line.get("product").display_name if line.get("product") else ""), fmt_text); col += 1
+            
+            # Quantities
+            sheet.write(row, col, line.get("qty", 0.0), fmt_num); col += 1
+            sheet.write(row, col, line.get("qty_received", 0.0), fmt_num); col += 1
+            sheet.write(row, col, line.get("qty_pending", 0.0), fmt_num); col += 1
+            sheet.write(row, col, line.get("qty_pending_invoice", 0.0), fmt_num); col += 1
+            
+            # Financials (Only show on Header)
+            sheet.write(row, col, (line.get("uom").name if line.get("uom") else "") if is_header else "", fmt_text); col += 1
+            sheet.write(row, col, line.get("unit_price", 0.0) if is_header else 0.0, fmt_num); col += 1
+            sheet.write(row, col, line.get("subtotal", 0.0) if is_header else 0.0, fmt_num); col += 1
 
-            # Order Status
-            st = line.get("state")
-            sheet.write(row, col, status_display.get(st, st or ""), status_formats.get(st, text_center_fmt))
+            # Order Status (Only show on Header)
+            st = line.get("state") if is_header else ""
+            st_display = status_display.get(st, st or "") if is_header else ""
+            sheet.write(row, col, st_display, status_formats.get(st, fmt_text) if is_header else fmt_text)
             col += 1
             
-            # Billing Note Status
-            bn_state = line.get("billing_note_status")
-            sheet.write(row, col, billing_note_display.get(bn_state, bn_state or ""), billing_note_formats.get(bn_state, text_center_fmt))
+            # Billing Note Status (Only show on Header)
+            bn_state = line.get("billing_note_status") if is_header else ""
+            bn_display = billing_note_display.get(bn_state, bn_state or "") if is_header else ""
+            sheet.write(row, col, bn_display, billing_note_formats.get(bn_state, fmt_text) if is_header else fmt_text)
             col += 1
 
-            # Invoice Status
-            inv_state = line.get("invoice_status")
-            sheet.write(row, col, billing_display.get(inv_state, inv_state or ""), billing_formats.get(inv_state, text_center_fmt))
+            # Invoice Status (Only show on Header)
+            inv_state = line.get("invoice_status") if is_header else ""
+            inv_display = billing_display.get(inv_state, inv_state or "") if is_header else ""
+            sheet.write(row, col, inv_display, billing_formats.get(inv_state, fmt_text) if is_header else fmt_text)
 
             sheet.set_row(row, 20)
             row += 1
 
         # --------- Summary ---------
         row += 1
-        sheet.merge_range(row, 0, row, 14, f"จํานวนรายการทั้งหมด: {len(lines)}", filter_label_fmt)
+        sheet.merge_range(row, 0, row, 18, f"จํานวนรายการทั้งหมด: {len(lines)}", filter_label_fmt)
 
         # --------- Column widths & freeze ---------
         sheet.set_column(0, 0, 15)    # PO Number
-        sheet.set_column(1, 1, 18)    # Source Document
-        sheet.set_column(2, 3, 14)    # Dates
-        sheet.set_column(4, 4, 25)    # Vendor
-        sheet.set_column(5, 5, 40)    # Product
-        sheet.set_column(6, 8, 12)    # Qty / Received / Pending
-        sheet.set_column(9, 9, 10)    # UoM
-        sheet.set_column(10, 11, 15)  # Unit Price / Subtotal
-        sheet.set_column(12, 12, 18)  # สถานะใบสั่งซื้อ
-        sheet.set_column(13, 13, 18)  # สถานะการวางบิล
-        sheet.set_column(14, 14, 18)  # สถานะการตั้งหนี้
+        sheet.set_column(1, 1, 15)    # Source Document
+        sheet.set_column(2, 2, 25)    # Receipt / SA Ref
+        sheet.set_column(3, 3, 15)    # Receipt Date
+        sheet.set_column(4, 4, 20)    # Inv Ref
+        sheet.set_column(5, 6, 14)    # Dates
+        sheet.set_column(7, 7, 25)    # Vendor
+        sheet.set_column(8, 8, 40)    # Product
+        sheet.set_column(9, 12, 12)   # Qtys
+        sheet.set_column(13, 13, 10)  # UoM
+        sheet.set_column(14, 15, 15)  # Unit Price / Subtotal
+        sheet.set_column(16, 18, 18)  # Statuses
 
         sheet.freeze_panes(8, 0)

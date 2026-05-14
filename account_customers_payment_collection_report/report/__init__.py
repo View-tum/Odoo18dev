@@ -1,2 +1,0 @@
-from . import account_customers_payment_collection_report
-from . import account_customers_payment_collection_xlsx

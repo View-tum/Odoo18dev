@@ -28,6 +28,12 @@ class VendorBillingNote(models.Model):
         required=True, 
         tracking=True
     )
+    service_acceptance_id = fields.Many2one(
+        "service.acceptance",
+        string="Service Acceptance",
+        ondelete="restrict",
+        help="Linked Service Acceptance document",
+    )
     purchase_ids = fields.Many2many(
         "purchase.order", 
         string="Purchase Orders", 

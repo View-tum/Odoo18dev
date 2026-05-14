@@ -104,6 +104,15 @@
                                 <span class="o_stat_text">Journal Entry</span>
                             </div>
                         </button>
+                        <button name="action_view_bank_draft"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            invisible="not bank_draft_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Bank Draft</span>
+                            </div>
+                        </button>
                     </div>
                     <div class="oe_title">
                         <label for="transaction_type" class="oe_edit_only" />

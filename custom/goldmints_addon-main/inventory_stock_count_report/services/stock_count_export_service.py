@@ -291,7 +291,8 @@ class StockCountExportService:
         widths.append(14)  # Counted Qty
         if wizard.show_uom:
             widths.append(12)  # UoM
-        widths += [12, 20]  # Price, Remark
+        # widths += [12, 20]  # Price, Remark
+        widths += [20]  # ใหม่: เหลือแค่ Remark
         
         for idx, width in enumerate(widths):
             worksheet.set_column(idx, idx, width)
@@ -368,7 +369,8 @@ class StockCountExportService:
         headers.append("Counted Qty")
         if wizard.show_uom:
             headers.append("UoM")
-        headers += ["Price", "Remark"]
+        # headers += ["Price", "Remark"]
+        headers += ["Remark"]  # เอา Price ออก
         return headers
 
     def _format_product(self, line):
@@ -416,12 +418,12 @@ class StockCountExportService:
             col += 1
 
         # ✅ Price (editable) - ใส่เลขได้
-        price = line.get("price")
-        if isinstance(price, (int, float)):
-            worksheet.write_number(row, col, price, cell_editable_fmt)
-        else:
-            worksheet.write(row, col, price or "", cell_editable_fmt)
-        col += 1
+        # price = line.get("price")
+        # if isinstance(price, (int, float)):
+        #     worksheet.write_number(row, col, price, cell_editable_fmt)
+        # else:
+        #     worksheet.write(row, col, price or "", cell_editable_fmt)
+        # col += 1
 
         # ✅ Remark (editable)
         note = line.get("note")

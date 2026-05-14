@@ -17,7 +17,7 @@ class ResConfigSettings(models.TransientModel):
     precision_mrp = fields.Integer(
         string="Manufacturing Order Precision",
         config_parameter='precision_control.precision_mrp',
-        default=4,
+        default=6,
     )
     precision_account = fields.Integer(
         string="Accounting Precision",
@@ -32,10 +32,10 @@ class ResConfigSettings(models.TransientModel):
     precision_stock = fields.Integer(
         string="Stock Precision",
         config_parameter='precision_control.precision_stock',
-        default=2,
+        default=6,
     )
     precision_product = fields.Integer(
         string="Product Precision",
         config_parameter='precision_control.precision_product',
-        default=2,
+        default=6,
     )

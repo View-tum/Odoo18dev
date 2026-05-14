@@ -296,13 +296,7 @@ class MrpProduction(models.Model):
         Notify users in the 'Labor Cost Variance Alerts' group about significant cost deviations.
         """
         self.ensure_one()
-        group = self.env.ref("mrp_parallel_console.group_mrp_labor_cost_alerts", raise_if_not_found=False)
-        if not group:
-            return
-
-        recipients = group.users.partner_id
-        if not recipients:
-            return
+        recipients = self._get_labor_cost_alert_recipients()
 
         variance_pct = variance_ratio * 100
         direction = _("Higher than STD") if variance_ratio > 0 else _("Lower than STD")
@@ -325,6 +319,34 @@ class MrpProduction(models.Model):
             message_type="notification",
             subtype_xmlid="mail.mt_note",
         )
+
+    def _get_labor_cost_alert_recipients(self):
+        """Return alert recipients without silently dropping the notification."""
+        alert_group = self.env.ref(
+            "mrp_parallel_console.group_mrp_labor_cost_alerts",
+            raise_if_not_found=False,
+        )
+        users = (
+            alert_group.users.filtered(lambda user: user.active)
+            if alert_group
+            else self.env["res.users"]
+        )
+
+        if not users:
+            fallback_group = self.env.ref(
+                "mrp.group_mrp_manager",
+                raise_if_not_found=False,
+            )
+            users = (
+                fallback_group.users.filtered(lambda user: user.active)
+                if fallback_group
+                else self.env["res.users"]
+            )
+
+        if not users:
+            users = self.env.user
+
+        return users.partner_id
 
     def _post_labour(self):
         """

@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import models, fields, api
 
 
 class PurchasePriceHistory(models.Model):
@@ -29,11 +29,15 @@ class PurchasePriceHistory(models.Model):
                     pol.product_qty AS qty,
                     po.id AS po_id,
                     (
-                        SELECT AVG(pol2.price_unit)
-                        FROM purchase_order_line pol2
-                        JOIN purchase_order po2 ON po2.id = pol2.order_id
-                        WHERE pol2.product_id = pol.product_id
-                          AND po2.state IN ('purchase','done')
+                        SELECT AVG(price) FROM unnest(ARRAY(
+                            SELECT pol2.price_unit
+                            FROM purchase_order_line pol2
+                            JOIN purchase_order po2 ON po2.id = pol2.order_id
+                            WHERE pol2.product_id = pol.product_id
+                              AND po2.state IN ('purchase','done')
+                            ORDER BY po2.date_order DESC
+                            LIMIT 10
+                        )) AS price
                     ) AS avg_price
                 FROM purchase_order_line pol
                 JOIN purchase_order po ON pol.order_id = po.id
@@ -55,7 +59,7 @@ class PurchaseOrder(models.Model):
 
     @api.depends("order_line.product_id")
     def _compute_price_history_count(self):
-        history = self.env["purchase.price.history"].sudo()
+        history = self.env["purchase.price.history"]
         for rec in self:
             product_ids = rec.order_line.mapped("product_id").ids
             rec.price_history_count = history.search_count([
@@ -89,7 +93,7 @@ class PurchaseRequest(models.Model):
 
     @api.depends("line_ids.product_id")
     def _compute_pr_price_history_count(self):
-        history = self.env["purchase.price.history"].sudo()
+        history = self.env["purchase.price.history"]
         for rec in self:
             product_ids = rec.line_ids.mapped("product_id").ids
             rec.price_history_count = history.search_count([
@@ -124,7 +128,7 @@ class PurchaseOrderLine(models.Model):
 
     @api.depends("product_id")
     def _compute_avg_purchase_price(self):
-        history = self.env["purchase.price.history"].sudo()
+        history = self.env["purchase.price.history"]
         for line in self:
             if not line.product_id:
                 line.avg_purchase_price = 0
@@ -151,7 +155,7 @@ class PurchaseRequestLine(models.Model):
 
     @api.depends("product_id")
     def _compute_avg_purchase_price(self):
-        history = self.env["purchase.price.history"].sudo()
+        history = self.env["purchase.price.history"]
         for line in self:
             if not line.product_id:
                 line.avg_purchase_price = 0

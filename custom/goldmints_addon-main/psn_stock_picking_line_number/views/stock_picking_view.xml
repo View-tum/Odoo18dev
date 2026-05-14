@@ -16,6 +16,14 @@
                     <field name="number" string="No."/>
                 </xpath>
 
+                <xpath expr="//field[@name='move_ids_without_package']/list/field[@name='lot_ids']" position="replace">
+                    <field name="gm_lot_display"
+                           string="Serial Numbers"
+                           column_invisible="parent.state == 'draft'"
+                           groups="stock.group_production_lot"
+                           invisible="not show_details_visible or has_tracking == 'none'"/>
+                </xpath>
+
             </field>
         </record>
 

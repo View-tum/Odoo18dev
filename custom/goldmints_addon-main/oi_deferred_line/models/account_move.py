@@ -63,7 +63,7 @@ class AccountMove(models.Model):
                 "date": line.move_id.date,
             })
             lines_vals_to_create.append([
-                self.env["account.move.line"]._get_deferred_lines_values(account_id, coeff * line.balance, ref, line.analytic_distribution, line)
+                self.env["account.move.line"]._get_deferred_lines_values(account_id, coeff * line.balance, line.name or ref, line.analytic_distribution, line)
                 for (account_id, coeff) in [(line.account_id.id, -1), (account.id, 1)]
             ])
             lines_periods.append((line, periods, journal, account))
@@ -86,7 +86,7 @@ class AccountMove(models.Model):
                 deferral_moves_vals.append({**move_vals, "journal_id": journal.id, "date": period[1]})
                 deferral_moves_line_vals.append([
                     {
-                        **self.env["account.move.line"]._get_deferred_lines_values(account_id, coeff * balance, move_vals["ref"], line.analytic_distribution, line),
+                        **self.env["account.move.line"]._get_deferred_lines_values(account_id, coeff * balance, line.name or move_vals["ref"], line.analytic_distribution, line),
                         "partner_id": line.partner_id.id,
                         "product_id": line.product_id.id,
                     }

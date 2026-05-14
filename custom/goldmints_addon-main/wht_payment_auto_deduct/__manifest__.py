@@ -1,6 +1,6 @@
 {
     "name": "WHT Payment Auto Deduct",
-    "version": "18.0.1.0.13",
+    "version": "18.0.1.0.17",
     "summary": "Auto create WHT deduction from bill lines when registering payment",
     "category": "Accounting",
     "license": "AGPL-3",

@@ -1,0 +1,249 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e142] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Inventory" [ref=e143]
+        - generic [ref=e144]: Inventory
+      - menu [ref=e145]:
+        - menuitem "Overview" [ref=e146] [cursor=pointer]
+        - button "Operations" [ref=e147] [cursor=pointer]:
+          - generic [ref=e148]: Operations
+        - button "Products" [ref=e149] [cursor=pointer]:
+          - generic [ref=e150]: Products
+        - button "AX Interface" [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]: AX Interface
+        - button "Reporting" [ref=e153] [cursor=pointer]:
+          - generic [ref=e154]: Reporting
+        - button "Configuration" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 30" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "30"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e702]:
+    - generic [ref=e704]:
+      - generic [ref=e705]:
+        - button "New" [ref=e708] [cursor=pointer]
+        - generic [ref=e709]:
+          - list [ref=e710]:
+            - listitem [ref=e711]:
+              - link "Inventory Overview" [ref=e712] [cursor=pointer]:
+                - /url: /odoo/inventory
+            - listitem [ref=e713]:
+              - text: /
+              - 'link "GOLD MINTS PRODUCTS CO., LTD.: Receipts" [ref=e714] [cursor=pointer]':
+                - /url: /odoo/inventory/1/action-672
+          - generic [ref=e715]:
+            - generic [ref=e717]: GMP/IN/00097
+            - button "" [ref=e721] [cursor=pointer]:
+              - generic [ref=e722]: 
+      - generic [ref=e725]:
+        - button " Moves" [ref=e726] [cursor=pointer]:
+          - generic [ref=e727]: 
+          - generic [ref=e729]: Moves
+        - button " 1 Purchase Orders" [ref=e730] [cursor=pointer]:
+          - generic [ref=e731]: 
+          - generic [ref=e732]:
+            - generic [ref=e733]: "1"
+            - generic [ref=e734]: Purchase Orders
+      - generic [ref=e735]:
+        - button "Search Knowledge Articles" [ref=e736] [cursor=pointer]:
+          - img [ref=e737]
+        - search [ref=e741]:
+          - navigation "Pager" [ref=e742]:
+            - generic [ref=e743]:
+              - generic [ref=e744]: "2"
+              - text: / 2
+            - generic [ref=e745]:
+              - button "Previous" [ref=e746] [cursor=pointer]:
+                - generic [ref=e747]: 
+              - button "Next" [ref=e748] [cursor=pointer]:
+                - generic [ref=e749]: 
+    - generic [ref=e752]:
+      - generic [ref=e753]:
+        - generic [ref=e754]:
+          - button "Validate" [ref=e755] [cursor=pointer]
+          - button "Print" [ref=e756] [cursor=pointer]
+          - button "Return" [ref=e757] [cursor=pointer]
+          - button "Cancel" [ref=e758] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e760]:
+          - radio "Done" [disabled]
+          - radio "Ready" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - generic [ref=e761]:
+        - heading "Priority GMP/IN/00097" [level=1] [ref=e763]:
+          - radiogroup "Priority" [ref=e765]:
+            - radio "Urgent" [ref=e766] [cursor=pointer]: 
+          - generic [ref=e767]: GMP/IN/00097
+        - generic [ref=e768]:
+          - generic [ref=e769]:
+            - generic [ref=e770]:
+              - generic [ref=e773]: Receive From
+              - combobox "Receive From" [ref=e779]: บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด
+            - generic [ref=e780]:
+              - generic [ref=e782]: Operation Type
+              - combobox "Operation Type" [ref=e788]: "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+            - generic [ref=e789]:
+              - generic [ref=e791]: Destination Location
+              - combobox "Destination Location" [ref=e797]: GMP/HOLD-V
+          - generic [ref=e798]:
+            - generic [ref=e799]:
+              - generic [ref=e801]:
+                - text: Scheduled Date
+                - superscript [ref=e802]: "?"
+              - textbox "Scheduled Date?" [ref=e807] [cursor=pointer]: 04/30/2026 15:04:09
+            - generic [ref=e808]:
+              - generic [ref=e810]:
+                - text: Deadline
+                - superscript [ref=e811]: "?"
+              - generic [ref=e815]: 04/30/2026 15:04:09
+            - generic [ref=e816]:
+              - generic [ref=e818]:
+                - text: Invoice reference
+                - superscript [ref=e819]: "?"
+              - textbox "Invoice reference?" [ref=e822]: "1234"
+            - generic [ref=e823]:
+              - generic [ref=e825]:
+                - text: Invoice date
+                - superscript [ref=e826]: "?"
+              - textbox "Invoice date?" [ref=e830] [cursor=pointer]: 12/03/2026
+            - generic [ref=e831]:
+              - generic [ref=e833]:
+                - text: Source Document
+                - superscript [ref=e834]: "?"
+              - textbox "Source Document?" [ref=e837]:
+                - /placeholder: e.g. PO0032
+                - text: P01031
+        - generic [ref=e838]:
+          - list [ref=e840]:
+            - listitem [ref=e841] [cursor=pointer]:
+              - tab "Operations" [ref=e842]
+            - listitem [ref=e843] [cursor=pointer]:
+              - tab "Additional Info" [ref=e844]
+            - listitem [ref=e845] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e846]
+          - table [ref=e852]:
+            - rowgroup [ref=e853]:
+              - row "No.  Product  Demand  Quantity  Unit  " [ref=e854]:
+                - columnheader "No. " [ref=e855] [cursor=pointer]:
+                  - generic [ref=e856]:
+                    - generic [ref=e857]: No.
+                    - generic [ref=e858]: 
+                - columnheader "Product " [ref=e860] [cursor=pointer]:
+                  - generic [ref=e861]:
+                    - generic [ref=e862]: Product
+                    - generic [ref=e863]: 
+                - columnheader "Demand " [ref=e865] [cursor=pointer]:
+                  - generic [ref=e866]:
+                    - generic [ref=e867]: Demand
+                    - generic [ref=e868]: 
+                - columnheader [ref=e870]
+                - columnheader "Quantity " [ref=e871] [cursor=pointer]:
+                  - generic [ref=e872]:
+                    - generic [ref=e873]: Quantity
+                    - generic [ref=e874]: 
+                - columnheader "Unit " [ref=e876] [cursor=pointer]:
+                  - generic [ref=e877]:
+                    - generic [ref=e878]: Unit
+                    - generic [ref=e879]: 
+                - columnheader [ref=e881]
+                - columnheader [ref=e882]
+                - columnheader [ref=e883]
+                - columnheader "" [ref=e884]:
+                  - button "" [ref=e886] [cursor=pointer]:
+                    - generic [ref=e887]: 
+            - rowgroup [ref=e888]:
+              - row "1 [PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58 100.00  100.00 Pcs  Delete row" [ref=e889]:
+                - cell "1" [ref=e890] [cursor=pointer]
+                - cell "[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58" [ref=e891] [cursor=pointer]
+                - cell "100.00" [ref=e892] [cursor=pointer]
+                - cell "" [ref=e893] [cursor=pointer]:
+                  - button "" [ref=e895]:
+                    - generic [ref=e896]: 
+                - cell "100.00" [ref=e897] [cursor=pointer]
+                - cell "Pcs" [ref=e898] [cursor=pointer]
+                - cell [ref=e899] [cursor=pointer]
+                - cell [ref=e900] [cursor=pointer]
+                - cell "" [ref=e901] [cursor=pointer]:
+                  - button "" [ref=e902]
+                - cell "Delete row" [ref=e903]:
+                  - button "Delete row" [ref=e904] [cursor=pointer]: 
+              - row "Add a line" [ref=e905]:
+                - cell "Add a line" [ref=e906]:
+                  - button "Add a line" [ref=e907] [cursor=pointer]
+              - row [ref=e908]:
+                - cell [ref=e909]
+              - row [ref=e910]:
+                - cell [ref=e911]
+            - rowgroup [ref=e912]:
+              - row [ref=e913]:
+                - cell [ref=e914]
+                - cell [ref=e915]
+                - cell [ref=e916]
+                - cell [ref=e917]
+                - cell [ref=e918]
+                - cell [ref=e919]
+                - cell [ref=e920]
+                - cell [ref=e921]
+                - cell [ref=e922]
+                - cell [ref=e923]
+      - generic [ref=e925]:
+        - generic [ref=e927]:
+          - button "Send message" [ref=e928] [cursor=pointer]
+          - button "Log note" [ref=e929] [cursor=pointer]
+          - button "Activities" [ref=e930] [cursor=pointer]
+          - button "Search Messages" [ref=e932] [cursor=pointer]:
+            - img [ref=e933]: 
+          - button "Attach files" [ref=e935] [cursor=pointer]:
+            - generic [ref=e936]: 
+          - button "1" [ref=e938] [cursor=pointer]:
+            - img [ref=e939]: 
+            - superscript: "1"
+          - button "Follow" [ref=e940] [cursor=pointer]:
+            - generic [ref=e942]: Follow
+        - generic [ref=e944]:
+          - generic [ref=e945]:
+            - generic [ref=e947]:
+              - separator [ref=e948]
+              - generic [ref=e949]: Today
+              - separator [ref=e950]
+            - group "System notification" [ref=e951]:
+              - generic [ref=e952]:
+                - generic "Open card" [ref=e954] [cursor=pointer]:
+                  - img [ref=e955]
+                - generic [ref=e956]:
+                  - generic [ref=e957]:
+                    - generic "Open card" [ref=e958] [cursor=pointer]:
+                      - strong [ref=e959]: OdooBot
+                    - generic "4/29/2026, 3:04:18 PM" [ref=e960]: Today at 3:04 PM
+                  - paragraph [ref=e967]:
+                    - text: "This transfer has been created from:"
+                    - link "P01031" [ref=e968] [cursor=pointer]:
+                      - /url: "#"
+            - group "System notification" [ref=e969]:
+              - generic [ref=e970]:
+                - generic "Open card" [ref=e972] [cursor=pointer]:
+                  - img [ref=e973]
+                - generic [ref=e974]:
+                  - generic [ref=e975]:
+                    - generic "Open card" [ref=e976] [cursor=pointer]:
+                      - strong [ref=e977]: OdooBot
+                    - generic "4/29/2026, 3:04:18 PM" [ref=e978]: Today at 3:04 PM
+                  - paragraph [ref=e985]: Transfer created
+          - button "" [ref=e986] [cursor=pointer]:
+            - generic [ref=e987]: 

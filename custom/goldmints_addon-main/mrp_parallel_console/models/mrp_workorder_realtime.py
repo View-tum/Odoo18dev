@@ -25,9 +25,14 @@ class MrpWorkorderRealtime(models.Model):
 
     # Fields to track for real-time notifications
     _REALTIME_TRACKED_FIELDS = [
-        'state',
-        'console_qty',
-        'employee_ids',
+        "state",
+        "planned_qty",
+        "console_qty",
+        "employee_ids",
+        "console_date_start",
+        "console_date_finished",
+        "mpc_supervisor_checked",
+        "mpc_supervisor_id",
     ]
 
     def write(self, vals):
@@ -88,22 +93,43 @@ class MrpWorkorderRealtime(models.Model):
                 if event_type == 'workorder_update':
                     event_type = 'quantity_changed'
 
-            if 'employee_ids' in new_vals:
+            if "employee_ids" in new_vals:
                 # Get employee names for display
-                if new_vals['employee_ids']:
+                if new_vals["employee_ids"]:
                     # Handle many2many write format
-                    employee_ids = self._resolve_m2m_ids(
-                        new_vals['employee_ids']
-                    )
-                    employees = self.env['hr.employee'].browse(employee_ids)
-                    changes['employee_ids'] = employee_ids
-                    changes['employee_names'] = employees.mapped('name')
+                    employee_ids = self._resolve_m2m_ids(new_vals["employee_ids"])
+                    employees = self.env["hr.employee"].browse(employee_ids)
+                    changes["employee_ids"] = employee_ids
+                    changes["employee_names"] = employees.mapped("name")
                 else:
-                    changes['employee_ids'] = []
-                    changes['employee_names'] = []
+                    changes["employee_ids"] = []
+                    changes["employee_names"] = []
 
-                if event_type == 'workorder_update':
-                    event_type = 'employees_assigned'
+                if event_type == "workorder_update":
+                    event_type = "employees_assigned"
+
+            if "planned_qty" in new_vals:
+                changes["planned_qty"] = new_vals["planned_qty"]
+
+            if "console_date_start" in new_vals:
+                changes["console_date_start"] = (
+                    fields.Datetime.to_string(record.console_date_start)
+                    if record.console_date_start
+                    else False
+                )
+
+            if "console_date_finished" in new_vals:
+                changes["console_date_finished"] = (
+                    fields.Datetime.to_string(record.console_date_finished)
+                    if record.console_date_finished
+                    else False
+                )
+
+            if "mpc_supervisor_checked" in new_vals or "mpc_supervisor_id" in new_vals:
+                changes["mpc_supervisor_checked"] = record.mpc_supervisor_checked
+                changes["mpc_supervisor_name"] = (
+                    record.mpc_supervisor_id.name if record.mpc_supervisor_id else False
+                )
 
             # Build minimal notification message (delta update - only essential fields)
             message = {

@@ -1,0 +1,137 @@
+{
+  "database": "goldmints_uat_manu",
+  "invalid_uom_count": 0,
+  "invalid_uom": [],
+  "decimal_precision": [
+    {
+      "id": 3,
+      "name": "Discount",
+      "digits": 12
+    },
+    {
+      "id": 7,
+      "name": "Payment Terms",
+      "digits": 2
+    },
+    {
+      "id": 1,
+      "name": "Percentage Analytic",
+      "digits": 2
+    },
+    {
+      "id": 2,
+      "name": "Product Price",
+      "digits": 6
+    },
+    {
+      "id": 6,
+      "name": "Product Unit of Measure",
+      "digits": 6
+    },
+    {
+      "id": 8,
+      "name": "Quality Tests",
+      "digits": 2
+    },
+    {
+      "id": 4,
+      "name": "Stock Weight",
+      "digits": 2
+    },
+    {
+      "id": 5,
+      "name": "Volume",
+      "digits": 2
+    }
+  ],
+  "template_category_mismatch_count": 0,
+  "template_category_mismatch_sample": [],
+  "bom_header_qty_bad_count": 0,
+  "bom_header_qty_bad_sample": [],
+  "bom_line_category_mismatch_count": 0,
+  "bom_line_category_mismatch_sample": [],
+  "bom_line_qty_bad_count": 0,
+  "bom_line_qty_bad_sample": [],
+  "quant_bad_count": 0,
+  "quant_bad_sample": [],
+  "move_bad_count": 0,
+  "move_bad_sample": [],
+  "move_line_bad_count": 0,
+  "move_line_bad_sample": [],
+  "mo_bad_count": 0,
+  "mo_bad_sample": [],
+  "orderpoint_bad_count": 0,
+  "orderpoint_bad_sample": [],
+  "uom_usage": [
+    {
+      "uom": "km",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 3,
+      "purchase_uom_product_templates": 3
+    },
+    {
+      "uom": "Pcs",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 243,
+      "purchase_uom_product_templates": 243
+    },
+    {
+      "uom": "ROLL",
+      "category": "Tank",
+      "rounding": 1e-05,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    },
+    {
+      "uom": "Set",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 2,
+      "purchase_uom_product_templates": 2
+    },
+    {
+      "uom": "Unit",
+      "category": "Tank",
+      "rounding": 0.0001,
+      "stock_uom_product_templates": 392,
+      "purchase_uom_product_templates": 392
+    },
+    {
+      "uom": "Liters",
+      "category": "Volume",
+      "rounding": 0.0001,
+      "stock_uom_product_templates": 39,
+      "purchase_uom_product_templates": 39
+    },
+    {
+      "uom": "Kgs",
+      "category": "Weight",
+      "rounding": 1e-06,
+      "stock_uom_product_templates": 40,
+      "purchase_uom_product_templates": 40
+    },
+    {
+      "uom": "Pcs",
+      "category": "Weight",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 0,
+      "purchase_uom_product_templates": 0
+    },
+    {
+      "uom": "Pound",
+      "category": "Weight",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    },
+    {
+      "uom": "Hours",
+      "category": "Working Time",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    }
+  ]
+}

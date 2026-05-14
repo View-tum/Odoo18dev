@@ -1,0 +1,28 @@
+{
+    "name": "Account Partner Settlement",
+    "version": "18.0.1.0.0",
+    "summary": "Settle customer invoices against vendor bills for the same partner",
+    "description": "Create traceable partner settlement entries that offset receivables and payables for the same partner.",
+    "category": "Customization",
+    "author": "Wolapart",
+    "website": "https://365infotech.co.th",
+    "license": "OPL-1",
+    "depends": [
+        "account",
+        "account_payment_multi_allocation",
+        "account_payment_multi_deduction",
+        "bi_manual_currency_rate_fix",
+        "cheque_management",
+        "l10n_th_account_tax",
+        "l10n_th_account_tax_multi",
+        "wht_payment_auto_deduct",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/account_partner_settlement_views.xml",
+        "views/account_payment_register_views.xml",
+        "views/account_move_views.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

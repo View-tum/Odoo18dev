@@ -156,7 +156,7 @@
                                    t-att-value="wo.console_qty or 0"
                                    t-on-input="(ev) => this.updateCardConsoleQty(wo, ev.target.value)"
                                    t-on-blur="(ev) => this.saveCardConsoleQty(wo, ev.target.value)"
-                                   t-att-disabled="state.canCloseProduction ? null : true"/>
+                                   t-att-disabled="state.moClosed ? true : null"/>
                         </div>
                     </div>
                     <div class="o_mrp_info_row" t-if="wo.lot_name">
@@ -204,8 +204,8 @@
                         <div class="d-flex flex-wrap gap-2">
                             <t t-if="!isRunning(wo)">
                                 <button type="button"
-                                        t-att-class="'btn btn-sm btn-success' + ((state.moClosed or !state.canCloseProduction or wo.state != 'ready') ? ' disabled' : '')"
-                                        t-att-disabled="(state.moClosed or !state.canCloseProduction or wo.state != 'ready') ? true : null"
+                                        t-att-class="'btn btn-sm btn-success' + ((state.moClosed or (wo.state != 'ready' and wo.state != 'waiting')) ? ' disabled' : '')"
+                                        t-att-disabled="(state.moClosed or (wo.state != 'ready' and wo.state != 'waiting')) ? true : null"
                                         t-on-click="() => this.startWo(wo)">
                                     <span class="fa fa-play me-1" aria-hidden="true"/>Start
                                 </button>
@@ -213,7 +213,7 @@
                             <t t-else="">
                                 <button type="button"
                                         t-att-class="'btn btn-sm btn-danger' + (state.moClosed ? ' disabled' : '')"
-                                        t-att-disabled="(state.moClosed or !state.canCloseProduction) ? true : null"
+                                        t-att-disabled="state.moClosed ? true : null"
                                         t-on-click="() => this.stopWo(wo)">
                                     <span class="fa fa-stop me-1" aria-hidden="true"/>Stop
                                 </button>
@@ -238,7 +238,7 @@
                             <t t-if="isRunning(wo)">
                                 <button type="button"
                                         t-att-class="'btn btn-sm btn-primary' + (state.moClosed ? ' disabled' : '')"
-                                        t-att-disabled="(state.moClosed or !state.canCloseProduction) ? true : null"
+                                        t-att-disabled="state.moClosed ? true : null"
                                         t-on-click="() => this.finishWo(wo)">
                                     <span class="fa fa-check me-1" aria-hidden="true"/>Done
                                 </button>

@@ -1,0 +1,1672 @@
+{
+  "database": "goldmints_uat_manu",
+  "uom_count": 40,
+  "invalid_uom_count": 0,
+  "invalid_uom": [],
+  "decimal_precision": [
+    {
+      "id": 3,
+      "name": "Discount",
+      "digits": 12
+    },
+    {
+      "id": 7,
+      "name": "Payment Terms",
+      "digits": 2
+    },
+    {
+      "id": 1,
+      "name": "Percentage Analytic",
+      "digits": 2
+    },
+    {
+      "id": 2,
+      "name": "Product Price",
+      "digits": 6
+    },
+    {
+      "id": 6,
+      "name": "Product Unit of Measure",
+      "digits": 6
+    },
+    {
+      "id": 8,
+      "name": "Quality Tests",
+      "digits": 2
+    },
+    {
+      "id": 4,
+      "name": "Stock Weight",
+      "digits": 2
+    },
+    {
+      "id": 5,
+      "name": "Volume",
+      "digits": 2
+    }
+  ],
+  "template_category_mismatch_count": 0,
+  "template_category_mismatch_sample": [],
+  "bom_header_qty_bad_count": 0,
+  "bom_header_qty_bad_sample": [],
+  "bom_line_category_mismatch_count": 0,
+  "bom_line_category_mismatch_sample": [],
+  "bom_line_qty_bad_count": 122,
+  "bom_line_qty_bad_sample": [
+    {
+      "id": 6035,
+      "bom": "BOM-001-64: [SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 8.792,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6037,
+      "bom": "BOM-001-32: [SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 8.792,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6038,
+      "bom": "BOM-001-32: [SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "product_code": "RM-MBS-WH-00001",
+      "product": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "qty": 0.108,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6043,
+      "bom": "BOM-003-64: [SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 13.609,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6044,
+      "bom": "BOM-003-64: [SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+      "product_code": "RM-MBS-WH-00001",
+      "product": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "qty": 0.181,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6045,
+      "bom": "BOM-003-32: [SM-PLS-LO-01001] ชิ้นส่วนยาดม PS ตัวล่างW01",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 13.609,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6046,
+      "bom": "BOM-003-32: [SM-PLS-LO-01001] ชิ้นส่วนยาดม PS ตัวล่างW01",
+      "product_code": "RM-MBS-WH-00001",
+      "product": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "qty": 0.181,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6051,
+      "bom": "BOM-005-64: [SM-JOI-PP-02001] ตัวต่อสี W02 ม่วง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6052,
+      "bom": "BOM-005-64: [SM-JOI-PP-02001] ตัวต่อสี W02 ม่วง",
+      "product_code": "RM-MBS-VL-00001",
+      "product": "[RM-MBS-VL-00001] สีผสมพลาสติก สีม่วง",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6053,
+      "bom": "BOM-005-32: [SM-JOI-PP-01001] ตัวต่อสี W01 ม่วง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6054,
+      "bom": "BOM-005-32: [SM-JOI-PP-01001] ตัวต่อสี W01 ม่วง",
+      "product_code": "RM-MBS-VL-00001",
+      "product": "[RM-MBS-VL-00001] สีผสมพลาสติก สีม่วง",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6055,
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6056,
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "product_code": "RM-MBS-PK-00002",
+      "product": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6057,
+      "bom": "BOM-006-32: [SM-JOI-PK-01001] ตัวต่อสี W01 ชมพู",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6058,
+      "bom": "BOM-006-32: [SM-JOI-PK-01001] ตัวต่อสี W01 ชมพู",
+      "product_code": "RM-MBS-PK-00002",
+      "product": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6059,
+      "bom": "BOM-007-64: [SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6060,
+      "bom": "BOM-007-64: [SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+      "product_code": "RM-MBS-BU-00001",
+      "product": "[RM-MBS-BU-00001] สีผสมพลาสติก สีน้ำเงิน",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6061,
+      "bom": "BOM-007-32: [SM-JOI-BU-01001] ตัวต่อสี W01 ฟ้า",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6062,
+      "bom": "BOM-007-32: [SM-JOI-BU-01001] ตัวต่อสี W01 ฟ้า",
+      "product_code": "RM-MBS-BU-00001",
+      "product": "[RM-MBS-BU-00001] สีผสมพลาสติก สีน้ำเงิน",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6063,
+      "bom": "BOM-008-64: [SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6064,
+      "bom": "BOM-008-64: [SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง",
+      "product_code": "RM-MBS-YL-00001",
+      "product": "[RM-MBS-YL-00001] สีผสมพลาสติก สีเหลือง",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6065,
+      "bom": "BOM-008-32: [SM-JOI-YW-01001] ตัวต่อสี W01 เหลือง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6066,
+      "bom": "BOM-008-32: [SM-JOI-YW-01001] ตัวต่อสี W01 เหลือง",
+      "product_code": "RM-MBS-YL-00001",
+      "product": "[RM-MBS-YL-00001] สีผสมพลาสติก สีเหลือง",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6067,
+      "bom": "BOM-009-64: [SM-JOI-GN-01001] ตัวต่อสี W02 เขียว",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6068,
+      "bom": "BOM-009-64: [SM-JOI-GN-01001] ตัวต่อสี W02 เขียว",
+      "product_code": "RM-MBS-GR-00001",
+      "product": "[RM-MBS-GR-00001] สีผสมพลาสติก สีเขียว",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6069,
+      "bom": "BOM-009-32: [SM-JOI-GR-02001] ตัวต่อสี W01 เขียว",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6070,
+      "bom": "BOM-009-32: [SM-JOI-GR-02001] ตัวต่อสี W01 เขียว",
+      "product_code": "RM-MBS-GR-00001",
+      "product": "[RM-MBS-GR-00001] สีผสมพลาสติก สีเขียว",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6086,
+      "bom": "BOM-016: [RM-FIL-PS-01004] ก้นกรองชุบน้ำยา PS",
+      "product_code": "SO-PSS-UP-01001",
+      "product": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+      "qty": 0.0008,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6099,
+      "bom": "BOM-017: [FG-PSS-TH-04001] ยาดมโป๊ยเซียนชมพูสะท้อนแสง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6104,
+      "bom": "BOM-018: [FG-PSS-TH-04002] ยาดมโป๊ยเซียนม่วง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6109,
+      "bom": "BOM-019: [FG-PSS-TH-04003] ยาดมโป๊ยเซียนชมพู",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0012,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6114,
+      "bom": "BOM-020: [FG-PSS-TH-04004] ยาดมโป๊ยเซียนฟ้า",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6119,
+      "bom": "BOM-021: [FG-PSS-TH-04005] ยาดมโป๊ยเซียนเหลือง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6124,
+      "bom": "BOM-022: [FG-PSS-TH-04006] ยาดมโป๊ยเซียนเขียว",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6131,
+      "bom": "BOM-023: [FG-PSS-TH-03001] ยาดมโป๊ยเซียนแผง",
+      "product_code": "RM-PET-RO-00001",
+      "product": "[RM-PET-RO-00001] PETแบบม้วน  380x0.25mm  สีใส",
+      "qty": 0.0122,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6135,
+      "bom": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6158,
+      "bom": "[FG-PSS-TH-02003] ยาดมโป๊ยเซียนกล่อง 2 โหล หุ้ม",
+      "product_code": "PK-SHF-PS-01006",
+      "product": "[PK-SHF-PS-01006] PVC หด PS 2 โหล 160x340",
+      "qty": 0.004,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6160,
+      "bom": "[FG-PSS-TH-02004] ยาดมโป๊ยเซียนถุงโหล",
+      "product_code": "PK-SHF-PS-01004",
+      "product": "[PK-SHF-PS-01004] ถุงยาดม PePex 1โหล แม็คโคร (115x340)",
+      "qty": 0.004,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 6276,
+      "bom": "[FG-PSS-MY-04001] ยาดมโป๊ยเซียนสีชมพูสะท้อนแสง มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6281,
+      "bom": "[FG-PSS-MY-04002] ยาดมโป๊ยเซียนสีม่วง มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6286,
+      "bom": "[FG-PSS-MY-04003] ยาดมโป๊ยเซียนชมพู มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6291,
+      "bom": "[FG-PSS-MY-04004] ยาดมโป๊ยเซียนฟ้า มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6296,
+      "bom": "[FG-PSS-MY-04005] ยาดมโป๊ยเซียนเหลือง มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6301,
+      "bom": "[FG-PSS-MY-04006] ยาดมโป๊ยเซียนเขียว มาเลเซีย",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6312,
+      "bom": "[FG-PSS-MY-02001] ยาดมโป๊ยเซียน 5โหล มาเลเซีย",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6340,
+      "bom": "[FG-PSS-MM-02001] ยาดมโป๊ยเซียน 5โหล พม่า",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6410,
+      "bom": "[FG-PSS-DE-04001] ยาดมโป๊ยเซียนสีชมพูสะท้อนแสง เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6415,
+      "bom": "[FG-PSS-DE-04002] ยาดมโป๊ยเซียนสีม่วง เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6420,
+      "bom": "[FG-PSS-DE-04003] ยาดมโป๊ยเซียนชมพู เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6425,
+      "bom": "[FG-PSS-DE-04004] ยาดมโป๊ยเซียนฟ้า เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6430,
+      "bom": "[FG-PSS-DE-04005] ยาดมโป๊ยเซียนเหลือง เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6435,
+      "bom": "[FG-PSS-DE-04006] ยาดมโป๊ยเซียนเขียว เยอรมัน",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6446,
+      "bom": "[FG-PSS-DE-02001] ยาดมโป๊ยเซียน 5โหล เยอรมัน",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6585,
+      "bom": "[FG-PSK-TH-03001] ยาดมโป๊ยเซียนพวงกุญแจ สีชมพูสะท้อนแสง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6591,
+      "bom": "[FG-PSK-TH-03002] ยาดมโป๊ยเซียนพวงกุญแจ สีม่วง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6597,
+      "bom": "[FG-PSK-TH-03003] ยาดมโป๊ยเซียนพวงกุญแจ สีชมพู",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6603,
+      "bom": "[FG-PSK-TH-03004] ยาดมโป๊ยเซียนพวงกุญแจ สีฟ้า",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6609,
+      "bom": "[FG-PSK-TH-03005] ยาดมโป๊ยเซียนพวงกุญแจ สีเหลือง",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6615,
+      "bom": "[FG-PSK-TH-03006] ยาดมโป๊ยเซียนพวงกุญแจ สีเขียว",
+      "product_code": "SO-PSS-LO-01001",
+      "product": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+      "qty": 0.0012,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6627,
+      "bom": "[FG-PSK-TH-02001] ยาดมโป๊ยเซียนพวงกุญแจ กล่อง 5โหล",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6784,
+      "bom": "[FG-MTS-XX-04001] ยาดม Mark II สีชมพูสะท้อนแสง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6789,
+      "bom": "[FG-MTS-XX-04002] ยาดม Mark II สีม่วง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6794,
+      "bom": "[FG-MTS-XX-04003] ยาดม Mark II สีชมพู",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6799,
+      "bom": "[FG-MTS-XX-04004] ยาดม Mark II สีฟ้า",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6804,
+      "bom": "[FG-MTS-XX-04005] ยาดม Mark II สีเหลือง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6809,
+      "bom": "[FG-MTS-XX-04006] ยาดม Mark II สีเขียว",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6824,
+      "bom": "[FG-MTS-XX-02001] ยาดม Mark II กล่อง 5 โหล (หุ้ม)",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6838,
+      "bom": "[FG-MTS-GH-02001] ยาดม Mark II กล่อง 5 โหล กาน่า(หุ้ม)",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00089,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 6963,
+      "bom": "[FG-MTS-TW-02001] ยาดม Mark II ไต้หวัน สีชมพูสะท้อนแสง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6968,
+      "bom": "[FG-MTS-TW-02002] ยาดม Mark II ไต้หวัน สีม่วง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6973,
+      "bom": "[FG-MTS-TW-02003] ยาดม Mark II ไต้หวัน สีชมพู",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6978,
+      "bom": "[FG-MTS-TW-02004] ยาดม Mark II ไต้หวัน สีฟ้า",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6983,
+      "bom": "[FG-MTS-TW-02005] ยาดม Mark II ไต้หวัน สีเหลือง",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 6988,
+      "bom": "[FG-MTS-TW-02006] ยาดม Mark II ไต้หวัน สีเขียว",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7085,
+      "bom": "[FG-MTK-IL-04001] ยาดม Mark II อิสราเอล",
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7090,
+      "bom": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+      "product_code": "PK-SHF-PS-01007",
+      "product": "[PK-SHF-PS-01007] PVC หด Israel 2 โหล 175x210",
+      "qty": 0.00279,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7431,
+      "bom": "d3: [FG-PNF-ID-02001] พิมเสน แก้วแบน 3cc 1โหล อินโดนีเซีย",
+      "product_code": "PK-SHF-PN-01004",
+      "product": "[PK-SHF-PN-01004] พิมเสนPSขวดแก้วแบน3cc ฟอยด์หด",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7438,
+      "bom": "d2: [FG-PNR-ID-04001] พิมเสนโรลออน 5cc ไม่หุ้ม อินโดนีเซีย",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0055,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7444,
+      "bom": "d2: [FG-PNR-ID-02001] พิมเสนโรลออน 5cc 1โหล อินโดนีเซีย",
+      "product_code": "PK-SHF-PN-02001",
+      "product": "[PK-SHF-PN-02001] พิมเสนPS RollOn ฟอยด์หด กล่อง 12ขวด",
+      "qty": 0.0015,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7452,
+      "bom": "d1: [FG-PNC-ID-04001] พิมเสนสำลี 8cc ไม่หุ้ม อินโดนีเซีย",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0085,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7453,
+      "bom": "d1: [FG-PNC-ID-04001] พิมเสนสำลี 8cc ไม่หุ้ม อินโดนีเซีย",
+      "product_code": "RM-COT-PN-01001",
+      "product": "[RM-COT-PN-01001] สำลี",
+      "qty": 0.0007,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7458,
+      "bom": "d1: [FG-PNC-ID-02001] พิมเสนสำลี 8cc 1โหล อินโดนีเซีย",
+      "product_code": "PK-SHF-PN-03002",
+      "product": "[PK-SHF-PN-03002] พิมเสนPS ฟอยด์หดถาด 1 โหล",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7493,
+      "bom": "[FG-PNC-MM-04001] พิมเสนสำลี 8cc ไม่หุ้ม พม่า",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0085,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7494,
+      "bom": "[FG-PNC-MM-04001] พิมเสนสำลี 8cc ไม่หุ้ม พม่า",
+      "product_code": "RM-COT-PN-01001",
+      "product": "[RM-COT-PN-01001] สำลี",
+      "qty": 0.0007,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7498,
+      "bom": "[FG-PNC-MM-02001] พิมเสนสำลี 8cc 1โหล พม่า",
+      "product_code": "PK-SHF-PN-03002",
+      "product": "[PK-SHF-PN-03002] พิมเสนPS ฟอยด์หดถาด 1 โหล",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7506,
+      "bom": "[FG-PNR-MM-04001] พิมเสนโรลออน 5cc ไม่หุ้ม พม่า",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0055,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7512,
+      "bom": "[FG-PNR-MM-02001] พิมเสนโรลออน 5cc 1โหล พม่า",
+      "product_code": "PK-SHF-PN-02001",
+      "product": "[PK-SHF-PN-02001] พิมเสนPS RollOn ฟอยด์หด กล่อง 12ขวด",
+      "qty": 0.0015,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7535,
+      "bom": "[FG-PNR-TW-04001] พิมเสนโรลออน 5cc ไม่หุ้ม ไต้หวัน",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0055,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7541,
+      "bom": "[FG-PNR-TW-02001] พิมเสนโรลออน 5cc 1โหล ไต้หวัน",
+      "product_code": "",
+      "product": "พิมเสนPS ฟอยด์หดกล่อง 1โหล",
+      "qty": 0.0015,
+      "uom": "Unit",
+      "rounding": 0.01
+    },
+    {
+      "id": 7543,
+      "bom": "[FG-PNR-TW-02002] พิมเสนโรลออน 5cc 2โหล ไต้หวัน",
+      "product_code": "PK-SHF-PN-03003",
+      "product": "[PK-SHF-PN-03003] พิมเสนPS ฟอยด์หดกล่อง2 โหล",
+      "qty": 4.3e-05,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7588,
+      "bom": "[FG-PNF-XX-04001] พิมเสน แก้วแบน 3cc ไม่หุ้ม ตปท",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0038,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7594,
+      "bom": "[FG-PNF-XX-02001] พิมเสน แก้วแบน 3cc 1โหล ตปท",
+      "product_code": "PK-SHF-PN-01004",
+      "product": "[PK-SHF-PN-01004] พิมเสนPSขวดแก้วแบน3cc ฟอยด์หด",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7601,
+      "bom": "[FG-PNR-XX-04001] พิมเสนโรลออน 5cc ไม่หุ้ม ตปท",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0055,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7607,
+      "bom": "[FG-PNR-XX-02001] พิมเสนโรลออน 5cc 1โหล ตปท",
+      "product_code": "PK-SHF-PN-02001",
+      "product": "[PK-SHF-PN-02001] พิมเสนPS RollOn ฟอยด์หด กล่อง 12ขวด",
+      "qty": 0.0015,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7614,
+      "bom": "[FG-PNC-XX-04001] พิมเสนสำลี 8cc ไม่หุ้ม ตปท",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0085,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7620,
+      "bom": "[FG-PNC-XX-02003] พิมเสนสำลี 8cc 1โหล ตปท",
+      "product_code": "PK-SHF-PN-03002",
+      "product": "[PK-SHF-PN-03002] พิมเสนPS ฟอยด์หดถาด 1 โหล",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7752,
+      "bom": "[FG-PNF-TH-04001] พิมเสน แก้วแบน 3cc ไม่หุ้ม",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0038,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7760,
+      "bom": "[FG-PNF-TH-02001] พิมเสน แก้วแบน 3cc 1โหล",
+      "product_code": "PK-SHF-PN-01004",
+      "product": "[PK-SHF-PN-01004] พิมเสนPSขวดแก้วแบน3cc ฟอยด์หด",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7766,
+      "bom": "[FG-PNR-TH-04001] พิมเสนโรลออน 5cc ไม่หุ้ม ",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0055,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7775,
+      "bom": "[FG-PNR-TH-02002] พิมเสนโรลออน 5cc 1โหล",
+      "product_code": "PK-SHF-PN-02001",
+      "product": "[PK-SHF-PN-02001] พิมเสนPS RollOn ฟอยด์หด กล่อง 12ขวด",
+      "qty": 0.0015,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7778,
+      "bom": "[FG-PNR-TH-02003] พิมเสนโรลออน 5cc 2โหล",
+      "product_code": "PK-SHF-PN-03003",
+      "product": "[PK-SHF-PN-03003] พิมเสนPS ฟอยด์หดกล่อง2 โหล",
+      "qty": 0.0021,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7793,
+      "bom": "[FG-PNC-TH-04001] พิมเสนสำลี 8cc ไม่หุ้ม",
+      "product_code": "SO-PNS-XX-01001",
+      "product": "[SO-PNS-XX-01001] น้ำยา PimSaen",
+      "qty": 0.0085,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 7798,
+      "bom": "[FG-PNC-TH-02002] พิมเสนสำลี 8cc 1โหล",
+      "product_code": "PK-SHF-PN-03002",
+      "product": "[PK-SHF-PN-03002] พิมเสนPS ฟอยด์หดถาด 1 โหล",
+      "qty": 0.0016,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 7801,
+      "bom": "พิมเสนสำลี 8cc 2โหล",
+      "product_code": "PK-SHF-PN-03003",
+      "product": "[PK-SHF-PN-03003] พิมเสนPS ฟอยด์หดกล่อง2 โหล",
+      "qty": 0.0021,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8220,
+      "bom": "[SM-PPR-TH-02001] ชิ้นส่วนยาดม PePex แดง ตัวบน",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 10.725,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8221,
+      "bom": "[SM-PPR-TH-02001] ชิ้นส่วนยาดม PePex แดง ตัวบน",
+      "product_code": "RM-MBS-RE-00002",
+      "product": "[RM-MBS-RE-00002] สีผสมพลาสติก สีแดงเข้ม",
+      "qty": 0.125,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8224,
+      "bom": "[SM-PPR-TH-03002] ชิ้นส่วนยาดม PePexแดง ตัวล่าง กึ่งสำเร็จ",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 10.155,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8225,
+      "bom": "[SM-PPR-TH-03002] ชิ้นส่วนยาดม PePexแดง ตัวล่าง กึ่งสำเร็จ",
+      "product_code": "RM-MBS-RE-00002",
+      "product": "[RM-MBS-RE-00002] สีผสมพลาสติก สีแดงเข้ม",
+      "qty": 0.125,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8226,
+      "bom": "[SM-PPR-TH-02003] ชิ้นส่วนยาดม PePex แดง ตัวกลาง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 7.494,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8227,
+      "bom": "[SM-PPR-TH-02003] ชิ้นส่วนยาดม PePex แดง ตัวกลาง",
+      "product_code": "RM-MBS-RE-00002",
+      "product": "[RM-MBS-RE-00002] สีผสมพลาสติก สีแดงเข้ม",
+      "qty": 0.126,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8229,
+      "bom": "[RM-FIL-PS-01005] ก้นกรองชุบน้ำยา Pepex",
+      "product_code": "SO-PPR-UP-01001",
+      "product": "[SO-PPR-UP-01001] น้ำยา PePex Inhaler",
+      "qty": 0.0008,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 8244,
+      "bom": "[FG-PPR-TH-02001] ยาดมพีเป๊กซ์แดง กล่อง 5 โหล (หุ้ม)",
+      "product_code": "PK-SHF-PS-01003",
+      "product": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+      "qty": 0.00088,
+      "uom": "ROLL",
+      "rounding": 0.01
+    },
+    {
+      "id": 8253,
+      "bom": "[FG-PPR-TH-01003] ยาดมพีเป๊กซ์แดง (2x6) 30โหล",
+      "product_code": "PK-SHF-PS-01004",
+      "product": "[PK-SHF-PS-01004] ถุงยาดม PePex 1โหล แม็คโคร (115x340)",
+      "qty": 0.2419,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8265,
+      "bom": "[SM-JOI-RE-02001] ตัวต่อสี W02 แดง",
+      "product_code": "RM-PLA-PP-00001",
+      "product": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8266,
+      "bom": "[SM-JOI-RE-02001] ตัวต่อสี W02 แดง",
+      "product_code": "RM-MBS-RE-00001",
+      "product": "[RM-MBS-RE-00001] สีผสมพลาสติก สีแดง ",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8275,
+      "bom": "[FG-PPK-TH-05001] ยาดมพีเป๊กซ์ 2in1",
+      "product_code": "SO-PPS-LO-01001",
+      "product": "[SO-PPS-LO-01001] น้ำยา PePex2in1 Solution",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 8284,
+      "bom": "[FG-PPK-TH-02001] ยาดมพีเป๊กซ์ 2in1 1ถาด",
+      "product_code": "PK-SHF-PS-01002",
+      "product": "[PK-SHF-PS-01002] ShrinkFilm ยาดม PePex2IN1 พวงกุญแจ 6หลอด",
+      "qty": 0.0045,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8588,
+      "bom": "[RM-FIL-PS-01007] ก้นกรองชุบน้ำยา PAX",
+      "product_code": "SO-PAS-XX-01002",
+      "product": "[SO-PAS-XX-01002] น้ำยา Pax",
+      "qty": 0.0008,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 8596,
+      "bom": "[FG-PAS-XX-04001] ยาดม PAX",
+      "product_code": "SO-PAS-XX-01002",
+      "product": "[SO-PAS-XX-01002] น้ำยา Pax",
+      "qty": 0.0011,
+      "uom": "Liters",
+      "rounding": 0.01
+    },
+    {
+      "id": 8656,
+      "bom": "[FG-PSS-PB-01001] Piggy Bank - Poysian",
+      "product_code": "PK-BAG-PS-01003",
+      "product": "[PK-BAG-PS-01003] ถุง PP ใส่กระปุก PS 1ใบ 4.5x13x.08",
+      "qty": 0.00052,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8657,
+      "bom": "[FG-PSS-PB-01001] Piggy Bank - Poysian",
+      "product_code": "PK-BAG-PS-01002",
+      "product": "[PK-BAG-PS-01002] ถุง PP ใส่กระปุก PS 5ใบ",
+      "qty": 0.0017,
+      "uom": "Kgs",
+      "rounding": 0.01
+    },
+    {
+      "id": 8638,
+      "bom": "ยาดม Pax2way-Key",
+      "product_code": "SO-PAS-XX-01002",
+      "product": "[SO-PAS-XX-01002] น้ำยา Pax",
+      "qty": 0.0012,
+      "uom": "Liters",
+      "rounding": 0.01
+    }
+  ],
+  "quant_bad_count": 0,
+  "quant_bad_sample": [],
+  "move_bad_count": 0,
+  "move_bad_sample": [],
+  "move_line_bad_count": 0,
+  "move_line_bad_sample": [],
+  "mo_bad_count": 0,
+  "mo_bad_sample": [],
+  "orderpoint_bad_count": 0,
+  "orderpoint_bad_sample": [],
+  "uom_usage": [
+    {
+      "uom": "km",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 3,
+      "purchase_uom_product_templates": 3
+    },
+    {
+      "uom": "Pcs",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 243,
+      "purchase_uom_product_templates": 243
+    },
+    {
+      "uom": "ROLL",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    },
+    {
+      "uom": "Set",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 2,
+      "purchase_uom_product_templates": 2
+    },
+    {
+      "uom": "Unit",
+      "category": "Tank",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 392,
+      "purchase_uom_product_templates": 392
+    },
+    {
+      "uom": "Liters",
+      "category": "Volume",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 39,
+      "purchase_uom_product_templates": 39
+    },
+    {
+      "uom": "Kgs",
+      "category": "Weight",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 40,
+      "purchase_uom_product_templates": 40
+    },
+    {
+      "uom": "Pound",
+      "category": "Weight",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    },
+    {
+      "uom": "Hours",
+      "category": "Working Time",
+      "rounding": 0.01,
+      "stock_uom_product_templates": 1,
+      "purchase_uom_product_templates": 1
+    }
+  ],
+  "all_uoms": [
+    {
+      "id": 37,
+      "name": "Bottle",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 38,
+      "name": "Box",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 2,
+      "name": "Dozens",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 0.08333333333333333,
+      "factor_inv": 12.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 39,
+      "name": "Job",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 40,
+      "name": "Option",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 41,
+      "name": "Pack",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 42,
+      "name": "Pcs",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 243
+    },
+    {
+      "id": 44,
+      "name": "ROLL",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 1
+    },
+    {
+      "id": 43,
+      "name": "Ream",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 45,
+      "name": "Set",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 2
+    },
+    {
+      "id": 46,
+      "name": "Tank",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 1,
+      "name": "Unit",
+      "category": "Tank",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 392
+    },
+    {
+      "id": 50,
+      "name": "Batch",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 0.0013333333333333333,
+      "factor_inv": 750.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 12,
+      "name": "Kgs",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 40
+    },
+    {
+      "id": 51,
+      "name": "Pcs",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 1000.0,
+      "factor_inv": 0.001,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 15,
+      "name": "Pound",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 2.20462,
+      "factor_inv": 0.45359290943563974,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 1
+    },
+    {
+      "id": 13,
+      "name": "g",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 1000.0,
+      "factor_inv": 0.001,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 16,
+      "name": "oz",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 35.274,
+      "factor_inv": 0.02834949254408346,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 14,
+      "name": "t",
+      "category": "Weight",
+      "rounding": 0.01,
+      "factor": 0.001,
+      "factor_inv": 1000.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 3,
+      "name": "Days",
+      "category": "Working Time",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 4,
+      "name": "Hours",
+      "category": "Working Time",
+      "rounding": 0.01,
+      "factor": 8.0,
+      "factor_inv": 0.125,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 1
+    },
+    {
+      "id": 8,
+      "name": "cm",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 100.0,
+      "factor_inv": 0.01,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 18,
+      "name": "ft",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 3.28084,
+      "factor_inv": 0.3047999902464003,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 17,
+      "name": "in",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 39.3701,
+      "factor_inv": 0.025399986284007407,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 7,
+      "name": "km",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 0.001,
+      "factor_inv": 1000.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 3
+    },
+    {
+      "id": 5,
+      "name": "m",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 20,
+      "name": "mi",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 0.0006213727366498068,
+      "factor_inv": 1609.34,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 6,
+      "name": "mm",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 1000.0,
+      "factor_inv": 0.001,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 19,
+      "name": "yd",
+      "category": "Length / Distance",
+      "rounding": 0.01,
+      "factor": 1.09361,
+      "factor_inv": 0.9144027578387177,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 21,
+      "name": "ft²",
+      "category": "Surface",
+      "rounding": 0.01,
+      "factor": 10.76391,
+      "factor_inv": 0.09290304359661128,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 9,
+      "name": "m²",
+      "category": "Surface",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 10,
+      "name": "Liters",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 39
+    },
+    {
+      "id": 47,
+      "name": "cc",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 1000.0,
+      "factor_inv": 0.001,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 22,
+      "name": "fl oz (US)",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 33.814,
+      "factor_inv": 0.029573549417401077,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 26,
+      "name": "ft³",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 0.035314724827664144,
+      "factor_inv": 28.316799999999997,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 24,
+      "name": "gal (US)",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 0.26417217685798894,
+      "factor_inv": 3.78541,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 25,
+      "name": "in³",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 61.0237,
+      "factor_inv": 0.0163870758410257,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 11,
+      "name": "m³",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 0.001,
+      "factor_inv": 1000.0,
+      "type": "bigger",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 23,
+      "name": "qt (US)",
+      "category": "Volume",
+      "rounding": 0.01,
+      "factor": 1.05669,
+      "factor_inv": 0.9463513423993792,
+      "type": "smaller",
+      "active": true,
+      "product_template_ref_count": 0
+    },
+    {
+      "id": 48,
+      "name": "-",
+      "category": "Unsorted/Imported Units",
+      "rounding": 0.01,
+      "factor": 1.0,
+      "factor_inv": 1.0,
+      "type": "reference",
+      "active": true,
+      "product_template_ref_count": 0
+    }
+  ]
+}

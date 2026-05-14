@@ -1,0 +1,41 @@
+Route,Action,Operation Type,Source Location,Destination Location
+"GOLD MINTS PRODUCTS CO., LTD.: Cross-Dock",push,Cross Dock,GMP/HOLD-V,GMP/Output
+Replenish on Order (MTO),pull,Pick,GMP/Stock,Partners/Customers
+"GOLD MINTS PRODUCTS CO., LTD.: Cross-Dock",buy,Receipts,,Partners/Customers
+Buy,buy,Receipts,,GMP/Stock
+Manufacture,manufacture,Manufacturing,,GMP/Stock
+Replenish on Order (MTO),pull,Manufacturing,GMP/Stock/คลังลอย,Virtual Locations/Production
+"GOLD MINTS PRODUCTS CO., LTD.: Resupply Subcontractor",pull,Resupply Subcontractor,GMP/Stock,Physical Locations/Subcontracting Location
+Replenish on Order (MTO),pull,Resupply Subcontractor,GMP/Stock,Physical Locations/Subcontracting Location
+Resupply Subcontractor on Order,pull,Resupply Subcontractor,Physical Locations/Subcontracting Location,Virtual Locations/Production
+"GOLD MINTS PRODUCTS CO., LTD.: Deliver in 2 steps (pick + ship)",push,Delivery Orders,GMP/Output,Partners/Customers
+Replenish on Order (MTO),pull,Delivery Orders,M-WH/Stock,Partners/Customers
+Replenish on Order (MTO),pull,Repairs,M-WH/Stock,Virtual Locations/Production
+Mobile Warehouse: Deliver in 1 step (ship),pull,Delivery Orders,M-WH/Stock,Partners/Customers
+Mobile Warehouse: Cross-Dock,buy,Receipts,,Partners/Customers
+Mobile Warehouse: Cross-Dock,push,Cross Dock,M-WH/Input,M-WH/Output
+"GOLD MINTS PRODUCTS CO., LTD.: Receive in 2 steps (input + stock)",push,Storage,GMP/HOLD-V,GMP/Stock
+Replenish on Order (MTO),pull,Repairs,GMP/Stock,Virtual Locations/Production
+"Mobile Warehouse: Supply Product from GOLD MINTS PRODUCTS CO., LTD.",pull,Delivery Orders,GMP/Output,Physical Locations/Inter-warehouse transit
+"Mobile Warehouse: Supply Product from GOLD MINTS PRODUCTS CO., LTD.",pull,Pick,GMP/Stock,GMP/Output
+"Mobile Warehouse: Supply Product from GOLD MINTS PRODUCTS CO., LTD.",pull,Receipts,Physical Locations/Inter-warehouse transit,M-WH/Stock
+Auto Transfer RM,pull,Internal Transfers,GMP/Stock/RM,GMP/Stock/คลังลอย
+Auto Transfer Semi,pull,Internal Transfers,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer MTS,pull,Internal Transfers,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Replenish on Order (MTO),pull,Repairs,GMP/Stock,Virtual Locations/Production
+Replenish on Order (MTO),pull,Repairs,M-WH/Stock,Virtual Locations/Production
+"GOLD MINTS PRODUCTS CO., LTD.: Deliver in 2 steps (pick + ship)",pull,Pick,GMP/Stock,Partners/Customers
+Auto Transfer MTS (Pharma),pull,Transfer Pharma,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer MTS (Packaging),pull,Transfer Packaging,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer Semi (Packaging),pull,Transfer Packaging,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer MTS (Plastic),pull,Transfer Plastic,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer RM (Pharma),pull,Transfer Pharma,GMP/Stock/RM,GMP/Stock/คลังลอย
+Auto Transfer RM (Pharma),pull,Transfer Pharma,GMP/Stock,GMP/Stock/RM
+Auto Transfer RM (Plastic),pull,Transfer Plastic,GMP/Stock/RM,GMP/Stock/คลังลอย
+Auto Transfer RM (Plastic),pull,Transfer Plastic,GMP/Stock,GMP/Stock/RM
+Auto Transfer RM (Packaging),pull,Transfer Packaging,GMP/Stock/RM,GMP/Stock/คลังลอย
+Auto Transfer RM (Packaging),pull,Transfer Packaging,GMP/Stock,GMP/Stock/RM
+Auto Transfer Semi (Pharma),pull,Transfer Pharma,GMP/Stock/Semi,GMP/Stock/คลังลอย
+Auto Transfer Semi (Plastic),pull,Transfer Plastic,GMP/Stock/RM,GMP/Stock/คลังลอย
+Manufacture (Pharma),manufacture,Manufacturing Pharma,GMP/Stock/คลังลอย,GMP/Stock
+Manufacture (Plastic),manufacture,Manufacturing Plastic,GMP/Stock/คลังลอย,GMP/Stock

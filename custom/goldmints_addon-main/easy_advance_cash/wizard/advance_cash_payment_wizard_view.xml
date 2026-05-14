@@ -10,6 +10,7 @@
                 <field name="transaction_type" invisible="1" />
                 <field name="currency_id" invisible="1" />
                 <field name="is_cheque_method" invisible="1" />
+                <field name="is_bank_draft_method" invisible="1" />
                 <field name="parent_fund_journal_id" invisible="1" />
                 <field name="payment_type_filter" invisible="1" />
 
@@ -34,7 +35,7 @@
 
                 <!-- Cheque Details (Outbound - Payout) -->
                 <group string="Cheque Details (Payout)"
-                    invisible="not is_cheque_method or transaction_type != 'payout'">
+                    invisible="not is_cheque_method or is_bank_draft_method or transaction_type != 'payout'">
                     <group>
                         <field name="cheque_id"
                             required="is_cheque_method and transaction_type == 'payout'"
@@ -48,7 +49,7 @@
 
                 <!-- Cheque Details (Inbound - Return) -->
                 <group string="Cheque Details (Return)"
-                    invisible="not is_cheque_method or transaction_type != 'return'">
+                    invisible="not is_cheque_method or is_bank_draft_method or transaction_type != 'return'">
                     <group>
                         <field name="cheque_number_in"
                             required="is_cheque_method and transaction_type == 'return'" />
@@ -57,6 +58,20 @@
                     <group>
                         <field name="cheque_bank_in"
                             required="is_cheque_method and transaction_type == 'return'" />
+                    </group>
+                </group>
+
+                <group string="Bank Draft Details"
+                    invisible="not is_bank_draft_method or transaction_type != 'payout'">
+                    <group>
+                        <field name="bank_draft_number"
+                            required="is_bank_draft_method and transaction_type == 'payout'" />
+                        <field name="bank_draft_bank_id" />
+                    </group>
+                    <group>
+                        <field name="bank_draft_date"
+                            required="is_bank_draft_method and transaction_type == 'payout'" />
+                        <field name="bank_draft_branch" />
                     </group>
                 </group>
 

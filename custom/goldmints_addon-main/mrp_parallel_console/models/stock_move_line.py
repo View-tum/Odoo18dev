@@ -55,10 +55,28 @@ class StockMoveLine(models.Model):
             if not quant:
                 return
 
+            available_qty = self.env["stock.quant"].sudo()._get_available_quantity(
+                self.product_id,
+                quant.location_id,
+                lot_id=quant.lot_id,
+                package_id=quant.package_id,
+                owner_id=quant.owner_id,
+                strict=True,
+            )
+            if available_qty <= 0:
+                return
+
             self.lot_id = quant.lot_id
 
             move = self.move_id
-            fill_qty = quant.quantity
+            target_uom = self.product_uom_id or (move and move.product_uom) or self.product_id.uom_id
+            if target_uom and self.product_id.uom_id != target_uom:
+                available_qty = self.product_id.uom_id._compute_quantity(
+                    available_qty,
+                    target_uom,
+                    rounding_method="HALF-UP",
+                )
+            fill_qty = available_qty
             if move and move.product_uom_qty:
                 required = move.product_uom_qty
                 already = 0.0
@@ -87,4 +105,3 @@ class StockMoveLine(models.Model):
                 self.quantity = fill_qty
             else:
                 self.qty_done = fill_qty
-

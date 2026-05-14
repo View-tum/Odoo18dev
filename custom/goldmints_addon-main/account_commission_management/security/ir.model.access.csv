@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_commission_management_account,access.account.commission.management.account,model_account_commission_management,account.group_account_user,1,1,1,1
+access_account_commission_management_line_account,access.account.commission.management.line.account,model_account_commission_management_line,account.group_account_user,1,1,1,1
+
+access_account_commission_rate_manager,access.account.commission.rate.manager,model_account_commission_rate,account.group_account_manager,1,1,1,1
+access_account_commission_rate_user,access.account.commission.rate.user,model_account_commission_rate,account.group_account_user,1,0,0,0
+
+access_account_commission_rule_manager,access.account.commission.rule.manager,model_account_commission_rule,account.group_account_manager,1,1,1,1
+access_account_commission_rule_user,access.account.commission.rule.user,model_account_commission_rule,account.group_account_user,1,0,0,0
+
+access_delivery_sales_region_sale_manager_read,delivery.sales.region sale manager read,delivery_routes_management.model_delivery_sales_region,account.group_account_manager,1,0,0,0
+access_delivery_sales_region_account_user_read,delivery.sales.region account user read,delivery_routes_management.model_delivery_sales_region,account.group_account_user,1,0,0,0

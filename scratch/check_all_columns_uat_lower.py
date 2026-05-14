@@ -1,0 +1,28 @@
+
+import sys
+import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
+db_name = 'uat'
+db_user = 'odoo'
+db_password = '123456'
+db_port = 5811
+
+def check_all_columns():
+    try:
+        conn = psycopg2.connect(dbname=db_name, user=db_user, password=db_password, host='localhost', port=db_port)
+        cur = conn.cursor(cursor_factory=RealDictCursor)
+        
+        table = 'account_move_tax_invoice'
+        cur.execute(f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table}'")
+        cols = cur.fetchall()
+        print(f"{table} columns in {db_name}: {[c['column_name'] for c in cols]}")
+        
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    check_all_columns()

@@ -153,32 +153,32 @@ class InventoryStockCardWizard(models.TransientModel):
                     "currency_symbol": self.company_id.currency_id.symbol or "",
                     "at_date_only": bool(self.at_date_only),
                     "opening_qty": opening_qty,
-                    "opening_val": opening_val,
-                    "opening_price": (
-                        (opening_val / opening_qty) if opening_qty else 0.0
-                    ),
+                    # "opening_val": opening_val,
+                    # "opening_price": (
+                    #     (opening_val / opening_qty) if opening_qty else 0.0
+                    # ),
                     "lines": [],
                 }
 
                 if self.at_date_only:
                     sheet["opening_qty"] = 0.0
-                    sheet["opening_val"] = 0.0
-                    sheet["opening_price"] = 0.0
+                    # sheet["opening_val"] = 0.0
+                    # sheet["opening_price"] = 0.0
 
                     balance_qty = opening_qty + sum(
                         (r.get("delta") or 0.0)
                         for r in rows
                         if r.get("rowtype") == "line"
                     )
-                    balance_val = opening_val + sum(
-                        (r.get("valuation_amount") or 0.0)
-                        * (-1 if (r.get("qty_out") or 0.0) > 0 else 1)
-                        for r in rows
-                        if r.get("rowtype") == "line"
-                    )
+                    # balance_val = opening_val + sum(
+                    #     (r.get("valuation_amount") or 0.0)
+                    #     * (-1 if (r.get("qty_out") or 0.0) > 0 else 1)
+                    #     for r in rows
+                    #     if r.get("rowtype") == "line"
+                    # )
 
                     balance_qty = round(balance_qty, 6)
-                    balance_val = round(balance_val, 6)
+                    # balance_val = round(balance_val, 6)
 
                     sheet["opening_qty"] = None
                     sheet["lines"] = [
@@ -195,10 +195,10 @@ class InventoryStockCardWizard(models.TransientModel):
                             "qty_out": 0.0,
                             "journal_entry": "",
                             "balance_qty": balance_qty,
-                            "balance_val": balance_val,
-                            "balance_price": (
-                                (balance_val / balance_qty) if balance_qty else 0.0
-                            ),
+                            # "balance_val": balance_val,
+                            # "balance_price": (
+                            #     (balance_val / balance_qty) if balance_qty else 0.0
+                            # ),
                         }
                     ]
                 else:
@@ -215,19 +215,19 @@ class InventoryStockCardWizard(models.TransientModel):
                                 "lot_name": "-",
                                 "journal_entry": "",
                                 "line_open_qty": opening_qty,
-                                "line_open_price": (
-                                    (opening_val / opening_qty) if opening_qty else 0.0
-                                ),
-                                "line_open_val": opening_val,
+                                # "line_open_price": (
+                                #     (opening_val / opening_qty) if opening_qty else 0.0
+                                # ),
+                                # "line_open_val": opening_val,
                                 "qty_in": 0.0,
                                 "qty_out": 0.0,
                                 "unit_price": 0.0,
                                 "valuation_amount": 0.0,
                                 "balance_qty": opening_qty,
-                                "balance_val": opening_val,
-                                "balance_price": (
-                                    (opening_val / opening_qty) if opening_qty else 0.0
-                                ),
+                                # "balance_val": opening_val,
+                                # "balance_price": (
+                                #     (opening_val / opening_qty) if opening_qty else 0.0
+                                # ),
                             }
                         )
                     else:
@@ -308,15 +308,15 @@ class InventoryStockCardWizard(models.TransientModel):
                                     "lot_name": lot_name_val,
                                     "journal_entry": journal_entry_val,
                                     "line_open_qty": line_open_qty,
-                                    "line_open_price": line_open_price,
-                                    "line_open_val": line_open_val,
+                                    # "line_open_price": line_open_price,
+                                    # "line_open_val": line_open_val,
                                     "qty_in": qty_in,
                                     "qty_out": qty_out,
                                     "unit_price": unit_price,
                                     "valuation_amount": val_trans,
                                     "balance_qty": bal_qty,
-                                    "balance_val": bal_val,
-                                    "balance_price": line_bal_price,
+                                    # "balance_val": bal_val,
+                                    # "balance_price": line_bal_price,
                                 }
                             )
                 sheets.append(sheet)

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_service_acceptance_form_inherit_billing_note" model="ir.ui.view">
+        <field name="name">service.acceptance.form.inherit.billing.note</field>
+        <field name="model">service.acceptance</field>
+        <field name="inherit_id" ref="purchase_service_acceptance.view_service_acceptance_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//header/button[@name='action_confirm']" position="after">
+                <button name="action_create_billing_note" 
+                        string="Create Billing Note" 
+                        type="object" 
+                        class="oe_highlight" 
+                        invisible="not is_billing_note_ready" />
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_billing_notes"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-list-alt"
+                        invisible="billing_note_count == 0">
+                    <field name="billing_note_count" widget="statinfo" string="Billing Notes"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="is_billing_note_ready" invisible="1"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

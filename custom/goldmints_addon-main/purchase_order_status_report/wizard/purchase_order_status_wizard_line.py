@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 class PurchaseOrderStatusReportWizardLine(models.TransientModel):
     _name = "purchase.order.status.report.wizard.line"
@@ -11,11 +11,24 @@ class PurchaseOrderStatusReportWizardLine(models.TransientModel):
     )
     
     # Checkbox แบบติ๊กถูก
-    # is_selected = fields.Boolean(string=" ")
+    is_selected = fields.Boolean(string="Select", default=False)
+    is_billable = fields.Boolean(string="Is Billable", default=True)
+    is_already_billed = fields.Boolean(string="Already Billed", default=False)
+
+    @api.onchange('is_selected')
+    def _onchange_is_selected(self):
+        # Just to trigger UI refresh for the parent wizard's computed field
+        pass
     
     # ข้อมูลจากรายงาน QWeb 100%
     order_id = fields.Many2one("purchase.order", string="เลขที่ใบสั่งซื้อ")
+    po_line_id = fields.Many2one("purchase.order.line", string="รายการใบสั่งซื้อ")
+    picking_id = fields.Many2one("stock.picking", string="ใบรับสินค้า")
+    service_acceptance_id = fields.Many2one("service.acceptance", string="ใบตรวจรับงาน")
+    
     source_document = fields.Char(string="อ้างอิง")
+    receipt_ref = fields.Char(string="ใบรับสินค้า/บริการ", help="เลขที่ใบรับสินค้า (Picking) หรือ ใบตรวจรับงาน (Service Acceptance)")
+    inv_ref = fields.Char(string="เลขที่ใบแจ้งหนี้ (Inv Ref)", help="เลขที่ใบแจ้งหนี้อ้างอิงจากใบรับสินค้าหรือใบตรวจรับงาน")
     date_order = fields.Date(string="วันที่สั่งซื้อ")
     expected_arrival = fields.Date(string="วันที่คาดว่าจะมาถึง")
     vendor_id = fields.Many2one("res.partner", string="ผู้ขาย")
@@ -26,6 +39,9 @@ class PurchaseOrderStatusReportWizardLine(models.TransientModel):
     uom_id = fields.Many2one("uom.uom", string="หน่วยนับ")
     unit_price = fields.Float(string="ราคาต่อหน่วย")
     subtotal = fields.Float(string="ยอดไม่รวมภาษี")
+    is_pending = fields.Boolean(string="ค้างรับ")
+    is_header = fields.Boolean(string="เป็นบรรทัดหลัก")
+    receipt_date = fields.Date(string="วันที่รับสินค้า/บริการ")
     
     state = fields.Selection([
         ("draft", "ใบขอเสนอราคา"),

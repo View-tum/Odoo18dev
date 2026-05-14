@@ -11,8 +11,25 @@ class ResPartner(models.Model):
     branch = fields.Char(
         string="Tax Branch",
         copy=False,
-        help="Branch ID, e.g., 0000, 0001, ...",
+        help="Branch ID, e.g., 00000, 00001, ...",
     )
+
+    @api.onchange("branch")
+    def _onchange_branch(self):
+        if self.branch:
+            self.branch = self.branch.zfill(5)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "branch" in vals and vals["branch"]:
+                vals["branch"] = vals["branch"].zfill(5)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        if "branch" in vals and vals["branch"]:
+            vals["branch"] = vals["branch"].zfill(5)
+        return super().write(vals)
     name_company = fields.Char(
         index=True,
     )

@@ -1,0 +1,928 @@
+{
+  "database": "goldmints_uat_manu",
+  "selected_codes": [
+    "FG-MTS-GH-01001",
+    "FG-MTS-JP-01001",
+    "FG-MTS-TW-01001",
+    "FG-MTS-XX-01001"
+  ],
+  "manufactured_tree_count": 49,
+  "manufactured_tree_codes": [
+    "FG-MTS-GH-01001",
+    "FG-MTS-GH-02001",
+    "FG-MTS-GH-03001",
+    "FG-MTS-JP-01001",
+    "FG-MTS-JP-02001",
+    "FG-MTS-TW-01001",
+    "FG-MTS-TW-02001",
+    "FG-MTS-TW-02002",
+    "FG-MTS-TW-02003",
+    "FG-MTS-TW-02004",
+    "FG-MTS-TW-02005",
+    "FG-MTS-TW-02006",
+    "FG-MTS-XX-01001",
+    "FG-MTS-XX-02001",
+    "FG-MTS-XX-03001",
+    "FG-MTS-XX-04001",
+    "FG-MTS-XX-04002",
+    "FG-MTS-XX-04003",
+    "FG-MTS-XX-04004",
+    "FG-MTS-XX-04005",
+    "FG-MTS-XX-04006",
+    "RM-FIL-PS-01003",
+    "RM-FIL-PS-01004",
+    "SM-BLS-FO-00005",
+    "SM-JOI-BU-02001",
+    "SM-JOI-GN-01001",
+    "SM-JOI-PK-02001",
+    "SM-JOI-PK-02002",
+    "SM-JOI-PP-02001",
+    "SM-JOI-YW-02001",
+    "SM-MTS-JP-02001",
+    "SM-MTS-JP-02002",
+    "SM-MTS-JP-03001",
+    "SM-MTS-JP-03002",
+    "SM-MTS-TW-02001",
+    "SM-MTS-TW-02002",
+    "SM-MTS-TW-03001",
+    "SM-MTS-TW-03002",
+    "SM-MTS-XX-02001",
+    "SM-MTS-XX-02002",
+    "SM-MTS-XX-03001",
+    "SM-MTS-XX-03002",
+    "SM-PLS-LO-02001",
+    "SM-PLS-MI-02001",
+    "SM-PLS-PU-02001",
+    "SM-PLS-TU-02001",
+    "SM-PLS-UP-02001",
+    "SO-MTS-XX-01001",
+    "SO-PSS-UP-01001"
+  ],
+  "before_quant_count": 82,
+  "before_quantity_total": 361613419.36,
+  "before_reserved_total": 8740.0,
+  "unreserved_move_count": 3,
+  "unreserve_errors": [],
+  "mid_quant_count_after_unreserve": 82,
+  "mid_reserved_total_after_unreserve": 0.0,
+  "apply_errors": [],
+  "after_quant_count": 0,
+  "after_quant_rows": [],
+  "prepared_top_fg": [
+    {
+      "code": "FG-MTS-GH-01001",
+      "name": "[FG-MTS-GH-01001] Mark II Inhaler (Ghana) 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "qty_available": 0.0,
+      "virtual_available": -10757740.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "bom": "[FG-MTS-GH-01001] Mark II Inhaler (Ghana) 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "bom_components": 3,
+      "orderpoints": [
+        {
+          "id": 251,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "Manufacture",
+          "qty_to_order": 10757740.0
+        }
+      ]
+    },
+    {
+      "code": "FG-MTS-JP-01001",
+      "name": "[FG-MTS-JP-01001] Mark II Nose Mint Inhaler (1*1) (Blue)\n( Each carton contains 2,000 sticks )",
+      "qty_available": 0.0,
+      "virtual_available": -1460000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "bom": "[FG-MTS-JP-01001] Mark II Nose Mint Inhaler (1*1) (Blue)\n( Each carton contains 2,000 sticks )",
+      "bom_components": 4,
+      "orderpoints": [
+        {
+          "id": 181,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "",
+          "qty_to_order": 1460000.0
+        }
+      ]
+    },
+    {
+      "code": "FG-MTS-TW-01001",
+      "name": "[FG-MTS-TW-01001] Mark II Aroma Oil Stick (Taiwan) (1*1)\n( Each carton contains 2,000 sticks )",
+      "qty_available": 0.0,
+      "virtual_available": -20000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "bom": "[FG-MTS-TW-01001] Mark II Aroma Oil Stick (Taiwan) (1*1)\n( Each carton contains 2,000 sticks )",
+      "bom_components": 8,
+      "orderpoints": [
+        {
+          "id": 250,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "Manufacture",
+          "qty_to_order": 20000.0
+        }
+      ]
+    },
+    {
+      "code": "FG-MTS-XX-01001",
+      "name": "[FG-MTS-XX-01001] Mark II Inhaler 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "qty_available": 0.0,
+      "virtual_available": -1000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "bom": "[FG-MTS-XX-01001] Mark II Inhaler 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "bom_components": 3,
+      "orderpoints": [
+        {
+          "id": 172,
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "location": "GMP/Stock",
+          "min_qty": 0.0,
+          "max_qty": 0.0,
+          "route": "",
+          "qty_to_order": 1000.0
+        }
+      ]
+    }
+  ],
+  "missing_mto_count": 14,
+  "missing_mto_codes": [
+    "RM-FIL-PS-01003",
+    "RM-FIL-PS-01004",
+    "SM-JOI-BU-02001",
+    "SM-JOI-GN-01001",
+    "SM-JOI-PK-02001",
+    "SM-JOI-PK-02002",
+    "SM-JOI-PP-02001",
+    "SM-JOI-YW-02001",
+    "SM-PLS-LO-02001",
+    "SM-PLS-MI-02001",
+    "SM-PLS-PU-02001",
+    "SM-PLS-TU-02001",
+    "SM-PLS-UP-02001",
+    "SO-PSS-UP-01001"
+  ],
+  "missing_manufacture_count": 0,
+  "missing_manufacture_codes": [],
+  "sample_before_quant_rows": [
+    {
+      "quant_id": 10506,
+      "product_code": "SO-PSS-UP-01001",
+      "product": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "AA20251129",
+      "quantity": 910.46,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10507,
+      "product_code": "SO-PSS-UP-01001",
+      "product": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "AA20251205",
+      "quantity": 1431.21,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10508,
+      "product_code": "SO-PSS-UP-01001",
+      "product": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "AA20251212",
+      "quantity": 1428.23,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10509,
+      "product_code": "SO-PSS-UP-01001",
+      "product": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "AA20251219",
+      "quantity": 1429.46,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10536,
+      "product_code": "SM-PLS-MI-02001",
+      "product": "[SM-PLS-MI-02001] ชิ้นส่วนยาดมตัวกลางW02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/None",
+      "lot": "Genlot-365",
+      "quantity": 3840000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10539,
+      "product_code": "SM-PLS-UP-02001",
+      "product": "[SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/None",
+      "lot": "Genlot-365",
+      "quantity": 120000000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10541,
+      "product_code": "SM-PLS-UP-02001",
+      "product": "[SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/PD-Plastic",
+      "lot": "Genlot-365",
+      "quantity": 204670.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10542,
+      "product_code": "SM-PLS-LO-02001",
+      "product": "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+      "location": "GMP/SC01/SM",
+      "lot": "Genlot-365",
+      "quantity": 121729.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10544,
+      "product_code": "SM-PLS-LO-02001",
+      "product": "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/None",
+      "lot": "Genlot-365",
+      "quantity": 120000000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10545,
+      "product_code": "SM-PLS-TU-02001",
+      "product": "[SM-PLS-TU-02001] ชิ้นส่วนยาดมหลอดน้ำW02",
+      "location": "GMP/SC01/SM",
+      "lot": "Genlot-365",
+      "quantity": 454346.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10546,
+      "product_code": "SM-PLS-TU-02001",
+      "product": "[SM-PLS-TU-02001] ชิ้นส่วนยาดมหลอดน้ำW02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/PD-Plastic",
+      "lot": "Genlot-365",
+      "quantity": 634854.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10547,
+      "product_code": "SM-PLS-TU-02001",
+      "product": "[SM-PLS-TU-02001] ชิ้นส่วนยาดมหลอดน้ำW02",
+      "location": "GMP/Stock/Semi/พลาสติก/PL02/None",
+      "lot": "Genlot-365",
+      "quantity": 1200000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10561,
+      "product_code": "SM-MTS-XX-03001",
+      "product": "[SM-MTS-XX-03001] ชิ้นส่วนยาดม MarkII 3สูตร ตัวบน",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251001",
+      "quantity": 6201.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10562,
+      "product_code": "SM-MTS-XX-03002",
+      "product": "[SM-MTS-XX-03002] ชิ้นส่วนยาดม MarkII 3สูตร ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251001",
+      "quantity": 32395.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10563,
+      "product_code": "SM-MTS-TW-03001",
+      "product": "[SM-MTS-TW-03001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20241001",
+      "quantity": 41689.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10564,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20240201",
+      "quantity": 54.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10565,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20240601",
+      "quantity": 178.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10566,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20241001",
+      "quantity": 85.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10567,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20250901",
+      "quantity": 49600.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10590,
+      "product_code": "SM-BLS-FO-00005",
+      "product": "[SM-BLS-FO-00005] ฟอยด์ยาดม PS",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251101",
+      "quantity": 18900.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10602,
+      "product_code": "SM-MTS-XX-02001",
+      "product": "[SM-MTS-XX-02001] ชิ้นส่วนยาดม MarkII 3สูตร ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20250901",
+      "quantity": 130286.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10603,
+      "product_code": "SM-MTS-XX-02001",
+      "product": "[SM-MTS-XX-02001] ชิ้นส่วนยาดม MarkII 3สูตร ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251001",
+      "quantity": 243000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10604,
+      "product_code": "SM-MTS-XX-02002",
+      "product": "[SM-MTS-XX-02002] ชิ้นส่วนยาดม MarkII 3สูตร ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20250901",
+      "quantity": 69109.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10605,
+      "product_code": "SM-MTS-XX-02002",
+      "product": "[SM-MTS-XX-02002] ชิ้นส่วนยาดม MarkII 3สูตร ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251001",
+      "quantity": 348000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10607,
+      "product_code": "SM-MTS-TW-02001",
+      "product": "[SM-MTS-TW-02001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20250901",
+      "quantity": 1684000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10608,
+      "product_code": "SM-MTS-TW-02002",
+      "product": "[SM-MTS-TW-02002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20250901",
+      "quantity": 3740000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10609,
+      "product_code": "SM-MTS-TW-02002",
+      "product": "[SM-MTS-TW-02002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251101",
+      "quantity": 5800.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10618,
+      "product_code": "SM-JOI-GN-01001",
+      "product": "[SM-JOI-GN-01001] ตัวต่อสี W02 เขียว",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251101",
+      "quantity": 160290.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10619,
+      "product_code": "SM-JOI-GN-01001",
+      "product": "[SM-JOI-GN-01001] ตัวต่อสี W02 เขียว",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251101",
+      "quantity": 390000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10621,
+      "product_code": "SM-JOI-PK-02001",
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251101",
+      "quantity": 590000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10622,
+      "product_code": "SM-JOI-PK-02001",
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251101",
+      "quantity": 138937.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10623,
+      "product_code": "SM-JOI-PK-02002",
+      "product": "[SM-JOI-PK-02002] ตัวต่อสี W02 ชมพูสะท้อนแสง",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251101",
+      "quantity": 85990.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10624,
+      "product_code": "SM-JOI-PK-02002",
+      "product": "[SM-JOI-PK-02002] ตัวต่อสี W02 ชมพูสะท้อนแสง",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251201",
+      "quantity": 100000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10627,
+      "product_code": "SM-JOI-PP-02001",
+      "product": "[SM-JOI-PP-02001] ตัวต่อสี W02 ม่วง",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251101",
+      "quantity": 141527.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10628,
+      "product_code": "SM-JOI-PP-02001",
+      "product": "[SM-JOI-PP-02001] ตัวต่อสี W02 ม่วง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251201",
+      "quantity": 340000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10629,
+      "product_code": "SM-JOI-BU-02001",
+      "product": "[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251101",
+      "quantity": 130000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10630,
+      "product_code": "SM-JOI-BU-02001",
+      "product": "[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251101",
+      "quantity": 215547.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10634,
+      "product_code": "SM-JOI-YW-02001",
+      "product": "[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251201",
+      "quantity": 730000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10639,
+      "product_code": "SM-MTS-JP-02001",
+      "product": "[SM-MTS-JP-02001] ชิ้นส่วนยาดม MarkII NOSE MINT ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251201",
+      "quantity": 104963.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10640,
+      "product_code": "SM-MTS-JP-02001",
+      "product": "[SM-MTS-JP-02001] ชิ้นส่วนยาดม MarkII NOSE MINT ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251201",
+      "quantity": 65795.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10641,
+      "product_code": "SM-MTS-JP-02002",
+      "product": "[SM-MTS-JP-02002] ชิ้นส่วนยาดม MarkII NOSE MINT ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/โรงงานยา/ยาใน/PH03/None",
+      "lot": "20251201",
+      "quantity": 102926.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10642,
+      "product_code": "SM-MTS-JP-02002",
+      "product": "[SM-MTS-JP-02002] ชิ้นส่วนยาดม MarkII NOSE MINT ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก/PL03/None",
+      "lot": "20251201",
+      "quantity": 69600.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 10785,
+      "product_code": "FG-MTS-XX-01001",
+      "product": "[FG-MTS-XX-01001] Mark II Inhaler 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "location": "GMP/Stock/FG",
+      "lot": "BA00126",
+      "quantity": 4301.0,
+      "reserved_quantity": 1000.0
+    },
+    {
+      "quant_id": 11106,
+      "product_code": "FG-MTS-GH-01001",
+      "product": "[FG-MTS-GH-01001] Mark II Inhaler (Ghana) 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "location": "GMP/Stock/FG",
+      "lot": "BA00126",
+      "quantity": 7740.0,
+      "reserved_quantity": 7740.0
+    },
+    {
+      "quant_id": 12221,
+      "product_code": "FG-MTS-XX-01001",
+      "product": "[FG-MTS-XX-01001] Mark II Inhaler 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "location": "GMP/Stock/FG",
+      "lot": "BA00226",
+      "quantity": 1000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12530,
+      "product_code": "SM-PLS-UP-02001",
+      "product": "[SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "Genlot-365",
+      "quantity": 268323.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12532,
+      "product_code": "SM-PLS-UP-02001",
+      "product": "[SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+      "location": "GMP/SC01/SM",
+      "lot": "Genlot-365",
+      "quantity": 1000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12560,
+      "product_code": "SM-PLS-TU-02001",
+      "product": "[SM-PLS-TU-02001] ชิ้นส่วนยาดมหลอดน้ำW02",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "Genlot-365",
+      "quantity": 949600.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12561,
+      "product_code": "SM-PLS-PU-02001",
+      "product": "[SM-PLS-PU-02001] ชิ้นส่วนยาดมตัวอุดหลอดน้ำW02",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "Genlot-365",
+      "quantity": 49600.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12595,
+      "product_code": "FG-MTS-TW-02001",
+      "product": "[FG-MTS-TW-02001] ยาดม Mark II ไต้หวัน สีชมพูสะท้อนแสง",
+      "location": "GMP/Stock/Semi",
+      "lot": "1234",
+      "quantity": 995000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12612,
+      "product_code": "FG-MTS-TW-02001",
+      "product": "[FG-MTS-TW-02001] ยาดม Mark II ไต้หวัน สีชมพูสะท้อนแสง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12707,
+      "product_code": "SM-PLS-LO-02001",
+      "product": "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+      "location": "GMP/Stock/คลังลอย/RM/พลาสติก",
+      "lot": "Genlot-365",
+      "quantity": 309503.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12716,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/Stock/Semi/พลาสติก",
+      "lot": "20240201",
+      "quantity": 48624.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12717,
+      "product_code": "SM-MTS-TW-03002",
+      "product": "[SM-MTS-TW-03002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง",
+      "location": "GMP/SC01/FG",
+      "lot": "20240201",
+      "quantity": 1000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12722,
+      "product_code": "SM-MTS-TW-02002",
+      "product": "[SM-MTS-TW-02002] ชิ้นส่วนยาดม MarkII Taiwan ตัวล่าง+หลอดน้ำ",
+      "location": "GMP/Stock/Semi/พลาสติก",
+      "lot": "0000017",
+      "quantity": 50400.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12726,
+      "product_code": "SM-MTS-TW-03001",
+      "product": "[SM-MTS-TW-03001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน",
+      "location": "GMP/Stock/Semi/พลาสติก",
+      "lot": "0000005",
+      "quantity": 3577.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12727,
+      "product_code": "SM-MTS-TW-03001",
+      "product": "[SM-MTS-TW-03001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน",
+      "location": "GMP/SC01/FG",
+      "lot": "0000005",
+      "quantity": 310.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12729,
+      "product_code": "SM-MTS-TW-03001",
+      "product": "[SM-MTS-TW-03001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน",
+      "location": "GMP/Stock/Semi/พลาสติก",
+      "lot": "0000018",
+      "quantity": 54423.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12736,
+      "product_code": "RM-FIL-PS-01004",
+      "product": "[RM-FIL-PS-01004] ก้นกรองชุบน้ำยา PS",
+      "location": "GMP/Stock/RM/PL04",
+      "lot": "0000016",
+      "quantity": 60000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12785,
+      "product_code": "SM-MTS-TW-02001",
+      "product": "[SM-MTS-TW-02001] ชิ้นส่วนยาดม MarkII Taiwan ตัวบน+ตัวกลาง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "0000012",
+      "quantity": 3311.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12786,
+      "product_code": "SM-JOI-GN-01001",
+      "product": "[SM-JOI-GN-01001] ตัวต่อสี W02 เขียว",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "20251201",
+      "quantity": 480000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12787,
+      "product_code": "RM-FIL-PS-01004",
+      "product": "[RM-FIL-PS-01004] ก้นกรองชุบน้ำยา PS",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "0000016",
+      "quantity": 1960000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12789,
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 97734.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12796,
+      "product_code": "FG-MTS-TW-02006",
+      "product": "[FG-MTS-TW-02006] ยาดม Mark II ไต้หวัน สีเขียว",
+      "location": "GMP/Stock",
+      "lot": "0000022",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12797,
+      "product_code": "SM-JOI-YW-02001",
+      "product": "[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "20251101",
+      "quantity": 2392236.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12820,
+      "product_code": "FG-MTS-TW-02005",
+      "product": "[FG-MTS-TW-02005] ยาดม Mark II ไต้หวัน สีเหลือง",
+      "location": "GMP/Stock",
+      "lot": "0000024",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12826,
+      "product_code": "SM-JOI-BU-02001",
+      "product": "[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "20251201",
+      "quantity": 480000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12829,
+      "product_code": "FG-MTS-TW-02004",
+      "product": "[FG-MTS-TW-02004] ยาดม Mark II ไต้หวัน สีฟ้า",
+      "location": "GMP/Stock",
+      "lot": "0000025",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12833,
+      "product_code": "SM-JOI-PK-02001",
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12838,
+      "product_code": "FG-MTS-TW-02003",
+      "product": "[FG-MTS-TW-02003] ยาดม Mark II ไต้หวัน สีชมพู",
+      "location": "GMP/Stock",
+      "lot": "0000026",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12839,
+      "product_code": "SM-JOI-PP-02001",
+      "product": "[SM-JOI-PP-02001] ตัวต่อสี W02 ม่วง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "20251101",
+      "quantity": 530000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12852,
+      "product_code": "FG-MTS-TW-02002",
+      "product": "[FG-MTS-TW-02002] ยาดม Mark II ไต้หวัน สีม่วง",
+      "location": "GMP/Stock",
+      "lot": "0000027",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12863,
+      "product_code": "SO-MTS-XX-01001",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "location": "GMP/Stock/Semi/โรงงานยา",
+      "lot": "0000028",
+      "quantity": 66.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12864,
+      "product_code": "SM-JOI-PK-02002",
+      "product": "[SM-JOI-PK-02002] ตัวต่อสี W02 ชมพูสะท้อนแสง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "20251201",
+      "quantity": 660000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12866,
+      "product_code": "FG-MTS-TW-02001",
+      "product": "[FG-MTS-TW-02001] ยาดม Mark II ไต้หวัน สีชมพูสะท้อนแสง",
+      "location": "GMP/Stock",
+      "lot": "1234",
+      "quantity": 10000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12869,
+      "product_code": "FG-MTS-JP-02001",
+      "product": "[FG-MTS-JP-02001] ยาดม Mark II ญี่ปุ่น",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 90000000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12876,
+      "product_code": "FG-MTS-XX-01001",
+      "product": "[FG-MTS-XX-01001] Mark II Inhaler 10*6 (5 dz)\n( Each carton contains 20 units )",
+      "location": "GMP/HOLD-V",
+      "lot": "BA00424",
+      "quantity": 1.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12987,
+      "product_code": "FG-MTS-TW-02002",
+      "product": "[FG-MTS-TW-02002] ยาดม Mark II ไต้หวัน สีม่วง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12988,
+      "product_code": "FG-MTS-TW-02003",
+      "product": "[FG-MTS-TW-02003] ยาดม Mark II ไต้หวัน สีชมพู",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12989,
+      "product_code": "FG-MTS-TW-02004",
+      "product": "[FG-MTS-TW-02004] ยาดม Mark II ไต้หวัน สีฟ้า",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12990,
+      "product_code": "FG-MTS-TW-02005",
+      "product": "[FG-MTS-TW-02005] ยาดม Mark II ไต้หวัน สีเหลือง",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    },
+    {
+      "quant_id": 12994,
+      "product_code": "FG-MTS-TW-02006",
+      "product": "[FG-MTS-TW-02006] ยาดม Mark II ไต้หวัน สีเขียว",
+      "location": "GMP/Stock/คลังลอย",
+      "lot": "1234",
+      "quantity": 990000.0,
+      "reserved_quantity": 0.0
+    }
+  ]
+}

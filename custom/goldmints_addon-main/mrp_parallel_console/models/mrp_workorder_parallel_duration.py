@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, models
+from odoo.tools import float_compare
 
 
 class MrpWorkorder(models.Model):
@@ -7,13 +8,27 @@ class MrpWorkorder(models.Model):
 
     def _recompute_duration_expected_parallel(self):
         """Reapply duration logic (planned qty / capacity) on parallel groups."""
+        if self.env.context.get("mpc_skip_duration_recompute"):
+            return
+
         parallel_wos = self.filtered(
             lambda wo: wo.operation_id and wo.operation_id.parallel_mode == "parallel"
         )
+        if not parallel_wos:
+            return
+
         for wo in parallel_wos:
-            # Use the current implementation of _get_duration_expected
             duration = wo._get_duration_expected()
-            wo.write({"duration_expected": duration})
+            if float_compare(
+                wo.duration_expected or 0.0,
+                duration or 0.0,
+                precision_rounding=0.0001,
+            ) == 0:
+                continue
+            wo.with_context(
+                mpc_disable_auto_split=True,
+                mpc_skip_autosplit=True,
+            ).write({"duration_expected": duration})
 
     def _recompute_parallel_siblings(self):
         """Recompute duration for all workorders of the same MO/operation."""
@@ -36,7 +51,8 @@ class MrpWorkorder(models.Model):
     @api.model
     def create(self, vals):
         records = super().create(vals)
-        records._recompute_parallel_siblings()
+        if not self.env.context.get("mpc_skip_duration_recompute"):
+            records._recompute_parallel_siblings()
         return records
 
     def unlink(self):
@@ -54,7 +70,7 @@ class MrpWorkorder(models.Model):
                     ("state", "not in", ["done", "cancel"]),
                 ]
             )
-            if siblings:
+            if siblings and not self.env.context.get("mpc_skip_duration_recompute"):
                 siblings._recompute_duration_expected_parallel()
         return res
 
@@ -72,21 +88,6 @@ class MrpRoutingWorkcenter(models.Model):
                     ("state", "not in", ["done", "cancel"]),
                 ]
             )
-            if workorders:
+            if workorders and not self.env.context.get("mpc_skip_duration_recompute"):
                 workorders._recompute_parallel_siblings()
-        return res
-
-
-class MrpProduction(models.Model):
-    _inherit = "mrp.production"
-
-    def write(self, vals):
-        recompute = "product_qty" in vals
-        res = super().write(vals)
-        if recompute:
-            workorders = self.mapped("workorder_ids").filtered(
-                lambda wo: wo.operation_id and wo.operation_id.parallel_mode == "parallel"
-            )
-            # Re-split quantities across parallel workorders
-            self._mpc_auto_split_parallel_workorders(create_missing=False)
         return res

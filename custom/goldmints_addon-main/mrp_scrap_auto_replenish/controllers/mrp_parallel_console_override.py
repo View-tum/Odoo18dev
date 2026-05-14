@@ -1,7 +1,7 @@
 import logging
 from odoo import http, _
 from odoo.http import request
-from odoo.tools.float_utils import float_compare
+from odoo.tools.float_utils import float_compare, float_round
 from odoo.addons.mrp_parallel_console.controllers.mrp_parallel_console import MrpParallelConsoleController
 
 _logger = logging.getLogger(__name__)
@@ -50,33 +50,45 @@ class MrpParallelConsoleControllerOverride(MrpParallelConsoleController):
             # Is this a component? (Not the FG)
             if product.id != production.product_id.id:
                 source_loc = production.location_src_id
-                
-                # Check available stock at the shopfloor location (Pre-Production)
-                domain_quants = [
-                    ('location_id', '=', source_loc.id),
-                    ('product_id', '=', product.id),
-                ]
-                if lot_id:
-                    domain_quants.append(('lot_id', '=', lot_id))
-                    
-                available_quants = request.env['stock.quant'].search(domain_quants)
-                total_available = sum(available_quants.filtered(lambda q: q.quantity > 0).mapped('quantity'))
+
+                # Check free stock, not total stock, so already-reserved quants
+                # are not counted as available for scrap replenishment.
+                Quant = request.env['stock.quant'].sudo()
+                total_available = Quant._get_available_quantity(
+                    product,
+                    source_loc,
+                    lot_id=request.env['stock.lot'].browse(lot_id) if lot_id else None,
+                    strict=False,
+                )
 
                 # We need to consider what is already reserved for this MO
                 # If we have 10 on hand, but 8 are already reserved for this MO, we technically only have 2 "free" to grab.
                 # However, for auto-replenish from the same location, if they have physical items there, we just bump the requirement.
                 # Odoo will try to reserve the new requirement from the available unreserved stock.
                 
-                if total_available >= quantity:
+                if float_compare(
+                    total_available,
+                    quantity,
+                    precision_rounding=product.uom_id.rounding or 0.000001,
+                ) >= 0:
                     # Scenario A: Stock is available at shopfloor. We just increase the required qty in the BOM line (move_raw_ids).
                     raw_move = production.move_raw_ids.filtered(lambda m: m.product_id.id == product.id)[:1]
                     if raw_move:
                         # Ensure we don't mess up cost tracking - we just bump the requirement
-                        new_qty = raw_move.product_uom_qty + quantity
+                        qty_for_move_uom = product.uom_id._compute_quantity(
+                            quantity,
+                            raw_move.product_uom,
+                        )
+                        new_qty = float_round(
+                            raw_move.product_uom_qty + qty_for_move_uom,
+                            precision_rounding=raw_move.product_uom.rounding or 0.000001,
+                        )
                         raw_move.sudo().write({'product_uom_qty': new_qty})
                         
                         # Try to reserve the new quantity immediately
-                        production.sudo().action_assign()
+                        production.sudo().with_context(
+                            skip_check_availability_diagnostic=True
+                        ).action_assign()
                         
                         msg = _("✅ Scrap Replenish: Found sufficient '%s' at %s. Increased MO requirement by %s %s automatically.") % (
                             product.display_name, source_loc.display_name, quantity, product.uom_id.name
@@ -122,7 +134,15 @@ class MrpParallelConsoleControllerOverride(MrpParallelConsoleController):
                             # Also increase the requirement on the MO so that when the picking arrives, it belongs to this MO
                             raw_move = production.move_raw_ids.filtered(lambda m: m.product_id.id == product.id)[:1]
                             if raw_move:
-                                raw_move.sudo().write({'product_uom_qty': raw_move.product_uom_qty + quantity})
+                                qty_for_move_uom = product.uom_id._compute_quantity(
+                                    quantity,
+                                    raw_move.product_uom,
+                                )
+                                new_qty = float_round(
+                                    raw_move.product_uom_qty + qty_for_move_uom,
+                                    precision_rounding=raw_move.product_uom.rounding or 0.000001,
+                                )
+                                raw_move.sudo().write({'product_uom_qty': new_qty})
                             
                             msg = _("📦 Scrap Replenish: Insufficient stock at shopfloor. Created Internal Transfer <a href=# data-oe-model=stock.picking data-oe-id=%d>%s</a> to replenish %s %s of '%s'.") % (
                                 picking.id, picking.name, quantity, product.uom_id.name, product.display_name

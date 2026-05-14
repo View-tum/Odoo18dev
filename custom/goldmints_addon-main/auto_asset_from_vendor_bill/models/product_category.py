@@ -1,5 +1,6 @@
 from odoo import fields, models
 
+
 class ProductCategory(models.Model):
     _inherit = "product.category"
 
@@ -8,7 +9,7 @@ class ProductCategory(models.Model):
         help="If enabled, vendor bill lines using products in this category will trigger asset creation.",
         default=False,
     )
-    
+
     # asset_profile_id = fields.Many2one(
     #     'account.asset.profile',
     #     string='Asset Profile',

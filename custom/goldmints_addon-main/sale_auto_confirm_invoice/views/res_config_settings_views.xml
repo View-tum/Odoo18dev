@@ -6,14 +6,6 @@
         <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//block[@name='invoicing_setting_container']" position="inside">
-                <setting id="auto_create_invoice_on_delivery_setting"
-                         string="Automatic Delivery Invoicing"
-                         help="Automatically create and post customer invoices when the final delivery order is validated.">
-                    <field name="auto_create_invoice_on_delivery"/>
-                    <div class="text-muted">
-                        Mobile Warehouse orders are excluded from this automation.
-                    </div>
-                </setting>
                 <setting id="downpayment_account_setting"
                          string="Down Payment Accounting"
                          help="Use a specific account when creating down payment invoices.">

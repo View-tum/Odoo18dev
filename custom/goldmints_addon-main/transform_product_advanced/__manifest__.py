@@ -1,7 +1,7 @@
 {
     "name": "Transform Product Advanced",
     "version": "18.0.1.0.0",
-    "depends": ["stock", "stock_account"],
+    "depends": ["stock", "stock_account", "sale", "account", "rma_ept"],
     "author": "Phyo Thet Paing/paingphyothet561@gmail.com",
     "license": "LGPL-3",
     "website": "https://www.365infotech.co.th/",
@@ -15,6 +15,9 @@
         "views/product_transform_views.xml",
         "views/product_transform_rule_views.xml",
         "views/product_product_views.xml",
+        "views/stock_picking_views.xml",
+        "views/rma_transform_views.xml",
+        "views/rma_transform_return_views.xml",
     ],
     "installable": True,
     "application": False,

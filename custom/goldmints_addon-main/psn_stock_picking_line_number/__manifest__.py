@@ -19,6 +19,11 @@
     'data': [
         'views/stock_picking_view.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'psn_stock_picking_line_number/static/src/js/stock_move_lot_summary_refresh.js',
+        ],
+    },
     'demo': [
     ],
     'test': [

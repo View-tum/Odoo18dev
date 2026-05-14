@@ -28,6 +28,16 @@ class VendorBillingNoteLine(models.Model):
         store=True,
         readonly=True,
     )
+    picking_id = fields.Many2one(
+        "stock.picking", 
+        string="Receipt", 
+        ondelete="restrict"
+    )
+    service_acceptance_id = fields.Many2one(
+        "service.acceptance", 
+        string="Service Acceptance", 
+        ondelete="restrict"
+    )
 
     product_id = fields.Many2one(
         "product.product",

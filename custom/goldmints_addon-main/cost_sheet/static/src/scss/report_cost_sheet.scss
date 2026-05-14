@@ -1,0 +1,311 @@
+// =========================================================
+//  Cost Sheet Report — SCSS
+//  Theme: Modern Monochrome (ตรงกับ Stock Card)
+// =========================================================
+
+// ----- Color Palette (เหมือนกัน 100% กับ Stock Card) -----
+$cs-dark:        #212529;   // หัวตาราง / Title text
+$cs-dark-border: #343a40;   // Border เข้ม / Divider
+$cs-gray-light:  #f8f9fa;   // Info bg / even rows
+$cs-gray-label:  #e9ecef;   // Label cell bg
+$cs-gray-border: #dee2e6;   // Border ทั่วไป
+$cs-opening:     #e2e3e5;   // Total row bg  (= opening-row ใน SC)
+$cs-balance:     #f1f3f5;   // Summary row bg (= balance-cell ใน SC)
+$cs-text:        #212529;
+$cs-text-sub:    #383d41;
+$cs-muted:       #6c757d;
+$cs-white:       #ffffff;
+
+// =========================================================
+//  Base
+// =========================================================
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: $cs-text !important;
+}
+
+// =========================================================
+//  Title  (เหมือน .sc-title)
+// =========================================================
+.cs-title {
+  text-align: center !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: $cs-text !important;
+  margin: 0 0 20px 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+// =========================================================
+//  Info Container  (เหมือน .sc-info-container)
+// =========================================================
+.cs-info-container {
+  background: $cs-gray-light !important;
+  border: 2px solid $cs-dark-border !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin-bottom: 20px !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+// Meta table  (เหมือน .sc-meta)
+.cs-meta {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 13px !important;
+
+  td {
+    padding: 8px 12px !important;
+    vertical-align: top !important;
+  }
+
+  .label {
+    width: 25% !important;
+    color: $cs-text !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    background-color: $cs-gray-label !important;
+    border-right: 3px solid $cs-dark-border !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .value {
+    color: $cs-text !important;
+    background-color: $cs-white !important;
+    border-bottom: 1px solid $cs-gray-border !important;
+    font-weight: 500 !important;
+  }
+}
+
+// =========================================================
+//  Description Box  (โทนเดียวกัน แต่ปรับเป็น monochrome)
+// =========================================================
+.cs-description-box {
+  background-color: $cs-gray-label !important;
+  border: 1px solid $cs-dark-border !important;
+  border-left: 4px solid $cs-dark !important;
+  padding: 12px 16px !important;
+  margin: 0 0 16px 0 !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+
+  .label {
+    font-weight: 700 !important;
+    color: $cs-dark !important;
+    margin-right: 8px !important;
+  }
+
+  .value {
+    color: $cs-text-sub !important;
+  }
+}
+
+// =========================================================
+//  Section Title
+// =========================================================
+.cs-section-title {
+  font-size: 12pt !important;
+  font-weight: 700 !important;
+  color: $cs-dark !important;
+  margin: 22px 0 8px 0 !important;
+  padding-bottom: 6px !important;
+  border-bottom: 2px solid $cs-dark-border !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+// =========================================================
+//  Table Container  (เหมือน .sc-table-container)
+// =========================================================
+.cs-table-container {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border: 2px solid $cs-dark-border !important;
+  margin-top: 8px !important;
+  margin-bottom: 20px !important;
+}
+
+// =========================================================
+//  Table  (เหมือน .sc-table)
+// =========================================================
+.cs-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 11px !important;
+  background: $cs-white !important;
+
+  // ---------- Header ----------
+  thead th {
+    background-color: $cs-dark !important;
+    color: $cs-white !important;
+    border: 1px solid $cs-dark-border !important;
+    padding: 10px 8px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    font-size: 10px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  // ---------- Body rows ----------
+  tbody tr {
+    border-bottom: 1px solid $cs-gray-light !important;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: $cs-gray-light !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  tbody td {
+    border: 1px solid $cs-gray-border !important;
+    padding: 7px 8px !important;
+    color: $cs-text !important;
+  }
+
+  // ---------- Total row  (= opening-row ใน SC) ----------
+  tbody tr.cs-total-row td {
+    background-color: $cs-opening !important;
+    font-weight: 700 !important;
+    color: $cs-text-sub !important;
+    border-top: 2px solid $cs-dark-border !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  // ---------- Summary row  (= balance-cell ใน SC) ----------
+  tbody tr.cs-summary-row td {
+    background-color: $cs-balance !important;
+    font-weight: 600 !important;
+    color: $cs-text-sub !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+// =========================================================
+//  Product Table — ปรับขนาด font ให้เล็กลงเพราะมีหลาย column
+// =========================================================
+.cs-table.cs-product-table {
+  thead th,
+  tbody td {
+    font-size: 9px !important;
+    padding: 7px 6px !important;
+  }
+}
+
+// =========================================================
+//  Helpers
+// =========================================================
+.text-right  { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+.cs-amount {
+  font-family: "Courier New", monospace !important;
+  font-weight: 500 !important;
+}
+
+.cs-muted {
+  color: $cs-muted !important;
+  font-style: italic !important;
+}
+
+// =========================================================
+//  Divider  (เหมือน .sc-divider)
+// =========================================================
+.cs-divider {
+  height: 2px !important;
+  background-color: $cs-dark-border !important;
+  margin: 16px auto !important;
+  width: 50% !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+// =========================================================
+//  Page Break
+// =========================================================
+.page-break {
+  page-break-before: always !important;
+  margin-top: 40px !important;
+}
+
+.page-break + .cs-title {
+  margin-top: 40px !important;
+}
+
+// =========================================================
+//  Page Margins
+// =========================================================
+@page {
+  margin-top: 1.0cm;
+  margin-right: 1cm;
+  margin-bottom: 1cm;
+  margin-left: 1cm;
+}
+
+// =========================================================
+//  Print Overrides
+// =========================================================
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .cs-title            { color: $cs-dark !important; }
+  .cs-info-container   { background: $cs-gray-light !important; }
+  .cs-description-box  { background-color: $cs-gray-label !important; }
+
+  .cs-meta .label      { background-color: $cs-gray-label !important; }
+
+  .cs-table {
+    thead th {
+      background-color: $cs-dark !important;
+      color: $cs-white !important;
+    }
+
+    tbody tr:nth-child(even)        { background-color: $cs-gray-light !important; }
+    tbody tr.cs-total-row td        { background-color: $cs-opening !important; }
+    tbody tr.cs-summary-row td      { background-color: $cs-balance !important; }
+  }
+
+  .cs-info-container,
+  .cs-table-container { box-shadow: none !important; }
+}
+
+// =========================================================
+//  Screen-only Enhancements
+// =========================================================
+@media screen {
+  .cs-info-container,
+  .cs-table-container {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid $cs-gray-border !important;
+  }
+
+  // Hover effect (เหมือน SC)
+  .cs-table tbody tr:not(.cs-total-row):not(.cs-summary-row):hover {
+    background-color: #e2e6ea !important;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  // Sticky header
+  .cs-table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    background-clip: padding-box !important;
+  }
+}

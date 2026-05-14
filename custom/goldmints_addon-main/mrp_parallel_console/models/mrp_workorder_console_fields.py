@@ -16,20 +16,24 @@ class MrpWorkorder(models.Model):
         digits="Product Unit of Measure",
         help="Quantity planned for this work order when splitting a "
              "manufacturing order across parallel workcenters.",
+        copy=False,
     )
     console_qty = fields.Float(
         string="Console Quantity",
         digits="Product Unit of Measure",
         default=0.0,
+        copy=False,
         help="Quantity reported through the Parallel Shopfloor console "
              "for this work order.",
     )
     console_date_start = fields.Datetime(
         string="Console Start Time",
+        copy=False,
         help="Start time coming from the Parallel Shopfloor console.",
     )
     console_date_finished = fields.Datetime(
         string="Console End Time",
+        copy=False,
         help="End time coming from the Parallel Shopfloor console.",
     )
     employee_ids = fields.Many2many(
@@ -38,6 +42,7 @@ class MrpWorkorder(models.Model):
         "workorder_id",
         "employee_id",
         string="Console Employees",
+        copy=False,
         help="Employees assigned to this work order via the console.",
     )
     mpc_employee_production_ids = fields.One2many(
@@ -68,29 +73,16 @@ class MrpWorkorder(models.Model):
 
     def write(self, vals):
         res = super().write(vals)
-        # Fields to monitor for real-time sync
-        monitor_fields = {"console_qty", "state", "console_date_start", "console_date_finished", "employee_ids", "mpc_supervisor_checked", "mpc_supervisor_id", "mpc_supervisor_check_date"}
-        if any(f in vals for f in monitor_fields):
+
+        # Sync quantity to standard MO fields if quantity changed
+        if "console_qty" in vals:
             for record in self:
-                if not record.production_id:
-                    continue
-                channel = f"mrp_parallel_console.production.{record.production_id.id}"
-                changes = {
-                    "console_qty": record.console_qty,
-                    "state": record.state,
-                    "console_date_start": fields.Datetime.to_string(record.console_date_start) if record.console_date_start else False,
-                    "console_date_finished": fields.Datetime.to_string(record.console_date_finished) if record.console_date_finished else False,
-                    "employee_ids": record.employee_ids.ids,
-                    "employee_names": record.employee_ids.mapped("name"),
-                    "mpc_supervisor_checked": record.mpc_supervisor_checked,
-                    "mpc_supervisor_name": record.mpc_supervisor_id.name if record.mpc_supervisor_id else False,
-                    "mpc_supervisor_check_date": fields.Datetime.to_string(record.mpc_supervisor_check_date) if record.mpc_supervisor_check_date else False,
-                }
-                self.env["bus.bus"]._sendone(channel, "workorder_update", {
-                    "workorder_id": record.id,
-                    "changes": changes,
-                    "timestamp": fields.Datetime.now().isoformat(),
-                })
+                # Sync to standard WO qty_producing
+                record.qty_producing = vals["console_qty"]
+                
+                if record.production_id:
+                    record.production_id._console_sync_qty_producing()
+
         return res
 
     def button_start(self, bypass=False):
@@ -283,37 +275,7 @@ class MrpWorkorder(models.Model):
         return now
 
     def button_pending(self):
-        res = super().button_pending()
-        for record in self:
-            if not record.production_id:
-                continue
-            channel = f"mrp_parallel_console.production.{record.production_id.id}"
-            changes = {
-                "state": record.state,
-                "console_date_start": fields.Datetime.to_string(record.console_date_start) if record.console_date_start else False,
-                "console_date_finished": fields.Datetime.to_string(record.console_date_finished) if record.console_date_finished else False,
-            }
-            self.env["bus.bus"]._sendone(channel, "workorder_update", {
-                "workorder_id": record.id,
-                "changes": changes,
-                "timestamp": fields.Datetime.now().isoformat(),
-            })
-        return res
+        return super().button_pending()
 
     def button_unblock(self):
-        res = super().button_unblock()
-        for record in self:
-            if not record.production_id:
-                continue
-            channel = f"mrp_parallel_console.production.{record.production_id.id}"
-            changes = {
-                "state": record.state,
-                "console_date_start": fields.Datetime.to_string(record.console_date_start) if record.console_date_start else False,
-                "console_date_finished": fields.Datetime.to_string(record.console_date_finished) if record.console_date_finished else False,
-            }
-            self.env["bus.bus"]._sendone(channel, "workorder_update", {
-                "workorder_id": record.id,
-                "changes": changes,
-                "timestamp": fields.Datetime.now().isoformat(),
-            })
-        return res
+        return super().button_unblock()

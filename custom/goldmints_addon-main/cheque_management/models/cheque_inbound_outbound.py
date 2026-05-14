@@ -9,6 +9,13 @@ class ChequeInboundOutbound(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char('Cheque No.', copy=False, default='New', tracking=True)
+    instrument_type = fields.Selection(
+        [('cheque', 'Cheque'), ('bank_draft', 'Bank Draft')],
+        default='cheque',
+        required=True,
+        string='Instrument Type',
+        tracking=True,
+    )
     cheque_type = fields.Selection([('inbound', 'Inbound'),
                                     ('outbound', 'Outbound')], default='inbound', string='Type', tracking=True)
     bank_account_journal_id = fields.Many2one('account.journal', 'Bank Account', domain=[('type', '=', 'bank')], copy=False, tracking=True)
@@ -560,14 +567,16 @@ class ChequeInboundOutbound(models.Model):
             record.balance = record.cheque_amount - record.change_amount
 
     def action_waiting_confirm(self):
-        cheque_book_lines_id = self.env['cheque.book.lines'].search([('name', '=', self.cheque_id.name)])
-        if cheque_book_lines_id:
-            cheque_book_lines_id.date = self.cheque_date
-            cheque_book_lines_id.pay_to = self.pay_partner_id.id
-            cheque_book_lines_id.amount = self.amount
-            cheque_book_lines_id.memo = self.memo
-            cheque_book_lines_id.status = 'waiting_confirm'
-        self.state = 'waiting_confirm'
+        for rec in self:
+            if rec.instrument_type == 'cheque' and rec.cheque_id:
+                cheque_book_lines_id = self.env['cheque.book.lines'].search([('name', '=', rec.cheque_id.name)])
+                if cheque_book_lines_id:
+                    cheque_book_lines_id.date = rec.cheque_date
+                    cheque_book_lines_id.pay_to = rec.pay_partner_id.id
+                    cheque_book_lines_id.amount = rec.amount
+                    cheque_book_lines_id.memo = rec.memo
+                    cheque_book_lines_id.status = 'waiting_confirm'
+            rec.state = 'waiting_confirm'
 
     def action_arrive_confirm(self):
         """Arrival shortcut: move directly to Confirmed."""
@@ -580,9 +589,10 @@ class ChequeInboundOutbound(models.Model):
     def action_confirm_pay(self):
         # if not self.clearing_date and not self.cheque_optinal in ['return', 'transform']:
         #     raise UserError(_('Please Add Clearing date. It must be required.'))
-        cheque_book_lines_id = self.env['cheque.book.lines'].search([('name', '=', self.cheque_id.name)])
-        self.state = 'confirmed'
-        self.cheque_id.status = 'confirmed'
+        for rec in self:
+            if rec.instrument_type == 'cheque' and rec.cheque_id:
+                rec.cheque_id.status = 'confirmed'
+            rec.state = 'confirmed'
         # Keep invoice/bill linked in payment flow:
         # post cheque payments at Confirmed so they reconcile with source invoices/bills.
         payments = (self.payment_ids | self.payment_id).filtered(
@@ -716,7 +726,8 @@ class ChequeInboundOutbound(models.Model):
         res = super(ChequeInboundOutbound, self).write(vals)
         if 'name' in vals:
             for rec in self:
-                rec.cheque_id.name = rec.name
+                if rec.cheque_id:
+                    rec.cheque_id.name = rec.name
         return res
 
     def _reverse_moves_for_cancel(self, moves, reason, reverse_date):

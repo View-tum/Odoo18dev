@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_account_payment_register_form_inherit_partner_settlement" model="ir.ui.view">
+        <field name="name">account.payment.register.form.inherit.partner.settlement</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account_payment_multi_allocation.view_account_payment_register_form_inherit_allocation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="attributes">
+                <attribute name="readonly">not cross_settlement_amount_editable or (can_group_payments and not group_payment and not show_cross_settlement)</attribute>
+            </xpath>
+            <xpath expr="//group[field[@name='allocation_line_ids']]" position="before">
+                <group invisible="1">
+                    <field name="show_cross_settlement"/>
+                    <field name="cross_settlement_partner_eligible"/>
+                    <field name="cross_settlement_amount_editable"/>
+                </group>
+                <group string="Cross Settlement" invisible="not partner_id or cross_settlement_partner_eligible">
+                    <div class="text-warning">
+                        Cross settlement is available only when the contact is marked as both Is a Customer and Is a Supplier.
+                    </div>
+                </group>
+                <group string="Cross Settlement (Same Partner / Same Company / Same Currency)" invisible="not show_cross_settlement">
+                    <field name="cross_settlement_amount" readonly="1"/>
+                    <div class="mb-2">
+                        <button name="action_select_all" type="object" string="Select All" class="btn-link p-0 me-2" icon="fa-check-square-o"/>
+                        <button name="action_unselect_all" type="object" string="Unselect All" class="btn-link p-0" icon="fa-square-o"/>
+                    </div>
+                    <field name="cross_settlement_line_ids" nolabel="1">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="is_selected"/>
+                            <field name="document_label" string="Type"/>
+                            <field name="move_id" string="Document"/>
+                            <field name="move_date" string="Date"/>
+                            <field name="residual_signed_amount" string="Open Amount" readonly="1"/>
+                            <field name="amount_to_settle" string="Settle Amount" readonly="not is_selected"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="account_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

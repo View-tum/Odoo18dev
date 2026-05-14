@@ -1,0 +1,34 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "product_category_rm_form_real.png",
+  "target_url": "http://localhost:8811/odoo/action-181/112",
+  "actions": [],
+  "highlight_selectors": [
+    {
+      "selector": "[name='property_cost_method']",
+      "label": "1"
+    },
+    {
+      "selector": "[name='property_valuation']",
+      "label": "2"
+    },
+    {
+      "selector": "[name='property_stock_valuation_account_id']",
+      "label": "3"
+    },
+    {
+      "selector": "[name='property_stock_account_input_categ_id']",
+      "label": "4"
+    },
+    {
+      "selector": "[name='property_stock_account_output_categ_id']",
+      "label": "5"
+    }
+  ],
+  "post_nav_wait_ms": 4500,
+  "post_click_wait_ms": 2200
+}

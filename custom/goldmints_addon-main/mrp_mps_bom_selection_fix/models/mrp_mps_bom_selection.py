@@ -51,15 +51,30 @@ class MrpProduction(models.Model):
     """
     _inherit = "mrp.production"
 
+    def _default_bom_for_product(self, product, company_id=False):
+        if not product:
+            return self.env["mrp.bom"]
+        return self.env["mrp.bom"]._bom_find(
+            products=product,
+            company_id=company_id or self.env.company.id,
+        ).get(product)
+
     @api.model_create_multi
     def create(self, vals_list):
         Bom = self.env["mrp.bom"]
+        Product = self.env["product.product"]
         for vals in vals_list:
             bom_id = vals.get("bom_id")
-            if not bom_id:
-                continue
-
-            bom = Bom.browse(bom_id)
+            if bom_id:
+                bom = Bom.browse(bom_id)
+            else:
+                product = Product.browse(vals.get("product_id"))
+                bom = self._default_bom_for_product(
+                    product,
+                    vals.get("company_id") or self.env.company.id,
+                )
+                if bom:
+                    vals["bom_id"] = bom.id
             if not bom.exists():
                 continue
 
@@ -111,4 +126,19 @@ class StockRule(models.Model):
                     and not vals.get("routing_id")
                 ):
                     vals["routing_id"] = schedule.bom_id.routing_id.id
+        elif not vals.get("bom_id"):
+            if bom:
+                vals["bom_id"] = bom.id
+            else:
+                product = (
+                    product_id
+                    if hasattr(product_id, "id")
+                    else self.env["product.product"].browse(product_id)
+                )
+                found_bom = self.env["mrp.bom"]._bom_find(
+                    products=product,
+                    company_id=company_id.id if hasattr(company_id, "id") else company_id,
+                ).get(product)
+                if found_bom:
+                    vals["bom_id"] = found_bom.id
         return vals

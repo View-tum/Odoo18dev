@@ -1,10 +1,5 @@
-import logging
-
 from odoo import api, fields, models
 from odoo.exceptions import UserError
-
-
-_logger = logging.getLogger(__name__)
 
 
 class SaleOrder(models.Model):
@@ -31,50 +26,6 @@ class SaleOrder(models.Model):
         latest_done = max(done_pickings.mapped("date_done"))
         return fields.Date.to_date(latest_done)
 
-    def _eligible_for_auto_delivery_invoice(self):
-        self.ensure_one()
-        if not self.company_id.auto_create_invoice_on_delivery:
-            return False
-        if self._is_mobile_warehouse_order():
-            return False
-        if self.state not in ("sale", "done"):
-            return False
-        if self.invoice_status != "to invoice":
-            return False
-        outgoing = self.picking_ids.filtered(
-            lambda picking: (
-                picking.state != "cancel"
-                and picking.picking_type_id.code == "outgoing"
-            )
-        )
-        if not outgoing or any(picking.state != "done" for picking in outgoing):
-            return False
-        if self.invoice_ids.filtered(
-            lambda move: move.move_type == "out_invoice" and move.state == "draft"
-        ):
-            return False
-        if not self.order_line.filtered(
-            lambda line: not line.display_type and line.qty_to_invoice > 0
-        ):
-            return False
-        return True
-
-    def _auto_create_posted_invoices(self):
-        created_moves = self.env["account.move"]
-        for order in self.filtered(
-            lambda record: record._eligible_for_auto_delivery_invoice()
-        ):
-            try:
-                created_moves |= order.with_context(
-                    skip_invoice_auto_commit=True
-                )._create_invoices()
-            except Exception:
-                _logger.exception(
-                    "Automatic invoice creation failed after delivery for %s",
-                    order.name,
-                )
-        return created_moves
-
     def _create_invoices(self, grouped=False, final=False, date=None):
         moves = super()._create_invoices(grouped=grouped, final=final, date=date)
         draft_moves = moves.filtered(lambda m: m.state == "draft")
@@ -93,8 +44,7 @@ class SaleOrder(models.Model):
                 # 🚀 IMMEDIATE COMMIT: Release ir.sequence_date_range lock instantly!
                 # This prevents "could not serialize access due to concurrent update"
                 # and stops other users' browsers from freezing.
-                if not self.env.context.get("skip_invoice_auto_commit"):
-                    self.env.cr.commit()
+                self.env.cr.commit()
             except UserError:
                 # If posting fails (e.g., missing accounts), leave drafts as-is
                 pass

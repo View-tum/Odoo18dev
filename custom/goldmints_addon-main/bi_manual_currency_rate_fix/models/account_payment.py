@@ -1,36 +1,8 @@
-from odoo import Command, models
+from odoo import models
 
 
 class AccountPayment(models.Model):
     _inherit = 'account.payment'
-
-    def _get_preserved_writeoff_line_vals(self, writeoff_lines):
-        """Keep custom metadata when payment sync rebuilds journal lines.
-
-        Core account.payment._synchronize_to_moves() collapses all write-off lines
-        into a single synthetic line and only preserves a minimal key set.
-        Our WHT flow stores legal filing data on the payment write-off line
-        (wht_tax_id / tax_base_amount). If sync runs after payment creation,
-        those fields are lost and no withholding certificate can be created.
-        """
-        preserved_vals = []
-        for line in writeoff_lines:
-            line_vals = {
-                'name': line.name,
-                'account_id': line.account_id.id,
-                'partner_id': line.partner_id.id,
-                'currency_id': line.currency_id.id,
-                'amount_currency': line.amount_currency,
-                'balance': line.balance,
-            }
-            if 'analytic_distribution' in line._fields:
-                line_vals['analytic_distribution'] = line.analytic_distribution
-            if 'wht_tax_id' in line._fields and line.wht_tax_id:
-                line_vals['wht_tax_id'] = line.wht_tax_id.id
-            if 'tax_base_amount' in line._fields:
-                line_vals['tax_base_amount'] = line.tax_base_amount
-            preserved_vals.append(line_vals)
-        return preserved_vals
 
     @staticmethod
     def _set_balance_on_line_vals(line_vals, balance):
@@ -106,39 +78,3 @@ class AccountPayment(models.Model):
                     self._set_balance_on_line_vals(line_vals, self.company_id.currency_id.round(-non_dest_balance_sum))
 
         return line_vals_list
-
-    def _synchronize_to_moves(self, changed_fields):
-        if self.env.context.get('skip_account_move_synchronization'):
-            return
-        if any(rec.is_multi_deduction for rec in self if 'is_multi_deduction' in rec._fields):
-            return
-        if not any(field_name in changed_fields for field_name in self._get_trigger_fields_to_synchronize()):
-            return
-
-        for pay in self:
-            liquidity_lines, counterpart_lines, writeoff_lines = pay._seek_for_lines()
-            write_off_line_vals = pay._get_preserved_writeoff_line_vals(writeoff_lines)
-            line_vals_list = pay._prepare_move_line_default_vals(
-                write_off_line_vals=write_off_line_vals
-            )
-            line_ids_commands = [
-                Command.update(liquidity_lines.id, line_vals_list[0]) if liquidity_lines else Command.create(line_vals_list[0]),
-                Command.update(counterpart_lines.id, line_vals_list[1]) if counterpart_lines else Command.create(line_vals_list[1]),
-            ]
-            for line in writeoff_lines:
-                line_ids_commands.append(Command.delete(line.id))
-            for extra_line_vals in line_vals_list[2:]:
-                line_ids_commands.append(Command.create(extra_line_vals))
-            to_write = {
-                'date': pay.date,
-                'partner_id': pay.partner_id.id,
-                'currency_id': pay.currency_id.id,
-                'partner_bank_id': pay.partner_bank_id.id,
-                'line_ids': line_ids_commands,
-            }
-            if 'journal_id' in changed_fields:
-                to_write.update({
-                    'name': '/',
-                    'journal_id': pay.journal_id.id,
-                })
-            pay.move_id.with_context(skip_invoice_sync=True).write(to_write)

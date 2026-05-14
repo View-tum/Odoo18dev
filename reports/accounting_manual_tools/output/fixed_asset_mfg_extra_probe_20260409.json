@@ -1,0 +1,97 @@
+{
+  "depreciation_asset": {
+    "id": 11548,
+    "name": "Computer\nnotebook asus",
+    "state": "open"
+  },
+  "depreciation_move": {
+    "id": false,
+    "name": "",
+    "date": "",
+    "ref": "",
+    "lines": []
+  },
+  "bom": {
+    "id": 3229,
+    "display_name": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+    "product": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)"
+  },
+  "real_scrap": {
+    "id": false,
+    "name": "",
+    "state": "",
+    "product": "",
+    "qty": 0,
+    "production": "",
+    "location": "",
+    "scrap_location": ""
+  },
+  "valuation_moves": [
+    {
+      "id": 68395,
+      "name": "STJ/26/04/27326",
+      "date": "2026-04-07",
+      "ref": "GMP/MOPH/00030 - ยาดม Mark II อิสราเอล 1 กล่อง",
+      "lines": [
+        {
+          "account_code": "116021",
+          "account_name": "งานระหว่างทำ",
+          "label": "GMP/MOPH/00030 - ยาดม Mark II อิสราเอล 1 กล่อง",
+          "debit": 10021.556962,
+          "credit": 0.0
+        },
+        {
+          "account_code": "116031",
+          "account_name": "สินค้าสำเร็จรูป - ยาดม",
+          "label": "GMP/MOPH/00030 - ยาดม Mark II อิสราเอล 1 กล่อง",
+          "debit": 0.0,
+          "credit": 10021.556962
+        }
+      ]
+    },
+    {
+      "id": 68396,
+      "name": "STJ/26/04/27327",
+      "date": "2026-04-07",
+      "ref": "GMP/MOPH/00030 - ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+      "lines": [
+        {
+          "account_code": "116003",
+          "account_name": "วัตถุดิบ - บรรจุภัณฑ์",
+          "label": "GMP/MOPH/00030 - ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+          "debit": 0.0,
+          "credit": 12.643456
+        },
+        {
+          "account_code": "116021",
+          "account_name": "งานระหว่างทำ",
+          "label": "GMP/MOPH/00030 - ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+          "debit": 12.643456,
+          "credit": 0.0
+        }
+      ]
+    },
+    {
+      "id": 68397,
+      "name": "STJ/26/04/27328",
+      "date": "2026-04-07",
+      "ref": "GMP/MOPH/00030 - Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "lines": [
+        {
+          "account_code": "116021",
+          "account_name": "งานระหว่างทำ",
+          "label": "GMP/MOPH/00030 - Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+          "debit": 0.0,
+          "credit": 10348.800418
+        },
+        {
+          "account_code": "116031",
+          "account_name": "สินค้าสำเร็จรูป - ยาดม",
+          "label": "GMP/MOPH/00030 - Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+          "debit": 10348.800418,
+          "credit": 0.0
+        }
+      ]
+    }
+  ]
+}

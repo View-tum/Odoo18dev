@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_account_commission_rule_list" model="ir.ui.view">
+        <field name="name">account.commission.rule.list</field>
+        <field name="model">account.commission.rule</field>
+        <field name="arch" type="xml">
+            <list string="Commission Rules">
+                <field name="commission_trigger"/>
+                <field name="region_ids" widget="many2many_tags"/>
+                <field name="rate_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_account_commission_rule_form" model="ir.ui.view">
+        <field name="name">account.commission.rule.form</field>
+        <field name="model">account.commission.rule</field>
+        <field name="arch" type="xml">
+            <form string="Commission Rules">
+                <sheet>
+                    <group>
+                        <field name="commission_trigger"/>
+                        <field name="region_ids" widget="many2many_tags"/>
+                        <field name="rate_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

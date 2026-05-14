@@ -1,0 +1,33 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "customer_invoice_form_real.png",
+  "target_url": "http://localhost:8811/odoo/action-262/68484",
+  "highlight_selectors": [
+    {
+      "selector": ".o_form_statusbar",
+      "label": "1"
+    },
+    {
+      "selector": "[name=\"partner_id\"]",
+      "label": "2"
+    },
+    {
+      "selector": "[name=\"invoice_date\"]",
+      "label": "3"
+    },
+    {
+      "selector": "[name=\"invoice_line_ids\"]",
+      "label": "4"
+    },
+    {
+      "selector": "button[name=\"action_register_payment\"]",
+      "label": "5"
+    }
+  ],
+  "post_nav_wait_ms": 5000,
+  "post_click_wait_ms": 2000
+}

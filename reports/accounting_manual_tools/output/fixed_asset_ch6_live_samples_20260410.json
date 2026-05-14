@@ -1,0 +1,70 @@
+{
+  "generated_at": "ffdb79ac-2cd5-11f1-a6f2-00090faa0001",
+  "menus": {
+    "assets": "Accounting > Accounting > Assets",
+    "asset_models": "Accounting > Configuration > Management > Asset Models",
+    "fixed_asset_report": "Accounting > Reporting > Accounting Reports > รายงานสินทรัพย์ถาวร"
+  },
+  "samples": {
+    "draft_asset": {
+      "id": 11555,
+      "name": "Injection Machine\nเครื่องฉีด",
+      "state": "draft",
+      "original_value": 1000.0,
+      "book_value": 1000.0,
+      "salvage_value": 0.0,
+      "model_name": "เครื่องจักร",
+      "acquisition_date": "2026-04-02",
+      "method": "linear",
+      "method_number": 120,
+      "method_period": "1",
+      "prorata_date": "2026-04-02",
+      "account_asset_id": "123012 สินทรัพย์รอการใช้",
+      "account_depreciation_id": "123014 ค่าเสื่อมราคาสะสม - เครื่องจักร",
+      "account_depreciation_expense_id": "530072 ค่าเสื่อมราคา - เครื่องจักร",
+      "journal_id": "Depreciation Journal",
+      "depreciation_entries_count": 0,
+      "total_depreciation_entries_count": 0
+    },
+    "open_asset": {
+      "id": 11537,
+      "name": "เครื่องพิมพ์ตัวล่าง HOT Stamping Machine AMACK-SDS Internal",
+      "state": "open",
+      "original_value": 2766943.23,
+      "book_value": 2744213.73,
+      "salvage_value": 2764331.56,
+      "model_name": "เครื่องจักร",
+      "acquisition_date": "2025-09-01",
+      "method": "linear",
+      "method_number": 10,
+      "method_period": "12",
+      "prorata_date": "2025-09-01",
+      "account_asset_id": "123003 เครื่องจักร",
+      "account_depreciation_id": "123014 ค่าเสื่อมราคาสะสม - เครื่องจักร",
+      "account_depreciation_expense_id": "530072 ค่าเสื่อมราคา - เครื่องจักร",
+      "journal_id": "Depreciation Journal",
+      "depreciation_entries_count": 0,
+      "total_depreciation_entries_count": 0
+    },
+    "model_asset": {
+      "id": 11545,
+      "name": "โปรแกรมคอมพิวเตอร์",
+      "state": "model",
+      "original_value": 0.0,
+      "book_value": 0.0,
+      "salvage_value": 0.0,
+      "model_name": "",
+      "acquisition_date": "2025-12-20",
+      "method": "linear",
+      "method_number": 60,
+      "method_period": "1",
+      "prorata_date": "2025-12-20",
+      "account_asset_id": "124001 โปรแกรมคอมพิวเตอร์",
+      "account_depreciation_id": "124004 ค่าตัดจำหน่ายสะสม - โปรแกรมคอมพิวเตอร์",
+      "account_depreciation_expense_id": "600096 ค่าตัดจำหน่าย - โปรแกรมคอมพิวเตอร์",
+      "journal_id": "Depreciation Journal",
+      "depreciation_entries_count": 0,
+      "total_depreciation_entries_count": 0
+    }
+  }
+}

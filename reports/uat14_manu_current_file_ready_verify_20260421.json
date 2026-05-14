@@ -1,0 +1,289 @@
+{
+  "database": "goldmints_uat_manu",
+  "selected_codes": [
+    "FG-PNC-TH-01001",
+    "FG-PSS-TH-01005",
+    "SM-PLS-UP-01001",
+    "FG-MTK-IL-01001",
+    "SM-JOI-PK-02001"
+  ],
+  "tree_product_count": 15,
+  "manufactured_count": 5,
+  "leaf_count": 7,
+  "internal_quant_nonzero_count": 0,
+  "internal_quant_rows": [],
+  "open_move_count": 109,
+  "open_move_reserved_count": 3,
+  "selected_products": [
+    {
+      "code": "FG-MTK-IL-01001",
+      "name": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "qty_available": 0.0,
+      "virtual_available": -10000.0,
+      "routes": [
+        "Auto Transfer Semi (Pharma)",
+        "Manufacture (Pharma)",
+        "Replenish on Order (MTO)"
+      ],
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "has_bom": true,
+      "bom_components": 2,
+      "orderpoints": []
+    },
+    {
+      "code": "FG-PNC-TH-01001",
+      "name": "[FG-PNC-TH-01001] พิมเสนสำลี 8cc (24x1)",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ],
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "has_bom": true,
+      "bom_components": 2,
+      "orderpoints": [
+        {
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "route": "Manufacture (Pharma)",
+          "qty_to_order": 0.0
+        }
+      ]
+    },
+    {
+      "code": "FG-PSS-TH-01005",
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "qty_available": 0.0,
+      "virtual_available": -1526.0,
+      "routes": [
+        "Manufacture (Pharma)"
+      ],
+      "uom": "Unit",
+      "rounding": 0.0001,
+      "has_bom": true,
+      "bom_components": 3,
+      "orderpoints": [
+        {
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "route": "Manufacture (Pharma)",
+          "qty_to_order": 362.0
+        }
+      ]
+    },
+    {
+      "code": "SM-JOI-PK-02001",
+      "name": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ],
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "has_bom": true,
+      "bom_components": 2,
+      "orderpoints": [
+        {
+          "warehouse": "GOLD MINTS PRODUCTS CO., LTD.",
+          "route": "Manufacture",
+          "qty_to_order": 0.0
+        }
+      ]
+    },
+    {
+      "code": "SM-PLS-UP-01001",
+      "name": "[SM-PLS-UP-01001] ชิ้นส่วนยาดมตัวบน W01",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer Semi (Plastic)",
+        "Manufacture (Plastic)"
+      ],
+      "uom": "Pcs",
+      "rounding": 0.01,
+      "has_bom": true,
+      "bom_components": 2,
+      "orderpoints": []
+    }
+  ],
+  "leaf_products": [
+    {
+      "code": "",
+      "name": "เทปกาว",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Unit",
+      "rounding": 0.0001
+    },
+    {
+      "code": "",
+      "name": "ลังพิมเสนสำลี 100โหล",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Unit",
+      "rounding": 0.0001
+    },
+    {
+      "code": "PK-CAR-PS-01003",
+      "name": "[PK-CAR-PS-01003] ลังยาดม PS 80โหล สีขาว",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Pcs",
+      "rounding": 0.01
+    },
+    {
+      "code": "PK-CAR-PS-02003",
+      "name": "[PK-CAR-PS-02003] ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Packaging)",
+        "Buy",
+        "Replenish on Order (MTO)"
+      ],
+      "has_buy": true,
+      "uom": "Pcs",
+      "rounding": 0.01
+    },
+    {
+      "code": "RM-MBS-PK-00002",
+      "name": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Kgs",
+      "rounding": 1e-06
+    },
+    {
+      "code": "RM-MBS-WH-00001",
+      "name": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Kgs",
+      "rounding": 1e-06
+    },
+    {
+      "code": "RM-PLA-PP-00001",
+      "name": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+      "qty_available": 0.0,
+      "virtual_available": 0.0,
+      "routes": [
+        "Auto Transfer RM (Plastic)",
+        "Buy"
+      ],
+      "has_buy": true,
+      "uom": "Kgs",
+      "rounding": 1e-06
+    }
+  ],
+  "leaf_without_buy": [],
+  "bom_rounding_bad_count": 0,
+  "bom_rounding_bad_sample": [],
+  "mo_rounding_bad_count": 0,
+  "mo_rounding_bad_sample": [],
+  "edges": [
+    {
+      "parent_code": "FG-MTK-IL-01001",
+      "component_code": "FG-MTK-IL-02001",
+      "qty": 24.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-MTK-IL-01001",
+      "component_code": "PK-CAR-PS-02003",
+      "qty": 1.0,
+      "uom": "Pcs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PNC-TH-01001",
+      "component_code": "",
+      "qty": 50.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-PNC-TH-01001",
+      "component_code": "",
+      "qty": 1.0,
+      "uom": "Unit",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "FG-PSS-TH-02001",
+      "qty": 16.0,
+      "uom": "Unit",
+      "has_child_bom": true
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "PK-CAR-PS-01003",
+      "qty": 1.0,
+      "uom": "Pcs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "FG-PSS-TH-01005",
+      "component_code": "",
+      "qty": 1.0,
+      "uom": "Unit",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-JOI-PK-02001",
+      "component_code": "RM-PLA-PP-00001",
+      "qty": 9.385,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-JOI-PK-02001",
+      "component_code": "RM-MBS-PK-00002",
+      "qty": 0.135,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-PLS-UP-01001",
+      "component_code": "RM-PLA-PP-00001",
+      "qty": 8.792,
+      "uom": "Kgs",
+      "has_child_bom": false
+    },
+    {
+      "parent_code": "SM-PLS-UP-01001",
+      "component_code": "RM-MBS-WH-00001",
+      "qty": 0.108,
+      "uom": "Kgs",
+      "has_child_bom": false
+    }
+  ]
+}

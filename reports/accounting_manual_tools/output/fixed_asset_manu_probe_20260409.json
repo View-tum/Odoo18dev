@@ -1,0 +1,578 @@
+{
+  "asset_samples": [
+    {
+      "id": 11555,
+      "name": "Injection Machine\nเครื่องฉีด",
+      "state": "draft",
+      "model": {
+        "id": 5,
+        "name": "เครื่องจักร",
+        "model": "account.asset"
+      },
+      "original_value": 1000.0,
+      "salvage_value": 0.0,
+      "book_value": 1000.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 120,
+      "account_asset_id": {
+        "id": 855,
+        "name": "123012 สินทรัพย์รอการใช้",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 67,
+        "name": "Depreciation Journal",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11552,
+      "name": "Dell XPS (UAT Test Splitting)",
+      "state": "draft",
+      "model": {
+        "id": 11551,
+        "name": "UAT Laptop Model",
+        "model": "account.asset"
+      },
+      "original_value": 60000.0,
+      "salvage_value": 0.0,
+      "book_value": 60000.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 21,
+        "name": "510000 ต้นทุนขายในประเทศ",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 74,
+        "name": "ใบสำคัญผ่อนชำระ",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": [
+        {
+          "move": false,
+          "date": "2026-12-31",
+          "amount_total": 8966.666667,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2027-12-31",
+          "amount_total": 12000.0,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2028-12-31",
+          "amount_total": 12000.0,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2029-12-31",
+          "amount_total": 12000.0,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2030-12-31",
+          "amount_total": 12000.0,
+          "state": "draft"
+        }
+      ]
+    },
+    {
+      "id": 11551,
+      "name": "UAT Laptop Model",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 843,
+        "name": "123000 ที่ดิน อาคาร และอุปกรณ์",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 74,
+        "name": "ใบสำคัญผ่อนชำระ",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11549,
+      "name": "Computer\nnotebook Lenovo",
+      "state": "draft",
+      "model": {
+        "id": 10519,
+        "name": "Computer Notebook",
+        "model": "account.asset"
+      },
+      "original_value": 1000.0,
+      "salvage_value": 0.0,
+      "book_value": 1000.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 951,
+        "name": "430004 กำไร(ขาดทุน)จากการจำหน่ายสินทรัพย์",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 67,
+        "name": "Depreciation Journal",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11548,
+      "name": "Computer\nnotebook asus",
+      "state": "open",
+      "model": {
+        "id": 10519,
+        "name": "Computer Notebook",
+        "model": "account.asset"
+      },
+      "original_value": 1000.0,
+      "salvage_value": 0.0,
+      "book_value": 1000.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 951,
+        "name": "430004 กำไร(ขาดทุน)จากการจำหน่ายสินทรัพย์",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 67,
+        "name": "Depreciation Journal",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": [
+        {
+          "move": false,
+          "date": "2026-12-31",
+          "amount_total": 150.054765,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2027-12-31",
+          "amount_total": 199.89047,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2028-12-31",
+          "amount_total": 200.438117,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2029-12-31",
+          "amount_total": 199.890471,
+          "state": "draft"
+        },
+        {
+          "move": false,
+          "date": "2030-12-31",
+          "amount_total": 199.890471,
+          "state": "draft"
+        }
+      ]
+    },
+    {
+      "id": 11547,
+      "name": "Computer",
+      "state": "draft",
+      "model": {
+        "id": 10519,
+        "name": "Computer Notebook",
+        "model": "account.asset"
+      },
+      "original_value": 50000.0,
+      "salvage_value": 0.0,
+      "book_value": 50000.0,
+      "acquisition_date": "2026-04-02",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 951,
+        "name": "430004 กำไร(ขาดทุน)จากการจำหน่ายสินทรัพย์",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 67,
+        "name": "Depreciation Journal",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11546,
+      "name": "Computer",
+      "state": "draft",
+      "model": [],
+      "original_value": 1000.0,
+      "salvage_value": 0.0,
+      "book_value": 1000.0,
+      "acquisition_date": "2026-04-01",
+      "method_number": 5,
+      "account_asset_id": {
+        "id": 848,
+        "name": "123005 เครื่องใช้สำนักงาน",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 59,
+        "name": "Domestic Vendor Bills",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11545,
+      "name": "โปรแกรมคอมพิวเตอร์",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2025-12-20",
+      "method_number": 60,
+      "account_asset_id": {
+        "id": 863,
+        "name": "124001 โปรแกรมคอมพิวเตอร์",
+        "model": "account.account"
+      },
+      "journal_id": {
+        "id": 67,
+        "name": "Depreciation Journal",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11544,
+      "name": "ค่าเบี้ยประกันภัย",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2025-12-20",
+      "method_number": 12,
+      "account_asset_id": [],
+      "journal_id": {
+        "id": 3,
+        "name": "Miscellaneous Operations",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11543,
+      "name": "ค่าใช้จ่ายจ่ายล่วงหน้า",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2025-12-20",
+      "method_number": 12,
+      "account_asset_id": [],
+      "journal_id": {
+        "id": 3,
+        "name": "Miscellaneous Operations",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11542,
+      "name": "ค่าต่อทะเบียนและภาษีรถ",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2025-12-20",
+      "method_number": 12,
+      "account_asset_id": [],
+      "journal_id": {
+        "id": 3,
+        "name": "Miscellaneous Operations",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    },
+    {
+      "id": 11541,
+      "name": "ค่าเบี้ยประกันภัยรถยนต์",
+      "state": "model",
+      "model": [],
+      "original_value": 0.0,
+      "salvage_value": 0.0,
+      "book_value": 0.0,
+      "acquisition_date": "2025-12-20",
+      "method_number": 12,
+      "account_asset_id": [],
+      "journal_id": {
+        "id": 3,
+        "name": "Miscellaneous Operations",
+        "model": "account.journal"
+      },
+      "partner_id": false,
+      "depreciation_moves": []
+    }
+  ],
+  "asset_menus": [
+    {
+      "xmlid": "account_asset.menu_action_asset",
+      "error": "External ID not found in the system: account_asset.menu_action_asset"
+    },
+    {
+      "xmlid": "account_asset.menu_action_asset_model",
+      "error": "External ID not found in the system: account_asset.menu_action_asset_model"
+    },
+    {
+      "xmlid": "account_asset.menu_action_asset_report",
+      "error": "External ID not found in the system: account_asset.menu_action_asset_report"
+    },
+    {
+      "xmlid": "account_asset.menu_action_asset_journal_entries",
+      "error": "External ID not found in the system: account_asset.menu_action_asset_journal_entries"
+    }
+  ],
+  "mfg_menus": [
+    {
+      "id": 519,
+      "path": "Manufacturing",
+      "action": null
+    },
+    {
+      "id": 531,
+      "path": "Manufacturing > Operations > Manufacturing Orders",
+      "action": 821
+    },
+    {
+      "id": 537,
+      "path": "Inventory > Operations > Transfers > Manufacturings",
+      "action": 828
+    },
+    {
+      "id": 985,
+      "path": "Manufacturing > Operations > Manufacturing Orders (Plastic)",
+      "action": 1641
+    },
+    {
+      "id": 986,
+      "path": "Manufacturing > Operations > Manufacturing Orders (Pharma)",
+      "action": 1642
+    }
+  ],
+  "mfg_reports": [
+    {
+      "id": 707,
+      "name": "Adjust Valuation",
+      "type": "ir.actions.act_window"
+    },
+    {
+      "id": 705,
+      "name": "Stock Valuation",
+      "type": "ir.actions.act_window"
+    },
+    {
+      "id": 706,
+      "name": "Stock Valuation",
+      "type": "ir.actions.act_window"
+    }
+  ],
+  "done_mo_samples": [
+    {
+      "id": 281,
+      "name": "GMP/MOPH/00030",
+      "product": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "product_qty": 1.0,
+      "qty_produced": 1.0,
+      "bom": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "date_finished": "2026-04-07 15:58:09",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 100"
+      ],
+      "pickings": [
+        "GMP/TRPK/00002"
+      ],
+      "scraps": [],
+      "stock_valuation_refs": [
+        "GMP/MOPH/00030 - ยาดม Mark II อิสราเอล 1 กล่อง",
+        "GMP/MOPH/00030 - ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+        "GMP/MOPH/00030 - Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)"
+      ]
+    },
+    {
+      "id": 282,
+      "name": "GMP/MOPH/00031",
+      "product": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+      "product_qty": 24.0,
+      "qty_produced": 24.0,
+      "bom": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+      "date_finished": "2026-04-07 15:58:08",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 101"
+      ],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": [
+        "GMP/MOPH/00031 - กล่องยาดม 24หลอด อิสราเอล",
+        "GMP/MOPH/00031 - ยาดม Mark II อิสราเอล + พวงกุญแจ",
+        "GMP/MOPH/00031 - PVC หด Israel 2 โหล 175x210",
+        "GMP/MOPH/00031 - ยาดม Mark II อิสราเอล 1 กล่อง"
+      ]
+    },
+    {
+      "id": 283,
+      "name": "GMP/MOPH/00032",
+      "product": "[FG-MTK-IL-03001] ยาดม Mark II อิสราเอล + พวงกุญแจ",
+      "product_qty": 576.0,
+      "qty_produced": 576.0,
+      "bom": "[FG-MTK-IL-03001] ยาดม Mark II อิสราเอล + พวงกุญแจ",
+      "date_finished": "2026-04-07 15:58:07",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 102"
+      ],
+      "pickings": [
+        "GMP/TRPH/00025"
+      ],
+      "scraps": [],
+      "stock_valuation_refs": [
+        "GMP/MOPH/00032 - เอกสารกำกับยา MARK II Israel",
+        "GMP/MOPH/00032 - ยาดม Mark II อิสราเอล",
+        "GMP/MOPH/00032 - พวงกุญแจ ห่วงโซ่ + วงกลม",
+        "GMP/MOPH/00032 - ยาดม Mark II อิสราเอล + พวงกุญแจ"
+      ]
+    },
+    {
+      "id": 285,
+      "name": "GMP/MOPH/00034",
+      "product": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "product_qty": 0.64,
+      "qty_produced": 0.64,
+      "bom": "[SO-MTS-XX-01001] น้ำยา Mark II Solution",
+      "date_finished": "2026-04-07 15:57:25",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": [
+        "GMP/MOPH/00034 - น้ำยา Mark II Solution (C)",
+        "GMP/MOPH/00034 - น้ำยา Mark II Solution (D)",
+        "GMP/MOPH/00034 - น้ำยา Mark II Solution (A)",
+        "GMP/MOPH/00034 - น้ำยา Mark II Solution (B)",
+        "GMP/MOPH/00034 - น้ำยา Mark II Solution"
+      ]
+    },
+    {
+      "id": 228,
+      "name": "GMP/MOPH/00021",
+      "product": "[FG-PNR-MM-04001] พิมเสนโรลออน 5cc ไม่หุ้ม พม่า",
+      "product_qty": 19200.0,
+      "qty_produced": 19200.0,
+      "bom": "[FG-PNR-MM-04001] พิมเสนโรลออน 5cc ไม่หุ้ม พม่า",
+      "date_finished": "2026-03-31 22:24:21.525737",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 182"
+      ],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": []
+    },
+    {
+      "id": 219,
+      "name": "GMP/MOPH/00016",
+      "product": "[FG-MTS-TW-02006] ยาดม Mark II ไต้หวัน สีเขียว",
+      "product_qty": 10000.0,
+      "qty_produced": 10000.0,
+      "bom": "[FG-MTS-TW-02006] ยาดม Mark II ไต้หวัน สีเขียว",
+      "date_finished": "2026-03-31 22:24:21.352859",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 117",
+        "Operation 117",
+        "Operation 117",
+        "Operation 117",
+        "Operation 117",
+        "Operation 117",
+        "Operation 117"
+      ],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": []
+    },
+    {
+      "id": 218,
+      "name": "GMP/MOPH/00015",
+      "product": "[FG-MTS-TW-02005] ยาดม Mark II ไต้หวัน สีเหลือง",
+      "product_qty": 10000.0,
+      "qty_produced": 10000.0,
+      "bom": "[FG-MTS-TW-02005] ยาดม Mark II ไต้หวัน สีเหลือง",
+      "date_finished": "2026-03-31 22:24:21.165427",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 116",
+        "Operation 116",
+        "Operation 116",
+        "Operation 116",
+        "Operation 116",
+        "Operation 116",
+        "Operation 116"
+      ],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": []
+    },
+    {
+      "id": 217,
+      "name": "GMP/MOPH/00014",
+      "product": "[FG-MTS-TW-02004] ยาดม Mark II ไต้หวัน สีฟ้า",
+      "product_qty": 10000.0,
+      "qty_produced": 10000.0,
+      "bom": "[FG-MTS-TW-02004] ยาดม Mark II ไต้หวัน สีฟ้า",
+      "date_finished": "2026-03-31 22:24:20.994100",
+      "company": "GOLD MINTS PRODUCTS CO., LTD.",
+      "workorders": [
+        "Operation 115",
+        "Operation 115",
+        "Operation 115",
+        "Operation 115",
+        "Operation 115",
+        "Operation 115",
+        "Operation 115"
+      ],
+      "pickings": [],
+      "scraps": [],
+      "stock_valuation_refs": []
+    }
+  ]
+}

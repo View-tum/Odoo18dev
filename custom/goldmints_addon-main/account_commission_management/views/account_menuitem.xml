@@ -1,0 +1,35 @@
+<odoo>
+    <record id="action_account_commission_management" model="ir.actions.act_window">
+        <field name="name">รายงานค่าคอมมิชชั่น</field>
+        <field name="res_model">account.commission.management</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="action_account_commission_rate" model="ir.actions.act_window">
+        <field name="name">ค่าคอมมิชชั่น</field>
+        <field name="res_model">account.commission.rate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_account_commission_rule" model="ir.actions.act_window">
+        <field name="name">เงื่อนไขค่าคอมมิชชั่น</field>
+        <field name="res_model">account.commission.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_report_commission_excel" model="ir.actions.report">
+        <field name="name">Export Commission Excel</field>
+        <field name="model">account.commission.management</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">account_commission_management.report_commission_excel</field>
+        <field name="report_file">account_commission_management.report_commission_excel</field>
+        <field name="binding_model_id" ref="model_account_commission_management"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <menuitem id="account_menu_config_commission_settings" name="ตั้งค่าคอมมิชชั่น" parent="account.menu_finance_configuration" sequence="60"/>
+    <menuitem id="menu_accounting_reports_account_commission_management" name="รายงานค่าคอมมิชชั่น" parent="account_payment_collection_report.account_reports_accounting_reports_menu" sequence="70" action="action_account_commission_management"/>
+    <menuitem id="menu_account_commission_rate" name="อัตราค่าคอมมิชชั่น" parent="account_menu_config_commission_settings" action="action_account_commission_rate" sequence="10"/>
+    <menuitem id="menu_account_commission_rule" name="เกณฑ์การคิดคอมมิชชั่น" parent="account_menu_config_commission_settings" action="action_account_commission_rule" sequence="20"/>
+</odoo>

@@ -134,6 +134,9 @@ class AdvanceCashLog(models.Model):
     amount_net = fields.Float("Net Amount", compute="_compute_amount_net", store=True)
 
     move_id = fields.Many2one("account.move", string="Journal Entry", readonly=True)
+    bank_draft_id = fields.Many2one(
+        "cheque.inbound.outbound", string="Bank Draft", readonly=True, copy=False
+    )
 
     def action_open_journal_entry(self):
         self.ensure_one()
@@ -143,6 +146,16 @@ class AdvanceCashLog(models.Model):
             "res_model": "account.move",
             "view_mode": "form",
             "res_id": self.move_id.id,
+        }
+
+    def action_view_bank_draft(self):
+        self.ensure_one()
+        return {
+            "name": "Bank Draft",
+            "type": "ir.actions.act_window",
+            "res_model": "cheque.inbound.outbound",
+            "view_mode": "form",
+            "res_id": self.bank_draft_id.id,
         }
 
     def action_sync_employee_balance(self):
@@ -469,6 +482,7 @@ class AdvanceCashLog(models.Model):
 
             move = self.env["account.move"].create(move_vals)
             move.action_post()
+            self.move_id = move.id
 
             # Handle Cheque Logic if selected (Payout only for outgoing cheque)
             if payment_data.get("is_cheque_method"):
@@ -487,7 +501,9 @@ class AdvanceCashLog(models.Model):
                 ):
                     pass
 
-            self.move_id = move.id
+            if payment_data.get("is_bank_draft_method") and self.transaction_type == "payout":
+                self._create_bank_draft_record(move, pj, payment_data, bank_account)
+
             self.write({"state": "posted"})
             return
 
@@ -664,6 +680,38 @@ class AdvanceCashLog(models.Model):
             self.move_id = move.id
             self.write({"state": "posted"})
             self.employee_id._compute_advance_balance()
+
+    def _create_bank_draft_record(self, move, payment_journal, payment_data, bank_account):
+        self.ensure_one()
+        if self.bank_draft_id:
+            return self.bank_draft_id
+        bank_draft_number = payment_data.get("bank_draft_number")
+        if not bank_draft_number:
+            raise UserError("Bank Draft Number is required.")
+        partner = self.employee_id.work_contact_id
+        method_line = payment_data.get("payment_method_line_id")
+        bank = payment_data.get("bank_draft_bank_id")
+        bank_draft = self.env["cheque.inbound.outbound"].create(
+            {
+                "name": bank_draft_number,
+                "instrument_type": "bank_draft",
+                "cheque_type": "inbound",
+                "bank_account_journal_id": payment_journal.id,
+                "pay_partner_id": partner.id if partner else False,
+                "amount": self.amount,
+                "date": move.date,
+                "cheque_date": payment_data.get("bank_draft_date") or move.date,
+                "cheque_bank_id": bank.id if bank else False,
+                "cheque_bank_branch": payment_data.get("bank_draft_branch"),
+                "memo": self.name + (f" - {self.description}" if self.description else ""),
+                "payment_method_line_id": method_line.id if method_line else False,
+                "payment_method_line_account_id": bank_account.id if bank_account else False,
+                "cheque_journal_entry_id": move.id,
+                "state": "paid",
+            }
+        )
+        self.bank_draft_id = bank_draft.id
+        return bank_draft
 
     def action_create_reimbursement(self):
         """Open wizard to Pay Reimbursement (Direct Payment to Employee)."""

@@ -1,0 +1,1837 @@
+{
+  "base_url": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "uid": 2,
+  "run_at": "2026-04-21 09:30:20",
+  "cases": [
+    {
+      "case_id": "MU01-01",
+      "status": "Passed",
+      "evidence": "อ่านสินค้า, On Hand และ master product ได้จริง",
+      "details": "",
+      "record": {
+        "id": 8223,
+        "display_name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+        "uom_id": [
+          1,
+          "Unit"
+        ],
+        "product_tmpl_id": [
+          8223,
+          "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+        ],
+        "tracking": "lot",
+        "qty_available": 117572.0
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 7,
+      "backlog": "MA01, MA10",
+      "scenario": "เช็ก On Hand และ Forecast ของ FG ก่อนวางแผนผลิต",
+      "menu": "Inventory > Products > Products > Open FG Product > Smart Button: On Hand / Forecasted"
+    },
+    {
+      "case_id": "MU01-02",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 8,
+      "backlog": "MA01, MA02, MA06",
+      "scenario": "เช็ก Replenishment ว่ามีรายการตกหล่นหรือวัตถุดิบขาดหรือไม่",
+      "menu": "Inventory > Operations > Procurement > Replenishment"
+    },
+    {
+      "case_id": "MU01-03",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 9,
+      "backlog": "MA02, MA10, MA16",
+      "scenario": "เช็กว่ารายการที่เติมของแล้วสร้างเอกสารถูกหรือไม่",
+      "menu": "Inventory > Operations > Procurement > Replenishment > Open Document Created by System"
+    },
+    {
+      "case_id": "MU06-01",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 10,
+      "backlog": "MA02, MA06",
+      "scenario": "MTS กรณี stock ต่ำกว่าเกณฑ์และระบบต้องสร้าง MO",
+      "menu": "Inventory > Operations > Procurement > Replenishment"
+    },
+    {
+      "case_id": "MU06-02",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 11,
+      "backlog": "MA02, MA10",
+      "scenario": "MTS กรณี stock ยังพอ ไม่ควรสร้างเอกสารเพิ่ม",
+      "menu": "Inventory > Operations > Procurement > Replenishment > Open Product > Smart Button: Forecasted"
+    },
+    {
+      "case_id": "MU06-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "model:stock.move": true,
+        "records:mrp.bom": 262
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 12,
+      "backlog": "MA01, MA02, MA07",
+      "scenario": "MTS ที่แตก child chain ไป Semi/Plastic/Pharma",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Parent MO > Child Documents / Related Transfers"
+    },
+    {
+      "case_id": "MU02-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 614,
+          "name": "GMP/MOPH/00330",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:29:55",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1649,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 41,
+              "qty": 1.0,
+              "note": "MU02-01",
+              "create_date": "2026-04-21 02:29:55",
+              "log_date": "2026-04-21 02:29:55",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:29:56"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 7,
+      "backlog": "MA01, MA08, MA14",
+      "scenario": "เปิด MO manual กรณีวัตถุดิบครบ",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU02-02",
+      "status": "Passed",
+      "evidence": "Component ไม่พอแต่ Shopfloor Start ได้จริงและมี diagnostic",
+      "details": "",
+      "record": {
+        "mo": "GMP/MOPH/00331",
+        "check": {
+          "sufficient": false,
+          "missing_components": [
+            "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล "
+          ],
+          "diagnostics": [
+            {
+              "product_id": 8591,
+              "product_name": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+              "source_location_id": 176,
+              "source_location_name": "GMP/Stock/คลังลอย",
+              "demand_qty": 100000.0,
+              "reserved_qty": 89898.3,
+              "free_qty": 0,
+              "usable_free_qty": 0,
+              "physical_free_qty": 0,
+              "reserved_quant_qty": 89948.3,
+              "uom": "Unit",
+              "procure_method": "make_to_stock",
+              "tracking": "lot",
+              "lots": "1234",
+              "lot_dates": "1234:2029-04-08 06:17:42.717862",
+              "owners": "-",
+              "packages": "-",
+              "reason": "On-hand stock exists, but free quantity is not enough after existing reservations.",
+              "message": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล  | Source: GMP/Stock/คลังลอย | Demand: 100000 Unit | Reserved on MO: 89898.3 Unit | Usable Free: 0 Unit | Physical Free: 0 Unit | Reserved by quants: 89948.3 Unit | Route method: make_to_stock | Tracking: lot | Lots: 1234 | Lot Dates: 1234:2029-04-08 06:17:42.717862 | Owner: - | Package: - | Reason: On-hand stock exists, but free quantity is not enough after existing reservations."
+            }
+          ],
+          "error": "Some components could not be reserved:\n[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล  | Source: GMP/Stock/คลังลอย | Demand: 100000 Unit | Reserved on MO: 89898.3 Unit | Usable Free: 0 Unit | Physical Free: 0 Unit | Reserved by quants: 89948.3 Unit | Route method: make_to_stock | Tracking: lot | Lots: 1234 | Lot Dates: 1234:2029-04-08 06:17:42.717862 | Owner: - | Package: - | Reason: On-hand stock exists, but free quantity is not enough after existing reservations."
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:29:57",
+          "state": "progress"
+        },
+        "wo": {
+          "id": 1650,
+          "state": "progress",
+          "console_date_start": "2026-04-21 02:29:57"
+        }
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 8,
+      "backlog": "MA01, MA08, MA14",
+      "scenario": "เปิด MO manual กรณีมีของบางส่วน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU02-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 9,
+      "backlog": "MA04, MA06, MA07",
+      "scenario": "ตรวจการเบิกของเข้าคลังลอย / staging ของแต่ละแผนก",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open MO > Smart Button: Transfers"
+    },
+    {
+      "case_id": "MU05-01",
+      "status": "Passed",
+      "evidence": "MTO setup is available and sale/manufacturing models are readable",
+      "details": "",
+      "record": {
+        "mto_route_count": 1,
+        "mto_rule_count": 18,
+        "sale_order_count": 6146
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 10,
+      "backlog": "MA02, MA12",
+      "scenario": "SO ต่างประเทศ MTO กรณีวัตถุดิบครบ",
+      "menu": "Sales > Orders > Quotations > Confirm > Trace to Manufacturing Order"
+    },
+    {
+      "case_id": "MU05-02",
+      "status": "Passed",
+      "evidence": "MTO setup is available and sale/manufacturing models are readable",
+      "details": "",
+      "record": {
+        "mto_route_count": 1,
+        "mto_rule_count": 18,
+        "sale_order_count": 6146
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 11,
+      "backlog": "MA01, MA02, MA12",
+      "scenario": "SO ต่างประเทศ MTO กรณีวัตถุดิบขาดบางตัว",
+      "menu": "Sales > Orders > Quotations > Confirm > Trace Shortage to MO / RFQ / Replenishment"
+    },
+    {
+      "case_id": "MU03-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 7,
+      "backlog": "MA04, MA07",
+      "scenario": "Transfer Plastic กรณีโอนของครบ",
+      "menu": "Inventory > Operations > Transfers > Filter Operation Type = Transfer Plastic"
+    },
+    {
+      "case_id": "MU03-02",
+      "status": "Failed",
+      "evidence": "Exception during functional probe",
+      "details": "{\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}",
+      "record": {
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 675, in run_all\n    out = runner.run_case(case)\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 613, in run_case\n    return self.test_internal_transfer_partial_backorder(cid, recover=False)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 526, in test_internal_transfer_partial_backorder\n    action = self.rpc.call(\"stock.picking\", \"button_validate\", [[picking_id]])\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 49, in call\n    return self.json_route(\n           ~~~~~~~~~~~~~~~^\n        \"/web/dataset/call_kw\",\n        ^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        },\n        ^^\n    )\n    ^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 39, in json_route\n    raise RuntimeError(json.dumps(data[\"error\"], ensure_ascii=False, indent=2))\nRuntimeError: {\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}\n"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 8,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Plastic กรณีของมาไม่ครบและเลือก Create Backorder",
+      "menu": "Inventory > Operations > Transfers > Open Transfer Plastic > Validate Partial"
+    },
+    {
+      "case_id": "MU03-03",
+      "status": "Failed",
+      "evidence": "Exception during functional probe",
+      "details": "{\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}",
+      "record": {
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 675, in run_all\n    out = runner.run_case(case)\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 615, in run_case\n    return self.test_internal_transfer_partial_backorder(cid, recover=True)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 526, in test_internal_transfer_partial_backorder\n    action = self.rpc.call(\"stock.picking\", \"button_validate\", [[picking_id]])\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 49, in call\n    return self.json_route(\n           ~~~~~~~~~~~~~~~^\n        \"/web/dataset/call_kw\",\n        ^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        },\n        ^^\n    )\n    ^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 39, in json_route\n    raise RuntimeError(json.dumps(data[\"error\"], ensure_ascii=False, indent=2))\nRuntimeError: {\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}\n"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 9,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Plastic กรณีกด No Backorder ผิด แล้วกู้กลับ",
+      "menu": "Inventory > Operations > Transfers > Open Done Transfer > Create Backorder"
+    },
+    {
+      "case_id": "MU04-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 10,
+      "backlog": "MA04, MA07",
+      "scenario": "Transfer Pharma กรณีโอนครบ",
+      "menu": "Inventory > Operations > Transfers > Filter Operation Type = Transfer Pharma"
+    },
+    {
+      "case_id": "MU04-02",
+      "status": "Failed",
+      "evidence": "Exception during functional probe",
+      "details": "{\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}",
+      "record": {
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 675, in run_all\n    out = runner.run_case(case)\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 613, in run_case\n    return self.test_internal_transfer_partial_backorder(cid, recover=False)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 526, in test_internal_transfer_partial_backorder\n    action = self.rpc.call(\"stock.picking\", \"button_validate\", [[picking_id]])\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 49, in call\n    return self.json_route(\n           ~~~~~~~~~~~~~~~^\n        \"/web/dataset/call_kw\",\n        ^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        },\n        ^^\n    )\n    ^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 39, in json_route\n    raise RuntimeError(json.dumps(data[\"error\"], ensure_ascii=False, indent=2))\nRuntimeError: {\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}\n"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 11,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Pharma partial แล้วเลือก Create Backorder",
+      "menu": "Inventory > Operations > Transfers > Open Transfer Pharma > Validate Partial"
+    },
+    {
+      "case_id": "MU04-03",
+      "status": "Failed",
+      "evidence": "Exception during functional probe",
+      "details": "{\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}",
+      "record": {
+        "traceback": "Traceback (most recent call last):\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 675, in run_all\n    out = runner.run_case(case)\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 615, in run_case\n    return self.test_internal_transfer_partial_backorder(cid, recover=True)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 526, in test_internal_transfer_partial_backorder\n    action = self.rpc.call(\"stock.picking\", \"button_validate\", [[picking_id]])\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 49, in call\n    return self.json_route(\n           ~~~~~~~~~~~~~~~^\n        \"/web/dataset/call_kw\",\n        ^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        },\n        ^^\n    )\n    ^\n  File \"C:\\365_project\\TheCool18e\\Dev\\reports\\run_uat14_actual_cases.py\", line 39, in json_route\n    raise RuntimeError(json.dumps(data[\"error\"], ensure_ascii=False, indent=2))\nRuntimeError: {\n  \"code\": 200,\n  \"message\": \"Odoo Server Error\",\n  \"data\": {\n    \"name\": \"odoo.exceptions.ValidationError\",\n    \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 248, in button_validate\\n    self._ensure_invoice_info_presence(force=True)\\n  File \\\"/opt/odoo/custom/goldmints_addon/stock_picking_invrefs_edit_date_done/models/stock_picking.py\\\", line 228, in _ensure_invoice_info_presence\\n    raise ValidationError(\\nodoo.exceptions.ValidationError: Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\\n\",\n    \"message\": \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\",\n    \"arguments\": [\n      \"Invoice Reference and Invoice Date are required for the 'GOLD MINTS PRODUCTS CO., LTD.: Storage' operation type.\"\n    ],\n    \"context\": {}\n  }\n}\n"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 12,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Pharma partial แล้วกด No Backorder จากนั้นกู้กลับ",
+      "menu": "Inventory > Operations > Transfers > Open Done Transfer > Create Backorder"
+    },
+    {
+      "case_id": "MU11-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 616,
+          "name": "GMP/MOPH/00332",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:04",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1651,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 42,
+              "qty": 1.0,
+              "note": "MU11-01",
+              "create_date": "2026-04-21 02:30:04",
+              "log_date": "2026-04-21 02:30:04",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:04"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 7,
+      "backlog": "MA08, MA14",
+      "scenario": "เปิดคิวงานใน GMP Shop Floor และเลือกงานของแผนกตัวเอง",
+      "menu": "GMP Shop Floor"
+    },
+    {
+      "case_id": "MU11-02",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 617,
+          "name": "GMP/MOPH/00333",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:06",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1652,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 43,
+              "qty": 1.0,
+              "note": "MU11-02",
+              "create_date": "2026-04-21 02:30:06",
+              "log_date": "2026-04-21 02:30:06",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:06"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 8,
+      "backlog": "MA08, MA14",
+      "scenario": "เริ่มงาน, หยุดพัก, กลับมาทำต่อ บน Shop Floor",
+      "menu": "GMP Shop Floor > Open Work Order"
+    },
+    {
+      "case_id": "MU11-03",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 618,
+          "name": "GMP/MOPH/00334",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:08",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1653,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 44,
+              "qty": 1.0,
+              "note": "MU11-03",
+              "create_date": "2026-04-21 02:30:08",
+              "log_date": "2026-04-21 02:30:08",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:08"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 9,
+      "backlog": "MA08, MA10, MA14",
+      "scenario": "บันทึก Good Qty, Reject Qty และปิด Operation จาก Shop Floor",
+      "menu": "GMP Shop Floor > Open Work Order > Done"
+    },
+    {
+      "case_id": "MU11-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 10,
+      "backlog": "MA08, MA11, MA14",
+      "scenario": "Shop Floor ฝั่ง Plastic ที่มี Mold และ Workcenter",
+      "menu": "GMP Shop Floor > Open Plastic Job"
+    },
+    {
+      "case_id": "MU09-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 11,
+      "backlog": "MA11, MA14",
+      "scenario": "ระบบ assign mold และ workcenter อัตโนมัติ",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Work Orders / Manufacturing > Configuration > Work Centers"
+    },
+    {
+      "case_id": "MU09-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 12,
+      "backlog": "MA11",
+      "scenario": "Parallel workorder ต้องไม่ใช้ mold ซ้ำกัน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Work Orders"
+    },
+    {
+      "case_id": "MU09-03",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 619,
+          "name": "GMP/MOPH/00335",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:10",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1654,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 45,
+              "qty": 1.0,
+              "note": "MU09-03",
+              "create_date": "2026-04-21 02:30:10",
+              "log_date": "2026-04-21 02:30:10",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:10"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 13,
+      "backlog": "MA08, MA11, MA14",
+      "scenario": "บันทึก good qty / reject / labor ผ่าน shopfloor",
+      "menu": "GMP Shop Floor > Open Work Order"
+    },
+    {
+      "case_id": "MU14-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 14,
+      "backlog": "MA08, MA14",
+      "scenario": "การ์ด GMP Shop Floor แสดง Mold และจำนวน shots ปัจจุบัน",
+      "menu": "GMP Shop Floor"
+    },
+    {
+      "case_id": "MU14-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 15,
+      "backlog": "MA08, MA14",
+      "scenario": "เปลี่ยน Mold จากปุ่มบน card ก่อนเริ่มงาน",
+      "menu": "GMP Shop Floor > Work Order Card > Mold Button"
+    },
+    {
+      "case_id": "MU14-03",
+      "status": "Passed",
+      "evidence": "Diagnostic แยก lot หมดอายุและยัง Start ได้",
+      "details": "",
+      "record": {
+        "check": {
+          "sufficient": false,
+          "missing_components": [
+            "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+            "[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58"
+          ],
+          "diagnostics": [
+            {
+              "product_id": 8591,
+              "product_name": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล ",
+              "source_location_id": 176,
+              "source_location_name": "GMP/Stock/คลังลอย",
+              "demand_qty": 0.1,
+              "reserved_qty": 0.0,
+              "free_qty": 0,
+              "usable_free_qty": 0,
+              "physical_free_qty": 89897.9,
+              "reserved_quant_qty": 50.0,
+              "uom": "Unit",
+              "procure_method": "make_to_stock",
+              "tracking": "lot",
+              "lots": "1234",
+              "lot_dates": "1234:2029-04-08 06:17:42.717862",
+              "owners": "-",
+              "packages": "-",
+              "reason": "Stock exists, but available lots are expired or not usable for the required date.",
+              "message": "[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล  | Source: GMP/Stock/คลังลอย | Demand: 0.1 Unit | Reserved on MO: 0 Unit | Usable Free: 0 Unit | Physical Free: 89897.9 Unit | Reserved by quants: 50 Unit | Route method: make_to_stock | Tracking: lot | Lots: 1234 | Lot Dates: 1234:2029-04-08 06:17:42.717862 | Owner: - | Package: - | Reason: Stock exists, but available lots are expired or not usable for the required date."
+            },
+            {
+              "product_id": 8043,
+              "product_name": "[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58",
+              "source_location_id": 176,
+              "source_location_name": "GMP/Stock/คลังลอย",
+              "demand_qty": 0.01,
+              "reserved_qty": 0.0,
+              "free_qty": 0,
+              "usable_free_qty": 0,
+              "physical_free_qty": 9494.79,
+              "reserved_quant_qty": 2.5,
+              "uom": "Pcs",
+              "procure_method": "make_to_stock",
+              "tracking": "lot",
+              "lots": "1",
+              "lot_dates": "1:2028-12-09 12:00:00",
+              "owners": "-",
+              "packages": "-",
+              "reason": "Stock exists, but available lots are expired or not usable for the required date.",
+              "message": "[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58 | Source: GMP/Stock/คลังลอย | Demand: 0.01 Pcs | Reserved on MO: 0 Pcs | Usable Free: 0 Pcs | Physical Free: 9494.79 Pcs | Reserved by quants: 2.5 Pcs | Route method: make_to_stock | Tracking: lot | Lots: 1 | Lot Dates: 1:2028-12-09 12:00:00 | Owner: - | Package: - | Reason: Stock exists, but available lots are expired or not usable for the required date."
+            }
+          ],
+          "error": "Some components could not be reserved:\n[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล  | Source: GMP/Stock/คลังลอย | Demand: 0.1 Unit | Reserved on MO: 0 Unit | Usable Free: 0 Unit | Physical Free: 89897.9 Unit | Reserved by quants: 50 Unit | Route method: make_to_stock | Tracking: lot | Lots: 1234 | Lot Dates: 1234:2029-04-08 06:17:42.717862 | Owner: - | Package: - | Reason: Stock exists, but available lots are expired or not usable for the required date.\n[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58 | Source: GMP/Stock/คลังลอย | Demand: 0.01 Pcs | Reserved on MO: 0 Pcs | Usable Free: 0 Pcs | Physical Free: 9494.79 Pcs | Reserved by quants: 2.5 Pcs | Route method: make_to_stock | Tracking: lot | Lots: 1 | Lot Dates: 1:2028-12-09 12:00:00 | Owner: - | Package: - | Reason: Stock exists, but available lots are expired or not usable for the required date."
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:11",
+          "state": "progress"
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 16,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "Mold life เต็มแล้วกด Start และเลือก Continue Anyway",
+      "menu": "GMP Shop Floor > Work Order Card > Start"
+    },
+    {
+      "case_id": "MU14-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 17,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "Mold life เต็มแล้วเลือก Change Mold จาก popup และเริ่มงานด้วย mold สำรอง",
+      "menu": "GMP Shop Floor > Start > Mold Life Warning Popup > Change Mold"
+    },
+    {
+      "case_id": "MU14-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 18,
+      "backlog": "MA16, MA17",
+      "scenario": "Reset Mold Life หลัง maintenance",
+      "menu": "Manufacturing > Configuration > Work Centers > Open Mold"
+    },
+    {
+      "case_id": "MU14-06",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 621,
+          "name": "GMP/MOPH/00337",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:12",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1656,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 46,
+              "qty": 1.0,
+              "note": "MU14-06",
+              "create_date": "2026-04-21 02:30:12",
+              "log_date": "2026-04-21 02:30:12",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:12"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 19,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "เครื่อง breakdown ระหว่างผลิต: หยุดงานและทำ recovery path",
+      "menu": "GMP Shop Floor > Work Order Card > More > Report Issue"
+    },
+    {
+      "case_id": "MU07-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 622,
+          "name": "GMP/MOPH/00338",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "status": "ok",
+          "start": "2026-04-21 02:30:14",
+          "state": "progress"
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1657,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 47,
+              "qty": 1.0,
+              "note": "MU07-01",
+              "create_date": "2026-04-21 02:30:14",
+              "log_date": "2026-04-21 02:30:14",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:30:14"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 7,
+      "backlog": "MA08, MA16",
+      "scenario": "ปิด MO ได้ครบตามแผน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders or Manufacturing > Operations > Work Orders"
+    },
+    {
+      "case_id": "MU07-02",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 623,
+          "name": "GMP/MOPH/00339",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 8,
+      "backlog": "MA08, MA16, MA17, MA18",
+      "scenario": "ผลิตไม่ครบและเลือก Create Backorder",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Partial Produce and Validate/Done"
+    },
+    {
+      "case_id": "MU07-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 109
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 9,
+      "backlog": "MA08, MA16, MA17, MA18",
+      "scenario": "ผลิตไม่ครบและกด No Backorder แล้วสร้างกลับภายหลัง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Create Backorder"
+    },
+    {
+      "case_id": "MU07-04",
+      "status": "Manual",
+      "evidence": "ยังไม่มี automated probe สำหรับ case นี้",
+      "details": "ต้องทดสอบผ่าน UI ตามขั้นตอนใน Excel",
+      "record": {},
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 10,
+      "backlog": "MA08, MA10, MA16",
+      "scenario": "ผลิตเกินแผนและตรวจ actual component consumption",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Components / Cost Tab"
+    },
+    {
+      "case_id": "MU08-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.scrap": true,
+        "records:stock.scrap": 3
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 11,
+      "backlog": "MA08, MA13",
+      "scenario": "บันทึก Scrap ระหว่างการผลิต",
+      "menu": "Inventory > Operations > Scrap or Manufacturing > Operations > Work Orders > Scrap"
+    },
+    {
+      "case_id": "MU08-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 12,
+      "backlog": "MA06, MA07",
+      "scenario": "คืนของเหลือจากคลังลอย / staging กลับ stock",
+      "menu": "Inventory > Operations > Transfers"
+    },
+    {
+      "case_id": "MU12-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.unbuild": true
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 13,
+      "backlog": "MA10, MA16, MA17, MA18",
+      "scenario": "ปิด MO แล้วจำนวน FG ผิด ต้องแก้ด้วย Unbuild",
+      "menu": "Manufacturing > Operations > Unbuild Orders"
+    },
+    {
+      "case_id": "MU12-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 14,
+      "backlog": "MA10, MA16, MA17",
+      "scenario": "ปิด MO แล้วใช้ component จริงผิด แต่ FG ถูกแล้ว",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Smart Button / Inventory > Reporting > Moves History"
+    },
+    {
+      "case_id": "MU12-03",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 624,
+          "name": "GMP/MOPH/00340",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 15,
+      "backlog": "MA16, MA17, MA18",
+      "scenario": "ปิด MO แล้วพบว่าควรเหลือ backorder แต่ user กดจบไปแล้ว",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Create Backorder or Open New MO"
+    },
+    {
+      "case_id": "MU12-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 16,
+      "backlog": "MA16, MA17",
+      "scenario": "ปิด MO แล้วโพสต์บัญชีไปแล้ว ควรประสานยังไง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Smart Button: Valuation / Journal Entries"
+    },
+    {
+      "case_id": "MU15-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.location": true,
+        "records:stock.location": 8
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 7,
+      "backlog": "MA39",
+      "scenario": "ตรวจโครงสร้าง Sublocation ของคลังลอยและคลังผลิตแยก Plastic / Pharma",
+      "menu": "Inventory > Configuration > Warehouse Management > Locations"
+    },
+    {
+      "case_id": "MU16-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.lot": true,
+        "records:stock.lot": 840
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 8,
+      "backlog": "MA09",
+      "scenario": "ติดตาม FG และ Component แบบย้อนกลับได้ครบด้วย lot หรือ QR",
+      "menu": "Manufacturing > Products > Lots/Serial Numbers"
+    },
+    {
+      "case_id": "MU16-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:documents.document": true,
+        "records:documents.document": 184
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 9,
+      "backlog": "MA20",
+      "scenario": "ค้นหา แก้ไข และควบคุม revision ของ WI ในระบบ",
+      "menu": "Documents > Documents"
+    },
+    {
+      "case_id": "MU16-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:quality.alert": true
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 10,
+      "backlog": "MA22",
+      "scenario": "สืบต้นเหตุ Reject และ reject ทั้ง lot ได้ครบถ้วน",
+      "menu": "Quality > Quality Control > Quality Alerts"
+    },
+    {
+      "case_id": "MU16-08",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:quality.point": true,
+        "records:quality.point": 3
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 11,
+      "backlog": "MA25",
+      "scenario": "กำหนดการตรวจสอบเป็น Routine Step ตาม Process",
+      "menu": "Quality > Quality Control > Control Points"
+    },
+    {
+      "case_id": "MU10-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 7,
+      "backlog": "MA16",
+      "scenario": "ดูรายงานการผลิตรายเดือน / ครึ่งปี",
+      "menu": "Manufacturing > Reporting > Production Analysis"
+    },
+    {
+      "case_id": "MU10-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 8,
+      "backlog": "MA10, MA16",
+      "scenario": "เช็ก Stock Movement ย้อนจาก MO ถึง transfer และสินค้า",
+      "menu": "Inventory > Reporting > Moves History or Open from MO via Smart Button"
+    },
+    {
+      "case_id": "MU10-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 9,
+      "backlog": "MA10, MA16",
+      "scenario": "เทียบ BOM กับ actual consumption บน MO",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Components / Cost Tab"
+    },
+    {
+      "case_id": "MU10-04",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 10,
+      "backlog": "MA01",
+      "scenario": "ซื้อกับใช้คนละหน่วย แล้วระบบแปลง UoM ถูกต้อง",
+      "menu": "Purchase > Products > Products / Purchase > Orders > Requests for Quotation or Purchase Orders / Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU13-01",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 11,
+      "backlog": "MA01",
+      "scenario": "เปลี่ยนหน่วยซื้อแบบ Manual บน PR/PO Order Line",
+      "menu": "Purchase Requests > Purchase Requests > Purchase Requests or Purchase > Orders > Purchase Orders > Order Lines Tab"
+    },
+    {
+      "case_id": "MU13-02",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 12,
+      "backlog": "MA01",
+      "scenario": "เปลี่ยนหน่วยซื้อให้ดึงอัตโนมัติจาก Product Master",
+      "menu": "Purchase > Products > Products > Open Product > Purchase Tab"
+    },
+    {
+      "case_id": "MU13-03",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 13,
+      "backlog": "MA01, MA10",
+      "scenario": "เปลี่ยน UoM บน BOM แล้วให้ MO และเอกสารเบิกเปลี่ยนอัตโนมัติ",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.bom": true,
+        "model:mrp.routing.workcenter": true,
+        "records:mrp.bom": 237
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 14,
+      "backlog": "MA31",
+      "scenario": "Routing ต้องระบุเครื่องจักรและเวลาจริงของแต่ละขั้นตอน",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.bom": true,
+        "model:mrp.routing.workcenter": true,
+        "records:mrp.bom": 237
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 15,
+      "backlog": "MA34",
+      "scenario": "Parallel Printer ใน BOM ต้องแตกงานถูกต้อง",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production.schedule": true
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 16,
+      "backlog": "MA36",
+      "scenario": "วางแผน MPS จาก Finished Goods แล้วแตก demand ลง component",
+      "menu": "Manufacturing > Planning > MPS > Master Production Schedule"
+    },
+    {
+      "case_id": "MU17-05",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 625,
+          "name": "GMP/MOPH/00341",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 17,
+      "backlog": "MA37",
+      "scenario": "Backorder ต้องสมบูรณ์ทั้ง receipt, transfer และ MO",
+      "menu": "Inventory > Operations > Transfers"
+    },
+    {
+      "case_id": "MU19-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.production": true,
+        "records:mrp.workcenter": 155
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 18,
+      "backlog": "MA51",
+      "scenario": "เพิ่มและตรวจต้นทุนบน Work Center ว่าส่งผลต่อ MO Cost",
+      "menu": "Manufacturing > Configuration > Work Centers"
+    },
+    {
+      "case_id": "MU19-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.production": true,
+        "records:mrp.workcenter": 155
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 19,
+      "backlog": "MA52",
+      "scenario": "ดู cost ของ MO รวมได้แม้มี backorder ต่อเนื่อง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU20-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:ir.actions.report": true,
+        "records:ir.actions.report": 6
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 20,
+      "backlog": "RP41",
+      "scenario": "รายงานหรือพิมพ์ใบสั่งผลิต (Manufacturing Order)",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU20-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:ir.actions.report": true,
+        "records:ir.actions.report": 6
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 21,
+      "backlog": "RP42",
+      "scenario": "รายงานหรือพิมพ์ใบสั่งงาน (Work Order)",
+      "menu": "Manufacturing > Operations > Work Orders"
+    },
+    {
+      "case_id": "MU20-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.scrap": true,
+        "records:stock.scrap": 3
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 22,
+      "backlog": "RP68",
+      "scenario": "รายงานของเสีย (Scrap Report)",
+      "menu": "Manufacturing > Operations > Scrap"
+    },
+    {
+      "case_id": "MU20-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.workorder": true
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 23,
+      "backlog": "RP69",
+      "scenario": "รายงานเครื่องจักร (Machine Report)",
+      "menu": "Manufacturing > Reporting > Machine Report"
+    },
+    {
+      "case_id": "MU20-06",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 51
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 24,
+      "backlog": "RP70",
+      "scenario": "รายงานการผลิต (Production Report)",
+      "menu": "Manufacturing > Reporting > Production Analysis"
+    }
+  ],
+  "summary": {
+    "total": 63,
+    "passed": 58,
+    "failed": 4,
+    "manual": 1
+  }
+}

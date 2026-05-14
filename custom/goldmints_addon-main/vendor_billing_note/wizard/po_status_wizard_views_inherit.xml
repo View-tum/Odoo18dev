@@ -12,10 +12,6 @@
                 <field name="has_selected_lines" invisible="1"/>
             </xpath>
 
-            <xpath expr="//list/field[@name='order_id']" position="before">
-                <field name="is_selected" string=" "/>
-            </xpath>
-
         </field>
     </record>
 </odoo>

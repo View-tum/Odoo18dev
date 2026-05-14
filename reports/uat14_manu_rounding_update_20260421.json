@@ -1,0 +1,109 @@
+{
+  "database": "goldmints_uat_manu",
+  "changes": [
+    {
+      "target": {
+        "name": "Kgs",
+        "category": "Weight",
+        "rounding": 1e-06
+      },
+      "status": "updated",
+      "before": {
+        "id": 12,
+        "name": "Kgs",
+        "category": "Weight",
+        "rounding": 0.01,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      },
+      "after": {
+        "id": 12,
+        "name": "Kgs",
+        "category": "Weight",
+        "rounding": 1e-06,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      }
+    },
+    {
+      "target": {
+        "name": "Liters",
+        "category": "Volume",
+        "rounding": 0.0001
+      },
+      "status": "updated",
+      "before": {
+        "id": 10,
+        "name": "Liters",
+        "category": "Volume",
+        "rounding": 0.01,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      },
+      "after": {
+        "id": 10,
+        "name": "Liters",
+        "category": "Volume",
+        "rounding": 0.0001,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      }
+    },
+    {
+      "target": {
+        "name": "ROLL",
+        "category": "Tank",
+        "rounding": 1e-05
+      },
+      "status": "updated",
+      "before": {
+        "id": 44,
+        "name": "ROLL",
+        "category": "Tank",
+        "rounding": 0.01,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      },
+      "after": {
+        "id": 44,
+        "name": "ROLL",
+        "category": "Tank",
+        "rounding": 1e-05,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      }
+    },
+    {
+      "target": {
+        "name": "Unit",
+        "category": "Tank",
+        "rounding": 0.0001
+      },
+      "status": "updated",
+      "before": {
+        "id": 1,
+        "name": "Unit",
+        "category": "Tank",
+        "rounding": 0.01,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      },
+      "after": {
+        "id": 1,
+        "name": "Unit",
+        "category": "Tank",
+        "rounding": 0.0001,
+        "factor": 1.0,
+        "factor_inv": 1.0,
+        "active": true
+      }
+    }
+  ]
+}

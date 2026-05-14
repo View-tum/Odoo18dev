@@ -1,0 +1,1781 @@
+{
+  "base_url": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "uid": 2,
+  "run_at": "2026-04-21 09:39:17",
+  "cases": [
+    {
+      "case_id": "MU01-01",
+      "status": "Passed",
+      "evidence": "อ่านสินค้า, On Hand และ master product ได้จริง",
+      "details": "",
+      "record": {
+        "id": 8223,
+        "display_name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+        "uom_id": [
+          1,
+          "Unit"
+        ],
+        "product_tmpl_id": [
+          8223,
+          "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+        ],
+        "tracking": "lot",
+        "qty_available": 117593.0
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 7,
+      "backlog": "MA01, MA10",
+      "scenario": "เช็ก On Hand และ Forecast ของ FG ก่อนวางแผนผลิต",
+      "menu": "Inventory > Products > Products > Open FG Product > Smart Button: On Hand / Forecasted"
+    },
+    {
+      "case_id": "MU01-02",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 8,
+      "backlog": "MA01, MA02, MA06",
+      "scenario": "เช็ก Replenishment ว่ามีรายการตกหล่นหรือวัตถุดิบขาดหรือไม่",
+      "menu": "Inventory > Operations > Procurement > Replenishment"
+    },
+    {
+      "case_id": "MU01-03",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 9,
+      "backlog": "MA02, MA10, MA16",
+      "scenario": "เช็กว่ารายการที่เติมของแล้วสร้างเอกสารถูกหรือไม่",
+      "menu": "Inventory > Operations > Procurement > Replenishment > Open Document Created by System"
+    },
+    {
+      "case_id": "MU06-01",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 10,
+      "backlog": "MA02, MA06",
+      "scenario": "MTS กรณี stock ต่ำกว่าเกณฑ์และระบบต้องสร้าง MO",
+      "menu": "Inventory > Operations > Procurement > Replenishment"
+    },
+    {
+      "case_id": "MU06-02",
+      "status": "Passed",
+      "evidence": "พบ Replenishment/Orderpoint 10 รายการ",
+      "details": "",
+      "record": {
+        "sample": [
+          {
+            "id": 25,
+            "product_id": [
+              8363,
+              "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 22090.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 26,
+            "product_id": [
+              8341,
+              "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 3074.95,
+            "qty_to_order": 0.0,
+            "route_id": [
+              5,
+              "Buy"
+            ]
+          },
+          {
+            "id": 27,
+            "product_id": [
+              8026,
+              "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02"
+            ],
+            "warehouse_id": [
+              1,
+              "GOLD MINTS PRODUCTS CO., LTD."
+            ],
+            "location_id": [
+              8,
+              "GMP/Stock"
+            ],
+            "qty_forecast": 120309503.0,
+            "qty_to_order": 0.0,
+            "route_id": [
+              6,
+              "Manufacture"
+            ]
+          }
+        ]
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 11,
+      "backlog": "MA02, MA10",
+      "scenario": "MTS กรณี stock ยังพอ ไม่ควรสร้างเอกสารเพิ่ม",
+      "menu": "Inventory > Operations > Procurement > Replenishment > Open Product > Smart Button: Forecasted"
+    },
+    {
+      "case_id": "MU06-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "model:stock.move": true,
+        "records:mrp.bom": 262
+      },
+      "sheet": "01_ตรวจสต็อกและวางแผน",
+      "row": 12,
+      "backlog": "MA01, MA02, MA07",
+      "scenario": "MTS ที่แตก child chain ไป Semi/Plastic/Pharma",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Parent MO > Child Documents / Related Transfers"
+    },
+    {
+      "case_id": "MU02-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 652,
+          "name": "GMP/MOPH/00368",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1687,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 73,
+              "qty": 1.0,
+              "note": "MU02-01",
+              "create_date": "2026-04-21 02:38:46",
+              "log_date": "2026-04-21 02:38:46",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:38:46"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 7,
+      "backlog": "MA01, MA08, MA14",
+      "scenario": "เปิด MO manual กรณีวัตถุดิบครบ",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU02-02",
+      "status": "Failed",
+      "evidence": "Functional probe failed",
+      "details": "Workorder did not start with missing components: {'error': 'Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder.'}, {'id': 1688, 'state': 'waiting', 'console_date_start': False}",
+      "record": {},
+      "sheet": "02_เปิดงานผลิต",
+      "row": 8,
+      "backlog": "MA01, MA08, MA14",
+      "scenario": "เปิด MO manual กรณีมีของบางส่วน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU02-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 9,
+      "backlog": "MA04, MA06, MA07",
+      "scenario": "ตรวจการเบิกของเข้าคลังลอย / staging ของแต่ละแผนก",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open MO > Smart Button: Transfers"
+    },
+    {
+      "case_id": "MU05-01",
+      "status": "Passed",
+      "evidence": "MTO setup is available and sale/manufacturing models are readable",
+      "details": "",
+      "record": {
+        "mto_route_count": 1,
+        "mto_rule_count": 18,
+        "sale_order_count": 6146
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 10,
+      "backlog": "MA02, MA12",
+      "scenario": "SO ต่างประเทศ MTO กรณีวัตถุดิบครบ",
+      "menu": "Sales > Orders > Quotations > Confirm > Trace to Manufacturing Order"
+    },
+    {
+      "case_id": "MU05-02",
+      "status": "Passed",
+      "evidence": "MTO setup is available and sale/manufacturing models are readable",
+      "details": "",
+      "record": {
+        "mto_route_count": 1,
+        "mto_rule_count": 18,
+        "sale_order_count": 6146
+      },
+      "sheet": "02_เปิดงานผลิต",
+      "row": 11,
+      "backlog": "MA01, MA02, MA12",
+      "scenario": "SO ต่างประเทศ MTO กรณีวัตถุดิบขาดบางตัว",
+      "menu": "Sales > Orders > Quotations > Confirm > Trace Shortage to MO / RFQ / Replenishment"
+    },
+    {
+      "case_id": "MU03-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 7,
+      "backlog": "MA04, MA07",
+      "scenario": "Transfer Plastic กรณีโอนของครบ",
+      "menu": "Inventory > Operations > Transfers > Filter Operation Type = Transfer Plastic"
+    },
+    {
+      "case_id": "MU03-02",
+      "status": "Passed",
+      "evidence": "Seed receipt 10483; Partial transfer created backorder [10485]",
+      "details": "",
+      "record": {
+        "seed_picking_id": 10483,
+        "picking": {
+          "id": 10484,
+          "name": "GMP/STOR/00041",
+          "state": "done",
+          "backorder_ids": [
+            10485
+          ]
+        },
+        "action": "Create Backorder?"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 8,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Plastic กรณีของมาไม่ครบและเลือก Create Backorder",
+      "menu": "Inventory > Operations > Transfers > Open Transfer Plastic > Validate Partial"
+    },
+    {
+      "case_id": "MU03-03",
+      "status": "Passed",
+      "evidence": "Seed receipt 10486; No Backorder then late backorder recovery passed",
+      "details": "",
+      "record": {
+        "seed_picking_id": 10486,
+        "picking": {
+          "id": 10487,
+          "can_create_late_backorder": true,
+          "late_backorder_move_count": 1,
+          "name": "GMP/STOR/00043",
+          "state": "done"
+        },
+        "late_action": {
+          "type": "ir.actions.act_window",
+          "res_model": "stock.picking",
+          "res_id": 10488,
+          "view_mode": "form",
+          "views": [
+            [
+              false,
+              "form"
+            ]
+          ],
+          "target": "current"
+        }
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 9,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Plastic กรณีกด No Backorder ผิด แล้วกู้กลับ",
+      "menu": "Inventory > Operations > Transfers > Open Done Transfer > Create Backorder"
+    },
+    {
+      "case_id": "MU04-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 10,
+      "backlog": "MA04, MA07",
+      "scenario": "Transfer Pharma กรณีโอนครบ",
+      "menu": "Inventory > Operations > Transfers > Filter Operation Type = Transfer Pharma"
+    },
+    {
+      "case_id": "MU04-02",
+      "status": "Passed",
+      "evidence": "Seed receipt 10489; Partial transfer created backorder [10491]",
+      "details": "",
+      "record": {
+        "seed_picking_id": 10489,
+        "picking": {
+          "id": 10490,
+          "name": "GMP/STOR/00045",
+          "state": "done",
+          "backorder_ids": [
+            10491
+          ]
+        },
+        "action": "Create Backorder?"
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 11,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Pharma partial แล้วเลือก Create Backorder",
+      "menu": "Inventory > Operations > Transfers > Open Transfer Pharma > Validate Partial"
+    },
+    {
+      "case_id": "MU04-03",
+      "status": "Passed",
+      "evidence": "Seed receipt 10492; No Backorder then late backorder recovery passed",
+      "details": "",
+      "record": {
+        "seed_picking_id": 10492,
+        "picking": {
+          "id": 10493,
+          "can_create_late_backorder": true,
+          "late_backorder_move_count": 1,
+          "name": "GMP/STOR/00047",
+          "state": "done"
+        },
+        "late_action": {
+          "type": "ir.actions.act_window",
+          "res_model": "stock.picking",
+          "res_id": 10494,
+          "view_mode": "form",
+          "views": [
+            [
+              false,
+              "form"
+            ]
+          ],
+          "target": "current"
+        }
+      },
+      "sheet": "03_โอนและBackorder",
+      "row": 12,
+      "backlog": "MA04, MA07, MA16",
+      "scenario": "Transfer Pharma partial แล้วกด No Backorder จากนั้นกู้กลับ",
+      "menu": "Inventory > Operations > Transfers > Open Done Transfer > Create Backorder"
+    },
+    {
+      "case_id": "MU11-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 654,
+          "name": "GMP/MOPH/00370",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1689,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 74,
+              "qty": 1.0,
+              "note": "MU11-01",
+              "create_date": "2026-04-21 02:38:59",
+              "log_date": "2026-04-21 02:38:59",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:38:59"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 7,
+      "backlog": "MA08, MA14",
+      "scenario": "เปิดคิวงานใน GMP Shop Floor และเลือกงานของแผนกตัวเอง",
+      "menu": "GMP Shop Floor"
+    },
+    {
+      "case_id": "MU11-02",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 655,
+          "name": "GMP/MOPH/00371",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1690,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 75,
+              "qty": 1.0,
+              "note": "MU11-02",
+              "create_date": "2026-04-21 02:39:01",
+              "log_date": "2026-04-21 02:39:01",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:39:01"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 8,
+      "backlog": "MA08, MA14",
+      "scenario": "เริ่มงาน, หยุดพัก, กลับมาทำต่อ บน Shop Floor",
+      "menu": "GMP Shop Floor > Open Work Order"
+    },
+    {
+      "case_id": "MU11-03",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 656,
+          "name": "GMP/MOPH/00372",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1691,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 76,
+              "qty": 1.0,
+              "note": "MU11-03",
+              "create_date": "2026-04-21 02:39:03",
+              "log_date": "2026-04-21 02:39:03",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:39:03"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 9,
+      "backlog": "MA08, MA10, MA14",
+      "scenario": "บันทึก Good Qty, Reject Qty และปิด Operation จาก Shop Floor",
+      "menu": "GMP Shop Floor > Open Work Order > Done"
+    },
+    {
+      "case_id": "MU11-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 10,
+      "backlog": "MA08, MA11, MA14",
+      "scenario": "Shop Floor ฝั่ง Plastic ที่มี Mold และ Workcenter",
+      "menu": "GMP Shop Floor > Open Plastic Job"
+    },
+    {
+      "case_id": "MU09-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 11,
+      "backlog": "MA11, MA14",
+      "scenario": "ระบบ assign mold และ workcenter อัตโนมัติ",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Work Orders / Manufacturing > Configuration > Work Centers"
+    },
+    {
+      "case_id": "MU09-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 12,
+      "backlog": "MA11",
+      "scenario": "Parallel workorder ต้องไม่ใช้ mold ซ้ำกัน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Work Orders"
+    },
+    {
+      "case_id": "MU09-03",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 657,
+          "name": "GMP/MOPH/00373",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1692,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 77,
+              "qty": 1.0,
+              "note": "MU09-03",
+              "create_date": "2026-04-21 02:39:05",
+              "log_date": "2026-04-21 02:39:05",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:39:05"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 13,
+      "backlog": "MA08, MA11, MA14",
+      "scenario": "บันทึก good qty / reject / labor ผ่าน shopfloor",
+      "menu": "GMP Shop Floor > Open Work Order"
+    },
+    {
+      "case_id": "MU14-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 14,
+      "backlog": "MA08, MA14",
+      "scenario": "การ์ด GMP Shop Floor แสดง Mold และจำนวน shots ปัจจุบัน",
+      "menu": "GMP Shop Floor"
+    },
+    {
+      "case_id": "MU14-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 15,
+      "backlog": "MA08, MA14",
+      "scenario": "เปลี่ยน Mold จากปุ่มบน card ก่อนเริ่มงาน",
+      "menu": "GMP Shop Floor > Work Order Card > Mold Button"
+    },
+    {
+      "case_id": "MU14-03",
+      "status": "Failed",
+      "evidence": "Functional probe failed",
+      "details": "Start did not continue after warning: {'error': 'Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder.'}",
+      "record": {},
+      "sheet": "04_ShopFloorและMold",
+      "row": 16,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "Mold life เต็มแล้วกด Start และเลือก Continue Anyway",
+      "menu": "GMP Shop Floor > Work Order Card > Start"
+    },
+    {
+      "case_id": "MU14-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 17,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "Mold life เต็มแล้วเลือก Change Mold จาก popup และเริ่มงานด้วย mold สำรอง",
+      "menu": "GMP Shop Floor > Start > Mold Life Warning Popup > Change Mold"
+    },
+    {
+      "case_id": "MU14-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "records:mrp.workcenter": 23
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 18,
+      "backlog": "MA16, MA17",
+      "scenario": "Reset Mold Life หลัง maintenance",
+      "menu": "Manufacturing > Configuration > Work Centers > Open Mold"
+    },
+    {
+      "case_id": "MU14-06",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 659,
+          "name": "GMP/MOPH/00375",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1694,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 78,
+              "qty": 1.0,
+              "note": "MU14-06",
+              "create_date": "2026-04-21 02:39:08",
+              "log_date": "2026-04-21 02:39:08",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:39:08"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "04_ShopFloorและMold",
+      "row": 19,
+      "backlog": "MA08, MA14, MA16",
+      "scenario": "เครื่อง breakdown ระหว่างผลิต: หยุดงานและทำ recovery path",
+      "menu": "GMP Shop Floor > Work Order Card > More > Report Issue"
+    },
+    {
+      "case_id": "MU07-01",
+      "status": "Passed",
+      "evidence": "สร้าง MO, start shopfloor, log qty, finish, close done ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 660,
+          "name": "GMP/MOPH/00376",
+          "state": "done",
+          "qty_producing": 1.0,
+          "product_qty": 1.0
+        },
+        "check": {
+          "sufficient": true
+        },
+        "start": {
+          "error": "Workcenter เครื่องปิดเทปกาวกล่อง is busy with another workorder."
+        },
+        "qty": {
+          "status": "ok",
+          "workorder_id": 1695,
+          "total": 1.0,
+          "logs": [
+            {
+              "id": 79,
+              "qty": 1.0,
+              "note": "MU07-01",
+              "create_date": "2026-04-21 02:39:10",
+              "log_date": "2026-04-21 02:39:10",
+              "employees": []
+            }
+          ]
+        },
+        "finish": {
+          "status": "ok",
+          "state": "done",
+          "end": "2026-04-21 02:39:10"
+        },
+        "close": {
+          "status": "ok",
+          "action": true
+        }
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 7,
+      "backlog": "MA08, MA16",
+      "scenario": "ปิด MO ได้ครบตามแผน",
+      "menu": "Manufacturing > Operations > Manufacturing Orders or Manufacturing > Operations > Work Orders"
+    },
+    {
+      "case_id": "MU07-02",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 661,
+          "name": "GMP/MOPH/00377",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 8,
+      "backlog": "MA08, MA16, MA17, MA18",
+      "scenario": "ผลิตไม่ครบและเลือก Create Backorder",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Partial Produce and Validate/Done"
+    },
+    {
+      "case_id": "MU07-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 147
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 9,
+      "backlog": "MA08, MA16, MA17, MA18",
+      "scenario": "ผลิตไม่ครบและกด No Backorder แล้วสร้างกลับภายหลัง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Create Backorder"
+    },
+    {
+      "case_id": "MU07-04",
+      "status": "Failed",
+      "evidence": "Functional probe failed",
+      "details": "Overproduction did not close cleanly: apply={'status': 'missing_component_lots', 'error': 'Insufficient lots for components: เทปกาว, [PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58, [FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล . Please review lots.'}, mo={'id': 662, 'name': 'GMP/MOPH/00378', 'state': 'confirmed', 'product_qty': 1.0, 'qty_producing': 0.0}, raw_moves=[{'id': 30318, 'product_id': [8591, '[FG-PSS-TH-02001] ยาดมโป๊ยเซียนกล่อง 5 โหล '], 'product_uom_qty': 0.1, 'quantity': 0.1, 'state': 'assigned'}, {'id': 30319, 'product_id': [8043, '[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58'], 'product_uom_qty': 0.01, 'quantity': 0.01, 'state': 'assigned'}, {'id': 30320, 'product_id': [8689, 'เทปกาว'], 'product_uom_qty': 0.01, 'quantity': 0.01, 'state': 'assigned'}]",
+      "record": {},
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 10,
+      "backlog": "MA08, MA10, MA16",
+      "scenario": "ผลิตเกินแผนและตรวจ actual component consumption",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Components / Cost Tab"
+    },
+    {
+      "case_id": "MU08-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.scrap": true,
+        "records:stock.scrap": 3
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 11,
+      "backlog": "MA08, MA13",
+      "scenario": "บันทึก Scrap ระหว่างการผลิต",
+      "menu": "Inventory > Operations > Scrap or Manufacturing > Operations > Work Orders > Scrap"
+    },
+    {
+      "case_id": "MU08-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.picking": true,
+        "records:stock.picking.type": 11
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 12,
+      "backlog": "MA06, MA07",
+      "scenario": "คืนของเหลือจากคลังลอย / staging กลับ stock",
+      "menu": "Inventory > Operations > Transfers"
+    },
+    {
+      "case_id": "MU12-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.unbuild": true
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 13,
+      "backlog": "MA10, MA16, MA17, MA18",
+      "scenario": "ปิด MO แล้วจำนวน FG ผิด ต้องแก้ด้วย Unbuild",
+      "menu": "Manufacturing > Operations > Unbuild Orders"
+    },
+    {
+      "case_id": "MU12-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 14,
+      "backlog": "MA10, MA16, MA17",
+      "scenario": "ปิด MO แล้วใช้ component จริงผิด แต่ FG ถูกแล้ว",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Smart Button / Inventory > Reporting > Moves History"
+    },
+    {
+      "case_id": "MU12-03",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 663,
+          "name": "GMP/MOPH/00379",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 15,
+      "backlog": "MA16, MA17, MA18",
+      "scenario": "ปิด MO แล้วพบว่าควรเหลือ backorder แต่ user กดจบไปแล้ว",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Create Backorder or Open New MO"
+    },
+    {
+      "case_id": "MU12-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "05_ปิดงานและแก้ไข",
+      "row": 16,
+      "backlog": "MA16, MA17",
+      "scenario": "ปิด MO แล้วโพสต์บัญชีไปแล้ว ควรประสานยังไง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Open Done MO > Smart Button: Valuation / Journal Entries"
+    },
+    {
+      "case_id": "MU15-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.location": true,
+        "records:stock.location": 8
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 7,
+      "backlog": "MA39",
+      "scenario": "ตรวจโครงสร้าง Sublocation ของคลังลอยและคลังผลิตแยก Plastic / Pharma",
+      "menu": "Inventory > Configuration > Warehouse Management > Locations"
+    },
+    {
+      "case_id": "MU16-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.lot": true,
+        "records:stock.lot": 888
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 8,
+      "backlog": "MA09",
+      "scenario": "ติดตาม FG และ Component แบบย้อนกลับได้ครบด้วย lot หรือ QR",
+      "menu": "Manufacturing > Products > Lots/Serial Numbers"
+    },
+    {
+      "case_id": "MU16-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:documents.document": true,
+        "records:documents.document": 184
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 9,
+      "backlog": "MA20",
+      "scenario": "ค้นหา แก้ไข และควบคุม revision ของ WI ในระบบ",
+      "menu": "Documents > Documents"
+    },
+    {
+      "case_id": "MU16-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:quality.alert": true
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 10,
+      "backlog": "MA22",
+      "scenario": "สืบต้นเหตุ Reject และ reject ทั้ง lot ได้ครบถ้วน",
+      "menu": "Quality > Quality Control > Quality Alerts"
+    },
+    {
+      "case_id": "MU16-08",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:quality.point": true,
+        "records:quality.point": 3
+      },
+      "sheet": "06_คุณภาพเอกสาร",
+      "row": 11,
+      "backlog": "MA25",
+      "scenario": "กำหนดการตรวจสอบเป็น Routine Step ตาม Process",
+      "menu": "Quality > Quality Control > Control Points"
+    },
+    {
+      "case_id": "MU10-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 7,
+      "backlog": "MA16",
+      "scenario": "ดูรายงานการผลิตรายเดือน / ครึ่งปี",
+      "menu": "Manufacturing > Reporting > Production Analysis"
+    },
+    {
+      "case_id": "MU10-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 8,
+      "backlog": "MA10, MA16",
+      "scenario": "เช็ก Stock Movement ย้อนจาก MO ถึง transfer และสินค้า",
+      "menu": "Inventory > Reporting > Moves History or Open from MO via Smart Button"
+    },
+    {
+      "case_id": "MU10-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.move": true,
+        "model:stock.valuation.layer": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 9,
+      "backlog": "MA10, MA16",
+      "scenario": "เทียบ BOM กับ actual consumption บน MO",
+      "menu": "Manufacturing > Operations > Manufacturing Orders > Components / Cost Tab"
+    },
+    {
+      "case_id": "MU10-04",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 10,
+      "backlog": "MA01",
+      "scenario": "ซื้อกับใช้คนละหน่วย แล้วระบบแปลง UoM ถูกต้อง",
+      "menu": "Purchase > Products > Products / Purchase > Orders > Requests for Quotation or Purchase Orders / Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU13-01",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 11,
+      "backlog": "MA01",
+      "scenario": "เปลี่ยนหน่วยซื้อแบบ Manual บน PR/PO Order Line",
+      "menu": "Purchase Requests > Purchase Requests > Purchase Requests or Purchase > Orders > Purchase Orders > Order Lines Tab"
+    },
+    {
+      "case_id": "MU13-02",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 12,
+      "backlog": "MA01",
+      "scenario": "เปลี่ยนหน่วยซื้อให้ดึงอัตโนมัติจาก Product Master",
+      "menu": "Purchase > Products > Products > Open Product > Purchase Tab"
+    },
+    {
+      "case_id": "MU13-03",
+      "status": "Passed",
+      "evidence": "Product master มี UoM/Purchase UoM ให้อ่านและใช้ตรวจ conversion ได้",
+      "details": "",
+      "record": {
+        "sample_products": [
+          {
+            "id": 8749,
+            "display_name": "[00065] ก PAX 2way-Key ตัวบน",
+            "uom_id": [
+              42,
+              "Pcs"
+            ],
+            "uom_po_id": [
+              42,
+              "Pcs"
+            ]
+          },
+          {
+            "id": 8380,
+            "display_name": "[000809] พิมเสนน้ำโป๊ยเซียนสำลี ชิ้น (1*1)",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8016,
+            "display_name": "[000832] x กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 7988,
+            "display_name": "[000833] กระปุกพิมเสนน้ำสำลี (12x4) 3+1dz",
+            "uom_id": [
+              1,
+              "Unit"
+            ],
+            "uom_po_id": [
+              1,
+              "Unit"
+            ]
+          },
+          {
+            "id": 8750,
+            "display_name": "[00529] เมนทอล",
+            "uom_id": [
+              10,
+              "Liters"
+            ],
+            "uom_po_id": [
+              10,
+              "Liters"
+            ]
+          }
+        ],
+        "different_purchase_uom_count_in_sample": 0
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 13,
+      "backlog": "MA01, MA10",
+      "scenario": "เปลี่ยน UoM บน BOM แล้วให้ MO และเอกสารเบิกเปลี่ยนอัตโนมัติ",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-01",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.bom": true,
+        "model:mrp.routing.workcenter": true,
+        "records:mrp.bom": 237
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 14,
+      "backlog": "MA31",
+      "scenario": "Routing ต้องระบุเครื่องจักรและเวลาจริงของแต่ละขั้นตอน",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.bom": true,
+        "model:mrp.routing.workcenter": true,
+        "records:mrp.bom": 237
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 15,
+      "backlog": "MA34",
+      "scenario": "Parallel Printer ใน BOM ต้องแตกงานถูกต้อง",
+      "menu": "Manufacturing > Products > Bills of Materials"
+    },
+    {
+      "case_id": "MU17-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production.schedule": true
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 16,
+      "backlog": "MA36",
+      "scenario": "วางแผน MPS จาก Finished Goods แล้วแตก demand ลง component",
+      "menu": "Manufacturing > Planning > MPS > Master Production Schedule"
+    },
+    {
+      "case_id": "MU17-05",
+      "status": "Passed",
+      "evidence": "Partial production คืน wizard Create Backorder ได้จริง",
+      "details": "",
+      "record": {
+        "mo": {
+          "id": 664,
+          "name": "GMP/MOPH/00380",
+          "state": "to_close",
+          "qty_producing": 1.0,
+          "product_qty": 2.0
+        },
+        "action": "You produced less than initial demand"
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 17,
+      "backlog": "MA37",
+      "scenario": "Backorder ต้องสมบูรณ์ทั้ง receipt, transfer และ MO",
+      "menu": "Inventory > Operations > Transfers"
+    },
+    {
+      "case_id": "MU19-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.production": true,
+        "records:mrp.workcenter": 155
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 18,
+      "backlog": "MA51",
+      "scenario": "เพิ่มและตรวจต้นทุนบน Work Center ว่าส่งผลต่อ MO Cost",
+      "menu": "Manufacturing > Configuration > Work Centers"
+    },
+    {
+      "case_id": "MU19-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.production": true,
+        "records:mrp.workcenter": 155
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 19,
+      "backlog": "MA52",
+      "scenario": "ดู cost ของ MO รวมได้แม้มี backorder ต่อเนื่อง",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU20-02",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:ir.actions.report": true,
+        "records:ir.actions.report": 6
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 20,
+      "backlog": "RP41",
+      "scenario": "รายงานหรือพิมพ์ใบสั่งผลิต (Manufacturing Order)",
+      "menu": "Manufacturing > Operations > Manufacturing Orders"
+    },
+    {
+      "case_id": "MU20-03",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:ir.actions.report": true,
+        "records:ir.actions.report": 6
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 21,
+      "backlog": "RP42",
+      "scenario": "รายงานหรือพิมพ์ใบสั่งงาน (Work Order)",
+      "menu": "Manufacturing > Operations > Work Orders"
+    },
+    {
+      "case_id": "MU20-04",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:stock.scrap": true,
+        "records:stock.scrap": 3
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 22,
+      "backlog": "RP68",
+      "scenario": "รายงานของเสีย (Scrap Report)",
+      "menu": "Manufacturing > Operations > Scrap"
+    },
+    {
+      "case_id": "MU20-05",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.workcenter": true,
+        "model:mrp.workorder": true
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 23,
+      "backlog": "RP69",
+      "scenario": "รายงานเครื่องจักร (Machine Report)",
+      "menu": "Manufacturing > Reporting > Machine Report"
+    },
+    {
+      "case_id": "MU20-06",
+      "status": "Passed",
+      "evidence": "ตรวจพบ model/menu/report/data ที่เกี่ยวข้องในระบบ 14",
+      "details": "",
+      "record": {
+        "model:mrp.production": true,
+        "records:mrp.production": 72
+      },
+      "sheet": "07_รายงานต้นทุนUoM",
+      "row": 24,
+      "backlog": "RP70",
+      "scenario": "รายงานการผลิต (Production Report)",
+      "menu": "Manufacturing > Reporting > Production Analysis"
+    }
+  ],
+  "summary": {
+    "total": 63,
+    "passed": 60,
+    "failed": 3,
+    "manual": 0
+  }
+}

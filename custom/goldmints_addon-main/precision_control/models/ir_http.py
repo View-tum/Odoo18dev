@@ -1,4 +1,5 @@
 from odoo import models
+from .precision_patch import _get_precision
 
 
 class IrHttp(models.AbstractModel):
@@ -6,14 +7,13 @@ class IrHttp(models.AbstractModel):
 
     def session_info(self):
         result = super(IrHttp, self).session_info()
-        get_param = self.env['ir.config_parameter'].sudo().get_param
         result['precision_settings'] = {
-            'sale': int(get_param('precision_control.precision_sale', '2')),
-            'purchase': int(get_param('precision_control.precision_purchase', '3')),
-            'mrp': int(get_param('precision_control.precision_mrp', '4')),
-            'account': int(get_param('precision_control.precision_account', '2')),
-            'expense': int(get_param('precision_control.precision_expense', '2')),
-            'stock': int(get_param('precision_control.precision_stock', '2')),
-            'product': int(get_param('precision_control.precision_product', '2')),
+            'sale': _get_precision(self.env, 'sale'),
+            'purchase': _get_precision(self.env, 'purchase'),
+            'mrp': _get_precision(self.env, 'mrp'),
+            'account': _get_precision(self.env, 'account'),
+            'expense': _get_precision(self.env, 'expense'),
+            'stock': _get_precision(self.env, 'stock'),
+            'product': _get_precision(self.env, 'product'),
         }
         return result

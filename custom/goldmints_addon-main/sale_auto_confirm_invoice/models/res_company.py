@@ -4,14 +4,6 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    auto_create_invoice_on_delivery = fields.Boolean(
-        string="Auto Create Invoice On Delivery",
-        default=False,
-        help=(
-            "Automatically create and post customer invoices when the final "
-            "delivery order is validated."
-        ),
-    )
     downpayment_account_id = fields.Many2one(
         comodel_name="account.account",
         string="Down Payment Account",
@@ -46,9 +38,6 @@ class ResCompany(models.Model):
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    auto_create_invoice_on_delivery = fields.Boolean(
-        related="company_id.auto_create_invoice_on_delivery", readonly=False
-    )
     downpayment_account_id = fields.Many2one(
         related="company_id.downpayment_account_id", readonly=False
     )

@@ -1,0 +1,112 @@
+<odoo>
+    <record id="view_account_partner_settlement_list" model="ir.ui.view">
+        <field name="name">account.partner.settlement.list</field>
+        <field name="model">account.partner.settlement</field>
+        <field name="arch" type="xml">
+            <list string="Partner Settlements">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="journal_id"/>
+                <field name="invoice_total"/>
+                <field name="bill_total"/>
+                <field name="settlement_amount"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_account_partner_settlement_search" model="ir.ui.view">
+        <field name="name">account.partner.settlement.search</field>
+        <field name="model">account.partner.settlement</field>
+        <field name="arch" type="xml">
+            <search string="Partner Settlements">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="journal_id"/>
+                <field name="state"/>
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_done" string="Done" domain="[('state', '=', 'done')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_account_partner_settlement_form" model="ir.ui.view">
+        <field name="name">account.partner.settlement.form</field>
+        <field name="model">account.partner.settlement</field>
+        <field name="arch" type="xml">
+            <form string="Partner Settlement">
+                <header>
+                    <button name="action_load_open_documents" type="object" string="Load Open Documents" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_recalculate" type="object" string="Recalculate" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_post_settlement" type="object" string="Create Settlement Journal" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_view_journal_entry" type="object" string="Journal Entry" class="btn-secondary" invisible="not settlement_move_id"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_journal_entry" type="object" class="oe_stat_button" icon="fa-book" invisible="not settlement_move_id">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Journal Entry</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="journal_id" readonly="state != 'draft'"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="invoice_total" readonly="1"/>
+                            <field name="bill_total" readonly="1"/>
+                            <field name="settlement_amount" readonly="1"/>
+                            <field name="settlement_move_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="References">
+                        <field name="invoice_refs" readonly="1"/>
+                        <field name="bill_refs" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Documents">
+                            <div class="mb-2" invisible="state != 'draft'">
+                                <button name="action_select_all" type="object" string="Select All" class="btn-link p-0 me-2" icon="fa-check-square-o"/>
+                                <button name="action_unselect_all" type="object" string="Unselect All" class="btn-link p-0" icon="fa-square-o"/>
+                            </div>
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list>
+                                    <field name="is_selected" readonly="parent.state != 'draft'"/>
+                                    <field name="document_kind"/>
+                                    <field name="move_id"/>
+                                    <field name="document_date"/>
+                                    <field name="account_id"/>
+                                    <field name="residual_amount"/>
+                                    <field name="amount_to_settle"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_partner_settlement" model="ir.actions.act_window">
+        <field name="name">Partner Settlements</field>
+        <field name="res_model">account.partner.settlement</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_account_partner_settlement_search"/>
+        <field name="help" type="html">
+            <p>Create journal-based settlements that offset customer invoices against vendor bills for the same partner.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_account_partner_settlement_root" name="Partner Settlements" parent="account.menu_finance_entries" action="action_account_partner_settlement" sequence="60"/>
+</odoo>

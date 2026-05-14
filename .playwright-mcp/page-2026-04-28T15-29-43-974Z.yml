@@ -1,0 +1,414 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e142] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e143]
+        - generic [ref=e144]: Sales
+      - menu [ref=e145]:
+        - button "Orders" [ref=e146] [cursor=pointer]:
+          - generic [ref=e147]: Orders
+        - button "To Invoice" [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]: To Invoice
+        - button "Products" [ref=e150] [cursor=pointer]:
+          - generic [ref=e151]: Products
+        - button "After-Sale Services" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: After-Sale Services
+        - button "Reporting" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Reporting
+        - button "Configuration" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 47" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "47"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e2410]:
+    - generic [ref=e2412]:
+      - generic [ref=e2413]:
+        - button "New" [ref=e2416] [cursor=pointer]
+        - generic [ref=e2417]:
+          - list [ref=e2418]:
+            - listitem [ref=e2419]:
+              - link "Sales Orders" [ref=e2420] [cursor=pointer]:
+                - /url: /odoo/orders
+          - generic [ref=e2421]:
+            - generic [ref=e2423]: SOD-263215
+            - button "" [ref=e2427] [cursor=pointer]:
+              - generic [ref=e2428]: 
+      - generic [ref=e2431]:
+        - button " 1 Delivery" [ref=e2432] [cursor=pointer]:
+          - generic [ref=e2433]: 
+          - generic [ref=e2434]:
+            - generic [ref=e2435]: "1"
+            - generic [ref=e2436]: Delivery
+        - button " 28 Manufacturing" [ref=e2437] [cursor=pointer]:
+          - generic [ref=e2438]: 
+          - generic [ref=e2439]:
+            - generic [ref=e2441]: "28"
+            - generic [ref=e2442]: Manufacturing
+      - generic [ref=e2443]:
+        - button "Search Knowledge Articles" [ref=e2444] [cursor=pointer]:
+          - img [ref=e2445]
+        - search [ref=e2449]:
+          - navigation "Pager" [ref=e2450]:
+            - generic [ref=e2451]:
+              - generic [ref=e2452]: "7"
+              - text: / 80
+            - generic [ref=e2453]:
+              - button "Previous" [ref=e2454] [cursor=pointer]:
+                - generic [ref=e2455]: 
+              - button "Next" [ref=e2456] [cursor=pointer]:
+                - generic [ref=e2457]: 
+    - generic [ref=e2460]:
+      - generic [ref=e2461]:
+        - generic [ref=e2462]:
+          - button "Create Invoice" [ref=e2463] [cursor=pointer]
+          - button "Send PRO-FORMA Invoice" [ref=e2464] [cursor=pointer]
+          - button "Send by Email" [ref=e2465] [cursor=pointer]
+          - button "Unlock" [ref=e2466] [cursor=pointer]
+          - button "Preview" [ref=e2467] [cursor=pointer]
+          - button "Cancel" [ref=e2468] [cursor=pointer]
+          - button "Create Job Request" [ref=e2469] [cursor=pointer]
+          - button "Simulation Print" [ref=e2470] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e2472]:
+          - button "Sales Order" [disabled]
+      - generic [ref=e2473]:
+        - generic [ref=e2474]:
+          - generic [ref=e2475]: 
+          - text: Locked
+        - heading "SOD-263215" [level=1] [ref=e2477]:
+          - generic [ref=e2478]: SOD-263215
+        - generic [ref=e2479]:
+          - generic [ref=e2480]:
+            - generic [ref=e2481]:
+              - generic [ref=e2483]: Customer
+              - link "07036 -> บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เลขที่ 1468 ถนนพัฒนาการ แขวงพัฒนาการ เขตสวนหลวง กรุงเทพมหานคร 10250 Thailand ‒ 0107567000414" [ref=e2486] [cursor=pointer]:
+                - /url: /odoo/res.partner/246031
+                - generic [ref=e2487]: 07036 -> บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)
+                - text: เลขที่ 1468 ถนนพัฒนาการ แขวงพัฒนาการ
+                - text: เขตสวนหลวง
+                - text: กรุงเทพมหานคร 10250
+                - text: Thailand ‒ 0107567000414
+            - generic [ref=e2488]:
+              - generic [ref=e2490]: Invoice Address
+              - link "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e2493] [cursor=pointer]:
+                - /url: /odoo/res.partner/246031
+                - generic [ref=e2494]: บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)
+            - generic [ref=e2495]:
+              - generic [ref=e2497]: Delivery Address
+              - link "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน), LOTUS DC BANGBUATHONG (905)" [ref=e2500] [cursor=pointer]:
+                - /url: /odoo/res.partner/251489
+                - generic [ref=e2501]: บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน), LOTUS DC BANGBUATHONG (905)
+            - generic [ref=e2503]:
+              - generic [ref=e2505]: Is Exported?
+              - generic [ref=e2508]:
+                - checkbox "Is Exported?" [disabled]
+            - generic [ref=e2511]: Exported Date
+            - generic [ref=e2515]: Sale Number (AX)
+          - generic [ref=e2517]:
+            - generic [ref=e2518]:
+              - generic [ref=e2520]: SO Type
+              - link "ใบกำกับภาษีแบบเต็ม" [ref=e2523] [cursor=pointer]:
+                - /url: /odoo/sale.sequence.type/2
+                - generic [ref=e2524]: ใบกำกับภาษีแบบเต็ม
+            - generic [ref=e2525]:
+              - generic [ref=e2528]:
+                - text: Order Date
+                - superscript [ref=e2529]: "?"
+              - generic [ref=e2533]: 04/28/2026 21:11:29
+            - generic [ref=e2534]:
+              - generic [ref=e2536]:
+                - text: Pricelist
+                - superscript [ref=e2537]: "?"
+              - combobox "Pricelist?" [ref=e2544]: Lotus's (7036) (THB)
+            - generic [ref=e2545]:
+              - generic [ref=e2547]: Payment Terms
+              - combobox "Payment Terms" [ref=e2553]: 60 Days
+            - generic [ref=e2556]: Customer Reference
+            - generic [ref=e2559]:
+              - generic [ref=e2561]: Apply Manual Exchange
+              - generic [ref=e2564]:
+                - checkbox "Apply Manual Exchange" [disabled]
+            - generic [ref=e2565]:
+              - generic [ref=e2567]:
+                - text: Delivery Date
+                - superscript [ref=e2568]: "?"
+              - generic [ref=e2572]: 04/30/2026 21:00:00
+            - generic [ref=e2575]:
+              - text: เลขที่เอกสาร
+              - superscript [ref=e2576]: "?"
+            - generic [ref=e2578]:
+              - generic [ref=e2580]: ยอดชำระแล้ว
+              - generic [ref=e2583]: 0.00 ฿
+        - generic [ref=e2584]:
+          - list [ref=e2586]:
+            - listitem [ref=e2587] [cursor=pointer]:
+              - tab "Order Lines" [ref=e2588]
+            - listitem [ref=e2589] [cursor=pointer]:
+              - tab "Other Info" [ref=e2590]
+            - listitem [ref=e2591] [cursor=pointer]:
+              - tab "Sale Note" [ref=e2592]
+          - generic [ref=e2594]:
+            - table [ref=e2598]:
+              - rowgroup [ref=e2599]:
+                - row "No.  Product Quantity  Delivered  Invoiced  UoM  Unit Price  Taxes Disc.%  Amount  " [ref=e2600]:
+                  - columnheader [ref=e2601] [cursor=pointer]
+                  - columnheader "No. " [ref=e2602] [cursor=pointer]:
+                    - generic [ref=e2603]:
+                      - generic [ref=e2604]: No.
+                      - generic [ref=e2605]: 
+                  - columnheader "Product" [ref=e2607]:
+                    - generic [ref=e2608]:
+                      - generic [ref=e2609]: Product
+                      - text: 
+                  - columnheader "Quantity " [ref=e2611] [cursor=pointer]:
+                    - generic [ref=e2612]:
+                      - generic [ref=e2613]: Quantity
+                      - generic [ref=e2614]: 
+                  - columnheader "Delivered " [ref=e2616] [cursor=pointer]:
+                    - generic [ref=e2617]:
+                      - generic [ref=e2618]: Delivered
+                      - generic [ref=e2619]: 
+                  - columnheader [ref=e2621]
+                  - columnheader "Invoiced " [ref=e2622] [cursor=pointer]:
+                    - generic [ref=e2623]:
+                      - generic [ref=e2624]: Invoiced
+                      - generic [ref=e2625]: 
+                  - columnheader "UoM " [ref=e2627] [cursor=pointer]:
+                    - generic [ref=e2628]:
+                      - generic [ref=e2629]: UoM
+                      - generic [ref=e2630]: 
+                  - columnheader "Unit Price " [ref=e2632] [cursor=pointer]:
+                    - generic [ref=e2633]:
+                      - generic [ref=e2634]: Unit Price
+                      - generic [ref=e2635]: 
+                  - columnheader "Taxes" [ref=e2637]:
+                    - generic [ref=e2638]:
+                      - generic [ref=e2639]: Taxes
+                      - text: 
+                  - columnheader "Disc.% " [ref=e2641] [cursor=pointer]:
+                    - generic [ref=e2642]:
+                      - generic [ref=e2643]: Disc.%
+                      - generic [ref=e2644]: 
+                  - columnheader "Amount " [ref=e2646] [cursor=pointer]:
+                    - generic [ref=e2647]:
+                      - generic [ref=e2648]: Amount
+                      - generic [ref=e2649]: 
+                  - columnheader "" [ref=e2651]:
+                    - button "" [ref=e2653] [cursor=pointer]:
+                      - generic [ref=e2654]: 
+              - rowgroup [ref=e2655]:
+                - row "1 [FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง 10,000.00 0.00  0.00 Unit 180.00 Output VAT 7% Tax Included 0.00 1,682,242.99 ฿" [ref=e2656]:
+                  - cell [ref=e2657] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e2658] [cursor=pointer]
+                  - cell "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง" [ref=e2659] [cursor=pointer]:
+                    - link "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง" [ref=e2662]:
+                      - /url: /odoo/product.template/8223
+                      - generic [ref=e2663]: "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+                  - cell "10,000.00" [ref=e2664] [cursor=pointer]
+                  - cell "0.00" [ref=e2665] [cursor=pointer]
+                  - cell "" [ref=e2666]:
+                    - generic [ref=e2668] [cursor=pointer]: 
+                  - cell "0.00" [ref=e2669] [cursor=pointer]
+                  - cell "Unit" [ref=e2670] [cursor=pointer]
+                  - cell "180.00" [ref=e2671] [cursor=pointer]
+                  - cell "Output VAT 7% Tax Included" [ref=e2672] [cursor=pointer]:
+                    - generic "Output VAT 7% Tax Included" [ref=e2675]:
+                      - generic [ref=e2676]: Output VAT 7% Tax Included
+                  - cell "0.00" [ref=e2677] [cursor=pointer]
+                  - cell "1,682,242.99 ฿" [ref=e2678] [cursor=pointer]
+                  - cell [ref=e2679]
+                - row [ref=e2680]:
+                  - cell [ref=e2681]
+                - row [ref=e2682]:
+                  - cell [ref=e2683]
+                - row [ref=e2684]:
+                  - cell [ref=e2685]
+              - rowgroup [ref=e2686]:
+                - row [ref=e2687]:
+                  - cell [ref=e2688]
+                  - cell [ref=e2689]
+                  - cell [ref=e2690]
+                  - cell [ref=e2691]
+                  - cell [ref=e2692]
+                  - cell [ref=e2693]
+                  - cell [ref=e2694]
+                  - cell [ref=e2695]
+                  - cell [ref=e2696]
+                  - cell [ref=e2697]
+                  - cell [ref=e2698]
+                  - cell [ref=e2699]
+                  - cell [ref=e2700]
+            - button "Add shipping" [ref=e2702] [cursor=pointer]
+            - table [ref=e2711]:
+              - rowgroup [ref=e2712]:
+                - 'row "Untaxed Amount: 1,682,242.99 ฿" [ref=e2713]':
+                  - cell "Untaxed Amount:" [ref=e2714]:
+                    - generic [ref=e2715]: "Untaxed Amount:"
+                  - cell "1,682,242.99 ฿" [ref=e2716]
+                - 'row "VAT 7%: 117,757.01 ฿" [ref=e2717]':
+                  - cell "VAT 7%:" [ref=e2718]:
+                    - generic [ref=e2719]: "VAT 7%:"
+                  - cell "117,757.01 ฿" [ref=e2720]:
+                    - generic [ref=e2721]: 117,757.01 ฿
+                - 'row "Total: 1,800,000.00 ฿" [ref=e2722]':
+                  - cell "Total:" [ref=e2723]:
+                    - generic [ref=e2724]: "Total:"
+                  - cell "1,800,000.00 ฿" [ref=e2725]
+      - generic [ref=e2728]:
+        - generic [ref=e2730]:
+          - button "Send message" [ref=e2731] [cursor=pointer]
+          - button "Log note" [ref=e2732] [cursor=pointer]
+          - button "Activities" [ref=e2733] [cursor=pointer]
+          - button "Search Messages" [ref=e2735] [cursor=pointer]:
+            - img [ref=e2736]: 
+          - button "Attach files" [ref=e2738] [cursor=pointer]:
+            - generic [ref=e2739]: 
+          - button "4" [ref=e2741] [cursor=pointer]:
+            - img [ref=e2742]: 
+            - superscript: "4"
+          - button "Following" [ref=e2743] [cursor=pointer]:
+            - generic [ref=e2745]: Following
+        - generic [ref=e2746]:
+          - generic [ref=e2747]:
+            - generic [ref=e2748] [cursor=pointer]:
+              - separator [ref=e2749]
+              - generic [ref=e2750]:
+                - generic [ref=e2751]: 
+                - text: Planned Activities
+              - separator [ref=e2752]
+            - generic [ref=e2753]:
+              - generic [ref=e2754]:
+                - button [ref=e2755] [cursor=pointer]:
+                  - img [ref=e2756]
+                - generic [ref=e2758]: 
+              - generic [ref=e2759]:
+                - generic [ref=e2760]:
+                  - text: "Today:“รับทราบ: เอกสาร SOD-263215 ได้รับการอนุมัติแล้ว”"
+                  - generic [ref=e2761]: for เกษม แซ่จอง
+                  - button "Info" [ref=e2762] [cursor=pointer]:
+                    - img "Info" [ref=e2763]: 
+                - generic [ref=e2764]:
+                  - button " Mark Done" [ref=e2765] [cursor=pointer]:
+                    - generic [ref=e2766]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e2767] [cursor=pointer]:
+                    - generic [ref=e2768]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e2769] [cursor=pointer]:
+                    - generic [ref=e2770]: 
+                    - text: Cancel
+          - generic [ref=e2771]:
+            - generic [ref=e2772]:
+              - generic [ref=e2774]:
+                - separator [ref=e2775]
+                - generic [ref=e2776]: Today
+                - separator [ref=e2777]
+              - group "System notification" [ref=e2778]:
+                - generic [ref=e2779]:
+                  - generic "Open card" [ref=e2781] [cursor=pointer]:
+                    - img [ref=e2782]
+                  - generic [ref=e2783]:
+                    - generic [ref=e2784]:
+                      - generic "Open card" [ref=e2785] [cursor=pointer]:
+                        - strong [ref=e2786]: Administrator
+                      - generic "4/28/2026, 9:16:59 PM" [ref=e2787]: Today at 9:16 PM
+                    - list [ref=e2792]:
+                      - group [ref=e2793]:
+                        - text: "No"
+                        - generic [ref=e2794]: 
+                        - text: "Yes"
+                        - generic [ref=e2795]: (Locked)
+              - group "System notification" [ref=e2796]:
+                - generic [ref=e2797]:
+                  - generic "Open card" [ref=e2799] [cursor=pointer]:
+                    - img [ref=e2800]
+                  - generic [ref=e2801]:
+                    - generic [ref=e2802]:
+                      - generic "Open card" [ref=e2803] [cursor=pointer]:
+                        - strong [ref=e2804]: Administrator
+                      - generic "4/28/2026, 9:13:19 PM" [ref=e2805]: Today at 9:13 PM
+                    - generic [ref=e2809]:
+                      - paragraph [ref=e2810]: Quotation confirmed
+                      - list [ref=e2811]:
+                        - group [ref=e2812]:
+                          - text: To Approve
+                          - generic [ref=e2813]: 
+                          - text: Sales Order
+                          - generic [ref=e2814]: (Status)
+              - group "System notification" [ref=e2815]:
+                - generic [ref=e2816]:
+                  - generic "Open card" [ref=e2818] [cursor=pointer]:
+                    - img [ref=e2819]
+                  - generic [ref=e2820]:
+                    - generic [ref=e2821]:
+                      - generic "Open card" [ref=e2822] [cursor=pointer]:
+                        - strong [ref=e2823]: Administrator
+                      - generic "4/28/2026, 9:11:05 PM" [ref=e2824]: Today at 9:11 PM
+                    - paragraph [ref=e2831]:
+                      - generic [ref=e2832]: 
+                      - text: "Approval done : Waiting Approval"
+              - group "System notification" [ref=e2833]:
+                - generic [ref=e2834]:
+                  - generic "Open card" [ref=e2836] [cursor=pointer]:
+                    - img [ref=e2837]
+                  - generic [ref=e2838]:
+                    - generic [ref=e2839]:
+                      - generic "Open card" [ref=e2840] [cursor=pointer]:
+                        - strong [ref=e2841]: Administrator
+                      - generic "4/28/2026, 9:10:41 PM" [ref=e2842]: Today at 9:10 PM
+                    - list [ref=e2847]:
+                      - group [ref=e2848]:
+                        - text: Quotation
+                        - generic [ref=e2849]: 
+                        - text: To Approve
+                        - generic [ref=e2850]: (Status)
+              - group "Note" [ref=e2851]:
+                - generic [ref=e2852]:
+                  - generic "Open card" [ref=e2854] [cursor=pointer]:
+                    - img [ref=e2855]
+                  - generic [ref=e2856]:
+                    - generic [ref=e2857]:
+                      - generic "Open card" [ref=e2858] [cursor=pointer]:
+                        - strong [ref=e2859]: Administrator
+                      - generic "4/28/2026, 9:10:41 PM" [ref=e2860]: Today at 9:10 PM
+                    - generic [ref=e2866]:
+                      - emphasis [ref=e2867]: "Subject: Approval | Sales Order | S11743"
+                      - generic [ref=e2869]:
+                        - paragraph [ref=e2870]: "> Dear Administrator,ประวิตร สงวนสุข ,"
+                        - paragraph [ref=e2871]: Document is Waiting For Your Approval
+                        - paragraph [ref=e2872]:
+                          - text: Sales Order | S11743
+                          - text: To Approve
+                        - paragraph [ref=e2873]: "Requester: Administrator"
+                        - link "View Document" [ref=e2875] [cursor=pointer]:
+                          - /url: http://localhost:8811/odoo/sale.order/16751
+                        - paragraph [ref=e2876]: Best regards,
+              - group "System notification" [ref=e2877]:
+                - generic [ref=e2878]:
+                  - generic "Open card" [ref=e2880] [cursor=pointer]:
+                    - img [ref=e2881]
+                  - generic [ref=e2882]:
+                    - generic [ref=e2883]:
+                      - generic "Open card" [ref=e2884] [cursor=pointer]:
+                        - strong [ref=e2885]: Administrator
+                      - generic "4/28/2026, 9:10:27 PM" [ref=e2886]: Today at 9:10 PM
+                    - paragraph [ref=e2893]: Sales Order created
+            - button "" [ref=e2894] [cursor=pointer]:
+              - generic [ref=e2895]: 
+  - generic [ref=e2896]: Loading

@@ -12,6 +12,7 @@ class MrpProduction(models.Model):
         ],
         compute="_compute_mpc_market_scope",
         store=True,
+        recursive=True,
         string="Market Scope",
     )
 
@@ -107,14 +108,50 @@ class MrpProduction(models.Model):
     def _check_intl_notification(self):
         self.ensure_one()
 
-        so = self.sale_line_id.order_id or self.procurement_group_id.sale_id
+        so = self._get_intl_notification_sale_order()
 
         if (
             so
-            and so.so_type_id.market_scope == "inter"
+            and getattr(so.so_type_id, "market_scope", False) == "inter"
             and self.product_id.x_intl_notify
         ):
             self._create_intl_production_activity(so)
+
+    def _get_intl_notification_sale_order(self):
+        """Resolve the originating SO for direct, parent MO, and origin-chain MOs."""
+        self.ensure_one()
+        sale_order = self.sale_line_id.order_id or self.procurement_group_id.sale_id
+        if sale_order:
+            return sale_order
+
+        linked_sales = (
+            self.get_linked_sale_orders()
+            if hasattr(self, "get_linked_sale_orders")
+            else False
+        )
+        if linked_sales:
+            return linked_sales[:1]
+
+        parent_mo = self.move_finished_ids.move_dest_ids.raw_material_production_id[:1]
+        if parent_mo and parent_mo != self:
+            parent_sale = parent_mo._get_intl_notification_sale_order()
+            if parent_sale:
+                return parent_sale
+
+        if self.origin:
+            sale_order = self.env["sale.order"].search(
+                [("name", "=", self.origin)], limit=1
+            )
+            if sale_order:
+                return sale_order
+
+            parent_by_name = self.env["mrp.production"].search(
+                [("name", "=", self.origin)], limit=1
+            )
+            if parent_by_name and parent_by_name != self:
+                return parent_by_name._get_intl_notification_sale_order()
+
+        return self.env["sale.order"]
 
     def _create_intl_production_activity(self, so):
         self.ensure_one()
@@ -136,6 +173,14 @@ class MrpProduction(models.Model):
         )
 
         for user in recipient_users:
+            existing_activity = self.activity_ids.filtered(
+                lambda activity, target_user=user: activity.activity_type_id
+                == activity_type
+                and activity.user_id == target_user
+                and activity.summary == summary
+            )
+            if existing_activity:
+                continue
             self.activity_schedule(
                 activity_type_id=activity_type.id,
                 summary=summary,

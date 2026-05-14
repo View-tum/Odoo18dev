@@ -136,6 +136,7 @@ class AccountMoveLine(models.Model):
             "tax_invoice_date": default_tax_invoice and self.move_id.date or False,
             "tax_base_amount": tax_base_amount,
             "balance": sign * abs(self.balance),
+            "branch": (self.partner_id.branch or self.move_id.partner_id.branch or "0").zfill(5),
             "reversed_id": (
                 self.move_id.move_type == "entry"
                 and self.move_id.reversed_entry_id.id

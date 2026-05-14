@@ -33,7 +33,6 @@ class ProductTransform(models.Model):
         ],
         string="Status",
         default="draft",
-        tracking=True,
     )
 
     # 🔹 Rule drives everything
@@ -44,20 +43,16 @@ class ProductTransform(models.Model):
         help="Predefined transformation rule (from product, to product, factor).",
     )
 
-    # Derived from rule (readonly in UI)
+    # Product selection (Auto-filled by rule or picking)
     product_from_id = fields.Many2one(
         "product.product",
         string="From Product",
-        related="rule_id.product_from_id",
-        store=True,
-        readonly=True,
+        required=True,
     )
     product_to_id = fields.Many2one(
         "product.product",
         string="To Product",
-        related="rule_id.product_to_id",
-        store=True,
-        readonly=True,
+        required=True,
     )
 
     transform_factor = fields.Float(
@@ -135,6 +130,215 @@ class ProductTransform(models.Model):
         string="Produce Move",
         readonly=True,
     )
+    original_move_id = fields.Many2one(
+        "stock.move",
+        string="Original Delivery Move",
+        readonly=True,
+    )
+    sale_id = fields.Many2one(
+        "sale.order",
+        string="Original Sale Order",
+        readonly=True,
+    )
+    sale_line_id = fields.Many2one(
+        "sale.order.line",
+        string="Original Sale Order Line",
+        readonly=True,
+    )
+    invoice_id = fields.Many2one(
+        "account.move",
+        string="Original Invoice",
+        readonly=True,
+    )
+    invoice_line_id = fields.Many2one(
+        "account.move.line",
+        string="Original Invoice Line",
+        readonly=True,
+    )
+    rma_claim_id = fields.Many2one(
+        "crm.claim.ept",
+        string="RMA",
+        readonly=True,
+        copy=False,
+    )
+    rma_claim_count = fields.Integer(
+        string="RMA Count",
+        compute="_compute_rma_claim_count",
+        readonly=True,
+    )
+    
+    # 🔹 Automation: Link to Return Picking
+    picking_id = fields.Many2one(
+        "stock.picking",
+        string="Source Picking",
+        help="Select a Return Picking to auto-fill products and quantities.",
+        domain="[('state', '=', 'done')]",
+    )
+    source_ref = fields.Char(
+        string="Source Reference",
+        help="Original reference from the picking or source document.",
+    )
+
+    @api.model
+    def default_get(self, fields_list):
+        vals = super().default_get(fields_list)
+        picking_id = self.env.context.get("default_picking_id")
+        if picking_id:
+            picking = self.env["stock.picking"].browse(picking_id).exists()
+            if picking:
+                picking_vals = self._prepare_transform_vals_from_picking(picking)
+                vals.update(
+                    {
+                        field_name: value
+                        for field_name, value in picking_vals.items()
+                        if field_name in fields_list
+                    }
+                )
+        return vals
+
+    @api.model
+    def _get_transform_rule_for_product(self, product):
+        return self.env["product.transform.rule"].search(
+            [
+                ("product_from_id", "=", product.id),
+                ("product_to_id", "!=", False),
+            ],
+            order="id",
+            limit=1,
+        )
+
+    @api.model
+    def _get_transform_source_move(self, picking):
+        moves = picking.move_ids.filtered(
+            lambda move: move.product_id and move.product_id.type != "service"
+        )
+        done_moves = moves.filtered(
+            lambda move: (getattr(move, "quantity", 0.0) or move.product_uom_qty) > 0
+        )
+        lot_moves = done_moves.filtered(lambda move: move.move_line_ids.lot_id)
+        return (lot_moves or done_moves or moves)[:1]
+
+    @api.model
+    def _get_transform_qty_and_lot_from_move(self, move):
+        move_lines = move.move_line_ids.filtered(
+            lambda line: line.product_id == move.product_id
+        )
+        lot_line = move_lines.filtered(lambda line: line.lot_id)[:1]
+        lot = lot_line.lot_id or move.lot_ids[:1]
+
+        if lot:
+            qty_lines = move_lines.filtered(lambda line: line.lot_id == lot)
+        else:
+            qty_lines = move_lines
+
+        qty = sum(
+            (getattr(line, "quantity", 0.0) or getattr(line, "qty_done", 0.0))
+            for line in qty_lines
+        )
+        if not qty:
+            qty = getattr(move, "quantity", 0.0) or move.product_uom_qty or 1.0
+        return qty, lot
+
+    @api.model
+    def _get_invoice_line_from_move(self, move):
+        sale_line = move.sale_line_id
+        if not sale_line:
+            return self.env["account.move.line"]
+        invoice_lines = sale_line.invoice_lines.filtered(
+            lambda line: line.move_id.move_type == "out_invoice"
+            and line.move_id.state != "cancel"
+            and line.product_id == sale_line.product_id
+        )
+        posted_lines = invoice_lines.filtered(lambda line: line.move_id.state == "posted")
+        return (posted_lines or invoice_lines).sorted(
+            key=lambda line: (line.move_id.invoice_date or line.move_id.date, line.id),
+            reverse=True,
+        )[:1]
+
+    @api.model
+    def _prepare_transform_vals_from_picking(self, picking):
+        vals = {
+            "picking_id": picking.id,
+            "source_ref": f"{picking.name} ({picking.origin})"
+            if picking.origin
+            else picking.name,
+            "company_id": picking.company_id.id,
+        }
+        move = self._get_transform_source_move(picking)
+        if not move:
+            return vals
+
+        qty, lot = self._get_transform_qty_and_lot_from_move(move)
+        vals.update(
+            {
+                "original_move_id": move.id,
+                "product_from_id": move.product_id.id,
+                "qty_from": qty,
+            }
+        )
+        if move.sale_line_id:
+            invoice_line = self._get_invoice_line_from_move(move)
+            vals.update(
+                {
+                    "sale_line_id": move.sale_line_id.id,
+                    "sale_id": move.sale_line_id.order_id.id,
+                }
+            )
+            if invoice_line:
+                vals.update(
+                    {
+                        "invoice_line_id": invoice_line.id,
+                        "invoice_id": invoice_line.move_id.id,
+                    }
+                )
+        if lot:
+            vals["lot_from_id"] = lot.id
+
+        rule = self._get_transform_rule_for_product(move.product_id)
+        if rule:
+            vals.update(
+                {
+                    "rule_id": rule.id,
+                    "product_to_id": rule.product_to_id.id,
+                }
+            )
+        return vals
+
+    @api.onchange("picking_id")
+    def _onchange_picking_id(self):
+        """Auto-fill transform data based on the selected picking."""
+        if not self.picking_id:
+            return
+
+        picking = self.picking_id._origin or self.picking_id
+        if not picking.id:
+            return
+
+        vals = self._prepare_transform_vals_from_picking(picking)
+        for field_name in (
+            "source_ref",
+            "company_id",
+            "product_from_id",
+            "qty_from",
+            "lot_from_id",
+            "rule_id",
+            "product_to_id",
+            "original_move_id",
+            "sale_line_id",
+            "sale_id",
+            "invoice_line_id",
+            "invoice_id",
+        ):
+            if field_name in vals:
+                self[field_name] = vals[field_name]
+                
+    @api.onchange("rule_id")
+    def _onchange_rule_id(self):
+        """Update products and factor when a rule is selected."""
+        if self.rule_id:
+            self.product_from_id = self.rule_id.product_from_id.id
+            self.product_to_id = self.rule_id.product_to_id.id
+            self.transform_factor = self.rule_id.qty_to or 1.0
     
     svl_count = fields.Integer(
         string="Valuation Layers",
@@ -153,12 +357,22 @@ class ProductTransform(models.Model):
         for vals in vals_list:
             if vals.get("location_id") and not vals.get("dest_location_id"):
                 vals["dest_location_id"] = vals["location_id"]
-        return super().create(vals_list)
+        records = super().create(vals_list)
+        records._sync_to_lot()
+        return records
 
     def write(self, vals):
         if "location_id" in vals and "dest_location_id" not in vals:
             vals["dest_location_id"] = vals["location_id"]
-        return super().write(vals)
+        res = super().write(vals)
+        if not self.env.context.get("skip_transform_lot_sync") and {
+            "product_to_id",
+            "lot_from_id",
+            "company_id",
+            "rule_id",
+        }.intersection(vals):
+            self._sync_to_lot()
+        return res
 
     # ========= COMPUTES =========
 
@@ -219,6 +433,18 @@ class ProductTransform(models.Model):
                     }
                 )
             rec.lot_to_id = lot.id
+
+    def _sync_to_lot(self):
+        for rec in self:
+            if (
+                not rec.product_to_id
+                or rec.product_to_id.tracking == "none"
+                or not rec.lot_from_id
+            ):
+                if rec.lot_to_id:
+                    rec.with_context(skip_transform_lot_sync=True).lot_to_id = False
+                continue
+            rec.with_context(skip_transform_lot_sync=True)._get_or_create_to_lot()
 
     # ========= MAIN ACTIONS =========
 
@@ -331,6 +557,7 @@ class ProductTransform(models.Model):
         StockMove = self.env["stock.move"]
         StockMoveLine = self.env["stock.move.line"]
         SVL = self.env["stock.valuation.layer"]
+        quantity_field = "quantity" if "quantity" in StockMoveLine._fields else "qty_done"
 
         for rec in self:
             if rec.qty_from <= 0 or rec.qty_to <= 0:
@@ -374,7 +601,7 @@ class ProductTransform(models.Model):
                 "move_id": move_out.id,
                 "product_id": rec.product_from_id.id,
                 "product_uom_id": rec.uom_from_id.id,
-                "qty_done": rec.qty_from,
+                quantity_field: rec.qty_from,
                 "location_id": rec.location_id.id,
                 "location_dest_id": transform_location.id,
                 "company_id": rec.company_id.id,
@@ -438,7 +665,7 @@ class ProductTransform(models.Model):
                 "move_id": move_in.id,
                 "product_id": rec.product_to_id.id,
                 "product_uom_id": rec.uom_to_id.id,
-                "qty_done": rec.qty_to,
+                quantity_field: rec.qty_to,
                 "location_id": transform_location.id,
                 "location_dest_id": rec.dest_location_id.id,
                 "company_id": rec.company_id.id,
@@ -492,6 +719,10 @@ class ProductTransform(models.Model):
             ]
             rec.svl_count = SVL.search_count(domain)
 
+    def _compute_rma_claim_count(self):
+        for rec in self:
+            rec.rma_claim_count = 1 if rec.rma_claim_id else 0
+
     # ---------- Smart button action ----------
     def action_view_valuation_layers(self):
         """Open valuation layers related to this transform (moves OUT + IN).
@@ -518,12 +749,93 @@ class ProductTransform(models.Model):
         if len(layers) == 1:
             # open directly the form view of this SVL
             form_view = self.env.ref(
-                "stock_account.view_stock_valuation_layer_form"
+                "stock_account.stock_valuation_layer_form"
             )
             action["views"] = [(form_view.id, "form")]
             action["res_id"] = layers.id
 
         return action
+
+    def _get_rma_refund_reason(self):
+        reason = self.env.ref("rma_ept.rma_ept_refund", raise_if_not_found=False)
+        if not reason:
+            reason = self.env["rma.reason.ept"].search([("action", "=", "refund")], limit=1)
+        if not reason:
+            raise UserError(_("Please configure an RMA refund reason before creating RMA."))
+        return reason
+
+    def action_create_rma(self):
+        self.ensure_one()
+        if self.rma_claim_id:
+            return self.action_view_rma()
+        if self.state != "done":
+            raise UserError(_("Please confirm the transform before creating RMA."))
+        if not self.picking_id:
+            raise UserError(_("Source picking is required to create RMA."))
+        if not self.original_move_id:
+            raise UserError(_("Original delivery move is required to create RMA."))
+        if not self.sale_id:
+            raise UserError(_("Original sale order is required to create RMA."))
+        if not self.invoice_id or not self.invoice_line_id:
+            raise UserError(_("Original invoice is required to create RMA and credit note."))
+        if not self.product_to_id or self.qty_to <= 0:
+            raise UserError(_("Transformed product and quantity are required to create RMA."))
+        if not self.picking_id.partner_id:
+            raise UserError(_("Source picking must have a customer before creating RMA."))
+        if self.product_to_id.tracking != "none" and not self.lot_to_id:
+            self._get_or_create_to_lot()
+
+        reason = self._get_rma_refund_reason()
+        claim_line_vals = {
+            "product_id": self.product_to_id.id,
+            "quantity": self.qty_to,
+            "move_id": self.original_move_id.id,
+            "claim_type": "refund",
+            "rma_reason_id": reason.id,
+            "transform_id": self.id,
+        }
+        if self.lot_to_id:
+            claim_line_vals["serial_lot_ids"] = [(6, 0, self.lot_to_id.ids)]
+
+        claim = self.env["crm.claim.ept"].create(
+            {
+                "name": _("Transform Return %s") % (self.name or ""),
+                "partner_id": self.picking_id.partner_id.id,
+                "partner_phone": self.picking_id.partner_id.phone,
+                "email_from": self.picking_id.partner_id.email,
+                "sale_id": self.sale_id.id,
+                "invoice_id": self.invoice_id.id,
+                "picking_id": self.picking_id.id,
+                "location_id": self.dest_location_id.id,
+                "partner_delivery_id": self.sale_id.partner_shipping_id.id,
+                "company_id": self.company_id.id,
+                "transform_id": self.id,
+                "claim_line_ids": [(0, 0, claim_line_vals)],
+            }
+        )
+        self.rma_claim_id = claim.id
+        return self.action_view_rma()
+
+    def _get_refund_price_unit_from_invoice_line(self, invoice_line):
+        self.ensure_one()
+        if not invoice_line:
+            return 0.0
+        if not self.qty_to:
+            return invoice_line.price_unit
+        qty_from = self.qty_from or 1.0
+        return invoice_line.price_unit * qty_from / self.qty_to
+
+    def action_view_rma(self):
+        self.ensure_one()
+        if not self.rma_claim_id:
+            raise UserError(_("No RMA has been created for this transform."))
+        return {
+            "name": _("RMA"),
+            "type": "ir.actions.act_window",
+            "res_model": "crm.claim.ept",
+            "view_mode": "form",
+            "res_id": self.rma_claim_id.id,
+        }
 
 
     def action_set_to_draft(self):

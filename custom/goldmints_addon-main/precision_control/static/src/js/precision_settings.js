@@ -39,7 +39,7 @@ loadPrecisionSettings();
 const getPrecisionKeyFromModel = (model) => {
     if (!model) return null;
     if (model.startsWith("sale.")) return "sale";
-    if (model.startsWith("purchase_request.")) return "purchase";
+    if (model.startsWith("purchase.request")) return "purchase";
     if (model.startsWith("purchase.")) return "purchase";
     if (model.startsWith("mrp.")) return "mrp";
     if (model.startsWith("stock.")) return "stock";

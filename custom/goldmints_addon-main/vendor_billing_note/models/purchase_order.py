@@ -231,3 +231,43 @@ class PurchaseOrder(models.Model):
             "res_id": billing_note.id,
             "target": "current",
         }
+
+    @api.model
+    def action_create_billing_note_from_data(self, partner_id, billing_data):
+        """
+        สร้างใบวางบิลจากข้อมูลที่ส่งมาจาก Wizard (PO Status Report)
+        billing_data: [{'purchase_line_id': ID, 'quantity': QTY, 'picking_id': ID, 'service_acceptance_id': ID}, ...]
+        """
+        note_lines = []
+        for data in billing_data:
+            po_line = self.env['purchase.order.line'].browse(data['purchase_line_id'])
+            if not po_line.exists():
+                continue
+            
+            note_lines.append((0, 0, {
+                "purchase_line_id": po_line.id,
+                "name": po_line.name,
+                "quantity": data['quantity'],
+                "price_unit": po_line.price_unit,
+                "tax_ids": [(6, 0, po_line.taxes_id.ids)],
+                "picking_id": data.get('picking_id'),
+                "service_acceptance_id": data.get('service_acceptance_id'),
+            }))
+
+        if not note_lines:
+            raise UserError(_("ไม่พบข้อมูลรายการที่สามารถสร้างใบวางบิลได้"))
+
+        # สร้างใบวางบิล
+        billing_note = self.env["vendor.billing.note"].create({
+            "partner_id": partner_id,
+            "line_ids": note_lines,
+        })
+
+        return {
+            "name": _("Billing Note"),
+            "type": "ir.actions.act_window",
+            "res_model": "vendor.billing.note",
+            "view_mode": "form",
+            "res_id": billing_note.id,
+            "target": "current",
+        }

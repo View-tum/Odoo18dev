@@ -181,12 +181,12 @@
         <field name="arch" type="xml">
             <form string="Cheque">
                 <header>
-                    <button name="print_dynamic_cheque_report" string="Print" type="object" class="oe_highlight" invisible="cheque_type != 'inbound' or state != 'confirmed' or is_cheque_print == True"/>
+                    <button name="print_dynamic_cheque_report" string="Print" type="object" class="oe_highlight" invisible="instrument_type != 'cheque' or cheque_type != 'inbound' or state != 'confirmed' or is_cheque_print == True"/>
                     <button string="Confirm" type="object" name="action_arrive_confirm" class="oe_highlight" invisible="state not in ['draft', 'waiting_confirm'] or cheque_optinal in ['return']"/>
-                    <button string="Bank Deposit" type="object" name="action_bank_deposit" class="oe_highlight" invisible="state != 'confirmed' or cheque_optinal in ['return']"/>
+                    <button string="Bank Deposit" type="object" name="action_bank_deposit" class="oe_highlight" invisible="instrument_type != 'cheque' or state != 'confirmed' or cheque_optinal in ['return']"/>
                     <button string="Done" type="object" name="action_validate" class="oe_highlight" invisible="state != 'bank_deposit'" groups="cheque_management.group_cheque_manager"/>
                     <button string="Void" type="action" name="%(action_cheque_return_wiz)d" class="oe_highlight" invisible="state not in ['bank_deposit', 'paid']"/>
-                    <button name="print_dynamic_cheque_report" string="Print" type="object" invisible="cheque_type != 'inbound' or state != 'confirmed' or is_cheque_print == False"/>
+                    <button name="print_dynamic_cheque_report" string="Print" type="object" invisible="instrument_type != 'cheque' or cheque_type != 'inbound' or state != 'confirmed' or is_cheque_print == False"/>
                     <button string="Cancel" type="object" name="action_cancel" invisible="state != 'return'"/>
                     <button string="Reset To Draft" type="object" name="action_reset_to_draft"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,bank_deposit,paid"/>
@@ -210,8 +210,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="cheque_book_id" force_save="1" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']"/>
-                            <field name="cheque_id" force_save="1" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']" domain="[('cheque_book_id', '=', cheque_book_id), ('status', '=', 'draft')]"/>
+                            <field name="instrument_type" readonly="state not in ['draft', 'waiting_confirm']"/>
+                            <field name="cheque_book_id" force_save="1" invisible="instrument_type != 'cheque' or cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']"/>
+                            <field name="cheque_id" force_save="1" invisible="instrument_type != 'cheque' or cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']" domain="[('cheque_book_id', '=', cheque_book_id), ('status', '=', 'draft')]"/>
                             <field name="bank_account_journal_id" invisible="cheque_type != 'inbound'" readonly="state not in ['draft', 'waiting_confirm']"/>
                             <field name="payment_ref" invisible="cheque_type != 'outbound'" readonly="state in ['paid', 'cancelled']"/>
                             <field name="pay_partner_id" readonly="1" force_save="1"/>
@@ -262,7 +263,7 @@
                                 <group>
                                     <field name="ac_payee" widget="boolean_toggle" readonly="state in ['paid', 'cancelled']"/>
                                     <field name="dynamic_cheque_list" invisible="1"/>
-                                    <field name="dynamic_io_cheque_id" invisible="cheque_type != 'inbound'" readonly="state in ['paid', 'cancelled']"/>
+                            <field name="dynamic_io_cheque_id" invisible="instrument_type != 'cheque' or cheque_type != 'inbound'" readonly="state in ['paid', 'cancelled']"/>
                                 </group>
                             </group>
                         </page>
@@ -334,6 +335,7 @@
         <field name="arch" type="xml">
             <list string="Cheque">
                 <field name="name" optional="show"/>
+                <field name="instrument_type" optional="show"/>
                 <field name="bank_account_journal_id" optional="show"/>
                 <field name="cheque_date" optional="show"/>
                 <field name="cheque_received_date" optional="show"/>
@@ -355,11 +357,14 @@
         <field name="arch" type="xml">
             <search string="Cheque">
                 <field name="name" string="Cheque No"/>
+                <field name="instrument_type" string="Instrument Type"/>
                 <field name="state" string="Status"/>
                 <field name="bank_account_journal_id" string="Bank Account"/>
                 <field name="pay_partner_id" string="Pay To"/>
                 <filter string="Inbound" name="cheque_inbound" domain="[('cheque_type', '=', 'inbound')]"/>
                 <filter string="Outbound" name="cheque_outbound" domain="[('cheque_type', '=', 'outbound')]"/>
+                <filter string="Cheque" name="instrument_cheque" domain="[('instrument_type', '=', 'cheque')]"/>
+                <filter string="Bank Draft" name="instrument_bank_draft" domain="[('instrument_type', '=', 'bank_draft')]"/>
                 <separator/>
                 <filter string="Draft" name="cheque_state_draft" domain="[('state', '=', 'draft')]"/>
                 <filter string="Waiting Confirm" name="cheque_state_waiting_confirm" domain="[('state', '=', 'waiting_confirm')]"/>
@@ -387,8 +392,8 @@
         <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
         <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
         <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
-        <field name="domain">[('cheque_type', '=', 'inbound')]</field>
-        <field name="context">{'default_cheque_type': 'inbound', 'search_default_cheque_paying_inprocess': 1}</field>
+        <field name="domain">[('instrument_type', '=', 'cheque'), ('cheque_type', '=', 'inbound')]</field>
+        <field name="context">{'default_instrument_type': 'cheque', 'default_cheque_type': 'inbound', 'search_default_cheque_paying_inprocess': 1}</field>
     </record>
 
     <!-- Cheque Inbound/Outbound Menu View (Inbound) -->
@@ -406,8 +411,8 @@
         <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
         <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
         <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
-        <field name="domain">[('cheque_type', '=', 'outbound')]</field>
-        <field name="context">{'default_cheque_type': 'outbound', 'search_default_cheque_receiving_inprocess': 1}</field>
+        <field name="domain">[('instrument_type', '=', 'cheque'), ('cheque_type', '=', 'outbound')]</field>
+        <field name="context">{'default_instrument_type': 'cheque', 'default_cheque_type': 'outbound', 'search_default_cheque_receiving_inprocess': 1}</field>
     </record>
 
     <!-- Cheque Inbound/Outbound Menu View (Outbound) -->
@@ -416,6 +421,23 @@
         action="action_cheque_inbound_outbound_receiving"
         parent="cheque_management.menu_cheque_inbound_outbound"
         sequence="2"/>
+
+    <record id="action_bank_draft_paying" model="ir.actions.act_window">
+        <field name="name">Bank Draft Paying</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cheque.inbound.outbound</field>
+        <field name="view_mode">list,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="cheque_inbound_outbound_list_view"/>
+        <field name="search_view_id" ref="cheque_inbound_outbound_search_view"/>
+        <field name="domain">[('instrument_type', '=', 'bank_draft'), ('cheque_type', '=', 'inbound')]</field>
+        <field name="context">{'default_instrument_type': 'bank_draft', 'default_cheque_type': 'inbound', 'search_default_instrument_bank_draft': 1}</field>
+    </record>
+
+    <menuitem id="menu_bank_draft_paying"
+        name="Bank Draft Paying"
+        action="action_bank_draft_paying"
+        parent="cheque_management.menu_cheque_inbound_outbound"
+        sequence="3"/>
 
 
      <!-- Cheque Transaction Action View  -->

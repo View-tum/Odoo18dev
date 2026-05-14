@@ -1,0 +1,30 @@
+{
+  "base_url": "http://localhost:8811",
+  "db": "uat",
+  "login": "admin",
+  "password": "365@gmp",
+  "output_dir": "C:\\365_project\\TheCool18e\\Dev\\manual\\Accouting_Manual\\generated_20260408\\images",
+  "filename": "asset_model_form_real.png",
+  "target_url": "http://localhost:8811/odoo/action-743/10519",
+  "actions": [],
+  "highlight_selectors": [
+    {
+      "selector": ".o_form_statusbar, .o_form_sheet",
+      "label": "1"
+    },
+    {
+      "selector": "[name='account_asset_id']",
+      "label": "2"
+    },
+    {
+      "selector": "[name='account_depreciation_id']",
+      "label": "3"
+    },
+    {
+      "selector": "[name='account_depreciation_expense_id']",
+      "label": "4"
+    }
+  ],
+  "post_nav_wait_ms": 4500,
+  "post_click_wait_ms": 2200
+}

@@ -237,7 +237,7 @@ class MrpProductionSchedule(models.Model):
         if machines:
             self.mpc_machine_ids = [(6, 0, machines.ids)]
 
-    def _mpc_smart_allocate_machines(self, allocated_machine_ids=None):
+    def _mpc_smart_allocate_machines(self, allocated_machine_ids=None, matrix_lines=None, load_map=None):
         if self.mpc_machine_ids:
             return
         if not self.env['mrp.workcenter'].is_mold_management_enabled():
@@ -267,9 +267,12 @@ class MrpProductionSchedule(models.Model):
             )
         )
 
-        matrix_lines = self.env["mrp.mold.matrix.report"].search([
-            ("product_id", "=", self.product_id.id),
-        ])
+        if matrix_lines is None:
+            matrix_lines = self.env["mrp.mold.matrix.report"].search([
+                ("product_id", "=", self.product_id.id),
+            ])
+        else:
+            matrix_lines = matrix_lines.filtered(lambda m: m.product_id.id == self.product_id.id)
 
         if not matrix_lines:
             self._mpc_prefill_machines_from_bom()
@@ -289,9 +292,20 @@ class MrpProductionSchedule(models.Model):
         if normal:
             candidates = normal
 
+        if load_map is None:
+            machine_ids = candidates.mapped("machine_id").ids
+            wo_counts = self.env["mrp.workorder"].read_group(
+                [("workcenter_id", "in", machine_ids), ("state", "not in", ("done", "cancel"))],
+                ["workcenter_id"],
+                ["workcenter_id"]
+            )
+            load_map = {res["workcenter_id"][0]: res["workcenter_id_count"] for res in wo_counts}
+
         def _rank(line):
-            busy = 1 if line.machine_id.id in allocated_machine_ids else 0
-            return (busy, -line.units_per_hour)
+            # Prefer machines not yet picked in this batch, then those with lower current load, then highest speed.
+            busy_in_batch = 1 if line.machine_id.id in allocated_machine_ids else 0
+            current_load = load_map.get(line.machine_id.id, 0)
+            return (busy_in_batch, current_load, -line.units_per_hour)
 
         best = min(candidates, key=_rank)
         self.mpc_machine_ids = [(6, 0, [best.machine_id.id])]
@@ -314,6 +328,22 @@ class MrpProductionSchedule(models.Model):
         except Exception:
             _logger.warning("Failed to retrieve forecast demand for MPS priority sorting", exc_info=True)
         return result
+
+    def _mpc_prefetch_allocation_data(self, scheds):
+        matrix_lines = self.env["mrp.mold.matrix.report"].search([
+            ("product_id", "in", scheds.mapped('product_id').ids)
+        ])
+        if not matrix_lines:
+            return matrix_lines, {}
+            
+        machine_ids = matrix_lines.mapped("machine_id").ids
+        wo_counts = self.env["mrp.workorder"].read_group(
+            [("workcenter_id", "in", machine_ids), ("state", "not in", ("done", "cancel"))],
+            ["workcenter_id"],
+            ["workcenter_id"]
+        )
+        load_map = {res["workcenter_id"][0]: res["workcenter_id_count"] for res in wo_counts}
+        return matrix_lines, load_map
 
     def action_replenish(self, based_on_lead_time=False, **kwargs):
         batch_id = self.env.context.get("mps_active_batch_id")
@@ -346,16 +376,29 @@ class MrpProductionSchedule(models.Model):
             sorted_scheds = self
 
         allocated_machine_ids = set()
-        actions = []
+        
+        # 1. Pre-fetch matrix lines and load map for all items in this batch to avoid N+1 queries
+        matrix_cache, load_map = None, None
+        if len(sorted_scheds) > 0 and self.env['mrp.workcenter'].is_mold_management_enabled():
+            try:
+                matrix_cache, load_map = self._mpc_prefetch_allocation_data(sorted_scheds)
+            except Exception:
+                pass
+                
+        # 2. Compute allocations in memory
         for sched in sorted_scheds:
             try:
-                sched._mpc_smart_allocate_machines(allocated_machine_ids)
+                sched._mpc_smart_allocate_machines(allocated_machine_ids, matrix_lines=matrix_cache, load_map=load_map)
             except Exception:
                 _logger.warning("Smart allocation failed for %s, falling back to BOM", sched.display_name, exc_info=True)
                 try:
                     sched._mpc_prefill_machines_from_bom()
                 except Exception:
                     pass
+        
+        # 3. Create Procurements / Call Standard action_replenish
+        actions = []
+        for sched in sorted_scheds:
             with self.env.cr.savepoint():
                 try:
                     actions.append(
@@ -446,10 +489,19 @@ class StockRule(models.Model):
         # Fallback: ถ้าไม่เจอ schedule_id (เช่น กด Order All แล้ว values หลุด)
         # ให้ลองหา Schedule ของสินค้านั้นๆ แทน
         if not schedule:
-            schedule = self.env["mrp.production.schedule"].search([
-                ("product_id", "=", product_id.id),
-                ("company_id", "=", company_id.id),
-            ], limit=1)
+            if not hasattr(self.env.registry, '__mpc_schedule_cache'):
+                self.env.registry.__mpc_schedule_cache = {}
+            cache_key = (product_id.id, company_id.id)
+            if cache_key not in self.env.registry.__mpc_schedule_cache:
+                sched = self.env["mrp.production.schedule"].search([
+                    ("product_id", "=", product_id.id),
+                    ("company_id", "=", company_id.id),
+                ], limit=1)
+                self.env.registry.__mpc_schedule_cache[cache_key] = sched.id if sched else False
+            
+            s_id = self.env.registry.__mpc_schedule_cache[cache_key]
+            if s_id:
+                schedule = self.env["mrp.production.schedule"].browse(s_id)
 
         if schedule and schedule.exists() and schedule.mpc_machine_ids:
             machine_ids = schedule.mpc_machine_ids.ids

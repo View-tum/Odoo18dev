@@ -1,0 +1,218 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Inventory" [ref=e7]
+        - generic [ref=e8]: Inventory
+      - menu [ref=e9]:
+        - menuitem "Overview" [ref=e10] [cursor=pointer]
+        - button "Operations" [ref=e11] [cursor=pointer]:
+          - generic [ref=e12]: Operations
+        - button "Products" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: Products
+        - button "AX Interface" [ref=e15] [cursor=pointer]:
+          - generic [ref=e16]: AX Interface
+        - button "Reporting" [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]: Reporting
+        - button "Configuration" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: Configuration
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 30" [ref=e28] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "30"
+        - button "Toggle Studio" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]: 
+        - button "" [disabled] [ref=e35]:
+          - generic [ref=e36]: 
+        - button "User" [ref=e38] [cursor=pointer]:
+          - img "User" [ref=e39]
+          - text: 
+  - generic [ref=e41]:
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - button "New" [ref=e47] [cursor=pointer]
+        - generic [ref=e48]:
+          - list [ref=e49]:
+            - listitem [ref=e50]:
+              - link "Inventory Overview" [ref=e51] [cursor=pointer]:
+                - /url: /odoo/inventory
+            - listitem [ref=e52]:
+              - text: /
+              - 'link "GOLD MINTS PRODUCTS CO., LTD.: Receipts" [ref=e53] [cursor=pointer]':
+                - /url: /odoo/inventory/1
+          - generic [ref=e54]:
+            - generic [ref=e56]: To Do
+            - button "" [ref=e60] [cursor=pointer]:
+              - generic [ref=e61]: 
+      - search [ref=e63]:
+        - search [ref=e64]:
+          - button "Search..." [ref=e65] [cursor=pointer]:
+            - img [ref=e66]: 
+          - generic [ref=e67]:
+            - listitem "search" [ref=e68]:
+              - button " " [ref=e70] [cursor=pointer]:
+                - generic [ref=e71]: 
+                - generic [ref=e73]: 
+              - generic [ref=e74]:
+                - generic "Ready" [ref=e75]
+                - button "Remove" [ref=e76] [cursor=pointer]: 
+            - searchbox "Search..." [ref=e77]
+        - button "" [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - search [ref=e80]:
+          - navigation "Pager" [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: 1-2
+              - text: / 2
+            - generic [ref=e84]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+        - navigation [ref=e85]:
+          - button "" [ref=e86] [cursor=pointer]:
+            - generic [ref=e87]: 
+          - button "" [ref=e88] [cursor=pointer]:
+            - generic [ref=e89]: 
+          - button "" [ref=e90] [cursor=pointer]:
+            - generic [ref=e91]: 
+          - button "" [ref=e92] [cursor=pointer]:
+            - generic [ref=e93]: 
+    - table [ref=e96]:
+      - rowgroup [ref=e97]:
+        - row "Reference  From  To  Contact  Scheduled Date  Invoice reference  Invoice date  Source Document  Description  Batch Transfer  Status  " [ref=e98]:
+          - columnheader [ref=e99] [cursor=pointer]:
+            - checkbox [ref=e101]
+          - columnheader [ref=e102]
+          - columnheader "Reference " [ref=e103] [cursor=pointer]:
+            - generic [ref=e104]:
+              - generic [ref=e105]: Reference
+              - generic [ref=e106]: 
+          - columnheader "From " [ref=e108] [cursor=pointer]:
+            - generic [ref=e109]:
+              - generic [ref=e110]: From
+              - generic [ref=e111]: 
+          - columnheader "To " [ref=e113] [cursor=pointer]:
+            - generic [ref=e114]:
+              - generic [ref=e115]: To
+              - generic [ref=e116]: 
+          - columnheader "Contact " [ref=e118] [cursor=pointer]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: Contact
+              - generic [ref=e121]: 
+          - columnheader "Scheduled Date " [ref=e123] [cursor=pointer]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: Scheduled Date
+              - generic [ref=e126]: 
+          - columnheader "Invoice reference " [ref=e128] [cursor=pointer]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: Invoice reference
+              - generic [ref=e131]: 
+          - columnheader "Invoice date " [ref=e133] [cursor=pointer]:
+            - generic [ref=e134]:
+              - generic [ref=e135]: Invoice date
+              - generic [ref=e136]: 
+          - columnheader "Source Document " [ref=e138] [cursor=pointer]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: Source Document
+              - generic [ref=e141]: 
+          - columnheader "Description " [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]:
+              - generic [ref=e145]: Description
+              - generic [ref=e146]: 
+          - columnheader "Batch Transfer " [ref=e148] [cursor=pointer]:
+            - generic [ref=e149]:
+              - generic [ref=e150]: Batch Transfer
+              - generic [ref=e151]: 
+          - columnheader "Status " [ref=e153] [cursor=pointer]:
+            - generic [ref=e154]:
+              - generic [ref=e155]: Status
+              - generic [ref=e156]: 
+          - columnheader [ref=e158]
+          - columnheader [ref=e159]
+          - columnheader "" [ref=e160]:
+            - button "" [ref=e162] [cursor=pointer]:
+              - generic [ref=e163]: 
+      - rowgroup [ref=e164]:
+        - row "Priority GMP/IN/00096 Partners/Vendors GMP/HOLD-V *คุณเกสรี สุวรรณาภรณ์ Today 1234 04/30/2026 Ready" [ref=e165]:
+          - cell [ref=e166]:
+            - checkbox [ref=e168] [cursor=pointer]
+          - cell "Priority" [ref=e169] [cursor=pointer]:
+            - radiogroup "Priority" [ref=e171]:
+              - radio "Urgent" [ref=e172]: 
+          - cell "GMP/IN/00096" [ref=e173] [cursor=pointer]
+          - cell "Partners/Vendors" [ref=e174] [cursor=pointer]
+          - cell "GMP/HOLD-V" [ref=e175] [cursor=pointer]
+          - cell "*คุณเกสรี สุวรรณาภรณ์" [ref=e176] [cursor=pointer]
+          - cell "Today" [ref=e177] [cursor=pointer]:
+            - generic "04/29/2026" [ref=e179]: Today
+          - cell "1234" [ref=e180] [cursor=pointer]
+          - cell "04/30/2026" [ref=e181] [cursor=pointer]
+          - cell [ref=e182] [cursor=pointer]
+          - cell [ref=e183] [cursor=pointer]
+          - cell [ref=e184] [cursor=pointer]
+          - cell "Ready" [ref=e185] [cursor=pointer]:
+            - generic [ref=e187]: Ready
+          - cell [ref=e188] [cursor=pointer]
+          - cell [ref=e189] [cursor=pointer]
+          - cell [ref=e190]
+        - row "Priority GMP/IN/00097 Partners/Vendors GMP/HOLD-V บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด Tomorrow 1234 12/03/2026 P01031 Ready" [ref=e191]:
+          - cell [ref=e192]:
+            - checkbox [ref=e194] [cursor=pointer]
+          - cell "Priority" [ref=e195] [cursor=pointer]:
+            - radiogroup "Priority" [ref=e197]:
+              - radio "Urgent" [ref=e198]: 
+          - cell "GMP/IN/00097" [ref=e199] [cursor=pointer]
+          - cell "Partners/Vendors" [ref=e200] [cursor=pointer]
+          - cell "GMP/HOLD-V" [ref=e201] [cursor=pointer]
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e202] [cursor=pointer]
+          - cell "Tomorrow" [ref=e203] [cursor=pointer]:
+            - generic "04/30/2026" [ref=e205]: Tomorrow
+          - cell "1234" [ref=e206] [cursor=pointer]
+          - cell "12/03/2026" [ref=e207] [cursor=pointer]
+          - cell "P01031" [ref=e208] [cursor=pointer]
+          - cell [ref=e209] [cursor=pointer]
+          - cell [ref=e210] [cursor=pointer]
+          - cell "Ready" [ref=e211] [cursor=pointer]:
+            - generic [ref=e213]: Ready
+          - cell [ref=e214] [cursor=pointer]
+          - cell [ref=e215] [cursor=pointer]
+          - cell [ref=e216]
+      - rowgroup [ref=e217]:
+        - row [ref=e218]:
+          - cell [ref=e219]
+          - cell [ref=e220]
+          - cell [ref=e221]
+          - cell [ref=e222]
+          - cell [ref=e223]
+          - cell [ref=e224]
+          - cell [ref=e225]
+          - cell [ref=e226]
+          - cell [ref=e227]
+          - cell [ref=e228]
+          - cell [ref=e229]
+          - cell [ref=e230]
+          - cell [ref=e231]
+          - cell [ref=e232]
+          - cell [ref=e233]
+          - cell [ref=e234]
+  - dialog [ref=e235]:
+    - generic [ref=e236]:
+      - banner [ref=e237]:
+        - heading "Oops!" [level=4] [ref=e238]
+        - button "Close" [ref=e239] [cursor=pointer]
+      - main [ref=e240]:
+        - alert [ref=e241]:
+          - paragraph [ref=e242]: Something went wrong... If you really are stuck, share the report with your friendly support service
+          - button "See technical details" [active] [ref=e243] [cursor=pointer]
+      - contentinfo [ref=e244]:
+        - button "Close" [ref=e245] [cursor=pointer]
+        - button "Share" [ref=e246] [cursor=pointer]

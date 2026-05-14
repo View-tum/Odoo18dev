@@ -9,8 +9,8 @@
     "license": "AGPL-3",
     "depends": [
         "base",
-        "purchase",      # ใช้ purchase.order
-        "report_xlsx",   # ใช้ abstract model ของ report_xlsx
+        "purchase",  # ใช้ purchase.order
+        "report_xlsx",  # ใช้ abstract model ของ report_xlsx
     ],
     "data": [
         "security/ir.model.access.csv",

@@ -309,10 +309,9 @@
                                                         <span class="o_mrp_info_label">Add Qty</span>
                                                         <div class="o_mrp_info_value">
                                                             <input type="number" step="0.01" min="0"
-                                                                   t-att-max="(wo.planned_qty || 0) - (wo.console_qty || 0)"
                                                                    class="form-control form-control-sm text-success fw-bold"
                                                                    placeholder="0"
-                                                                   t-att-title="'Max: ' + ((wo.planned_qty || 0) - (wo.console_qty || 0))"
+                                                                   title="Actual output quantity. Can exceed the target when overproduction occurs."
                                                                    t-on-change="(ev) =&gt; this.onAddQtyChange(wo, ev)"/>
                                                         </div>
                                                     </div>

@@ -1,3 +1,0 @@
-# -*- coding: utf-8 -*-
-
-from . import mrp_mps_bom_selection

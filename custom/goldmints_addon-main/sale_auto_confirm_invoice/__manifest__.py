@@ -11,7 +11,6 @@ Automatically confirms (posts) invoices generated from sales orders, so they don
     "license": "LGPL-3",
     "depends": [
         "sale_management",
-        "sale_stock",
         "account",
     ],
     "data": [

@@ -105,21 +105,28 @@ class InventoryStockCardXlsxMixin(models.AbstractModel):
             origin_width = max(min_width, min(max_origin_len * 1.1, 50))
             partner_width = max(min_width, min(max_partner_len * 1.1, 50))
             
+            # ws.set_column(0, 0, 22)              # Date
+            # ws.set_column(1, 1, 18)              # Reference
+            # ws.set_column(2, 2, origin_width)    # Origin
+            # ws.set_column(3, 3, partner_width)   # Partner
+            # ws.set_column(4, 4, 18)              # Lot
+            # ws.set_column(5, 6, 16)              # Opening
+            # ws.set_column(7, 8, 16)              # In
+            # ws.set_column(9, 10, 16)             # Out
+            # ws.set_column(11, 12, 16)            # Balance
             ws.set_column(0, 0, 22)              # Date
             ws.set_column(1, 1, 18)              # Reference
-            ws.set_column(2, 2, origin_width)    # Origin
-            ws.set_column(3, 3, partner_width)   # Partner
+            ws.set_column(2, 2, 25)              # Origin
+            ws.set_column(3, 3, 25)              # Partner
             ws.set_column(4, 4, 18)              # Lot
-            ws.set_column(5, 6, 16)              # Opening
-            ws.set_column(7, 8, 16)              # In
-            ws.set_column(9, 10, 16)             # Out
-            ws.set_column(11, 12, 16)            # Balance
+            ws.set_column(5, 8, 16)              # Qty Columns (Open, In, Out, Bal)
             
             # Default Height
             ws.set_default_row(24)
 
             # --- Header Writing ---
-            ws.merge_range(0, 0, 0, 12, "รายงานสินค้าคงคลัง (Stock Card Report)", fmt_title_big)
+            # ws.merge_range(0, 0, 0, 12, "รายงานสินค้าคงคลัง (Stock Card Report)", fmt_title_big)
+            ws.merge_range(0, 0, 0, 8, "รายงานสินค้าคงคลัง (Stock Card Report)", fmt_title_big)
             ws.set_row(0, 30)
             
             row_label, row_value = 2, 3
@@ -135,8 +142,8 @@ class InventoryStockCardXlsxMixin(models.AbstractModel):
             ws.write_datetime(row_value, 6, utc_naive_to_local_naive(self.env, sheet.get('date_to')), date_fmt)
 
             header_row = 5
-            ws.set_row(header_row, 24)
-            ws.set_row(header_row + 1, 24)
+            # ws.set_row(header_row, 24)
+            # ws.set_row(header_row + 1, 24)
             
             ws.merge_range(header_row, 0, header_row + 1, 0, "วันที่\n(Date)", fmt_hdr)
             ws.merge_range(header_row, 1, header_row + 1, 1, "เลขที่เอกสาร\n(Reference)", fmt_hdr)
@@ -144,22 +151,27 @@ class InventoryStockCardXlsxMixin(models.AbstractModel):
             ws.merge_range(header_row, 3, header_row + 1, 3, "คู่ค้า\n(Partner)", fmt_hdr)
             ws.merge_range(header_row, 4, header_row + 1, 4, "Lot Number", fmt_hdr)
             
-            ws.merge_range(header_row, 5, header_row, 6, "ยอดยกมา (Opening)", fmt_hdr)
-            ws.merge_range(header_row, 7, header_row, 8, "รับเข้า (Incoming)", fmt_hdr)
-            ws.merge_range(header_row, 9, header_row, 10, "จ่ายออก (Outgoing)", fmt_hdr)
-            ws.merge_range(header_row, 11, header_row, 12, "คงเหลือ (Balance)", fmt_hdr)
+            # ws.merge_range(header_row, 5, header_row, 6, "ยอดยกมา (Opening)", fmt_hdr)
+            # ws.merge_range(header_row, 7, header_row, 8, "รับเข้า (Incoming)", fmt_hdr)
+            # ws.merge_range(header_row, 9, header_row, 10, "จ่ายออก (Outgoing)", fmt_hdr)
+            # ws.merge_range(header_row, 11, header_row, 12, "คงเหลือ (Balance)", fmt_hdr)
+            ws.write(header_row, 5, "ยอดยกมา (Opening)", fmt_hdr)
+            ws.write(header_row, 6, "รับเข้า (Incoming)", fmt_hdr)
+            ws.write(header_row, 7, "จ่ายออก (Outgoing)", fmt_hdr)
+            ws.write(header_row, 8, "คงเหลือ (Balance)", fmt_hdr)
 
             # [แก้ไข] สร้าง Header ย่อยโดยใส่หน่วยเข้าไปด้วย
             qty_title = f"จำนวน\n(Qty {uom_label})" if uom_label else "จำนวน\n(Qty)"
-            val_title = f"มูลค่า\n(Value {curr_symbol})" if curr_symbol else "มูลค่า\n(Value)"
+            # val_title = f"มูลค่า\n(Value {curr_symbol})" if curr_symbol else "มูลค่า\n(Value)"
 
-            sub_headers = [
-                qty_title, val_title,
-                qty_title, val_title,
-                qty_title, val_title,
-                qty_title, val_title
-            ]
-            ws.write_row(header_row + 1, 5, sub_headers, fmt_hdr)
+            # sub_headers = [
+            #     qty_title, val_title,
+            #     qty_title, val_title,
+            #     qty_title, val_title,
+            #     qty_title, val_title
+            # ]
+            # ws.write_row(header_row + 1, 5, sub_headers, fmt_hdr)
+            ws.write_row(header_row + 1, 5, [qty_title] * 4, fmt_hdr)
             
             ws.freeze_panes(header_row + 2, 0)
 
@@ -192,36 +204,37 @@ class InventoryStockCardXlsxMixin(models.AbstractModel):
                 # [แก้ไข] ถ้าเป็น At Date Only ให้ใส่ค่าว่างแทน 0
                 if not is_at_date_only:
                     ws.write(current_row, 5, line.get("line_open_qty") or 0.0, fmt_qty)
-                    ws.write(current_row, 6, line.get("line_open_val") or 0.0, fmt_curr)
+                    # ws.write(current_row, 6, line.get("line_open_val") or 0.0, fmt_curr)
 
                     qty_in = line.get("qty_in") or 0.0
-                    val_amt = line.get("valuation_amount") or 0.0
+                    # val_amt = line.get("valuation_amount") or 0.0
                     
                     if qty_in > 0:
-                        ws.write(current_row, 7, qty_in, fmt_qty)
-                        ws.write(current_row, 8, val_amt, fmt_curr)
+                        ws.write(current_row, 6, qty_in, fmt_qty)
+                        # ws.write(current_row, 8, val_amt, fmt_curr)
                     else:
-                        ws.write(current_row, 7, 0, fmt_qty)
-                        ws.write(current_row, 8, 0, fmt_curr)
+                        ws.write(current_row, 6, 0, fmt_qty)
+                        # ws.write(current_row, 8, 0, fmt_curr)
 
                     qty_out = line.get("qty_out") or 0.0
                     if qty_out > 0:
-                        ws.write(current_row, 9, qty_out, fmt_qty)
-                        ws.write(current_row, 10, val_amt, fmt_curr)
+                        ws.write(current_row, 7, qty_out, fmt_qty)
+                        # ws.write(current_row, 10, val_amt, fmt_curr)
                     else:
-                        ws.write(current_row, 9, 0, fmt_qty)
-                        ws.write(current_row, 10, 0, fmt_curr)
+                        ws.write(current_row, 7, 0, fmt_qty)
+                        # ws.write(current_row, 10, 0, fmt_curr)
                 else:
                     # Write empty string with format to preserve borders
                     ws.write(current_row, 5, "", fmt_qty)
-                    ws.write(current_row, 6, "", fmt_curr)
+                    # ws.write(current_row, 6, "", fmt_curr)
+                    ws.write(current_row, 6, "", fmt_qty)
+                    # ws.write(current_row, 8, "", fmt_curr)
                     ws.write(current_row, 7, "", fmt_qty)
-                    ws.write(current_row, 8, "", fmt_curr)
-                    ws.write(current_row, 9, "", fmt_qty)
-                    ws.write(current_row, 10, "", fmt_curr)
+                    # ws.write(current_row, 10, "", fmt_curr)
 
-                ws.write(current_row, 11, line.get("balance_qty") or 0.0, fmt_bal)
-                ws.write(current_row, 12, line.get("balance_val") or 0.0, fmt_curr)
+                ws.write(current_row, 8, line.get("balance_qty") or 0.0, fmt_bal)
+                # ws.write(current_row, 11, line.get("balance_qty") or 0.0, fmt_bal)
+                # ws.write(current_row, 12, line.get("balance_val") or 0.0, fmt_curr)
 
                 current_row += 1
 

@@ -20,6 +20,23 @@ class AccountMoveLine(models.Model):
         help="Allow selecting more than one withholding tax on a single invoice line.",
     )
 
+    def init(self):
+        super().init()
+        self.env.cr.execute(
+            """
+            INSERT INTO account_move_line_wht_tax_rel (move_line_id, wht_tax_id)
+            SELECT aml.id, aml.wht_tax_id
+              FROM account_move_line aml
+             WHERE aml.wht_tax_id IS NOT NULL
+               AND NOT EXISTS (
+                   SELECT 1
+                     FROM account_move_line_wht_tax_rel rel
+                    WHERE rel.move_line_id = aml.id
+                      AND rel.wht_tax_id = aml.wht_tax_id
+               )
+            """
+        )
+
     @api.onchange("wht_tax_id")
     def _onchange_wht_tax_id_fill_multi(self):
         for line in self:
@@ -63,7 +80,7 @@ class AccountMoveLine(models.Model):
         self.ensure_one()
         return self.wht_tax_ids or self.wht_tax_id
 
-    def _prepare_multi_wht_deduction_list(self, date, currency):
+    def _prepare_multi_wht_deduction_list(self, date, currency, pay_ratio=1.0):
         deductions = []
         amount_deduct = 0.0
 
@@ -83,6 +100,7 @@ class AccountMoveLine(models.Model):
                 currency,
                 date,
                 partner_id,
+                pay_ratio=pay_ratio,
             )
             amount_wht = float_round(amount_wht, precision_rounding=currency.rounding)
             amount_deduct += amount_wht
@@ -98,21 +116,26 @@ class AccountMoveLine(models.Model):
             )
         return (deductions, amount_deduct)
 
-    def _get_wht_amount_for_tax(self, wht_tax, currency, date, partner_id):
+    def _get_wht_amount_for_tax(self, wht_tax, currency, date, partner_id, pay_ratio=1.0):
         if not self:
             return (0.0, 0.0)
 
-        amount_base = sum(line.amount_currency or line.price_subtotal for line in self)
+        amount_base = 0.0
+        for line in self:
+            line_base = abs(line.price_subtotal)
+            if line.move_id.currency_id != currency:
+                line_base = line.move_id.currency_id._convert(
+                    line_base,
+                    currency,
+                    line.company_id,
+                    date,
+                )
+            amount_base += line_base
+
         if wht_tax.is_pit:
             ref_line = self[0]
             company = ref_line.company_id
             partner = self.env["res.partner"].browse(partner_id)
-            amount_base = ref_line.move_id.currency_id._convert(
-                amount_base,
-                currency,
-                company,
-                date,
-            )
             effective_pit = wht_tax.with_context(pit_date=date).pit_id
             if not effective_pit:
                 raise UserError(
@@ -128,6 +151,12 @@ class AccountMoveLine(models.Model):
             )
         else:
             amount_wht = amount_base * (wht_tax.amount / 100)
+
+        # Scale by pay_ratio for partial payments
+        if pay_ratio != 1.0:
+            amount_base *= pay_ratio
+            amount_wht *= pay_ratio
+
         return (amount_base, amount_wht)
 
 

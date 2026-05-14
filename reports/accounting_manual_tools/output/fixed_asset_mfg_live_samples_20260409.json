@@ -1,0 +1,304 @@
+{
+  "menus": {
+    "account_asset.menu_action_account_asset_form": {
+      "id": 491,
+      "name": "Assets",
+      "path": "Accounting > Accounting > Assets",
+      "action": 742
+    },
+    "account_asset.menu_action_account_asset_model_form": {
+      "id": 492,
+      "name": "Asset Models",
+      "path": "Accounting > Configuration > Management > Asset Models",
+      "action": 743
+    },
+    "account_asset_related_assets.menu_account_asset_hierarchy": {
+      "id": 948,
+      "name": "Asset Hierarchy",
+      "path": "Accounting > Accounting > Asset Hierarchy",
+      "action": 1544
+    },
+    "account_fixed_asset_report.menu_accounting_fixed_asset_report": {
+      "id": 952,
+      "name": "รายงานสินทรัพย์ถาวร",
+      "path": "Accounting > Reporting > Accounting Reports > รายงานสินทรัพย์ถาวร",
+      "action": 1550
+    },
+    "mrp.menu_mrp_root": {
+      "id": 519,
+      "name": "Manufacturing",
+      "path": "Manufacturing",
+      "action": false
+    },
+    "mrp.menu_mrp_production_action": {
+      "id": 531,
+      "name": "Manufacturing Orders",
+      "path": "Manufacturing > Operations > Manufacturing Orders",
+      "action": 821
+    },
+    "stock_account.menu_valuation": {
+      "id": 467,
+      "name": "Valuation",
+      "path": "Inventory > Reporting > Valuation",
+      "action": 705
+    },
+    "account_stock_card_rng8.menu_account_stock_card_rng8": {
+      "id": 923,
+      "name": "รง.8",
+      "path": "Accounting > Reporting > Accounting Reports > รง.8",
+      "action": 1456
+    }
+  },
+  "fixed_asset": {
+    "model": {
+      "id": 10519,
+      "name": "Computer Notebook",
+      "state": "open",
+      "original_value": 26542.06,
+      "book_value": 1.0,
+      "salvage_value": 1.0,
+      "model": "เครื่องใช้สำนักงาน-ผลิต",
+      "fixed_asset_account": "123005 เครื่องใช้สำนักงาน",
+      "depreciation_account": "123016 ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+      "expense_account": "530075 ค่าเสื่อมราคา - เครื่องใช้สำนักงาน",
+      "journal": "Depreciation Journal",
+      "acquisition_date": "2021-12-31",
+      "disposal_date": ""
+    },
+    "draft_asset": {
+      "id": 11559,
+      "name": "MANUAL FA DRAFT 20260409",
+      "state": "draft",
+      "original_value": 120000.0,
+      "book_value": 120000.0,
+      "salvage_value": 0.0,
+      "model": "Computer Notebook",
+      "fixed_asset_account": "123005 เครื่องใช้สำนักงาน",
+      "depreciation_account": "123016 ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+      "expense_account": "530075 ค่าเสื่อมราคา - เครื่องใช้สำนักงาน",
+      "journal": "Depreciation Journal",
+      "acquisition_date": "2026-04-09",
+      "disposal_date": ""
+    },
+    "running_asset": {
+      "id": 11560,
+      "name": "MANUAL FA RUNNING 20260409",
+      "state": "open",
+      "original_value": 120000.0,
+      "book_value": 120000.0,
+      "salvage_value": 0.0,
+      "model": "Computer Notebook",
+      "fixed_asset_account": "123005 เครื่องใช้สำนักงาน",
+      "depreciation_account": "123016 ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+      "expense_account": "530075 ค่าเสื่อมราคา - เครื่องใช้สำนักงาน",
+      "journal": "Depreciation Journal",
+      "acquisition_date": "2026-01-01",
+      "disposal_date": ""
+    },
+    "latest_depreciation_move": {},
+    "sell_asset": {
+      "id": 11561,
+      "name": "MANUAL FA SELL 20260409",
+      "state": "close",
+      "original_value": 75000.0,
+      "book_value": 0.0,
+      "salvage_value": 0.0,
+      "model": "Computer Notebook",
+      "fixed_asset_account": "123005 เครื่องใช้สำนักงาน",
+      "depreciation_account": "123016 ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+      "expense_account": "530075 ค่าเสื่อมราคา - เครื่องใช้สำนักงาน",
+      "journal": "Depreciation Journal",
+      "acquisition_date": "2026-01-01",
+      "disposal_date": "2026-04-09"
+    },
+    "sale_invoice": {
+      "id": 68523,
+      "name": "INV-E/26/04/00005",
+      "ref": "MANUAL-ASSET-SELL-20260409",
+      "amount_total": 68000.0
+    },
+    "sale_move": {
+      "id": 68525,
+      "name": "DCJ/26/04/00002",
+      "date": "2026-04-09",
+      "asset_move_type": "sale",
+      "lines": [
+        {
+          "account_code": "123005",
+          "account_name": "เครื่องใช้สำนักงาน",
+          "label": "MANUAL FA SELL 20260409: Sale",
+          "debit": 0.0,
+          "credit": 75000.0
+        },
+        {
+          "account_code": "123016",
+          "account_name": "ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+          "label": "MANUAL FA SELL 20260409: Sale",
+          "debit": 4125.0,
+          "credit": 0.0
+        },
+        {
+          "account_code": "410000",
+          "account_name": "รายได้จากการขายในประเทศ",
+          "label": "MANUAL FA SELL 20260409: Sale",
+          "debit": 2132194.4,
+          "credit": 0.0
+        },
+        {
+          "account_code": "430000",
+          "account_name": "รายได้อื่น",
+          "label": "MANUAL FA SELL 20260409: Sale",
+          "debit": 0.0,
+          "credit": 2061319.4
+        }
+      ]
+    },
+    "dispose_asset": {
+      "id": 11562,
+      "name": "MANUAL FA DISPOSE 20260409",
+      "state": "close",
+      "original_value": 42000.0,
+      "book_value": 0.0,
+      "salvage_value": 0.0,
+      "model": "Computer Notebook",
+      "fixed_asset_account": "123005 เครื่องใช้สำนักงาน",
+      "depreciation_account": "123016 ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+      "expense_account": "530075 ค่าเสื่อมราคา - เครื่องใช้สำนักงาน",
+      "journal": "Depreciation Journal",
+      "acquisition_date": "2026-01-01",
+      "disposal_date": "2026-04-09"
+    },
+    "disposal_move": {
+      "id": 68537,
+      "name": "DCJ/26/04/00004",
+      "date": "2026-04-09",
+      "asset_move_type": "disposal",
+      "lines": [
+        {
+          "account_code": "123005",
+          "account_name": "เครื่องใช้สำนักงาน",
+          "label": "MANUAL FA DISPOSE 20260409: Disposal",
+          "debit": 0.0,
+          "credit": 42000.0
+        },
+        {
+          "account_code": "123016",
+          "account_name": "ค่าเสื่อมราคาสะสม - เครื่องใช้สำนักงาน",
+          "label": "MANUAL FA DISPOSE 20260409: Disposal",
+          "debit": 2310.0,
+          "credit": 0.0
+        },
+        {
+          "account_code": "510000",
+          "account_name": "ต้นทุนขายในประเทศ",
+          "label": "MANUAL FA DISPOSE 20260409: Disposal",
+          "debit": 39690.0,
+          "credit": 0.0
+        }
+      ]
+    }
+  },
+  "manufacturing": {
+    "sample_mo": {
+      "id": 281,
+      "name": "GMP/MOPH/00030",
+      "product": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "qty": 1.0,
+      "qty_produced": 1.0,
+      "state": "done",
+      "bom": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+      "picking_type": "GOLD MINTS PRODUCTS CO., LTD.: Manufacturing Pharma",
+      "date_start": "2026-04-07 15:58:08.667138",
+      "date_finished": "2026-04-07 15:58:09"
+    },
+    "sample_valuation_rows": [
+      {
+        "svl_id": 14905,
+        "description": "GMP/MOPH/00030 - ยาดม Mark II อิสราเอล 1 กล่อง",
+        "reference": "GMP/MOPH/00030",
+        "product": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+        "quantity": -24.0,
+        "value": -10021.556962,
+        "account_move_id": 68395,
+        "account_move_name": "STJ/26/04/27326"
+      },
+      {
+        "svl_id": 14906,
+        "description": "GMP/MOPH/00030 - ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+        "reference": "GMP/MOPH/00030",
+        "product": "[PK-CAR-PS-02003] ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+        "quantity": -1.0,
+        "value": -12.643456,
+        "account_move_id": 68396,
+        "account_move_name": "STJ/26/04/27327"
+      },
+      {
+        "svl_id": 14907,
+        "description": "GMP/MOPH/00030 - Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+        "reference": "GMP/MOPH/00030",
+        "product": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+        "quantity": 1.0,
+        "value": 10348.800418,
+        "account_move_id": 68397,
+        "account_move_name": "STJ/26/04/27328"
+      }
+    ],
+    "sample_stock_moves": {
+      "raw_moves": [
+        {
+          "name": "FG-MTK-IL-02001: คลังลอย>Production",
+          "product": "[FG-MTK-IL-02001] ยาดม Mark II อิสราเอล 1 กล่อง",
+          "quantity": 24.0,
+          "from": "GMP/Stock/คลังลอย",
+          "to": "Virtual Locations/Production",
+          "valuation_value": -10021.556962
+        },
+        {
+          "name": "PK-CAR-PS-02003: คลังลอย>Production",
+          "product": "[PK-CAR-PS-02003] ลังลูกฟูก 24ลัง อิสราเอล 35x41x15",
+          "quantity": 1.0,
+          "from": "GMP/Stock/คลังลอย",
+          "to": "Virtual Locations/Production",
+          "valuation_value": -12.643456
+        }
+      ],
+      "finished_moves": [
+        {
+          "name": "FG-MTK-IL-01001: Production>Stock",
+          "product": "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)",
+          "quantity": 1.0,
+          "from": "Virtual Locations/Production",
+          "to": "GMP/Stock",
+          "valuation_value": 10348.800418
+        }
+      ]
+    },
+    "sample_scrap": {},
+    "categories": {
+      "fg": {
+        "id": 2,
+        "name": "All / FG",
+        "cost_method": "fifo",
+        "valuation": "real_time",
+        "stock_input": "116901 บัญขีสินค้าขาเข้า",
+        "stock_output": "116902 บัญชีสินค้าขาออก",
+        "stock_valuation": "116031 สินค้าสำเร็จรูป - ยาดม"
+      },
+      "rm": {
+        "id": 112,
+        "name": "All / RM",
+        "cost_method": "fifo",
+        "valuation": "real_time",
+        "stock_input": "116901 บัญขีสินค้าขาเข้า",
+        "stock_output": "116902 บัญชีสินค้าขาออก",
+        "stock_valuation": "116002 วัตถุดิบ - สารเคมี"
+      }
+    },
+    "rng8_defaults": {
+      "product_category": "All / RM",
+      "location": "GMP/Stock",
+      "date_from": "2026-01-01",
+      "date_to": "2026-04-09"
+    }
+  }
+}

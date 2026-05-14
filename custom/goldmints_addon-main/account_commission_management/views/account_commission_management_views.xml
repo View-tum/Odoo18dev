@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_account_commission_form" model="ir.ui.view">
+        <field name="name">account.commission.management.form</field>
+        <field name="model">account.commission.management</field>
+        <field name="arch" type="xml">
+            <form string="รายงานค่าคอมมิชชั่น">
+                <header>
+                    <button string="Preview" name="action_compute_lines" type="object" class="btn-info"/>
+                    <!-- <button string="Print PDF" name="action_jasper" type="object" class="btn-primary"/> -->
+                    <button string="Export Excel" name="action_export_excel" type="object" class="btn-secondary"/>
+                </header>
+
+                <sheet>
+                    <group name="section_details">
+                        <group name="filter_criteria">
+                            <separator string="Data filtering criteria"/>
+                            <field name="team_id" force_save="1"/>
+                            <field name="salesperson_ids" force_save="1" widget="many2many_tags"/>
+                        </group>
+
+                        <group name="report_range">
+                            <separator string="Date range and report settings"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <!-- <field name="report_id"/> -->
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Preview Data">
+                            <field name="line_ids" readonly="1">
+                                <list decoration-muted="amount_commission == 0">
+
+                                    <field name="salesperson_id" optional="show"/>
+                                    <field name="customer_code" optional="show"/>
+                                    <field name="customer_name" optional="show"/>
+                                    <field name="invoice_date" optional="show"/>
+                                    <field name="sale_order_name" optional="show"/>
+                                    <field name="invoice_name" optional="show"/>
+                                    <field name="credit_note_name" optional="show"/>
+                                    <field name="amount_invoice_total" optional="show" sum="Total INV"/>
+                                    <field name="amount_credit_note_total" optional="show" sum="Total Credit Note"/>
+                                    <field name="amount_payment_total" optional="show" sum="Total Paid"/>
+                                    <field name="amount_commission" optional="show" sum="Total Comm"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

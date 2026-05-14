@@ -1,4 +1,0 @@
-- [Ecosoft](http://ecosoft.co.th):
-  - Kitti Upariphutthiphong \<<kittiu@gmail.com>\>
-  - Komsan Somwong \<<komsans@ecosoft.co.th>\>
-  - Pimolnat Suntian \<<pimolnats@ecosoft.co.th>\>

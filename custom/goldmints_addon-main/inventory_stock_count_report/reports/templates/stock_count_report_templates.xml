@@ -55,7 +55,7 @@
                                             <t t-if="data.get('show_uom')">
                                                 <th class="col-uom">UoM</th>
                                             </t>
-                                            <th class="col-price">Price</th>
+                                            <!-- <th class="col-price">Price</th> -->
                                             <th class="col-remark">Remark</th>
                                         </tr>
                                     </thead>
@@ -78,9 +78,9 @@
                                                 </t>
 
                                                 <!-- Price -->
-                                                <td class="editable-cell text-end">
+                                                <!-- <td class="editable-cell text-end">
                                                     <t t-esc="line.get('price') if line.get('price') not in [None, ''] else ''"/>
-                                                </td>
+                                                </td> -->
 
                                                 <!-- Remark -->
                                                 <td class="editable-cell">
@@ -108,7 +108,7 @@
                                         <t t-if="data.get('show_uom')">
                                             <th class="col-uom">UoM</th>
                                         </t>
-                                        <th class="col-price">Price</th>
+                                        <!-- <th class="col-price">Price</th> -->
                                         <th class="col-remark">Remark</th>
                                     </tr>
                                 </thead>
@@ -135,9 +135,9 @@
                                             </t>
 
                                             <!-- Price -->
-                                            <td class="editable-cell text-end">
+                                            <!-- <td class="editable-cell text-end">
                                                 <t t-esc="line.get('price') if line.get('price') not in [None, ''] else ''"/>
-                                            </td>
+                                            </td> -->
 
                                             <!-- Remark -->
                                             <td class="editable-cell">

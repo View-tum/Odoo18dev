@@ -1,0 +1,1374 @@
+{
+  "params": {
+    "precision_control.precision_sale": "2",
+    "precision_control.precision_purchase": "3",
+    "precision_control.precision_mrp": "4",
+    "precision_control.precision_account": "2",
+    "precision_control.precision_expense": "2",
+    "precision_control.precision_stock": "2",
+    "precision_control.precision_product": "2"
+  },
+  "effective_precision_settings": {
+    "sale": 2,
+    "purchase": 3,
+    "mrp": 6,
+    "account": 2,
+    "expense": 2,
+    "stock": 6,
+    "product": 6
+  },
+  "currencies": [
+    {
+      "id": 128,
+      "name": "AED",
+      "symbol": "د.إ",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": false
+    },
+    {
+      "id": 47,
+      "name": "AFN",
+      "symbol": "Afs",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": false
+    },
+    {
+      "id": 118,
+      "name": "ALL",
+      "symbol": "L",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": false
+    },
+    {
+      "id": 50,
+      "name": "AMD",
+      "symbol": "դր.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 71,
+      "name": "ANG",
+      "symbol": "ƒ",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 48,
+      "name": "AOA",
+      "symbol": "Kz",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 19,
+      "name": "ARS",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 21,
+      "name": "AUD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 51,
+      "name": "AWG",
+      "symbol": "Afl.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 52,
+      "name": "AZN",
+      "symbol": "m",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 63,
+      "name": "BAM",
+      "symbol": "KM",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 56,
+      "name": "BBD",
+      "symbol": "Bds$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 55,
+      "name": "BDT",
+      "symbol": "৳",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 26,
+      "name": "BGN",
+      "symbol": "лв",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 54,
+      "name": "BHD",
+      "symbol": "BD",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 65,
+      "name": "BIF",
+      "symbol": "FBu",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 60,
+      "name": "BMD",
+      "symbol": "BD$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 110,
+      "name": "BND",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 62,
+      "name": "BOB",
+      "symbol": "Bs.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 5,
+      "name": "BRL",
+      "symbol": "R$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 53,
+      "name": "BSD",
+      "symbol": "B$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 61,
+      "name": "BTN",
+      "symbol": "Nu.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 64,
+      "name": "BWP",
+      "symbol": "P",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 58,
+      "name": "BYN",
+      "symbol": "Br",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 57,
+      "name": "BYR",
+      "symbol": "BR",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 59,
+      "name": "BZD",
+      "symbol": "BZ$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 3,
+      "name": "CAD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 69,
+      "name": "CDF",
+      "symbol": "Fr",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 4,
+      "name": "CHF",
+      "symbol": "CHF",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 163,
+      "name": "CLF",
+      "symbol": "$",
+      "rounding": 0.0001,
+      "decimal_places": 4,
+      "active": false
+    },
+    {
+      "id": 45,
+      "name": "CLP",
+      "symbol": "$",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 7,
+      "name": "CNH",
+      "symbol": "¥",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 6,
+      "name": "CNY",
+      "symbol": "¥",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "COP",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 162,
+      "name": "COU",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 39,
+      "name": "CRC",
+      "symbol": "₡",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 164,
+      "name": "CUC",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 70,
+      "name": "CUP",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 161,
+      "name": "CVE",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 9,
+      "name": "CZK",
+      "symbol": "Kč",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 72,
+      "name": "DJF",
+      "symbol": "Fdj",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 10,
+      "name": "DKK",
+      "symbol": "kr",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 73,
+      "name": "DOP",
+      "symbol": "RD$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 111,
+      "name": "DZD",
+      "symbol": "DA",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 74,
+      "name": "EGP",
+      "symbol": "LE",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 76,
+      "name": "ERN",
+      "symbol": "Nfk",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 77,
+      "name": "ETB",
+      "symbol": "Br",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 125,
+      "name": "EUR",
+      "symbol": "€",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": true
+    },
+    {
+      "id": 79,
+      "name": "FJD",
+      "symbol": "FJ$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 78,
+      "name": "FKP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 143,
+      "name": "GBP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 80,
+      "name": "GEL",
+      "symbol": "ლ",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 112,
+      "name": "GHS",
+      "symbol": "GH¢",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 81,
+      "name": "GIP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 113,
+      "name": "GMD",
+      "symbol": "D",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 82,
+      "name": "GNF",
+      "symbol": "FG",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 165,
+      "name": "GTQ",
+      "symbol": "Q",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 83,
+      "name": "GYD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 24,
+      "name": "HKD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 44,
+      "name": "HNL",
+      "symbol": "L",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 29,
+      "name": "HRK",
+      "symbol": "kn",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 84,
+      "name": "HTG",
+      "symbol": "G",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 11,
+      "name": "HUF",
+      "symbol": "Ft",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 12,
+      "name": "IDR",
+      "symbol": "Rp",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 88,
+      "name": "ILS",
+      "symbol": "₪",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 20,
+      "name": "INR",
+      "symbol": "₹",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 87,
+      "name": "IQD",
+      "symbol": " ع.د",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 86,
+      "name": "IRR",
+      "symbol": "﷼",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 85,
+      "name": "ISK",
+      "symbol": "kr",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 89,
+      "name": "JMD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 90,
+      "name": "JOD",
+      "symbol": " د.ا ",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 25,
+      "name": "JPY",
+      "symbol": "¥",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": true
+    },
+    {
+      "id": 92,
+      "name": "KES",
+      "symbol": "KSh",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 94,
+      "name": "KGS",
+      "symbol": "лв",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 66,
+      "name": "KHR",
+      "symbol": "៛",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 68,
+      "name": "KMF",
+      "symbol": "CF",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 121,
+      "name": "KPW",
+      "symbol": "₩",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 32,
+      "name": "KRW",
+      "symbol": "₩",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 93,
+      "name": "KWD",
+      "symbol": " د.ك ",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 67,
+      "name": "KYD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 91,
+      "name": "KZT",
+      "symbol": "₸",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 95,
+      "name": "LAK",
+      "symbol": "₭",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 96,
+      "name": "LBP",
+      "symbol": "ل.ل",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 141,
+      "name": "LKR",
+      "symbol": "Rs",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 98,
+      "name": "LRD",
+      "symbol": "L$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 97,
+      "name": "LSL",
+      "symbol": "M",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 27,
+      "name": "LTL",
+      "symbol": "Lt",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 13,
+      "name": "LVL",
+      "symbol": "Ls",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 99,
+      "name": "LYD",
+      "symbol": " ل.د ",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 109,
+      "name": "MAD",
+      "symbol": "DH",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 107,
+      "name": "MDL",
+      "symbol": "L",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 102,
+      "name": "MGA",
+      "symbol": "Ar",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 101,
+      "name": "MKD",
+      "symbol": "ден",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 115,
+      "name": "MMK",
+      "symbol": "K",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 108,
+      "name": "MNT",
+      "symbol": "₮",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 100,
+      "name": "MOP",
+      "symbol": "MOP$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 105,
+      "name": "MRO",
+      "symbol": "UM",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 106,
+      "name": "MRU",
+      "symbol": "UM",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 40,
+      "name": "MUR",
+      "symbol": "Rs",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 104,
+      "name": "MVR",
+      "symbol": "Rf",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 103,
+      "name": "MWK",
+      "symbol": "MK",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 33,
+      "name": "MXN",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 34,
+      "name": "MYR",
+      "symbol": "RM",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 114,
+      "name": "MZN",
+      "symbol": "MT",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 116,
+      "name": "NAD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 120,
+      "name": "NGN",
+      "symbol": "₦",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 119,
+      "name": "NIO",
+      "symbol": "C$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 14,
+      "name": "NOK",
+      "symbol": "kr",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 117,
+      "name": "NPR",
+      "symbol": "₨",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 35,
+      "name": "NZD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 160,
+      "name": "OMR",
+      "symbol": "ر.ع.",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 16,
+      "name": "PAB",
+      "symbol": "B/.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 156,
+      "name": "PEN",
+      "symbol": "S/",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 158,
+      "name": "PGK",
+      "symbol": "K",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 36,
+      "name": "PHP",
+      "symbol": "₱",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 159,
+      "name": "PKR",
+      "symbol": "Rs.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 17,
+      "name": "PLN",
+      "symbol": "zł",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 157,
+      "name": "PYG",
+      "symbol": "₲",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 155,
+      "name": "QAR",
+      "symbol": "QR",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 28,
+      "name": "RON",
+      "symbol": "lei",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 149,
+      "name": "RSD",
+      "symbol": "din.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 30,
+      "name": "RUB",
+      "symbol": "руб",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 154,
+      "name": "RWF",
+      "symbol": "RF",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 150,
+      "name": "SAR",
+      "symbol": "SR",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 145,
+      "name": "SBD",
+      "symbol": "SI$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 148,
+      "name": "SCR",
+      "symbol": "SR",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 140,
+      "name": "SDG",
+      "symbol": "ج.س.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 18,
+      "name": "SEK",
+      "symbol": "kr",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 37,
+      "name": "SGD",
+      "symbol": "S$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 153,
+      "name": "SHP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 147,
+      "name": "SLE",
+      "symbol": "Le",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 146,
+      "name": "SLL",
+      "symbol": "Le",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 144,
+      "name": "SOS",
+      "symbol": "Sh.",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 139,
+      "name": "SRD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 142,
+      "name": "SSP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 151,
+      "name": "STD",
+      "symbol": "Db",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 169,
+      "name": "STN",
+      "symbol": "Db",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 75,
+      "name": "SVC",
+      "symbol": "¢",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 137,
+      "name": "SYP",
+      "symbol": "£",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 138,
+      "name": "SZL",
+      "symbol": "E",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 133,
+      "name": "THB",
+      "symbol": "฿",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": true
+    },
+    {
+      "id": 135,
+      "name": "TJS",
+      "symbol": "TJS",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 129,
+      "name": "TMT",
+      "symbol": "T",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 130,
+      "name": "TND",
+      "symbol": "DT",
+      "rounding": 0.001,
+      "decimal_places": 3,
+      "active": false
+    },
+    {
+      "id": 132,
+      "name": "TOP",
+      "symbol": "T$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 31,
+      "name": "TRY",
+      "symbol": "₺",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 131,
+      "name": "TTD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 136,
+      "name": "TWD",
+      "symbol": "NT$",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 134,
+      "name": "TZS",
+      "symbol": "TSh",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 22,
+      "name": "UAH",
+      "symbol": "₴",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 43,
+      "name": "UGX",
+      "symbol": "USh",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 1,
+      "name": "USD",
+      "symbol": "$",
+      "rounding": 1e-06,
+      "decimal_places": 6,
+      "active": true
+    },
+    {
+      "id": 168,
+      "name": "UYI",
+      "symbol": "$",
+      "rounding": 0.0001,
+      "decimal_places": 4,
+      "active": false
+    },
+    {
+      "id": 46,
+      "name": "UYU",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 167,
+      "name": "UYW",
+      "symbol": "$",
+      "rounding": 0.0001,
+      "decimal_places": 4,
+      "active": false
+    },
+    {
+      "id": 127,
+      "name": "UZS",
+      "symbol": "лв",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "VEF",
+      "symbol": "Bs.F",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 166,
+      "name": "VES",
+      "symbol": "Bs",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 23,
+      "name": "VND",
+      "symbol": "₫",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 126,
+      "name": "VUV",
+      "symbol": "VT",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 152,
+      "name": "WST",
+      "symbol": "WS$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 42,
+      "name": "XAF",
+      "symbol": "FCFA",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 49,
+      "name": "XCD",
+      "symbol": "$",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 41,
+      "name": "XOF",
+      "symbol": "CFA",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 15,
+      "name": "XPF",
+      "symbol": "XPF",
+      "rounding": 1.0,
+      "decimal_places": 0,
+      "active": false
+    },
+    {
+      "id": 124,
+      "name": "YER",
+      "symbol": "﷼",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 38,
+      "name": "ZAR",
+      "symbol": "R",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 122,
+      "name": "ZIG",
+      "symbol": "ZiG",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    },
+    {
+      "id": 123,
+      "name": "ZMW",
+      "symbol": "ZK",
+      "rounding": 0.01,
+      "decimal_places": 2,
+      "active": false
+    }
+  ]
+}

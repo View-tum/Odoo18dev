@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_picking_form_inherit_description" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.description</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="require_description" invisible="1"/>
+                <field name="picking_description" 
+                       invisible="not require_description" 
+                       placeholder="Enter description..."/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_internal_search_inherit_description" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search.inherit.description</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="picking_description"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_picking_tree_inherit_description" model="ir.ui.view">
+        <field name="name">stock.picking.tree.inherit.description</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="picking_description" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

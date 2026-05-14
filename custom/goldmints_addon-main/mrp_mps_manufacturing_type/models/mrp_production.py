@@ -80,7 +80,8 @@ class MrpProduction(models.Model):
 
     def _post_run_manufacture(self, procurements):
         res = super()._post_run_manufacture(procurements)
-        for production in self:
+        productions = self.exists().filtered(lambda production: production.state != "cancel")
+        for production in productions.browse(list(dict.fromkeys(productions.ids))):
             production._check_important_notification()
         return res
 
@@ -139,6 +140,53 @@ class MrpProduction(models.Model):
 
     def _send_auto_mo_replenishment_alert(self, factory_type):
         self.ensure_one()
+        self._send_auto_mo_replenishment_batch_alert(factory_type, self)
+
+    def _queue_auto_mo_replenishment_batch_alert(self, factory_type, productions):
+        productions = productions.exists().filtered(
+            lambda production: production.manufacturing_type == factory_type
+        )
+        if not productions:
+            return
+
+        data = self.env.cr.precommit.data
+        queue_key = "mrp_mps_manufacturing_type.auto_mo_alert_queue"
+        scheduled_key = "mrp_mps_manufacturing_type.auto_mo_alert_scheduled"
+        queue = data.setdefault(queue_key, {})
+        queue.setdefault(factory_type, set()).update(productions.ids)
+
+        if not data.get(scheduled_key):
+            data[scheduled_key] = True
+            self.env.cr.precommit.add(self._flush_auto_mo_replenishment_batch_alerts)
+
+    def _flush_auto_mo_replenishment_batch_alerts(self):
+        queue_key = "mrp_mps_manufacturing_type.auto_mo_alert_queue"
+        queue = self.env.cr.precommit.data.pop(queue_key, {})
+        self.env.cr.precommit.data.pop(
+            "mrp_mps_manufacturing_type.auto_mo_alert_scheduled",
+            None,
+        )
+        Production = self.env["mrp.production"]
+        for factory_type, production_ids in queue.items():
+            productions = Production.browse(list(production_ids)).exists()
+            self._send_auto_mo_replenishment_batch_alert(factory_type, productions)
+
+    def _send_auto_mo_replenishment_batch_alert(self, factory_type, productions):
+        productions = productions.exists().filtered(
+            lambda production: (
+                production.state != "cancel"
+                and production.manufacturing_type == factory_type
+                and production.product_qty > 0
+                and (
+                    production.move_raw_ids.filtered(lambda move: move.state != "cancel")
+                    or production.move_finished_ids.filtered(lambda move: move.state != "cancel")
+                )
+            )
+        )
+        productions = productions.browse(list(dict.fromkeys(productions.ids)))
+        if not productions:
+            return
+
         if factory_type == "plastic":
             group_xml_id = "mrp_mps_manufacturing_type.group_mrp_manager_plastic"
         elif factory_type == "pharma":
@@ -157,7 +205,15 @@ class MrpProduction(models.Model):
             
         factory_name = "Plastic" if factory_type == "plastic" else ("Pharma" if factory_type == "pharma" else "Packaging")
         title = _("Auto MO Generation (%s)") % factory_name
-        message = _("Manufacturing Order %s has been automatically generated via Replenishment (%s). Please review it.") % (self.name, factory_name)
+        mo_names = productions.mapped("name")
+        shown_names = ", ".join(mo_names[:10])
+        if len(mo_names) > 10:
+            shown_names = _("%s and %s more") % (shown_names, len(mo_names) - 10)
+
+        message = _(
+            "%s Manufacturing Order(s) have been automatically generated via "
+            "Replenishment (%s) after auto merge: %s. Please review them."
+        ) % (len(productions), factory_name, shown_names)
         
         for user in notify_users:
             self.env["bus.bus"]._sendone(
@@ -174,7 +230,7 @@ class MrpProduction(models.Model):
         activity_type = self.env.ref("mail.mail_activity_data_todo", raise_if_not_found=False)
         if activity_type:
             primary_user = notify_users[0] if notify_users else self.env.user
-            self.activity_schedule(
+            productions[:1].activity_schedule(
                 activity_type_id=activity_type.id,
                 summary=title,
                 note=message,

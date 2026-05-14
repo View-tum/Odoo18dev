@@ -183,6 +183,7 @@ class MrpProduction(models.Model):
                 continue
 
             mo._console_validate_before_apply()
+            mo.action_sync_picked_quantities()
 
             total_console_qty = mo._console_compute_total_qty(wo_mo)
 
@@ -265,10 +266,115 @@ class MrpProduction(models.Model):
             else:
                 move._action_assign()
 
+        # Create internal transfer for any remaining shortages
+        self._console_create_overproduction_transfer()
+
         return True
 
 
+
+    def _console_create_overproduction_transfer(self):
+        """Create internal transfers for component shortages based on routes/operation types.
+
+        This method identifies shortages and searches for applicable stock rules to determine
+         the correct operation type (e.g., PL, PH, PK) and source location for replenishment,
+        effectively linking with the warehouse's supply routes.
+        """
+        self.ensure_one()
+        warehouse = self.picking_type_id.warehouse_id
+        if not warehouse:
+            return False
+
+        # Group moves by (picking_type, source_location) to minimize number of pickings
+        replenishment_groups = {}
+
+        for move in self.move_raw_ids.filtered(lambda m: m.state not in ("done", "cancel")):
+            rounding = move.product_uom.rounding or 0.000001
+            # Shortage = New Total Demand - Currently Reserved
+            shortage = float_round(
+                move.product_uom_qty - move.quantity,
+                precision_rounding=rounding,
+            )
+
+            if float_compare(shortage, 0.0, precision_rounding=rounding) <= 0:
+                continue
+
+            # Identify the replenishment rule (link with Route and Operation Type)
+            # We look for a 'pull' rule that supplies the MO's source location
+            rule_domain = [
+                ("location_dest_id", "=", move.location_id.id),
+                ("action", "=", "pull"),
+                ("picking_type_id.code", "=", "internal"),
+            ]
+            route_ids = []
+            if "route_id" in move._fields and move.route_id:
+                route_ids = [move.route_id.id]
+            elif "route_ids" in move._fields and move.route_ids:
+                route_ids = move.route_ids.ids
+            if route_ids:
+                rule_domain.append(("route_id", "in", route_ids))
+
+            rule = self.env["stock.rule"].search(rule_domain, limit=1)
+
+            if rule:
+                p_type = rule.picking_type_id
+                src_loc = rule.location_src_id
+            else:
+                # Fallback: Find the default internal picking type for the warehouse
+                p_type = self.env["stock.picking.type"].search(
+                    [
+                        ("code", "=", "internal"),
+                        ("warehouse_id", "=", warehouse.id),
+                    ],
+                    limit=1,
+                )
+                src_loc = warehouse.lot_stock_id
+
+            if not p_type or not src_loc or src_loc == move.location_id:
+                continue
+
+            group_key = (p_type.id, src_loc.id)
+            if group_key not in replenishment_groups:
+                replenishment_groups[group_key] = []
+
+            replenishment_groups[group_key].append({
+                "name": _("Overproduction Replenishment: %s") % self.name,
+                "product_id": move.product_id.id,
+                "product_uom": move.product_uom.id,
+                "product_uom_qty": shortage,
+                "location_id": src_loc.id,
+                "location_dest_id": move.location_id.id,
+                "picking_type_id": p_type.id,
+            })
+
+        if not replenishment_groups:
+            return False
+
+        created_pickings = self.env["stock.picking"]
+        for (pt_id, src_id), move_vals_list in replenishment_groups.items():
+            picking_vals = {
+                "picking_type_id": pt_id,
+                "location_id": src_id,
+                "location_dest_id": move_vals_list[0]["location_dest_id"],
+                "origin": _("Overproduction: %s") % self.name,
+                "move_ids_without_package": [(0, 0, m) for m in move_vals_list],
+            }
+            picking = self.env["stock.picking"].create(picking_vals)
+            picking.action_confirm()
+            picking.action_assign()
+            created_pickings |= picking
+
+        # Post combined links to chatter
+        if created_pickings:
+            links = ", ".join(p._get_html_link() for p in created_pickings)
+            msg = _("Automated internal transfer(s) created for overproduction shortage: %s") % links
+            self.message_post(body=msg)
+
+        return created_pickings
+
+
     def _console_sync_component_overconsumption(self):
+
         return self.action_sync_picked_quantities()
 
     def action_sync_picked_quantities(self):
@@ -339,7 +445,7 @@ class MrpProduction(models.Model):
         return updated
 
 
-    def _console_compute_total_qty(self, workorders):
+    def _console_compute_total_qty(self, workorders, mode='close'):
         """Compute MO qty from console entries based on operation topology."""
         self.ensure_one()
         workorders = workorders.filtered(lambda wo: wo.state != "cancel")
@@ -383,7 +489,10 @@ class MrpProduction(models.Model):
         # This ensures that if downstream operations report fewer finished units
         # than upstream steps, the MO is closed at the lower quantity and the
         # remainder is pushed to a backorder.
-        total_good_qty = min(op_totals) if op_totals else 0.0
+        if mode == 'progress':
+            total_good_qty = max(op_totals) if op_totals else 0.0
+        else:
+            total_good_qty = min(op_totals) if op_totals else 0.0
 
         # Add FG Scrap quantities (Draft) to the total
         # This ensures Odoo considers "Scrap" as "Processed", preventing Backorders
@@ -399,10 +508,91 @@ class MrpProduction(models.Model):
 
         return total_good_qty + total_scrap_qty
 
+    def _console_sync_qty_producing(self):
+        """Recalculate and update standard qty_producing from console progress."""
+        for production in self:
+            if production.state not in ('confirmed', 'progress'):
+                continue
+            try:
+                # Use 'progress' mode to determine the maximum quantity produced so far
+                # across any parallel step. This ensures components are reserved for all steps.
+                total_qty = production._console_compute_total_qty(production.workorder_ids, mode="progress")
+
+                # Update the standard Odoo field. This triggers re-computation of
+                # component consumption and progress bars in standard Odoo.
+                rounding = production.product_uom_id.rounding or 0.000001
+                if float_compare(production.qty_producing, total_qty, precision_rounding=rounding) != 0:
+                    production.qty_producing = total_qty
+            except Exception:
+                # We don't want to block the console UI if computation fails
+                # (e.g. during temporary inconsistency)
+                continue
+
+    def _console_fill_auto_component_moves(self, target_producing_qty=None):
+        """Fill only automatic MO-level component moves for Shop Floor progress.
+
+        Standard workorder finish consumes operation-specific components only.
+        Components configured as automatic/no operation stay at MO level, so the
+        console has to align them explicitly without touching manual components.
+        """
+        for mo in self:
+            target_qty = target_producing_qty
+            if target_qty is None:
+                target_qty = mo.qty_producing or mo.product_qty
+
+            mo_rounding = mo.product_uom_id.rounding or 0.000001
+            target_qty = float_round(max(target_qty or 0.0, 0.0), precision_rounding=mo_rounding)
+            if float_is_zero(target_qty, precision_rounding=mo_rounding):
+                continue
+
+            if mo.product_qty:
+                ratio = target_qty / mo.product_qty
+            else:
+                ratio = 1.0
+
+            for move in mo.move_raw_ids.filtered(
+                lambda m: m.state not in ("done", "cancel") and not m.manual_consumption
+            ):
+                move_rounding = move.product_uom.rounding or 0.000001
+                target_move_qty = float_round(
+                    move.product_uom_qty * ratio,
+                    precision_rounding=move_rounding,
+                )
+                self._console_set_move_done_quantity(move, target_move_qty)
+
+    def _console_get_close_finished_qty(self, explicit_qty=None):
+        """Return the finished qty the console should use when closing the MO."""
+        self.ensure_one()
+        rounding = self.product_uom_id.rounding or 0.000001
+
+        if explicit_qty is not None:
+            target_qty = explicit_qty
+        else:
+            target_qty = 0.0
+            try:
+                target_qty = self._console_compute_total_qty(self.workorder_ids)
+            except UserError:
+                target_qty = 0.0
+
+            if float_compare(target_qty, 0.0, precision_rounding=rounding) <= 0:
+                produced_qty = max(self.workorder_ids.mapped("qty_produced") or [0.0])
+                if float_compare(produced_qty, 0.0, precision_rounding=rounding) > 0:
+                    target_qty = produced_qty
+
+            if float_compare(target_qty, 0.0, precision_rounding=rounding) <= 0:
+                target_qty = self.qty_producing or self.product_qty
+
+        target_qty = max(target_qty or 0.0, 0.0)
+        return float_round(target_qty, precision_rounding=rounding)
+
     def _console_fill_move_quantities_for_close(self, finished_qty_map=None):
         finished_qty_map = finished_qty_map or {}
         for mo in self:
-            target_finished_qty = finished_qty_map.get(mo.id)
+            explicit_qty = finished_qty_map[mo.id] if mo.id in finished_qty_map else None
+            target_finished_qty = mo._console_get_close_finished_qty(explicit_qty)
+            rounding = mo.product_uom_id.rounding or 0.000001
+            if float_compare(mo.qty_producing or 0.0, target_finished_qty, precision_rounding=rounding) != 0:
+                mo.qty_producing = target_finished_qty
             self._console_fill_component_moves(mo, target_producing_qty=target_finished_qty)
             self._console_fill_finished_moves(mo, target_finished_qty)
 
@@ -502,8 +692,14 @@ class MrpProduction(models.Model):
                         zero_lines.unlink()
 
             if not float_is_zero(remaining_qty, precision_rounding=rounding):
+                lotless_lines = move.move_line_ids.filtered(lambda ln: not (ln.lot_id or ln.lot_name))
+                if lotless_lines:
+                    lotless_lines.unlink()
+
                 lot_id = False
-                if move.production_id and move.production_id.lot_producing_id:
+                # FALLBACK BUG FIX: ONLY assign the MO's finished lot if the move is for the finished product.
+                # Assigning the finished product's lot to raw components is incorrect and causes errors.
+                if move.production_id and move.production_id.lot_producing_id and move.product_id == move.production_id.product_id:
                     lot_id = move.production_id.lot_producing_id.id
 
                 if lot_id:
@@ -518,23 +714,62 @@ class MrpProduction(models.Model):
                         "picked": True,
                     })
                 else:
-                    quant = move.env["stock.quant"].search([
+                    quant_model = move.env["stock.quant"]
+                    quants = quant_model.search([
                         ("product_id", "=", move.product_id.id),
                         ("quantity", ">", 0),
                         ("lot_id", "!=", False),
                         ("location_id", "child_of", move.location_id.id),
-                    ], limit=1, order="in_date, id")
-                    if quant:
+                    ], order="in_date, id")
+                    for quant in quants:
+                        if float_is_zero(remaining_qty, precision_rounding=rounding):
+                            break
+                        available = quant_model._get_available_quantity(
+                            move.product_id,
+                            quant.location_id,
+                            lot_id=quant.lot_id,
+                            package_id=quant.package_id,
+                            owner_id=quant.owner_id,
+                            strict=True,
+                        )
+                        if quant.product_uom_id != move.product_uom:
+                            available = quant.product_uom_id._compute_quantity(
+                                available,
+                                move.product_uom,
+                                rounding_method="HALF-UP",
+                            )
+                        available = float_round(available, precision_rounding=rounding)
+                        if float_compare(available, 0.0, precision_rounding=rounding) <= 0:
+                            continue
+                        line_qty = min(available, remaining_qty)
+                        if move.product_id.tracking == "serial":
+                            line_qty = min(line_qty, 1.0)
                         move.env["stock.move.line"].create({
                             "move_id": move.id,
                             "product_id": move.product_id.id,
                             "product_uom_id": move.product_uom.id,
-                            "location_id": move.location_id.id,
+                            "location_id": quant.location_id.id,
                             "location_dest_id": move.location_dest_id.id,
                             "lot_id": quant.lot_id.id,
-                            "quantity": remaining_qty,
+                            "quantity": line_qty,
                             "picked": True,
                         })
+                        remaining_qty = float_round(
+                            remaining_qty - line_qty,
+                            precision_rounding=rounding,
+                        )
+                    if not float_is_zero(remaining_qty, precision_rounding=rounding):
+                        if not move.env.context.get("mpc_allow_partial_lot_prepare"):
+                            raise UserError(
+                                _(
+                                    "Insufficient lot quantity for %(product)s. Missing %(qty).6g %(uom)s."
+                                )
+                                % {
+                                    "product": move.product_id.display_name,
+                                    "qty": remaining_qty,
+                                    "uom": move.product_uom.name,
+                                }
+                            )
         else:
             if move.move_line_ids:
                 move.move_line_ids[0].write({"quantity": target_qty, "picked": True})
@@ -542,6 +777,15 @@ class MrpProduction(models.Model):
                     move.move_line_ids[1:].unlink()
             else:
                 move.write({"quantity": target_qty, "picked": True})
+
+        # Odoo 18: Move quantity must match sum of lines to avoid validation errors
+        if tracked:
+            lotless_lines = move.move_line_ids.filtered(lambda ln: not (ln.lot_id or ln.lot_name))
+            if lotless_lines:
+                lotless_lines.unlink()
+            total_line_qty = sum(move.move_line_ids.mapped('quantity'))
+            if float_compare(move.quantity, total_line_qty, precision_rounding=rounding) != 0:
+                move.write({'quantity': total_line_qty})
 
         if "picked" in move._fields:
             move.write({"picked": True})
@@ -623,6 +867,7 @@ class MrpProduction(models.Model):
     def button_mark_done(self):
         for mo in self:
             if mo.lot_producing_id:
+                finished_qty = mo._console_get_close_finished_qty()
                 fin_moves = mo.move_finished_ids.filtered(
                     lambda m: m.product_id == mo.product_id and m.state not in ('done', 'cancel')
                 )
@@ -635,16 +880,25 @@ class MrpProduction(models.Model):
                             'location_id': move.location_id.id,
                             'location_dest_id': move.location_dest_id.id,
                             'lot_id': mo.lot_producing_id.id,
-                            'quantity': mo.qty_producing,
+                            'quantity': finished_qty,
                             'picked': True,
                         })
                     else:
+                        move_rounding = move.product_uom.rounding or 0.000001
+                        total_line_qty = sum(move.move_line_ids.mapped('quantity'))
+                        should_fill_first_line = float_is_zero(
+                            total_line_qty,
+                            precision_rounding=move_rounding,
+                        )
+                        first_line_id = move.move_line_ids[:1].id
                         for ml in move.move_line_ids:
                             vals = {}
                             if not ml.lot_id:
                                 vals['lot_id'] = mo.lot_producing_id.id
                             if not ml.picked:
                                 vals['picked'] = True
+                            if should_fill_first_line and ml.id == first_line_id:
+                                vals['quantity'] = finished_qty
                             if vals:
                                 ml.write(vals)
 

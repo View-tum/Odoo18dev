@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_account_commission_rate_list" model="ir.ui.view">
+        <field name="name">account.commission.rate.list</field>
+        <field name="model">account.commission.rate</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_account_commission_rate_form" model="ir.ui.view">
+        <field name="name">account.commission.rate.form</field>
+        <field name="model">account.commission.rate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="value"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

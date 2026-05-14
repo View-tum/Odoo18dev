@@ -14,7 +14,7 @@ class AccountMove(models.Model):
     asset_ids = fields.One2many(
         'account.asset',
         'bill_move_id',
-        string='Assets', 
+        string='Assets',
         copy=False,
     )
     asset_count = fields.Integer(
@@ -22,7 +22,7 @@ class AccountMove(models.Model):
         compute='_compute_asset_count',
         store=False,
     )
-    
+
     @api.depends("invoice_line_ids.product_id.categ_id.is_fixed_asset", "move_type")
     def _compute_asset_flags(self):
         for move in self:
@@ -90,15 +90,15 @@ class AccountMove(models.Model):
         self.ensure_one()
         Asset = self.env['account.asset']
         assets_to_create = []
-        
+
         for line in self.invoice_line_ids:
             if not line.product_id.categ_id.is_fixed_asset:
                 continue
-                
+
             profile = line.product_id.asset_model_id
             if not profile:
                 raise UserError(_("Product '%s' is a fixed asset but has no Asset Profile defined.") % line.product_id.name)
-            
+
             # Check quantity splitting from OCA profile or Product flag
             num_assets = 1
             if line.product_id.split_assets and line.quantity > 1:
@@ -107,7 +107,7 @@ class AccountMove(models.Model):
                     num_assets = 1
 
             price_unit = line.price_subtotal / num_assets if num_assets > 0 else line.price_subtotal
-            
+
             for i in range(num_assets):
                 asset_name = self._get_asset_name_from_description(line.name)
                 if num_assets > 1:
@@ -128,7 +128,7 @@ class AccountMove(models.Model):
             if hasattr(asset, '_onchange_model_id'):
                 asset._onchange_model_id()
         self.asset_creatd = True
-        
+
         if len(created_assets) == 1:
             return {
                 'type': 'ir.actions.act_window',
@@ -147,7 +147,7 @@ class AccountMove(models.Model):
                 'domain': [('id', 'in', created_assets.ids)],
                 'target': 'current',
             }
-        
+
     def _compute_asset_count(self):
         # robust & fast
         grouped = self.env['account.asset'].read_group(
@@ -163,7 +163,7 @@ class AccountMove(models.Model):
         asset_ids = self.env['account.asset'].search([('bill_move_id', '=', self.id)])
         self.asset_ids = asset_ids
         return asset_ids
-        
+
     def action_view_assets(self):
         """Open the assets created from this bill."""
         self.ensure_one()

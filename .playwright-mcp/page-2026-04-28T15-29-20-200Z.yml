@@ -1,0 +1,1725 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e142] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e143]
+        - generic [ref=e144]: Sales
+      - menu [ref=e145]:
+        - button "Orders" [ref=e146] [cursor=pointer]:
+          - generic [ref=e147]: Orders
+        - button "To Invoice" [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]: To Invoice
+        - button "Products" [ref=e150] [cursor=pointer]:
+          - generic [ref=e151]: Products
+        - button "After-Sale Services" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: After-Sale Services
+        - button "Reporting" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Reporting
+        - button "Configuration" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 47" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "47"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e375]:
+    - generic [ref=e377]:
+      - generic [ref=e378]:
+        - generic [ref=e380]:
+          - button "New" [ref=e381] [cursor=pointer]
+          - toolbar "Main actions" [ref=e382]:
+            - button "Upload" [ref=e384] [cursor=pointer]
+        - generic [ref=e385]:
+          - generic [ref=e387]: Sales Orders
+          - button "" [ref=e391] [cursor=pointer]:
+            - generic [ref=e392]: 
+      - search [ref=e394]:
+        - search [ref=e395]:
+          - button "Search..." [ref=e396] [cursor=pointer]:
+            - img [ref=e397]: 
+          - searchbox "Search..." [active] [ref=e399]
+        - button "" [ref=e400] [cursor=pointer]
+      - generic [ref=e401]:
+        - search [ref=e402]:
+          - navigation "Pager" [ref=e403]:
+            - generic [ref=e404]:
+              - generic [ref=e405]: 1-80
+              - text: / 6053
+            - generic [ref=e406]:
+              - button "Previous" [ref=e407] [cursor=pointer]:
+                - generic [ref=e408]: 
+              - button "Next" [ref=e409] [cursor=pointer]:
+                - generic [ref=e410]: 
+        - navigation [ref=e411]:
+          - button "" [ref=e412] [cursor=pointer]:
+            - generic [ref=e413]: 
+          - button "" [ref=e414] [cursor=pointer]:
+            - generic [ref=e415]: 
+          - button "" [ref=e416] [cursor=pointer]:
+            - generic [ref=e417]: 
+          - button "" [ref=e418] [cursor=pointer]:
+            - generic [ref=e419]: 
+          - button "" [ref=e420] [cursor=pointer]:
+            - generic [ref=e421]: 
+          - button "" [ref=e422] [cursor=pointer]:
+            - generic [ref=e423]: 
+    - table [ref=e426]:
+      - rowgroup [ref=e427]:
+        - row "Number  AX Sale Order  Order Date  Customer  Salesperson  Activities Total  Invoice Status  " [ref=e428]:
+          - columnheader [ref=e429] [cursor=pointer]:
+            - checkbox [ref=e431]
+          - columnheader "Number " [ref=e432] [cursor=pointer]:
+            - generic [ref=e433]:
+              - generic [ref=e434]: Number
+              - generic [ref=e435]: 
+          - columnheader "AX Sale Order " [ref=e437] [cursor=pointer]:
+            - generic [ref=e438]:
+              - generic [ref=e439]: AX Sale Order
+              - generic [ref=e440]: 
+          - columnheader "Order Date " [ref=e442] [cursor=pointer]:
+            - generic [ref=e443]:
+              - generic [ref=e444]: Order Date
+              - generic [ref=e445]: 
+          - columnheader "Customer " [ref=e447] [cursor=pointer]:
+            - generic [ref=e448]:
+              - generic [ref=e449]: Customer
+              - generic [ref=e450]: 
+          - columnheader "Salesperson " [ref=e452] [cursor=pointer]:
+            - generic [ref=e453]:
+              - generic [ref=e454]: Salesperson
+              - generic [ref=e455]: 
+          - columnheader "Activities" [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]: Activities
+              - text: 
+          - columnheader "Total " [ref=e461] [cursor=pointer]:
+            - generic [ref=e462]:
+              - generic [ref=e463]: Total
+              - generic [ref=e464]: 
+          - columnheader "Invoice Status " [ref=e466] [cursor=pointer]:
+            - generic [ref=e467]:
+              - generic [ref=e468]: Invoice Status
+              - generic [ref=e469]: 
+          - columnheader "" [ref=e471]:
+            - button "" [ref=e473] [cursor=pointer]:
+              - generic [ref=e474]: 
+      - rowgroup [ref=e475]:
+        - row "SOD-263221 04/28/2026 22:06:24 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e476]:
+          - cell [ref=e477]:
+            - checkbox [ref=e479] [cursor=pointer]
+          - cell "SOD-263221" [ref=e480] [cursor=pointer]
+          - cell [ref=e481] [cursor=pointer]
+          - cell "04/28/2026 22:06:24" [ref=e482] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e483] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e484] [cursor=pointer]:
+            - generic [ref=e486]:
+              - img [ref=e488]
+              - generic [ref=e489]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e490] [cursor=pointer]:
+            - button "Show activities" [ref=e492]:
+              - img [ref=e493]: 
+          - cell "1,800,000.00 ฿" [ref=e494] [cursor=pointer]:
+            - generic [ref=e495]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e496] [cursor=pointer]:
+            - generic [ref=e498]: Nothing to Invoice
+          - cell [ref=e499]
+        - row "SOD-263220 04/28/2026 22:02:43 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e500]:
+          - cell [ref=e501]:
+            - checkbox [ref=e503] [cursor=pointer]
+          - cell "SOD-263220" [ref=e504] [cursor=pointer]
+          - cell [ref=e505] [cursor=pointer]
+          - cell "04/28/2026 22:02:43" [ref=e506] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e507] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e508] [cursor=pointer]:
+            - generic [ref=e510]:
+              - img [ref=e512]
+              - generic [ref=e513]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e514] [cursor=pointer]:
+            - button "Show activities" [ref=e516]:
+              - img [ref=e517]: 
+          - cell "1,800,000.00 ฿" [ref=e518] [cursor=pointer]:
+            - generic [ref=e519]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e520] [cursor=pointer]:
+            - generic [ref=e522]: Nothing to Invoice
+          - cell [ref=e523]
+        - row "SOD-263219 04/28/2026 22:00:01 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e524]:
+          - cell [ref=e525]:
+            - checkbox [ref=e527] [cursor=pointer]
+          - cell "SOD-263219" [ref=e528] [cursor=pointer]
+          - cell [ref=e529] [cursor=pointer]
+          - cell "04/28/2026 22:00:01" [ref=e530] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e531] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e532] [cursor=pointer]:
+            - generic [ref=e534]:
+              - img [ref=e536]
+              - generic [ref=e537]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e538] [cursor=pointer]:
+            - button "Show activities" [ref=e540]:
+              - img [ref=e541]: 
+          - cell "1,800,000.00 ฿" [ref=e542] [cursor=pointer]:
+            - generic [ref=e543]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e544] [cursor=pointer]:
+            - generic [ref=e546]: Nothing to Invoice
+          - cell [ref=e547]
+        - row "SOD-263218 04/28/2026 21:56:55 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e548]:
+          - cell [ref=e549]:
+            - checkbox [ref=e551] [cursor=pointer]
+          - cell "SOD-263218" [ref=e552] [cursor=pointer]
+          - cell [ref=e553] [cursor=pointer]
+          - cell "04/28/2026 21:56:55" [ref=e554] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e555] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e556] [cursor=pointer]:
+            - generic [ref=e558]:
+              - img [ref=e560]
+              - generic [ref=e561]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e562] [cursor=pointer]:
+            - button "Show activities" [ref=e564]:
+              - img [ref=e565]: 
+          - cell "1,800,000.00 ฿" [ref=e566] [cursor=pointer]:
+            - generic [ref=e567]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e568] [cursor=pointer]:
+            - generic [ref=e570]: Nothing to Invoice
+          - cell [ref=e571]
+        - row "SOD-263217 04/28/2026 21:53:18 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e572]:
+          - cell [ref=e573]:
+            - checkbox [ref=e575] [cursor=pointer]
+          - cell "SOD-263217" [ref=e576] [cursor=pointer]
+          - cell [ref=e577] [cursor=pointer]
+          - cell "04/28/2026 21:53:18" [ref=e578] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e579] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e580] [cursor=pointer]:
+            - generic [ref=e582]:
+              - img [ref=e584]
+              - generic [ref=e585]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e586] [cursor=pointer]:
+            - button "Show activities" [ref=e588]:
+              - img [ref=e589]: 
+          - cell "1,800,000.00 ฿" [ref=e590] [cursor=pointer]:
+            - generic [ref=e591]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e592] [cursor=pointer]:
+            - generic [ref=e594]: Nothing to Invoice
+          - cell [ref=e595]
+        - row "SOD-263216 04/28/2026 21:50:53 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง Show activities 1,800,000.00 ฿ Nothing to Invoice" [ref=e596]:
+          - cell [ref=e597]:
+            - checkbox [ref=e599] [cursor=pointer]
+          - cell "SOD-263216" [ref=e600] [cursor=pointer]
+          - cell [ref=e601] [cursor=pointer]
+          - cell "04/28/2026 21:50:53" [ref=e602] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e603] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e604] [cursor=pointer]:
+            - generic [ref=e606]:
+              - img [ref=e608]
+              - generic [ref=e609]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e610] [cursor=pointer]:
+            - button "Show activities" [ref=e612]:
+              - img [ref=e613]: 
+          - cell "1,800,000.00 ฿" [ref=e614] [cursor=pointer]:
+            - generic [ref=e615]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e616] [cursor=pointer]:
+            - generic [ref=e618]: Nothing to Invoice
+          - cell [ref=e619]
+        - 'row "SOD-263215 04/28/2026 21:11:29 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263215 ได้รับการอนุมัติแล้ว 1,800,000.00 ฿ Nothing to Invoice" [ref=e620]':
+          - cell [ref=e621]:
+            - checkbox [ref=e623] [cursor=pointer]
+          - cell "SOD-263215" [ref=e624] [cursor=pointer]
+          - cell [ref=e625] [cursor=pointer]
+          - cell "04/28/2026 21:11:29" [ref=e626] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e627] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e628] [cursor=pointer]:
+            - generic [ref=e630]:
+              - img [ref=e632]
+              - generic [ref=e633]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263215 ได้รับการอนุมัติแล้ว" [ref=e634] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263215 ได้รับการอนุมัติแล้ว" [ref=e636]':
+              - img [ref=e637]: 
+              - text: "รับทราบ: เอกสาร SOD-263215 ได้รับการอนุมัติแล้ว"
+          - cell "1,800,000.00 ฿" [ref=e638] [cursor=pointer]:
+            - generic [ref=e639]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e640] [cursor=pointer]:
+            - generic [ref=e642]: Nothing to Invoice
+          - cell [ref=e643]
+        - 'row "SOD-263214 04/28/2026 20:50:20 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263214 ได้รับการอนุมัติแล้ว 1,800,000.00 ฿ Nothing to Invoice" [ref=e644]':
+          - cell [ref=e645]:
+            - checkbox [ref=e647] [cursor=pointer]
+          - cell "SOD-263214" [ref=e648] [cursor=pointer]
+          - cell [ref=e649] [cursor=pointer]
+          - cell "04/28/2026 20:50:20" [ref=e650] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e651] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e652] [cursor=pointer]:
+            - generic [ref=e654]:
+              - img [ref=e656]
+              - generic [ref=e657]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263214 ได้รับการอนุมัติแล้ว" [ref=e658] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263214 ได้รับการอนุมัติแล้ว" [ref=e660]':
+              - img [ref=e661]: 
+              - text: "รับทราบ: เอกสาร SOD-263214 ได้รับการอนุมัติแล้ว"
+          - cell "1,800,000.00 ฿" [ref=e662] [cursor=pointer]:
+            - generic [ref=e663]: 1,800,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e664] [cursor=pointer]:
+            - generic [ref=e666]: Nothing to Invoice
+          - cell [ref=e667]
+        - 'row "SOD-263203 04/22/2026 07:58:30 ซีพี ออลล์บมจ. เกษม แซ่จอง รับทราบ: เอกสาร SOD-263203 ได้รับการอนุมัติแล้ว 1,000,000.00 ฿ Nothing to Invoice" [ref=e668]':
+          - cell [ref=e669]:
+            - checkbox [ref=e671] [cursor=pointer]
+          - cell "SOD-263203" [ref=e672] [cursor=pointer]
+          - cell [ref=e673] [cursor=pointer]
+          - cell "04/22/2026 07:58:30" [ref=e674] [cursor=pointer]
+          - cell "ซีพี ออลล์บมจ." [ref=e675] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e676] [cursor=pointer]:
+            - generic [ref=e678]:
+              - img [ref=e680]
+              - generic [ref=e681]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263203 ได้รับการอนุมัติแล้ว" [ref=e682] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263203 ได้รับการอนุมัติแล้ว" [ref=e684]':
+              - img [ref=e685]: 
+              - text: "รับทราบ: เอกสาร SOD-263203 ได้รับการอนุมัติแล้ว"
+          - cell "1,000,000.00 ฿" [ref=e686] [cursor=pointer]:
+            - generic [ref=e687]: 1,000,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e688] [cursor=pointer]:
+            - generic [ref=e690]: Nothing to Invoice
+          - cell [ref=e691]
+        - row "SOD-263070 04/21/2026 21:36:37 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง Show activities 10,000.00 ฿ Nothing to Invoice" [ref=e692]:
+          - cell [ref=e693]:
+            - checkbox [ref=e695] [cursor=pointer]
+          - cell "SOD-263070" [ref=e696] [cursor=pointer]
+          - cell [ref=e697] [cursor=pointer]
+          - cell "04/21/2026 21:36:37" [ref=e698] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e699] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e700] [cursor=pointer]:
+            - generic [ref=e702]:
+              - img [ref=e704]
+              - generic [ref=e705]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e706] [cursor=pointer]:
+            - button "Show activities" [ref=e708]:
+              - img [ref=e709]: 
+          - cell "10,000.00 ฿" [ref=e710] [cursor=pointer]:
+            - generic [ref=e711]: 10,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e712] [cursor=pointer]:
+            - generic [ref=e714]: Nothing to Invoice
+          - cell [ref=e715]
+        - row "SOD-263069 04/21/2026 21:35:35 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง Show activities 10,000.00 ฿ Nothing to Invoice" [ref=e716]:
+          - cell [ref=e717]:
+            - checkbox [ref=e719] [cursor=pointer]
+          - cell "SOD-263069" [ref=e720] [cursor=pointer]
+          - cell [ref=e721] [cursor=pointer]
+          - cell "04/21/2026 21:35:35" [ref=e722] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e723] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e724] [cursor=pointer]:
+            - generic [ref=e726]:
+              - img [ref=e728]
+              - generic [ref=e729]: เกษม แซ่จอง
+          - cell "Show activities" [ref=e730] [cursor=pointer]:
+            - button "Show activities" [ref=e732]:
+              - img [ref=e733]: 
+          - cell "10,000.00 ฿" [ref=e734] [cursor=pointer]:
+            - generic [ref=e735]: 10,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e736] [cursor=pointer]:
+            - generic [ref=e738]: Nothing to Invoice
+          - cell [ref=e739]
+        - 'row "SOE-260035 04/17/2026 11:02:16 บริษัท เดอะมอลล์ กรุ๊ป จำกัด เกษม แซ่จอง รับทราบ: เอกสาร SOE-260035 ได้รับการอนุมัติแล้ว 0.00 ฿ Nothing to Invoice" [ref=e740]':
+          - cell [ref=e741]:
+            - checkbox [ref=e743] [cursor=pointer]
+          - cell "SOE-260035" [ref=e744] [cursor=pointer]
+          - cell [ref=e745] [cursor=pointer]
+          - cell "04/17/2026 11:02:16" [ref=e746] [cursor=pointer]
+          - cell "บริษัท เดอะมอลล์ กรุ๊ป จำกัด" [ref=e747] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e748] [cursor=pointer]:
+            - generic [ref=e750]:
+              - img [ref=e752]
+              - generic [ref=e753]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOE-260035 ได้รับการอนุมัติแล้ว" [ref=e754] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOE-260035 ได้รับการอนุมัติแล้ว" [ref=e756]':
+              - img [ref=e757]: 
+              - text: "รับทราบ: เอกสาร SOE-260035 ได้รับการอนุมัติแล้ว"
+          - cell "0.00 ฿" [ref=e758] [cursor=pointer]:
+            - generic [ref=e759]: 0.00 ฿
+          - cell "Nothing to Invoice" [ref=e760] [cursor=pointer]:
+            - generic [ref=e762]: Nothing to Invoice
+          - cell [ref=e763]
+        - 'row "SOE-260034 04/17/2026 10:58:41 ซีพี ออลล์บมจ. เกษม แซ่จอง รับทราบ: เอกสาร SOE-260034 ได้รับการอนุมัติแล้ว 0.00 ฿ Nothing to Invoice" [ref=e764]':
+          - cell [ref=e765]:
+            - checkbox [ref=e767] [cursor=pointer]
+          - cell "SOE-260034" [ref=e768] [cursor=pointer]
+          - cell [ref=e769] [cursor=pointer]
+          - cell "04/17/2026 10:58:41" [ref=e770] [cursor=pointer]
+          - cell "ซีพี ออลล์บมจ." [ref=e771] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e772] [cursor=pointer]:
+            - generic [ref=e774]:
+              - img [ref=e776]
+              - generic [ref=e777]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOE-260034 ได้รับการอนุมัติแล้ว" [ref=e778] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOE-260034 ได้รับการอนุมัติแล้ว" [ref=e780]':
+              - img [ref=e781]: 
+              - text: "รับทราบ: เอกสาร SOE-260034 ได้รับการอนุมัติแล้ว"
+          - cell "0.00 ฿" [ref=e782] [cursor=pointer]:
+            - generic [ref=e783]: 0.00 ฿
+          - cell "Nothing to Invoice" [ref=e784] [cursor=pointer]:
+            - generic [ref=e786]: Nothing to Invoice
+          - cell [ref=e787]
+        - 'row "SOE-260033 04/17/2026 10:46:36 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOE-260033 ได้รับการอนุมัติแล้ว 0.00 ฿ Nothing to Invoice" [ref=e788]':
+          - cell [ref=e789]:
+            - checkbox [ref=e791] [cursor=pointer]
+          - cell "SOE-260033" [ref=e792] [cursor=pointer]
+          - cell [ref=e793] [cursor=pointer]
+          - cell "04/17/2026 10:46:36" [ref=e794] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e795] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e796] [cursor=pointer]:
+            - generic [ref=e798]:
+              - img [ref=e800]
+              - generic [ref=e801]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOE-260033 ได้รับการอนุมัติแล้ว" [ref=e802] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOE-260033 ได้รับการอนุมัติแล้ว" [ref=e804]':
+              - img [ref=e805]: 
+              - text: "รับทราบ: เอกสาร SOE-260033 ได้รับการอนุมัติแล้ว"
+          - cell "0.00 ฿" [ref=e806] [cursor=pointer]:
+            - generic [ref=e807]: 0.00 ฿
+          - cell "Nothing to Invoice" [ref=e808] [cursor=pointer]:
+            - generic [ref=e810]: Nothing to Invoice
+          - cell [ref=e811]
+        - row "S11587 SOE-260019 04/16/2026 14:02:14 Viengthong Pharma Import-Export Sole Co.,Ltd. ชาญพิชชา จิรพงศานานุรักษ์ Waiting Approval 2,310,000.00 ฿ Nothing to Invoice" [ref=e812]:
+          - cell [ref=e813]:
+            - checkbox [ref=e815] [cursor=pointer]
+          - cell "S11587" [ref=e816] [cursor=pointer]
+          - cell "SOE-260019" [ref=e817] [cursor=pointer]
+          - cell "04/16/2026 14:02:14" [ref=e818] [cursor=pointer]
+          - cell "Viengthong Pharma Import-Export Sole Co.,Ltd." [ref=e819] [cursor=pointer]
+          - cell "ชาญพิชชา จิรพงศานานุรักษ์" [ref=e820] [cursor=pointer]:
+            - generic [ref=e822]:
+              - img [ref=e824]
+              - generic [ref=e825]: ชาญพิชชา จิรพงศานานุรักษ์
+          - cell "Waiting Approval" [ref=e826] [cursor=pointer]:
+            - button "Waiting Approval" [ref=e828]:
+              - img [ref=e829]: 
+              - text: Waiting Approval
+          - cell "2,310,000.00 ฿" [ref=e830] [cursor=pointer]:
+            - generic [ref=e831]: 2,310,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e832] [cursor=pointer]:
+            - generic [ref=e834]: Nothing to Invoice
+          - cell [ref=e835]
+        - 'row "SOD-263061 04/10/2026 10:36:22 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263061 ได้รับการอนุมัติแล้ว 13,771.88 ฿ To Invoice" [ref=e836]':
+          - cell [ref=e837]:
+            - checkbox [ref=e839] [cursor=pointer]
+          - cell "SOD-263061" [ref=e840] [cursor=pointer]
+          - cell [ref=e841] [cursor=pointer]
+          - cell "04/10/2026 10:36:22" [ref=e842] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e843] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e844] [cursor=pointer]:
+            - generic [ref=e846]:
+              - img [ref=e848]
+              - generic [ref=e849]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263061 ได้รับการอนุมัติแล้ว" [ref=e850] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263061 ได้รับการอนุมัติแล้ว" [ref=e852]':
+              - img [ref=e853]: 
+              - text: "รับทราบ: เอกสาร SOD-263061 ได้รับการอนุมัติแล้ว"
+          - cell "13,771.88 ฿" [ref=e854] [cursor=pointer]:
+            - generic [ref=e855]: 13,771.88 ฿
+          - cell "To Invoice" [ref=e856] [cursor=pointer]:
+            - generic [ref=e858]: To Invoice
+          - cell [ref=e859]
+        - 'row "SOE-260028 04/08/2026 14:42:50 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOE-260028 ได้รับการอนุมัติแล้ว 1,000,000.00 ฿ Nothing to Invoice" [ref=e860]':
+          - cell [ref=e861]:
+            - checkbox [ref=e863] [cursor=pointer]
+          - cell "SOE-260028" [ref=e864] [cursor=pointer]
+          - cell [ref=e865] [cursor=pointer]
+          - cell "04/08/2026 14:42:50" [ref=e866] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e867] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e868] [cursor=pointer]:
+            - generic [ref=e870]:
+              - img [ref=e872]
+              - generic [ref=e873]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOE-260028 ได้รับการอนุมัติแล้ว" [ref=e874] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOE-260028 ได้รับการอนุมัติแล้ว" [ref=e876]':
+              - img [ref=e877]: 
+              - text: "รับทราบ: เอกสาร SOE-260028 ได้รับการอนุมัติแล้ว"
+          - cell "1,000,000.00 ฿" [ref=e878] [cursor=pointer]:
+            - generic [ref=e879]: 1,000,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e880] [cursor=pointer]:
+            - generic [ref=e882]: Nothing to Invoice
+          - cell [ref=e883]
+        - 'row "SOB-263076 04/08/2026 14:36:40 บริษัท เดอะมอลล์ กรุ๊ป จำกัด เกษม แซ่จอง รับทราบ: เอกสาร SOB-263076 ได้รับการอนุมัติแล้ว 2,970,000.00 ฿ Nothing to Invoice" [ref=e884]':
+          - cell [ref=e885]:
+            - checkbox [ref=e887] [cursor=pointer]
+          - cell "SOB-263076" [ref=e888] [cursor=pointer]
+          - cell [ref=e889] [cursor=pointer]
+          - cell "04/08/2026 14:36:40" [ref=e890] [cursor=pointer]
+          - cell "บริษัท เดอะมอลล์ กรุ๊ป จำกัด" [ref=e891] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e892] [cursor=pointer]:
+            - generic [ref=e894]:
+              - img [ref=e896]
+              - generic [ref=e897]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOB-263076 ได้รับการอนุมัติแล้ว" [ref=e898] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263076 ได้รับการอนุมัติแล้ว" [ref=e900]':
+              - img [ref=e901]: 
+              - text: "รับทราบ: เอกสาร SOB-263076 ได้รับการอนุมัติแล้ว"
+          - cell "2,970,000.00 ฿" [ref=e902] [cursor=pointer]:
+            - generic [ref=e903]: 2,970,000.00 ฿
+          - cell "Nothing to Invoice" [ref=e904] [cursor=pointer]:
+            - generic [ref=e906]: Nothing to Invoice
+          - cell [ref=e907]
+        - 'row "SOB-263075 04/02/2026 10:42:37 สินสว่างสุขเภสัช เชิดชัย รับทราบ: เอกสาร SOB-263075 ได้รับการอนุมัติแล้ว 1,193.10 ฿ Fully Invoiced" [ref=e908]':
+          - cell [ref=e909]:
+            - checkbox [ref=e911] [cursor=pointer]
+          - cell "SOB-263075" [ref=e912] [cursor=pointer]
+          - cell [ref=e913] [cursor=pointer]
+          - cell "04/02/2026 10:42:37" [ref=e914] [cursor=pointer]
+          - cell "สินสว่างสุขเภสัช" [ref=e915] [cursor=pointer]
+          - cell "เชิดชัย" [ref=e916] [cursor=pointer]:
+            - generic [ref=e918]:
+              - img [ref=e920]
+              - generic [ref=e921]: เชิดชัย
+          - 'cell "รับทราบ: เอกสาร SOB-263075 ได้รับการอนุมัติแล้ว" [ref=e922] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263075 ได้รับการอนุมัติแล้ว" [ref=e924]':
+              - img [ref=e925]: 
+              - text: "รับทราบ: เอกสาร SOB-263075 ได้รับการอนุมัติแล้ว"
+          - cell "1,193.10 ฿" [ref=e926] [cursor=pointer]:
+            - generic [ref=e927]: 1,193.10 ฿
+          - cell "Fully Invoiced" [ref=e928] [cursor=pointer]:
+            - generic [ref=e930]: Fully Invoiced
+          - cell [ref=e931]
+        - 'row "SOD-263060 04/02/2026 10:41:46 ร้านค้ากาย นัทพงษ์ ภูพันนา รับทราบ: เอกสาร SOD-263060 ได้รับการอนุมัติแล้ว 25,690,450.00 ฿ Nothing to Invoice" [ref=e932]':
+          - cell [ref=e933]:
+            - checkbox [ref=e935] [cursor=pointer]
+          - cell "SOD-263060" [ref=e936] [cursor=pointer]
+          - cell [ref=e937] [cursor=pointer]
+          - cell "04/02/2026 10:41:46" [ref=e938] [cursor=pointer]
+          - cell "ร้านค้ากาย" [ref=e939] [cursor=pointer]
+          - cell "นัทพงษ์ ภูพันนา" [ref=e940] [cursor=pointer]:
+            - generic [ref=e942]:
+              - img [ref=e944]
+              - generic [ref=e945]: นัทพงษ์ ภูพันนา
+          - 'cell "รับทราบ: เอกสาร SOD-263060 ได้รับการอนุมัติแล้ว" [ref=e946] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263060 ได้รับการอนุมัติแล้ว" [ref=e948]':
+              - img [ref=e949]: 
+              - text: "รับทราบ: เอกสาร SOD-263060 ได้รับการอนุมัติแล้ว"
+          - cell "25,690,450.00 ฿" [ref=e950] [cursor=pointer]:
+            - generic [ref=e951]: 25,690,450.00 ฿
+          - cell "Nothing to Invoice" [ref=e952] [cursor=pointer]:
+            - generic [ref=e954]: Nothing to Invoice
+          - cell [ref=e955]
+        - 'row "SOB-263074 04/02/2026 10:21:30 สินสว่างสุขเภสัช เชิดชัย รับทราบ: เอกสาร SOB-263074 ได้รับการอนุมัติแล้ว 1,108.50 ฿ To Invoice" [ref=e956]':
+          - cell [ref=e957]:
+            - checkbox [ref=e959] [cursor=pointer]
+          - cell "SOB-263074" [ref=e960] [cursor=pointer]
+          - cell [ref=e961] [cursor=pointer]
+          - cell "04/02/2026 10:21:30" [ref=e962] [cursor=pointer]
+          - cell "สินสว่างสุขเภสัช" [ref=e963] [cursor=pointer]
+          - cell "เชิดชัย" [ref=e964] [cursor=pointer]:
+            - generic [ref=e966]:
+              - img [ref=e968]
+              - generic [ref=e969]: เชิดชัย
+          - 'cell "รับทราบ: เอกสาร SOB-263074 ได้รับการอนุมัติแล้ว" [ref=e970] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263074 ได้รับการอนุมัติแล้ว" [ref=e972]':
+              - img [ref=e973]: 
+              - text: "รับทราบ: เอกสาร SOB-263074 ได้รับการอนุมัติแล้ว"
+          - cell "1,108.50 ฿" [ref=e974] [cursor=pointer]:
+            - generic [ref=e975]: 1,108.50 ฿
+          - cell "To Invoice" [ref=e976] [cursor=pointer]:
+            - generic [ref=e978]: To Invoice
+          - cell [ref=e979]
+        - 'row "SOB-263073 04/02/2026 10:18:32 สินสว่างสุขเภสัช เชิดชัย รับทราบ: เอกสาร SOB-263073 ได้รับการอนุมัติแล้ว 1,193.10 ฿ Nothing to Invoice" [ref=e980]':
+          - cell [ref=e981]:
+            - checkbox [ref=e983] [cursor=pointer]
+          - cell "SOB-263073" [ref=e984] [cursor=pointer]
+          - cell [ref=e985] [cursor=pointer]
+          - cell "04/02/2026 10:18:32" [ref=e986] [cursor=pointer]
+          - cell "สินสว่างสุขเภสัช" [ref=e987] [cursor=pointer]
+          - cell "เชิดชัย" [ref=e988] [cursor=pointer]:
+            - generic [ref=e990]:
+              - img [ref=e992]
+              - generic [ref=e993]: เชิดชัย
+          - 'cell "รับทราบ: เอกสาร SOB-263073 ได้รับการอนุมัติแล้ว" [ref=e994] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263073 ได้รับการอนุมัติแล้ว" [ref=e996]':
+              - img [ref=e997]: 
+              - text: "รับทราบ: เอกสาร SOB-263073 ได้รับการอนุมัติแล้ว"
+          - cell "1,193.10 ฿" [ref=e998] [cursor=pointer]:
+            - generic [ref=e999]: 1,193.10 ฿
+          - cell "Nothing to Invoice" [ref=e1000] [cursor=pointer]:
+            - generic [ref=e1002]: Nothing to Invoice
+          - cell [ref=e1003]
+        - row "S11574 04/01/2026 07:55:43 บริษัท โนเวลชายน์ จำกัด สมเกียรติ วรรณปะเข Waiting Approval 54,805.00 ฿ Nothing to Invoice" [ref=e1004]:
+          - cell [ref=e1005]:
+            - checkbox [ref=e1007] [cursor=pointer]
+          - cell "S11574" [ref=e1008] [cursor=pointer]
+          - cell [ref=e1009] [cursor=pointer]
+          - cell "04/01/2026 07:55:43" [ref=e1010] [cursor=pointer]
+          - cell "บริษัท โนเวลชายน์ จำกัด" [ref=e1011] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1012] [cursor=pointer]:
+            - generic [ref=e1014]:
+              - img [ref=e1016]
+              - generic [ref=e1017]: สมเกียรติ วรรณปะเข
+          - cell "Waiting Approval" [ref=e1018] [cursor=pointer]:
+            - button "Waiting Approval" [ref=e1020]:
+              - img [ref=e1021]: 
+              - text: Waiting Approval
+          - cell "54,805.00 ฿" [ref=e1022] [cursor=pointer]:
+            - generic [ref=e1023]: 54,805.00 ฿
+          - cell "Nothing to Invoice" [ref=e1024] [cursor=pointer]:
+            - generic [ref=e1026]: Nothing to Invoice
+          - cell [ref=e1027]
+        - row "S11573 04/01/2026 07:53:37 เจริญเวช สมเกียรติ วรรณปะเข Waiting Approval 388.00 ฿ Nothing to Invoice" [ref=e1028]:
+          - cell [ref=e1029]:
+            - checkbox [ref=e1031] [cursor=pointer]
+          - cell "S11573" [ref=e1032] [cursor=pointer]
+          - cell [ref=e1033] [cursor=pointer]
+          - cell "04/01/2026 07:53:37" [ref=e1034] [cursor=pointer]
+          - cell "เจริญเวช" [ref=e1035] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1036] [cursor=pointer]:
+            - generic [ref=e1038]:
+              - img [ref=e1040]
+              - generic [ref=e1041]: สมเกียรติ วรรณปะเข
+          - cell "Waiting Approval" [ref=e1042] [cursor=pointer]:
+            - button "Waiting Approval" [ref=e1044]:
+              - img [ref=e1045]: 
+              - text: Waiting Approval
+          - cell "388.00 ฿" [ref=e1046] [cursor=pointer]:
+            - generic [ref=e1047]: 388.00 ฿
+          - cell "Nothing to Invoice" [ref=e1048] [cursor=pointer]:
+            - generic [ref=e1050]: Nothing to Invoice
+          - cell [ref=e1051]
+        - row "S11572 04/01/2026 07:49:22 จิรเวชภัณฑ์ สมเกียรติ วรรณปะเข Waiting Approval 525.00 ฿ Nothing to Invoice" [ref=e1052]:
+          - cell [ref=e1053]:
+            - checkbox [ref=e1055] [cursor=pointer]
+          - cell "S11572" [ref=e1056] [cursor=pointer]
+          - cell [ref=e1057] [cursor=pointer]
+          - cell "04/01/2026 07:49:22" [ref=e1058] [cursor=pointer]
+          - cell "จิรเวชภัณฑ์" [ref=e1059] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1060] [cursor=pointer]:
+            - generic [ref=e1062]:
+              - img [ref=e1064]
+              - generic [ref=e1065]: สมเกียรติ วรรณปะเข
+          - cell "Waiting Approval" [ref=e1066] [cursor=pointer]:
+            - button "Waiting Approval" [ref=e1068]:
+              - img [ref=e1069]: 
+              - text: Waiting Approval
+          - cell "525.00 ฿" [ref=e1070] [cursor=pointer]:
+            - generic [ref=e1071]: 525.00 ฿
+          - cell "Nothing to Invoice" [ref=e1072] [cursor=pointer]:
+            - generic [ref=e1074]: Nothing to Invoice
+          - cell [ref=e1075]
+        - 'row "SOB-263072 03/31/2026 10:48:16 สำราญพาณิชย์ มนัส พรมมา รับทราบ: เอกสาร SOB-263072 ได้รับการอนุมัติแล้ว 180.00 ฿ Nothing to Invoice" [ref=e1076]':
+          - cell [ref=e1077]:
+            - checkbox [ref=e1079] [cursor=pointer]
+          - cell "SOB-263072" [ref=e1080] [cursor=pointer]
+          - cell [ref=e1081] [cursor=pointer]
+          - cell "03/31/2026 10:48:16" [ref=e1082] [cursor=pointer]
+          - cell "สำราญพาณิชย์" [ref=e1083] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e1084] [cursor=pointer]:
+            - generic [ref=e1086]:
+              - img [ref=e1088]
+              - generic [ref=e1089]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263072 ได้รับการอนุมัติแล้ว" [ref=e1090] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263072 ได้รับการอนุมัติแล้ว" [ref=e1092]':
+              - img [ref=e1093]: 
+              - text: "รับทราบ: เอกสาร SOB-263072 ได้รับการอนุมัติแล้ว"
+          - cell "180.00 ฿" [ref=e1094] [cursor=pointer]:
+            - generic [ref=e1095]: 180.00 ฿
+          - cell "Nothing to Invoice" [ref=e1096] [cursor=pointer]:
+            - generic [ref=e1098]: Nothing to Invoice
+          - cell [ref=e1099]
+        - 'row "SOB-263071 03/31/2026 10:48:15 ร้านค้า นนท์ ภามิน สงวนทรัพย์ รับทราบ: เอกสาร SOB-263071 ได้รับการอนุมัติแล้ว 706,919.75 ฿ Fully Invoiced" [ref=e1100]':
+          - cell [ref=e1101]:
+            - checkbox [ref=e1103] [cursor=pointer]
+          - cell "SOB-263071" [ref=e1104] [cursor=pointer]
+          - cell [ref=e1105] [cursor=pointer]
+          - cell "03/31/2026 10:48:15" [ref=e1106] [cursor=pointer]
+          - cell "ร้านค้า นนท์" [ref=e1107] [cursor=pointer]
+          - cell "ภามิน สงวนทรัพย์" [ref=e1108] [cursor=pointer]:
+            - generic [ref=e1110]:
+              - img [ref=e1112]
+              - generic [ref=e1113]: ภามิน สงวนทรัพย์
+          - 'cell "รับทราบ: เอกสาร SOB-263071 ได้รับการอนุมัติแล้ว" [ref=e1114] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263071 ได้รับการอนุมัติแล้ว" [ref=e1116]':
+              - img [ref=e1117]: 
+              - text: "รับทราบ: เอกสาร SOB-263071 ได้รับการอนุมัติแล้ว"
+          - cell "706,919.75 ฿" [ref=e1118] [cursor=pointer]:
+            - generic [ref=e1119]: 706,919.75 ฿
+          - cell "Fully Invoiced" [ref=e1120] [cursor=pointer]:
+            - generic [ref=e1122]: Fully Invoiced
+          - cell [ref=e1123]
+        - 'row "SOB-263070 03/31/2026 10:48:14 ร้านค้า เบียร์ จำกัด เครือวัลย์ สาระมณี รับทราบ: เอกสาร SOB-263070 ได้รับการอนุมัติแล้ว 1,236.00 ฿ Nothing to Invoice" [ref=e1124]':
+          - cell [ref=e1125]:
+            - checkbox [ref=e1127] [cursor=pointer]
+          - cell "SOB-263070" [ref=e1128] [cursor=pointer]
+          - cell [ref=e1129] [cursor=pointer]
+          - cell "03/31/2026 10:48:14" [ref=e1130] [cursor=pointer]
+          - cell "ร้านค้า เบียร์ จำกัด" [ref=e1131] [cursor=pointer]
+          - cell "เครือวัลย์ สาระมณี" [ref=e1132] [cursor=pointer]:
+            - generic [ref=e1134]:
+              - img [ref=e1136]
+              - generic [ref=e1137]: เครือวัลย์ สาระมณี
+          - 'cell "รับทราบ: เอกสาร SOB-263070 ได้รับการอนุมัติแล้ว" [ref=e1138] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263070 ได้รับการอนุมัติแล้ว" [ref=e1140]':
+              - img [ref=e1141]: 
+              - text: "รับทราบ: เอกสาร SOB-263070 ได้รับการอนุมัติแล้ว"
+          - cell "1,236.00 ฿" [ref=e1142] [cursor=pointer]:
+            - generic [ref=e1143]: 1,236.00 ฿
+          - cell "Nothing to Invoice" [ref=e1144] [cursor=pointer]:
+            - generic [ref=e1146]: Nothing to Invoice
+          - cell [ref=e1147]
+        - 'row "SOE-260022 03/31/2026 10:48:12 ร้านค้า AAA ชาญพิชชา จิรพงศานานุรักษ์ รับทราบ: เอกสาร SOE-260022 ได้รับการอนุมัติแล้ว 10,592.00 ฿ Nothing to Invoice" [ref=e1148]':
+          - cell [ref=e1149]:
+            - checkbox [ref=e1151] [cursor=pointer]
+          - cell "SOE-260022" [ref=e1152] [cursor=pointer]
+          - cell [ref=e1153] [cursor=pointer]
+          - cell "03/31/2026 10:48:12" [ref=e1154] [cursor=pointer]
+          - cell "ร้านค้า AAA" [ref=e1155] [cursor=pointer]
+          - cell "ชาญพิชชา จิรพงศานานุรักษ์" [ref=e1156] [cursor=pointer]:
+            - generic [ref=e1158]:
+              - img [ref=e1160]
+              - generic [ref=e1161]: ชาญพิชชา จิรพงศานานุรักษ์
+          - 'cell "รับทราบ: เอกสาร SOE-260022 ได้รับการอนุมัติแล้ว" [ref=e1162] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOE-260022 ได้รับการอนุมัติแล้ว" [ref=e1164]':
+              - img [ref=e1165]: 
+              - text: "รับทราบ: เอกสาร SOE-260022 ได้รับการอนุมัติแล้ว"
+          - cell "10,592.00 ฿" [ref=e1166] [cursor=pointer]:
+            - generic [ref=e1167]: 10,592.00 ฿
+          - cell "Nothing to Invoice" [ref=e1168] [cursor=pointer]:
+            - generic [ref=e1170]: Nothing to Invoice
+          - cell [ref=e1171]
+        - 'row "SOB-263069 03/31/2026 10:48:11 ร้านค้าติ๊ก ณัฐพงศ์ บุญเพ็ญ รับทราบ: เอกสาร SOB-263069 ได้รับการอนุมัติแล้ว 2,291.00 ฿ Nothing to Invoice" [ref=e1172]':
+          - cell [ref=e1173]:
+            - checkbox [ref=e1175] [cursor=pointer]
+          - cell "SOB-263069" [ref=e1176] [cursor=pointer]
+          - cell [ref=e1177] [cursor=pointer]
+          - cell "03/31/2026 10:48:11" [ref=e1178] [cursor=pointer]
+          - cell "ร้านค้าติ๊ก" [ref=e1179] [cursor=pointer]
+          - cell "ณัฐพงศ์ บุญเพ็ญ" [ref=e1180] [cursor=pointer]:
+            - generic [ref=e1182]:
+              - img [ref=e1184]
+              - generic [ref=e1185]: ณัฐพงศ์ บุญเพ็ญ
+          - 'cell "รับทราบ: เอกสาร SOB-263069 ได้รับการอนุมัติแล้ว" [ref=e1186] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263069 ได้รับการอนุมัติแล้ว" [ref=e1188]':
+              - img [ref=e1189]: 
+              - text: "รับทราบ: เอกสาร SOB-263069 ได้รับการอนุมัติแล้ว"
+          - cell "2,291.00 ฿" [ref=e1190] [cursor=pointer]:
+            - generic [ref=e1191]: 2,291.00 ฿
+          - cell "Nothing to Invoice" [ref=e1192] [cursor=pointer]:
+            - generic [ref=e1194]: Nothing to Invoice
+          - cell [ref=e1195]
+        - 'row "SOD-263059 03/31/2026 10:48:10 ร้านค้า skฟาร์ม่า สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOD-263059 ได้รับการอนุมัติแล้ว 147,400.00 ฿ Nothing to Invoice" [ref=e1196]':
+          - cell [ref=e1197]:
+            - checkbox [ref=e1199] [cursor=pointer]
+          - cell "SOD-263059" [ref=e1200] [cursor=pointer]
+          - cell [ref=e1201] [cursor=pointer]
+          - cell "03/31/2026 10:48:10" [ref=e1202] [cursor=pointer]
+          - cell "ร้านค้า skฟาร์ม่า" [ref=e1203] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1204] [cursor=pointer]:
+            - generic [ref=e1206]:
+              - img [ref=e1208]
+              - generic [ref=e1209]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOD-263059 ได้รับการอนุมัติแล้ว" [ref=e1210] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263059 ได้รับการอนุมัติแล้ว" [ref=e1212]':
+              - img [ref=e1213]: 
+              - text: "รับทราบ: เอกสาร SOD-263059 ได้รับการอนุมัติแล้ว"
+          - cell "147,400.00 ฿" [ref=e1214] [cursor=pointer]:
+            - generic [ref=e1215]: 147,400.00 ฿
+          - cell "Nothing to Invoice" [ref=e1216] [cursor=pointer]:
+            - generic [ref=e1218]: Nothing to Invoice
+          - cell [ref=e1219]
+        - row "S11571 03/31/2026 10:39:30 ร้านค้า เบียร์ จำกัด เครือวัลย์ สาระมณี Waiting Approval 180.00 ฿ Nothing to Invoice" [ref=e1220]:
+          - cell [ref=e1221]:
+            - checkbox [ref=e1223] [cursor=pointer]
+          - cell "S11571" [ref=e1224] [cursor=pointer]
+          - cell [ref=e1225] [cursor=pointer]
+          - cell "03/31/2026 10:39:30" [ref=e1226] [cursor=pointer]
+          - cell "ร้านค้า เบียร์ จำกัด" [ref=e1227] [cursor=pointer]
+          - cell "เครือวัลย์ สาระมณี" [ref=e1228] [cursor=pointer]:
+            - generic [ref=e1230]:
+              - img [ref=e1232]
+              - generic [ref=e1233]: เครือวัลย์ สาระมณี
+          - cell "Waiting Approval" [ref=e1234] [cursor=pointer]:
+            - button "Waiting Approval" [ref=e1236]:
+              - img [ref=e1237]: 
+              - text: Waiting Approval
+          - cell "180.00 ฿" [ref=e1238] [cursor=pointer]:
+            - generic [ref=e1239]: 180.00 ฿
+          - cell "Nothing to Invoice" [ref=e1240] [cursor=pointer]:
+            - generic [ref=e1242]: Nothing to Invoice
+          - cell [ref=e1243]
+        - 'row "SOD-263058 03/30/2026 14:39:07 บริษัท ซีพี ออลล์ จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263058 ได้รับการอนุมัติแล้ว 13,771.88 ฿ Nothing to Invoice" [ref=e1244]':
+          - cell [ref=e1245]:
+            - checkbox [ref=e1247] [cursor=pointer]
+          - cell "SOD-263058" [ref=e1248] [cursor=pointer]
+          - cell [ref=e1249] [cursor=pointer]
+          - cell "03/30/2026 14:39:07" [ref=e1250] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e1251] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1252] [cursor=pointer]:
+            - generic [ref=e1254]:
+              - img [ref=e1256]
+              - generic [ref=e1257]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263058 ได้รับการอนุมัติแล้ว" [ref=e1258] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263058 ได้รับการอนุมัติแล้ว" [ref=e1260]':
+              - img [ref=e1261]: 
+              - text: "รับทราบ: เอกสาร SOD-263058 ได้รับการอนุมัติแล้ว"
+          - cell "13,771.88 ฿" [ref=e1262] [cursor=pointer]:
+            - generic [ref=e1263]: 13,771.88 ฿
+          - cell "Nothing to Invoice" [ref=e1264] [cursor=pointer]:
+            - generic [ref=e1266]: Nothing to Invoice
+          - cell [ref=e1267]
+        - 'row "SOD-263057 SOD-IV261789 03/28/2026 16:51:01 บริษัท อีไนน์ที กรุ๊ป จำกัด ชาญพิชชา จิรพงศานานุรักษ์ รับทราบ: เอกสาร SOD-263057 ได้รับการอนุมัติแล้ว 67,162.80 ฿ Nothing to Invoice" [ref=e1268]':
+          - cell [ref=e1269]:
+            - checkbox [ref=e1271] [cursor=pointer]
+          - cell "SOD-263057" [ref=e1272] [cursor=pointer]
+          - cell "SOD-IV261789" [ref=e1273] [cursor=pointer]
+          - cell "03/28/2026 16:51:01" [ref=e1274] [cursor=pointer]
+          - cell "บริษัท อีไนน์ที กรุ๊ป จำกัด" [ref=e1275] [cursor=pointer]
+          - cell "ชาญพิชชา จิรพงศานานุรักษ์" [ref=e1276] [cursor=pointer]:
+            - generic [ref=e1278]:
+              - img [ref=e1280]
+              - generic [ref=e1281]: ชาญพิชชา จิรพงศานานุรักษ์
+          - 'cell "รับทราบ: เอกสาร SOD-263057 ได้รับการอนุมัติแล้ว" [ref=e1282] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263057 ได้รับการอนุมัติแล้ว" [ref=e1284]':
+              - img [ref=e1285]: 
+              - text: "รับทราบ: เอกสาร SOD-263057 ได้รับการอนุมัติแล้ว"
+          - cell "67,162.80 ฿" [ref=e1286] [cursor=pointer]:
+            - generic [ref=e1287]: 67,162.80 ฿
+          - cell "Nothing to Invoice" [ref=e1288] [cursor=pointer]:
+            - generic [ref=e1290]: Nothing to Invoice
+          - cell [ref=e1291]
+        - 'row "SOB-263068 SOB-260737 03/28/2026 16:51:00 บริษัท เวสท์บาย เดลิเวอรี่ จำกัด ขายจากบริษัท รับทราบ: เอกสาร SOB-263068 ได้รับการอนุมัติแล้ว 2,890.55 ฿ To Invoice" [ref=e1292]':
+          - cell [ref=e1293]:
+            - checkbox [ref=e1295] [cursor=pointer]
+          - cell "SOB-263068" [ref=e1296] [cursor=pointer]
+          - cell "SOB-260737" [ref=e1297] [cursor=pointer]
+          - cell "03/28/2026 16:51:00" [ref=e1298] [cursor=pointer]
+          - cell "บริษัท เวสท์บาย เดลิเวอรี่ จำกัด" [ref=e1299] [cursor=pointer]
+          - cell "ขายจากบริษัท" [ref=e1300] [cursor=pointer]:
+            - generic [ref=e1302]:
+              - img [ref=e1304]
+              - generic [ref=e1305]: ขายจากบริษัท
+          - 'cell "รับทราบ: เอกสาร SOB-263068 ได้รับการอนุมัติแล้ว" [ref=e1306] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263068 ได้รับการอนุมัติแล้ว" [ref=e1308]':
+              - img [ref=e1309]: 
+              - text: "รับทราบ: เอกสาร SOB-263068 ได้รับการอนุมัติแล้ว"
+          - cell "2,890.55 ฿" [ref=e1310] [cursor=pointer]:
+            - generic [ref=e1311]: 2,890.55 ฿
+          - cell "To Invoice" [ref=e1312] [cursor=pointer]:
+            - generic [ref=e1314]: To Invoice
+          - cell [ref=e1315]
+        - 'row "SOD-263056 SOD-IV261788 03/28/2026 13:53:54 บริษัท อะมิวส์เม้นท์ ครีเอชั่น จำกัด ขายจากบริษัท รับทราบ: เอกสาร SOD-263056 ได้รับการอนุมัติแล้ว 53,003.52 ฿ Nothing to Invoice" [ref=e1316]':
+          - cell [ref=e1317]:
+            - checkbox [ref=e1319] [cursor=pointer]
+          - cell "SOD-263056" [ref=e1320] [cursor=pointer]
+          - cell "SOD-IV261788" [ref=e1321] [cursor=pointer]
+          - cell "03/28/2026 13:53:54" [ref=e1322] [cursor=pointer]
+          - cell "บริษัท อะมิวส์เม้นท์ ครีเอชั่น จำกัด" [ref=e1323] [cursor=pointer]
+          - cell "ขายจากบริษัท" [ref=e1324] [cursor=pointer]:
+            - generic [ref=e1326]:
+              - img [ref=e1328]
+              - generic [ref=e1329]: ขายจากบริษัท
+          - 'cell "รับทราบ: เอกสาร SOD-263056 ได้รับการอนุมัติแล้ว" [ref=e1330] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263056 ได้รับการอนุมัติแล้ว" [ref=e1332]':
+              - img [ref=e1333]: 
+              - text: "รับทราบ: เอกสาร SOD-263056 ได้รับการอนุมัติแล้ว"
+          - cell "53,003.52 ฿" [ref=e1334] [cursor=pointer]:
+            - generic [ref=e1335]: 53,003.52 ฿
+          - cell "Nothing to Invoice" [ref=e1336] [cursor=pointer]:
+            - generic [ref=e1338]: Nothing to Invoice
+          - cell [ref=e1339]
+        - 'row "SOD-263055 SOD-IC260159 03/28/2026 10:49:45 หจก. ห้องยาเภสัชกร ไพบูลย์ รับทราบ: เอกสาร SOD-263055 ได้รับการอนุมัติแล้ว 30,400.00 ฿ Nothing to Invoice" [ref=e1340]':
+          - cell [ref=e1341]:
+            - checkbox [ref=e1343] [cursor=pointer]
+          - cell "SOD-263055" [ref=e1344] [cursor=pointer]
+          - cell "SOD-IC260159" [ref=e1345] [cursor=pointer]
+          - cell "03/28/2026 10:49:45" [ref=e1346] [cursor=pointer]
+          - cell "หจก. ห้องยาเภสัชกร" [ref=e1347] [cursor=pointer]
+          - cell "ไพบูลย์" [ref=e1348] [cursor=pointer]:
+            - generic [ref=e1350]:
+              - img [ref=e1352]
+              - generic [ref=e1353]: ไพบูลย์
+          - 'cell "รับทราบ: เอกสาร SOD-263055 ได้รับการอนุมัติแล้ว" [ref=e1354] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263055 ได้รับการอนุมัติแล้ว" [ref=e1356]':
+              - img [ref=e1357]: 
+              - text: "รับทราบ: เอกสาร SOD-263055 ได้รับการอนุมัติแล้ว"
+          - cell "30,400.00 ฿" [ref=e1358] [cursor=pointer]:
+            - generic [ref=e1359]: 30,400.00 ฿
+          - cell "Nothing to Invoice" [ref=e1360] [cursor=pointer]:
+            - generic [ref=e1362]: Nothing to Invoice
+          - cell [ref=e1363]
+        - 'row "SOD-263053 SOD-IV261780 03/28/2026 10:31:18 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263053 ได้รับการอนุมัติแล้ว 6,402.00 ฿ Nothing to Invoice" [ref=e1364]':
+          - cell [ref=e1365]:
+            - checkbox [ref=e1367] [cursor=pointer]
+          - cell "SOD-263053" [ref=e1368] [cursor=pointer]
+          - cell "SOD-IV261780" [ref=e1369] [cursor=pointer]
+          - cell "03/28/2026 10:31:18" [ref=e1370] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1371] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1372] [cursor=pointer]:
+            - generic [ref=e1374]:
+              - img [ref=e1376]
+              - generic [ref=e1377]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263053 ได้รับการอนุมัติแล้ว" [ref=e1378] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263053 ได้รับการอนุมัติแล้ว" [ref=e1380]':
+              - img [ref=e1381]: 
+              - text: "รับทราบ: เอกสาร SOD-263053 ได้รับการอนุมัติแล้ว"
+          - cell "6,402.00 ฿" [ref=e1382] [cursor=pointer]:
+            - generic [ref=e1383]: 6,402.00 ฿
+          - cell "Nothing to Invoice" [ref=e1384] [cursor=pointer]:
+            - generic [ref=e1386]: Nothing to Invoice
+          - cell [ref=e1387]
+        - 'row "SOD-263054 SOD-IV261779 03/28/2026 10:31:18 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263054 ได้รับการอนุมัติแล้ว 13,701.25 ฿ Nothing to Invoice" [ref=e1388]':
+          - cell [ref=e1389]:
+            - checkbox [ref=e1391] [cursor=pointer]
+          - cell "SOD-263054" [ref=e1392] [cursor=pointer]
+          - cell "SOD-IV261779" [ref=e1393] [cursor=pointer]
+          - cell "03/28/2026 10:31:18" [ref=e1394] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1395] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1396] [cursor=pointer]:
+            - generic [ref=e1398]:
+              - img [ref=e1400]
+              - generic [ref=e1401]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263054 ได้รับการอนุมัติแล้ว" [ref=e1402] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263054 ได้รับการอนุมัติแล้ว" [ref=e1404]':
+              - img [ref=e1405]: 
+              - text: "รับทราบ: เอกสาร SOD-263054 ได้รับการอนุมัติแล้ว"
+          - cell "13,701.25 ฿" [ref=e1406] [cursor=pointer]:
+            - generic [ref=e1407]: 13,701.25 ฿
+          - cell "Nothing to Invoice" [ref=e1408] [cursor=pointer]:
+            - generic [ref=e1410]: Nothing to Invoice
+          - cell [ref=e1411]
+        - 'row "SOD-263052 SOD-IV261781 03/28/2026 10:31:17 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263052 ได้รับการอนุมัติแล้ว 782,702.70 ฿ Nothing to Invoice" [ref=e1412]':
+          - cell [ref=e1413]:
+            - checkbox [ref=e1415] [cursor=pointer]
+          - cell "SOD-263052" [ref=e1416] [cursor=pointer]
+          - cell "SOD-IV261781" [ref=e1417] [cursor=pointer]
+          - cell "03/28/2026 10:31:17" [ref=e1418] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1419] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1420] [cursor=pointer]:
+            - generic [ref=e1422]:
+              - img [ref=e1424]
+              - generic [ref=e1425]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263052 ได้รับการอนุมัติแล้ว" [ref=e1426] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263052 ได้รับการอนุมัติแล้ว" [ref=e1428]':
+              - img [ref=e1429]: 
+              - text: "รับทราบ: เอกสาร SOD-263052 ได้รับการอนุมัติแล้ว"
+          - cell "782,702.70 ฿" [ref=e1430] [cursor=pointer]:
+            - generic [ref=e1431]: 782,702.70 ฿
+          - cell "Nothing to Invoice" [ref=e1432] [cursor=pointer]:
+            - generic [ref=e1434]: Nothing to Invoice
+          - cell [ref=e1435]
+        - 'row "SOD-263051 SOD-IV261782 03/28/2026 10:31:16 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263051 ได้รับการอนุมัติแล้ว 154,142.70 ฿ Nothing to Invoice" [ref=e1436]':
+          - cell [ref=e1437]:
+            - checkbox [ref=e1439] [cursor=pointer]
+          - cell "SOD-263051" [ref=e1440] [cursor=pointer]
+          - cell "SOD-IV261782" [ref=e1441] [cursor=pointer]
+          - cell "03/28/2026 10:31:16" [ref=e1442] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1443] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1444] [cursor=pointer]:
+            - generic [ref=e1446]:
+              - img [ref=e1448]
+              - generic [ref=e1449]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263051 ได้รับการอนุมัติแล้ว" [ref=e1450] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263051 ได้รับการอนุมัติแล้ว" [ref=e1452]':
+              - img [ref=e1453]: 
+              - text: "รับทราบ: เอกสาร SOD-263051 ได้รับการอนุมัติแล้ว"
+          - cell "154,142.70 ฿" [ref=e1454] [cursor=pointer]:
+            - generic [ref=e1455]: 154,142.70 ฿
+          - cell "Nothing to Invoice" [ref=e1456] [cursor=pointer]:
+            - generic [ref=e1458]: Nothing to Invoice
+          - cell [ref=e1459]
+        - 'row "SOD-263049 SOD-IV261784 03/28/2026 10:31:15 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263049 ได้รับการอนุมัติแล้ว 6,402.00 ฿ Nothing to Invoice" [ref=e1460]':
+          - cell [ref=e1461]:
+            - checkbox [ref=e1463] [cursor=pointer]
+          - cell "SOD-263049" [ref=e1464] [cursor=pointer]
+          - cell "SOD-IV261784" [ref=e1465] [cursor=pointer]
+          - cell "03/28/2026 10:31:15" [ref=e1466] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1467] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1468] [cursor=pointer]:
+            - generic [ref=e1470]:
+              - img [ref=e1472]
+              - generic [ref=e1473]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263049 ได้รับการอนุมัติแล้ว" [ref=e1474] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263049 ได้รับการอนุมัติแล้ว" [ref=e1476]':
+              - img [ref=e1477]: 
+              - text: "รับทราบ: เอกสาร SOD-263049 ได้รับการอนุมัติแล้ว"
+          - cell "6,402.00 ฿" [ref=e1478] [cursor=pointer]:
+            - generic [ref=e1479]: 6,402.00 ฿
+          - cell "Nothing to Invoice" [ref=e1480] [cursor=pointer]:
+            - generic [ref=e1482]: Nothing to Invoice
+          - cell [ref=e1483]
+        - 'row "SOD-263050 SOD-IV261783 03/28/2026 10:31:15 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263050 ได้รับการอนุมัติแล้ว 6,984.00 ฿ Nothing to Invoice" [ref=e1484]':
+          - cell [ref=e1485]:
+            - checkbox [ref=e1487] [cursor=pointer]
+          - cell "SOD-263050" [ref=e1488] [cursor=pointer]
+          - cell "SOD-IV261783" [ref=e1489] [cursor=pointer]
+          - cell "03/28/2026 10:31:15" [ref=e1490] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1491] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1492] [cursor=pointer]:
+            - generic [ref=e1494]:
+              - img [ref=e1496]
+              - generic [ref=e1497]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263050 ได้รับการอนุมัติแล้ว" [ref=e1498] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263050 ได้รับการอนุมัติแล้ว" [ref=e1500]':
+              - img [ref=e1501]: 
+              - text: "รับทราบ: เอกสาร SOD-263050 ได้รับการอนุมัติแล้ว"
+          - cell "6,984.00 ฿" [ref=e1502] [cursor=pointer]:
+            - generic [ref=e1503]: 6,984.00 ฿
+          - cell "Nothing to Invoice" [ref=e1504] [cursor=pointer]:
+            - generic [ref=e1506]: Nothing to Invoice
+          - cell [ref=e1507]
+        - 'row "SOD-263048 SOD-IV261785 03/28/2026 10:31:14 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263048 ได้รับการอนุมัติแล้ว 592,592.40 ฿ Nothing to Invoice" [ref=e1508]':
+          - cell [ref=e1509]:
+            - checkbox [ref=e1511] [cursor=pointer]
+          - cell "SOD-263048" [ref=e1512] [cursor=pointer]
+          - cell "SOD-IV261785" [ref=e1513] [cursor=pointer]
+          - cell "03/28/2026 10:31:14" [ref=e1514] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1515] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1516] [cursor=pointer]:
+            - generic [ref=e1518]:
+              - img [ref=e1520]
+              - generic [ref=e1521]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263048 ได้รับการอนุมัติแล้ว" [ref=e1522] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263048 ได้รับการอนุมัติแล้ว" [ref=e1524]':
+              - img [ref=e1525]: 
+              - text: "รับทราบ: เอกสาร SOD-263048 ได้รับการอนุมัติแล้ว"
+          - cell "592,592.40 ฿" [ref=e1526] [cursor=pointer]:
+            - generic [ref=e1527]: 592,592.40 ฿
+          - cell "Nothing to Invoice" [ref=e1528] [cursor=pointer]:
+            - generic [ref=e1530]: Nothing to Invoice
+          - cell [ref=e1531]
+        - 'row "SOD-263047 SOD-IV261786 03/28/2026 10:31:13 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263047 ได้รับการอนุมัติแล้ว 21,728.00 ฿ Nothing to Invoice" [ref=e1532]':
+          - cell [ref=e1533]:
+            - checkbox [ref=e1535] [cursor=pointer]
+          - cell "SOD-263047" [ref=e1536] [cursor=pointer]
+          - cell "SOD-IV261786" [ref=e1537] [cursor=pointer]
+          - cell "03/28/2026 10:31:13" [ref=e1538] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1539] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1540] [cursor=pointer]:
+            - generic [ref=e1542]:
+              - img [ref=e1544]
+              - generic [ref=e1545]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263047 ได้รับการอนุมัติแล้ว" [ref=e1546] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263047 ได้รับการอนุมัติแล้ว" [ref=e1548]':
+              - img [ref=e1549]: 
+              - text: "รับทราบ: เอกสาร SOD-263047 ได้รับการอนุมัติแล้ว"
+          - cell "21,728.00 ฿" [ref=e1550] [cursor=pointer]:
+            - generic [ref=e1551]: 21,728.00 ฿
+          - cell "Nothing to Invoice" [ref=e1552] [cursor=pointer]:
+            - generic [ref=e1554]: Nothing to Invoice
+          - cell [ref=e1555]
+        - 'row "SOD-263046 SOD-IV261787 03/28/2026 10:31:12 บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน) เกษม แซ่จอง รับทราบ: เอกสาร SOD-263046 ได้รับการอนุมัติแล้ว 11,989.20 ฿ Nothing to Invoice" [ref=e1556]':
+          - cell [ref=e1557]:
+            - checkbox [ref=e1559] [cursor=pointer]
+          - cell "SOD-263046" [ref=e1560] [cursor=pointer]
+          - cell "SOD-IV261787" [ref=e1561] [cursor=pointer]
+          - cell "03/28/2026 10:31:12" [ref=e1562] [cursor=pointer]
+          - cell "บริษัท ซีพี แอ็กซ์ตร้า จำกัด (มหาชน)" [ref=e1563] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e1564] [cursor=pointer]:
+            - generic [ref=e1566]:
+              - img [ref=e1568]
+              - generic [ref=e1569]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263046 ได้รับการอนุมัติแล้ว" [ref=e1570] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263046 ได้รับการอนุมัติแล้ว" [ref=e1572]':
+              - img [ref=e1573]: 
+              - text: "รับทราบ: เอกสาร SOD-263046 ได้รับการอนุมัติแล้ว"
+          - cell "11,989.20 ฿" [ref=e1574] [cursor=pointer]:
+            - generic [ref=e1575]: 11,989.20 ฿
+          - cell "Nothing to Invoice" [ref=e1576] [cursor=pointer]:
+            - generic [ref=e1578]: Nothing to Invoice
+          - cell [ref=e1579]
+        - 'row "SOB-263067 SOB-260728 03/28/2026 09:58:40 อารีสัมพันธ์เภสัช กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOB-263067 ได้รับการอนุมัติแล้ว 363.75 ฿ To Invoice" [ref=e1580]':
+          - cell [ref=e1581]:
+            - checkbox [ref=e1583] [cursor=pointer]
+          - cell "SOB-263067" [ref=e1584] [cursor=pointer]
+          - cell "SOB-260728" [ref=e1585] [cursor=pointer]
+          - cell "03/28/2026 09:58:40" [ref=e1586] [cursor=pointer]
+          - cell "อารีสัมพันธ์เภสัช" [ref=e1587] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1588] [cursor=pointer]:
+            - generic [ref=e1590]:
+              - img [ref=e1592]
+              - generic [ref=e1593]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOB-263067 ได้รับการอนุมัติแล้ว" [ref=e1594] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263067 ได้รับการอนุมัติแล้ว" [ref=e1596]':
+              - img [ref=e1597]: 
+              - text: "รับทราบ: เอกสาร SOB-263067 ได้รับการอนุมัติแล้ว"
+          - cell "363.75 ฿" [ref=e1598] [cursor=pointer]:
+            - generic [ref=e1599]: 363.75 ฿
+          - cell "To Invoice" [ref=e1600] [cursor=pointer]:
+            - generic [ref=e1602]: To Invoice
+          - cell [ref=e1603]
+        - 'row "SOD-263045 SOD-IV261768 03/28/2026 09:58:39 หจก. ภิญโญฟาร์มาซี กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOD-263045 ได้รับการอนุมัติแล้ว 78,683.75 ฿ To Invoice" [ref=e1604]':
+          - cell [ref=e1605]:
+            - checkbox [ref=e1607] [cursor=pointer]
+          - cell "SOD-263045" [ref=e1608] [cursor=pointer]
+          - cell "SOD-IV261768" [ref=e1609] [cursor=pointer]
+          - cell "03/28/2026 09:58:39" [ref=e1610] [cursor=pointer]
+          - cell "หจก. ภิญโญฟาร์มาซี" [ref=e1611] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1612] [cursor=pointer]:
+            - generic [ref=e1614]:
+              - img [ref=e1616]
+              - generic [ref=e1617]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOD-263045 ได้รับการอนุมัติแล้ว" [ref=e1618] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263045 ได้รับการอนุมัติแล้ว" [ref=e1620]':
+              - img [ref=e1621]: 
+              - text: "รับทราบ: เอกสาร SOD-263045 ได้รับการอนุมัติแล้ว"
+          - cell "78,683.75 ฿" [ref=e1622] [cursor=pointer]:
+            - generic [ref=e1623]: 78,683.75 ฿
+          - cell "To Invoice" [ref=e1624] [cursor=pointer]:
+            - generic [ref=e1626]: To Invoice
+          - cell [ref=e1627]
+        - 'row "SOB-263066 SOB-260729 03/28/2026 09:58:38 ชัยพรเภสัช (โดยคุณชไมพร วิจยาภรณ์) กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOB-263066 ได้รับการอนุมัติแล้ว 3,708.00 ฿ To Invoice" [ref=e1628]':
+          - cell [ref=e1629]:
+            - checkbox [ref=e1631] [cursor=pointer]
+          - cell "SOB-263066" [ref=e1632] [cursor=pointer]
+          - cell "SOB-260729" [ref=e1633] [cursor=pointer]
+          - cell "03/28/2026 09:58:38" [ref=e1634] [cursor=pointer]
+          - cell "ชัยพรเภสัช (โดยคุณชไมพร วิจยาภรณ์)" [ref=e1635] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1636] [cursor=pointer]:
+            - generic [ref=e1638]:
+              - img [ref=e1640]
+              - generic [ref=e1641]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOB-263066 ได้รับการอนุมัติแล้ว" [ref=e1642] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263066 ได้รับการอนุมัติแล้ว" [ref=e1644]':
+              - img [ref=e1645]: 
+              - text: "รับทราบ: เอกสาร SOB-263066 ได้รับการอนุมัติแล้ว"
+          - cell "3,708.00 ฿" [ref=e1646] [cursor=pointer]:
+            - generic [ref=e1647]: 3,708.00 ฿
+          - cell "To Invoice" [ref=e1648] [cursor=pointer]:
+            - generic [ref=e1650]: To Invoice
+          - cell [ref=e1651]
+        - 'row "SOD-263044 SOD-IV261769 03/28/2026 09:58:37 สะพานควายเภสัช กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOD-263044 ได้รับการอนุมัติแล้ว 1,494.77 ฿ To Invoice" [ref=e1652]':
+          - cell [ref=e1653]:
+            - checkbox [ref=e1655] [cursor=pointer]
+          - cell "SOD-263044" [ref=e1656] [cursor=pointer]
+          - cell "SOD-IV261769" [ref=e1657] [cursor=pointer]
+          - cell "03/28/2026 09:58:37" [ref=e1658] [cursor=pointer]
+          - cell "สะพานควายเภสัช" [ref=e1659] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1660] [cursor=pointer]:
+            - generic [ref=e1662]:
+              - img [ref=e1664]
+              - generic [ref=e1665]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOD-263044 ได้รับการอนุมัติแล้ว" [ref=e1666] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263044 ได้รับการอนุมัติแล้ว" [ref=e1668]':
+              - img [ref=e1669]: 
+              - text: "รับทราบ: เอกสาร SOD-263044 ได้รับการอนุมัติแล้ว"
+          - cell "1,494.77 ฿" [ref=e1670] [cursor=pointer]:
+            - generic [ref=e1671]: 1,494.77 ฿
+          - cell "To Invoice" [ref=e1672] [cursor=pointer]:
+            - generic [ref=e1674]: To Invoice
+          - cell [ref=e1675]
+        - 'row "SOB-263065 SOB-260730 03/28/2026 09:58:36 อินเตอร์ดรัก กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOB-263065 ได้รับการอนุมัติแล้ว 1,174.20 ฿ To Invoice" [ref=e1676]':
+          - cell [ref=e1677]:
+            - checkbox [ref=e1679] [cursor=pointer]
+          - cell "SOB-263065" [ref=e1680] [cursor=pointer]
+          - cell "SOB-260730" [ref=e1681] [cursor=pointer]
+          - cell "03/28/2026 09:58:36" [ref=e1682] [cursor=pointer]
+          - cell "อินเตอร์ดรัก" [ref=e1683] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1684] [cursor=pointer]:
+            - generic [ref=e1686]:
+              - img [ref=e1688]
+              - generic [ref=e1689]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOB-263065 ได้รับการอนุมัติแล้ว" [ref=e1690] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263065 ได้รับการอนุมัติแล้ว" [ref=e1692]':
+              - img [ref=e1693]: 
+              - text: "รับทราบ: เอกสาร SOB-263065 ได้รับการอนุมัติแล้ว"
+          - cell "1,174.20 ฿" [ref=e1694] [cursor=pointer]:
+            - generic [ref=e1695]: 1,174.20 ฿
+          - cell "To Invoice" [ref=e1696] [cursor=pointer]:
+            - generic [ref=e1698]: To Invoice
+          - cell [ref=e1699]
+        - 'row "SOD-263043 SOD-IV261770 03/28/2026 09:58:35 บริษัท พีเอชแอล เฮลท์ กรุ๊ป จำกัด กฤษฎิ์ ศักดิ์ชัยชาญชล รับทราบ: เอกสาร SOD-263043 ได้รับการอนุมัติแล้ว 1,174.20 ฿ To Invoice" [ref=e1700]':
+          - cell [ref=e1701]:
+            - checkbox [ref=e1703] [cursor=pointer]
+          - cell "SOD-263043" [ref=e1704] [cursor=pointer]
+          - cell "SOD-IV261770" [ref=e1705] [cursor=pointer]
+          - cell "03/28/2026 09:58:35" [ref=e1706] [cursor=pointer]
+          - cell "บริษัท พีเอชแอล เฮลท์ กรุ๊ป จำกัด" [ref=e1707] [cursor=pointer]
+          - cell "กฤษฎิ์ ศักดิ์ชัยชาญชล" [ref=e1708] [cursor=pointer]:
+            - generic [ref=e1710]:
+              - img [ref=e1712]
+              - generic [ref=e1713]: กฤษฎิ์ ศักดิ์ชัยชาญชล
+          - 'cell "รับทราบ: เอกสาร SOD-263043 ได้รับการอนุมัติแล้ว" [ref=e1714] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263043 ได้รับการอนุมัติแล้ว" [ref=e1716]':
+              - img [ref=e1717]: 
+              - text: "รับทราบ: เอกสาร SOD-263043 ได้รับการอนุมัติแล้ว"
+          - cell "1,174.20 ฿" [ref=e1718] [cursor=pointer]:
+            - generic [ref=e1719]: 1,174.20 ฿
+          - cell "To Invoice" [ref=e1720] [cursor=pointer]:
+            - generic [ref=e1722]: To Invoice
+          - cell [ref=e1723]
+        - 'row "SOB-263064 SOB-260731 03/28/2026 09:58:34 เซี้ยงเฮงโอสถ ภามิน สงวนทรัพย์ รับทราบ: เอกสาร SOB-263064 ได้รับการอนุมัติแล้ว 1,494.77 ฿ To Invoice" [ref=e1724]':
+          - cell [ref=e1725]:
+            - checkbox [ref=e1727] [cursor=pointer]
+          - cell "SOB-263064" [ref=e1728] [cursor=pointer]
+          - cell "SOB-260731" [ref=e1729] [cursor=pointer]
+          - cell "03/28/2026 09:58:34" [ref=e1730] [cursor=pointer]
+          - cell "เซี้ยงเฮงโอสถ" [ref=e1731] [cursor=pointer]
+          - cell "ภามิน สงวนทรัพย์" [ref=e1732] [cursor=pointer]:
+            - generic [ref=e1734]:
+              - img [ref=e1736]
+              - generic [ref=e1737]: ภามิน สงวนทรัพย์
+          - 'cell "รับทราบ: เอกสาร SOB-263064 ได้รับการอนุมัติแล้ว" [ref=e1738] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263064 ได้รับการอนุมัติแล้ว" [ref=e1740]':
+              - img [ref=e1741]: 
+              - text: "รับทราบ: เอกสาร SOB-263064 ได้รับการอนุมัติแล้ว"
+          - cell "1,494.77 ฿" [ref=e1742] [cursor=pointer]:
+            - generic [ref=e1743]: 1,494.77 ฿
+          - cell "To Invoice" [ref=e1744] [cursor=pointer]:
+            - generic [ref=e1746]: To Invoice
+          - cell [ref=e1747]
+        - 'row "SOB-263063 SOB-260733 03/28/2026 09:58:33 เกษมฟาร์มาซี นัทพงษ์ ภูพันนา รับทราบ: เอกสาร SOB-263063 ได้รับการอนุมัติแล้ว 171.00 ฿ To Invoice" [ref=e1748]':
+          - cell [ref=e1749]:
+            - checkbox [ref=e1751] [cursor=pointer]
+          - cell "SOB-263063" [ref=e1752] [cursor=pointer]
+          - cell "SOB-260733" [ref=e1753] [cursor=pointer]
+          - cell "03/28/2026 09:58:33" [ref=e1754] [cursor=pointer]
+          - cell "เกษมฟาร์มาซี" [ref=e1755] [cursor=pointer]
+          - cell "นัทพงษ์ ภูพันนา" [ref=e1756] [cursor=pointer]:
+            - generic [ref=e1758]:
+              - img [ref=e1760]
+              - generic [ref=e1761]: นัทพงษ์ ภูพันนา
+          - 'cell "รับทราบ: เอกสาร SOB-263063 ได้รับการอนุมัติแล้ว" [ref=e1762] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263063 ได้รับการอนุมัติแล้ว" [ref=e1764]':
+              - img [ref=e1765]: 
+              - text: "รับทราบ: เอกสาร SOB-263063 ได้รับการอนุมัติแล้ว"
+          - cell "171.00 ฿" [ref=e1766] [cursor=pointer]:
+            - generic [ref=e1767]: 171.00 ฿
+          - cell "To Invoice" [ref=e1768] [cursor=pointer]:
+            - generic [ref=e1770]: To Invoice
+          - cell [ref=e1771]
+        - 'row "SOB-263062 SOB-260732 03/28/2026 09:58:33 น.ส.ดวงตา ภัทรเรืองทวี สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOB-263062 ได้รับการอนุมัติแล้ว 40,256.25 ฿ To Invoice" [ref=e1772]':
+          - cell [ref=e1773]:
+            - checkbox [ref=e1775] [cursor=pointer]
+          - cell "SOB-263062" [ref=e1776] [cursor=pointer]
+          - cell "SOB-260732" [ref=e1777] [cursor=pointer]
+          - cell "03/28/2026 09:58:33" [ref=e1778] [cursor=pointer]
+          - cell "น.ส.ดวงตา ภัทรเรืองทวี" [ref=e1779] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1780] [cursor=pointer]:
+            - generic [ref=e1782]:
+              - img [ref=e1784]
+              - generic [ref=e1785]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOB-263062 ได้รับการอนุมัติแล้ว" [ref=e1786] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263062 ได้รับการอนุมัติแล้ว" [ref=e1788]':
+              - img [ref=e1789]: 
+              - text: "รับทราบ: เอกสาร SOB-263062 ได้รับการอนุมัติแล้ว"
+          - cell "40,256.25 ฿" [ref=e1790] [cursor=pointer]:
+            - generic [ref=e1791]: 40,256.25 ฿
+          - cell "To Invoice" [ref=e1792] [cursor=pointer]:
+            - generic [ref=e1794]: To Invoice
+          - cell [ref=e1795]
+        - 'row "SOD-263042 SOD-IV261771 03/28/2026 09:58:32 บริษัท สยามฟาร์มาซีดรักเซ็นเตอร์ จำกัด นัทพงษ์ ภูพันนา รับทราบ: เอกสาร SOD-263042 ได้รับการอนุมัติแล้ว 12,426.00 ฿ To Invoice" [ref=e1796]':
+          - cell [ref=e1797]:
+            - checkbox [ref=e1799] [cursor=pointer]
+          - cell "SOD-263042" [ref=e1800] [cursor=pointer]
+          - cell "SOD-IV261771" [ref=e1801] [cursor=pointer]
+          - cell "03/28/2026 09:58:32" [ref=e1802] [cursor=pointer]
+          - cell "บริษัท สยามฟาร์มาซีดรักเซ็นเตอร์ จำกัด" [ref=e1803] [cursor=pointer]
+          - cell "นัทพงษ์ ภูพันนา" [ref=e1804] [cursor=pointer]:
+            - generic [ref=e1806]:
+              - img [ref=e1808]
+              - generic [ref=e1809]: นัทพงษ์ ภูพันนา
+          - 'cell "รับทราบ: เอกสาร SOD-263042 ได้รับการอนุมัติแล้ว" [ref=e1810] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263042 ได้รับการอนุมัติแล้ว" [ref=e1812]':
+              - img [ref=e1813]: 
+              - text: "รับทราบ: เอกสาร SOD-263042 ได้รับการอนุมัติแล้ว"
+          - cell "12,426.00 ฿" [ref=e1814] [cursor=pointer]:
+            - generic [ref=e1815]: 12,426.00 ฿
+          - cell "To Invoice" [ref=e1816] [cursor=pointer]:
+            - generic [ref=e1818]: To Invoice
+          - cell [ref=e1819]
+        - 'row "SOB-263061 SOB-260735 03/28/2026 09:58:31 ที.แอล.ฟาร์มาซี ภามิน สงวนทรัพย์ รับทราบ: เอกสาร SOB-263061 ได้รับการอนุมัติแล้ว 1,387.00 ฿ To Invoice" [ref=e1820]':
+          - cell [ref=e1821]:
+            - checkbox [ref=e1823] [cursor=pointer]
+          - cell "SOB-263061" [ref=e1824] [cursor=pointer]
+          - cell "SOB-260735" [ref=e1825] [cursor=pointer]
+          - cell "03/28/2026 09:58:31" [ref=e1826] [cursor=pointer]
+          - cell "ที.แอล.ฟาร์มาซี" [ref=e1827] [cursor=pointer]
+          - cell "ภามิน สงวนทรัพย์" [ref=e1828] [cursor=pointer]:
+            - generic [ref=e1830]:
+              - img [ref=e1832]
+              - generic [ref=e1833]: ภามิน สงวนทรัพย์
+          - 'cell "รับทราบ: เอกสาร SOB-263061 ได้รับการอนุมัติแล้ว" [ref=e1834] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263061 ได้รับการอนุมัติแล้ว" [ref=e1836]':
+              - img [ref=e1837]: 
+              - text: "รับทราบ: เอกสาร SOB-263061 ได้รับการอนุมัติแล้ว"
+          - cell "1,387.00 ฿" [ref=e1838] [cursor=pointer]:
+            - generic [ref=e1839]: 1,387.00 ฿
+          - cell "To Invoice" [ref=e1840] [cursor=pointer]:
+            - generic [ref=e1842]: To Invoice
+          - cell [ref=e1843]
+        - 'row "SOB-263060 SOB-260734 03/28/2026 09:58:30 น.ส.หทัยรัตน์ กองแก้ว สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOB-263060 ได้รับการอนุมัติแล้ว 26,837.50 ฿ To Invoice" [ref=e1844]':
+          - cell [ref=e1845]:
+            - checkbox [ref=e1847] [cursor=pointer]
+          - cell "SOB-263060" [ref=e1848] [cursor=pointer]
+          - cell "SOB-260734" [ref=e1849] [cursor=pointer]
+          - cell "03/28/2026 09:58:30" [ref=e1850] [cursor=pointer]
+          - cell "น.ส.หทัยรัตน์ กองแก้ว" [ref=e1851] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1852] [cursor=pointer]:
+            - generic [ref=e1854]:
+              - img [ref=e1856]
+              - generic [ref=e1857]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOB-263060 ได้รับการอนุมัติแล้ว" [ref=e1858] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263060 ได้รับการอนุมัติแล้ว" [ref=e1860]':
+              - img [ref=e1861]: 
+              - text: "รับทราบ: เอกสาร SOB-263060 ได้รับการอนุมัติแล้ว"
+          - cell "26,837.50 ฿" [ref=e1862] [cursor=pointer]:
+            - generic [ref=e1863]: 26,837.50 ฿
+          - cell "To Invoice" [ref=e1864] [cursor=pointer]:
+            - generic [ref=e1866]: To Invoice
+          - cell [ref=e1867]
+        - 'row "SOD-263041 SOD-IC260158 03/28/2026 09:58:29 โพธิ์ทองโอสถ ธีรพล รับทราบ: เอกสาร SOD-263041 ได้รับการอนุมัติแล้ว 26,837.50 ฿ Nothing to Invoice" [ref=e1868]':
+          - cell [ref=e1869]:
+            - checkbox [ref=e1871] [cursor=pointer]
+          - cell "SOD-263041" [ref=e1872] [cursor=pointer]
+          - cell "SOD-IC260158" [ref=e1873] [cursor=pointer]
+          - cell "03/28/2026 09:58:29" [ref=e1874] [cursor=pointer]
+          - cell "โพธิ์ทองโอสถ" [ref=e1875] [cursor=pointer]
+          - cell "ธีรพล" [ref=e1876] [cursor=pointer]:
+            - generic [ref=e1878]:
+              - img [ref=e1880]
+              - generic [ref=e1881]: ธีรพล
+          - 'cell "รับทราบ: เอกสาร SOD-263041 ได้รับการอนุมัติแล้ว" [ref=e1882] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263041 ได้รับการอนุมัติแล้ว" [ref=e1884]':
+              - img [ref=e1885]: 
+              - text: "รับทราบ: เอกสาร SOD-263041 ได้รับการอนุมัติแล้ว"
+          - cell "26,837.50 ฿" [ref=e1886] [cursor=pointer]:
+            - generic [ref=e1887]: 26,837.50 ฿
+          - cell "Nothing to Invoice" [ref=e1888] [cursor=pointer]:
+            - generic [ref=e1890]: Nothing to Invoice
+          - cell [ref=e1891]
+        - 'row "SOD-263039 SOD-IV261774 03/28/2026 09:58:28 บริษัท เฮลท์ แอนด์ ริช (ไทยแลนด์) จำกัด สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOD-263039 ได้รับการอนุมัติแล้ว 19,688.75 ฿ Nothing to Invoice" [ref=e1892]':
+          - cell [ref=e1893]:
+            - checkbox [ref=e1895] [cursor=pointer]
+          - cell "SOD-263039" [ref=e1896] [cursor=pointer]
+          - cell "SOD-IV261774" [ref=e1897] [cursor=pointer]
+          - cell "03/28/2026 09:58:28" [ref=e1898] [cursor=pointer]
+          - cell "บริษัท เฮลท์ แอนด์ ริช (ไทยแลนด์) จำกัด" [ref=e1899] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1900] [cursor=pointer]:
+            - generic [ref=e1902]:
+              - img [ref=e1904]
+              - generic [ref=e1905]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOD-263039 ได้รับการอนุมัติแล้ว" [ref=e1906] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263039 ได้รับการอนุมัติแล้ว" [ref=e1908]':
+              - img [ref=e1909]: 
+              - text: "รับทราบ: เอกสาร SOD-263039 ได้รับการอนุมัติแล้ว"
+          - cell "19,688.75 ฿" [ref=e1910] [cursor=pointer]:
+            - generic [ref=e1911]: 19,688.75 ฿
+          - cell "Nothing to Invoice" [ref=e1912] [cursor=pointer]:
+            - generic [ref=e1914]: Nothing to Invoice
+          - cell [ref=e1915]
+        - 'row "SOD-263040 SOD-IV261772 03/28/2026 09:58:28 หจก. จิ้งเซ่งเชียง สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOD-263040 ได้รับการอนุมัติแล้ว 2,698.00 ฿ Nothing to Invoice" [ref=e1916]':
+          - cell [ref=e1917]:
+            - checkbox [ref=e1919] [cursor=pointer]
+          - cell "SOD-263040" [ref=e1920] [cursor=pointer]
+          - cell "SOD-IV261772" [ref=e1921] [cursor=pointer]
+          - cell "03/28/2026 09:58:28" [ref=e1922] [cursor=pointer]
+          - cell "หจก. จิ้งเซ่งเชียง" [ref=e1923] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1924] [cursor=pointer]:
+            - generic [ref=e1926]:
+              - img [ref=e1928]
+              - generic [ref=e1929]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOD-263040 ได้รับการอนุมัติแล้ว" [ref=e1930] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263040 ได้รับการอนุมัติแล้ว" [ref=e1932]':
+              - img [ref=e1933]: 
+              - text: "รับทราบ: เอกสาร SOD-263040 ได้รับการอนุมัติแล้ว"
+          - cell "2,698.00 ฿" [ref=e1934] [cursor=pointer]:
+            - generic [ref=e1935]: 2,698.00 ฿
+          - cell "Nothing to Invoice" [ref=e1936] [cursor=pointer]:
+            - generic [ref=e1938]: Nothing to Invoice
+          - cell [ref=e1939]
+        - 'row "SOD-263038 SOD-IV261773 03/28/2026 09:58:27 บริษัท เมืองกาญจน์เวชภัณฑ์ จำกัด ภามิน สงวนทรัพย์ รับทราบ: เอกสาร SOD-263038 ได้รับการอนุมัติแล้ว 68,713.50 ฿ Nothing to Invoice" [ref=e1940]':
+          - cell [ref=e1941]:
+            - checkbox [ref=e1943] [cursor=pointer]
+          - cell "SOD-263038" [ref=e1944] [cursor=pointer]
+          - cell "SOD-IV261773" [ref=e1945] [cursor=pointer]
+          - cell "03/28/2026 09:58:27" [ref=e1946] [cursor=pointer]
+          - cell "บริษัท เมืองกาญจน์เวชภัณฑ์ จำกัด" [ref=e1947] [cursor=pointer]
+          - cell "ภามิน สงวนทรัพย์" [ref=e1948] [cursor=pointer]:
+            - generic [ref=e1950]:
+              - img [ref=e1952]
+              - generic [ref=e1953]: ภามิน สงวนทรัพย์
+          - 'cell "รับทราบ: เอกสาร SOD-263038 ได้รับการอนุมัติแล้ว" [ref=e1954] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263038 ได้รับการอนุมัติแล้ว" [ref=e1956]':
+              - img [ref=e1957]: 
+              - text: "รับทราบ: เอกสาร SOD-263038 ได้รับการอนุมัติแล้ว"
+          - cell "68,713.50 ฿" [ref=e1958] [cursor=pointer]:
+            - generic [ref=e1959]: 68,713.50 ฿
+          - cell "Nothing to Invoice" [ref=e1960] [cursor=pointer]:
+            - generic [ref=e1962]: Nothing to Invoice
+          - cell [ref=e1963]
+        - 'row "SOD-263037 SOD-IV261775 03/28/2026 09:58:26 บริษัท เพื่อนดินฟ้า จำกัด สมเกียรติ วรรณปะเข รับทราบ: เอกสาร SOD-263037 ได้รับการอนุมัติแล้ว 29,711.25 ฿ Nothing to Invoice" [ref=e1964]':
+          - cell [ref=e1965]:
+            - checkbox [ref=e1967] [cursor=pointer]
+          - cell "SOD-263037" [ref=e1968] [cursor=pointer]
+          - cell "SOD-IV261775" [ref=e1969] [cursor=pointer]
+          - cell "03/28/2026 09:58:26" [ref=e1970] [cursor=pointer]
+          - cell "บริษัท เพื่อนดินฟ้า จำกัด" [ref=e1971] [cursor=pointer]
+          - cell "สมเกียรติ วรรณปะเข" [ref=e1972] [cursor=pointer]:
+            - generic [ref=e1974]:
+              - img [ref=e1976]
+              - generic [ref=e1977]: สมเกียรติ วรรณปะเข
+          - 'cell "รับทราบ: เอกสาร SOD-263037 ได้รับการอนุมัติแล้ว" [ref=e1978] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263037 ได้รับการอนุมัติแล้ว" [ref=e1980]':
+              - img [ref=e1981]: 
+              - text: "รับทราบ: เอกสาร SOD-263037 ได้รับการอนุมัติแล้ว"
+          - cell "29,711.25 ฿" [ref=e1982] [cursor=pointer]:
+            - generic [ref=e1983]: 29,711.25 ฿
+          - cell "Nothing to Invoice" [ref=e1984] [cursor=pointer]:
+            - generic [ref=e1986]: Nothing to Invoice
+          - cell [ref=e1987]
+        - 'row "SOD-263036 SOD-IV261776 03/28/2026 09:58:25 บริษัท ที ที เมดิซิน จำกัด ภามิน สงวนทรัพย์ รับทราบ: เอกสาร SOD-263036 ได้รับการอนุมัติแล้ว 134,187.50 ฿ Nothing to Invoice" [ref=e1988]':
+          - cell [ref=e1989]:
+            - checkbox [ref=e1991] [cursor=pointer]
+          - cell "SOD-263036" [ref=e1992] [cursor=pointer]
+          - cell "SOD-IV261776" [ref=e1993] [cursor=pointer]
+          - cell "03/28/2026 09:58:25" [ref=e1994] [cursor=pointer]
+          - cell "บริษัท ที ที เมดิซิน จำกัด" [ref=e1995] [cursor=pointer]
+          - cell "ภามิน สงวนทรัพย์" [ref=e1996] [cursor=pointer]:
+            - generic [ref=e1998]:
+              - img [ref=e2000]
+              - generic [ref=e2001]: ภามิน สงวนทรัพย์
+          - 'cell "รับทราบ: เอกสาร SOD-263036 ได้รับการอนุมัติแล้ว" [ref=e2002] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263036 ได้รับการอนุมัติแล้ว" [ref=e2004]':
+              - img [ref=e2005]: 
+              - text: "รับทราบ: เอกสาร SOD-263036 ได้รับการอนุมัติแล้ว"
+          - cell "134,187.50 ฿" [ref=e2006] [cursor=pointer]:
+            - generic [ref=e2007]: 134,187.50 ฿
+          - cell "Nothing to Invoice" [ref=e2008] [cursor=pointer]:
+            - generic [ref=e2010]: Nothing to Invoice
+          - cell [ref=e2011]
+        - 'row "SOD-263035 SOD-IV261777 03/28/2026 09:58:24 บริษัท คลังยาบางปะกอก จำกัด ขายจากบริษัท รับทราบ: เอกสาร SOD-263035 ได้รับการอนุมัติแล้ว 74,883.75 ฿ Nothing to Invoice" [ref=e2012]':
+          - cell [ref=e2013]:
+            - checkbox [ref=e2015] [cursor=pointer]
+          - cell "SOD-263035" [ref=e2016] [cursor=pointer]
+          - cell "SOD-IV261777" [ref=e2017] [cursor=pointer]
+          - cell "03/28/2026 09:58:24" [ref=e2018] [cursor=pointer]
+          - cell "บริษัท คลังยาบางปะกอก จำกัด" [ref=e2019] [cursor=pointer]
+          - cell "ขายจากบริษัท" [ref=e2020] [cursor=pointer]:
+            - generic [ref=e2022]:
+              - img [ref=e2024]
+              - generic [ref=e2025]: ขายจากบริษัท
+          - 'cell "รับทราบ: เอกสาร SOD-263035 ได้รับการอนุมัติแล้ว" [ref=e2026] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263035 ได้รับการอนุมัติแล้ว" [ref=e2028]':
+              - img [ref=e2029]: 
+              - text: "รับทราบ: เอกสาร SOD-263035 ได้รับการอนุมัติแล้ว"
+          - cell "74,883.75 ฿" [ref=e2030] [cursor=pointer]:
+            - generic [ref=e2031]: 74,883.75 ฿
+          - cell "Nothing to Invoice" [ref=e2032] [cursor=pointer]:
+            - generic [ref=e2034]: Nothing to Invoice
+          - cell [ref=e2035]
+        - 'row "SOB-263059 SOB-260736 03/28/2026 09:58:23 โชคอุดม ขายจากบริษัท รับทราบ: เอกสาร SOB-263059 ได้รับการอนุมัติแล้ว 6,270.00 ฿ Nothing to Invoice" [ref=e2036]':
+          - cell [ref=e2037]:
+            - checkbox [ref=e2039] [cursor=pointer]
+          - cell "SOB-263059" [ref=e2040] [cursor=pointer]
+          - cell "SOB-260736" [ref=e2041] [cursor=pointer]
+          - cell "03/28/2026 09:58:23" [ref=e2042] [cursor=pointer]
+          - cell "โชคอุดม" [ref=e2043] [cursor=pointer]
+          - cell "ขายจากบริษัท" [ref=e2044] [cursor=pointer]:
+            - generic [ref=e2046]:
+              - img [ref=e2048]
+              - generic [ref=e2049]: ขายจากบริษัท
+          - 'cell "รับทราบ: เอกสาร SOB-263059 ได้รับการอนุมัติแล้ว" [ref=e2050] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263059 ได้รับการอนุมัติแล้ว" [ref=e2052]':
+              - img [ref=e2053]: 
+              - text: "รับทราบ: เอกสาร SOB-263059 ได้รับการอนุมัติแล้ว"
+          - cell "6,270.00 ฿" [ref=e2054] [cursor=pointer]:
+            - generic [ref=e2055]: 6,270.00 ฿
+          - cell "Nothing to Invoice" [ref=e2056] [cursor=pointer]:
+            - generic [ref=e2058]: Nothing to Invoice
+          - cell [ref=e2059]
+        - 'row "SOD-263034 SOD-IV261778 03/28/2026 09:58:22 บริษัท ซิตี้มอลล์ กรุ๊ป จำกัด เกษม แซ่จอง รับทราบ: เอกสาร SOD-263034 ได้รับการอนุมัติแล้ว 1,985.71 ฿ To Invoice" [ref=e2060]':
+          - cell [ref=e2061]:
+            - checkbox [ref=e2063] [cursor=pointer]
+          - cell "SOD-263034" [ref=e2064] [cursor=pointer]
+          - cell "SOD-IV261778" [ref=e2065] [cursor=pointer]
+          - cell "03/28/2026 09:58:22" [ref=e2066] [cursor=pointer]
+          - cell "บริษัท ซิตี้มอลล์ กรุ๊ป จำกัด" [ref=e2067] [cursor=pointer]
+          - cell "เกษม แซ่จอง" [ref=e2068] [cursor=pointer]:
+            - generic [ref=e2070]:
+              - img [ref=e2072]
+              - generic [ref=e2073]: เกษม แซ่จอง
+          - 'cell "รับทราบ: เอกสาร SOD-263034 ได้รับการอนุมัติแล้ว" [ref=e2074] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263034 ได้รับการอนุมัติแล้ว" [ref=e2076]':
+              - img [ref=e2077]: 
+              - text: "รับทราบ: เอกสาร SOD-263034 ได้รับการอนุมัติแล้ว"
+          - cell "1,985.71 ฿" [ref=e2078] [cursor=pointer]:
+            - generic [ref=e2079]: 1,985.71 ฿
+          - cell "To Invoice" [ref=e2080] [cursor=pointer]:
+            - generic [ref=e2082]: To Invoice
+          - cell [ref=e2083]
+        - 'row "SOD-263033 SOD-IV261767 03/28/2026 09:58:21 บริษัท เอ็กเซล เอ็กซ์ปอร์ต จำกัด ขายจากบริษัท รับทราบ: เอกสาร SOD-263033 ได้รับการอนุมัติแล้ว 70,625.00 ฿ To Invoice" [ref=e2084]':
+          - cell [ref=e2085]:
+            - checkbox [ref=e2087] [cursor=pointer]
+          - cell "SOD-263033" [ref=e2088] [cursor=pointer]
+          - cell "SOD-IV261767" [ref=e2089] [cursor=pointer]
+          - cell "03/28/2026 09:58:21" [ref=e2090] [cursor=pointer]
+          - cell "บริษัท เอ็กเซล เอ็กซ์ปอร์ต จำกัด" [ref=e2091] [cursor=pointer]
+          - cell "ขายจากบริษัท" [ref=e2092] [cursor=pointer]:
+            - generic [ref=e2094]:
+              - img [ref=e2096]
+              - generic [ref=e2097]: ขายจากบริษัท
+          - 'cell "รับทราบ: เอกสาร SOD-263033 ได้รับการอนุมัติแล้ว" [ref=e2098] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263033 ได้รับการอนุมัติแล้ว" [ref=e2100]':
+              - img [ref=e2101]: 
+              - text: "รับทราบ: เอกสาร SOD-263033 ได้รับการอนุมัติแล้ว"
+          - cell "70,625.00 ฿" [ref=e2102] [cursor=pointer]:
+            - generic [ref=e2103]: 70,625.00 ฿
+          - cell "To Invoice" [ref=e2104] [cursor=pointer]:
+            - generic [ref=e2106]: To Invoice
+          - cell [ref=e2107]
+        - 'row "SOD-263032 03/27/2026 15:56:39 บริษัท สมนึกฟาร์มาซี จำกัด เชิดชัย รับทราบ: เอกสาร SOD-263032 ได้รับการอนุมัติแล้ว 14,867.50 ฿ Nothing to Invoice" [ref=e2108]':
+          - cell [ref=e2109]:
+            - checkbox [ref=e2111] [cursor=pointer]
+          - cell "SOD-263032" [ref=e2112] [cursor=pointer]
+          - cell [ref=e2113] [cursor=pointer]
+          - cell "03/27/2026 15:56:39" [ref=e2114] [cursor=pointer]
+          - cell "บริษัท สมนึกฟาร์มาซี จำกัด" [ref=e2115] [cursor=pointer]
+          - cell "เชิดชัย" [ref=e2116] [cursor=pointer]:
+            - generic [ref=e2118]:
+              - img [ref=e2120]
+              - generic [ref=e2121]: เชิดชัย
+          - 'cell "รับทราบ: เอกสาร SOD-263032 ได้รับการอนุมัติแล้ว" [ref=e2122] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOD-263032 ได้รับการอนุมัติแล้ว" [ref=e2124]':
+              - img [ref=e2125]: 
+              - text: "รับทราบ: เอกสาร SOD-263032 ได้รับการอนุมัติแล้ว"
+          - cell "14,867.50 ฿" [ref=e2126] [cursor=pointer]:
+            - generic [ref=e2127]: 14,867.50 ฿
+          - cell "Nothing to Invoice" [ref=e2128] [cursor=pointer]:
+            - generic [ref=e2130]: Nothing to Invoice
+          - cell [ref=e2131]
+        - 'row "SOB-263058 03/27/2026 15:55:41 ร้านอ๊อด มนัส พรมมา รับทราบ: เอกสาร SOB-263058 ได้รับการอนุมัติแล้ว 180.00 ฿ Fully Invoiced" [ref=e2132]':
+          - cell [ref=e2133]:
+            - checkbox [ref=e2135] [cursor=pointer]
+          - cell "SOB-263058" [ref=e2136] [cursor=pointer]
+          - cell [ref=e2137] [cursor=pointer]
+          - cell "03/27/2026 15:55:41" [ref=e2138] [cursor=pointer]
+          - cell "ร้านอ๊อด" [ref=e2139] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2140] [cursor=pointer]:
+            - generic [ref=e2142]:
+              - img [ref=e2144]
+              - generic [ref=e2145]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263058 ได้รับการอนุมัติแล้ว" [ref=e2146] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263058 ได้รับการอนุมัติแล้ว" [ref=e2148]':
+              - img [ref=e2149]: 
+              - text: "รับทราบ: เอกสาร SOB-263058 ได้รับการอนุมัติแล้ว"
+          - cell "180.00 ฿" [ref=e2150] [cursor=pointer]:
+            - generic [ref=e2151]: 180.00 ฿
+          - cell "Fully Invoiced" [ref=e2152] [cursor=pointer]:
+            - generic [ref=e2154]: Fully Invoiced
+          - cell [ref=e2155]
+        - 'row "SOB-263057 03/27/2026 15:53:57 บริษัท สมชัย ซุปเปอร์มาร์เก็ด จำกัด มนัส พรมมา รับทราบ: เอกสาร SOB-263057 ได้รับการอนุมัติแล้ว 857.00 ฿ To Invoice" [ref=e2156]':
+          - cell [ref=e2157]:
+            - checkbox [ref=e2159] [cursor=pointer]
+          - cell "SOB-263057" [ref=e2160] [cursor=pointer]
+          - cell [ref=e2161] [cursor=pointer]
+          - cell "03/27/2026 15:53:57" [ref=e2162] [cursor=pointer]
+          - cell "บริษัท สมชัย ซุปเปอร์มาร์เก็ด จำกัด" [ref=e2163] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2164] [cursor=pointer]:
+            - generic [ref=e2166]:
+              - img [ref=e2168]
+              - generic [ref=e2169]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263057 ได้รับการอนุมัติแล้ว" [ref=e2170] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263057 ได้รับการอนุมัติแล้ว" [ref=e2172]':
+              - img [ref=e2173]: 
+              - text: "รับทราบ: เอกสาร SOB-263057 ได้รับการอนุมัติแล้ว"
+          - cell "857.00 ฿" [ref=e2174] [cursor=pointer]:
+            - generic [ref=e2175]: 857.00 ฿
+          - cell "To Invoice" [ref=e2176] [cursor=pointer]:
+            - generic [ref=e2178]: To Invoice
+          - cell [ref=e2179]
+        - 'row "SOB-263056 03/27/2026 15:52:43 ร้านธนญง มนัส พรมมา รับทราบ: เอกสาร SOB-263056 ได้รับการอนุมัติแล้ว 857.00 ฿ Fully Invoiced" [ref=e2180]':
+          - cell [ref=e2181]:
+            - checkbox [ref=e2183] [cursor=pointer]
+          - cell "SOB-263056" [ref=e2184] [cursor=pointer]
+          - cell [ref=e2185] [cursor=pointer]
+          - cell "03/27/2026 15:52:43" [ref=e2186] [cursor=pointer]
+          - cell "ร้านธนญง" [ref=e2187] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2188] [cursor=pointer]:
+            - generic [ref=e2190]:
+              - img [ref=e2192]
+              - generic [ref=e2193]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263056 ได้รับการอนุมัติแล้ว" [ref=e2194] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263056 ได้รับการอนุมัติแล้ว" [ref=e2196]':
+              - img [ref=e2197]: 
+              - text: "รับทราบ: เอกสาร SOB-263056 ได้รับการอนุมัติแล้ว"
+          - cell "857.00 ฿" [ref=e2198] [cursor=pointer]:
+            - generic [ref=e2199]: 857.00 ฿
+          - cell "Fully Invoiced" [ref=e2200] [cursor=pointer]:
+            - generic [ref=e2202]: Fully Invoiced
+          - cell [ref=e2203]
+        - 'row "SOB-263055 03/27/2026 15:51:20 ร้าน 20 บาท มนัส พรมมา รับทราบ: เอกสาร SOB-263055 ได้รับการอนุมัติแล้ว 857.00 ฿ Fully Invoiced" [ref=e2204]':
+          - cell [ref=e2205]:
+            - checkbox [ref=e2207] [cursor=pointer]
+          - cell "SOB-263055" [ref=e2208] [cursor=pointer]
+          - cell [ref=e2209] [cursor=pointer]
+          - cell "03/27/2026 15:51:20" [ref=e2210] [cursor=pointer]
+          - cell "ร้าน 20 บาท" [ref=e2211] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2212] [cursor=pointer]:
+            - generic [ref=e2214]:
+              - img [ref=e2216]
+              - generic [ref=e2217]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263055 ได้รับการอนุมัติแล้ว" [ref=e2218] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263055 ได้รับการอนุมัติแล้ว" [ref=e2220]':
+              - img [ref=e2221]: 
+              - text: "รับทราบ: เอกสาร SOB-263055 ได้รับการอนุมัติแล้ว"
+          - cell "857.00 ฿" [ref=e2222] [cursor=pointer]:
+            - generic [ref=e2223]: 857.00 ฿
+          - cell "Fully Invoiced" [ref=e2224] [cursor=pointer]:
+            - generic [ref=e2226]: Fully Invoiced
+          - cell [ref=e2227]
+        - 'row "SOB-263054 03/27/2026 15:49:26 ร้านบุญทำ มนัส พรมมา รับทราบ: เอกสาร SOB-263054 ได้รับการอนุมัติแล้ว 360.00 ฿ Fully Invoiced" [ref=e2228]':
+          - cell [ref=e2229]:
+            - checkbox [ref=e2231] [cursor=pointer]
+          - cell "SOB-263054" [ref=e2232] [cursor=pointer]
+          - cell [ref=e2233] [cursor=pointer]
+          - cell "03/27/2026 15:49:26" [ref=e2234] [cursor=pointer]
+          - cell "ร้านบุญทำ" [ref=e2235] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2236] [cursor=pointer]:
+            - generic [ref=e2238]:
+              - img [ref=e2240]
+              - generic [ref=e2241]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263054 ได้รับการอนุมัติแล้ว" [ref=e2242] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263054 ได้รับการอนุมัติแล้ว" [ref=e2244]':
+              - img [ref=e2245]: 
+              - text: "รับทราบ: เอกสาร SOB-263054 ได้รับการอนุมัติแล้ว"
+          - cell "360.00 ฿" [ref=e2246] [cursor=pointer]:
+            - generic [ref=e2247]: 360.00 ฿
+          - cell "Fully Invoiced" [ref=e2248] [cursor=pointer]:
+            - generic [ref=e2250]: Fully Invoiced
+          - cell [ref=e2251]
+        - 'row "SOB-263053 03/27/2026 15:47:59 สหวัฒนาพาณิชย์ มนัส พรมมา รับทราบ: เอกสาร SOB-263053 ได้รับการอนุมัติแล้ว 1,714.00 ฿ Fully Invoiced" [ref=e2252]':
+          - cell [ref=e2253]:
+            - checkbox [ref=e2255] [cursor=pointer]
+          - cell "SOB-263053" [ref=e2256] [cursor=pointer]
+          - cell [ref=e2257] [cursor=pointer]
+          - cell "03/27/2026 15:47:59" [ref=e2258] [cursor=pointer]
+          - cell "สหวัฒนาพาณิชย์" [ref=e2259] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2260] [cursor=pointer]:
+            - generic [ref=e2262]:
+              - img [ref=e2264]
+              - generic [ref=e2265]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263053 ได้รับการอนุมัติแล้ว" [ref=e2266] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263053 ได้รับการอนุมัติแล้ว" [ref=e2268]':
+              - img [ref=e2269]: 
+              - text: "รับทราบ: เอกสาร SOB-263053 ได้รับการอนุมัติแล้ว"
+          - cell "1,714.00 ฿" [ref=e2270] [cursor=pointer]:
+            - generic [ref=e2271]: 1,714.00 ฿
+          - cell "Fully Invoiced" [ref=e2272] [cursor=pointer]:
+            - generic [ref=e2274]: Fully Invoiced
+          - cell [ref=e2275]
+        - 'row "SOB-263052 03/27/2026 15:47:02 ร้านการ์ตูน มนัส พรมมา รับทราบ: เอกสาร SOB-263052 ได้รับการอนุมัติแล้ว 180.00 ฿ Fully Invoiced" [ref=e2276]':
+          - cell [ref=e2277]:
+            - checkbox [ref=e2279] [cursor=pointer]
+          - cell "SOB-263052" [ref=e2280] [cursor=pointer]
+          - cell [ref=e2281] [cursor=pointer]
+          - cell "03/27/2026 15:47:02" [ref=e2282] [cursor=pointer]
+          - cell "ร้านการ์ตูน" [ref=e2283] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2284] [cursor=pointer]:
+            - generic [ref=e2286]:
+              - img [ref=e2288]
+              - generic [ref=e2289]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263052 ได้รับการอนุมัติแล้ว" [ref=e2290] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263052 ได้รับการอนุมัติแล้ว" [ref=e2292]':
+              - img [ref=e2293]: 
+              - text: "รับทราบ: เอกสาร SOB-263052 ได้รับการอนุมัติแล้ว"
+          - cell "180.00 ฿" [ref=e2294] [cursor=pointer]:
+            - generic [ref=e2295]: 180.00 ฿
+          - cell "Fully Invoiced" [ref=e2296] [cursor=pointer]:
+            - generic [ref=e2298]: Fully Invoiced
+          - cell [ref=e2299]
+        - 'row "SOB-263051 03/27/2026 15:45:29 ท้ายซอย มนัส พรมมา รับทราบ: เอกสาร SOB-263051 ได้รับการอนุมัติแล้ว 360.00 ฿ Fully Invoiced" [ref=e2300]':
+          - cell [ref=e2301]:
+            - checkbox [ref=e2303] [cursor=pointer]
+          - cell "SOB-263051" [ref=e2304] [cursor=pointer]
+          - cell [ref=e2305] [cursor=pointer]
+          - cell "03/27/2026 15:45:29" [ref=e2306] [cursor=pointer]
+          - cell "ท้ายซอย" [ref=e2307] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2308] [cursor=pointer]:
+            - generic [ref=e2310]:
+              - img [ref=e2312]
+              - generic [ref=e2313]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263051 ได้รับการอนุมัติแล้ว" [ref=e2314] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263051 ได้รับการอนุมัติแล้ว" [ref=e2316]':
+              - img [ref=e2317]: 
+              - text: "รับทราบ: เอกสาร SOB-263051 ได้รับการอนุมัติแล้ว"
+          - cell "360.00 ฿" [ref=e2318] [cursor=pointer]:
+            - generic [ref=e2319]: 360.00 ฿
+          - cell "Fully Invoiced" [ref=e2320] [cursor=pointer]:
+            - generic [ref=e2322]: Fully Invoiced
+          - cell [ref=e2323]
+        - 'row "SOB-263050 03/27/2026 15:44:14 ร้านโอภาศ มนัส พรมมา รับทราบ: เอกสาร SOB-263050 ได้รับการอนุมัติแล้ว 857.00 ฿ Fully Invoiced" [ref=e2324]':
+          - cell [ref=e2325]:
+            - checkbox [ref=e2327] [cursor=pointer]
+          - cell "SOB-263050" [ref=e2328] [cursor=pointer]
+          - cell [ref=e2329] [cursor=pointer]
+          - cell "03/27/2026 15:44:14" [ref=e2330] [cursor=pointer]
+          - cell "ร้านโอภาศ" [ref=e2331] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2332] [cursor=pointer]:
+            - generic [ref=e2334]:
+              - img [ref=e2336]
+              - generic [ref=e2337]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263050 ได้รับการอนุมัติแล้ว" [ref=e2338] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263050 ได้รับการอนุมัติแล้ว" [ref=e2340]':
+              - img [ref=e2341]: 
+              - text: "รับทราบ: เอกสาร SOB-263050 ได้รับการอนุมัติแล้ว"
+          - cell "857.00 ฿" [ref=e2342] [cursor=pointer]:
+            - generic [ref=e2343]: 857.00 ฿
+          - cell "Fully Invoiced" [ref=e2344] [cursor=pointer]:
+            - generic [ref=e2346]: Fully Invoiced
+          - cell [ref=e2347]
+        - 'row "SOB-263049 03/27/2026 15:42:42 นิตยา มนัส พรมมา รับทราบ: เอกสาร SOB-263049 ได้รับการอนุมัติแล้ว 180.00 ฿ Fully Invoiced" [ref=e2348]':
+          - cell [ref=e2349]:
+            - checkbox [ref=e2351] [cursor=pointer]
+          - cell "SOB-263049" [ref=e2352] [cursor=pointer]
+          - cell [ref=e2353] [cursor=pointer]
+          - cell "03/27/2026 15:42:42" [ref=e2354] [cursor=pointer]
+          - cell "นิตยา" [ref=e2355] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2356] [cursor=pointer]:
+            - generic [ref=e2358]:
+              - img [ref=e2360]
+              - generic [ref=e2361]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263049 ได้รับการอนุมัติแล้ว" [ref=e2362] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263049 ได้รับการอนุมัติแล้ว" [ref=e2364]':
+              - img [ref=e2365]: 
+              - text: "รับทราบ: เอกสาร SOB-263049 ได้รับการอนุมัติแล้ว"
+          - cell "180.00 ฿" [ref=e2366] [cursor=pointer]:
+            - generic [ref=e2367]: 180.00 ฿
+          - cell "Fully Invoiced" [ref=e2368] [cursor=pointer]:
+            - generic [ref=e2370]: Fully Invoiced
+          - cell [ref=e2371]
+        - 'row "SOB-263048 03/27/2026 15:41:00 ร้านพูลสุข มนัส พรมมา รับทราบ: เอกสาร SOB-263048 ได้รับการอนุมัติแล้ว 180.00 ฿ Fully Invoiced" [ref=e2372]':
+          - cell [ref=e2373]:
+            - checkbox [ref=e2375] [cursor=pointer]
+          - cell "SOB-263048" [ref=e2376] [cursor=pointer]
+          - cell [ref=e2377] [cursor=pointer]
+          - cell "03/27/2026 15:41:00" [ref=e2378] [cursor=pointer]
+          - cell "ร้านพูลสุข" [ref=e2379] [cursor=pointer]
+          - cell "มนัส พรมมา" [ref=e2380] [cursor=pointer]:
+            - generic [ref=e2382]:
+              - img [ref=e2384]
+              - generic [ref=e2385]: มนัส พรมมา
+          - 'cell "รับทราบ: เอกสาร SOB-263048 ได้รับการอนุมัติแล้ว" [ref=e2386] [cursor=pointer]':
+            - 'button "รับทราบ: เอกสาร SOB-263048 ได้รับการอนุมัติแล้ว" [ref=e2388]':
+              - img [ref=e2389]: 
+              - text: "รับทราบ: เอกสาร SOB-263048 ได้รับการอนุมัติแล้ว"
+          - cell "180.00 ฿" [ref=e2390] [cursor=pointer]:
+            - generic [ref=e2391]: 180.00 ฿
+          - cell "Fully Invoiced" [ref=e2392] [cursor=pointer]:
+            - generic [ref=e2394]: Fully Invoiced
+          - cell [ref=e2395]
+      - rowgroup [ref=e2396]:
+        - row "50,722,327.97 ฿" [ref=e2397]:
+          - cell [ref=e2398]
+          - cell [ref=e2399]
+          - cell [ref=e2400]
+          - cell [ref=e2401]
+          - cell [ref=e2402]
+          - cell [ref=e2403]
+          - cell [ref=e2404]
+          - cell "50,722,327.97 ฿" [ref=e2405]
+          - cell [ref=e2406]
+          - cell [ref=e2407]
+  - generic [ref=e2408]: Loading
