@@ -1,0 +1,145 @@
+{
+  "checks": {
+    "customer_cn": {
+      "payment_id": 3969,
+      "payment_name": "PAY02070",
+      "payment_state": "in_process",
+      "payment_amount": 75.0,
+      "same_side_credit_note_embedded": true,
+      "journal": "Cheque for Customer Invoices",
+      "payment_method_line": "Manual Payment (Cheque for Customer Invoices)",
+      "destination_account": "113000 ลูกหนี้การค้า",
+      "payment_move": false,
+      "payment_move_state": false,
+      "payment_move_ref": false,
+      "arap_lines": [],
+      "all_lines": [],
+      "documents": [
+        {
+          "id": 74084,
+          "name": "INV-D/2026/00015",
+          "move_type": "out_invoice",
+          "payment_state": "not_paid",
+          "amount_residual": 100.0,
+          "amount_residual_signed": 100.0,
+          "line_ids": [
+            {
+              "id": 222868,
+              "account": "113000 ลูกหนี้การค้า",
+              "account_type": "asset_receivable",
+              "balance": 100.0,
+              "amount_residual": 100.0,
+              "reconciled": false
+            }
+          ]
+        },
+        {
+          "id": 74085,
+          "name": "RINV-D/2026/00002",
+          "move_type": "out_refund",
+          "payment_state": "not_paid",
+          "amount_residual": 25.0,
+          "amount_residual_signed": -25.0,
+          "line_ids": [
+            {
+              "id": 222870,
+              "account": "113000 ลูกหนี้การค้า",
+              "account_type": "asset_receivable",
+              "balance": -25.0,
+              "amount_residual": -25.0,
+              "reconciled": false
+            }
+          ]
+        }
+      ]
+    },
+    "vendor_cn": {
+      "payment_id": 3970,
+      "payment_name": "PAY02071",
+      "payment_state": "in_process",
+      "payment_amount": 75.0,
+      "same_side_credit_note_embedded": true,
+      "journal": "Cheque for Customer Invoices",
+      "payment_method_line": "Manual Payment (Cheque for Customer Invoices)",
+      "destination_account": "210100 Account Payable",
+      "payment_move": false,
+      "payment_move_state": false,
+      "payment_move_ref": false,
+      "arap_lines": [],
+      "all_lines": [],
+      "documents": [
+        {
+          "id": 74086,
+          "name": "APD/2026/06/0011",
+          "move_type": "in_invoice",
+          "payment_state": "not_paid",
+          "amount_residual": 100.0,
+          "amount_residual_signed": -100.0,
+          "line_ids": [
+            {
+              "id": 222872,
+              "account": "210100 Account Payable",
+              "account_type": "liability_payable",
+              "balance": -100.0,
+              "amount_residual": -100.0,
+              "reconciled": false
+            }
+          ]
+        },
+        {
+          "id": 74087,
+          "name": "RAPD/2026/06/0008",
+          "move_type": "in_refund",
+          "payment_state": "not_paid",
+          "amount_residual": 25.0,
+          "amount_residual_signed": 25.0,
+          "line_ids": [
+            {
+              "id": 222874,
+              "account": "210100 Account Payable",
+              "account_type": "liability_payable",
+              "balance": 25.0,
+              "amount_residual": 25.0,
+              "reconciled": false
+            }
+          ]
+        }
+      ]
+    },
+    "normal_invoice": {
+      "payment_id": 3971,
+      "payment_name": "PAY02072",
+      "payment_state": "in_process",
+      "payment_amount": 80.0,
+      "same_side_credit_note_embedded": false,
+      "journal": "Cheque for Customer Invoices",
+      "payment_method_line": "Manual Payment (Cheque for Customer Invoices)",
+      "destination_account": "113000 ลูกหนี้การค้า",
+      "payment_move": false,
+      "payment_move_state": false,
+      "payment_move_ref": false,
+      "arap_lines": [],
+      "all_lines": [],
+      "documents": [
+        {
+          "id": 74088,
+          "name": "INV-D/2026/00016",
+          "move_type": "out_invoice",
+          "payment_state": "not_paid",
+          "amount_residual": 80.0,
+          "amount_residual_signed": 80.0,
+          "line_ids": [
+            {
+              "id": 222876,
+              "account": "113000 ลูกหนี้การค้า",
+              "account_type": "asset_receivable",
+              "balance": 80.0,
+              "amount_residual": 80.0,
+              "reconciled": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

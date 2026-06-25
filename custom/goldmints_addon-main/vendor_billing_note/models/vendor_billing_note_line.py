@@ -62,6 +62,16 @@ class VendorBillingNoteLine(models.Model):
     tax_ids = fields.Many2many(
         "account.tax", 
         string="Taxes")
+    
+    discount = fields.Float(
+        string="Discount (%)", 
+        digits="Discount", 
+        default=0.0
+    )
+    fixed_discount = fields.Float(
+        string="Fixed Discount", 
+        default=0.0
+    )
 
     currency_id = fields.Many2one(
         "res.currency",
@@ -77,11 +87,14 @@ class VendorBillingNoteLine(models.Model):
         store=True
     )
 
-    @api.depends("quantity", "price_unit", "tax_ids")
+    @api.depends("quantity", "price_unit", "tax_ids", "discount", "fixed_discount")
     def _compute_subtotal(self):
         for line in self:
+            # The discount field already contains the correct percentage (even for fixed_discount)
+            price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
+
             taxes = line.tax_ids.compute_all(
-                line.price_unit,
+                price,
                 line.currency_id,
                 line.quantity,
                 product=line.product_id,
@@ -99,7 +112,7 @@ class VendorBillingNoteLine(models.Model):
                     lambda l: l.billing_note_id.state != 'cancel'
                 )
                 total_billed = sum(valid_lines.mapped('quantity'))
-                total_received = line.purchase_line_id.qty_received
+                total_received = line.purchase_line_id._get_billing_note_qty_basis()
 
                 # 2. ใช้ float_compare ป้องกันปัญหาการเปรียบเทียบจุดทศนิยมของ Python
                 # ถ้า total_billed > total_received จะทำการแจ้ง Error
@@ -110,7 +123,7 @@ class VendorBillingNoteLine(models.Model):
                           "รับจริง: %.2f\n"
                           "พยายามวางบิลรวม: %.2f") % (
                             line.product_id.display_name, 
-                            total_received, 
+                            total_received,
                             total_billed
                         )
                     )

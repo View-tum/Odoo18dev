@@ -1,0 +1,541 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 126" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "126"
+        - button "Activities 47" [ref=e640] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "47"
+        - button "Toggle Studio" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e39]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - button "New" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Purchase Orders" [ref=e49] [cursor=pointer]:
+                - /url: /odoo/purchase-orders
+          - generic [ref=e50]:
+            - generic [ref=e52]: P01068
+            - button "" [ref=e56] [cursor=pointer]:
+              - generic [ref=e57]: 
+      - generic [ref=e60]:
+        - button "Price History" [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]: 
+          - generic [ref=e63]: Price History
+        - button " Budget" [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]: 
+          - generic [ref=e66]: Budget
+      - generic [ref=e67]:
+        - button "Search Knowledge Articles" [ref=e68] [cursor=pointer]:
+          - img [ref=e69]
+        - search [ref=e73]:
+          - navigation "Pager" [ref=e74]:
+            - generic [ref=e75]:
+              - generic [ref=e76]: "1"
+              - text: / 1
+            - generic [ref=e77]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - button "Send by Email" [ref=e83] [cursor=pointer]
+          - button "Print RFQ" [ref=e84] [cursor=pointer]
+          - button "Cancel" [ref=e85] [cursor=pointer]
+          - button " Confirm" [ref=e86] [cursor=pointer]:
+            - generic [ref=e87]: 
+            - text: Confirm
+        - radiogroup "Statusbar" [ref=e89]:
+          - radio "Purchase Order" [disabled]
+          - radio "To Approve LV2" [disabled]
+          - radio "To Approve23m" [disabled]
+          - radio "RFQ2m" [checked] [disabled]
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - text: Request for Quotation
+          - heading "Priority P01068" [level=1] [ref=e92]:
+            - radiogroup "Priority" [ref=e94]:
+              - radio "Urgent" [ref=e95] [cursor=pointer]: 
+            - generic [ref=e96]: P01068
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e101]:
+                - text: Vendor
+                - superscript [ref=e102]: "?"
+              - combobox "Vendor?" [ref=e108]: JW TECH CO.,LTD.
+            - generic [ref=e109]:
+              - generic [ref=e111]:
+                - text: Vendor Reference
+                - superscript [ref=e112]: "?"
+              - textbox "Vendor Reference?" [ref=e115]
+            - generic [ref=e117]:
+              - generic [ref=e119]: Apply Manual Exchange
+              - checkbox "Apply Manual Exchange" [ref=e123] [cursor=pointer]
+            - generic [ref=e124]:
+              - generic [ref=e126]: Agreement
+              - combobox "Agreement" [ref=e132]
+            - generic [ref=e133]:
+              - generic [ref=e135]: Currency
+              - combobox "Currency" [ref=e141]: THB
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - generic [ref=e145]:
+                - text: Order Deadline
+                - superscript [ref=e146]: "?"
+              - textbox "Order Deadline?" [ref=e150] [cursor=pointer]: 05/27/2026 08:24:32
+            - generic [ref=e151]:
+              - generic [ref=e153]:
+                - text: Expected Arrival
+                - superscript [ref=e154]: "?"
+              - generic [ref=e156]:
+                - textbox "Expected Arrival?" [ref=e159] [cursor=pointer]: 05/27/2026 08:24:32
+                - button "98 % On-Time Delivery" [ref=e161] [cursor=pointer]:
+                  - generic [ref=e162]:
+                    - generic [ref=e163]: "98"
+                    - text: "% On-Time Delivery"
+            - generic [ref=e164]:
+              - generic [ref=e166]:
+                - text: Deliver To
+                - superscript [ref=e167]: "?"
+              - combobox "Deliver To?" [ref=e173]: "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+            - generic [ref=e174]:
+              - generic [ref=e176]: Project
+              - combobox "Project" [ref=e182]
+        - generic [ref=e183]:
+          - list [ref=e185]:
+            - listitem [ref=e186] [cursor=pointer]:
+              - tab "Products" [ref=e187]
+            - listitem [ref=e188] [cursor=pointer]:
+              - tab "Other Information" [ref=e189]
+            - listitem [ref=e190] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e191]
+          - generic [ref=e193]:
+            - table [ref=e197]:
+              - rowgroup [ref=e198]:
+                - row "No.  Product  Quantity  UoM  Unit Price  Avg Price Disc.(AMT)  Disc.(%)  Taxes Amount  Apportioned Disc. " [ref=e199]:
+                  - columnheader [ref=e200] [cursor=pointer]
+                  - columnheader "No. " [ref=e201] [cursor=pointer]:
+                    - generic [ref=e202]:
+                      - generic [ref=e203]: No.
+                      - generic [ref=e204]: 
+                  - columnheader "Product " [ref=e206] [cursor=pointer]:
+                    - generic [ref=e207]:
+                      - generic [ref=e208]: Product
+                      - generic [ref=e209]: 
+                  - columnheader "Quantity " [ref=e211] [cursor=pointer]:
+                    - generic [ref=e212]:
+                      - generic [ref=e213]: Quantity
+                      - generic [ref=e214]: 
+                  - columnheader [ref=e216]
+                  - columnheader "UoM " [ref=e217] [cursor=pointer]:
+                    - generic [ref=e218]:
+                      - generic [ref=e219]: UoM
+                      - generic [ref=e220]: 
+                  - columnheader "Unit Price " [ref=e222] [cursor=pointer]:
+                    - generic [ref=e223]:
+                      - generic [ref=e224]: Unit Price
+                      - generic [ref=e225]: 
+                  - columnheader "Avg Price" [ref=e227]:
+                    - generic [ref=e228]:
+                      - generic [ref=e229]: Avg Price
+                      - text: 
+                  - columnheader "Disc.(AMT) " [ref=e231] [cursor=pointer]:
+                    - generic [ref=e232]:
+                      - generic [ref=e233]: Disc.(AMT)
+                      - generic [ref=e234]: 
+                  - columnheader "Disc.(%) " [ref=e236] [cursor=pointer]:
+                    - generic [ref=e237]:
+                      - generic [ref=e238]: Disc.(%)
+                      - generic [ref=e239]: 
+                  - columnheader [ref=e241]
+                  - columnheader "Taxes" [ref=e242]:
+                    - generic [ref=e243]:
+                      - generic [ref=e244]: Taxes
+                      - text: 
+                  - columnheader "Amount " [ref=e246] [cursor=pointer]:
+                    - generic [ref=e247]:
+                      - generic [ref=e248]: Amount
+                      - generic [ref=e249]: 
+                  - columnheader "Apportioned Disc." [ref=e251]:
+                    - generic [ref=e252]:
+                      - generic [ref=e253]: Apportioned Disc.
+                      - text: 
+                  - columnheader [ref=e255]
+                  - columnheader "" [ref=e256]:
+                    - button "" [ref=e258] [cursor=pointer]:
+                      - generic [ref=e259]: 
+              - rowgroup [ref=e260]:
+                - row " 1 Injection Machine test1 1.000  Unit 600,000.000 730,000.000 60,000.000 0.000  Input VAT 7% 540,000.000 ฿ 2,400.000 ฿ Delete row" [ref=e261]:
+                  - cell "" [ref=e262] [cursor=pointer]:
+                    - generic [ref=e264]: 
+                  - cell "1" [ref=e265] [cursor=pointer]
+                  - cell "Injection Machine test1" [ref=e266] [cursor=pointer]:
+                    - generic [ref=e268]:
+                      - generic [ref=e270]: Injection Machine
+                      - textbox [ref=e271]: test1
+                  - cell "1.000" [ref=e272] [cursor=pointer]
+                  - cell "" [ref=e273] [cursor=pointer]:
+                    - button "" [ref=e275]:
+                      - generic [ref=e276]: 
+                  - cell "Unit" [ref=e277] [cursor=pointer]
+                  - cell "600,000.000" [ref=e278] [cursor=pointer]
+                  - cell "730,000.000" [ref=e279] [cursor=pointer]
+                  - cell "60,000.000" [ref=e280] [cursor=pointer]
+                  - cell "0.000" [ref=e281] [cursor=pointer]
+                  - cell "" [ref=e282] [cursor=pointer]:
+                    - button "" [ref=e284]:
+                      - generic [ref=e285]: 
+                  - cell "Input VAT 7%" [ref=e286] [cursor=pointer]:
+                    - generic "Input VAT 7%" [ref=e289]:
+                      - generic [ref=e290]: Input VAT 7%
+                  - cell "540,000.000 ฿" [ref=e291] [cursor=pointer]
+                  - cell "2,400.000 ฿" [ref=e292] [cursor=pointer]
+                  - cell [ref=e293] [cursor=pointer]
+                  - cell "Delete row" [ref=e294]:
+                    - button "Delete row" [ref=e295] [cursor=pointer]: 
+                - row " 2 Injection Machine test2 1.000  Unit 400,000.000 730,000.000 40,000.000 0.000  Input VAT 7% 360,000.000 ฿ 1,600.000 ฿ Delete row" [ref=e296]:
+                  - cell "" [ref=e297] [cursor=pointer]:
+                    - generic [ref=e299]: 
+                  - cell "2" [ref=e300] [cursor=pointer]
+                  - cell "Injection Machine test2" [ref=e301] [cursor=pointer]:
+                    - generic [ref=e303]:
+                      - generic [ref=e305]: Injection Machine
+                      - textbox [ref=e306]: test2
+                  - cell "1.000" [ref=e307] [cursor=pointer]
+                  - cell "" [ref=e308] [cursor=pointer]:
+                    - button "" [ref=e310]:
+                      - generic [ref=e311]: 
+                  - cell "Unit" [ref=e312] [cursor=pointer]
+                  - cell "400,000.000" [ref=e313] [cursor=pointer]
+                  - cell "730,000.000" [ref=e314] [cursor=pointer]
+                  - cell "40,000.000" [ref=e315] [cursor=pointer]
+                  - cell "0.000" [ref=e316] [cursor=pointer]
+                  - cell "" [ref=e317] [cursor=pointer]:
+                    - button "" [ref=e319]:
+                      - generic [ref=e320]: 
+                  - cell "Input VAT 7%" [ref=e321] [cursor=pointer]:
+                    - generic "Input VAT 7%" [ref=e324]:
+                      - generic [ref=e325]: Input VAT 7%
+                  - cell "360,000.000 ฿" [ref=e326] [cursor=pointer]
+                  - cell "1,600.000 ฿" [ref=e327] [cursor=pointer]
+                  - cell [ref=e328] [cursor=pointer]
+                  - cell "Delete row" [ref=e329]:
+                    - button "Delete row" [ref=e330] [cursor=pointer]: 
+                - row " 3 discount asset ในปท 1.000 Unit -4,000.000 -20,000.000 0.000 0.000  Input VAT 7% -4,000.000 ฿ 0.000 ฿ Delete row" [ref=e331]:
+                  - cell "" [ref=e332] [cursor=pointer]:
+                    - generic [ref=e334]: 
+                  - cell "3" [ref=e335] [cursor=pointer]
+                  - cell "discount asset ในปท" [ref=e336] [cursor=pointer]:
+                    - generic [ref=e340]: discount asset ในปท
+                  - cell "1.000" [ref=e341] [cursor=pointer]
+                  - cell [ref=e342] [cursor=pointer]
+                  - cell "Unit" [ref=e343] [cursor=pointer]
+                  - cell "-4,000.000" [ref=e344] [cursor=pointer]
+                  - cell "-20,000.000" [ref=e345] [cursor=pointer]
+                  - cell "0.000" [ref=e346] [cursor=pointer]
+                  - cell "0.000" [ref=e347] [cursor=pointer]
+                  - cell "" [ref=e348] [cursor=pointer]:
+                    - button "" [ref=e350]:
+                      - generic [ref=e351]: 
+                  - cell "Input VAT 7%" [ref=e352] [cursor=pointer]:
+                    - generic "Input VAT 7%" [ref=e355]:
+                      - generic [ref=e356]: Input VAT 7%
+                  - cell "-4,000.000 ฿" [ref=e357] [cursor=pointer]
+                  - cell "0.000 ฿" [ref=e358] [cursor=pointer]
+                  - cell [ref=e359] [cursor=pointer]
+                  - cell "Delete row" [ref=e360]:
+                    - button "Delete row" [ref=e361] [cursor=pointer]: 
+                - row "Add a productAdd a sectionAdd a note Catalog" [ref=e362]:
+                  - cell [ref=e363]
+                  - cell "Add a productAdd a sectionAdd a note Catalog" [ref=e364]:
+                    - button "Add a product" [ref=e365] [cursor=pointer]
+                    - button "Add a section" [ref=e366] [cursor=pointer]
+                    - button "Add a note" [ref=e367] [cursor=pointer]
+                    - button "Catalog" [ref=e368] [cursor=pointer]
+              - rowgroup [ref=e369]:
+                - row [ref=e370]:
+                  - cell [ref=e371]
+                  - cell [ref=e372]
+                  - cell [ref=e373]
+                  - cell [ref=e374]
+                  - cell [ref=e375]
+                  - cell [ref=e376]
+                  - cell [ref=e377]
+                  - cell [ref=e378]
+                  - cell [ref=e379]
+                  - cell [ref=e380]
+                  - cell [ref=e381]
+                  - cell [ref=e382]
+                  - cell [ref=e383]
+                  - cell [ref=e384]
+                  - cell [ref=e385]
+                  - cell [ref=e386]
+            - generic [ref=e387]:
+              - generic [ref=e393]:
+                - generic:
+                  - generic:        
+                - generic [ref=e396]:
+                  - text: Define your terms and conditions ...
+                  - text: Define your terms and conditions ...
+              - table [ref=e401]:
+                - rowgroup [ref=e402]:
+                  - 'row "Untaxed Amount: 896,000.000 ฿" [ref=e403]':
+                    - cell "Untaxed Amount:" [ref=e404]:
+                      - generic [ref=e405]: "Untaxed Amount:"
+                    - cell "896,000.000 ฿" [ref=e406]
+                  - 'row "VAT 7%: 62,720.000 ฿" [ref=e407]':
+                    - cell "VAT 7%:" [ref=e408]:
+                      - generic [ref=e409]: "VAT 7%:"
+                    - cell "62,720.000 ฿" [ref=e410]:
+                      - generic [ref=e411]: 62,720.000 ฿
+                  - 'row "Total: 958,720.000 ฿" [ref=e412]':
+                    - cell "Total:" [ref=e413]:
+                      - generic [ref=e414]: "Total:"
+                    - cell "958,720.000 ฿" [ref=e415]
+      - generic [ref=e417]:
+        - generic [ref=e419]:
+          - button "Send message" [ref=e420] [cursor=pointer]
+          - button "Log note" [ref=e421] [cursor=pointer]
+          - button "Activities" [ref=e422] [cursor=pointer]
+          - button "Search Messages" [ref=e424] [cursor=pointer]:
+            - img [ref=e425]: 
+          - button "Attach files" [ref=e427] [cursor=pointer]:
+            - generic [ref=e428]: 
+          - button "63" [ref=e430] [cursor=pointer]:
+            - img [ref=e431]: 
+            - superscript: "63"
+          - button "Following" [ref=e432] [cursor=pointer]:
+            - generic [ref=e434]: Following
+        - generic [ref=e436]:
+          - generic [ref=e437]:
+            - generic [ref=e642]:
+              - separator [ref=e643]
+              - generic [ref=e644]: Today
+              - separator [ref=e645]
+            - group "System notification" [ref=e646]:
+              - generic [ref=e647]:
+                - generic "Open card" [ref=e649] [cursor=pointer]:
+                  - img [ref=e650]
+                - generic [ref=e651]:
+                  - generic [ref=e652]:
+                    - generic "Open card" [ref=e653] [cursor=pointer]:
+                      - strong [ref=e654]: Administrator
+                    - generic "5/27/2026, 8:50:40 AM" [ref=e655]: Today at 8:50 AM
+                  - list [ref=e660]:
+                    - group [ref=e661]:
+                      - text: RFQ
+                      - generic [ref=e662]: 
+                      - text: To Approve
+                      - generic [ref=e663]: (Status)
+            - group "Note" [ref=e664]:
+              - generic [ref=e665]:
+                - generic "Open card" [ref=e667] [cursor=pointer]:
+                  - img [ref=e668]
+                - generic [ref=e669]:
+                  - generic [ref=e670]:
+                    - generic "Open card" [ref=e671] [cursor=pointer]:
+                      - strong [ref=e672]: Administrator
+                    - generic "5/27/2026, 8:50:40 AM" [ref=e673]: Today at 8:50 AM
+                  - generic [ref=e679]:
+                    - emphasis [ref=e680]: "Subject: Approval | Purchase Order | P01068"
+                    - generic [ref=e682]:
+                      - paragraph [ref=e683]: "> Dear Administrator,Boonnaree,I'am Mr. Q,WARANYA KNAPP CHARUYODHIN,ขายจากบริษัท,ชนะรบ,ณัฐพงศ์ บุญเพ็ญ,ณัทพงศ์ บุญเพชร,ที่ปรึกษา 1,ที่ปรึกษา 2,ที่ปรึกษา 3,ที่ปรึกษา 4,ที่ปรึกษา 5,ที่ปรึกษา 6,ธีรพล,ธีรยุทธ,นักวิทยาศาสตร์ 1,นักวิทยาศาสตร์ 2,นักวิทยาศาสตร์ 3,นัทพงษ์ ภูพันนา,บุญนารี ลาภบุญทรัพย์,ประธานบริษัท,ผู้จัดการบัญชีและการเงิน,ผู้ช่วย นักวิทยาศาสตร์,พชร,พนักงาน การเงิน,พนักงาน บัญชี 1,พนักงาน บัญชี 2,พนักงาน บัญชี 3,พนักงาน บัญชี 4,พนักงานQC 1,พนักงานQC 2,พนักงานคลัง และขนส่ง,พนักงานช่างซ่อมบำรุง 1,พนักงานช่างซ่อมบำรุง 2,พนักงานธุรการ โรงงานยา,พนักงานธุรการทั่วไป,พนักงานธุรการและบุคคล 1,พนักงานธุรการและบุคคล 2,พนักงานฝ่ายผลิต 1,พนักงานฝ่ายผลิต 2,พนักงานฝ่ายผลิต 3,พนักงานฝ่ายผลิต 4,พนักงานฝ่ายผลิต 5,พนักงานฝ่ายผลิต 6,พนักงานฝ่ายผลิต 7,ภามิน สงวนทรัพย์,มนัส พรมมา,มารยาท แจ่มเสียง,รองหัวหน้า พลาสติก,รองหัวหน้างาน พิมเสน,รองหัวหน้าปฎิบัติงานแผนกประกอบ,รองหัวหน้าปฎิบัติงานแผนกห้องพิมพ์,สมเกียรติ วรรณปะเข,สุวนันท์ เข็มเพชร,หัวหน้า พลาสติก,หัวหน้างาน ยาใน,หัวหน้างานซ่อมบำรุง,หัวหน้าฝ่ายคลัง &ขนส่ง,หัวหน้าห้องพิมพ์,หัวหน้าแผนกบุคคล,เชิดชัย,ไพบูลย์ ,"
+                      - paragraph [ref=e684]: Document is Waiting For Your Approval
+                      - paragraph [ref=e685]:
+                        - text: Purchase Order | P01068
+                        - text: To Approve
+                      - paragraph [ref=e686]: "Requester: Administrator"
+                      - link "View Document" [ref=e688] [cursor=pointer]:
+                        - /url: http://localhost:8811/odoo/purchase.order/1130
+                      - paragraph [ref=e689]: Best regards,
+            - group "System notification" [ref=e443]:
+              - generic [ref=e444]:
+                - generic "Open card" [ref=e446] [cursor=pointer]:
+                  - img [ref=e447]
+                - generic [ref=e448]:
+                  - generic [ref=e449]:
+                    - generic "Open card" [ref=e450] [cursor=pointer]:
+                      - strong [ref=e451]: OdooBot
+                    - generic "5/27/2026, 8:49:51 AM" [ref=e452]: Today at 8:49 AM
+                  - list [ref=e457]:
+                    - group [ref=e458]:
+                      - text: 892,000.00 ฿
+                      - generic [ref=e459]: 
+                      - text: 896,000.00 ฿
+                      - generic [ref=e460]: (Untaxed Amount)
+            - group "System notification" [ref=e461]:
+              - generic [ref=e462]:
+                - generic "Open card" [ref=e464] [cursor=pointer]:
+                  - img [ref=e465]
+                - generic [ref=e466]:
+                  - generic [ref=e467]:
+                    - generic "Open card" [ref=e468] [cursor=pointer]:
+                      - strong [ref=e469]: Administrator
+                    - generic "5/27/2026, 8:49:09 AM" [ref=e470]: Today at 8:49 AM
+                  - list [ref=e475]:
+                    - group [ref=e476]:
+                      - text: To Approve
+                      - generic [ref=e477]: 
+                      - text: RFQ
+                      - generic [ref=e478]: (Status)
+            - group "System notification" [ref=e479]:
+              - generic [ref=e480]:
+                - generic "Open card" [ref=e482] [cursor=pointer]:
+                  - img [ref=e483]
+                - generic [ref=e484]:
+                  - generic [ref=e485]:
+                    - generic "Open card" [ref=e486] [cursor=pointer]:
+                      - strong [ref=e487]: Administrator
+                    - generic "5/27/2026, 8:26:06 AM" [ref=e488]: Today at 8:26 AM
+                  - list [ref=e493]:
+                    - group [ref=e494]:
+                      - text: RFQ
+                      - generic [ref=e495]: 
+                      - text: To Approve
+                      - generic [ref=e496]: (Status)
+            - group "Note" [ref=e497]:
+              - generic [ref=e498]:
+                - generic "Open card" [ref=e500] [cursor=pointer]:
+                  - img [ref=e501]
+                - generic [ref=e502]:
+                  - generic [ref=e503]:
+                    - generic "Open card" [ref=e504] [cursor=pointer]:
+                      - strong [ref=e505]: Administrator
+                    - generic "5/27/2026, 8:26:06 AM" [ref=e506]: Today at 8:26 AM
+                  - generic [ref=e512]:
+                    - emphasis [ref=e513]: "Subject: Approval | Purchase Order | P01068"
+                    - generic [ref=e515]:
+                      - paragraph [ref=e516]: "> Dear Administrator,Boonnaree,I'am Mr. Q,WARANYA KNAPP CHARUYODHIN,ขายจากบริษัท,ชนะรบ,ณัฐพงศ์ บุญเพ็ญ,ณัทพงศ์ บุญเพชร,ที่ปรึกษา 1,ที่ปรึกษา 2,ที่ปรึกษา 3,ที่ปรึกษา 4,ที่ปรึกษา 5,ที่ปรึกษา 6,ธีรพล,ธีรยุทธ,นักวิทยาศาสตร์ 1,นักวิทยาศาสตร์ 2,นักวิทยาศาสตร์ 3,นัทพงษ์ ภูพันนา,บุญนารี ลาภบุญทรัพย์,ประธานบริษัท,ผู้จัดการบัญชีและการเงิน,ผู้ช่วย นักวิทยาศาสตร์,พชร,พนักงาน การเงิน,พนักงาน บัญชี 1,พนักงาน บัญชี 2,พนักงาน บัญชี 3,พนักงาน บัญชี 4,พนักงานQC 1,พนักงานQC 2,พนักงานคลัง และขนส่ง,พนักงานช่างซ่อมบำรุง 1,พนักงานช่างซ่อมบำรุง 2,พนักงานธุรการ โรงงานยา,พนักงานธุรการทั่วไป,พนักงานธุรการและบุคคล 1,พนักงานธุรการและบุคคล 2,พนักงานฝ่ายผลิต 1,พนักงานฝ่ายผลิต 2,พนักงานฝ่ายผลิต 3,พนักงานฝ่ายผลิต 4,พนักงานฝ่ายผลิต 5,พนักงานฝ่ายผลิต 6,พนักงานฝ่ายผลิต 7,ภามิน สงวนทรัพย์,มนัส พรมมา,มารยาท แจ่มเสียง,รองหัวหน้า พลาสติก,รองหัวหน้างาน พิมเสน,รองหัวหน้าปฎิบัติงานแผนกประกอบ,รองหัวหน้าปฎิบัติงานแผนกห้องพิมพ์,สมเกียรติ วรรณปะเข,สุวนันท์ เข็มเพชร,หัวหน้า พลาสติก,หัวหน้างาน ยาใน,หัวหน้างานซ่อมบำรุง,หัวหน้าฝ่ายคลัง &ขนส่ง,หัวหน้าห้องพิมพ์,หัวหน้าแผนกบุคคล,เชิดชัย,ไพบูลย์ ,"
+                      - paragraph [ref=e517]: Document is Waiting For Your Approval
+                      - paragraph [ref=e518]:
+                        - text: Purchase Order | P01068
+                        - text: To Approve
+                      - paragraph [ref=e519]: "Requester: Administrator"
+                      - link "View Document" [ref=e521] [cursor=pointer]:
+                        - /url: http://localhost:8811/odoo/purchase.order/1130
+                      - paragraph [ref=e522]: Best regards,
+            - group "System notification" [ref=e523]:
+              - generic [ref=e524]:
+                - generic "Open card" [ref=e526] [cursor=pointer]:
+                  - img [ref=e527]
+                - generic [ref=e528]:
+                  - generic [ref=e529]:
+                    - generic "Open card" [ref=e530] [cursor=pointer]:
+                      - strong [ref=e531]: Administrator
+                    - generic "5/27/2026, 8:26:04 AM" [ref=e532]: Today at 8:26 AM
+                  - list [ref=e537]:
+                    - group [ref=e538]:
+                      - text: 896,000.00 ฿
+                      - generic [ref=e539]: 
+                      - text: 892,000.00 ฿
+                      - generic [ref=e540]: (Untaxed Amount)
+            - group "System notification" [ref=e541]:
+              - generic [ref=e542]:
+                - generic "Open card" [ref=e544] [cursor=pointer]:
+                  - img [ref=e545]
+                - generic [ref=e546]:
+                  - generic [ref=e547]:
+                    - generic "Open card" [ref=e548] [cursor=pointer]:
+                      - strong [ref=e549]: Administrator
+                    - generic "5/27/2026, 8:25:00 AM" [ref=e550]: Today at 8:25 AM
+                  - list [ref=e555]:
+                    - group [ref=e556]:
+                      - text: To Approve
+                      - generic [ref=e557]: 
+                      - text: RFQ
+                      - generic [ref=e558]: (Status)
+            - group "System notification" [ref=e559]:
+              - generic [ref=e560]:
+                - generic "Open card" [ref=e562] [cursor=pointer]:
+                  - img [ref=e563]
+                - generic [ref=e564]:
+                  - generic [ref=e565]:
+                    - generic "Open card" [ref=e566] [cursor=pointer]:
+                      - strong [ref=e567]: Administrator
+                    - generic "5/27/2026, 8:24:55 AM" [ref=e568]: Today at 8:24 AM
+                  - list [ref=e573]:
+                    - group [ref=e574]:
+                      - text: RFQ
+                      - generic [ref=e575]: 
+                      - text: To Approve
+                      - generic [ref=e576]: (Status)
+            - group "Note" [ref=e577]:
+              - generic [ref=e578]:
+                - generic "Open card" [ref=e580] [cursor=pointer]:
+                  - img [ref=e581]
+                - generic [ref=e582]:
+                  - generic [ref=e583]:
+                    - generic "Open card" [ref=e584] [cursor=pointer]:
+                      - strong [ref=e585]: Administrator
+                    - generic "5/27/2026, 8:24:55 AM" [ref=e586]: Today at 8:24 AM
+                  - generic [ref=e592]:
+                    - emphasis [ref=e593]: "Subject: Approval | Purchase Order | P01068"
+                    - generic [ref=e595]:
+                      - paragraph [ref=e596]: "> Dear Administrator,Boonnaree,I'am Mr. Q,WARANYA KNAPP CHARUYODHIN,ขายจากบริษัท,ชนะรบ,ณัฐพงศ์ บุญเพ็ญ,ณัทพงศ์ บุญเพชร,ที่ปรึกษา 1,ที่ปรึกษา 2,ที่ปรึกษา 3,ที่ปรึกษา 4,ที่ปรึกษา 5,ที่ปรึกษา 6,ธีรพล,ธีรยุทธ,นักวิทยาศาสตร์ 1,นักวิทยาศาสตร์ 2,นักวิทยาศาสตร์ 3,นัทพงษ์ ภูพันนา,บุญนารี ลาภบุญทรัพย์,ประธานบริษัท,ผู้จัดการบัญชีและการเงิน,ผู้ช่วย นักวิทยาศาสตร์,พชร,พนักงาน การเงิน,พนักงาน บัญชี 1,พนักงาน บัญชี 2,พนักงาน บัญชี 3,พนักงาน บัญชี 4,พนักงานQC 1,พนักงานQC 2,พนักงานคลัง และขนส่ง,พนักงานช่างซ่อมบำรุง 1,พนักงานช่างซ่อมบำรุง 2,พนักงานธุรการ โรงงานยา,พนักงานธุรการทั่วไป,พนักงานธุรการและบุคคล 1,พนักงานธุรการและบุคคล 2,พนักงานฝ่ายผลิต 1,พนักงานฝ่ายผลิต 2,พนักงานฝ่ายผลิต 3,พนักงานฝ่ายผลิต 4,พนักงานฝ่ายผลิต 5,พนักงานฝ่ายผลิต 6,พนักงานฝ่ายผลิต 7,ภามิน สงวนทรัพย์,มนัส พรมมา,มารยาท แจ่มเสียง,รองหัวหน้า พลาสติก,รองหัวหน้างาน พิมเสน,รองหัวหน้าปฎิบัติงานแผนกประกอบ,รองหัวหน้าปฎิบัติงานแผนกห้องพิมพ์,สมเกียรติ วรรณปะเข,สุวนันท์ เข็มเพชร,หัวหน้า พลาสติก,หัวหน้างาน ยาใน,หัวหน้างานซ่อมบำรุง,หัวหน้าฝ่ายคลัง &ขนส่ง,หัวหน้าห้องพิมพ์,หัวหน้าแผนกบุคคล,เชิดชัย,ไพบูลย์ ,"
+                      - paragraph [ref=e597]: Document is Waiting For Your Approval
+                      - paragraph [ref=e598]:
+                        - text: Purchase Order | P01068
+                        - text: To Approve
+                      - paragraph [ref=e599]: "Requester: Administrator"
+                      - link "View Document" [ref=e601] [cursor=pointer]:
+                        - /url: http://localhost:8811/odoo/purchase.order/1130
+                      - paragraph [ref=e602]: Best regards,
+            - group "System notification" [ref=e603]:
+              - generic [ref=e604]:
+                - generic "Open card" [ref=e606] [cursor=pointer]:
+                  - img [ref=e607]
+                - generic [ref=e608]:
+                  - generic [ref=e609]:
+                    - generic "Open card" [ref=e610] [cursor=pointer]:
+                      - strong [ref=e611]: Administrator
+                    - generic "5/27/2026, 8:24:52 AM" [ref=e612]: Today at 8:24 AM
+                  - list [ref=e617]:
+                    - group [ref=e618]:
+                      - text: 900,000.00 ฿
+                      - generic [ref=e619]: 
+                      - text: 896,000.00 ฿
+                      - generic [ref=e620]: (Untaxed Amount)
+            - group "System notification" [ref=e621]:
+              - generic [ref=e622]:
+                - generic "Open card" [ref=e624] [cursor=pointer]:
+                  - img [ref=e625]
+                - generic [ref=e626]:
+                  - generic [ref=e627]:
+                    - generic "Open card" [ref=e628] [cursor=pointer]:
+                      - strong [ref=e629]: Administrator
+                    - generic "5/27/2026, 8:24:32 AM" [ref=e630]: Today at 8:24 AM
+                  - paragraph [ref=e637]: Purchase Order created
+          - button "" [ref=e638] [cursor=pointer]:
+            - generic [ref=e639]: 
+  - generic [ref=e690]: Loading

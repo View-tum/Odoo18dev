@@ -1,0 +1,869 @@
+<mxfile host="app.diagrams.net" agent="Codex Thai Flow" pages="8" modified="2026-06-17T13:08:38.558397Z">
+  <diagram id="00-how-to-read-flow-th" name="00 วิธีอ่าน Flow"><mxGraphModel dx="1700" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1250" math="0" shadow="0"><root><mxCell id="0" /><mxCell id="1" parent="0" /><mxCell id="2" value="วิธีอ่าน Swimlane Flow" style="text;html=1;strokeColor=none;fillColor=none;fontSize=28;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="50" y="30" width="1600" height="46" as="geometry" /></mxCell><mxCell id="3" value="ใช้หน้านี้อธิบายวิธีอ่าน diagram ก่อนเริ่ม present flow จริง" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="50" y="80" width="1600" height="38" as="geometry" /></mxCell><mxCell id="4" value="1. อ่านจากซ้ายไปขวา" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="60" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="5" value="เริ่มที่กล่อง Start แล้วตามลูกศรไปทีละขั้น&#10;ถ้าเจอเส้นย้อนกลับ ให้มองว่าเป็น loop เช่น Rework หรือ Replenish&#10;อย่าข้าม Decision เพราะเป็นจุดที่ระบบแยกทางเลือก" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="60" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="6" value="2. อ่านตาม Swimlane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="600" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="7" value="แต่ละ lane คือเจ้าของงานหรือ module&#10;ถ้าลูกศรข้าม lane แปลว่ามี handoff ระหว่างแผนกหรือ Odoo app&#10;จุดข้าม lane คือจุดที่ควรถามเรื่อง owner, SLA และข้อมูลที่ต้องส่งต่อ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="600" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="8" value="3. ใช้สีและ Symbol" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="1140" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="9" value="เขียว = Start/End&#10;ฟ้า = Process มาตรฐาน Odoo&#10;เหลือง = Document เช่น SO/PO/MO/Invoice&#10;ม่วง = Database/Master Data&#10;แดง = Decision&#10;ส้ม = Custom หรือ Report Candidate" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="1140" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="10" value="4. แยก Standard vs Pain Point" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="60" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="11" value="ถ้าเป็นกล่องฟ้าหรือเหลือง ให้เริ่มจาก Odoo Standard ก่อน&#10;ถ้าเป็นกล่องส้ม ให้ใช้เป็นรายการ workshop ต่อว่าต้อง custom จริงหรือเป็น config/report ได้&#10;หลักคือ Standard First, Custom Later" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="60" y="486" width="500" height="210" as="geometry" /></mxCell><mxCell id="12" value="5. อ่าน Decision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="600" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="13" value="Decision คือจุดควบคุมธุรกิจ เช่น Approve?, QC Pass?, Buy or Make?&#10;ทุก Decision ต้องมีคำตอบชัดเจนว่าใครตัดสินใจ ใช้ข้อมูลอะไร และผลลัพธ์ไป flow ไหน" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="600" y="486" width="500" height="210" as="geometry" /></mxCell><mxCell id="14" value="6. อ่านผลกระทบ Stock/Accounting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="1140" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="15" value="ทุกขั้นที่มี stock.move, valuation, WIP, FG, COGS, Invoice หรือ Payment ต้องระวัง Accounting &amp; Stock Integrity&#10;ห้ามออกแบบให้แก้ stock/cost/accounting ด้วย manual SQL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="1140" y="486" width="500" height="210" as="geometry" /></mxCell></root></mxGraphModel></diagram><diagram id="01-present-sequence-th" name="01 ลำดับ Present"><mxGraphModel dx="1700" dy="1250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1250" math="0" shadow="0"><root><mxCell id="0" /><mxCell id="1" parent="0" /><mxCell id="2" value="ลำดับการ Present ตั้งแต่ต้นจนจบ" style="text;html=1;strokeColor=none;fillColor=none;fontSize=28;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="50" y="30" width="1600" height="46" as="geometry" /></mxCell><mxCell id="3" value="ใช้เป็น speaker guide ใน diagrams.net ก่อนเข้า flow ราย module" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="50" y="80" width="1600" height="38" as="geometry" /></mxCell><mxCell id="4" value="1. เปิดด้วย Scope" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="60" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="5" value="บอกว่า diagram นี้แปลง Business Flow จาก Excel ไปเทียบกับ Odoo AMS DB&#10;เป้าหมายคือดูว่า Standard Odoo รองรับตรงไหน และ Pain Point ไหนต้อง custom/config/report" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="60" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="6" value="2. อธิบาย Legend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="600" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="7" value="ใช้หน้า Symbol Legend อธิบายความหมายของสีและรูปทรง&#10;ย้ำว่าอ่านทุกหน้าแบบเดียวกันเพื่อไม่ให้ทีมตีความต่างกัน" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="600" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="8" value="3. Present Overall Flow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="1140" y="150" width="500" height="46" as="geometry" /></mxCell><mxCell id="9" value="พาอ่านภาพรวมจาก Customer Demand -&gt; Sales -&gt; MRP -&gt; Procurement/Manufacturing -&gt; Warehouse -&gt; Accounting -&gt; Management Reporting&#10;หน้านี้ใช้เพื่อให้ทุกฝ่ายเห็น End-to-End ก่อนลง module" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="1140" y="196" width="500" height="210" as="geometry" /></mxCell><mxCell id="10" value="4. ลง Module ทีละหน้า" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="60" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="11" value="เรียง Sales, Procurement, Warehouse, Manufacturing, Accounting, Planning&#10;ในแต่ละหน้าให้พูด Owner, Document, Decision, Standard Fit, Pain Point และ Data ที่ต้อง setup" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="60" y="486" width="500" height="210" as="geometry" /></mxCell><mxCell id="12" value="5. สรุป Gap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="600" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="13" value="รวมรายการที่ Odoo Standard มีแล้ว, ต้อง config, ต้อง report และอาจต้อง custom&#10;เน้นว่าทุก custom ต้องมีเหตุผลและไม่กระทบ Stock/Accounting Integrity" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="600" y="486" width="500" height="210" as="geometry" /></mxCell><mxCell id="14" value="6. ปิดด้วย Next Step" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;strokeColor=#5B1747;fontColor=#FFFFFF;fontSize=16;fontStyle=1;spacing=10;fontFamily=Arial;" vertex="1" parent="1"><mxGeometry x="1140" y="440" width="500" height="46" as="geometry" /></mxCell><mxCell id="15" value="เสนอ workshop ตรวจ owner/data/master setup&#10;ยืนยัน module ที่ต้องเปิดใน AMS DB&#10;จัด priority custom candidate และกำหนด UAT scenario จาก flow นี้" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#111827;fontSize=13;spacing=12;fontFamily=Arial;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="1140" y="486" width="500" height="210" as="geometry" /></mxCell></root></mxGraphModel></diagram><diagram id="symbol-legend" name="02 คำอธิบายสัญลักษณ์">
+    <mxGraphModel dx="1600" dy="980" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="คำอธิบายสัญลักษณ์ Flowchart" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1500" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="ใช้สัญลักษณ์ชุดนี้เหมือนกันทุก Swimlane Diagram" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="1500" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Start / End&#10;จุดเริ่มต้นหรือจบ Flow" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Process&#10;งานที่ User หรือ Odoo ทำ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="170" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Decision&#10;เงื่อนไข Yes/No หรือเลือกทาง" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="820" y="158" width="240" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Input / Output&#10;ข้อมูลเข้า / ผลลัพธ์ออก" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="170" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Document&#10;เอกสาร Odoo เช่น SO, PO, MO, Invoice" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="120" y="450" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Database&#10;ข้อมูล Master / Transaction ใน AMS" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="450" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Connector&#10;จุดเชื่อม flow ข้าม lane/page" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F8CBAD;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="820" y="450" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Custom / Report Candidate&#10;จุดที่ Standard มี data แต่ต้องเพิ่ม report/guard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="450" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Flowline&#10;ลูกศรแสดงลำดับงาน" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="250" y="735" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="ขั้นตอนถัดไป" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="620" y="735" width="250" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="ทิศทาง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="สีเขียว = จุดเริ่ม/จบ, ฟ้า = Process มาตรฐาน, ส้มอ่อน = Custom/Report Candidate, เหลือง = Document, ม่วง = Database, แดงอ่อน = Decision" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="960" y="715" width="520" height="108" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="00-overall-ams-to-odoo-flow" name="03 ภาพรวม AMS End-to-End">
+    <mxGraphModel dx="1768" dy="986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3185" pageHeight="1871" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" value="ภาพรวม Business Flow&#10;จาก Excel Requirement -&gt; Odoo AMS Standard Flow" vertex="1">
+          <mxGeometry height="42" width="3085" x="50" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" value="ภาพใหญ่ตั้งแต่ Customer Demand ถึง Accounting / Reporting ใน Database AMS" vertex="1">
+          <mxGeometry height="34" width="3085" x="50" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="ลูกค้า / ฝ่ายขาย" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Planning / MRP" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="364" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Procurement" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="596" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="6" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="FG Stock / WIP Data&#10;stock.move + valuation" vertex="1">
+          <mxGeometry height="88" width="250" x="1976" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Warehouse / Logistics" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="828" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Manufacturing / QC" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="บัญชี / การเงิน" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="1292" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Management Reporting" vertex="1">
+          <mxGeometry height="232" width="3097" x="44" y="1524" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Start&#10;Customer Forecast / PO / RFQ" vertex="1">
+          <mxGeometry height="84" width="220" x="175" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Input Demand&#10;Forecast, RFQ, Customer PO" vertex="1">
+          <mxGeometry height="84" width="250" x="470" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Quotation / SO&#10;Sales + Margin" vertex="1">
+          <mxGeometry height="84" width="250" x="780" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Won?" vertex="1">
+          <mxGeometry height="116" width="176" x="1127" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Run MRP / Replenishment&#10;SO Demand + Forecast + Min/Max" vertex="1">
+          <mxGeometry height="84" width="250" x="1400" y="157" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Stock / Material เพียงพอ?" vertex="1">
+          <mxGeometry height="116" width="176" x="1747" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="RFQ / PO / Blanket&#10;ขออนุมัติเมื่อจำเป็น" vertex="1">
+          <mxGeometry height="84" width="250" x="2020" y="438" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="รับสินค้า + Barcode&#10;Lot, Shelf / Location" vertex="1">
+          <mxGeometry height="84" width="250" x="2020" y="619" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="MO / Work Orders&#10;BOM + Routing" vertex="1">
+          <mxGeometry height="84" width="250" x="1400" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="QC ผ่าน?" vertex="1">
+          <mxGeometry height="116" width="176" x="1747" y="654" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Delivery&#10;Route + delivery cost + fleet" vertex="1">
+          <mxGeometry height="84" width="250" x="2330" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Invoice / Bill / Payment&#10;Multi-currency" vertex="1">
+          <mxGeometry height="84" width="250" x="2330" y="902" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Dashboard / Reports&#10;BU, Branch, GP, KPI" vertex="1">
+          <mxGeometry height="88" width="270" x="2320" y="1132" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="จบ&#10;ผู้บริหารตัดสินใจ" vertex="1">
+          <mxGeometry height="84" width="220" x="2655" y="1134" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="จบ: Lost Quotation" vertex="1">
+          <mxGeometry height="84" width="220" x="1415" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" value="Custom / Report Candidate&#10;Budget hard lock, Supplier score, DPPM, Cash forecast PR/PO/AP/AR,&#10;Cost variance allocation, Automotive forecast import" vertex="1">
+          <mxGeometry height="92" width="720" x="305" y="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="15" value="ใช่">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="26" value="ไม่ใช่">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="19" value="ต้องผลิต">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1835" y="410" />
+              <mxPoint x="1525" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="17" value="ต้องซื้อ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="18" value="Vendor Delivery">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="19" value="วัตถุดิบพร้อม">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1835" y="640" />
+              <mxPoint x="1835" y="620" />
+              <mxPoint x="1525" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="20" value="ตรวจตาม Operation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="21" value="ผ่าน">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="19" value="ไม่ผ่าน: Rework / Scrap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41" edge="1" parent="1" source="21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="22" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="23" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" source="23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" edge="1" parent="1" source="24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="25" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45" edge="1" parent="1" source="27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="24" value="KPI Gap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="01-sales-crm-flow" name="04 Sales / CRM">
+    <mxGraphModel dx="2020" dy="1127" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2875" pageHeight="1543" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" value="Swimlane: Sales / CRM" vertex="1">
+          <mxGeometry height="42" width="2775" x="50" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" value="Quotation, Win Rate, SO, Customer PO, Margin, Branch/BU Reporting" vertex="1">
+          <mxGeometry height="34" width="2775" x="50" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="ลูกค้า" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Sales / CRM" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="ใช้ข้อมูล Standard&#10;Product, BOM, Cost, Pricelist" vertex="1">
+          <mxGeometry height="84" width="250" x="1506" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="5" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="จบ: Lost&#10;หรือ revise quotation" vertex="1">
+          <mxGeometry height="84" width="220" x="1846" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Product / Engineering" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="564" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="Inventory / MRP" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="บัญชี" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="996" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" value="ผู้บริหาร" vertex="1">
+          <mxGeometry height="216" width="2787" x="44" y="1212" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Start&#10;Customer Inquiry / RFQ" vertex="1">
+          <mxGeometry height="84" width="220" x="175" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Requirement ลูกค้า&#10;Spec, MOQ, วันส่งมอบ" vertex="1">
+          <mxGeometry height="84" width="250" x="470" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="สร้าง Lead / Opportunity&#10;และข้อมูลลูกค้าใน CRM" vertex="1">
+          <mxGeometry height="84" width="250" x="780" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="ต้องคิดต้นทุนจาก BOM?" vertex="1">
+          <mxGeometry height="116" width="176" x="1127" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Custom Template&#10;Quotation BOM / PPAP Costing" vertex="1">
+          <mxGeometry height="88" width="270" x="1390" y="628" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Quotation&#10;sale.order draft" vertex="1">
+          <mxGeometry height="84" width="250" x="1710" y="149" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="ลูกค้ายืนยัน?" vertex="1">
+          <mxGeometry height="116" width="176" x="2057" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Sales Order&#10;Customer PO Ref" vertex="1">
+          <mxGeometry height="84" width="250" x="2330" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="เช็ค Forecasted Stock&#10;MTO / MTS / MRP" vertex="1">
+          <mxGeometry height="84" width="250" x="2330" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Invoice AR&#10;Multi-currency" vertex="1">
+          <mxGeometry height="84" width="250" x="2330" y="795" as="geometry" />
+        </mxCell>
+        <mxCell id="21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" value="Sales Analysis&#10;BU / Branch / GP / Win Rate" vertex="1">
+          <mxGeometry height="88" width="270" x="2320" y="893" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="14" value="ไม่ใช่ / สินค้า Standard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="15" value="ใช่ / Special Costing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="1" source="14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="16" value="ทางเลือก Custom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="18" value="ใช่">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="22" value="ไม่ใช่">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="19" value="ความต้องการ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="20" value="ส่งของ / ออก Invoice">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" target="21" value="ข้อมูลที่ Post แล้ว">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" value="หลักฐานใน Odoo AMS&#10;มี S00001 quotation, sale_margin / sale_stock_margin / sale_mrp_margin&#10;และ Analytic BU/Branch" vertex="1">
+          <mxGeometry height="92" width="720" x="305" y="842" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="02-procurement-flow" name="05 Procurement">
+    <mxGraphModel dx="3185" dy="1543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3185" pageHeight="1543" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Swimlane: Procurement" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="28" width="3085" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="RFQ, PR/Approval, Supplier Evaluation, Blanket Agreement, PO, Receipt และ Vendor Bill" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="3085" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="ผู้ขอซื้อ / MRP" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="132" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Purchasing" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="348" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="ผู้อนุมัติ / งบประมาณ" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="564" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Vendor" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="780" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Warehouse" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="996" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="บัญชี" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1212" width="3097" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Start&#10;ต้องการ Material / Service" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="175" y="198" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Input&#10;MRP Shortage, Min/Max, Manual PR" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="198" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="ต้องคุมงบหรือขออนุมัติ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="817" y="398" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="สร้าง Approval Request&#10;AMS Purchase Request Approval" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="อนุมัติหรือไม่?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1437" y="398" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="RFQ&#10;purchase.order draft" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Vendor Quotation&#10;Price, Lead Time, MOQ, Credit Term" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="630" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Supplier ที่เหมาะสุด?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2367" y="398" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="PO / Blanket Agreement&#10;P00002 / BO00001" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2640" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="รับสินค้า&#10;Lot / Barcode / Location" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2640" y="846" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Vendor Bill&#10;AP Due / CNY" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2640" y="1062" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Supplier Scorecard&#10;Price, OTD, Credit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="จบ / Reject" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1105" y="198" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="ไม่ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="ไม่ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="ส่ง RFQ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="ไม่ใช่ / วิเคราะห์ต่อ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="Vendor ส่งสินค้า" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="18" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="ตรวจ 3-way match&#10;PO / Receipt / Vendor Bill" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="19" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="ประวัติ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="20" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="Standard Fit&#10;Purchase, Purchase Agreements, Approvals, Inventory, Accounting&#10;Custom Candidate: Weighted Supplier Evaluation และ Purchasing Suggestion" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="305" y="1058" width="720" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="03-warehouse-logistics-flow" name="06 Warehouse / Logistics">
+    <mxGraphModel dx="2875" dy="1543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2875" pageHeight="1543" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Swimlane: Warehouse / Logistics" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="28" width="2775" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Lot Control, Shelf/Location, Barcode, Min/Max, Route, Delivery Cost และ Fleet" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="2775" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Purchase / Sales / MRP" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="132" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Warehouse" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="348" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="อุปกรณ์ Barcode" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="564" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Logistics / Fleet" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="780" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="บัญชี" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="996" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="ผู้บริหาร" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1212" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Start&#10;Receipt / Delivery / Production Movement" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="175" y="198" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Operation&#10;Receipt, Delivery, MO Move" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="198" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="สแกน Barcode&#10;Product, Lot, Location" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="780" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="ต้องใช้ Lot / Serial?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1127" y="398" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Stock Lot + Quant&#10;Shelf / Location" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="412" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="ต่ำกว่า Min Stock?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1747" y="182" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Reordering Rule&#10;สร้าง RFQ / MO" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="198" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Pick / Pack / Ship&#10;Delivery Order" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Delivery Method&#10;ต้นทุนขนส่ง + route" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2330" y="581" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Fleet / Driver&#10;ติดตามรถและคนขับ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2330" y="679" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Stock Valuation&#10;FIFO / AVCO / COGS" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2330" y="844" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Slow / Dead Stock&#10;Turnover Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="ใช่ / บันทึก Lot" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="ไม่ใช่ / คุมเฉพาะจำนวน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="อัปเดต Stock" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="ไม่ใช่ / ใช้ของที่มี" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="หลังเติมของ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="ส่งของ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="ข้อมูล Fleet" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="18" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="Valuation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="ข้อมูล Report" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="20" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="หลักฐานใน AMS&#10;มี shelf/QC/WIP location, RM1 min/max, stock_barcode, delivery และ fleet" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="305" y="1058" width="720" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="04-manufacturing-quality-flow" name="07 Manufacturing / Quality">
+    <mxGraphModel dx="2875" dy="1871" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2875" pageHeight="1871" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Swimlane: ผลิต / Quality" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="28" width="2775" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="BOM, Routing, MRP, MO, Work Orders, Barcode, QC, WIP/FG และ OEE/OPE" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="2775" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Planning / MRP" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="132" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Engineering / Master Data" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="364" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Production / Shop Floor" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="596" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Quality" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="828" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Warehouse" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1060" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="บัญชี / ต้นทุน" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1292" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="ผู้บริหาร" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1524" width="2787" height="232" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Start&#10;SO / Forecast / Min-Max Demand" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="175" y="206" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="BOM AMS.400 REV 00&#10;18 components" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="204" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Routing&#10;21 Operations / 7 Work Centers" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="780" y="204" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Run MRP&#10;วางแผนซื้อ / ผลิต" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="206" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="วัตถุดิบพร้อมหรือไม่?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1437" y="141" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Manufacturing Order&#10;WH/MO/00001" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="438" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Work Orders&#10;SLIT / LAMINATE / PUNCH / CUT / ASSEMBLY / PACK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="438" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Barcode input&#10;เริ่ม/จบงาน, qty, waste, time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="670" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="QC ผ่านใน Operation?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2367" y="603" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Rework / Scrap / Alert" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="733" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="FG Stock&#10;Lot + WIP / stock moves" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2330" y="851" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="ต้นทุน WIP, FG&#10;และแหล่งที่มาของ variance" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2330" y="953" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="OEE/OPE, DPPM&#10;Cost Variance Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="1132" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="Procurement Flow" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F8CBAD;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="271" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="ไม่ใช่ / ซื้อ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="Quality Point" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="18" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="ผ่าน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="19" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="ไม่ผ่าน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="19" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" value="Rework" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="20" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="Valuation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="21" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" value="Report" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="22" target="23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" value="Standard Fit&#10;MRP, Work Orders, Quality, Barcode MRP, Stock Accounting&#10;Custom Candidate: สูตร OPE, DPPM, มูลค่า WIP ตาม process, Variance Allocation" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="305" y="1130" width="720" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="05-accounting-finance-flow" name="08 Accounting / Finance">
+    <mxGraphModel dx="2875" dy="1543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2875" pageHeight="1543" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Swimlane: บัญชี / การเงิน" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="28" width="2775" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Financial Reports, BU/Branch, Reconciliation, Budget, Cash Forecast, Multicurrency, Valuation" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="2775" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="เอกสารต้นทาง" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="132" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="บัญชี" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="348" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="ธนาคาร / เงินสด" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="564" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="งบประมาณ / Project" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="780" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Stock / MRP Cost" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="996" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="ผู้บริหาร" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1212" width="2787" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Start&#10;SO, PO, MO, Delivery, Receipt" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="175" y="198" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Invoices / Bills&#10;AR / AP Multi-currency" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="รายการนี้เกี่ยวกับงบ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="817" y="614" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="งบประมาณแบบ Analytic&#10;BU / Branch / Project" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="630" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="แจ้งเตือนงบ / Hard Lock" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="628" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="นำเข้า Bank Statement&#10;CSV / CAMT / OFX / QIF" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="กระทบยอดธนาคาร&#10;จับคู่ payment" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Stock Valuation&#10;FIFO / AVCO / Standard Cost" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="844" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Accounting Entries&#10;WIP / COGS / FG Cost" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="846" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Cash Forecast&#10;รวม PR / PO / AP / AR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Financial Dashboard&#10;Ratio, EBITDA, BU / Branch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="Consolidation /&#10;Elimination" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="ใช่" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="ควบคุม" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="Payment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="ข้อมูล Stock / MO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="10" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="ข้อมูลเงินสด" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="16" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="ภาระผูกพัน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="ข้อมูลต้นทุน" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="18" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="19" target="20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="Group Reporting" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="20" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="หลัก Accounting Integrity&#10;ห้ามแก้ valuation/accounting ด้วย SQL&#10;ต้องออกแบบผังบัญชี, valuation method, WIP และ COGS ให้ถูกก่อนทำ custom allocation" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="305" y="1058" width="720" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="06-planning-mrp-master-data-flow" name="09 Planning / MRP Master Data">
+    <mxGraphModel dx="2565" dy="1543" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2565" pageHeight="1543" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Swimlane: Planning / MRP / Master Data" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#5B1747;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="28" width="2465" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Forecast, MPS/MRP, Multi-level BOM, MOQ, Lead Time, Replenishment และ Reporting Dimensions" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#475569;align=left;verticalAlign=middle;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="2465" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Sales Forecast" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="132" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Master Data" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="348" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="MRP Scheduler" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="564" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Procurement" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="780" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Manufacturing" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="996" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Reporting" style="swimlane;html=1;horizontal=0;startSize=46;fillColor=#F8FAFC;strokeColor=#CBD5E1;fontColor=#111827;fontStyle=1;fontSize=12;fontFamily=Arial;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="44" y="1212" width="2477" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Start&#10;Customer Forecast / SO Demand" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#D9EAD3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="175" y="198" width="220" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Input Forecast&#10;Qty, Date, Customer PO" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#D0E0E3;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="470" y="198" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Product Master&#10;UoM, MOQ, Routes, Lead Time" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="780" y="412" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="BOM / Routing&#10;หลายชั้น + Revision" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="412" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="MRP / Replenishment Run&#10;เปรียบเทียบ Demand vs Supply" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="414" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="ซื้อหรือผลิตเอง?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#F4CCCC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1747" y="398" width="176" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="RFQ / PO&#10;Supplier Lead Time" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="630" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="MO / Work Orders&#10;Capacity + Routing" style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2020" y="846" width="250" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Forecast Accuracy&#10;Sales vs Invoice / Delivery" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="2010" y="1060" width="270" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="มิติ Analytic&#10;Business Unit / Branch" style="shape=cylinder;boundedLbl=1;backgroundOutline=1;size=15;whiteSpace=wrap;html=1;fillColor=#EADCF8;strokeColor=#334155;fontColor=#111827;spacing=10;fontSize=12;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="1060" width="250" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" value="ซื้อ" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="ผลิตเอง" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="15" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="ข้อมูล Supply" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="16" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="ข้อมูลผลิต" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="BU / Branch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;endArrow=block;endFill=1;fontSize=12;fontColor=#111827;strokeWidth=1.35;labelBackgroundColor=#FFFFFF;spacing=4;fontFamily=Arial;" edge="1" parent="1" source="19" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Standard Fit&#10;Routes, Vendor Lead Time, Min/Max, MRP, BOM/Routing&#10;Custom Candidate: Automotive Rolling Forecast Import และ Forecast-to-Invoice KPI" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#111827;fontSize=12;spacing=10;shadow=0;fontFamily=Arial;" vertex="1" parent="1">
+          <mxGeometry x="305" y="1058" width="720" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

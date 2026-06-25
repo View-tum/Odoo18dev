@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
@@ -33,6 +34,36 @@ class AccountMove(models.Model):
             if move.vendor_billing_note_id:
                 move.vendor_billing_note_id._update_billed_state()
         return res
+
+    def action_create_vendor_billing_note(self):
+        moves = self.filtered(lambda move: move.move_type in ('in_invoice', 'in_refund'))
+        if not moves or len(moves) != len(self):
+            raise UserError(_("Only vendor bills and vendor credit notes can be used to create a vendor billing note."))
+        if moves.filtered(lambda move: move.state == 'cancel'):
+            raise UserError(_("Cancelled vendor bills or credit notes cannot be used to create a vendor billing note."))
+        if moves.filtered(lambda move: move.vendor_billing_note_id):
+            raise UserError(_("Some selected vendor bills or credit notes already have a vendor billing note."))
+        if len(moves.mapped('partner_id')) != 1:
+            raise UserError(_("Please select documents from one vendor only."))
+        if len(moves.mapped('currency_id')) > 1:
+            raise UserError(_("Please select documents in one currency only."))
+        if len(moves.mapped('company_id')) > 1:
+            raise UserError(_("Please select documents from one company only."))
+
+        billing_note = self.env['vendor.billing.note'].create({
+            'partner_id': moves.partner_id.id,
+            'company_id': moves.company_id.id,
+            'selected_bill_ids': [(6, 0, moves.ids)],
+        })
+
+        return {
+            'name': _('Vendor Billing Note'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'vendor.billing.note',
+            'view_mode': 'form',
+            'res_id': billing_note.id,
+            'target': 'current',
+        }
     
     def unlink(self):
         bns_to_update = self.mapped('vendor_billing_note_id')

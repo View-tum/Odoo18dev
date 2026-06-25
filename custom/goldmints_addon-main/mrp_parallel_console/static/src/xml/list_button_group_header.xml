@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="mrp_parallel_console.ListButtonGroupHeader" t-inherit="web.ListRenderer" t-inherit-mode="extension">
+        <xpath expr="//th[@t-else='']" position="replace">
+            <th t-elif="column.type === 'button_group' and column.buttonGroupLabel"
+                t-on-keydown="(ev) => this.onCellKeydown(ev)"
+                class="o_list_button w-print-0 p-print-0">
+                <div class="d-flex justify-content-center">
+                    <span class="d-block min-w-0 text-truncate" t-esc="column.buttonGroupLabel"/>
+                </div>
+            </th>
+            <th t-else="" t-on-keydown="(ev) => this.onCellKeydown(ev)" t-att-class="{'o_list_button w-print-0 p-print-0': column.type === 'button_group'}"/>
+        </xpath>
+    </t>
+</templates>

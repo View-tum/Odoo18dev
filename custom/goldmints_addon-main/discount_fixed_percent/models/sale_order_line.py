@@ -174,9 +174,9 @@ class SaleOrderLine(models.Model):
     #                     "message": "ส่วนลดเปอร์เซ็นต์ห้ามเกิน 100% ระบบได้ปรับค่าเป็น 100% แล้ว",
     #                 }
     #             }
-
+    #
     #         total_price = line.product_uom_qty * line.price_unit
-    #         if line.fixed_discount > total_price:
+    #         if line.fixed_discount > 0 and line.fixed_discount > total_price:
     #             line.fixed_discount = 0
     #             return {
     #                 "warning": {

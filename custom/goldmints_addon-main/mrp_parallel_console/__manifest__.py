@@ -55,10 +55,12 @@
         "web.assets_backend": [
             "mrp_parallel_console/static/src/css/mrp_parallel_console.scss",
             "mrp_parallel_console/static/src/js/mrp_parallel_console.js",
+            "mrp_parallel_console/static/src/js/list_button_group_header.js",
             "mrp_parallel_console/static/src/js/mo_overview_employee_cost_patch.js",
             "mrp_parallel_console/static/src/js/mps_machines_button.js",
             "mrp_parallel_console/static/src/js/mrp_more_dropdown.js",
             "mrp_parallel_console/static/src/js/stock_picking_print.js",
+            "mrp_parallel_console/static/src/xml/list_button_group_header.xml",
             "mrp_parallel_console/static/src/xml/mrp_parallel_console_templates.xml",
         ],
     },

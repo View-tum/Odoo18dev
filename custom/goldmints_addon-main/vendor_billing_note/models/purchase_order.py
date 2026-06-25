@@ -28,21 +28,26 @@ class PurchaseOrder(models.Model):
             # ให้หาเอกสารใบวางบิล โดยอิงจากบรรทัดสินค้า
             order.billing_note_ids = order.order_line.mapped("billing_note_line_ids.billing_note_id")
 
-    @api.depends("billing_note_ids.state", "is_billing_note_ready")
+    @api.depends("billing_note_ids.state", "is_billing_note_ready", "order_line.product_id.type")
     def _compute_is_ready_to_create_bill(self):
         for order in self:
+            has_service = any(
+                l.product_id.type == 'service'
+                for l in order.order_line
+                if l.display_type not in ("line_section", "line_note")
+            )
+            if not has_service:
+                order.is_ready_to_create_bill = True
+                continue
             confirmed_bns = order.billing_note_ids.filtered(
                 lambda b: b.state in ("confirmed", "partial_billed", "billed")
             )
-            # ปุ่ม Create Bill จะแสดงก็ต่อเมื่อ:
-            # 1. ไม่มีของค้างวางบิลแล้ว (is_billing_note_ready == False) 
-            # 2. มีใบวางบิลที่ Confirm แล้วอย่างน้อย 1 ใบ
             if not order.is_billing_note_ready and confirmed_bns:
                 order.is_ready_to_create_bill = True
             else:
                 order.is_ready_to_create_bill = False
 
-    @api.depends("state", "order_line.qty_received", "order_line.qty_billing_noted")
+    @api.depends("state", "order_line.qty_received", "order_line.product_qty", "order_line.qty_billing_noted", "order_line.product_id.categ_id.is_fixed_asset")
     def _compute_is_billing_note_ready(self):
         for order in self:
             if order.state not in ("purchase", "done"):
@@ -51,7 +56,7 @@ class PurchaseOrder(models.Model):
 
             order.is_billing_note_ready = any(
                 l.display_type not in ("line_section", "line_note")
-                and (l.qty_received - l.qty_billing_noted) > 0.001
+                and l._get_qty_to_billing_note() > 0.001
                 for l in order.order_line
             )
 
@@ -65,7 +70,7 @@ class PurchaseOrder(models.Model):
 
         lines_to_bill = self.order_line.filtered(
             lambda l: l.display_type not in ("line_section", "line_note")
-            and (l.qty_received - l.qty_billing_noted) > 0.001
+            and l._get_qty_to_billing_note() > 0.001
         )
 
         if not lines_to_bill:
@@ -73,7 +78,14 @@ class PurchaseOrder(models.Model):
 
         note_lines = []
         for line in lines_to_bill:
-            qty_to_bill = line.qty_received - line.qty_billing_noted
+            qty_to_bill = line._get_qty_to_billing_note()
+            
+            ratio = 1.0
+            if line.product_qty:
+                ratio = qty_to_bill / line.product_qty
+            elif line.qty_received:
+                ratio = qty_to_bill / line.qty_received
+                
             note_lines.append(
                 (
                     0,
@@ -83,6 +95,8 @@ class PurchaseOrder(models.Model):
                         "name": line.name,
                         "quantity": qty_to_bill,
                         "price_unit": line.price_unit,
+                        "discount": line.discount if hasattr(line, 'discount') else 0.0,
+                        "fixed_discount": (line.fixed_discount if hasattr(line, 'fixed_discount') else 0.0) * ratio,
                         "tax_ids": [(6, 0, line.taxes_id.ids)],
                     },
                 )
@@ -119,70 +133,61 @@ class PurchaseOrder(models.Model):
         }
 
     def action_create_invoice(self):
-        """บังคับ Flow และจัดการการสร้างบิลจากหน้า PO โดยเชื่อมกับใบวางบิล"""
-        
-        # 1. หากกดมาจากหน้า "ใบวางบิล" (มี Context ส่งมา) ให้ทะลุไปสร้างบิลตามมาตรฐาน Odoo เลย
         if self.env.context.get('default_vendor_billing_note_id'):
             return super(PurchaseOrder, self).action_create_invoice()
 
-        # 2. กรณีผู้ใช้กดปุ่ม "Create Bill" จากหน้าจอ PO เอง
+        has_service = any(
+            any(l.product_id.type == 'service' for l in order.order_line if l.display_type not in ("line_section", "line_note"))
+            for order in self
+        )
+        
+        if not has_service:
+            return super(PurchaseOrder, self).action_create_invoice()
+
         for order in self:
-            # เช็คว่ายังมีของค้างไม่ได้ทำใบวางบิลไหม
             if order.is_billing_note_ready:
                 raise UserError(
                     _("ไม่สามารถสร้างบิลได้! กรุณาทำ 'ใบวางบิล' (Billing Note) สำหรับรายการที่เพิ่งรับเข้าให้ครบก่อน")
                 )
 
-            # 🌟 [แก้จุดที่ 1] กรองหาเฉพาะใบวางบิลที่ "ยืนยันแล้ว" หรือ "ตั้งหนี้บางส่วนแล้ว"
             confirmed_bns = order.billing_note_ids.filtered(lambda b: b.state in ('confirmed', 'partial_billed'))
             
-            # เช็ครายการที่ยังไม่ได้ตั้งหนี้
             lines_to_invoice = order.order_line.filtered(
                 lambda l: l.display_type not in ("line_section", "line_note")
                 and l.qty_received > l.qty_invoiced
             )
 
-            # ถ้ามีของต้องเปิดบิล แต่ไม่มี BN ที่ confirmed เลย
             if lines_to_invoice and not confirmed_bns:
                 raise UserError(
                     _("ไม่สามารถสร้างบิลได้! กรุณากดยืนยัน (Confirm) ใบวางบิลก่อนทำการตั้งหนี้")
                 )
 
-            # 🌟 [แก้จุดที่ 2] ตรวจสอบว่ามีใบวางบิลที่มัดรวม PO หลายใบหรือไม่ (เพื่อเด้ง Wizard)
             multi_po_bns = confirmed_bns.filtered(lambda b: len(b.purchase_ids) > 1)
             
             if multi_po_bns:
-                # ดึงใบแรกที่เจอมาแสดงใน Wizard
                 bn = multi_po_bns[0]
                 return {
                     'name': 'ตัวเลือกการสร้างบิล (จากใบวางบิลรวม)',
                     'type': 'ir.actions.act_window',
                     'res_model': 'create.bill.wizard',
                     'view_mode': 'form',
-                    'target': 'new', # เปิดเป็น Pop-up
+                    'target': 'new',
                     'context': {
                         'default_purchase_id': order.id,
                         'default_billing_note_id': bn.id,
                     }
                 }
 
-            # 3. ถ้าใบวางบิลเป็นแบบ 1 PO ปกติ ก็วนลูปสร้าง Vendor Bill แยกทีละใบ
             for bn in confirmed_bns:
-                # สั่งให้ใบวางบิลรันฟังก์ชันสร้างบิลของตัวเอง (ซึ่งจะตัดยอด Partial และผูก Ref ให้เรียบร้อย)
-                # แถม Context ไปให้มันรู้ว่าให้สร้างเฉพาะของ PO นี้นะ (เผื่อมีกรณีหลุดรอด)
                 bn.with_context(bill_only_po_id=order.id).action_create_bill()
 
-        # 4. หลังจากระบบสร้างบิลเบื้องหลังเสร็จหมดแล้ว ให้เปิดหน้าต่างพาผู้ใช้ไปดู Vendor Bill
         action = self.env["ir.actions.actions"]._for_xml_id("account.action_move_in_invoice_type")
         
-        # ค้นหา Vendor Bill ทั้งหมดของ PO ใบนี้ที่เพิ่งถูกสร้าง (Draft)
         invoices = self.invoice_ids.filtered(lambda inv: inv.state == 'draft')
         
         if len(invoices) > 1:
-            # ถ้าสร้างออกมาหลายใบ (เช่น มี 2 Confirmed BN) ให้แสดงเป็นหน้าจอ List (ตาราง)
             action['domain'] = [('id', 'in', invoices.ids)]
         elif len(invoices) == 1:
-            # ถ้ามีใบเดียว ให้เปิดหน้าจอ Form ของบิลใบนั้นเลย
             action['views'] = [(self.env.ref('account.view_move_form').id, 'form')]
             action['res_id'] = invoices.id
         else:
@@ -198,7 +203,7 @@ class PurchaseOrder(models.Model):
         # 2. กรองหาบรรทัดสินค้าที่รับของแล้วแต่ยังไม่ได้วางบิล
         lines_to_bill = self.mapped('order_line').filtered(
             lambda l: l.display_type not in ("line_section", "line_note")
-            and (l.qty_received - l.qty_billing_noted) > 0.001
+            and l._get_qty_to_billing_note() > 0.001
         )
         
         if not lines_to_bill:
@@ -207,12 +212,21 @@ class PurchaseOrder(models.Model):
         # 3. เตรียมข้อมูลบรรทัดใบวางบิล
         note_lines = []
         for line in lines_to_bill:
-            qty_to_bill = line.qty_received - line.qty_billing_noted
+            qty_to_bill = line._get_qty_to_billing_note()
+            
+            ratio = 1.0
+            if line.product_qty:
+                ratio = qty_to_bill / line.product_qty
+            elif line.qty_received:
+                ratio = qty_to_bill / line.qty_received
+                
             note_lines.append((0, 0, {
                 "purchase_line_id": line.id,
                 "name": line.name,
                 "quantity": qty_to_bill,
                 "price_unit": line.price_unit,
+                "discount": line.discount if hasattr(line, 'discount') else 0.0,
+                "fixed_discount": (line.fixed_discount if hasattr(line, 'fixed_discount') else 0.0) * ratio,
                 "tax_ids": [(6, 0, line.taxes_id.ids)],
             }))
 
@@ -244,11 +258,19 @@ class PurchaseOrder(models.Model):
             if not po_line.exists():
                 continue
             
+            ratio = 1.0
+            if po_line.product_qty:
+                ratio = data['quantity'] / po_line.product_qty
+            elif po_line.qty_received:
+                ratio = data['quantity'] / po_line.qty_received
+
             note_lines.append((0, 0, {
                 "purchase_line_id": po_line.id,
                 "name": po_line.name,
                 "quantity": data['quantity'],
                 "price_unit": po_line.price_unit,
+                "discount": po_line.discount if hasattr(po_line, 'discount') else 0.0,
+                "fixed_discount": (po_line.fixed_discount if hasattr(po_line, 'fixed_discount') else 0.0) * ratio,
                 "tax_ids": [(6, 0, po_line.taxes_id.ids)],
                 "picking_id": data.get('picking_id'),
                 "service_acceptance_id": data.get('service_acceptance_id'),

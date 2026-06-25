@@ -19,9 +19,9 @@
     ],
     "data": [
         "security/groups.xml",
+        "views/res_users_views.xml",
         "views/sale_order_view.xml",
     ],
     "application": False,
     "installable": True,
 }
-

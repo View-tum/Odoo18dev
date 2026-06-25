@@ -8,7 +8,13 @@
         <field name="arch" type="xml">
             <field name="deprecated" position="after">
                 <field name="centralized" />
+                <field name="is_view" />
             </field>
         </field>
     </record>
+
+    <record id="account.action_account_form" model="ir.actions.act_window">
+        <field name="context">{'search_default_activeacc': True, 'show_view_accounts': True}</field>
+    </record>
+
 </odoo>

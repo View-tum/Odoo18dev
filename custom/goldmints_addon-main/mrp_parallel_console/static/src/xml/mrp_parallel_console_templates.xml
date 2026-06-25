@@ -53,16 +53,17 @@
                                                     <strong t-esc="mo.name" class="text-truncate" style="font-size: 1.1em;"/>
                                                 </div>
                                                 <div class="small text-muted text-truncate mt-1">
-                                                    <t t-if="mo.origin">
-                                                        <i class="fa fa-tag me-1"/> <t t-esc="mo.origin"/>
+                                                    <i class="fa fa-calendar me-1"/> <t t-esc="formatDisplayDatetime(mo.date_start)"/>
+                                                </div>
+                                                <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
+                                                <div class="mt-1">
+                                                    <t t-if="mo.is_mto">
+                                                        <span class="badge bg-danger text-white fw-bold"><i class="fa fa-bolt me-1"/> MTO / ด่วน</span>
                                                     </t>
                                                     <t t-else="">
-                                                        <t t-esc="mo.product"/>
+                                                        <span class="badge bg-info text-white fw-bold"><i class="fa fa-cube me-1"/> MTS</span>
                                                     </t>
                                                 </div>
-                                                <t t-if="mo.origin">
-                                                    <div class="small text-muted text-truncate mt-1" t-esc="mo.product"/>
-                                                </t>
                                                 <div class="mt-2">
                                                     <span t-att-class="stateBadgeClass(mo) + ' text-uppercase'">
                                                         <t t-esc="mo.state_label or mo.state"/>

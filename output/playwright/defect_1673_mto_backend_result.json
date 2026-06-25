@@ -1,0 +1,68 @@
+{
+  "so": {
+    "id": 16710,
+    "name": "SOE-260071",
+    "state": "sale",
+    "warehouse_id": [
+      2,
+      "Mobile Warehouse"
+    ],
+    "commitment_date": "2026-07-15 10:00:00",
+    "order_line": [
+      39380
+    ],
+    "picking_ids": [
+      10980
+    ],
+    "user_id": [
+      2,
+      "Administrator"
+    ],
+    "origin": "CODex E2E 1673 MTO"
+  },
+  "sol": [
+    {
+      "id": 39380,
+      "product_id": [
+        7967,
+        "[FG-MTK-IL-01001] Classification No.: 90.18 Dragon Inhaler Mark II with keyholder\n(Nasal Inhaler 24 Units in display+shrink)"
+      ],
+      "mfg_lead_time": 1,
+      "scheduled_date": "2026-07-15 10:00:00",
+      "route_id": [
+        1,
+        "Replenish on Order (MTO)"
+      ],
+      "move_ids": [
+        34438
+      ],
+      "product_uom_qty": 1.0
+    }
+  ],
+  "mos": [],
+  "picks": [
+    {
+      "id": 10980,
+      "name": "M-WH/OUT/03815",
+      "state": "confirmed",
+      "origin": "SOE-260071",
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "move_ids_without_package": [
+        34438
+      ],
+      "production_ids": [],
+      "manufacturing_type": false
+    }
+  ]
+}

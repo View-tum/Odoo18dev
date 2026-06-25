@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="sale_auto_confirm_invoice.MobileMixedPaymentRows">
+        <div class="o_mobile_mixed_payment_widget">
+            <div class="o_mobile_payment_actions" role="toolbar" aria-label="Receive Payment">
+                <button type="button" class="o_mobile_payment_action o_mobile_payment_action_primary"
+                        t-on-click="() => this.addPaymentLine('bank')">+ Bank</button>
+                <button type="button" class="o_mobile_payment_action"
+                        t-on-click="() => this.addPaymentLine('cash')">+ Cash</button>
+                <button type="button" class="o_mobile_payment_action"
+                        t-on-click="() => this.addPaymentLine('cheque')">+ Cheque</button>
+                <button type="button" class="o_mobile_payment_action"
+                        t-on-click="() => this.addPaymentLine('rounding')">+ ปัดเศษ</button>
+            </div>
+            <div class="o_mobile_payment_table">
+                <div class="o_mobile_payment_header">
+                    <span>Type</span>
+                    <span>Amount</span>
+                    <span>Journal / Account</span>
+                    <span/>
+                </div>
+                <t t-foreach="paymentLines" t-as="line" t-key="line.id">
+                    <div class="o_mobile_payment_row">
+                        <div class="o_mobile_payment_type">
+                            <i t-attf-class="fa #{paymentIcon(line)}" aria-hidden="true"/>
+                            <span t-esc="paymentLabel(line)"/>
+                            <span t-if="line.data.payment_type === 'rounding'"
+                                  class="o_mobile_payment_writeoff">Write-off</span>
+                        </div>
+                        <div class="o_mobile_payment_amount">
+                            <MobileTwoDigitMonetaryField name="'amount'" record="line" readonly="false" hideSymbol="true"/>
+                        </div>
+                        <div class="o_mobile_payment_route" t-esc="line.data.journal_account_name"/>
+                        <button type="button" class="o_mobile_payment_remove"
+                                aria-label="Remove payment row"
+                                t-on-click.stop="() => this.removePaymentLine(line)">x</button>
+                    </div>
+                    <div t-if="line.data.payment_type === 'cheque'" class="o_mobile_payment_cheque_fields">
+                        <div>
+                            <label>Cheque Number</label>
+                            <CharField name="'cheque_number'" record="line" readonly="false"/>
+                        </div>
+                        <div>
+                            <label>Cheque Bank</label>
+                            <Many2OneField name="'cheque_bank_id'" record="line" readonly="false"
+                                           canCreate="false" canCreateEdit="false" canQuickCreate="false"/>
+                        </div>
+                        <div>
+                            <label>Cheque Branch</label>
+                            <CharField name="'cheque_branch'" record="line" readonly="false"/>
+                        </div>
+                        <div>
+                            <label>Cheque Date</label>
+                            <DateTimeField name="'cheque_date'" record="line" readonly="false" showTime="false"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_bot_buying_transfer" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.bot.buying.transfer</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="currency_rate_live.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_provider']/parent::div" position="after">
+                <div class="row" invisible="currency_provider != 'bot_buying_transfer'">
+                    <label string="BOT API Key" for="bot_buying_transfer_api_key" class="col-lg-3 o_light_label"/>
+                    <field name="bot_buying_transfer_api_key" password="True" required="currency_provider == 'bot_buying_transfer'"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

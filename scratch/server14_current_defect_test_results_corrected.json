@@ -1,0 +1,223 @@
+{
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "uid": 2,
+  "generated_at": "2026-06-06T22:17:02.525804",
+  "summary": {
+    "PASS": 9,
+    "FAIL": 12
+  },
+  "created_records": [
+    [
+      "vendor.billing.note",
+      68
+    ]
+  ],
+  "results": [
+    {
+      "defect": "1611",
+      "title": "Billing Note from existing APD/CN appears in Accounting/Purchase Billing Notes",
+      "status": "FAIL",
+      "evidence": "menus=['Accounting/Vendors/Billing Notes'] BN=BN/2026/06/0068 bills=[69403, 69241] state=billed net_due=104655.947448 expected_net=104655.947448",
+      "records": [
+        {
+          "model": "vendor.billing.note",
+          "id": 68
+        },
+        {
+          "model": "account.move",
+          "id": 69241
+        },
+        {
+          "model": "account.move",
+          "id": 69403
+        }
+      ]
+    },
+    {
+      "defect": "1618",
+      "title": "Consolidated Credit Note can pull multiple bill lines/vendor return lines",
+      "status": "FAIL",
+      "evidence": "linked_return_credit_notes=[]",
+      "records": []
+    },
+    {
+      "defect": "1625",
+      "title": "Equity statement report is available",
+      "status": "FAIL",
+      "evidence": "strict recheck found no matching report/menu/action for equity statement; raw={\"reports\": [], \"menus\": [], \"actions\": [], \"status\": \"FAIL\"}",
+      "records": []
+    },
+    {
+      "defect": "1626",
+      "title": "Cost of sales report is available",
+      "status": "FAIL",
+      "evidence": "strict recheck found no matching report/menu/action for cost of sales statement; raw={\"reports\": [], \"menus\": [], \"actions\": [], \"status\": \"FAIL\"}",
+      "records": []
+    },
+    {
+      "defect": "1633",
+      "title": "Asset model uses clearing accounts 123010/123008",
+      "status": "FAIL",
+      "evidence": "tool_ok=False machine_ok=False tool_sample=[] machine_sample=[]",
+      "records": []
+    },
+    {
+      "defect": "1654",
+      "title": "Payment posting/config no unexpected payment difference",
+      "status": "PASS",
+      "evidence": "auto_diff=[952, '430005 รายได้อื่น ๆ'] methods_ok=True methods=[{'id': 37, 'display_name': 'Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)', 'journal_id': [51, 'เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8'], 'payment_account_id': [752, '111201 BAY CA สามแยก #046-0-14721-8'], 'payment_type': 'inbound'}, {'id': 91, 'display_name': 'Cheque Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)', 'journal_id': [51, 'เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8'], 'payment_account_id': [785, '113005 เช็ครับลงวันที่ล่วงหน้า'], 'payment_type': 'inbound'}, {'id': 105, 'display_name': 'Manual Payment (เงินสดจากการขาย (ตจว.))', 'journal_id': [83, 'เงินสดจากการขาย (ตจว.)'], 'payment_account_id': [748, '111103 บัญชีพักเงินสด'], 'payment_type': 'inbound'}] recent_payments=[{'id': 3714, 'name': 'PPBAY1/2026/00464', 'state': 'paid', 'amount': 41595.75, 'journal_id': [51, 'เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8'], 'payment_method_line_id': [91, 'Cheque Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)'], 'move_id': [69791, 'PPBAY1/2026/00464 (BATCH/2026/00003)']}, {'id': 3713, 'name': 'PPBAY1/2026/00463', 'state': 'paid', 'amount': 1420.0, 'journal_id': [51, 'เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8'], 'payment_method_line_id': [37, 'Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)'], 'move_id': [69790, 'PPBAY1/2026/00463 (INV-D/26/06/00005)']}, {'id': 3712, 'name': 'PCSH3/2026/00877', 'state': 'paid', 'amount': 2000.0, 'journal_id': [83, 'เงินสดจากการขาย (ตจว.)'], 'payment_method_line_id': [105, 'Manual Payment (เงินสดจากการขาย (ตจว.))'], 'move_id': [69789, 'PCSH3/2026/00877 (INV-D/26/06/00005)']}]",
+      "records": []
+    },
+    {
+      "defect": "1659",
+      "title": "Receipt print reports do not error",
+      "status": "FAIL",
+      "evidence": "receipt={'id': 10779, 'name': 'GMP/IN/00122', 'state': 'done'} pdfs=[('stock.report_deliveryslip', {'status': 200, 'ctype': 'application/pdf', 'bytes': 22104, 'head': '%PDF'}), ('stock.report_picking', {'status': 500, 'ctype': 'text/html;charset=utf-8', 'bytes': 2508, 'head': '\\n   '})]",
+      "records": [
+        {
+          "model": "stock.picking",
+          "id": 10779
+        }
+      ]
+    },
+    {
+      "defect": "1665",
+      "title": "Vendor Billing Note APD/CN payment wizard nets correctly",
+      "status": "FAIL",
+      "evidence": "BN=BN/2026/06/0068 expected=104655.947448 wizard_amount=101590.226348 diff=7753.826204 posted=False ctx_active=[213097, 212663] handling=reconcile",
+      "records": [
+        {
+          "model": "vendor.billing.note",
+          "id": 68
+        },
+        {
+          "model": "account.payment.register",
+          "id": 3163
+        }
+      ]
+    },
+    {
+      "defect": "1667",
+      "title": "Vendor return picking creates/links vendor credit note",
+      "status": "FAIL",
+      "evidence": "strict recheck found no in_refund linked to return_picking_ids and no latest pickings with vendor_credit_note_ids/count > 0; raw={\"fields\": {\"vendor_credit_note_ids\": {\"relation\": \"account.move\", \"string\": \"Vendor Credit Notes\", \"type\": \"many2many\"}, \"vendor_credit_note_count\": {\"string\": \"Vendor Credit Note Count\", \"type\": \"integer\"}, \"vendor_credit_note_state\": {\"string\": \"Vendor Credit Note Status\", \"type\": \"selection\"}}, \"credit_notes_with_return_picking\": [], \"pickings_with_credit_note\": [], \"sample_latest_checked\": 200, \"status\": \"FAIL\"}",
+      "records": [
+        {
+          "model": "stock.picking",
+          "id": 10810
+        }
+      ]
+    },
+    {
+      "defect": "1672",
+      "title": "Material Lot List does not change MO status",
+      "status": "PASS",
+      "evidence": "MO=GMP/MOPH/00467 before=confirmed after=confirmed route={'status': 'ok', 'target_qty': 0.0, 'warning': False}",
+      "records": [
+        {
+          "model": "mrp.production",
+          "id": 815
+        }
+      ]
+    },
+    {
+      "defect": "1673",
+      "title": "MO schedule date is not wrongly equal to SO delivery date",
+      "status": "FAIL",
+      "evidence": "checked=[('SOE-260065', '2026-06-30', 'GMP/MO/00007', '2027-06-02'), ('SOE-260064', '2026-06-05', 'GMP/MOPH/00516', '2026-06-05'), ('SOD-263072', '2026-05-28', 'GMP/MOPH/00476', '2026-05-28'), ('SOE-260035', '2026-04-17', 'GMP/MOPH/00116', '2026-04-17'), ('SOE-260033', '2026-04-17', 'GMP/MOPH/00084', '2026-04-17'), ('SOE-260033', '2026-04-17', 'GMP/MOPH/00085', '2026-04-17'), ('SOE-260033', '2026-04-17', 'GMP/MO/00006', '2027-04-17'), ('SOE-260028', '2026-04-08', 'GMP/MOPH/00059', '2026-04-08'), ('SOE-260022', '2026-04-01', 'GMP/MOPH/00018', '2026-04-07')] bad=[('SOE-260064', '2026-06-05', 'GMP/MOPH/00516', '2026-06-05'), ('SOD-263072', '2026-05-28', 'GMP/MOPH/00476', '2026-05-28'), ('SOE-260035', '2026-04-17', 'GMP/MOPH/00116', '2026-04-17'), ('SOE-260033', '2026-04-17', 'GMP/MOPH/00084', '2026-04-17'), ('SOE-260033', '2026-04-17', 'GMP/MOPH/00085', '2026-04-17'), ('SOE-260028', '2026-04-08', 'GMP/MOPH/00059', '2026-04-08')]",
+      "records": []
+    },
+    {
+      "defect": "1674",
+      "title": "International SO auto-generates PO when material unavailable",
+      "status": "FAIL",
+      "evidence": "checks=[('SOE-260065', 1, 8, 0, []), ('SOE-260064', 1, 8, 0, []), ('SOE-260060', 0, 0, 0, []), ('SOE-260059', 0, 0, 0, []), ('SOE-260058', 0, 0, 0, []), ('SOE-260057', 0, 0, 0, []), ('SOE-260056', 0, 0, 0, []), ('SOE-260055', 0, 0, 0, []), ('SOE-260054', 0, 0, 0, []), ('SOE-260053', 0, 0, 0, []), ('SOE-260052', 0, 0, 0, []), ('SOE-260051', 0, 0, 0, [])]",
+      "records": []
+    },
+    {
+      "defect": "1677",
+      "title": "MO list UI shows Shopfloor visibility header",
+      "status": "PASS",
+      "evidence": "field={'change_default': False, 'company_dependent': False, 'default_export_compatible': False, 'depends': [], 'exportable': True, 'groupable': True, 'help': 'If checked, this Manufacturing Order will not appear on the Shopfloor Console.', 'manual': False, 'name': 'hide_from_shopfloor', 'readonly': False, 'required': False, 'searchable': True, 'sortable': True, 'store': True, 'string': 'Hide from Shopfloor', 'type': 'boolean'} views=[{'id': 4263, 'name': 'mrp.production.form.parallel.console'}, {'id': 4850, 'name': 'mrp.production.list.parallel.console'}, {'id': 4845, 'name': 'mrp.production.search.parallel.console'}]",
+      "records": []
+    },
+    {
+      "defect": "1678",
+      "title": "Product Transform end-to-end has stock moves and valuation",
+      "status": "PASS",
+      "evidence": "transforms=[{'id': 35, 'name': 'PTRAN/2026/05/000044', 'move_out_id': [31902, 'FG-PPR-TH-01002: FG>Transform Location'], 'move_in_id': [31903, 'FG-PPR-TH-01001: Transform Location>FG'], 'svl_count': 2}, {'id': 34, 'name': 'PTRAN/2026/05/000043', 'move_out_id': [30889, 'FG-PSS-TH-01002: Customers>Transform Location'], 'move_in_id': [30890, 'Transform Location>Customers'], 'svl_count': 6}, {'id': 33, 'name': 'PTRAN/2026/05/000042', 'move_out_id': [30887, 'FG-PSS-TH-01002: Customers>Transform Location'], 'move_in_id': [30888, 'FG-PSS-TH-01001: Transform Location>Customers'], 'svl_count': 2}, {'id': 32, 'name': 'New', 'move_out_id': False, 'move_in_id': False, 'svl_count': 0}, {'id': 31, 'name': 'New', 'move_out_id': False, 'move_in_id': False, 'svl_count': 0}]",
+      "records": []
+    },
+    {
+      "defect": "1679",
+      "title": "Van Sales creates posted/paid invoice from Mobile Warehouse",
+      "status": "PASS",
+      "evidence": "mobile_invoice=[({'id': 69788, 'name': 'INV-D/26/06/00005', 'invoice_origin': 'SOD-263080', 'payment_state': 'paid', 'amount_total': 3420.0}, {'id': 16651, 'name': 'SOD-263080', 'warehouse_id': [2, 'Mobile Warehouse'], 'state': 'sale'})]",
+      "records": []
+    },
+    {
+      "defect": "1680",
+      "title": "Van Sales original tax invoice print once only",
+      "status": "FAIL",
+      "evidence": "print_control_fields=[] reports=[{'id': 233, 'name': 'Original Bills', 'report_name': 'account.report_original_vendor_bill', 'model': 'account.move'}]",
+      "records": []
+    },
+    {
+      "defect": "1682",
+      "title": "Receipt Delivery Slip prints PDF",
+      "status": "PASS",
+      "evidence": "receipt={'id': 10779, 'name': 'GMP/IN/00122', 'state': 'done'} pdf={'status': 200, 'ctype': 'application/pdf', 'bytes': 22104, 'head': '%PDF'}",
+      "records": [
+        {
+          "model": "stock.picking",
+          "id": 10779
+        }
+      ]
+    },
+    {
+      "defect": "1683",
+      "title": "Manual merge internal transfers creates one merged draft/confirmed transfer",
+      "status": "PASS",
+      "evidence": "action={'type': 'ir.actions.act_window', 'res_model': 'stock.picking', 'res_id': 10814, 'view_mode': 'form', 'target': 'current'} pickings=[{'id': 10814, 'name': 'GMP/STOR/00100', 'state': 'confirmed', 'move_ids': [33261, 33262], 'origin': 'SERVER14-E2E-MERGE-DEPLOY, GMP/STOR/00100, GMP/STOR/00101', 'manufacturing_type': 'packaging'}, {'id': 10815, 'name': 'GMP/STOR/00101', 'state': 'cancel', 'move_ids': [], 'origin': 'SERVER14-E2E-MERGE-DEPLOY', 'manufacturing_type': 'packaging'}]",
+      "records": [
+        {
+          "model": "stock.picking",
+          "id": 10814
+        },
+        {
+          "model": "stock.picking",
+          "id": 10815
+        }
+      ]
+    },
+    {
+      "defect": "1684",
+      "title": "Contract expiry reminder cron is active",
+      "status": "PASS",
+      "evidence": "crons=[{'id': 70, 'name': 'Contract Auto-Expire - Daily', 'active': True, 'interval_number': 1, 'interval_type': 'days', 'nextcall': '2026-06-07 02:30:00'}, {'id': 69, 'name': 'Contract Expiry Reminder - Daily', 'active': True, 'interval_number': 1, 'interval_type': 'days', 'nextcall': '2026-06-07 03:05:00'}]",
+      "records": []
+    },
+    {
+      "defect": "1685",
+      "title": "Purchase status report can create vendor credit note before vendor bill",
+      "status": "FAIL",
+      "evidence": "has_apd_cn_fields=True credit_views=[] actions=[] preview_bill_cn_lines=[{'id': 2158, 'line_type': 'bill', 'account_move_id': [69260, 'APD/26/05/00021'], 'move_type': 'in_invoice', 'bill_amount_total': 1000.0, 'is_billable': True, 'vendor_billing_note_id': False}, {'id': 2159, 'line_type': 'bill', 'account_move_id': [69768, 'APD/26/06/00002'], 'move_type': 'in_invoice', 'bill_amount_total': 10700.0, 'is_billable': False, 'vendor_billing_note_id': [58, 'BN/2026/06/0058']}, {'id': 2162, 'line_type': 'bill', 'account_move_id': [69239, 'APD/26/05/00020'], 'move_type': 'in_invoice', 'bill_amount_total': 15408.0, 'is_billable': False, 'vendor_billing_note_id': [41, 'BN/2026/05/0041']}]",
+      "records": []
+    },
+    {
+      "defect": "1688",
+      "title": "Multiple customer payments can print one payment receipt voucher",
+      "status": "PASS",
+      "evidence": "payment=[{'id': 3714, 'name': 'PPBAY1/2026/00464', 'amount': 41595.75, 'date': '2026-06-05', 'partner_id': [253051, 'OK. มาร์ท']}] reports=[{'id': 235, 'name': 'Payment Receipt', 'report_name': 'account.report_payment_receipt', 'report_type': 'qweb-pdf'}] pdfs=[('account.report_payment_receipt', {'status': 200, 'ctype': 'application/pdf', 'bytes': 20504, 'head': '%PDF'})]",
+      "records": [
+        {
+          "model": "account.payment",
+          "id": 3714
+        }
+      ]
+    }
+  ],
+  "corrected_at": "2026-06-06T22:20:25.754234",
+  "correction_source": "scratch/server14_targeted_recheck_1625_1626_1667_filtered.json"
+}

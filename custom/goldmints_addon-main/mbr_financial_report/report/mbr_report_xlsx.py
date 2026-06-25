@@ -108,7 +108,8 @@ class MBRReportXlsx(models.TransientModel):
 
                 def write_line(line):
                     nonlocal row
-                    sheet.write(row, base_col + 0, f"{line['code']} {line['name']}", fmt_text)
+                    indent = "    " if line["code"].startswith("1.1.") or line["code"].startswith("2.1.") else ""
+                    sheet.write(row, base_col + 0, f"{indent}{line['code']} {line['name']}", fmt_text)
                     sheet.write_number(row, base_col + 1, line["curr_actual"], fmt_num)
                     sheet.write_number(row, base_col + 2, line["curr_pct_revenue"], fmt_pct)
                     sheet.write_number(row, base_col + 3, line["curr_budget"], fmt_num)
@@ -146,7 +147,21 @@ class MBRReportXlsx(models.TransientModel):
                 sheet.write(row, base_col + 0, "1 Revenue", fmt_section)
                 row += 1
                 for line in [l for l in dataset["lines"] if l["section"] == "revenue"]:
+                    if line["code"] == "1.1.1":
+                        sheet.write(row, base_col + 0, "  1.1 Revenue from Sales", fmt_bold)
+                        row += 1
                     write_line(line)
+                    if line["code"] == "1.1.2":
+                        write_totals_row(
+                            "  Total 1.1 Revenue from Sales",
+                            dataset["totals"]["total_rev_1_1_curr"],
+                            dataset["totals"]["total_rev_1_1_budget_curr"],
+                            dataset["totals"]["total_rev_1_1_diff_curr"],
+                            dataset["totals"]["total_rev_1_1_ytd"],
+                            dataset["totals"]["total_rev_1_1_budget_ytd"],
+                            dataset["totals"]["total_rev_1_1_diff_ytd"],
+                            fmt_bold,
+                        )
 
                 write_totals_row(
                     "(A) Total Revenue (1.1 : 1.4)",
@@ -163,7 +178,21 @@ class MBRReportXlsx(models.TransientModel):
                 sheet.write(row, base_col + 0, "2 Cost of Sales / Services", fmt_section)
                 row += 1
                 for line in [l for l in dataset["lines"] if l["section"] == "cogs"]:
+                    if line["code"] == "2.1.1":
+                        sheet.write(row, base_col + 0, "  2.1 Cost of Sales", fmt_bold)
+                        row += 1
                     write_line(line)
+                    if line["code"] == "2.1.2":
+                        write_totals_row(
+                            "  Total 2.1 Cost of Sales",
+                            dataset["totals"]["total_cogs_2_1_curr"],
+                            dataset["totals"]["total_cogs_2_1_budget_curr"],
+                            dataset["totals"]["total_cogs_2_1_diff_curr"],
+                            dataset["totals"]["total_cogs_2_1_ytd"],
+                            dataset["totals"]["total_cogs_2_1_budget_ytd"],
+                            dataset["totals"]["total_cogs_2_1_diff_ytd"],
+                            fmt_bold,
+                        )
 
                 write_totals_row(
                     "(B) Total (2.1 : 2.4)",

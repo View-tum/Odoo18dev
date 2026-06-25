@@ -1,0 +1,321 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 2" [ref=e11] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "2"
+        - button "Activities 60" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "60"
+        - button "Toggle Studio" [ref=e18] [cursor=pointer]:
+          - img [ref=e19]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e21]:
+          - text: 
+          - generic [ref=e22]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e24] [cursor=pointer]:
+          - img "User" [ref=e25]
+          - text: 
+  - generic [ref=e1754]:
+    - generic [ref=e1756]:
+      - generic [ref=e1757]:
+        - button "New" [ref=e1760] [cursor=pointer]
+        - generic [ref=e1761]:
+          - list [ref=e1762]:
+            - listitem [ref=e1763]:
+              - link "Bills" [ref=e1764] [cursor=pointer]:
+                - /url: /odoo/bills
+          - generic [ref=e1765]:
+            - generic [ref=e1767]: APD/2026/06/0004 (UI-VBN-CN-20260605024600-BILL)
+            - button "" [ref=e1771] [cursor=pointer]:
+              - generic [ref=e1772]: 
+      - button " Purchase Matching" [ref=e1776] [cursor=pointer]:
+        - generic [ref=e1777]: 
+        - generic [ref=e1779]: Purchase Matching
+      - generic [ref=e1780]:
+        - button "Search Knowledge Articles" [ref=e1781] [cursor=pointer]:
+          - img [ref=e1782]
+        - search [ref=e1786]:
+          - navigation "Pager" [ref=e1787]:
+            - generic [ref=e1788]:
+              - generic [ref=e1789]: "3"
+              - text: / 80
+            - generic [ref=e1790]:
+              - button "Previous" [ref=e1791] [cursor=pointer]:
+                - generic [ref=e1792]: 
+              - button "Next" [ref=e1793] [cursor=pointer]:
+                - generic [ref=e1794]: 
+    - generic [ref=e1797]:
+      - generic [ref=e1798]:
+        - generic [ref=e1799]:
+          - button "Print" [ref=e1800] [cursor=pointer]
+          - button "Pay" [ref=e1801] [cursor=pointer]
+          - button "Credit Note" [ref=e1802] [cursor=pointer]
+          - button "Debit Note" [ref=e1803] [cursor=pointer]
+          - button "Reset to Draft" [ref=e1804] [cursor=pointer]
+          - button "Create Vendor Billing Note" [ref=e1805] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e1807]:
+          - radio "Posted" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - alert [ref=e1808]:
+        - text: You have
+        - button "outstanding debits" [ref=e1810] [cursor=pointer]
+        - text: listed below for this vendor.
+      - generic [ref=e1811]:
+        - generic [ref=e1812]:
+          - generic [ref=e1814]: Vendor Bill
+          - heading "APD/2026/06/0004" [level=1] [ref=e1815]:
+            - generic [ref=e1816]: APD/2026/06/0004
+        - generic [ref=e1817]:
+          - generic [ref=e1818]:
+            - generic [ref=e1819]:
+              - generic [ref=e1821]: Vendor
+              - link "UI-VBN-CN-20260605024600 Test Vendor" [ref=e1826] [cursor=pointer]:
+                - /url: /odoo/res.partner/282568
+                - generic [ref=e1827]: UI-VBN-CN-20260605024600 Test Vendor
+            - generic [ref=e1830]:
+              - generic [ref=e1832]: Apply Manual Exchange
+              - generic [ref=e1835]:
+                - checkbox "Apply Manual Exchange" [disabled]
+            - generic [ref=e1836]:
+              - generic [ref=e1838]: Bill Reference
+              - textbox "Bill Reference" [ref=e1841]: UI-VBN-CN-20260605024600-BILL
+          - generic [ref=e1842]:
+            - generic [ref=e1843]:
+              - generic [ref=e1845]: Period
+              - link "06/2026" [ref=e1848] [cursor=pointer]:
+                - /url: /odoo/sh.account.period/7
+                - generic [ref=e1849]: 06/2026
+            - generic [ref=e1850]:
+              - generic [ref=e1852]: Fiscal Year
+              - link "2026" [ref=e1855] [cursor=pointer]:
+                - /url: /odoo/sh.fiscal.year/1
+                - generic [ref=e1856]: "2026"
+            - generic [ref=e1857]:
+              - generic [ref=e1859]: Bill Date
+              - generic [ref=e1863]: 06/05/2026
+            - generic [ref=e1864]:
+              - generic [ref=e1866]: Accounting Date
+              - generic [ref=e1870]: 06/05/2026
+            - generic [ref=e1871]:
+              - generic [ref=e1873]:
+                - text: Payment Reference
+                - superscript [ref=e1874]: "?"
+              - textbox "Payment Reference?" [ref=e1877]:
+                - /placeholder: Use Bill Reference
+            - generic [ref=e1878]:
+              - generic [ref=e1880]:
+                - text: Recipient Bank
+                - superscript [ref=e1881]: "?"
+              - combobox "Recipient Bank?" [ref=e1887]
+            - generic [ref=e1888]:
+              - generic [ref=e1891]: Due Date
+              - generic [ref=e1893]:
+                - textbox "Due Date" [ref=e1896] [cursor=pointer]:
+                  - /placeholder: Date
+                  - text: 06/05/2026
+                - textbox [ref=e1899] [cursor=pointer]
+            - generic [ref=e1901]:
+              - generic [ref=e1903]: Customer Reference
+              - textbox "Customer Reference" [ref=e1906]: UI-VBN-CN-20260605024600-BILL
+            - generic [ref=e1907]:
+              - generic [ref=e1909]: Journal
+              - generic [ref=e1911]:
+                - generic [ref=e1913]: Domestic Vendor Bills
+                - generic [ref=e1915]: in
+                - link "THB" [ref=e1919] [cursor=pointer]:
+                  - /url: /odoo/res.currency/133
+                  - generic [ref=e1920]: THB
+        - generic [ref=e1921]:
+          - list [ref=e1923]:
+            - listitem [ref=e1924] [cursor=pointer]:
+              - tab "Invoice Lines" [ref=e1925]
+            - listitem [ref=e1926] [cursor=pointer]:
+              - tab "Journal Items" [ref=e1927]
+            - listitem [ref=e1928] [cursor=pointer]:
+              - tab "Other Info" [ref=e1929]
+            - listitem [ref=e1930] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e1931]
+          - generic [ref=e1933]:
+            - table [ref=e1937]:
+              - rowgroup [ref=e1938]:
+                - row "No.  Product  Account  Analytic  Quantity  UoM  Free of Charge  Price  Disc.(AMT)  Disc.(%)  Taxes Manual Tax Invoice  WHT Amount  " [ref=e1939]:
+                  - columnheader [ref=e1940] [cursor=pointer]
+                  - columnheader "No. " [ref=e1941] [cursor=pointer]:
+                    - generic [ref=e1942]:
+                      - generic [ref=e1943]: No.
+                      - generic [ref=e1944]: 
+                  - columnheader "Product " [ref=e1946] [cursor=pointer]:
+                    - generic [ref=e1947]:
+                      - generic [ref=e1948]: Product
+                      - generic [ref=e1949]: 
+                  - columnheader "Account " [ref=e1951] [cursor=pointer]:
+                    - generic [ref=e1952]:
+                      - generic [ref=e1953]: Account
+                      - generic [ref=e1954]: 
+                  - columnheader "Analytic " [ref=e1956] [cursor=pointer]:
+                    - generic [ref=e1957]:
+                      - generic [ref=e1958]: Analytic
+                      - generic [ref=e1959]: 
+                  - columnheader "Quantity " [ref=e1961] [cursor=pointer]:
+                    - generic [ref=e1962]:
+                      - generic [ref=e1963]: Quantity
+                      - generic [ref=e1964]: 
+                  - columnheader "UoM " [ref=e1966] [cursor=pointer]:
+                    - generic [ref=e1967]:
+                      - generic [ref=e1968]: UoM
+                      - generic [ref=e1969]: 
+                  - columnheader "Free of Charge " [ref=e1971] [cursor=pointer]:
+                    - generic [ref=e1972]:
+                      - generic [ref=e1973]: Free of Charge
+                      - generic [ref=e1974]: 
+                  - columnheader "Price " [ref=e1976] [cursor=pointer]:
+                    - generic [ref=e1977]:
+                      - generic [ref=e1978]: Price
+                      - generic [ref=e1979]: 
+                  - columnheader "Disc.(AMT) " [ref=e1981] [cursor=pointer]:
+                    - generic [ref=e1982]:
+                      - generic [ref=e1983]: Disc.(AMT)
+                      - generic [ref=e1984]: 
+                  - columnheader "Disc.(%) " [ref=e1986] [cursor=pointer]:
+                    - generic [ref=e1987]:
+                      - generic [ref=e1988]: Disc.(%)
+                      - generic [ref=e1989]: 
+                  - columnheader "Taxes" [ref=e1991]:
+                    - generic [ref=e1992]:
+                      - generic [ref=e1993]: Taxes
+                      - text: 
+                  - columnheader "Manual Tax Invoice " [ref=e1995] [cursor=pointer]:
+                    - generic [ref=e1996]:
+                      - generic [ref=e1997]: Manual Tax Invoice
+                      - generic [ref=e1998]: 
+                  - columnheader "WHT" [ref=e2000]:
+                    - generic [ref=e2001]:
+                      - generic [ref=e2002]: WHT
+                      - text: 
+                  - columnheader "Amount " [ref=e2004] [cursor=pointer]:
+                    - generic [ref=e2005]:
+                      - generic [ref=e2006]: Amount
+                      - generic [ref=e2007]: 
+                  - columnheader "" [ref=e2009]:
+                    - button "" [ref=e2011] [cursor=pointer]:
+                      - generic [ref=e2012]: 
+              - rowgroup [ref=e2013]:
+                - row "1 UI-VBN-CN-20260605024600 BILL 2222222 Opening Expense Account 1.00 1,000.00 0.00 0.00 1,000.00 ฿" [ref=e2014]:
+                  - cell [ref=e2015] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e2016] [cursor=pointer]
+                  - cell "UI-VBN-CN-20260605024600 BILL" [ref=e2017] [cursor=pointer]:
+                    - textbox "Enter a description" [ref=e2020]: UI-VBN-CN-20260605024600 BILL
+                  - cell "2222222 Opening Expense Account" [ref=e2021] [cursor=pointer]
+                  - cell [ref=e2022] [cursor=pointer]
+                  - cell "1.00" [ref=e2024] [cursor=pointer]
+                  - cell [ref=e2025] [cursor=pointer]
+                  - cell [ref=e2026] [cursor=pointer]:
+                    - generic [ref=e2027]:
+                      - checkbox [disabled]
+                  - cell "1,000.00" [ref=e2028] [cursor=pointer]
+                  - cell "0.00" [ref=e2029] [cursor=pointer]
+                  - cell "0.00" [ref=e2030] [cursor=pointer]
+                  - cell [ref=e2031] [cursor=pointer]
+                  - cell [ref=e2033] [cursor=pointer]:
+                    - generic [ref=e2034]:
+                      - checkbox [disabled]
+                  - cell [ref=e2035] [cursor=pointer]
+                  - cell "1,000.00 ฿" [ref=e2037] [cursor=pointer]
+                  - cell [ref=e2038]
+                - row [ref=e2039]:
+                  - cell [ref=e2040]
+                - row [ref=e2041]:
+                  - cell [ref=e2042]
+                - row [ref=e2043]:
+                  - cell [ref=e2044]
+              - rowgroup [ref=e2045]:
+                - row [ref=e2046]:
+                  - cell [ref=e2047]
+                  - cell [ref=e2048]
+                  - cell [ref=e2049]
+                  - cell [ref=e2050]
+                  - cell [ref=e2051]
+                  - cell [ref=e2052]
+                  - cell [ref=e2053]
+                  - cell [ref=e2054]
+                  - cell [ref=e2055]
+                  - cell [ref=e2056]
+                  - cell [ref=e2057]
+                  - cell [ref=e2058]
+                  - cell [ref=e2059]
+                  - cell [ref=e2060]
+                  - cell [ref=e2061]
+                  - cell [ref=e2062]
+            - generic [ref=e2063]:
+              - generic [ref=e2069]:
+                - generic:
+                  - generic:        
+                - generic [ref=e2072]: Terms and Conditions
+              - generic [ref=e2073]:
+                - generic [ref=e2074]:
+                  - table [ref=e2078]:
+                    - rowgroup [ref=e2079]:
+                      - 'row "Untaxed Amount: 1,000.00 ฿" [ref=e2080]':
+                        - cell "Untaxed Amount:" [ref=e2081]:
+                          - generic [ref=e2082]: "Untaxed Amount:"
+                        - cell "1,000.00 ฿" [ref=e2083]
+                      - 'row "Total: 1,000.00 ฿" [ref=e2084]':
+                        - cell "Total:" [ref=e2085]:
+                          - generic [ref=e2086]: "Total:"
+                        - cell "1,000.00 ฿" [ref=e2087]
+                  - generic [ref=e2089]:
+                    - generic:
+                      - generic:
+                        - table
+                  - generic [ref=e2090]:
+                    - generic [ref=e2092]: "Amount Due:"
+                    - generic [ref=e2095]: 1,000.00 ฿
+                - generic [ref=e2100]:
+                  - strong [ref=e2101]: Outstanding debits
+                  - table [ref=e2102]:
+                    - row "Add UI-VBN-CN-20260605024600-CN 250.00 ฿" [ref=e2103]:
+                      - cell "Add" [ref=e2104]:
+                        - button "Add" [ref=e2105] [cursor=pointer]
+                      - cell "UI-VBN-CN-20260605024600-CN" [ref=e2106]:
+                        - button "UI-VBN-CN-20260605024600-CN" [ref=e2107] [cursor=pointer]
+                      - cell "250.00 ฿" [ref=e2108]
+      - generic [ref=e2110]:
+        - generic [ref=e2112]:
+          - button "Send message" [ref=e2113] [cursor=pointer]
+          - button "Log note" [ref=e2114] [cursor=pointer]
+          - button "Activities" [ref=e2115] [cursor=pointer]
+          - button "Search Messages" [ref=e2117] [cursor=pointer]:
+            - img [ref=e2118]: 
+          - button "Attach files" [ref=e2120] [cursor=pointer]:
+            - generic [ref=e2121]: 
+          - button "1" [ref=e2123] [cursor=pointer]:
+            - img [ref=e2124]: 
+            - superscript: "1"
+          - button "Follow" [ref=e2125] [cursor=pointer]:
+            - generic [ref=e2127]: Follow
+        - generic [ref=e2129]:
+          - generic [ref=e2130]:
+            - generic [ref=e2132]:
+              - separator [ref=e2133]
+              - generic [ref=e2134]: Today
+              - separator [ref=e2135]
+            - group "System notification" [ref=e2136]:
+              - generic [ref=e2137]:
+                - generic "Open card" [ref=e2139] [cursor=pointer]:
+                  - img [ref=e2140]
+                - generic [ref=e2141]:
+                  - generic [ref=e2142]:
+                    - generic "Open card" [ref=e2143] [cursor=pointer]:
+                      - strong [ref=e2144]: OdooBot
+                    - generic "6/5/2026, 9:46:00 AM" [ref=e2145]: Today at 9:46 AM
+                  - paragraph [ref=e2152]: Vendor Bill Created
+          - button "" [ref=e2153] [cursor=pointer]:
+            - generic [ref=e2154]: 

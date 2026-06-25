@@ -16,6 +16,9 @@ class PurchaseOrder(models.Model):
         return [('purchase', _('Purchase Order')), ('done', _('Locked')), ('rejected', _('Rejected')), ('cancel', _('Cancelled'))]    
        
     def _approval_allowed(self):
+        # Bypass check if workflow just changed state to purchase but date_approve isn't stamped yet
+        if self.state in ('purchase', 'done') and not self.date_approve:
+            return True
         return self.user_can_approve
     
     @on_approve()

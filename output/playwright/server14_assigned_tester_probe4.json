@@ -1,0 +1,218 @@
+{
+  "return_10894": {
+    "id": 10894,
+    "name": "GMP/R-OUT/00013",
+    "return_id": [
+      10892,
+      "GMP/IN/00124"
+    ],
+    "partner_id": [
+      282401,
+      "ร้านค้า บอส"
+    ],
+    "origin": "Return of GMP/IN/00124",
+    "move_ids": [
+      33863
+    ],
+    "state": "done",
+    "picking_type_id": [
+      62,
+      "GOLD MINTS PRODUCTS CO., LTD.: Return OUT"
+    ],
+    "vendor_credit_note_state": "to_credit",
+    "vendor_credit_note_ids": []
+  },
+  "return_moves": [
+    {
+      "id": 33863,
+      "name": "GMP/R-OUT/00013",
+      "product_id": [
+        8690,
+        "Injection Machine"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "product_uom": [
+        1,
+        "Unit"
+      ],
+      "origin_returned_move_id": [
+        33861,
+        "P00125/Vendors>HOLD-V"
+      ],
+      "purchase_line_id": [
+        421,
+        "Injection Machine\nเป็น series X99900"
+      ],
+      "picking_id": [
+        10894,
+        "GMP/R-OUT/00013"
+      ],
+      "state": "done"
+    }
+  ],
+  "source_pick": [
+    {
+      "id": 10892,
+      "name": "GMP/IN/00124",
+      "origin": "P00125",
+      "partner_id": [
+        282401,
+        "ร้านค้า บอส"
+      ],
+      "move_ids": [
+        33861
+      ],
+      "state": "done"
+    }
+  ],
+  "source_moves": [
+    {
+      "id": 33861,
+      "name": "Injection Machine",
+      "product_id": [
+        8690,
+        "Injection Machine"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "product_uom": [
+        1,
+        "Unit"
+      ],
+      "origin_returned_move_id": false,
+      "purchase_line_id": [
+        421,
+        "Injection Machine\nเป็น series X99900"
+      ],
+      "picking_id": [
+        10892,
+        "GMP/IN/00124"
+      ],
+      "state": "done"
+    }
+  ],
+  "po_for_source": [
+    {
+      "id": 187,
+      "name": "P00125",
+      "partner_id": [
+        282401,
+        "ร้านค้า บอส"
+      ],
+      "invoice_ids": [],
+      "order_line": [
+        421
+      ],
+      "state": "purchase"
+    }
+  ],
+  "bills_for_po": [],
+  "reversal_fields_interesting": [
+    "move_ids",
+    "new_move_ids",
+    "date",
+    "reason",
+    "journal_id",
+    "available_journal_ids",
+    "move_type",
+    "create_date",
+    "write_date",
+    "tax_invoice_date",
+    "include_vendor_returns",
+    "available_return_picking_ids",
+    "return_picking_ids",
+    "return_line_ids"
+  ],
+  "mo193": [
+    {
+      "id": 955,
+      "name": "GMP/MOPL/00193",
+      "origin": "GMP/MOPH/00534",
+      "state": "confirmed",
+      "purchase_order_count": 1,
+      "procurement_group_id": [
+        7468,
+        "GMP/MOPL/00193"
+      ],
+      "move_raw_ids": [
+        34427
+      ],
+      "picking_ids": [
+        10973
+      ]
+    }
+  ],
+  "purchase_by_origin_193": [
+    {
+      "id": 183,
+      "name": "P00121",
+      "origin": "GMP/MOPL/00149, GMP/MOPL/00155, GMP/MOPL/00163, GMP/MOPL/00185, GMP/MOPL/00193",
+      "state": "draft",
+      "partner_id": [
+        70303,
+        "JW TECH CO.,LTD."
+      ],
+      "amount_total": 42648.381
+    }
+  ],
+  "sale_order_line_interesting_fields": [
+    "order_id",
+    "order_partner_id",
+    "is_configurable_product",
+    "product_id",
+    "product_template_id",
+    "product_uom_category_id",
+    "product_template_attribute_value_ids",
+    "product_custom_attribute_value_ids",
+    "product_no_variant_attribute_value_ids",
+    "is_product_archived",
+    "translated_product_name",
+    "product_uom_qty",
+    "product_uom",
+    "product_packaging_id",
+    "product_packaging_qty",
+    "customer_lead",
+    "product_type",
+    "product_updatable",
+    "product_uom_readonly",
+    "is_delivery",
+    "product_qty",
+    "recompute_delivery_price",
+    "sale_order_option_ids",
+    "route_id",
+    "available_product_document_ids",
+    "product_document_ids",
+    "mfg_lead_time"
+  ],
+  "mrp_interesting_fields": [
+    "activity_date_deadline",
+    "my_activity_date_deadline",
+    "origin",
+    "date_deadline",
+    "date_start",
+    "date_finished",
+    "move_raw_ids",
+    "move_finished_ids",
+    "all_move_raw_ids",
+    "all_move_ids",
+    "move_byproduct_ids",
+    "finished_move_line_ids",
+    "move_dest_ids",
+    "delay_alert_date",
+    "is_outdated_bom",
+    "search_date_category",
+    "create_date",
+    "write_date",
+    "move_line_raw_ids",
+    "move_raw_line_ids",
+    "move_byproduct_line_ids",
+    "mold_move_id",
+    "source_sale_order_id",
+    "sale_order_count",
+    "sale_line_id",
+    "sale_note",
+    "mpc_supervisor_check_date",
+    "labor_move_id"
+  ]
+}

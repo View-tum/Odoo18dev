@@ -1,0 +1,539 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 2" [ref=e11] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "2"
+        - button "Activities 5" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "5"
+        - button "Toggle Studio" [ref=e18] [cursor=pointer]:
+          - img [ref=e19]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e21]:
+          - text: 
+          - generic [ref=e22]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e24] [cursor=pointer]:
+          - img "User" [ref=e25]
+          - text: 
+  - generic [ref=e28]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - button "New" [ref=e34] [cursor=pointer]
+        - generic [ref=e35]:
+          - list [ref=e36]:
+            - listitem [ref=e37]:
+              - link "Invoices" [ref=e38] [cursor=pointer]:
+                - /url: /odoo/action-account.action_move_out_invoice_type
+          - generic [ref=e39]:
+            - generic [ref=e41]: INV-E/2026/00002
+            - button "" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]: 
+      - button " 1 Payments" [ref=e50] [cursor=pointer]:
+        - generic [ref=e51]: 
+        - generic [ref=e52]:
+          - generic [ref=e53]: "1"
+          - generic [ref=e54]: Payments
+      - generic [ref=e55]:
+        - button "Search Knowledge Articles" [ref=e56] [cursor=pointer]:
+          - img [ref=e57]
+        - search [ref=e61]:
+          - navigation "Pager" [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]: "1"
+              - text: / 1
+            - generic [ref=e65]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - button "Send" [ref=e71] [cursor=pointer]
+          - button "Print" [ref=e72] [cursor=pointer]
+          - button "Pay" [ref=e73] [cursor=pointer]
+          - button "Preview" [ref=e74] [cursor=pointer]
+          - button "Credit Note" [ref=e75] [cursor=pointer]
+          - button "Debit Note" [ref=e76] [cursor=pointer]
+          - button "Reset to Draft" [ref=e77] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e79]:
+          - radio "Posted" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - alert [ref=e80]:
+        - generic [ref=e81]: "Warning: this document might be a duplicate of"
+        - button "INV-E/2026/00001 ($ 18,600.000000)" [ref=e84] [cursor=pointer]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e88]: Customer Invoice
+          - heading "INV-E/2026/00002" [level=1] [ref=e89]:
+            - generic [ref=e90]: INV-E/2026/00002
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e95]: Customer
+              - generic [ref=e98]:
+                - link "Theophane Co.Ltd. (Taiwan)" [ref=e100] [cursor=pointer]:
+                  - /url: /odoo/res.partner/244138
+                  - generic [ref=e101]: Theophane Co.Ltd. (Taiwan)
+                - generic [ref=e102]: Ren Ai Rd. Sec.4 No.403 3F , . Taipei 106 Taiwan
+            - generic [ref=e104]:
+              - generic [ref=e106]: Apply Manual Exchange
+              - generic [ref=e109]:
+                - checkbox [disabled]
+            - generic [ref=e110]:
+              - generic [ref=e112]:
+                - text: Delivery Address
+                - superscript [ref=e113]: "?"
+              - link "Theophane Co.Ltd. (Taiwan)" [ref=e116] [cursor=pointer]:
+                - /url: /odoo/res.partner/244138
+                - generic [ref=e117]: Theophane Co.Ltd. (Taiwan)
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e121]: Invoice Date
+              - generic [ref=e125]: 05/20/2026
+            - generic [ref=e126]:
+              - generic [ref=e128]: Period
+              - link "05/2026" [ref=e131] [cursor=pointer]:
+                - /url: /odoo/sh.account.period/6
+                - generic [ref=e132]: 05/2026
+            - generic [ref=e133]:
+              - generic [ref=e135]: Fiscal Year
+              - link "2026" [ref=e138] [cursor=pointer]:
+                - /url: /odoo/sh.fiscal.year/1
+                - generic [ref=e139]: "2026"
+            - generic [ref=e140]:
+              - generic [ref=e143]: Payment terms
+              - generic [ref=e145]:
+                - textbox [ref=e148] [cursor=pointer]
+                - link "Cash" [ref=e150] [cursor=pointer]:
+                  - /url: /odoo/account.payment.term/1
+                  - generic [ref=e151]: Cash
+            - generic [ref=e152]:
+              - generic [ref=e154]: Customer Reference
+              - textbox "Customer Reference" [ref=e157]
+            - generic [ref=e158]:
+              - generic [ref=e160]: Journal
+              - generic [ref=e162]:
+                - generic [ref=e164]: International Customer Invoice (USD)
+                - generic [ref=e166]: in
+                - generic [ref=e167]:
+                  - link "USD" [ref=e170] [cursor=pointer]:
+                    - /url: /odoo/res.currency/1
+                    - generic [ref=e171]: USD
+                  - generic [ref=e172]:
+                    - generic [ref=e173]: "1"
+                    - generic [ref=e175]: THB
+                    - generic [ref=e176]: =
+                    - generic [ref=e177]: "0.03"
+                    - generic [ref=e179]: USD
+        - generic [ref=e180]:
+          - list [ref=e182]:
+            - listitem [ref=e183] [cursor=pointer]:
+              - tab "Invoice Lines" [ref=e184]
+            - listitem [ref=e185] [cursor=pointer]:
+              - tab "Journal Items" [ref=e186]
+            - listitem [ref=e187] [cursor=pointer]:
+              - tab "Tax Invoice" [ref=e188]
+            - listitem [ref=e189] [cursor=pointer]:
+              - tab "Other Info" [ref=e190]
+            - listitem [ref=e191] [cursor=pointer]:
+              - tab "Sale Note" [ref=e192]
+          - generic [ref=e194]:
+            - table [ref=e198]:
+              - rowgroup [ref=e199]:
+                - row "No.  Product  Account  Analytic  Quantity  UoM  Free of Charge  Price  Disc.(AMT)  Disc.(%)  Taxes Manual Tax Invoice  WHT Amount  " [ref=e200]:
+                  - columnheader [ref=e201] [cursor=pointer]
+                  - columnheader "No. " [ref=e202] [cursor=pointer]:
+                    - generic [ref=e203]:
+                      - generic [ref=e204]: No.
+                      - generic [ref=e205]: 
+                  - columnheader "Product " [ref=e207] [cursor=pointer]:
+                    - generic [ref=e208]:
+                      - generic [ref=e209]: Product
+                      - generic [ref=e210]: 
+                  - columnheader "Account " [ref=e212] [cursor=pointer]:
+                    - generic [ref=e213]:
+                      - generic [ref=e214]: Account
+                      - generic [ref=e215]: 
+                  - columnheader "Analytic " [ref=e217] [cursor=pointer]:
+                    - generic [ref=e218]:
+                      - generic [ref=e219]: Analytic
+                      - generic [ref=e220]: 
+                  - columnheader "Quantity " [ref=e222] [cursor=pointer]:
+                    - generic [ref=e223]:
+                      - generic [ref=e224]: Quantity
+                      - generic [ref=e225]: 
+                  - columnheader "UoM " [ref=e227] [cursor=pointer]:
+                    - generic [ref=e228]:
+                      - generic [ref=e229]: UoM
+                      - generic [ref=e230]: 
+                  - columnheader "Free of Charge " [ref=e232] [cursor=pointer]:
+                    - generic [ref=e233]:
+                      - generic [ref=e234]: Free of Charge
+                      - generic [ref=e235]: 
+                  - columnheader "Price " [ref=e237] [cursor=pointer]:
+                    - generic [ref=e238]:
+                      - generic [ref=e239]: Price
+                      - generic [ref=e240]: 
+                  - columnheader "Disc.(AMT) " [ref=e242] [cursor=pointer]:
+                    - generic [ref=e243]:
+                      - generic [ref=e244]: Disc.(AMT)
+                      - generic [ref=e245]: 
+                  - columnheader "Disc.(%) " [ref=e247] [cursor=pointer]:
+                    - generic [ref=e248]:
+                      - generic [ref=e249]: Disc.(%)
+                      - generic [ref=e250]: 
+                  - columnheader "Taxes" [ref=e252]:
+                    - generic [ref=e253]:
+                      - generic [ref=e254]: Taxes
+                      - text: 
+                  - columnheader "Manual Tax Invoice " [ref=e256] [cursor=pointer]:
+                    - generic [ref=e257]:
+                      - generic [ref=e258]: Manual Tax Invoice
+                      - generic [ref=e259]: 
+                  - columnheader "WHT" [ref=e261]:
+                    - generic [ref=e262]:
+                      - generic [ref=e263]: WHT
+                      - text: 
+                  - columnheader "Amount " [ref=e265] [cursor=pointer]:
+                    - generic [ref=e266]:
+                      - generic [ref=e267]: Amount
+                      - generic [ref=e268]: 
+                  - columnheader "" [ref=e270]:
+                    - button "" [ref=e272] [cursor=pointer]:
+                      - generic [ref=e273]: 
+              - rowgroup [ref=e274]:
+                - row "1 [FG-MTS-TW-01002] Mark II – Aroma Oil Stick (T000878 – Unicorn Version) Mark II – Aroma Oil Stick (T000878 – Unicorn Version) 420001 รายได้จากการขายต่างประเทศ - ยาดม [301] ฝ่ายขาย 30,000.00 Unit 0.58 0.00 0.00 Output VAT 0% $ 17,400.00" [ref=e275]:
+                  - cell [ref=e276] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e277] [cursor=pointer]
+                  - cell "[FG-MTS-TW-01002] Mark II – Aroma Oil Stick (T000878 – Unicorn Version) Mark II – Aroma Oil Stick (T000878 – Unicorn Version)" [ref=e278] [cursor=pointer]:
+                    - generic [ref=e280]:
+                      - link "[FG-MTS-TW-01002] Mark II – Aroma Oil Stick (T000878 – Unicorn Version)" [ref=e281]:
+                        - /url: /odoo/product.product/8998
+                        - generic [ref=e282]: "[FG-MTS-TW-01002] Mark II – Aroma Oil Stick (T000878 – Unicorn Version)"
+                      - textbox "Enter a description" [ref=e283]: Mark II – Aroma Oil Stick (T000878 – Unicorn Version)
+                  - cell "420001 รายได้จากการขายต่างประเทศ - ยาดม" [ref=e284] [cursor=pointer]
+                  - cell "[301] ฝ่ายขาย" [ref=e285] [cursor=pointer]:
+                    - generic "[301] ฝ่ายขาย" [ref=e288]:
+                      - generic [ref=e289]: "[301] ฝ่ายขาย"
+                  - cell "30,000.00" [ref=e290] [cursor=pointer]
+                  - cell "Unit" [ref=e291] [cursor=pointer]
+                  - cell [ref=e292] [cursor=pointer]:
+                    - generic [ref=e554]:
+                      - checkbox [disabled]
+                  - cell "0.58" [ref=e294] [cursor=pointer]
+                  - cell "0.00" [ref=e295] [cursor=pointer]
+                  - cell "0.00" [ref=e296] [cursor=pointer]
+                  - cell "Output VAT 0%" [ref=e297] [cursor=pointer]:
+                    - generic "Output VAT 0%" [ref=e300]:
+                      - generic [ref=e301]: Output VAT 0%
+                  - cell [ref=e302] [cursor=pointer]:
+                    - generic [ref=e555]:
+                      - checkbox [disabled]
+                  - cell [ref=e304] [cursor=pointer]
+                  - cell "$ 17,400.00" [ref=e306] [cursor=pointer]
+                  - cell [ref=e307]
+                - row "2 [900046] รายได้อื่นๆ ค่า Mould 420009 รายได้จากการขายต่างประเทศ - สินค้าสำเร็จรูปอื่น ๆ [301] ฝ่ายขาย 1.00 Unit 1,200.00 0.00 0.00 Output VAT 0% $ 1,200.00" [ref=e308]:
+                  - cell [ref=e309] [cursor=pointer]:
+                    - generic: 
+                  - cell "2" [ref=e310] [cursor=pointer]
+                  - cell "[900046] รายได้อื่นๆ ค่า Mould" [ref=e311] [cursor=pointer]:
+                    - generic [ref=e313]:
+                      - link "[900046] รายได้อื่นๆ" [ref=e314]:
+                        - /url: /odoo/product.product/8983
+                        - generic [ref=e315]: "[900046] รายได้อื่นๆ"
+                      - textbox "Enter a description" [ref=e316]: ค่า Mould
+                  - cell "420009 รายได้จากการขายต่างประเทศ - สินค้าสำเร็จรูปอื่น ๆ" [ref=e317] [cursor=pointer]
+                  - cell "[301] ฝ่ายขาย" [ref=e318] [cursor=pointer]:
+                    - generic "[301] ฝ่ายขาย" [ref=e321]:
+                      - generic [ref=e322]: "[301] ฝ่ายขาย"
+                  - cell "1.00" [ref=e323] [cursor=pointer]
+                  - cell "Unit" [ref=e324] [cursor=pointer]
+                  - cell [ref=e325] [cursor=pointer]:
+                    - generic [ref=e556]:
+                      - checkbox [disabled]
+                  - cell "1,200.00" [ref=e327] [cursor=pointer]
+                  - cell "0.00" [ref=e328] [cursor=pointer]
+                  - cell "0.00" [ref=e329] [cursor=pointer]
+                  - cell "Output VAT 0%" [ref=e330] [cursor=pointer]:
+                    - generic "Output VAT 0%" [ref=e333]:
+                      - generic [ref=e334]: Output VAT 0%
+                  - cell [ref=e335] [cursor=pointer]:
+                    - generic [ref=e557]:
+                      - checkbox [disabled]
+                  - cell [ref=e337] [cursor=pointer]
+                  - cell "$ 1,200.00" [ref=e339] [cursor=pointer]
+                  - cell [ref=e340]
+                - row [ref=e341]:
+                  - cell [ref=e342]
+                - row [ref=e343]:
+                  - cell [ref=e344]
+              - rowgroup [ref=e345]:
+                - row [ref=e346]:
+                  - cell [ref=e347]
+                  - cell [ref=e348]
+                  - cell [ref=e349]
+                  - cell [ref=e350]
+                  - cell [ref=e351]
+                  - cell [ref=e352]
+                  - cell [ref=e353]
+                  - cell [ref=e354]
+                  - cell [ref=e355]
+                  - cell [ref=e356]
+                  - cell [ref=e357]
+                  - cell [ref=e358]
+                  - cell [ref=e359]
+                  - cell [ref=e360]
+                  - cell [ref=e361]
+                  - cell [ref=e362]
+            - generic [ref=e363]:
+              - generic [ref=e369]:
+                - generic:
+                  - generic:        
+                - generic [ref=e372]: Terms and Conditions
+              - generic [ref=e374]:
+                - table [ref=e378]:
+                  - rowgroup [ref=e379]:
+                    - 'row "Untaxed Amount: $ 18,600.00" [ref=e380]':
+                      - cell "Untaxed Amount:" [ref=e381]:
+                        - generic [ref=e382]: "Untaxed Amount:"
+                      - cell "$ 18,600.00" [ref=e383]
+                    - 'row "VAT 0%: $ 0.00" [ref=e384]':
+                      - cell "VAT 0%:" [ref=e385]:
+                        - generic [ref=e386]: "VAT 0%:"
+                      - cell "$ 0.00" [ref=e387]:
+                        - generic [ref=e388]: $ 0.00
+                    - 'row "Total: $ 18,600.00" [ref=e389]':
+                      - cell "Total:" [ref=e390]:
+                        - generic [ref=e391]: "Total:"
+                      - cell "$ 18,600.00" [ref=e392]
+                - generic [ref=e394]:
+                  - generic:
+                    - generic:
+                      - table
+                - generic [ref=e395]:
+                  - generic [ref=e397]: "Amount Due:"
+                  - generic [ref=e400]: $ 18,600.00
+      - generic [ref=e402]:
+        - generic [ref=e404]:
+          - button "Send message" [ref=e405] [cursor=pointer]
+          - button "Log note" [ref=e406] [cursor=pointer]
+          - button "Activities" [ref=e407] [cursor=pointer]
+          - button "Search Messages" [ref=e409] [cursor=pointer]:
+            - img [ref=e410]: 
+          - button "Attach files" [ref=e412] [cursor=pointer]:
+            - generic [ref=e413]: 
+          - button "3" [ref=e415] [cursor=pointer]:
+            - img [ref=e416]: 
+            - superscript: "3"
+          - button "Following" [ref=e417] [cursor=pointer]:
+            - generic [ref=e419]: Following
+        - generic [ref=e420]:
+          - generic [ref=e421]:
+            - generic [ref=e422] [cursor=pointer]:
+              - separator [ref=e423]
+              - generic [ref=e424]:
+                - generic [ref=e425]: 
+                - text: Planned Activities
+              - separator [ref=e426]
+            - generic [ref=e427]:
+              - generic [ref=e428]:
+                - button [ref=e429] [cursor=pointer]:
+                  - img [ref=e430]
+                - generic [ref=e432]: 
+              - generic [ref=e433]:
+                - generic [ref=e434]:
+                  - text: "Yesterday:“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e435]: for ชาญพิชชา จิรพงศานานุรักษ์
+                  - button "Info" [ref=e436] [cursor=pointer]:
+                    - img "Info" [ref=e437]: 
+                - paragraph [ref=e439]: "ลูกค้า: Theophane Co.Ltd. (Taiwan) เอกสาร: INV-E/2026/00002 ครบกำหนด: 2026-05-20 ยอดค้างชำระ: 18600.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e440]:
+                  - button " Mark Done" [ref=e441] [cursor=pointer]:
+                    - generic [ref=e442]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e443] [cursor=pointer]:
+                    - generic [ref=e444]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e445] [cursor=pointer]:
+                    - generic [ref=e446]: 
+                    - text: Cancel
+          - generic [ref=e447]:
+            - generic [ref=e448]:
+              - generic [ref=e450]:
+                - separator [ref=e451]
+                - generic [ref=e452]: May 21, 2026
+                - separator [ref=e453]
+              - group "System notification" [ref=e454]:
+                - generic [ref=e455]:
+                  - generic "Open card" [ref=e457] [cursor=pointer]:
+                    - img [ref=e458]
+                  - generic [ref=e459]:
+                    - generic [ref=e460]:
+                      - generic "Open card" [ref=e461] [cursor=pointer]:
+                        - strong [ref=e462]: Administrator
+                      - generic "5/21/2026, 12:13:41 PM" [ref=e463]: Yesterday at 12:13 PM
+                    - list [ref=e468]:
+                      - group [ref=e469]:
+                        - text: Partially Paid
+                        - generic [ref=e470]: 
+                        - text: Not Paid
+                        - generic [ref=e471]: (Payment Status)
+              - group "System notification" [ref=e472]:
+                - generic [ref=e473]:
+                  - generic "Open card" [ref=e475] [cursor=pointer]:
+                    - img [ref=e476]
+                  - generic [ref=e477]:
+                    - generic [ref=e478]:
+                      - generic "Open card" [ref=e479] [cursor=pointer]:
+                        - strong [ref=e480]: Administrator
+                      - generic "5/21/2026, 12:12:59 PM" [ref=e481]: Yesterday at 12:12 PM
+                    - list [ref=e486]:
+                      - group [ref=e487]:
+                        - text: Not Paid
+                        - generic [ref=e488]: 
+                        - text: Partially Paid
+                        - generic [ref=e489]: (Payment Status)
+              - generic [ref=e490]:
+                - separator [ref=e491]
+                - generic [ref=e492]: May 20, 2026
+                - separator [ref=e493]
+              - group "System notification" [ref=e494]:
+                - generic [ref=e495]:
+                  - generic "Open card" [ref=e497] [cursor=pointer]:
+                    - img [ref=e498]
+                  - generic [ref=e499]:
+                    - generic [ref=e500]:
+                      - generic "Open card" [ref=e501] [cursor=pointer]:
+                        - strong [ref=e502]: Administrator
+                      - generic "5/20/2026, 8:16:03 PM" [ref=e503]: May 20, 8:16 PM
+                    - generic [ref=e507]:
+                      - paragraph [ref=e508]: Invoice validated
+                      - list [ref=e509]:
+                        - group [ref=e510]:
+                          - text: None
+                          - generic [ref=e511]: 
+                          - text: INV-E/2026/00002
+                          - generic [ref=e512]: (Number)
+                        - group [ref=e513]:
+                          - text: None
+                          - generic [ref=e514]: 
+                          - text: INV-E/2026/00002
+                          - generic [ref=e515]: (Payment Reference)
+                        - group [ref=e516]:
+                          - text: Draft
+                          - generic [ref=e517]: 
+                          - text: Posted
+                          - generic [ref=e518]: (Status)
+              - group "System notification" [ref=e519]:
+                - generic [ref=e520]:
+                  - generic "Open card" [ref=e522] [cursor=pointer]:
+                    - img [ref=e523]
+                  - generic [ref=e524]:
+                    - generic [ref=e525]:
+                      - generic "Open card" [ref=e526] [cursor=pointer]:
+                        - strong [ref=e527]: Administrator
+                      - generic "5/20/2026, 8:15:55 PM" [ref=e528]: May 20, 8:15 PM
+                    - paragraph [ref=e535]:
+                      - text: This entry has been duplicated from
+                      - link "INV-E/2026/00001" [ref=e536] [cursor=pointer]:
+                        - /url: "#"
+              - group "System notification" [ref=e537]:
+                - generic [ref=e538]:
+                  - generic "Open card" [ref=e540] [cursor=pointer]:
+                    - img [ref=e541]
+                  - generic [ref=e542]:
+                    - generic [ref=e543]:
+                      - generic "Open card" [ref=e544] [cursor=pointer]:
+                        - strong [ref=e545]: Administrator
+                      - generic "5/20/2026, 8:15:55 PM" [ref=e546]: May 20, 8:15 PM
+                    - paragraph [ref=e551]: Invoice Created
+            - button "" [ref=e552] [cursor=pointer]:
+              - generic [ref=e553]: 
+  - dialog [ref=e559]:
+    - generic [ref=e560]:
+      - banner [ref=e561]:
+        - heading "Pay" [level=4] [ref=e562]
+        - button "Close" [ref=e563] [cursor=pointer]
+      - main [ref=e564]:
+        - generic [ref=e568]:
+          - generic [ref=e569]:
+            - generic [ref=e570]:
+              - generic [ref=e571]:
+                - generic [ref=e573]: Journal
+                - combobox "Journal" [active] [ref=e579]: Cheque for Customer Invoices
+              - generic [ref=e580]:
+                - generic [ref=e582]:
+                  - text: Payment Method
+                  - superscript [ref=e583]: "?"
+                - combobox "Payment Method?" [ref=e589]: Bank Draft Payment
+            - generic [ref=e590]:
+              - generic [ref=e591]:
+                - generic [ref=e593]: Amount
+                - generic [ref=e595]:
+                  - generic [ref=e597]:
+                    - generic:
+                      - generic: $
+                      - generic: 18,600.00
+                    - generic [ref=e598]: $
+                    - textbox "Amount" [ref=e599]: 18,600.00
+                  - combobox [ref=e604]: USD
+              - generic [ref=e605]:
+                - generic [ref=e607]: Payment Date
+                - textbox "Payment Date" [ref=e611] [cursor=pointer]: 05/22/2026
+              - generic [ref=e613]:
+                - generic [ref=e615]: Apply Manual Exchange
+                - checkbox "Apply Manual Exchange Apply Manual Exchange" [ref=e619] [cursor=pointer]
+          - generic [ref=e620]:
+            - generic [ref=e622]: Cross Settlement
+            - generic [ref=e625]: Cross settlement is available only when the contact is marked as both Is a Customer and Is a Supplier.
+          - generic [ref=e626]:
+            - generic [ref=e628]: Invoices Allocation
+            - table [ref=e634]:
+              - rowgroup [ref=e635]:
+                - row "เลขที่ใบแจ้งหนี้  ยอดทั้งหมด ยอดคงเหลือ  ยอดจ่าย " [ref=e636]:
+                  - columnheader "เลขที่ใบแจ้งหนี้ " [ref=e637] [cursor=pointer]:
+                    - generic [ref=e638]:
+                      - generic [ref=e639]: เลขที่ใบแจ้งหนี้
+                      - generic [ref=e640]: 
+                  - columnheader "ยอดทั้งหมด" [ref=e642]:
+                    - generic [ref=e643]:
+                      - generic [ref=e644]: ยอดทั้งหมด
+                      - text: 
+                  - columnheader "ยอดคงเหลือ " [ref=e646] [cursor=pointer]:
+                    - generic [ref=e647]:
+                      - generic [ref=e648]: ยอดคงเหลือ
+                      - generic [ref=e649]: 
+                  - columnheader "ยอดจ่าย " [ref=e651] [cursor=pointer]:
+                    - generic [ref=e652]:
+                      - generic [ref=e653]: ยอดจ่าย
+                      - generic [ref=e654]: 
+              - rowgroup [ref=e656]:
+                - row "INV-E/2026/00002 $ 18,600.00 $ 0.00 $ 18,600.00" [ref=e657]:
+                  - cell "INV-E/2026/00002" [ref=e658] [cursor=pointer]
+                  - cell "$ 18,600.00" [ref=e659] [cursor=pointer]
+                  - cell "$ 0.00" [ref=e660] [cursor=pointer]
+                  - cell "$ 18,600.00" [ref=e661] [cursor=pointer]
+                - row [ref=e662]:
+                  - cell [ref=e663]
+                - row [ref=e664]:
+                  - cell [ref=e665]
+                - row [ref=e666]:
+                  - cell [ref=e667]
+              - rowgroup [ref=e668]:
+                - row "$ 18,600.00" [ref=e669]:
+                  - cell [ref=e670]
+                  - cell [ref=e671]
+                  - cell [ref=e672]
+                  - cell "$ 18,600.00" [ref=e673]
+      - contentinfo [ref=e674]:
+        - button "Create Payment" [ref=e675] [cursor=pointer]
+        - button "Discard" [ref=e676] [cursor=pointer]

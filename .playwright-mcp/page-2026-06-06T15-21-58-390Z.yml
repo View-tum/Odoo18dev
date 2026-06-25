@@ -1,0 +1,2856 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 48" [ref=e25] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "48"
+        - button "Toggle Studio" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e39]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - button "New" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link "Billing Notes" [ref=e49] [cursor=pointer]:
+                - /url: /odoo/action-1651
+          - generic [ref=e50]:
+            - generic [ref=e52]: BN/2026/06/0068
+            - button "" [ref=e56] [cursor=pointer]:
+              - generic [ref=e57]: 
+      - button " 2 Vendor Bills" [ref=e61] [cursor=pointer]:
+        - generic [ref=e62]: 
+        - generic [ref=e63]:
+          - generic [ref=e64]: "2"
+          - generic [ref=e65]: Vendor Bills
+      - generic [ref=e66]:
+        - button "Search Knowledge Articles" [ref=e67] [cursor=pointer]:
+          - img [ref=e68]
+        - search [ref=e72]:
+          - navigation "Pager" [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: "1"
+              - text: / 1
+            - generic [ref=e76]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - button "Register Payment" [ref=e82] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e84]:
+          - radio "Fully Billed" [checked] [disabled]
+          - radio "Partially Billed" [disabled]
+          - radio "Confirmed" [disabled]
+          - radio "Draft" [disabled]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - text: Billing Note
+          - heading "BN/2026/06/0068" [level=1] [ref=e87]:
+            - generic [ref=e88]: BN/2026/06/0068
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e93]: Vendor
+              - link "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e96] [cursor=pointer]:
+                - /url: /odoo/res.partner/245899
+                - generic [ref=e97]: บริษัท ซีพี ออลล์ จำกัด (มหาชน)
+            - generic [ref=e100]: Purchase Orders
+            - generic [ref=e105]:
+              - text: Vendor Reference
+              - superscript [ref=e106]: "?"
+            - generic [ref=e108]:
+              - generic [ref=e110]: Billing Source
+              - generic [ref=e113]: Existing APD/CN
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - generic [ref=e117]: Billing Date
+              - generic [ref=e121]: 06/06/2026
+            - generic [ref=e124]: Due Date
+            - generic [ref=e126]:
+              - generic [ref=e128]: Responsible
+              - generic [ref=e131]:
+                - img [ref=e133]
+                - combobox "Responsible" [ref=e137]: Administrator
+            - generic [ref=e138]:
+              - generic [ref=e140]: Payment Status
+              - generic [ref=e143]: Not Paid
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e148]: Vendor Bills
+              - generic [ref=e151]: 107,000.000000 ฿
+            - generic [ref=e152]:
+              - generic [ref=e154]: Credit Notes
+              - generic [ref=e157]: 2,344.052552 ฿
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - generic [ref=e161]: "Total:"
+              - generic [ref=e164]: 107,000.000000 ฿
+            - generic [ref=e165]:
+              - generic [ref=e167]: "Amount Due:"
+              - generic [ref=e170]: 104,655.947448 ฿
+            - generic [ref=e171]:
+              - generic [ref=e173]: "Open Balance:"
+              - generic [ref=e176]: 104,655.947448 ฿
+        - generic [ref=e177]:
+          - list [ref=e179]:
+            - listitem [ref=e180] [cursor=pointer]:
+              - tab "Lines" [ref=e181]
+          - generic [ref=e183]:
+            - table [ref=e187]:
+              - rowgroup [ref=e188]:
+                - row "Purchase Order  Receipt  Service Acceptance  Product  Description  Quantity  Unit Price  Discount (%)  Fixed Discount  Subtotal  " [ref=e189]:
+                  - columnheader "Purchase Order " [ref=e190] [cursor=pointer]:
+                    - generic [ref=e191]:
+                      - generic [ref=e192]: Purchase Order
+                      - generic [ref=e193]: 
+                  - columnheader "Receipt " [ref=e195] [cursor=pointer]:
+                    - generic [ref=e196]:
+                      - generic [ref=e197]: Receipt
+                      - generic [ref=e198]: 
+                  - columnheader "Service Acceptance " [ref=e200] [cursor=pointer]:
+                    - generic [ref=e201]:
+                      - generic [ref=e202]: Service Acceptance
+                      - generic [ref=e203]: 
+                  - columnheader "Product " [ref=e205] [cursor=pointer]:
+                    - generic [ref=e206]:
+                      - generic [ref=e207]: Product
+                      - generic [ref=e208]: 
+                  - columnheader "Description " [ref=e210] [cursor=pointer]:
+                    - generic [ref=e211]:
+                      - generic [ref=e212]: Description
+                      - generic [ref=e213]: 
+                  - columnheader "Quantity " [ref=e215] [cursor=pointer]:
+                    - generic [ref=e216]:
+                      - generic [ref=e217]: Quantity
+                      - generic [ref=e218]: 
+                  - columnheader "Unit Price " [ref=e220] [cursor=pointer]:
+                    - generic [ref=e221]:
+                      - generic [ref=e222]: Unit Price
+                      - generic [ref=e223]: 
+                  - columnheader "Discount (%) " [ref=e225] [cursor=pointer]:
+                    - generic [ref=e226]:
+                      - generic [ref=e227]: Discount (%)
+                      - generic [ref=e228]: 
+                  - columnheader "Fixed Discount " [ref=e230] [cursor=pointer]:
+                    - generic [ref=e231]:
+                      - generic [ref=e232]: Fixed Discount
+                      - generic [ref=e233]: 
+                  - columnheader "Subtotal " [ref=e235] [cursor=pointer]:
+                    - generic [ref=e236]:
+                      - generic [ref=e237]: Subtotal
+                      - generic [ref=e238]: 
+                  - columnheader "" [ref=e240]:
+                    - button "" [ref=e242] [cursor=pointer]:
+                      - generic [ref=e243]: 
+              - rowgroup [ref=e244]:
+                - row [ref=e245]:
+                  - cell [ref=e246]
+                - row [ref=e247]:
+                  - cell [ref=e248]
+                - row [ref=e249]:
+                  - cell [ref=e250]
+                - row [ref=e251]:
+                  - cell [ref=e252]
+              - rowgroup [ref=e253]:
+                - row [ref=e254]:
+                  - cell [ref=e255]
+                  - cell [ref=e256]
+                  - cell [ref=e257]
+                  - cell [ref=e258]
+                  - cell [ref=e259]
+                  - cell [ref=e260]
+                  - cell [ref=e261]
+                  - cell [ref=e262]
+                  - cell [ref=e263]
+                  - cell [ref=e264]
+                  - cell [ref=e265]
+            - table [ref=e269]:
+              - rowgroup [ref=e270]:
+                - row "Doc Type  APD/CN  Bill Date  Vendor Reference  Total  Amount Due  Status  Payment Status  " [ref=e271]:
+                  - columnheader "Doc Type " [ref=e272] [cursor=pointer]:
+                    - generic [ref=e273]:
+                      - generic [ref=e274]: Doc Type
+                      - generic [ref=e275]: 
+                  - columnheader "APD/CN " [ref=e277] [cursor=pointer]:
+                    - generic [ref=e278]:
+                      - generic [ref=e279]: APD/CN
+                      - generic [ref=e280]: 
+                  - columnheader "Bill Date " [ref=e282] [cursor=pointer]:
+                    - generic [ref=e283]:
+                      - generic [ref=e284]: Bill Date
+                      - generic [ref=e285]: 
+                  - columnheader "Vendor Reference " [ref=e287] [cursor=pointer]:
+                    - generic [ref=e288]:
+                      - generic [ref=e289]: Vendor Reference
+                      - generic [ref=e290]: 
+                  - columnheader "Total " [ref=e292] [cursor=pointer]:
+                    - generic [ref=e293]:
+                      - generic [ref=e294]: Total
+                      - generic [ref=e295]: 
+                  - columnheader "Amount Due " [ref=e297] [cursor=pointer]:
+                    - generic [ref=e298]:
+                      - generic [ref=e299]: Amount Due
+                      - generic [ref=e300]: 
+                  - columnheader "Status " [ref=e302] [cursor=pointer]:
+                    - generic [ref=e303]:
+                      - generic [ref=e304]: Status
+                      - generic [ref=e305]: 
+                  - columnheader "Payment Status " [ref=e307] [cursor=pointer]:
+                    - generic [ref=e308]:
+                      - generic [ref=e309]: Payment Status
+                      - generic [ref=e310]: 
+                  - columnheader "" [ref=e312]:
+                    - button "" [ref=e314] [cursor=pointer]:
+                      - generic [ref=e315]: 
+              - rowgroup [ref=e316]:
+                - 'row "Vendor Credit Note VCND/26/05/00003 19/05/2026 การกลับรายการของ: APD/26/05/00005, สินค้าเสียหาย 2,344.05 2,344.05 Posted Not Paid" [ref=e317]':
+                  - cell "Vendor Credit Note" [ref=e318] [cursor=pointer]:
+                    - generic [ref=e320]: Vendor Credit Note
+                  - cell "VCND/26/05/00003" [ref=e321] [cursor=pointer]
+                  - cell "19/05/2026" [ref=e322] [cursor=pointer]
+                  - 'cell "การกลับรายการของ: APD/26/05/00005, สินค้าเสียหาย" [ref=e323] [cursor=pointer]'
+                  - cell "2,344.05" [ref=e324] [cursor=pointer]
+                  - cell "2,344.05" [ref=e325] [cursor=pointer]
+                  - cell "Posted" [ref=e326] [cursor=pointer]:
+                    - generic [ref=e328]: Posted
+                  - cell "Not Paid" [ref=e329] [cursor=pointer]:
+                    - generic [ref=e331]: Not Paid
+                  - cell [ref=e332]
+                - row "Vendor Bill APD/26/05/00019 12/05/2026 107,000.00 107,000.00 Posted Not Paid" [ref=e333]:
+                  - cell "Vendor Bill" [ref=e334] [cursor=pointer]:
+                    - generic [ref=e336]: Vendor Bill
+                  - cell "APD/26/05/00019" [ref=e337] [cursor=pointer]
+                  - cell "12/05/2026" [ref=e338] [cursor=pointer]
+                  - cell [ref=e339] [cursor=pointer]
+                  - cell "107,000.00" [ref=e340] [cursor=pointer]
+                  - cell "107,000.00" [ref=e341] [cursor=pointer]
+                  - cell "Posted" [ref=e342] [cursor=pointer]:
+                    - generic [ref=e344]: Posted
+                  - cell "Not Paid" [ref=e345] [cursor=pointer]:
+                    - generic [ref=e347]: Not Paid
+                  - cell [ref=e348]
+                - row [ref=e349]:
+                  - cell [ref=e350]
+                - row [ref=e351]:
+                  - cell [ref=e352]
+              - rowgroup [ref=e353]:
+                - row "- -" [ref=e354]:
+                  - cell [ref=e355]
+                  - cell [ref=e356]
+                  - cell [ref=e357]
+                  - cell [ref=e358]
+                  - cell "-" [ref=e359]
+                  - cell "-" [ref=e360]
+                  - cell [ref=e361]
+                  - cell [ref=e362]
+                  - cell [ref=e363]
+            - generic [ref=e364]:
+              - generic [ref=e370]:
+                - generic:
+                  - generic:        
+                - generic [ref=e373]: Terms and Conditions / Internal Notes...
+              - generic [ref=e374]:
+                - generic [ref=e375]:
+                  - generic [ref=e377]: "Untaxed Amount:"
+                  - generic [ref=e380]: 100,000.000000 ฿
+                - generic [ref=e381]:
+                  - generic [ref=e383]: "Taxes:"
+                  - generic [ref=e386]: 7,000.000000 ฿
+                - generic [ref=e387]:
+                  - generic [ref=e390]: "Total:"
+                  - generic [ref=e393]: 107,000.000000 ฿
+                - generic [ref=e394]:
+                  - generic [ref=e396]: "Credit Notes:"
+                  - generic [ref=e399]: 2,344.052552 ฿
+                - generic [ref=e400]:
+                  - generic [ref=e403]: "Amount Due:"
+                  - generic [ref=e406]: 104,655.947448 ฿
+      - generic [ref=e408]:
+        - generic [ref=e410]:
+          - button "Send message" [ref=e411] [cursor=pointer]
+          - button "Log note" [ref=e412] [cursor=pointer]
+          - button "Activities" [ref=e413] [cursor=pointer]
+          - button "Search Messages" [ref=e415] [cursor=pointer]:
+            - img [ref=e416]: 
+          - button "Attach files" [ref=e418] [cursor=pointer]:
+            - generic [ref=e419]: 
+          - button "1" [ref=e421] [cursor=pointer]:
+            - img [ref=e422]: 
+            - superscript: "1"
+          - button "Following" [ref=e423] [cursor=pointer]:
+            - generic [ref=e425]: Following
+        - generic [ref=e427]:
+          - generic [ref=e428]:
+            - generic [ref=e430]:
+              - separator [ref=e431]
+              - generic [ref=e432]: Today
+              - separator [ref=e433]
+            - group "System notification" [ref=e434]:
+              - generic [ref=e435]:
+                - generic "Open card" [ref=e437] [cursor=pointer]:
+                  - img [ref=e438]
+                - generic [ref=e439]:
+                  - generic [ref=e440]:
+                    - generic "Open card" [ref=e441] [cursor=pointer]:
+                      - strong [ref=e442]: Administrator
+                    - generic "6/6/2026, 10:16:49 PM" [ref=e443]: Today at 10:16 PM
+                  - list [ref=e448]:
+                    - group [ref=e449]:
+                      - text: Draft
+                      - generic [ref=e450]: 
+                      - text: Fully Billed
+                      - generic [ref=e451]: (Status)
+            - group "System notification" [ref=e452]:
+              - generic [ref=e453]:
+                - generic "Open card" [ref=e455] [cursor=pointer]:
+                  - img [ref=e456]
+                - generic [ref=e457]:
+                  - generic [ref=e458]:
+                    - generic "Open card" [ref=e459] [cursor=pointer]:
+                      - strong [ref=e460]: Administrator
+                    - generic "6/6/2026, 10:16:48 PM" [ref=e461]: Today at 10:16 PM
+                  - paragraph [ref=e468]: Vendor Billing Note created
+          - button "" [ref=e469] [cursor=pointer]:
+            - generic [ref=e470]: 
+  - dialog [ref=e471]:
+    - generic [ref=e472]:
+      - banner [ref=e473]:
+        - heading "Register Payment" [level=4] [ref=e474]
+        - button "Close" [ref=e475] [cursor=pointer]
+      - main [ref=e476]:
+        - generic [ref=e480]:
+          - generic [ref=e481]:
+            - generic [ref=e482]:
+              - generic [ref=e483]:
+                - generic [ref=e485]: Journal
+                - combobox "Journal" [active] [ref=e491]: "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8"
+              - generic [ref=e492]:
+                - generic [ref=e494]:
+                  - text: Payment Method
+                  - superscript [ref=e495]: "?"
+                - combobox "Payment Method?" [ref=e501]: Manual Payment
+              - generic [ref=e502]:
+                - generic [ref=e504]: Recipient Bank Account
+                - combobox "Recipient Bank Account" [ref=e510]
+              - generic [ref=e512]:
+                - generic [ref=e514]:
+                  - text: Group Payments
+                  - superscript [ref=e515]: "?"
+                - checkbox "Group Payments?" [checked] [ref=e519] [cursor=pointer]
+              - generic [ref=e520]:
+                - generic [ref=e522]: Payment Difference
+                - generic [ref=e524]:
+                  - generic [ref=e526]: 4,688.11 ฿
+                  - radiogroup "Payment Difference Handling" [ref=e528]:
+                    - generic [ref=e529]:
+                      - radio "Keep open" [checked] [ref=e530] [cursor=pointer]
+                      - generic [ref=e531] [cursor=pointer]: Keep open
+                    - generic [ref=e532]:
+                      - radio "Mark as fully paid" [ref=e533] [cursor=pointer]
+                      - generic [ref=e534] [cursor=pointer]: Mark as fully paid
+                    - generic [ref=e535]:
+                      - radio "Mark invoice as fully paid (multi deduct)" [ref=e536] [cursor=pointer]
+                      - generic [ref=e537] [cursor=pointer]: Mark invoice as fully paid (multi deduct)
+            - generic [ref=e538]:
+              - generic [ref=e539]:
+                - generic [ref=e541]: Amount
+                - generic [ref=e543]:
+                  - generic [ref=e545]:
+                    - generic:
+                      - generic: 104,655.95
+                      - generic: ฿
+                    - textbox "Amount" [ref=e546]: 104,655.95
+                    - generic [ref=e547]: ฿
+                  - combobox [ref=e552]: THB
+              - generic [ref=e553]:
+                - generic [ref=e555]: Payment Date
+                - textbox "Payment Date" [ref=e559] [cursor=pointer]: 06/06/2026
+              - generic [ref=e560]:
+                - generic [ref=e562]: Memo
+                - textbox "Memo" [ref=e565]: "APD/26/05/00019, การกลับรายการของ: APD/26/05/00005, สินค้าเสียหาย"
+              - generic [ref=e567]:
+                - generic [ref=e569]: Apply Manual Exchange
+                - checkbox "Apply Manual Exchange" [ref=e573] [cursor=pointer]
+          - generic [ref=e574]:
+            - generic [ref=e576]: Cross Settlement (Same Partner / Same Company / Same Currency)
+            - generic [ref=e577]:
+              - generic [ref=e579]: Cross Settlement Amount
+              - generic [ref=e582]: 0.00 ฿
+            - generic [ref=e583]:
+              - generic [ref=e585]:
+                - button " Select All" [ref=e586] [cursor=pointer]:
+                  - generic [ref=e587]: 
+                  - text: Select All
+                - button " Unselect All" [ref=e588] [cursor=pointer]:
+                  - generic [ref=e589]: 
+                  - text: Unselect All
+              - table [ref=e594]:
+                - rowgroup [ref=e595]:
+                  - row "Select  Type Document  Date  Open Amount  Settle Amount " [ref=e596]:
+                    - columnheader "Select " [ref=e597] [cursor=pointer]:
+                      - generic [ref=e598]:
+                        - generic [ref=e599]: Select
+                        - generic [ref=e600]: 
+                    - columnheader "Type" [ref=e602]:
+                      - generic [ref=e603]:
+                        - generic [ref=e604]: Type
+                        - text: 
+                    - columnheader "Document " [ref=e606] [cursor=pointer]:
+                      - generic [ref=e607]:
+                        - generic [ref=e608]: Document
+                        - generic [ref=e609]: 
+                    - columnheader "Date " [ref=e611] [cursor=pointer]:
+                      - generic [ref=e612]:
+                        - generic [ref=e613]: Date
+                        - generic [ref=e614]: 
+                    - columnheader "Open Amount " [ref=e616] [cursor=pointer]:
+                      - generic [ref=e617]:
+                        - generic [ref=e618]: Open Amount
+                        - generic [ref=e619]: 
+                    - columnheader "Settle Amount " [ref=e621] [cursor=pointer]:
+                      - generic [ref=e622]:
+                        - generic [ref=e623]: Settle Amount
+                        - generic [ref=e624]: 
+                - rowgroup [ref=e626]:
+                  - row "Invoice INV-D/25/09/00041 30/09/2025 140,507.72 ฿ 0.00 ฿" [ref=e627]:
+                    - cell [ref=e628] [cursor=pointer]:
+                      - generic [ref=e629]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e630] [cursor=pointer]
+                    - cell "INV-D/25/09/00041" [ref=e631] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e632] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e633] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e634] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00040 30/09/2025 227,036.73 ฿ 0.00 ฿" [ref=e635]:
+                    - cell [ref=e636] [cursor=pointer]:
+                      - generic [ref=e637]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e638] [cursor=pointer]
+                    - cell "INV-D/25/09/00040" [ref=e639] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e640] [cursor=pointer]
+                    - cell "227,036.73 ฿" [ref=e641] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e642] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00039 30/09/2025 135,249.67 ฿ 0.00 ฿" [ref=e643]:
+                    - cell [ref=e644] [cursor=pointer]:
+                      - generic [ref=e645]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e646] [cursor=pointer]
+                    - cell "INV-D/25/09/00039" [ref=e647] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e648] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e649] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e650] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00038 30/09/2025 135,249.67 ฿ 0.00 ฿" [ref=e651]:
+                    - cell [ref=e652] [cursor=pointer]:
+                      - generic [ref=e653]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e654] [cursor=pointer]
+                    - cell "INV-D/25/09/00038" [ref=e655] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e656] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e657] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e658] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00037 30/09/2025 59,865.92 ฿ 0.00 ฿" [ref=e659]:
+                    - cell [ref=e660] [cursor=pointer]:
+                      - generic [ref=e661]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e662] [cursor=pointer]
+                    - cell "INV-D/25/09/00037" [ref=e663] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e664] [cursor=pointer]
+                    - cell "59,865.92 ฿" [ref=e665] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e666] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00036 30/09/2025 259,983.23 ฿ 0.00 ฿" [ref=e667]:
+                    - cell [ref=e668] [cursor=pointer]:
+                      - generic [ref=e669]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e670] [cursor=pointer]
+                    - cell "INV-D/25/09/00036" [ref=e671] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e672] [cursor=pointer]
+                    - cell "259,983.23 ฿" [ref=e673] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e674] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00035 30/09/2025 129,292.53 ฿ 0.00 ฿" [ref=e675]:
+                    - cell [ref=e676] [cursor=pointer]:
+                      - generic [ref=e677]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e678] [cursor=pointer]
+                    - cell "INV-D/25/09/00035" [ref=e679] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e680] [cursor=pointer]
+                    - cell "129,292.53 ฿" [ref=e681] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e682] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00034 30/09/2025 135,249.67 ฿ 0.00 ฿" [ref=e683]:
+                    - cell [ref=e684] [cursor=pointer]:
+                      - generic [ref=e685]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e686] [cursor=pointer]
+                    - cell "INV-D/25/09/00034" [ref=e687] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e688] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e689] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e690] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00033 30/09/2025 21,474.96 ฿ 0.00 ฿" [ref=e691]:
+                    - cell [ref=e692] [cursor=pointer]:
+                      - generic [ref=e693]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e694] [cursor=pointer]
+                    - cell "INV-D/25/09/00033" [ref=e695] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e696] [cursor=pointer]
+                    - cell "21,474.96 ฿" [ref=e697] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e698] [cursor=pointer]
+                  - row "Invoice INV-D/25/09/00032 30/09/2025 129,991.61 ฿ 0.00 ฿" [ref=e699]:
+                    - cell [ref=e700] [cursor=pointer]:
+                      - generic [ref=e701]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e702] [cursor=pointer]
+                    - cell "INV-D/25/09/00032" [ref=e703] [cursor=pointer]
+                    - cell "30/09/2025" [ref=e704] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e705] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e706] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00386 03/10/2025 406,448.09 ฿ 0.00 ฿" [ref=e707]:
+                    - cell [ref=e708] [cursor=pointer]:
+                      - generic [ref=e709]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e710] [cursor=pointer]
+                    - cell "INV-D/25/10/00386" [ref=e711] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e712] [cursor=pointer]
+                    - cell "406,448.09 ฿" [ref=e713] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e714] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00385 03/10/2025 232,993.87 ฿ 0.00 ฿" [ref=e715]:
+                    - cell [ref=e716] [cursor=pointer]:
+                      - generic [ref=e717]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e718] [cursor=pointer]
+                    - cell "INV-D/25/10/00385" [ref=e719] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e720] [cursor=pointer]
+                    - cell "232,993.87 ฿" [ref=e721] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e722] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00384 03/10/2025 237,552.84 ฿ 0.00 ฿" [ref=e723]:
+                    - cell [ref=e724] [cursor=pointer]:
+                      - generic [ref=e725]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e726] [cursor=pointer]
+                    - cell "INV-D/25/10/00384" [ref=e727] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e728] [cursor=pointer]
+                    - cell "237,552.84 ฿" [ref=e729] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e730] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00383 03/10/2025 145,765.78 ฿ 0.00 ฿" [ref=e731]:
+                    - cell [ref=e732] [cursor=pointer]:
+                      - generic [ref=e733]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e734] [cursor=pointer]
+                    - cell "INV-D/25/10/00383" [ref=e735] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e736] [cursor=pointer]
+                    - cell "145,765.78 ฿" [ref=e737] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e738] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00382 03/10/2025 75,383.75 ฿ 0.00 ฿" [ref=e739]:
+                    - cell [ref=e740] [cursor=pointer]:
+                      - generic [ref=e741]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e742] [cursor=pointer]
+                    - cell "INV-D/25/10/00382" [ref=e743] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e744] [cursor=pointer]
+                    - cell "75,383.75 ฿" [ref=e745] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e746] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00381 03/10/2025 204,932.62 ฿ 0.00 ฿" [ref=e747]:
+                    - cell [ref=e748] [cursor=pointer]:
+                      - generic [ref=e749]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e750] [cursor=pointer]
+                    - cell "INV-D/25/10/00381" [ref=e751] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e752] [cursor=pointer]
+                    - cell "204,932.62 ฿" [ref=e753] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e754] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00380 03/10/2025 254,725.17 ฿ 0.00 ฿" [ref=e755]:
+                    - cell [ref=e756] [cursor=pointer]:
+                      - generic [ref=e757]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e758] [cursor=pointer]
+                    - cell "INV-D/25/10/00380" [ref=e759] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e760] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e761] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e762] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00379 03/10/2025 270,499.34 ฿ 0.00 ฿" [ref=e763]:
+                    - cell [ref=e764] [cursor=pointer]:
+                      - generic [ref=e765]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e766] [cursor=pointer]
+                    - cell "INV-D/25/10/00379" [ref=e767] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e768] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e769] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e770] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00378 03/10/2025 65,123.98 ฿ 0.00 ฿" [ref=e771]:
+                    - cell [ref=e772] [cursor=pointer]:
+                      - generic [ref=e773]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e774] [cursor=pointer]
+                    - cell "INV-D/25/10/00378" [ref=e775] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e776] [cursor=pointer]
+                    - cell "65,123.98 ฿" [ref=e777] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e778] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00377 03/10/2025 26,989.36 ฿ 0.00 ฿" [ref=e779]:
+                    - cell [ref=e780] [cursor=pointer]:
+                      - generic [ref=e781]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e782] [cursor=pointer]
+                    - cell "INV-D/25/10/00377" [ref=e783] [cursor=pointer]
+                    - cell "03/10/2025" [ref=e784] [cursor=pointer]
+                    - cell "26,989.36 ฿" [ref=e785] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e786] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00372 07/10/2025 378,060.56 ฿ 0.00 ฿" [ref=e787]:
+                    - cell [ref=e788] [cursor=pointer]:
+                      - generic [ref=e789]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e790] [cursor=pointer]
+                    - cell "INV-D/25/10/00372" [ref=e791] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e792] [cursor=pointer]
+                    - cell "378,060.56 ฿" [ref=e793] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e794] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00371 07/10/2025 254,725.17 ฿ 0.00 ฿" [ref=e795]:
+                    - cell [ref=e796] [cursor=pointer]:
+                      - generic [ref=e797]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e798] [cursor=pointer]
+                    - cell "INV-D/25/10/00371" [ref=e799] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e800] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e801] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e802] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00370 07/10/2025 259,284.14 ฿ 0.00 ฿" [ref=e803]:
+                    - cell [ref=e804] [cursor=pointer]:
+                      - generic [ref=e805]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e806] [cursor=pointer]
+                    - cell "INV-D/25/10/00370" [ref=e807] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e808] [cursor=pointer]
+                    - cell "259,284.14 ฿" [ref=e809] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e810] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00369 07/10/2025 97,557.80 ฿ 0.00 ฿" [ref=e811]:
+                    - cell [ref=e812] [cursor=pointer]:
+                      - generic [ref=e813]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e814] [cursor=pointer]
+                    - cell "INV-D/25/10/00369" [ref=e815] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e816] [cursor=pointer]
+                    - cell "97,557.80 ฿" [ref=e817] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e818] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00368 07/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e819]:
+                    - cell [ref=e820] [cursor=pointer]:
+                      - generic [ref=e821]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e822] [cursor=pointer]
+                    - cell "INV-D/25/10/00368" [ref=e823] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e824] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e825] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e826] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00367 07/10/2025 384,017.70 ฿ 0.00 ฿" [ref=e827]:
+                    - cell [ref=e828] [cursor=pointer]:
+                      - generic [ref=e829]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e830] [cursor=pointer]
+                    - cell "INV-D/25/10/00367" [ref=e831] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e832] [cursor=pointer]
+                    - cell "384,017.70 ฿" [ref=e833] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e834] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00366 07/10/2025 151,023.83 ฿ 0.00 ฿" [ref=e835]:
+                    - cell [ref=e836] [cursor=pointer]:
+                      - generic [ref=e837]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e838] [cursor=pointer]
+                    - cell "INV-D/25/10/00366" [ref=e839] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e840] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e841] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e842] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00365 07/10/2025 243,509.98 ฿ 0.00 ฿" [ref=e843]:
+                    - cell [ref=e844] [cursor=pointer]:
+                      - generic [ref=e845]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e846] [cursor=pointer]
+                    - cell "INV-D/25/10/00365" [ref=e847] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e848] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e849] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e850] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00364 07/10/2025 96,858.71 ฿ 0.00 ฿" [ref=e851]:
+                    - cell [ref=e852] [cursor=pointer]:
+                      - generic [ref=e853]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e854] [cursor=pointer]
+                    - cell "INV-D/25/10/00364" [ref=e855] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e856] [cursor=pointer]
+                    - cell "96,858.71 ฿" [ref=e857] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e858] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00363 07/10/2025 270,499.34 ฿ 0.00 ฿" [ref=e859]:
+                    - cell [ref=e860] [cursor=pointer]:
+                      - generic [ref=e861]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e862] [cursor=pointer]
+                    - cell "INV-D/25/10/00363" [ref=e863] [cursor=pointer]
+                    - cell "07/10/2025" [ref=e864] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e865] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e866] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00334 10/10/2025 395,931.98 ฿ 0.00 ฿" [ref=e867]:
+                    - cell [ref=e868] [cursor=pointer]:
+                      - generic [ref=e869]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e870] [cursor=pointer]
+                    - cell "INV-D/25/10/00334" [ref=e871] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e872] [cursor=pointer]
+                    - cell "395,931.98 ฿" [ref=e873] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e874] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00333 10/10/2025 550,815.70 ฿ 0.00 ฿" [ref=e875]:
+                    - cell [ref=e876] [cursor=pointer]:
+                      - generic [ref=e877]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e878] [cursor=pointer]
+                    - cell "INV-D/25/10/00333" [ref=e879] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e880] [cursor=pointer]
+                    - cell "550,815.70 ฿" [ref=e881] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e882] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00332 10/10/2025 265,241.28 ฿ 0.00 ฿" [ref=e883]:
+                    - cell [ref=e884] [cursor=pointer]:
+                      - generic [ref=e885]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e886] [cursor=pointer]
+                    - cell "INV-D/25/10/00332" [ref=e887] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e888] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e889] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e890] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00331 10/10/2025 265,241.28 ฿ 0.00 ฿" [ref=e891]:
+                    - cell [ref=e892] [cursor=pointer]:
+                      - generic [ref=e893]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e894] [cursor=pointer]
+                    - cell "INV-D/25/10/00331" [ref=e895] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e896] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e897] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e898] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00330 10/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e899]:
+                    - cell [ref=e900] [cursor=pointer]:
+                      - generic [ref=e901]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e902] [cursor=pointer]
+                    - cell "INV-D/25/10/00330" [ref=e903] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e904] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e905] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e906] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00329 10/10/2025 265,241.28 ฿ 0.00 ฿" [ref=e907]:
+                    - cell [ref=e908] [cursor=pointer]:
+                      - generic [ref=e909]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e910] [cursor=pointer]
+                    - cell "INV-D/25/10/00329" [ref=e911] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e912] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e913] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e914] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00328 10/10/2025 264,542.20 ฿ 0.00 ฿" [ref=e915]:
+                    - cell [ref=e916] [cursor=pointer]:
+                      - generic [ref=e917]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e918] [cursor=pointer]
+                    - cell "INV-D/25/10/00328" [ref=e919] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e920] [cursor=pointer]
+                    - cell "264,542.20 ฿" [ref=e921] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e922] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00327 10/10/2025 405,749.01 ฿ 0.00 ฿" [ref=e923]:
+                    - cell [ref=e924] [cursor=pointer]:
+                      - generic [ref=e925]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e926] [cursor=pointer]
+                    - cell "INV-D/25/10/00327" [ref=e927] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e928] [cursor=pointer]
+                    - cell "405,749.01 ฿" [ref=e929] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e930] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00326 10/10/2025 97,557.80 ฿ 0.00 ฿" [ref=e931]:
+                    - cell [ref=e932] [cursor=pointer]:
+                      - generic [ref=e933]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e934] [cursor=pointer]
+                    - cell "INV-D/25/10/00326" [ref=e935] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e936] [cursor=pointer]
+                    - cell "97,557.80 ฿" [ref=e937] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e938] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00325 10/10/2025 232,993.87 ฿ 0.00 ฿" [ref=e939]:
+                    - cell [ref=e940] [cursor=pointer]:
+                      - generic [ref=e941]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e942] [cursor=pointer]
+                    - cell "INV-D/25/10/00325" [ref=e943] [cursor=pointer]
+                    - cell "10/10/2025" [ref=e944] [cursor=pointer]
+                    - cell "232,993.87 ฿" [ref=e945] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e946] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00312 14/10/2025 243,509.98 ฿ 0.00 ฿" [ref=e947]:
+                    - cell [ref=e948] [cursor=pointer]:
+                      - generic [ref=e949]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e950] [cursor=pointer]
+                    - cell "INV-D/25/10/00312" [ref=e951] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e952] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e953] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e954] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00311 14/10/2025 5,957.14 ฿ 0.00 ฿" [ref=e955]:
+                    - cell [ref=e956] [cursor=pointer]:
+                      - generic [ref=e957]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e958] [cursor=pointer]
+                    - cell "INV-D/25/10/00311" [ref=e959] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e960] [cursor=pointer]
+                    - cell "5,957.14 ฿" [ref=e961] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e962] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00310 14/10/2025 15,774.16 ฿ 0.00 ฿" [ref=e963]:
+                    - cell [ref=e964] [cursor=pointer]:
+                      - generic [ref=e965]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e966] [cursor=pointer]
+                    - cell "INV-D/25/10/00310" [ref=e967] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e968] [cursor=pointer]
+                    - cell "15,774.16 ฿" [ref=e969] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e970] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00309 14/10/2025 118,776.42 ฿ 0.00 ฿" [ref=e971]:
+                    - cell [ref=e972] [cursor=pointer]:
+                      - generic [ref=e973]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e974] [cursor=pointer]
+                    - cell "INV-D/25/10/00309" [ref=e975] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e976] [cursor=pointer]
+                    - cell "118,776.42 ฿" [ref=e977] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e978] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00308 14/10/2025 237,552.84 ฿ 0.00 ฿" [ref=e979]:
+                    - cell [ref=e980] [cursor=pointer]:
+                      - generic [ref=e981]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e982] [cursor=pointer]
+                    - cell "INV-D/25/10/00308" [ref=e983] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e984] [cursor=pointer]
+                    - cell "237,552.84 ฿" [ref=e985] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e986] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00307 14/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e987]:
+                    - cell [ref=e988] [cursor=pointer]:
+                      - generic [ref=e989]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e990] [cursor=pointer]
+                    - cell "INV-D/25/10/00307" [ref=e991] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e992] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e993] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e994] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00306 14/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e995]:
+                    - cell [ref=e996] [cursor=pointer]:
+                      - generic [ref=e997]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e998] [cursor=pointer]
+                    - cell "INV-D/25/10/00306" [ref=e999] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e1000] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1001] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1002] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00305 14/10/2025 135,948.75 ฿ 0.00 ฿" [ref=e1003]:
+                    - cell [ref=e1004] [cursor=pointer]:
+                      - generic [ref=e1005]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1006] [cursor=pointer]
+                    - cell "INV-D/25/10/00305" [ref=e1007] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e1008] [cursor=pointer]
+                    - cell "135,948.75 ฿" [ref=e1009] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1010] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00304 14/10/2025 59,166.84 ฿ 0.00 ฿" [ref=e1011]:
+                    - cell [ref=e1012] [cursor=pointer]:
+                      - generic [ref=e1013]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1014] [cursor=pointer]
+                    - cell "INV-D/25/10/00304" [ref=e1015] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e1016] [cursor=pointer]
+                    - cell "59,166.84 ฿" [ref=e1017] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1018] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00303 14/10/2025 27,688.44 ฿ 0.00 ฿" [ref=e1019]:
+                    - cell [ref=e1020] [cursor=pointer]:
+                      - generic [ref=e1021]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1022] [cursor=pointer]
+                    - cell "INV-D/25/10/00303" [ref=e1023] [cursor=pointer]
+                    - cell "14/10/2025" [ref=e1024] [cursor=pointer]
+                    - cell "27,688.44 ฿" [ref=e1025] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1026] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00293 17/10/2025 281,015.45 ฿ 0.00 ฿" [ref=e1027]:
+                    - cell [ref=e1028] [cursor=pointer]:
+                      - generic [ref=e1029]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1030] [cursor=pointer]
+                    - cell "INV-D/25/10/00293" [ref=e1031] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1032] [cursor=pointer]
+                    - cell "281,015.45 ฿" [ref=e1033] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1034] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00292 17/10/2025 276,456.48 ฿ 0.00 ฿" [ref=e1035]:
+                    - cell [ref=e1036] [cursor=pointer]:
+                      - generic [ref=e1037]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1038] [cursor=pointer]
+                    - cell "INV-D/25/10/00292" [ref=e1039] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1040] [cursor=pointer]
+                    - cell "276,456.48 ฿" [ref=e1041] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1042] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00291 17/10/2025 384,017.70 ฿ 0.00 ฿" [ref=e1043]:
+                    - cell [ref=e1044] [cursor=pointer]:
+                      - generic [ref=e1045]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1046] [cursor=pointer]
+                    - cell "INV-D/25/10/00291" [ref=e1047] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1048] [cursor=pointer]
+                    - cell "384,017.70 ฿" [ref=e1049] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1050] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00290 17/10/2025 254,725.17 ฿ 0.00 ฿" [ref=e1051]:
+                    - cell [ref=e1052] [cursor=pointer]:
+                      - generic [ref=e1053]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1054] [cursor=pointer]
+                    - cell "INV-D/25/10/00290" [ref=e1055] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1056] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e1057] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1058] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00289 17/10/2025 265,241.28 ฿ 0.00 ฿" [ref=e1059]:
+                    - cell [ref=e1060] [cursor=pointer]:
+                      - generic [ref=e1061]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1062] [cursor=pointer]
+                    - cell "INV-D/25/10/00289" [ref=e1063] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1064] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e1065] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1066] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00288 17/10/2025 238,251.92 ฿ 0.00 ฿" [ref=e1067]:
+                    - cell [ref=e1068] [cursor=pointer]:
+                      - generic [ref=e1069]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1070] [cursor=pointer]
+                    - cell "INV-D/25/10/00288" [ref=e1071] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1072] [cursor=pointer]
+                    - cell "238,251.92 ฿" [ref=e1073] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1074] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00287 17/10/2025 145,765.78 ฿ 0.00 ฿" [ref=e1075]:
+                    - cell [ref=e1076] [cursor=pointer]:
+                      - generic [ref=e1077]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1078] [cursor=pointer]
+                    - cell "INV-D/25/10/00287" [ref=e1079] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1080] [cursor=pointer]
+                    - cell "145,765.78 ฿" [ref=e1081] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1082] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00286 17/10/2025 129,991.61 ฿ 0.00 ฿" [ref=e1083]:
+                    - cell [ref=e1084] [cursor=pointer]:
+                      - generic [ref=e1085]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1086] [cursor=pointer]
+                    - cell "INV-D/25/10/00286" [ref=e1087] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1088] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e1089] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1090] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00285 17/10/2025 259,284.14 ฿ 0.00 ฿" [ref=e1091]:
+                    - cell [ref=e1092] [cursor=pointer]:
+                      - generic [ref=e1093]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1094] [cursor=pointer]
+                    - cell "INV-D/25/10/00285" [ref=e1095] [cursor=pointer]
+                    - cell "17/10/2025" [ref=e1096] [cursor=pointer]
+                    - cell "259,284.14 ฿" [ref=e1097] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1098] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00276 21/10/2025 151,023.83 ฿ 0.00 ฿" [ref=e1099]:
+                    - cell [ref=e1100] [cursor=pointer]:
+                      - generic [ref=e1101]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1102] [cursor=pointer]
+                    - cell "INV-D/25/10/00276" [ref=e1103] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1104] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e1105] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1106] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00275 21/10/2025 503,493.21 ฿ 0.00 ฿" [ref=e1107]:
+                    - cell [ref=e1108] [cursor=pointer]:
+                      - generic [ref=e1109]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1110] [cursor=pointer]
+                    - cell "INV-D/25/10/00275" [ref=e1111] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1112] [cursor=pointer]
+                    - cell "503,493.21 ฿" [ref=e1113] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1114] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00274 21/10/2025 11,215.19 ฿ 0.00 ฿" [ref=e1115]:
+                    - cell [ref=e1116] [cursor=pointer]:
+                      - generic [ref=e1117]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1118] [cursor=pointer]
+                    - cell "INV-D/25/10/00274" [ref=e1119] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1120] [cursor=pointer]
+                    - cell "11,215.19 ฿" [ref=e1121] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1122] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00273 21/10/2025 254,725.17 ฿ 0.00 ฿" [ref=e1123]:
+                    - cell [ref=e1124] [cursor=pointer]:
+                      - generic [ref=e1125]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1126] [cursor=pointer]
+                    - cell "INV-D/25/10/00273" [ref=e1127] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1128] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e1129] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1130] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00272 21/10/2025 129,292.53 ฿ 0.00 ฿" [ref=e1131]:
+                    - cell [ref=e1132] [cursor=pointer]:
+                      - generic [ref=e1133]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1134] [cursor=pointer]
+                    - cell "INV-D/25/10/00272" [ref=e1135] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1136] [cursor=pointer]
+                    - cell "129,292.53 ฿" [ref=e1137] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1138] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00271 21/10/2025 243,509.98 ฿ 0.00 ฿" [ref=e1139]:
+                    - cell [ref=e1140] [cursor=pointer]:
+                      - generic [ref=e1141]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1142] [cursor=pointer]
+                    - cell "INV-D/25/10/00271" [ref=e1143] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1144] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e1145] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1146] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00270 21/10/2025 118,776.42 ฿ 0.00 ฿" [ref=e1147]:
+                    - cell [ref=e1148] [cursor=pointer]:
+                      - generic [ref=e1149]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1150] [cursor=pointer]
+                    - cell "INV-D/25/10/00270" [ref=e1151] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1152] [cursor=pointer]
+                    - cell "118,776.42 ฿" [ref=e1153] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1154] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00269 21/10/2025 119,475.50 ฿ 0.00 ฿" [ref=e1155]:
+                    - cell [ref=e1156] [cursor=pointer]:
+                      - generic [ref=e1157]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1158] [cursor=pointer]
+                    - cell "INV-D/25/10/00269" [ref=e1159] [cursor=pointer]
+                    - cell "21/10/2025" [ref=e1160] [cursor=pointer]
+                    - cell "119,475.50 ฿" [ref=e1161] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1162] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00262 24/10/2025 373,501.59 ฿ 0.00 ฿" [ref=e1163]:
+                    - cell [ref=e1164] [cursor=pointer]:
+                      - generic [ref=e1165]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1166] [cursor=pointer]
+                    - cell "INV-D/25/10/00262" [ref=e1167] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1168] [cursor=pointer]
+                    - cell "373,501.59 ฿" [ref=e1169] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1170] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00261 24/10/2025 21,731.30 ฿ 0.00 ฿" [ref=e1171]:
+                    - cell [ref=e1172] [cursor=pointer]:
+                      - generic [ref=e1173]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1174] [cursor=pointer]
+                    - cell "INV-D/25/10/00261" [ref=e1175] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1176] [cursor=pointer]
+                    - cell "21,731.30 ฿" [ref=e1177] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1178] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00260 24/10/2025 139,808.64 ฿ 0.00 ฿" [ref=e1179]:
+                    - cell [ref=e1180] [cursor=pointer]:
+                      - generic [ref=e1181]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1182] [cursor=pointer]
+                    - cell "INV-D/25/10/00260" [ref=e1183] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1184] [cursor=pointer]
+                    - cell "139,808.64 ฿" [ref=e1185] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1186] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00259 24/10/2025 118,776.42 ฿ 0.00 ฿" [ref=e1187]:
+                    - cell [ref=e1188] [cursor=pointer]:
+                      - generic [ref=e1189]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1190] [cursor=pointer]
+                    - cell "INV-D/25/10/00259" [ref=e1191] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1192] [cursor=pointer]
+                    - cell "118,776.42 ฿" [ref=e1193] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1194] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00258 24/10/2025 383,318.62 ฿ 0.00 ฿" [ref=e1195]:
+                    - cell [ref=e1196] [cursor=pointer]:
+                      - generic [ref=e1197]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1198] [cursor=pointer]
+                    - cell "INV-D/25/10/00258" [ref=e1199] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1200] [cursor=pointer]
+                    - cell "383,318.62 ฿" [ref=e1201] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1202] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00257 24/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e1203]:
+                    - cell [ref=e1204] [cursor=pointer]:
+                      - generic [ref=e1205]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1206] [cursor=pointer]
+                    - cell "INV-D/25/10/00257" [ref=e1207] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1208] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1209] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1210] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00256 24/10/2025 259,983.23 ฿ 0.00 ฿" [ref=e1211]:
+                    - cell [ref=e1212] [cursor=pointer]:
+                      - generic [ref=e1213]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1214] [cursor=pointer]
+                    - cell "INV-D/25/10/00256" [ref=e1215] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1216] [cursor=pointer]
+                    - cell "259,983.23 ฿" [ref=e1217] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1218] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00255 24/10/2025 76,339.17 ฿ 0.00 ฿" [ref=e1219]:
+                    - cell [ref=e1220] [cursor=pointer]:
+                      - generic [ref=e1221]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1222] [cursor=pointer]
+                    - cell "INV-D/25/10/00255" [ref=e1223] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1224] [cursor=pointer]
+                    - cell "76,339.17 ฿" [ref=e1225] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1226] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00254 24/10/2025 156,281.89 ฿ 0.00 ฿" [ref=e1227]:
+                    - cell [ref=e1228] [cursor=pointer]:
+                      - generic [ref=e1229]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1230] [cursor=pointer]
+                    - cell "INV-D/25/10/00254" [ref=e1231] [cursor=pointer]
+                    - cell "24/10/2025" [ref=e1232] [cursor=pointer]
+                    - cell "156,281.89 ฿" [ref=e1233] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1234] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00234 28/10/2025 146,464.86 ฿ 0.00 ฿" [ref=e1235]:
+                    - cell [ref=e1236] [cursor=pointer]:
+                      - generic [ref=e1237]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1238] [cursor=pointer]
+                    - cell "INV-D/25/10/00234" [ref=e1239] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1240] [cursor=pointer]
+                    - cell "146,464.86 ฿" [ref=e1241] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1242] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00233 28/10/2025 305,907.55 ฿ 0.00 ฿" [ref=e1243]:
+                    - cell [ref=e1244] [cursor=pointer]:
+                      - generic [ref=e1245]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1246] [cursor=pointer]
+                    - cell "INV-D/25/10/00233" [ref=e1247] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1248] [cursor=pointer]
+                    - cell "305,907.55 ฿" [ref=e1249] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1250] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00232 28/10/2025 48,650.73 ฿ 0.00 ฿" [ref=e1251]:
+                    - cell [ref=e1252] [cursor=pointer]:
+                      - generic [ref=e1253]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1254] [cursor=pointer]
+                    - cell "INV-D/25/10/00232" [ref=e1255] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1256] [cursor=pointer]
+                    - cell "48,650.73 ฿" [ref=e1257] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1258] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00231 28/10/2025 119,475.50 ฿ 0.00 ฿" [ref=e1259]:
+                    - cell [ref=e1260] [cursor=pointer]:
+                      - generic [ref=e1261]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1262] [cursor=pointer]
+                    - cell "INV-D/25/10/00231" [ref=e1263] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1264] [cursor=pointer]
+                    - cell "119,475.50 ฿" [ref=e1265] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1266] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00230 28/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e1267]:
+                    - cell [ref=e1268] [cursor=pointer]:
+                      - generic [ref=e1269]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1270] [cursor=pointer]
+                    - cell "INV-D/25/10/00230" [ref=e1271] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1272] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1273] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1274] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00229 28/10/2025 129,991.61 ฿ 0.00 ฿" [ref=e1275]:
+                    - cell [ref=e1276] [cursor=pointer]:
+                      - generic [ref=e1277]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1278] [cursor=pointer]
+                    - cell "INV-D/25/10/00229" [ref=e1279] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1280] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e1281] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1282] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00228 28/10/2025 38,204.55 ฿ 0.00 ฿" [ref=e1283]:
+                    - cell [ref=e1284] [cursor=pointer]:
+                      - generic [ref=e1285]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1286] [cursor=pointer]
+                    - cell "INV-D/25/10/00228" [ref=e1287] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1288] [cursor=pointer]
+                    - cell "38,204.55 ฿" [ref=e1289] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1290] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00227 28/10/2025 59,166.84 ฿ 0.00 ฿" [ref=e1291]:
+                    - cell [ref=e1292] [cursor=pointer]:
+                      - generic [ref=e1293]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1294] [cursor=pointer]
+                    - cell "INV-D/25/10/00227" [ref=e1295] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1296] [cursor=pointer]
+                    - cell "59,166.84 ฿" [ref=e1297] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1298] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00226 28/10/2025 11,215.19 ฿ 0.00 ฿" [ref=e1299]:
+                    - cell [ref=e1300] [cursor=pointer]:
+                      - generic [ref=e1301]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1302] [cursor=pointer]
+                    - cell "INV-D/25/10/00226" [ref=e1303] [cursor=pointer]
+                    - cell "28/10/2025" [ref=e1304] [cursor=pointer]
+                    - cell "11,215.19 ฿" [ref=e1305] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1306] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00211 31/10/2025 503,493.21 ฿ 0.00 ฿" [ref=e1307]:
+                    - cell [ref=e1308] [cursor=pointer]:
+                      - generic [ref=e1309]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1310] [cursor=pointer]
+                    - cell "INV-D/25/10/00211" [ref=e1311] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1312] [cursor=pointer]
+                    - cell "503,493.21 ฿" [ref=e1313] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1314] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00210 31/10/2025 471,944.88 ฿ 0.00 ฿" [ref=e1315]:
+                    - cell [ref=e1316] [cursor=pointer]:
+                      - generic [ref=e1317]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1318] [cursor=pointer]
+                    - cell "INV-D/25/10/00210" [ref=e1319] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1320] [cursor=pointer]
+                    - cell "471,944.88 ฿" [ref=e1321] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1322] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00209 31/10/2025 248,768.03 ฿ 0.00 ฿" [ref=e1323]:
+                    - cell [ref=e1324] [cursor=pointer]:
+                      - generic [ref=e1325]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1326] [cursor=pointer]
+                    - cell "INV-D/25/10/00209" [ref=e1327] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1328] [cursor=pointer]
+                    - cell "248,768.03 ฿" [ref=e1329] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1330] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00208 31/10/2025 135,249.67 ฿ 0.00 ฿" [ref=e1331]:
+                    - cell [ref=e1332] [cursor=pointer]:
+                      - generic [ref=e1333]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1334] [cursor=pointer]
+                    - cell "INV-D/25/10/00208" [ref=e1335] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1336] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1337] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1338] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00207 31/10/2025 140,507.72 ฿ 0.00 ฿" [ref=e1339]:
+                    - cell [ref=e1340] [cursor=pointer]:
+                      - generic [ref=e1341]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1342] [cursor=pointer]
+                    - cell "INV-D/25/10/00207" [ref=e1343] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1344] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e1345] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1346] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00206 31/10/2025 140,507.72 ฿ 0.00 ฿" [ref=e1347]:
+                    - cell [ref=e1348] [cursor=pointer]:
+                      - generic [ref=e1349]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1350] [cursor=pointer]
+                    - cell "INV-D/25/10/00206" [ref=e1351] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1352] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e1353] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1354] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00205 31/10/2025 151,023.83 ฿ 0.00 ฿" [ref=e1355]:
+                    - cell [ref=e1356] [cursor=pointer]:
+                      - generic [ref=e1357]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1358] [cursor=pointer]
+                    - cell "INV-D/25/10/00205" [ref=e1359] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1360] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e1361] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1362] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00204 31/10/2025 269,800.25 ฿ 0.00 ฿" [ref=e1363]:
+                    - cell [ref=e1364] [cursor=pointer]:
+                      - generic [ref=e1365]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1366] [cursor=pointer]
+                    - cell "INV-D/25/10/00204" [ref=e1367] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1368] [cursor=pointer]
+                    - cell "269,800.25 ฿" [ref=e1369] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1370] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00203 31/10/2025 70,382.03 ฿ 0.00 ฿" [ref=e1371]:
+                    - cell [ref=e1372] [cursor=pointer]:
+                      - generic [ref=e1373]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1374] [cursor=pointer]
+                    - cell "INV-D/25/10/00203" [ref=e1375] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1376] [cursor=pointer]
+                    - cell "70,382.03 ฿" [ref=e1377] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1378] [cursor=pointer]
+                  - row "Invoice INV-D/25/10/00202 31/10/2025 161,726.35 ฿ 0.00 ฿" [ref=e1379]:
+                    - cell [ref=e1380] [cursor=pointer]:
+                      - generic [ref=e1381]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1382] [cursor=pointer]
+                    - cell "INV-D/25/10/00202" [ref=e1383] [cursor=pointer]
+                    - cell "31/10/2025" [ref=e1384] [cursor=pointer]
+                    - cell "161,726.35 ฿" [ref=e1385] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1386] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00885 04/11/2025 249,467.12 ฿ 0.00 ฿" [ref=e1387]:
+                    - cell [ref=e1388] [cursor=pointer]:
+                      - generic [ref=e1389]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1390] [cursor=pointer]
+                    - cell "INV-D/25/11/00885" [ref=e1391] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1392] [cursor=pointer]
+                    - cell "249,467.12 ฿" [ref=e1393] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1394] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00884 04/11/2025 262,779.57 ฿ 0.00 ฿" [ref=e1395]:
+                    - cell [ref=e1396] [cursor=pointer]:
+                      - generic [ref=e1397]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1398] [cursor=pointer]
+                    - cell "INV-D/25/11/00884" [ref=e1399] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1400] [cursor=pointer]
+                    - cell "262,779.57 ฿" [ref=e1401] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1402] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00883 04/11/2025 129,292.53 ฿ 0.00 ฿" [ref=e1403]:
+                    - cell [ref=e1404] [cursor=pointer]:
+                      - generic [ref=e1405]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1406] [cursor=pointer]
+                    - cell "INV-D/25/11/00883" [ref=e1407] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1408] [cursor=pointer]
+                    - cell "129,292.53 ฿" [ref=e1409] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1410] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00882 04/11/2025 259,983.23 ฿ 0.00 ฿" [ref=e1411]:
+                    - cell [ref=e1412] [cursor=pointer]:
+                      - generic [ref=e1413]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1414] [cursor=pointer]
+                    - cell "INV-D/25/11/00882" [ref=e1415] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1416] [cursor=pointer]
+                    - cell "259,983.23 ฿" [ref=e1417] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1418] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00881 04/11/2025 124,034.47 ฿ 0.00 ฿" [ref=e1419]:
+                    - cell [ref=e1420] [cursor=pointer]:
+                      - generic [ref=e1421]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1422] [cursor=pointer]
+                    - cell "INV-D/25/11/00881" [ref=e1423] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1424] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e1425] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1426] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00880 04/11/2025 265,241.28 ฿ 0.00 ฿" [ref=e1427]:
+                    - cell [ref=e1428] [cursor=pointer]:
+                      - generic [ref=e1429]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1430] [cursor=pointer]
+                    - cell "INV-D/25/11/00880" [ref=e1431] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1432] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e1433] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1434] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00879 04/11/2025 243,509.98 ฿ 0.00 ฿" [ref=e1435]:
+                    - cell [ref=e1436] [cursor=pointer]:
+                      - generic [ref=e1437]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1438] [cursor=pointer]
+                    - cell "INV-D/25/11/00879" [ref=e1439] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1440] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e1441] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1442] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00878 04/11/2025 113,774.71 ฿ 0.00 ฿" [ref=e1443]:
+                    - cell [ref=e1444] [cursor=pointer]:
+                      - generic [ref=e1445]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1446] [cursor=pointer]
+                    - cell "INV-D/25/11/00878" [ref=e1447] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1448] [cursor=pointer]
+                    - cell "113,774.71 ฿" [ref=e1449] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1450] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00877 04/11/2025 70,125.69 ฿ 0.00 ฿" [ref=e1451]:
+                    - cell [ref=e1452] [cursor=pointer]:
+                      - generic [ref=e1453]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1454] [cursor=pointer]
+                    - cell "INV-D/25/11/00877" [ref=e1455] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1456] [cursor=pointer]
+                    - cell "70,125.69 ฿" [ref=e1457] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1458] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00876 04/11/2025 140,507.72 ฿ 0.00 ฿" [ref=e1459]:
+                    - cell [ref=e1460] [cursor=pointer]:
+                      - generic [ref=e1461]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1462] [cursor=pointer]
+                    - cell "INV-D/25/11/00876" [ref=e1463] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1464] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e1465] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1466] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00875 04/11/2025 530,482.57 ฿ 0.00 ฿" [ref=e1467]:
+                    - cell [ref=e1468] [cursor=pointer]:
+                      - generic [ref=e1469]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1470] [cursor=pointer]
+                    - cell "INV-D/25/11/00875" [ref=e1471] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1472] [cursor=pointer]
+                    - cell "530,482.57 ฿" [ref=e1473] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1474] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00874 04/11/2025 238,251.92 ฿ 0.00 ฿" [ref=e1475]:
+                    - cell [ref=e1476] [cursor=pointer]:
+                      - generic [ref=e1477]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1478] [cursor=pointer]
+                    - cell "INV-D/25/11/00874" [ref=e1479] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1480] [cursor=pointer]
+                    - cell "238,251.92 ฿" [ref=e1481] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1482] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00873 04/11/2025 275,757.39 ฿ 0.00 ฿" [ref=e1483]:
+                    - cell [ref=e1484] [cursor=pointer]:
+                      - generic [ref=e1485]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1486] [cursor=pointer]
+                    - cell "INV-D/25/11/00873" [ref=e1487] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1488] [cursor=pointer]
+                    - cell "275,757.39 ฿" [ref=e1489] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1490] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00872 04/11/2025 194,416.51 ฿ 0.00 ฿" [ref=e1491]:
+                    - cell [ref=e1492] [cursor=pointer]:
+                      - generic [ref=e1493]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1494] [cursor=pointer]
+                    - cell "INV-D/25/11/00872" [ref=e1495] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1496] [cursor=pointer]
+                    - cell "194,416.51 ฿" [ref=e1497] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1498] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00871 04/11/2025 265,241.28 ฿ 0.00 ฿" [ref=e1499]:
+                    - cell [ref=e1500] [cursor=pointer]:
+                      - generic [ref=e1501]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1502] [cursor=pointer]
+                    - cell "INV-D/25/11/00871" [ref=e1503] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1504] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e1505] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1506] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00870 04/11/2025 264,542.20 ฿ 0.00 ฿" [ref=e1507]:
+                    - cell [ref=e1508] [cursor=pointer]:
+                      - generic [ref=e1509]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1510] [cursor=pointer]
+                    - cell "INV-D/25/11/00870" [ref=e1511] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1512] [cursor=pointer]
+                    - cell "264,542.20 ฿" [ref=e1513] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1514] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00869 04/11/2025 503,493.21 ฿ 0.00 ฿" [ref=e1515]:
+                    - cell [ref=e1516] [cursor=pointer]:
+                      - generic [ref=e1517]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1518] [cursor=pointer]
+                    - cell "INV-D/25/11/00869" [ref=e1519] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1520] [cursor=pointer]
+                    - cell "503,493.21 ฿" [ref=e1521] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1522] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00868 04/11/2025 195,814.68 ฿ 0.00 ฿" [ref=e1523]:
+                    - cell [ref=e1524] [cursor=pointer]:
+                      - generic [ref=e1525]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1526] [cursor=pointer]
+                    - cell "INV-D/25/11/00868" [ref=e1527] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1528] [cursor=pointer]
+                    - cell "195,814.68 ฿" [ref=e1529] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1530] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00867 04/11/2025 276,456.48 ฿ 0.00 ฿" [ref=e1531]:
+                    - cell [ref=e1532] [cursor=pointer]:
+                      - generic [ref=e1533]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1534] [cursor=pointer]
+                    - cell "INV-D/25/11/00867" [ref=e1535] [cursor=pointer]
+                    - cell "04/11/2025" [ref=e1536] [cursor=pointer]
+                    - cell "276,456.48 ฿" [ref=e1537] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1538] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00838 07/11/2025 406,448.09 ฿ 0.00 ฿" [ref=e1539]:
+                    - cell [ref=e1540] [cursor=pointer]:
+                      - generic [ref=e1541]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1542] [cursor=pointer]
+                    - cell "INV-D/25/11/00838" [ref=e1543] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1544] [cursor=pointer]
+                    - cell "406,448.09 ฿" [ref=e1545] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1546] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00837 07/11/2025 568,687.12 ฿ 0.00 ฿" [ref=e1547]:
+                    - cell [ref=e1548] [cursor=pointer]:
+                      - generic [ref=e1549]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1550] [cursor=pointer]
+                    - cell "INV-D/25/11/00837" [ref=e1551] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1552] [cursor=pointer]
+                    - cell "568,687.12 ฿" [ref=e1553] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1554] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00836 07/11/2025 146,464.86 ฿ 0.00 ฿" [ref=e1555]:
+                    - cell [ref=e1556] [cursor=pointer]:
+                      - generic [ref=e1557]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1558] [cursor=pointer]
+                    - cell "INV-D/25/11/00836" [ref=e1559] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1560] [cursor=pointer]
+                    - cell "146,464.86 ฿" [ref=e1561] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1562] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00835 07/11/2025 124,733.56 ฿ 0.00 ฿" [ref=e1563]:
+                    - cell [ref=e1564] [cursor=pointer]:
+                      - generic [ref=e1565]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1566] [cursor=pointer]
+                    - cell "INV-D/25/11/00835" [ref=e1567] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1568] [cursor=pointer]
+                    - cell "124,733.56 ฿" [ref=e1569] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1570] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00834 07/11/2025 5,957.14 ฿ 0.00 ฿" [ref=e1571]:
+                    - cell [ref=e1572] [cursor=pointer]:
+                      - generic [ref=e1573]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1574] [cursor=pointer]
+                    - cell "INV-D/25/11/00834" [ref=e1575] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1576] [cursor=pointer]
+                    - cell "5,957.14 ฿" [ref=e1577] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1578] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00833 07/11/2025 162,681.77 ฿ 0.00 ฿" [ref=e1579]:
+                    - cell [ref=e1580] [cursor=pointer]:
+                      - generic [ref=e1581]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1582] [cursor=pointer]
+                    - cell "INV-D/25/11/00833" [ref=e1583] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1584] [cursor=pointer]
+                    - cell "162,681.77 ฿" [ref=e1585] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1586] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00832 07/11/2025 135,249.67 ฿ 0.00 ฿" [ref=e1587]:
+                    - cell [ref=e1588] [cursor=pointer]:
+                      - generic [ref=e1589]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1590] [cursor=pointer]
+                    - cell "INV-D/25/11/00832" [ref=e1591] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1592] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1593] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1594] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00831 07/11/2025 272,596.59 ฿ 0.00 ฿" [ref=e1595]:
+                    - cell [ref=e1596] [cursor=pointer]:
+                      - generic [ref=e1597]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1598] [cursor=pointer]
+                    - cell "INV-D/25/11/00831" [ref=e1599] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1600] [cursor=pointer]
+                    - cell "272,596.59 ฿" [ref=e1601] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1602] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00830 07/11/2025 31,991.07 ฿ 0.00 ฿" [ref=e1603]:
+                    - cell [ref=e1604] [cursor=pointer]:
+                      - generic [ref=e1605]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1606] [cursor=pointer]
+                    - cell "INV-D/25/11/00830" [ref=e1607] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1608] [cursor=pointer]
+                    - cell "31,991.07 ฿" [ref=e1609] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1610] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00829 07/11/2025 129,991.61 ฿ 0.00 ฿" [ref=e1611]:
+                    - cell [ref=e1612] [cursor=pointer]:
+                      - generic [ref=e1613]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1614] [cursor=pointer]
+                    - cell "INV-D/25/11/00829" [ref=e1615] [cursor=pointer]
+                    - cell "07/11/2025" [ref=e1616] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e1617] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1618] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00799 11/11/2025 533,278.91 ฿ 0.00 ฿" [ref=e1619]:
+                    - cell [ref=e1620] [cursor=pointer]:
+                      - generic [ref=e1621]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1622] [cursor=pointer]
+                    - cell "INV-D/25/11/00799" [ref=e1623] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1624] [cursor=pointer]
+                    - cell "533,278.91 ฿" [ref=e1625] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1626] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00798 11/11/2025 227,036.73 ฿ 0.00 ฿" [ref=e1627]:
+                    - cell [ref=e1628] [cursor=pointer]:
+                      - generic [ref=e1629]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1630] [cursor=pointer]
+                    - cell "INV-D/25/11/00798" [ref=e1631] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1632] [cursor=pointer]
+                    - cell "227,036.73 ฿" [ref=e1633] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1634] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00797 11/11/2025 16,473.25 ฿ 0.00 ฿" [ref=e1635]:
+                    - cell [ref=e1636] [cursor=pointer]:
+                      - generic [ref=e1637]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1638] [cursor=pointer]
+                    - cell "INV-D/25/11/00797" [ref=e1639] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1640] [cursor=pointer]
+                    - cell "16,473.25 ฿" [ref=e1641] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1642] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00796 11/11/2025 135,249.67 ฿ 0.00 ฿" [ref=e1643]:
+                    - cell [ref=e1644] [cursor=pointer]:
+                      - generic [ref=e1645]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1646] [cursor=pointer]
+                    - cell "INV-D/25/11/00796" [ref=e1647] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1648] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1649] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1650] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00795 11/11/2025 129,991.61 ฿ 0.00 ฿" [ref=e1651]:
+                    - cell [ref=e1652] [cursor=pointer]:
+                      - generic [ref=e1653]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1654] [cursor=pointer]
+                    - cell "INV-D/25/11/00795" [ref=e1655] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1656] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e1657] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1658] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00794 11/11/2025 151,466.58 ฿ 0.00 ฿" [ref=e1659]:
+                    - cell [ref=e1660] [cursor=pointer]:
+                      - generic [ref=e1661]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1662] [cursor=pointer]
+                    - cell "INV-D/25/11/00794" [ref=e1663] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1664] [cursor=pointer]
+                    - cell "151,466.58 ฿" [ref=e1665] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1666] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00793 11/11/2025 254,725.17 ฿ 0.00 ฿" [ref=e1667]:
+                    - cell [ref=e1668] [cursor=pointer]:
+                      - generic [ref=e1669]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1670] [cursor=pointer]
+                    - cell "INV-D/25/11/00793" [ref=e1671] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1672] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e1673] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1674] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00792 11/11/2025 61,334.03 ฿ 0.00 ฿" [ref=e1675]:
+                    - cell [ref=e1676] [cursor=pointer]:
+                      - generic [ref=e1677]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1678] [cursor=pointer]
+                    - cell "INV-D/25/11/00792" [ref=e1679] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1680] [cursor=pointer]
+                    - cell "61,334.03 ฿" [ref=e1681] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1682] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00791 11/11/2025 37,691.87 ฿ 0.00 ฿" [ref=e1683]:
+                    - cell [ref=e1684] [cursor=pointer]:
+                      - generic [ref=e1685]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1686] [cursor=pointer]
+                    - cell "INV-D/25/11/00791" [ref=e1687] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1688] [cursor=pointer]
+                    - cell "37,691.87 ฿" [ref=e1689] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1690] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00790 11/11/2025 135,948.75 ฿ 0.00 ฿" [ref=e1691]:
+                    - cell [ref=e1692] [cursor=pointer]:
+                      - generic [ref=e1693]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1694] [cursor=pointer]
+                    - cell "INV-D/25/11/00790" [ref=e1695] [cursor=pointer]
+                    - cell "11/11/2025" [ref=e1696] [cursor=pointer]
+                    - cell "135,948.75 ฿" [ref=e1697] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1698] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00765 14/11/2025 151,023.83 ฿ 0.00 ฿" [ref=e1699]:
+                    - cell [ref=e1700] [cursor=pointer]:
+                      - generic [ref=e1701]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1702] [cursor=pointer]
+                    - cell "INV-D/25/11/00765" [ref=e1703] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1704] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e1705] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1706] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00764 14/11/2025 304,844.01 ฿ 0.00 ฿" [ref=e1707]:
+                    - cell [ref=e1708] [cursor=pointer]:
+                      - generic [ref=e1709]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1710] [cursor=pointer]
+                    - cell "INV-D/25/11/00764" [ref=e1711] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1712] [cursor=pointer]
+                    - cell "304,844.01 ฿" [ref=e1713] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1714] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00763 14/11/2025 139,808.64 ฿ 0.00 ฿" [ref=e1715]:
+                    - cell [ref=e1716] [cursor=pointer]:
+                      - generic [ref=e1717]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1718] [cursor=pointer]
+                    - cell "INV-D/25/11/00763" [ref=e1719] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1720] [cursor=pointer]
+                    - cell "139,808.64 ฿" [ref=e1721] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1722] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00762 14/11/2025 271,198.42 ฿ 0.00 ฿" [ref=e1723]:
+                    - cell [ref=e1724] [cursor=pointer]:
+                      - generic [ref=e1725]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1726] [cursor=pointer]
+                    - cell "INV-D/25/11/00762" [ref=e1727] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1728] [cursor=pointer]
+                    - cell "271,198.42 ฿" [ref=e1729] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1730] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00761 14/11/2025 243,509.98 ฿ 0.00 ฿" [ref=e1731]:
+                    - cell [ref=e1732] [cursor=pointer]:
+                      - generic [ref=e1733]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1734] [cursor=pointer]
+                    - cell "INV-D/25/11/00761" [ref=e1735] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1736] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e1737] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1738] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00760 14/11/2025 254,725.17 ฿ 0.00 ฿" [ref=e1739]:
+                    - cell [ref=e1740] [cursor=pointer]:
+                      - generic [ref=e1741]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1742] [cursor=pointer]
+                    - cell "INV-D/25/11/00760" [ref=e1743] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1744] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e1745] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1746] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00759 14/11/2025 5,957.14 ฿ 0.00 ฿" [ref=e1747]:
+                    - cell [ref=e1748] [cursor=pointer]:
+                      - generic [ref=e1749]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1750] [cursor=pointer]
+                    - cell "INV-D/25/11/00759" [ref=e1751] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1752] [cursor=pointer]
+                    - cell "5,957.14 ฿" [ref=e1753] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1754] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00758 14/11/2025 372,103.42 ฿ 0.00 ฿" [ref=e1755]:
+                    - cell [ref=e1756] [cursor=pointer]:
+                      - generic [ref=e1757]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1758] [cursor=pointer]
+                    - cell "INV-D/25/11/00758" [ref=e1759] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1760] [cursor=pointer]
+                    - cell "372,103.42 ฿" [ref=e1761] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1762] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00757 14/11/2025 129,292.53 ฿ 0.00 ฿" [ref=e1763]:
+                    - cell [ref=e1764] [cursor=pointer]:
+                      - generic [ref=e1765]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1766] [cursor=pointer]
+                    - cell "INV-D/25/11/00757" [ref=e1767] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1768] [cursor=pointer]
+                    - cell "129,292.53 ฿" [ref=e1769] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1770] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00756 14/11/2025 135,948.75 ฿ 0.00 ฿" [ref=e1771]:
+                    - cell [ref=e1772] [cursor=pointer]:
+                      - generic [ref=e1773]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1774] [cursor=pointer]
+                    - cell "INV-D/25/11/00756" [ref=e1775] [cursor=pointer]
+                    - cell "14/11/2025" [ref=e1776] [cursor=pointer]
+                    - cell "135,948.75 ฿" [ref=e1777] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1778] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00720 18/11/2025 124,034.47 ฿ 0.00 ฿" [ref=e1779]:
+                    - cell [ref=e1780] [cursor=pointer]:
+                      - generic [ref=e1781]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1782] [cursor=pointer]
+                    - cell "INV-D/25/11/00720" [ref=e1783] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1784] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e1785] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1786] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00719 18/11/2025 258,585.06 ฿ 0.00 ฿" [ref=e1787]:
+                    - cell [ref=e1788] [cursor=pointer]:
+                      - generic [ref=e1789]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1790] [cursor=pointer]
+                    - cell "INV-D/25/11/00719" [ref=e1791] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1792] [cursor=pointer]
+                    - cell "258,585.06 ฿" [ref=e1793] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1794] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00718 18/11/2025 119,475.50 ฿ 0.00 ฿" [ref=e1795]:
+                    - cell [ref=e1796] [cursor=pointer]:
+                      - generic [ref=e1797]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1798] [cursor=pointer]
+                    - cell "INV-D/25/11/00718" [ref=e1799] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1800] [cursor=pointer]
+                    - cell "119,475.50 ฿" [ref=e1801] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1802] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00717 18/11/2025 26,733.02 ฿ 0.00 ฿" [ref=e1803]:
+                    - cell [ref=e1804] [cursor=pointer]:
+                      - generic [ref=e1805]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1806] [cursor=pointer]
+                    - cell "INV-D/25/11/00717" [ref=e1807] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1808] [cursor=pointer]
+                    - cell "26,733.02 ฿" [ref=e1809] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1810] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00716 18/11/2025 254,026.09 ฿ 0.00 ฿" [ref=e1811]:
+                    - cell [ref=e1812] [cursor=pointer]:
+                      - generic [ref=e1813]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1814] [cursor=pointer]
+                    - cell "INV-D/25/11/00716" [ref=e1815] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1816] [cursor=pointer]
+                    - cell "254,026.09 ฿" [ref=e1817] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1818] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00715 18/11/2025 11,215.19 ฿ 0.00 ฿" [ref=e1819]:
+                    - cell [ref=e1820] [cursor=pointer]:
+                      - generic [ref=e1821]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1822] [cursor=pointer]
+                    - cell "INV-D/25/11/00715" [ref=e1823] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1824] [cursor=pointer]
+                    - cell "11,215.19 ฿" [ref=e1825] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1826] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00714 18/11/2025 70,125.69 ฿ 0.00 ฿" [ref=e1827]:
+                    - cell [ref=e1828] [cursor=pointer]:
+                      - generic [ref=e1829]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1830] [cursor=pointer]
+                    - cell "INV-D/25/11/00714" [ref=e1831] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1832] [cursor=pointer]
+                    - cell "70,125.69 ฿" [ref=e1833] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1834] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00713 18/11/2025 59,865.92 ฿ 0.00 ฿" [ref=e1835]:
+                    - cell [ref=e1836] [cursor=pointer]:
+                      - generic [ref=e1837]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1838] [cursor=pointer]
+                    - cell "INV-D/25/11/00713" [ref=e1839] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1840] [cursor=pointer]
+                    - cell "59,865.92 ฿" [ref=e1841] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1842] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00712 18/11/2025 119,475.50 ฿ 0.00 ฿" [ref=e1843]:
+                    - cell [ref=e1844] [cursor=pointer]:
+                      - generic [ref=e1845]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1846] [cursor=pointer]
+                    - cell "INV-D/25/11/00712" [ref=e1847] [cursor=pointer]
+                    - cell "18/11/2025" [ref=e1848] [cursor=pointer]
+                    - cell "119,475.50 ฿" [ref=e1849] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1850] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00673 21/11/2025 124,034.47 ฿ 0.00 ฿" [ref=e1851]:
+                    - cell [ref=e1852] [cursor=pointer]:
+                      - generic [ref=e1853]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1854] [cursor=pointer]
+                    - cell "INV-D/25/11/00673" [ref=e1855] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1856] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e1857] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1858] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00672 21/11/2025 550,815.70 ฿ 0.00 ฿" [ref=e1859]:
+                    - cell [ref=e1860] [cursor=pointer]:
+                      - generic [ref=e1861]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1862] [cursor=pointer]
+                    - cell "INV-D/25/11/00672" [ref=e1863] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1864] [cursor=pointer]
+                    - cell "550,815.70 ฿" [ref=e1865] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1866] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00671 21/11/2025 145,765.78 ฿ 0.00 ฿" [ref=e1867]:
+                    - cell [ref=e1868] [cursor=pointer]:
+                      - generic [ref=e1869]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1870] [cursor=pointer]
+                    - cell "INV-D/25/11/00671" [ref=e1871] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1872] [cursor=pointer]
+                    - cell "145,765.78 ฿" [ref=e1873] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1874] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00670 21/11/2025 373,501.59 ฿ 0.00 ฿" [ref=e1875]:
+                    - cell [ref=e1876] [cursor=pointer]:
+                      - generic [ref=e1877]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1878] [cursor=pointer]
+                    - cell "INV-D/25/11/00670" [ref=e1879] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1880] [cursor=pointer]
+                    - cell "373,501.59 ฿" [ref=e1881] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1882] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00669 21/11/2025 124,034.47 ฿ 0.00 ฿" [ref=e1883]:
+                    - cell [ref=e1884] [cursor=pointer]:
+                      - generic [ref=e1885]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1886] [cursor=pointer]
+                    - cell "INV-D/25/11/00669" [ref=e1887] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1888] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e1889] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1890] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00668 21/11/2025 265,241.28 ฿ 0.00 ฿" [ref=e1891]:
+                    - cell [ref=e1892] [cursor=pointer]:
+                      - generic [ref=e1893]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1894] [cursor=pointer]
+                    - cell "INV-D/25/11/00668" [ref=e1895] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1896] [cursor=pointer]
+                    - cell "265,241.28 ฿" [ref=e1897] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1898] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00667 21/11/2025 242,810.89 ฿ 0.00 ฿" [ref=e1899]:
+                    - cell [ref=e1900] [cursor=pointer]:
+                      - generic [ref=e1901]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1902] [cursor=pointer]
+                    - cell "INV-D/25/11/00667" [ref=e1903] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1904] [cursor=pointer]
+                    - cell "242,810.89 ฿" [ref=e1905] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1906] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00666 21/11/2025 269,800.25 ฿ 0.00 ฿" [ref=e1907]:
+                    - cell [ref=e1908] [cursor=pointer]:
+                      - generic [ref=e1909]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1910] [cursor=pointer]
+                    - cell "INV-D/25/11/00666" [ref=e1911] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1912] [cursor=pointer]
+                    - cell "269,800.25 ฿" [ref=e1913] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1914] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00665 21/11/2025 124,733.56 ฿ 0.00 ฿" [ref=e1915]:
+                    - cell [ref=e1916] [cursor=pointer]:
+                      - generic [ref=e1917]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1918] [cursor=pointer]
+                    - cell "INV-D/25/11/00665" [ref=e1919] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1920] [cursor=pointer]
+                    - cell "124,733.56 ฿" [ref=e1921] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1922] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00664 21/11/2025 151,023.83 ฿ 0.00 ฿" [ref=e1923]:
+                    - cell [ref=e1924] [cursor=pointer]:
+                      - generic [ref=e1925]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1926] [cursor=pointer]
+                    - cell "INV-D/25/11/00664" [ref=e1927] [cursor=pointer]
+                    - cell "21/11/2025" [ref=e1928] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e1929] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1930] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00604 25/11/2025 243,509.98 ฿ 0.00 ฿" [ref=e1931]:
+                    - cell [ref=e1932] [cursor=pointer]:
+                      - generic [ref=e1933]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1934] [cursor=pointer]
+                    - cell "INV-D/25/11/00604" [ref=e1935] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1936] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e1937] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1938] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00603 25/11/2025 262,779.57 ฿ 0.00 ฿" [ref=e1939]:
+                    - cell [ref=e1940] [cursor=pointer]:
+                      - generic [ref=e1941]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1942] [cursor=pointer]
+                    - cell "INV-D/25/11/00603" [ref=e1943] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1944] [cursor=pointer]
+                    - cell "262,779.57 ฿" [ref=e1945] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1946] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00602 25/11/2025 242,810.89 ฿ 0.00 ฿" [ref=e1947]:
+                    - cell [ref=e1948] [cursor=pointer]:
+                      - generic [ref=e1949]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1950] [cursor=pointer]
+                    - cell "INV-D/25/11/00602" [ref=e1951] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1952] [cursor=pointer]
+                    - cell "242,810.89 ฿" [ref=e1953] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1954] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00601 25/11/2025 135,249.67 ฿ 0.00 ฿" [ref=e1955]:
+                    - cell [ref=e1956] [cursor=pointer]:
+                      - generic [ref=e1957]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1958] [cursor=pointer]
+                    - cell "INV-D/25/11/00601" [ref=e1959] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1960] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e1961] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1962] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00600 25/11/2025 129,991.61 ฿ 0.00 ฿" [ref=e1963]:
+                    - cell [ref=e1964] [cursor=pointer]:
+                      - generic [ref=e1965]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1966] [cursor=pointer]
+                    - cell "INV-D/25/11/00600" [ref=e1967] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1968] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e1969] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1970] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00599 25/11/2025 141,206.81 ฿ 0.00 ฿" [ref=e1971]:
+                    - cell [ref=e1972] [cursor=pointer]:
+                      - generic [ref=e1973]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1974] [cursor=pointer]
+                    - cell "INV-D/25/11/00599" [ref=e1975] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1976] [cursor=pointer]
+                    - cell "141,206.81 ฿" [ref=e1977] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1978] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00598 25/11/2025 15,774.16 ฿ 0.00 ฿" [ref=e1979]:
+                    - cell [ref=e1980] [cursor=pointer]:
+                      - generic [ref=e1981]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1982] [cursor=pointer]
+                    - cell "INV-D/25/11/00598" [ref=e1983] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1984] [cursor=pointer]
+                    - cell "15,774.16 ฿" [ref=e1985] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1986] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00597 25/11/2025 206,074.45 ฿ 0.00 ฿" [ref=e1987]:
+                    - cell [ref=e1988] [cursor=pointer]:
+                      - generic [ref=e1989]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1990] [cursor=pointer]
+                    - cell "INV-D/25/11/00597" [ref=e1991] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e1992] [cursor=pointer]
+                    - cell "206,074.45 ฿" [ref=e1993] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e1994] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00596 25/11/2025 124,034.47 ฿ 0.00 ฿" [ref=e1995]:
+                    - cell [ref=e1996] [cursor=pointer]:
+                      - generic [ref=e1997]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e1998] [cursor=pointer]
+                    - cell "INV-D/25/11/00596" [ref=e1999] [cursor=pointer]
+                    - cell "25/11/2025" [ref=e2000] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e2001] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2002] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00541 28/11/2025 282,413.62 ฿ 0.00 ฿" [ref=e2003]:
+                    - cell [ref=e2004] [cursor=pointer]:
+                      - generic [ref=e2005]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2006] [cursor=pointer]
+                    - cell "INV-D/25/11/00541" [ref=e2007] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2008] [cursor=pointer]
+                    - cell "282,413.62 ฿" [ref=e2009] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2010] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00540 28/11/2025 227,036.73 ฿ 0.00 ฿" [ref=e2011]:
+                    - cell [ref=e2012] [cursor=pointer]:
+                      - generic [ref=e2013]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2014] [cursor=pointer]
+                    - cell "INV-D/25/11/00540" [ref=e2015] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2016] [cursor=pointer]
+                    - cell "227,036.73 ฿" [ref=e2017] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2018] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00539 28/11/2025 157,680.06 ฿ 0.00 ฿" [ref=e2019]:
+                    - cell [ref=e2020] [cursor=pointer]:
+                      - generic [ref=e2021]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2022] [cursor=pointer]
+                    - cell "INV-D/25/11/00539" [ref=e2023] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2024] [cursor=pointer]
+                    - cell "157,680.06 ฿" [ref=e2025] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2026] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00538 28/11/2025 145,765.78 ฿ 0.00 ฿" [ref=e2027]:
+                    - cell [ref=e2028] [cursor=pointer]:
+                      - generic [ref=e2029]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2030] [cursor=pointer]
+                    - cell "INV-D/25/11/00538" [ref=e2031] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2032] [cursor=pointer]
+                    - cell "145,765.78 ฿" [ref=e2033] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2034] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00537 28/11/2025 5,957.14 ฿ 0.00 ฿" [ref=e2035]:
+                    - cell [ref=e2036] [cursor=pointer]:
+                      - generic [ref=e2037]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2038] [cursor=pointer]
+                    - cell "INV-D/25/11/00537" [ref=e2039] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2040] [cursor=pointer]
+                    - cell "5,957.14 ฿" [ref=e2041] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2042] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00536 28/11/2025 270,499.34 ฿ 0.00 ฿" [ref=e2043]:
+                    - cell [ref=e2044] [cursor=pointer]:
+                      - generic [ref=e2045]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2046] [cursor=pointer]
+                    - cell "INV-D/25/11/00536" [ref=e2047] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2048] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e2049] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2050] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00535 28/11/2025 270,499.34 ฿ 0.00 ฿" [ref=e2051]:
+                    - cell [ref=e2052] [cursor=pointer]:
+                      - generic [ref=e2053]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2054] [cursor=pointer]
+                    - cell "INV-D/25/11/00535" [ref=e2055] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2056] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e2057] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2058] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00534 28/11/2025 503,493.21 ฿ 0.00 ฿" [ref=e2059]:
+                    - cell [ref=e2060] [cursor=pointer]:
+                      - generic [ref=e2061]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2062] [cursor=pointer]
+                    - cell "INV-D/25/11/00534" [ref=e2063] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2064] [cursor=pointer]
+                    - cell "503,493.21 ฿" [ref=e2065] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2066] [cursor=pointer]
+                  - row "Invoice INV-D/25/11/00533 28/11/2025 140,507.72 ฿ 0.00 ฿" [ref=e2067]:
+                    - cell [ref=e2068] [cursor=pointer]:
+                      - generic [ref=e2069]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2070] [cursor=pointer]
+                    - cell "INV-D/25/11/00533" [ref=e2071] [cursor=pointer]
+                    - cell "28/11/2025" [ref=e2072] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e2073] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2074] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01417 02/12/2025 395,931.98 ฿ 0.00 ฿" [ref=e2075]:
+                    - cell [ref=e2076] [cursor=pointer]:
+                      - generic [ref=e2077]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2078] [cursor=pointer]
+                    - cell "INV-D/25/12/01417" [ref=e2079] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2080] [cursor=pointer]
+                    - cell "395,931.98 ฿" [ref=e2081] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2082] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01416 02/12/2025 323,778.97 ฿ 0.00 ฿" [ref=e2083]:
+                    - cell [ref=e2084] [cursor=pointer]:
+                      - generic [ref=e2085]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2086] [cursor=pointer]
+                    - cell "INV-D/25/12/01416" [ref=e2087] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2088] [cursor=pointer]
+                    - cell "323,778.97 ฿" [ref=e2089] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2090] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01415 02/12/2025 134,550.58 ฿ 0.00 ฿" [ref=e2091]:
+                    - cell [ref=e2092] [cursor=pointer]:
+                      - generic [ref=e2093]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2094] [cursor=pointer]
+                    - cell "INV-D/25/12/01415" [ref=e2095] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2096] [cursor=pointer]
+                    - cell "134,550.58 ฿" [ref=e2097] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2098] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01414 02/12/2025 135,249.67 ฿ 0.00 ฿" [ref=e2099]:
+                    - cell [ref=e2100] [cursor=pointer]:
+                      - generic [ref=e2101]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2102] [cursor=pointer]
+                    - cell "INV-D/25/12/01414" [ref=e2103] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2104] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e2105] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2106] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01413 02/12/2025 259,284.14 ฿ 0.00 ฿" [ref=e2107]:
+                    - cell [ref=e2108] [cursor=pointer]:
+                      - generic [ref=e2109]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2110] [cursor=pointer]
+                    - cell "INV-D/25/12/01413" [ref=e2111] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2112] [cursor=pointer]
+                    - cell "259,284.14 ฿" [ref=e2113] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2114] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01412 02/12/2025 259,983.23 ฿ 0.00 ฿" [ref=e2115]:
+                    - cell [ref=e2116] [cursor=pointer]:
+                      - generic [ref=e2117]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2118] [cursor=pointer]
+                    - cell "INV-D/25/12/01412" [ref=e2119] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2120] [cursor=pointer]
+                    - cell "259,983.23 ฿" [ref=e2121] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2122] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01411 02/12/2025 243,509.98 ฿ 0.00 ฿" [ref=e2123]:
+                    - cell [ref=e2124] [cursor=pointer]:
+                      - generic [ref=e2125]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2126] [cursor=pointer]
+                    - cell "INV-D/25/12/01411" [ref=e2127] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2128] [cursor=pointer]
+                    - cell "243,509.98 ฿" [ref=e2129] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2130] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01410 02/12/2025 162,239.03 ฿ 0.00 ฿" [ref=e2131]:
+                    - cell [ref=e2132] [cursor=pointer]:
+                      - generic [ref=e2133]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2134] [cursor=pointer]
+                    - cell "INV-D/25/12/01410" [ref=e2135] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2136] [cursor=pointer]
+                    - cell "162,239.03 ฿" [ref=e2137] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2138] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01409 02/12/2025 145,765.78 ฿ 0.00 ฿" [ref=e2139]:
+                    - cell [ref=e2140] [cursor=pointer]:
+                      - generic [ref=e2141]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2142] [cursor=pointer]
+                    - cell "INV-D/25/12/01409" [ref=e2143] [cursor=pointer]
+                    - cell "02/12/2025" [ref=e2144] [cursor=pointer]
+                    - cell "145,765.78 ฿" [ref=e2145] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2146] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01337 05/12/2025 530,482.57 ฿ 0.00 ฿" [ref=e2147]:
+                    - cell [ref=e2148] [cursor=pointer]:
+                      - generic [ref=e2149]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2150] [cursor=pointer]
+                    - cell "INV-D/25/12/01337" [ref=e2151] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2152] [cursor=pointer]
+                    - cell "530,482.57 ฿" [ref=e2153] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2154] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01336 05/12/2025 471,944.88 ฿ 0.00 ฿" [ref=e2155]:
+                    - cell [ref=e2156] [cursor=pointer]:
+                      - generic [ref=e2157]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2158] [cursor=pointer]
+                    - cell "INV-D/25/12/01336" [ref=e2159] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2160] [cursor=pointer]
+                    - cell "471,944.88 ฿" [ref=e2161] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2162] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01335 05/12/2025 254,026.09 ฿ 0.00 ฿" [ref=e2163]:
+                    - cell [ref=e2164] [cursor=pointer]:
+                      - generic [ref=e2165]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2166] [cursor=pointer]
+                    - cell "INV-D/25/12/01335" [ref=e2167] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2168] [cursor=pointer]
+                    - cell "254,026.09 ฿" [ref=e2169] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2170] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01334 05/12/2025 627,527.68 ฿ 0.00 ฿" [ref=e2171]:
+                    - cell [ref=e2172] [cursor=pointer]:
+                      - generic [ref=e2173]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2174] [cursor=pointer]
+                    - cell "INV-D/25/12/01334" [ref=e2175] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2176] [cursor=pointer]
+                    - cell "627,527.68 ฿" [ref=e2177] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2178] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01333 05/12/2025 124,733.56 ฿ 0.00 ฿" [ref=e2179]:
+                    - cell [ref=e2180] [cursor=pointer]:
+                      - generic [ref=e2181]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2182] [cursor=pointer]
+                    - cell "INV-D/25/12/01333" [ref=e2183] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2184] [cursor=pointer]
+                    - cell "124,733.56 ฿" [ref=e2185] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2186] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01332 05/12/2025 503,493.21 ฿ 0.00 ฿" [ref=e2187]:
+                    - cell [ref=e2188] [cursor=pointer]:
+                      - generic [ref=e2189]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2190] [cursor=pointer]
+                    - cell "INV-D/25/12/01332" [ref=e2191] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2192] [cursor=pointer]
+                    - cell "503,493.21 ฿" [ref=e2193] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2194] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01331 05/12/2025 270,499.34 ฿ 0.00 ฿" [ref=e2195]:
+                    - cell [ref=e2196] [cursor=pointer]:
+                      - generic [ref=e2197]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2198] [cursor=pointer]
+                    - cell "INV-D/25/12/01331" [ref=e2199] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2200] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e2201] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2202] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01330 05/12/2025 550,815.70 ฿ 0.00 ฿" [ref=e2203]:
+                    - cell [ref=e2204] [cursor=pointer]:
+                      - generic [ref=e2205]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2206] [cursor=pointer]
+                    - cell "INV-D/25/12/01330" [ref=e2207] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2208] [cursor=pointer]
+                    - cell "550,815.70 ฿" [ref=e2209] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2210] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01329 05/12/2025 151,023.83 ฿ 0.00 ฿" [ref=e2211]:
+                    - cell [ref=e2212] [cursor=pointer]:
+                      - generic [ref=e2213]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2214] [cursor=pointer]
+                    - cell "INV-D/25/12/01329" [ref=e2215] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2216] [cursor=pointer]
+                    - cell "151,023.83 ฿" [ref=e2217] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2218] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01328 05/12/2025 282,413.62 ฿ 0.00 ฿" [ref=e2219]:
+                    - cell [ref=e2220] [cursor=pointer]:
+                      - generic [ref=e2221]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2222] [cursor=pointer]
+                    - cell "INV-D/25/12/01328" [ref=e2223] [cursor=pointer]
+                    - cell "05/12/2025" [ref=e2224] [cursor=pointer]
+                    - cell "282,413.62 ฿" [ref=e2225] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2226] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01242 09/12/2025 378,060.56 ฿ 0.00 ฿" [ref=e2227]:
+                    - cell [ref=e2228] [cursor=pointer]:
+                      - generic [ref=e2229]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2230] [cursor=pointer]
+                    - cell "INV-D/25/12/01242" [ref=e2231] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2232] [cursor=pointer]
+                    - cell "378,060.56 ฿" [ref=e2233] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2234] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01241 09/12/2025 244,908.15 ฿ 0.00 ฿" [ref=e2235]:
+                    - cell [ref=e2236] [cursor=pointer]:
+                      - generic [ref=e2237]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2238] [cursor=pointer]
+                    - cell "INV-D/25/12/01241" [ref=e2239] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2240] [cursor=pointer]
+                    - cell "244,908.15 ฿" [ref=e2241] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2242] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01240 09/12/2025 238,251.92 ฿ 0.00 ฿" [ref=e2243]:
+                    - cell [ref=e2244] [cursor=pointer]:
+                      - generic [ref=e2245]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2246] [cursor=pointer]
+                    - cell "INV-D/25/12/01240" [ref=e2247] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2248] [cursor=pointer]
+                    - cell "238,251.92 ฿" [ref=e2249] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2250] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01239 09/12/2025 11,215.19 ฿ 0.00 ฿" [ref=e2251]:
+                    - cell [ref=e2252] [cursor=pointer]:
+                      - generic [ref=e2253]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2254] [cursor=pointer]
+                    - cell "INV-D/25/12/01239" [ref=e2255] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2256] [cursor=pointer]
+                    - cell "11,215.19 ฿" [ref=e2257] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2258] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01238 09/12/2025 129,292.53 ฿ 0.00 ฿" [ref=e2259]:
+                    - cell [ref=e2260] [cursor=pointer]:
+                      - generic [ref=e2261]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2262] [cursor=pointer]
+                    - cell "INV-D/25/12/01238" [ref=e2263] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2264] [cursor=pointer]
+                    - cell "129,292.53 ฿" [ref=e2265] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2266] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01237 09/12/2025 388,576.67 ฿ 0.00 ฿" [ref=e2267]:
+                    - cell [ref=e2268] [cursor=pointer]:
+                      - generic [ref=e2269]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2270] [cursor=pointer]
+                    - cell "INV-D/25/12/01237" [ref=e2271] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2272] [cursor=pointer]
+                    - cell "388,576.67 ฿" [ref=e2273] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2274] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01236 09/12/2025 248,768.03 ฿ 0.00 ฿" [ref=e2275]:
+                    - cell [ref=e2276] [cursor=pointer]:
+                      - generic [ref=e2277]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2278] [cursor=pointer]
+                    - cell "INV-D/25/12/01236" [ref=e2279] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2280] [cursor=pointer]
+                    - cell "248,768.03 ฿" [ref=e2281] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2282] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01235 09/12/2025 125,432.64 ฿ 0.00 ฿" [ref=e2283]:
+                    - cell [ref=e2284] [cursor=pointer]:
+                      - generic [ref=e2285]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2286] [cursor=pointer]
+                    - cell "INV-D/25/12/01235" [ref=e2287] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2288] [cursor=pointer]
+                    - cell "125,432.64 ฿" [ref=e2289] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2290] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01234 09/12/2025 129,991.61 ฿ 0.00 ฿" [ref=e2291]:
+                    - cell [ref=e2292] [cursor=pointer]:
+                      - generic [ref=e2293]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2294] [cursor=pointer]
+                    - cell "INV-D/25/12/01234" [ref=e2295] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2296] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e2297] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2298] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01233 09/12/2025 270,499.34 ฿ 0.00 ฿" [ref=e2299]:
+                    - cell [ref=e2300] [cursor=pointer]:
+                      - generic [ref=e2301]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2302] [cursor=pointer]
+                    - cell "INV-D/25/12/01233" [ref=e2303] [cursor=pointer]
+                    - cell "09/12/2025" [ref=e2304] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e2305] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2306] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01154 12/12/2025 487,019.96 ฿ 0.00 ฿" [ref=e2307]:
+                    - cell [ref=e2308] [cursor=pointer]:
+                      - generic [ref=e2309]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2310] [cursor=pointer]
+                    - cell "INV-D/25/12/01154" [ref=e2311] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2312] [cursor=pointer]
+                    - cell "487,019.96 ฿" [ref=e2313] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2314] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01153 12/12/2025 323,778.97 ฿ 0.00 ฿" [ref=e2315]:
+                    - cell [ref=e2316] [cursor=pointer]:
+                      - generic [ref=e2317]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2318] [cursor=pointer]
+                    - cell "INV-D/25/12/01153" [ref=e2319] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2320] [cursor=pointer]
+                    - cell "323,778.97 ฿" [ref=e2321] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2322] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01152 12/12/2025 156,980.97 ฿ 0.00 ฿" [ref=e2323]:
+                    - cell [ref=e2324] [cursor=pointer]:
+                      - generic [ref=e2325]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2326] [cursor=pointer]
+                    - cell "INV-D/25/12/01152" [ref=e2327] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2328] [cursor=pointer]
+                    - cell "156,980.97 ฿" [ref=e2329] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2330] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01151 12/12/2025 384,017.70 ฿ 0.00 ฿" [ref=e2331]:
+                    - cell [ref=e2332] [cursor=pointer]:
+                      - generic [ref=e2333]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2334] [cursor=pointer]
+                    - cell "INV-D/25/12/01151" [ref=e2335] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2336] [cursor=pointer]
+                    - cell "384,017.70 ฿" [ref=e2337] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2338] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01150 12/12/2025 140,507.72 ฿ 0.00 ฿" [ref=e2339]:
+                    - cell [ref=e2340] [cursor=pointer]:
+                      - generic [ref=e2341]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2342] [cursor=pointer]
+                    - cell "INV-D/25/12/01150" [ref=e2343] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2344] [cursor=pointer]
+                    - cell "140,507.72 ฿" [ref=e2345] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2346] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01149 12/12/2025 26,733.02 ฿ 0.00 ฿" [ref=e2347]:
+                    - cell [ref=e2348] [cursor=pointer]:
+                      - generic [ref=e2349]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2350] [cursor=pointer]
+                    - cell "INV-D/25/12/01149" [ref=e2351] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2352] [cursor=pointer]
+                    - cell "26,733.02 ฿" [ref=e2353] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2354] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01148 12/12/2025 384,017.70 ฿ 0.00 ฿" [ref=e2355]:
+                    - cell [ref=e2356] [cursor=pointer]:
+                      - generic [ref=e2357]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2358] [cursor=pointer]
+                    - cell "INV-D/25/12/01148" [ref=e2359] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2360] [cursor=pointer]
+                    - cell "384,017.70 ฿" [ref=e2361] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2362] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01147 12/12/2025 487,719.04 ฿ 0.00 ฿" [ref=e2363]:
+                    - cell [ref=e2364] [cursor=pointer]:
+                      - generic [ref=e2365]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2366] [cursor=pointer]
+                    - cell "INV-D/25/12/01147" [ref=e2367] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2368] [cursor=pointer]
+                    - cell "487,719.04 ฿" [ref=e2369] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2370] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01146 12/12/2025 11,215.19 ฿ 0.00 ฿" [ref=e2371]:
+                    - cell [ref=e2372] [cursor=pointer]:
+                      - generic [ref=e2373]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2374] [cursor=pointer]
+                    - cell "INV-D/25/12/01146" [ref=e2375] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2376] [cursor=pointer]
+                    - cell "11,215.19 ฿" [ref=e2377] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2378] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01145 12/12/2025 259,284.14 ฿ 0.00 ฿" [ref=e2379]:
+                    - cell [ref=e2380] [cursor=pointer]:
+                      - generic [ref=e2381]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2382] [cursor=pointer]
+                    - cell "INV-D/25/12/01145" [ref=e2383] [cursor=pointer]
+                    - cell "12/12/2025" [ref=e2384] [cursor=pointer]
+                    - cell "259,284.14 ฿" [ref=e2385] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2386] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01057 16/12/2025 135,948.75 ฿ 0.00 ฿" [ref=e2387]:
+                    - cell [ref=e2388] [cursor=pointer]:
+                      - generic [ref=e2389]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2390] [cursor=pointer]
+                    - cell "INV-D/25/12/01057" [ref=e2391] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2392] [cursor=pointer]
+                    - cell "135,948.75 ฿" [ref=e2393] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2394] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01056 16/12/2025 227,036.73 ฿ 0.00 ฿" [ref=e2395]:
+                    - cell [ref=e2396] [cursor=pointer]:
+                      - generic [ref=e2397]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2398] [cursor=pointer]
+                    - cell "INV-D/25/12/01056" [ref=e2399] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2400] [cursor=pointer]
+                    - cell "227,036.73 ฿" [ref=e2401] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2402] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01055 16/12/2025 232,294.79 ฿ 0.00 ฿" [ref=e2403]:
+                    - cell [ref=e2404] [cursor=pointer]:
+                      - generic [ref=e2405]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2406] [cursor=pointer]
+                    - cell "INV-D/25/12/01055" [ref=e2407] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2408] [cursor=pointer]
+                    - cell "232,294.79 ฿" [ref=e2409] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2410] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01054 16/12/2025 129,991.61 ฿ 0.00 ฿" [ref=e2411]:
+                    - cell [ref=e2412] [cursor=pointer]:
+                      - generic [ref=e2413]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2414] [cursor=pointer]
+                    - cell "INV-D/25/12/01054" [ref=e2415] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2416] [cursor=pointer]
+                    - cell "129,991.61 ฿" [ref=e2417] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2418] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01053 16/12/2025 21,731.30 ฿ 0.00 ฿" [ref=e2419]:
+                    - cell [ref=e2420] [cursor=pointer]:
+                      - generic [ref=e2421]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2422] [cursor=pointer]
+                    - cell "INV-D/25/12/01053" [ref=e2423] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2424] [cursor=pointer]
+                    - cell "21,731.30 ฿" [ref=e2425] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2426] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01052 16/12/2025 135,948.75 ฿ 0.00 ฿" [ref=e2427]:
+                    - cell [ref=e2428] [cursor=pointer]:
+                      - generic [ref=e2429]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2430] [cursor=pointer]
+                    - cell "INV-D/25/12/01052" [ref=e2431] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2432] [cursor=pointer]
+                    - cell "135,948.75 ฿" [ref=e2433] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2434] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01051 16/12/2025 119,475.50 ฿ 0.00 ฿" [ref=e2435]:
+                    - cell [ref=e2436] [cursor=pointer]:
+                      - generic [ref=e2437]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2438] [cursor=pointer]
+                    - cell "INV-D/25/12/01051" [ref=e2439] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2440] [cursor=pointer]
+                    - cell "119,475.50 ฿" [ref=e2441] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2442] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01050 16/12/2025 59,865.92 ฿ 0.00 ฿" [ref=e2443]:
+                    - cell [ref=e2444] [cursor=pointer]:
+                      - generic [ref=e2445]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2446] [cursor=pointer]
+                    - cell "INV-D/25/12/01050" [ref=e2447] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2448] [cursor=pointer]
+                    - cell "59,865.92 ฿" [ref=e2449] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2450] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01049 16/12/2025 43,206.27 ฿ 0.00 ฿" [ref=e2451]:
+                    - cell [ref=e2452] [cursor=pointer]:
+                      - generic [ref=e2453]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2454] [cursor=pointer]
+                    - cell "INV-D/25/12/01049" [ref=e2455] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2456] [cursor=pointer]
+                    - cell "43,206.27 ฿" [ref=e2457] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2458] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/01048 16/12/2025 124,733.56 ฿ 0.00 ฿" [ref=e2459]:
+                    - cell [ref=e2460] [cursor=pointer]:
+                      - generic [ref=e2461]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2462] [cursor=pointer]
+                    - cell "INV-D/25/12/01048" [ref=e2463] [cursor=pointer]
+                    - cell "16/12/2025" [ref=e2464] [cursor=pointer]
+                    - cell "124,733.56 ฿" [ref=e2465] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2466] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00963 19/12/2025 270,499.34 ฿ 0.00 ฿" [ref=e2467]:
+                    - cell [ref=e2468] [cursor=pointer]:
+                      - generic [ref=e2469]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2470] [cursor=pointer]
+                    - cell "INV-D/25/12/00963" [ref=e2471] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2472] [cursor=pointer]
+                    - cell "270,499.34 ฿" [ref=e2473] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2474] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00962 19/12/2025 244,908.15 ฿ 0.00 ฿" [ref=e2475]:
+                    - cell [ref=e2476] [cursor=pointer]:
+                      - generic [ref=e2477]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2478] [cursor=pointer]
+                    - cell "INV-D/25/12/00962" [ref=e2479] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2480] [cursor=pointer]
+                    - cell "244,908.15 ฿" [ref=e2481] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2482] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00961 19/12/2025 389,275.76 ฿ 0.00 ฿" [ref=e2483]:
+                    - cell [ref=e2484] [cursor=pointer]:
+                      - generic [ref=e2485]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2486] [cursor=pointer]
+                    - cell "INV-D/25/12/00961" [ref=e2487] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2488] [cursor=pointer]
+                    - cell "389,275.76 ฿" [ref=e2489] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2490] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00960 19/12/2025 249,467.12 ฿ 0.00 ฿" [ref=e2491]:
+                    - cell [ref=e2492] [cursor=pointer]:
+                      - generic [ref=e2493]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2494] [cursor=pointer]
+                    - cell "INV-D/25/12/00960" [ref=e2495] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2496] [cursor=pointer]
+                    - cell "249,467.12 ฿" [ref=e2497] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2498] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00959 19/12/2025 124,733.56 ฿ 0.00 ฿" [ref=e2499]:
+                    - cell [ref=e2500] [cursor=pointer]:
+                      - generic [ref=e2501]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2502] [cursor=pointer]
+                    - cell "INV-D/25/12/00959" [ref=e2503] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2504] [cursor=pointer]
+                    - cell "124,733.56 ฿" [ref=e2505] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2506] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00958 19/12/2025 135,249.67 ฿ 0.00 ฿" [ref=e2507]:
+                    - cell [ref=e2508] [cursor=pointer]:
+                      - generic [ref=e2509]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2510] [cursor=pointer]
+                    - cell "INV-D/25/12/00958" [ref=e2511] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2512] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e2513] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2514] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00957 19/12/2025 15,774.16 ฿ 0.00 ฿" [ref=e2515]:
+                    - cell [ref=e2516] [cursor=pointer]:
+                      - generic [ref=e2517]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2518] [cursor=pointer]
+                    - cell "INV-D/25/12/00957" [ref=e2519] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2520] [cursor=pointer]
+                    - cell "15,774.16 ฿" [ref=e2521] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2522] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00956 19/12/2025 135,249.67 ฿ 0.00 ฿" [ref=e2523]:
+                    - cell [ref=e2524] [cursor=pointer]:
+                      - generic [ref=e2525]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2526] [cursor=pointer]
+                    - cell "INV-D/25/12/00956" [ref=e2527] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2528] [cursor=pointer]
+                    - cell "135,249.67 ฿" [ref=e2529] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2530] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00955 19/12/2025 379,458.73 ฿ 0.00 ฿" [ref=e2531]:
+                    - cell [ref=e2532] [cursor=pointer]:
+                      - generic [ref=e2533]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2534] [cursor=pointer]
+                    - cell "INV-D/25/12/00955" [ref=e2535] [cursor=pointer]
+                    - cell "19/12/2025" [ref=e2536] [cursor=pointer]
+                    - cell "379,458.73 ฿" [ref=e2537] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2538] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00865 23/12/2025 530,482.57 ฿ 0.00 ฿" [ref=e2539]:
+                    - cell [ref=e2540] [cursor=pointer]:
+                      - generic [ref=e2541]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2542] [cursor=pointer]
+                    - cell "INV-D/25/12/00865" [ref=e2543] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2544] [cursor=pointer]
+                    - cell "530,482.57 ฿" [ref=e2545] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2546] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00864 23/12/2025 544,858.56 ฿ 0.00 ฿" [ref=e2547]:
+                    - cell [ref=e2548] [cursor=pointer]:
+                      - generic [ref=e2549]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2550] [cursor=pointer]
+                    - cell "INV-D/25/12/00864" [ref=e2551] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2552] [cursor=pointer]
+                    - cell "544,858.56 ฿" [ref=e2553] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2554] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00863 23/12/2025 514,009.32 ฿ 0.00 ฿" [ref=e2555]:
+                    - cell [ref=e2556] [cursor=pointer]:
+                      - generic [ref=e2557]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2558] [cursor=pointer]
+                    - cell "INV-D/25/12/00863" [ref=e2559] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2560] [cursor=pointer]
+                    - cell "514,009.32 ฿" [ref=e2561] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2562] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00862 23/12/2025 367,544.45 ฿ 0.00 ฿" [ref=e2563]:
+                    - cell [ref=e2564] [cursor=pointer]:
+                      - generic [ref=e2565]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2566] [cursor=pointer]
+                    - cell "INV-D/25/12/00862" [ref=e2567] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2568] [cursor=pointer]
+                    - cell "367,544.45 ฿" [ref=e2569] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2570] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00861 23/12/2025 362,286.40 ฿ 0.00 ฿" [ref=e2571]:
+                    - cell [ref=e2572] [cursor=pointer]:
+                      - generic [ref=e2573]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2574] [cursor=pointer]
+                    - cell "INV-D/25/12/00861" [ref=e2575] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2576] [cursor=pointer]
+                    - cell "362,286.40 ฿" [ref=e2577] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2578] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00860 23/12/2025 514,009.32 ฿ 0.00 ฿" [ref=e2579]:
+                    - cell [ref=e2580] [cursor=pointer]:
+                      - generic [ref=e2581]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2582] [cursor=pointer]
+                    - cell "INV-D/25/12/00860" [ref=e2583] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2584] [cursor=pointer]
+                    - cell "514,009.32 ฿" [ref=e2585] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2586] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00859 23/12/2025 507,353.09 ฿ 0.00 ฿" [ref=e2587]:
+                    - cell [ref=e2588] [cursor=pointer]:
+                      - generic [ref=e2589]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2590] [cursor=pointer]
+                    - cell "INV-D/25/12/00859" [ref=e2591] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2592] [cursor=pointer]
+                    - cell "507,353.09 ฿" [ref=e2593] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2594] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00858 23/12/2025 254,725.17 ฿ 0.00 ฿" [ref=e2595]:
+                    - cell [ref=e2596] [cursor=pointer]:
+                      - generic [ref=e2597]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2598] [cursor=pointer]
+                    - cell "INV-D/25/12/00858" [ref=e2599] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2600] [cursor=pointer]
+                    - cell "254,725.17 ฿" [ref=e2601] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2602] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00857 23/12/2025 124,034.47 ฿ 0.00 ฿" [ref=e2603]:
+                    - cell [ref=e2604] [cursor=pointer]:
+                      - generic [ref=e2605]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2606] [cursor=pointer]
+                    - cell "INV-D/25/12/00857" [ref=e2607] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2608] [cursor=pointer]
+                    - cell "124,034.47 ฿" [ref=e2609] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2610] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00856 23/12/2025 379,458.73 ฿ 0.00 ฿" [ref=e2611]:
+                    - cell [ref=e2612] [cursor=pointer]:
+                      - generic [ref=e2613]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2614] [cursor=pointer]
+                    - cell "INV-D/25/12/00856" [ref=e2615] [cursor=pointer]
+                    - cell "23/12/2025" [ref=e2616] [cursor=pointer]
+                    - cell "379,458.73 ฿" [ref=e2617] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2618] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00769 26/12/2025 544,455.40 ฿ 0.00 ฿" [ref=e2619]:
+                    - cell [ref=e2620] [cursor=pointer]:
+                      - generic [ref=e2621]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2622] [cursor=pointer]
+                    - cell "INV-D/25/12/00769" [ref=e2623] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2624] [cursor=pointer]
+                    - cell "544,455.40 ฿" [ref=e2625] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2626] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00768 26/12/2025 113,518.37 ฿ 0.00 ฿" [ref=e2627]:
+                    - cell [ref=e2628] [cursor=pointer]:
+                      - generic [ref=e2629]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2630] [cursor=pointer]
+                    - cell "INV-D/25/12/00768" [ref=e2631] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2632] [cursor=pointer]
+                    - cell "113,518.37 ฿" [ref=e2633] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2634] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00767 26/12/2025 638,043.79 ฿ 0.00 ฿" [ref=e2635]:
+                    - cell [ref=e2636] [cursor=pointer]:
+                      - generic [ref=e2637]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2638] [cursor=pointer]
+                    - cell "INV-D/25/12/00767" [ref=e2639] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2640] [cursor=pointer]
+                    - cell "638,043.79 ฿" [ref=e2641] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2642] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00766 26/12/2025 113,518.37 ฿ 0.00 ฿" [ref=e2643]:
+                    - cell [ref=e2644] [cursor=pointer]:
+                      - generic [ref=e2645]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2646] [cursor=pointer]
+                    - cell "INV-D/25/12/00766" [ref=e2647] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2648] [cursor=pointer]
+                    - cell "113,518.37 ฿" [ref=e2649] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2650] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00765 26/12/2025 1,071,481.24 ฿ 0.00 ฿" [ref=e2651]:
+                    - cell [ref=e2652] [cursor=pointer]:
+                      - generic [ref=e2653]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2654] [cursor=pointer]
+                    - cell "INV-D/25/12/00765" [ref=e2655] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2656] [cursor=pointer]
+                    - cell "1,071,481.24 ฿" [ref=e2657] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2658] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00764 26/12/2025 670,291.21 ฿ 0.00 ฿" [ref=e2659]:
+                    - cell [ref=e2660] [cursor=pointer]:
+                      - generic [ref=e2661]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2662] [cursor=pointer]
+                    - cell "INV-D/25/12/00764" [ref=e2663] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2664] [cursor=pointer]
+                    - cell "670,291.21 ฿" [ref=e2665] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2666] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00763 26/12/2025 774,691.63 ฿ 0.00 ฿" [ref=e2667]:
+                    - cell [ref=e2668] [cursor=pointer]:
+                      - generic [ref=e2669]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2670] [cursor=pointer]
+                    - cell "INV-D/25/12/00763" [ref=e2671] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2672] [cursor=pointer]
+                    - cell "774,691.63 ฿" [ref=e2673] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2674] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00762 26/12/2025 411,007.06 ฿ 0.00 ฿" [ref=e2675]:
+                    - cell [ref=e2676] [cursor=pointer]:
+                      - generic [ref=e2677]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2678] [cursor=pointer]
+                    - cell "INV-D/25/12/00762" [ref=e2679] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2680] [cursor=pointer]
+                    - cell "411,007.06 ฿" [ref=e2681] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2682] [cursor=pointer]
+                  - row "Invoice INV-D/25/12/00761 26/12/2025 162,938.11 ฿ 0.00 ฿" [ref=e2683]:
+                    - cell [ref=e2684] [cursor=pointer]:
+                      - generic [ref=e2685]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2686] [cursor=pointer]
+                    - cell "INV-D/25/12/00761" [ref=e2687] [cursor=pointer]
+                    - cell "26/12/2025" [ref=e2688] [cursor=pointer]
+                    - cell "162,938.11 ฿" [ref=e2689] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2690] [cursor=pointer]
+                  - row "Invoice INV-D/26/04/00003 10/04/2026 3,771.88 ฿ 0.00 ฿" [ref=e2691]:
+                    - cell [ref=e2692] [cursor=pointer]:
+                      - generic [ref=e2693]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2694] [cursor=pointer]
+                    - cell "INV-D/26/04/00003" [ref=e2695] [cursor=pointer]
+                    - cell "10/04/2026" [ref=e2696] [cursor=pointer]
+                    - cell "3,771.88 ฿" [ref=e2697] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2698] [cursor=pointer]
+                  - 'row "CN CCND/26/04/00001 (การกลับรายการของ: INV-D/26/04/00003, ทดสอบ) 10/04/2026 -13,771.88 ฿ 0.00 ฿" [ref=e2699]':
+                    - cell [ref=e2700] [cursor=pointer]:
+                      - generic [ref=e2701]:
+                        - checkbox [disabled]
+                    - cell "CN" [ref=e2702] [cursor=pointer]
+                    - 'cell "CCND/26/04/00001 (การกลับรายการของ: INV-D/26/04/00003, ทดสอบ)" [ref=e2703] [cursor=pointer]'
+                    - cell "10/04/2026" [ref=e2704] [cursor=pointer]
+                    - cell "-13,771.88 ฿" [ref=e2705] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2706] [cursor=pointer]
+                  - row "Invoice INV-D/26/05/00010 18/05/2026 757.13 ฿ 0.00 ฿" [ref=e2707]:
+                    - cell [ref=e2708] [cursor=pointer]:
+                      - generic [ref=e2709]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2710] [cursor=pointer]
+                    - cell "INV-D/26/05/00010" [ref=e2711] [cursor=pointer]
+                    - cell "18/05/2026" [ref=e2712] [cursor=pointer]
+                    - cell "757.13 ฿" [ref=e2713] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2714] [cursor=pointer]
+                  - row "Invoice INV-D/26/03/00961 (1412038636) 19/05/2026 145,765.76 ฿ 0.00 ฿" [ref=e2715]:
+                    - cell [ref=e2716] [cursor=pointer]:
+                      - generic [ref=e2717]:
+                        - checkbox [disabled]
+                    - cell "Invoice" [ref=e2718] [cursor=pointer]
+                    - cell "INV-D/26/03/00961 (1412038636)" [ref=e2719] [cursor=pointer]
+                    - cell "19/05/2026" [ref=e2720] [cursor=pointer]
+                    - cell "145,765.76 ฿" [ref=e2721] [cursor=pointer]
+                    - cell "0.00 ฿" [ref=e2722] [cursor=pointer]
+                - rowgroup:
+                  - row:
+                    - cell
+                    - cell
+                    - cell
+                    - cell
+                    - cell
+                    - cell
+          - generic [ref=e2723]:
+            - generic [ref=e2725]: Invoices Allocation
+            - table [ref=e2731]:
+              - rowgroup [ref=e2732]:
+                - row "เลขที่ใบแจ้งหนี้  ยอดทั้งหมด ยอดคงเหลือ  ยอดจ่าย " [ref=e2733]:
+                  - columnheader "เลขที่ใบแจ้งหนี้ " [ref=e2734] [cursor=pointer]:
+                    - generic [ref=e2735]:
+                      - generic [ref=e2736]: เลขที่ใบแจ้งหนี้
+                      - generic [ref=e2737]: 
+                  - columnheader "ยอดทั้งหมด" [ref=e2739]:
+                    - generic [ref=e2740]:
+                      - generic [ref=e2741]: ยอดทั้งหมด
+                      - text: 
+                  - columnheader "ยอดคงเหลือ " [ref=e2743] [cursor=pointer]:
+                    - generic [ref=e2744]:
+                      - generic [ref=e2745]: ยอดคงเหลือ
+                      - generic [ref=e2746]: 
+                  - columnheader "ยอดจ่าย " [ref=e2748] [cursor=pointer]:
+                    - generic [ref=e2749]:
+                      - generic [ref=e2750]: ยอดจ่าย
+                      - generic [ref=e2751]: 
+              - rowgroup [ref=e2753]:
+                - 'row "VCND/26/05/00003 (การกลับรายการของ: APD/26/05/00005, สินค้าเสียหาย) -2,344.05 ฿ 0.00 ฿ -2,344.05 ฿" [ref=e2754]':
+                  - 'cell "VCND/26/05/00003 (การกลับรายการของ: APD/26/05/00005, สินค้าเสียหาย)" [ref=e2755] [cursor=pointer]'
+                  - cell "-2,344.05 ฿" [ref=e2756] [cursor=pointer]
+                  - cell "0.00 ฿" [ref=e2757] [cursor=pointer]
+                  - cell "-2,344.05 ฿" [ref=e2758] [cursor=pointer]
+                - row "APD/26/05/00019 107,000.00 ฿ 0.00 ฿ 107,000.00 ฿" [ref=e2759]:
+                  - cell "APD/26/05/00019" [ref=e2760] [cursor=pointer]
+                  - cell "107,000.00 ฿" [ref=e2761] [cursor=pointer]
+                  - cell "0.00 ฿" [ref=e2762] [cursor=pointer]
+                  - cell "107,000.00 ฿" [ref=e2763] [cursor=pointer]
+                - row [ref=e2764]:
+                  - cell [ref=e2765]
+                - row [ref=e2766]:
+                  - cell [ref=e2767]
+              - rowgroup [ref=e2768]:
+                - row "104,655.95 ฿" [ref=e2769]:
+                  - cell [ref=e2770]
+                  - cell [ref=e2771]
+                  - cell [ref=e2772]
+                  - cell "104,655.95 ฿" [ref=e2773]
+      - contentinfo [ref=e2774]:
+        - button "Create Payment" [ref=e2775] [cursor=pointer]
+        - button "Discard" [ref=e2776] [cursor=pointer]

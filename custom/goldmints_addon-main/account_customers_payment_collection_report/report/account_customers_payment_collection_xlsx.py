@@ -18,9 +18,9 @@ class AccountCustomerPaymentCollectionXlsx:
         date_to_str = date_to.strftime("%d/%m/%Y") if date_to else ""
 
         sheet_name = (
-            f"Customer Payment {date_from_str}-{date_to_str}"
+            f"รายงานการขาย {date_from_str}-{date_to_str}"
             if date_from and date_to
-            else "Customer Payment"
+            else "รายงานการขาย"
         )
         worksheet = workbook.add_worksheet(sheet_name[:31])
 

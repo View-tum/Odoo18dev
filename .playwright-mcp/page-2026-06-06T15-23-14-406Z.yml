@@ -1,0 +1,412 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 48" [ref=e25] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "48"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e129]:
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - button "New" [ref=e135] [cursor=pointer]
+        - generic [ref=e136]:
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link "รายงานสถานะคำสั่งซื้อ" [ref=e139] [cursor=pointer]:
+                - /url: /odoo/action-1410/57
+          - generic [ref=e140]:
+            - generic [ref=e142]: รายงานสถานะคำสั่งซื้อ
+            - button "" [ref=e146] [cursor=pointer]:
+              - generic [ref=e147]: 
+      - generic [ref=e149]:
+        - button "Search Knowledge Articles" [ref=e150] [cursor=pointer]:
+          - img [ref=e151]
+        - search [ref=e155]:
+          - navigation "Pager" [ref=e156]:
+            - generic [ref=e157]:
+              - generic [ref=e158]: "1"
+              - text: / 1
+            - generic [ref=e159]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e162]:
+      - generic [ref=e164]:
+        - button "Preview" [ref=e165] [cursor=pointer]
+        - button "Select APD/CN" [ref=e166] [cursor=pointer]
+        - button "Select Billable" [ref=e167] [cursor=pointer]
+        - button "Clear Selection" [ref=e168] [cursor=pointer]
+        - button "Export PDF" [ref=e169] [cursor=pointer]
+        - button "Export XLSX" [ref=e170] [cursor=pointer]
+        - button "Create Billing Note" [ref=e171] [cursor=pointer]
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e177]: ผู้ขาย
+              - combobox "ผู้ขาย" [ref=e183]
+            - generic [ref=e184]:
+              - generic [ref=e186]: สินค้า
+              - combobox "สินค้า" [ref=e192]
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e196]: วันที่เริ่มต้น
+              - textbox "วันที่เริ่มต้น" [ref=e200] [cursor=pointer]: 01/06/2026
+            - generic [ref=e201]:
+              - generic [ref=e203]: วันที่สิ้นสุด
+              - textbox "วันที่สิ้นสุด" [ref=e207] [cursor=pointer]: 06/06/2026
+            - generic [ref=e208]:
+              - generic [ref=e210]: สถานะใบสั่งซื้อ
+              - combobox "สถานะใบสั่งซื้อ" [ref=e213] [cursor=pointer]:
+                - option [selected]
+                - option "RFQ"
+                - option "RFQ Sent"
+                - option "To Approve"
+                - option "To Approve LV2"
+                - option "Purchase Order"
+                - option "Locked"
+                - option "Rejected"
+                - option "Cancelled"
+            - generic [ref=e214]:
+              - generic [ref=e216]: สถานะการวางบิล
+              - combobox "สถานะการวางบิล" [ref=e219] [cursor=pointer]:
+                - option [selected]
+                - option "ยังไม่วางบิล"
+                - option "ร่างใบวางบิล"
+                - option "วางบิลบางส่วน"
+                - option "วางบิลครบแล้ว"
+            - generic [ref=e220]:
+              - generic [ref=e222]: สถานะการตั้งหนี้
+              - combobox "สถานะการตั้งหนี้" [ref=e225] [cursor=pointer]:
+                - option [selected]
+                - option "ยังไม่ตั้งหนี้"
+                - option "รอตั้งหนี้"
+                - option "ตั้งหนี้ครบแล้ว"
+        - generic [ref=e226]:
+          - list [ref=e228]:
+            - listitem [ref=e229] [cursor=pointer]:
+              - tab "Lines" [ref=e230]
+          - table [ref=e236]:
+            - rowgroup [ref=e237]:
+              - row " Type  ใบสั่งซื้อ  APD/CN  Doc Type  อ้างอิง  ใบรับสินค้า/บริการ (SA/Receipt)  วันที่รับสินค้า/บริการ  เลขที่ใบแจ้งหนี้ (Inv Ref)  Bill Date  Bill Total  Open Balance  Billing Note  วันที่สั่งซื้อ  วันที่คาดว่าจะมาถึง  ผู้ขาย  สินค้า  จำนวน  รับสินค้า/บริการ  ค้างรับชำระ  หน่วยนับ  ราคาต่อหน่วย  ยอดไม่รวมภาษี  สถานะใบสั่งซื้อ  สถานะการวางบิล  สถานะการตั้งหนี้  " [ref=e238]:
+                - columnheader "" [ref=e239] [cursor=pointer]:
+                  - generic [ref=e240]: 
+                - columnheader "Type " [ref=e242] [cursor=pointer]:
+                  - generic [ref=e243]:
+                    - generic [ref=e244]: Type
+                    - generic [ref=e245]: 
+                - columnheader "ใบสั่งซื้อ " [ref=e247] [cursor=pointer]:
+                  - generic [ref=e248]:
+                    - generic [ref=e249]: ใบสั่งซื้อ
+                    - generic [ref=e250]: 
+                - columnheader "APD/CN " [ref=e252] [cursor=pointer]:
+                  - generic [ref=e253]:
+                    - generic [ref=e254]: APD/CN
+                    - generic [ref=e255]: 
+                - columnheader "Doc Type " [ref=e257] [cursor=pointer]:
+                  - generic [ref=e258]:
+                    - generic [ref=e259]: Doc Type
+                    - generic [ref=e260]: 
+                - columnheader "อ้างอิง " [ref=e262] [cursor=pointer]:
+                  - generic [ref=e263]:
+                    - generic [ref=e264]: อ้างอิง
+                    - generic [ref=e265]: 
+                - columnheader "ใบรับสินค้า/บริการ (SA/Receipt) " [ref=e267] [cursor=pointer]:
+                  - generic [ref=e268]:
+                    - generic [ref=e269]: ใบรับสินค้า/บริการ (SA/Receipt)
+                    - generic [ref=e270]: 
+                - columnheader "วันที่รับสินค้า/บริการ " [ref=e272] [cursor=pointer]:
+                  - generic [ref=e273]:
+                    - generic [ref=e274]: วันที่รับสินค้า/บริการ
+                    - generic [ref=e275]: 
+                - columnheader "เลขที่ใบแจ้งหนี้ (Inv Ref) " [ref=e277] [cursor=pointer]:
+                  - generic [ref=e278]:
+                    - generic [ref=e279]: เลขที่ใบแจ้งหนี้ (Inv Ref)
+                    - generic [ref=e280]: 
+                - columnheader "Bill Date " [ref=e282] [cursor=pointer]:
+                  - generic [ref=e283]:
+                    - generic [ref=e284]: Bill Date
+                    - generic [ref=e285]: 
+                - columnheader "Bill Total " [ref=e287] [cursor=pointer]:
+                  - generic [ref=e288]:
+                    - generic [ref=e289]: Bill Total
+                    - generic [ref=e290]: 
+                - columnheader "Open Balance " [ref=e292] [cursor=pointer]:
+                  - generic [ref=e293]:
+                    - generic [ref=e294]: Open Balance
+                    - generic [ref=e295]: 
+                - columnheader "Billing Note " [ref=e297] [cursor=pointer]:
+                  - generic [ref=e298]:
+                    - generic [ref=e299]: Billing Note
+                    - generic [ref=e300]: 
+                - columnheader "วันที่สั่งซื้อ " [ref=e302] [cursor=pointer]:
+                  - generic [ref=e303]:
+                    - generic [ref=e304]: วันที่สั่งซื้อ
+                    - generic [ref=e305]: 
+                - columnheader "วันที่คาดว่าจะมาถึง " [ref=e307] [cursor=pointer]:
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: วันที่คาดว่าจะมาถึง
+                    - generic [ref=e310]: 
+                - columnheader "ผู้ขาย " [ref=e312] [cursor=pointer]:
+                  - generic [ref=e313]:
+                    - generic [ref=e314]: ผู้ขาย
+                    - generic [ref=e315]: 
+                - columnheader "สินค้า " [ref=e317] [cursor=pointer]:
+                  - generic [ref=e318]:
+                    - generic [ref=e319]: สินค้า
+                    - generic [ref=e320]: 
+                - columnheader "จำนวน " [ref=e322] [cursor=pointer]:
+                  - generic [ref=e323]:
+                    - generic [ref=e324]: จำนวน
+                    - generic [ref=e325]: 
+                - columnheader "รับสินค้า/บริการ " [ref=e327] [cursor=pointer]:
+                  - generic [ref=e328]:
+                    - generic [ref=e329]: รับสินค้า/บริการ
+                    - generic [ref=e330]: 
+                - columnheader "ค้างรับชำระ " [ref=e332] [cursor=pointer]:
+                  - generic [ref=e333]:
+                    - generic [ref=e334]: ค้างรับชำระ
+                    - generic [ref=e335]: 
+                - columnheader "หน่วยนับ " [ref=e337] [cursor=pointer]:
+                  - generic [ref=e338]:
+                    - generic [ref=e339]: หน่วยนับ
+                    - generic [ref=e340]: 
+                - columnheader "ราคาต่อหน่วย " [ref=e342] [cursor=pointer]:
+                  - generic [ref=e343]:
+                    - generic [ref=e344]: ราคาต่อหน่วย
+                    - generic [ref=e345]: 
+                - columnheader "ยอดไม่รวมภาษี " [ref=e347] [cursor=pointer]:
+                  - generic [ref=e348]:
+                    - generic [ref=e349]: ยอดไม่รวมภาษี
+                    - generic [ref=e350]: 
+                - columnheader "สถานะใบสั่งซื้อ " [ref=e352] [cursor=pointer]:
+                  - generic [ref=e353]:
+                    - generic [ref=e354]: สถานะใบสั่งซื้อ
+                    - generic [ref=e355]: 
+                - columnheader "สถานะการวางบิล " [ref=e357] [cursor=pointer]:
+                  - generic [ref=e358]:
+                    - generic [ref=e359]: สถานะการวางบิล
+                    - generic [ref=e360]: 
+                - columnheader "สถานะการตั้งหนี้ " [ref=e362] [cursor=pointer]:
+                  - generic [ref=e363]:
+                    - generic [ref=e364]: สถานะการตั้งหนี้
+                    - generic [ref=e365]: 
+                - columnheader "" [ref=e367]:
+                  - button "" [ref=e369] [cursor=pointer]:
+                    - generic [ref=e370]: 
+            - rowgroup [ref=e371]:
+              - row "PO / Service P00123 PR00040 Total Summary 0.000 0.000 01/06/2026 31/05/2026 JW TECH CO.,LTD. [SM-PSS-TH-02002] ชิ้นส่วนยาดม PS ตัวล่าง+หลอดน้ำ 0.000 400,000.000 400,000.000 0.000 112,000.000 Locked ยังไม่วางบิล รอตั้งหนี้" [ref=e372]:
+                - cell [ref=e373] [cursor=pointer]:
+                  - generic [ref=e374]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e375] [cursor=pointer]:
+                  - generic [ref=e377]: PO / Service
+                - cell "P00123" [ref=e378] [cursor=pointer]
+                - cell [ref=e379] [cursor=pointer]
+                - cell [ref=e380] [cursor=pointer]
+                - cell "PR00040" [ref=e382] [cursor=pointer]
+                - cell "Total Summary" [ref=e383] [cursor=pointer]
+                - cell [ref=e384] [cursor=pointer]
+                - cell [ref=e385] [cursor=pointer]
+                - cell [ref=e386] [cursor=pointer]
+                - cell "0.000" [ref=e387] [cursor=pointer]
+                - cell "0.000" [ref=e388] [cursor=pointer]
+                - cell [ref=e389] [cursor=pointer]
+                - cell "01/06/2026" [ref=e390] [cursor=pointer]
+                - cell "31/05/2026" [ref=e391] [cursor=pointer]
+                - cell "JW TECH CO.,LTD." [ref=e392] [cursor=pointer]
+                - cell "[SM-PSS-TH-02002] ชิ้นส่วนยาดม PS ตัวล่าง+หลอดน้ำ" [ref=e393] [cursor=pointer]
+                - cell "0.000" [ref=e394] [cursor=pointer]:
+                  - generic [ref=e395]: "0.000"
+                - cell "400,000.000" [ref=e396] [cursor=pointer]:
+                  - generic [ref=e397]: 400,000.000
+                - cell "400,000.000" [ref=e398] [cursor=pointer]:
+                  - generic [ref=e399]: 400,000.000
+                - cell [ref=e400] [cursor=pointer]
+                - cell "0.000" [ref=e401] [cursor=pointer]:
+                  - generic [ref=e402]: "0.000"
+                - cell "112,000.000" [ref=e403] [cursor=pointer]:
+                  - generic [ref=e404]: 112,000.000
+                - cell "Locked" [ref=e405] [cursor=pointer]:
+                  - generic [ref=e407]: Locked
+                - cell "ยังไม่วางบิล" [ref=e408] [cursor=pointer]:
+                  - generic [ref=e410]: ยังไม่วางบิล
+                - cell "รอตั้งหนี้" [ref=e411] [cursor=pointer]:
+                  - generic [ref=e413]: รอตั้งหนี้
+                - cell [ref=e414]
+              - row "PO / Service P00120 GMP/MOPL/00152, GMP/MOPL/00153, GMP/MOPL/00159, GMP/MOPL/00158, GMP/MOPL/00161, GMP/MOPL/00162 Total Summary 0.000 0.000 04/06/2026 05/06/2026 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด หลายรายการ 0.000 0.000 0.000 0.000 460,796.160 RFQ ยังไม่วางบิล ยังไม่ตั้งหนี้" [ref=e415]:
+                - cell [ref=e416] [cursor=pointer]:
+                  - generic [ref=e417]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e418] [cursor=pointer]:
+                  - generic [ref=e420]: PO / Service
+                - cell "P00120" [ref=e421] [cursor=pointer]
+                - cell [ref=e422] [cursor=pointer]
+                - cell [ref=e423] [cursor=pointer]
+                - cell "GMP/MOPL/00152, GMP/MOPL/00153, GMP/MOPL/00159, GMP/MOPL/00158, GMP/MOPL/00161, GMP/MOPL/00162" [ref=e425] [cursor=pointer]
+                - cell "Total Summary" [ref=e426] [cursor=pointer]
+                - cell [ref=e427] [cursor=pointer]
+                - cell [ref=e428] [cursor=pointer]
+                - cell [ref=e429] [cursor=pointer]
+                - cell "0.000" [ref=e430] [cursor=pointer]
+                - cell "0.000" [ref=e431] [cursor=pointer]
+                - cell [ref=e432] [cursor=pointer]
+                - cell "04/06/2026" [ref=e433] [cursor=pointer]
+                - cell "05/06/2026" [ref=e434] [cursor=pointer]
+                - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e435] [cursor=pointer]
+                - cell "หลายรายการ" [ref=e436] [cursor=pointer]
+                - cell "0.000" [ref=e437] [cursor=pointer]:
+                  - generic [ref=e438]: "0.000"
+                - cell "0.000" [ref=e439] [cursor=pointer]:
+                  - generic [ref=e440]: "0.000"
+                - cell "0.000" [ref=e441] [cursor=pointer]:
+                  - generic [ref=e442]: "0.000"
+                - cell [ref=e443] [cursor=pointer]
+                - cell "0.000" [ref=e444] [cursor=pointer]:
+                  - generic [ref=e445]: "0.000"
+                - cell "460,796.160" [ref=e446] [cursor=pointer]:
+                  - generic [ref=e447]: 460,796.160
+                - cell "RFQ" [ref=e448] [cursor=pointer]:
+                  - generic [ref=e450]: RFQ
+                - cell "ยังไม่วางบิล" [ref=e451] [cursor=pointer]:
+                  - generic [ref=e453]: ยังไม่วางบิล
+                - cell "ยังไม่ตั้งหนี้" [ref=e454] [cursor=pointer]:
+                  - generic [ref=e456]: ยังไม่ตั้งหนี้
+                - cell [ref=e457]
+              - row "PO / Service P00121 GMP/MOPL/00149, GMP/MOPL/00155, GMP/MOPL/00163 Total Summary 0.000 0.000 04/06/2026 05/06/2026 JW TECH CO.,LTD. [RM-PVC-RO-01005] PVCแบบม้วน ขนาด 600x0.20mm 0.000 0.000 0.000 0.000 9,026.400 RFQ ยังไม่วางบิล ยังไม่ตั้งหนี้" [ref=e458]:
+                - cell [ref=e459] [cursor=pointer]:
+                  - generic [ref=e460]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e461] [cursor=pointer]:
+                  - generic [ref=e463]: PO / Service
+                - cell "P00121" [ref=e464] [cursor=pointer]
+                - cell [ref=e465] [cursor=pointer]
+                - cell [ref=e466] [cursor=pointer]
+                - cell "GMP/MOPL/00149, GMP/MOPL/00155, GMP/MOPL/00163" [ref=e468] [cursor=pointer]
+                - cell "Total Summary" [ref=e469] [cursor=pointer]
+                - cell [ref=e470] [cursor=pointer]
+                - cell [ref=e471] [cursor=pointer]
+                - cell [ref=e472] [cursor=pointer]
+                - cell "0.000" [ref=e473] [cursor=pointer]
+                - cell "0.000" [ref=e474] [cursor=pointer]
+                - cell [ref=e475] [cursor=pointer]
+                - cell "04/06/2026" [ref=e476] [cursor=pointer]
+                - cell "05/06/2026" [ref=e477] [cursor=pointer]
+                - cell "JW TECH CO.,LTD." [ref=e478] [cursor=pointer]
+                - cell "[RM-PVC-RO-01005] PVCแบบม้วน ขนาด 600x0.20mm" [ref=e479] [cursor=pointer]
+                - cell "0.000" [ref=e480] [cursor=pointer]:
+                  - generic [ref=e481]: "0.000"
+                - cell "0.000" [ref=e482] [cursor=pointer]:
+                  - generic [ref=e483]: "0.000"
+                - cell "0.000" [ref=e484] [cursor=pointer]:
+                  - generic [ref=e485]: "0.000"
+                - cell [ref=e486] [cursor=pointer]
+                - cell "0.000" [ref=e487] [cursor=pointer]:
+                  - generic [ref=e488]: "0.000"
+                - cell "9,026.400" [ref=e489] [cursor=pointer]:
+                  - generic [ref=e490]: 9,026.400
+                - cell "RFQ" [ref=e491] [cursor=pointer]:
+                  - generic [ref=e493]: RFQ
+                - cell "ยังไม่วางบิล" [ref=e494] [cursor=pointer]:
+                  - generic [ref=e496]: ยังไม่วางบิล
+                - cell "ยังไม่ตั้งหนี้" [ref=e497] [cursor=pointer]:
+                  - generic [ref=e499]: ยังไม่ตั้งหนี้
+                - cell [ref=e500]
+              - row "PO / Service P00122 GMP/MOPH/00507, GMP/MOPH/00516, GMP/MO/00007 Total Summary 0.000 0.000 04/06/2026 05/06/2026 JW TECH CO.,LTD. [PK-BLS-PS-01012] แผงเดี่ยวยาดม PS เยอรมัน 0.000 0.000 0.000 0.000 6,588,350.000 RFQ ยังไม่วางบิล ยังไม่ตั้งหนี้" [ref=e501]:
+                - cell [ref=e502] [cursor=pointer]:
+                  - generic [ref=e503]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e504] [cursor=pointer]:
+                  - generic [ref=e506]: PO / Service
+                - cell "P00122" [ref=e507] [cursor=pointer]
+                - cell [ref=e508] [cursor=pointer]
+                - cell [ref=e509] [cursor=pointer]
+                - cell "GMP/MOPH/00507, GMP/MOPH/00516, GMP/MO/00007" [ref=e511] [cursor=pointer]
+                - cell "Total Summary" [ref=e512] [cursor=pointer]
+                - cell [ref=e513] [cursor=pointer]
+                - cell [ref=e514] [cursor=pointer]
+                - cell [ref=e515] [cursor=pointer]
+                - cell "0.000" [ref=e516] [cursor=pointer]
+                - cell "0.000" [ref=e517] [cursor=pointer]
+                - cell [ref=e518] [cursor=pointer]
+                - cell "04/06/2026" [ref=e519] [cursor=pointer]
+                - cell "05/06/2026" [ref=e520] [cursor=pointer]
+                - cell "JW TECH CO.,LTD." [ref=e521] [cursor=pointer]
+                - cell "[PK-BLS-PS-01012] แผงเดี่ยวยาดม PS เยอรมัน" [ref=e522] [cursor=pointer]
+                - cell "0.000" [ref=e523] [cursor=pointer]:
+                  - generic [ref=e524]: "0.000"
+                - cell "0.000" [ref=e525] [cursor=pointer]:
+                  - generic [ref=e526]: "0.000"
+                - cell "0.000" [ref=e527] [cursor=pointer]:
+                  - generic [ref=e528]: "0.000"
+                - cell [ref=e529] [cursor=pointer]
+                - cell "0.000" [ref=e530] [cursor=pointer]:
+                  - generic [ref=e531]: "0.000"
+                - cell "6,588,350.000" [ref=e532] [cursor=pointer]:
+                  - generic [ref=e533]: 6,588,350.000
+                - cell "RFQ" [ref=e534] [cursor=pointer]:
+                  - generic [ref=e536]: RFQ
+                - cell "ยังไม่วางบิล" [ref=e537] [cursor=pointer]:
+                  - generic [ref=e539]: ยังไม่วางบิล
+                - cell "ยังไม่ตั้งหนี้" [ref=e540] [cursor=pointer]:
+                  - generic [ref=e542]: ยังไม่ตั้งหนี้
+                - cell [ref=e543]
+            - rowgroup [ref=e544]:
+              - row "0.000 0.000" [ref=e545]:
+                - cell [ref=e546]
+                - cell [ref=e547]
+                - cell [ref=e548]
+                - cell [ref=e549]
+                - cell [ref=e550]
+                - cell [ref=e551]
+                - cell [ref=e552]
+                - cell [ref=e553]
+                - cell [ref=e554]
+                - cell [ref=e555]
+                - cell "0.000" [ref=e556]
+                - cell "0.000" [ref=e557]
+                - cell [ref=e558]
+                - cell [ref=e559]
+                - cell [ref=e560]
+                - cell [ref=e561]
+                - cell [ref=e562]
+                - cell [ref=e563]
+                - cell [ref=e564]
+                - cell [ref=e565]
+                - cell [ref=e566]
+                - cell [ref=e567]
+                - cell [ref=e568]
+                - cell [ref=e569]
+                - cell [ref=e570]
+                - cell [ref=e571]
+                - cell [ref=e572]

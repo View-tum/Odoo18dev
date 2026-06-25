@@ -1,0 +1,229 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e7920] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e7921] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e7922] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e7923] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 126" [ref=e8951] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "126"
+        - button "Activities 43" [ref=e8759] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "43"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e11229]:
+    - generic [ref=e11231]:
+      - generic [ref=e11232]:
+        - button "New" [ref=e11235] [cursor=pointer]
+        - generic [ref=e11236]:
+          - list [ref=e11237]:
+            - listitem [ref=e11238]:
+              - button "" [ref=e11239] [cursor=pointer]:
+                - generic [ref=e11240]: 
+            - listitem [ref=e11241]:
+              - text: /
+              - link "BN/2026/05/0041" [ref=e11242] [cursor=pointer]:
+                - /url: /odoo/action-1020/36/19/purchase.order/purchase.order/1128/vendor.billing.note/41
+            - listitem [ref=e11243]:
+              - text: /
+              - link "APD/2026/05/0005 (TC1-P01066)" [ref=e11244] [cursor=pointer]:
+                - /url: /odoo/action-1020/36/19/purchase.order/purchase.order/1128/vendor.billing.note/41/account.move/73040
+          - generic [ref=e11245]:
+            - generic [ref=e11247]: Injection Machine
+            - button "" [ref=e11251] [cursor=pointer]:
+              - generic [ref=e11252]: 
+      - button " 0 Posted Entries" [ref=e11256] [cursor=pointer]:
+        - generic [ref=e11257]: 
+        - generic [ref=e11258]:
+          - generic [ref=e11259]: "0"
+          - generic [ref=e11260]: Posted Entries
+      - generic [ref=e11261]:
+        - button "Search Knowledge Articles" [ref=e11262] [cursor=pointer]:
+          - img [ref=e11263]
+        - search [ref=e11267]:
+          - navigation "Pager" [ref=e11268]:
+            - generic [ref=e11269]:
+              - generic [ref=e11270]: "1"
+              - text: / 1
+            - generic [ref=e11271]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e11274]:
+      - generic [ref=e11275]:
+        - generic [ref=e11276]:
+          - button "Confirm" [ref=e11277] [cursor=pointer]
+          - button "Compute Depreciation" [ref=e11278] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e11280]:
+          - radio "Running" [disabled]
+          - radio "Draft" [checked] [disabled]
+      - generic [ref=e11281]:
+        - generic [ref=e11282]:
+          - generic [ref=e11283]: Asset Name
+          - heading "Injection Machine" [level=1] [ref=e11284]:
+            - textbox "Asset Name" [ref=e11286]:
+              - /placeholder: e.g. Laptop iBook
+              - text: Injection Machine
+          - heading "FA/2026/00006" [level=2] [ref=e11287]:
+            - generic [ref=e11288]: FA/2026/00006
+        - generic [ref=e11289]:
+          - list [ref=e11291]:
+            - listitem [ref=e11292] [cursor=pointer]:
+              - tab "Asset" [ref=e11293]
+            - listitem [ref=e11294] [cursor=pointer]:
+              - tab "Bills" [ref=e11295]
+          - generic [ref=e11298]:
+            - generic [ref=e11299]:
+              - generic [ref=e11301]: Asset Values
+              - generic [ref=e11302]:
+                - generic [ref=e11304]: Original Value
+                - generic [ref=e11307]:
+                  - generic:
+                    - generic: 850,000.00
+                    - generic: ฿
+                  - textbox "Original Value" [ref=e11308]: 850,000.00
+                  - generic [ref=e11309]: ฿
+              - generic [ref=e11310]:
+                - generic [ref=e11312]: Acquisition Date
+                - textbox "Acquisition Date" [ref=e11316] [cursor=pointer]: 05/26/2026
+              - generic [ref=e11317]:
+                - generic [ref=e11319]: Asset Model
+                - combobox "Asset Model" [ref=e11325]: เครื่องจักร
+              - generic [ref=e11326]:
+                - generic [ref=e11328]: Asset Group
+                - combobox "Asset Group" [ref=e11334]
+              - generic [ref=e11335]:
+                - generic [ref=e11337]:
+                  - text: Responsible
+                  - superscript [ref=e11338]: "?"
+                - combobox "Responsible?" [ref=e11344]
+              - generic [ref=e11345]:
+                - generic [ref=e11347]:
+                  - text: Asset Location
+                  - superscript [ref=e11348]: "?"
+                - combobox "Asset Location?" [ref=e11354]
+              - generic [ref=e11355]:
+                - generic [ref=e11357]:
+                  - text: Related Assets
+                  - superscript [ref=e11358]: "?"
+                - combobox "Related Assets?" [ref=e11365]
+            - generic [ref=e11366]:
+              - generic [ref=e11368]: Current Values
+              - generic [ref=e11369]:
+                - generic [ref=e11371]:
+                  - text: Not Depreciable Value
+                  - superscript [ref=e11372]: "?"
+                - generic [ref=e11375]:
+                  - generic:
+                    - generic: "0.00"
+                    - generic: ฿
+                  - textbox "Not Depreciable Value?" [ref=e11376]: "0.00"
+                  - generic [ref=e11377]: ฿
+              - generic [ref=e11378]:
+                - generic [ref=e11380]:
+                  - text: Book Value
+                  - superscript [ref=e11381]: "?"
+                - generic [ref=e11385]: 850,000.00 ฿
+            - generic [ref=e11386]:
+              - generic [ref=e11388]: Depreciation Method
+              - generic [ref=e11389]:
+                - generic [ref=e11391]:
+                  - text: Method
+                  - superscript [ref=e11392]: "?"
+                - combobox "Method?" [ref=e11395] [cursor=pointer]:
+                  - option "Straight Line" [selected]
+                  - option "Declining"
+                  - option "Declining then Straight Line"
+              - generic [ref=e11396]:
+                - generic [ref=e11398]:
+                  - text: Duration
+                  - superscript [ref=e11399]: "?"
+                - generic [ref=e11401]:
+                  - textbox [ref=e11403]: "120"
+                  - combobox [ref=e11405] [cursor=pointer]:
+                    - option "Months" [selected]
+                    - option "Years"
+              - generic [ref=e11406]:
+                - generic [ref=e11408]: Computation
+                - combobox "Computation" [ref=e11411] [cursor=pointer]:
+                  - option "No Prorata"
+                  - option "Constant Periods"
+                  - option "Based on days per period" [selected]
+              - generic [ref=e11412]:
+                - generic [ref=e11414]:
+                  - text: Prorata Date
+                  - superscript [ref=e11415]: "?"
+                - textbox "Prorata Date?" [ref=e11419] [cursor=pointer]: 05/26/2026
+            - generic [ref=e11420]:
+              - generic [ref=e11422]: Accounting
+              - generic [ref=e11423]:
+                - generic [ref=e11425]:
+                  - text: Depreciation Account
+                  - superscript [ref=e11426]: "?"
+                - combobox "Depreciation Account?" [ref=e11432]: 123014 ค่าเสื่อมราคาสะสม - เครื่องจักร
+              - generic [ref=e11433]:
+                - generic [ref=e11435]:
+                  - text: Expense Account
+                  - superscript [ref=e11436]: "?"
+                - combobox "Expense Account?" [ref=e11442]: 530072 ค่าเสื่อมราคา - เครื่องจักร
+              - generic [ref=e11443]:
+                - generic [ref=e11445]: Journal
+                - combobox "Journal" [ref=e11451]: Depreciation Journal
+              - generic [ref=e11452]:
+                - generic [ref=e11454]: Analytic Distribution
+                - generic "[301] ฝ่ายขาย" [ref=e11458]:
+                  - generic [ref=e11459]: "[301] ฝ่ายขาย"
+            - generic [ref=e11462]:
+              - generic [ref=e11464]: Value at Import
+              - generic [ref=e11465]:
+                - generic [ref=e11467]:
+                  - text: Depreciated Amount
+                  - superscript [ref=e11468]: "?"
+                - generic [ref=e11471]:
+                  - generic:
+                    - generic: "0.00"
+                    - generic: ฿
+                  - textbox "Depreciated Amount?" [ref=e11472]: "0.00"
+                  - generic [ref=e11473]: ฿
+              - generic [ref=e11474]:
+                - generic [ref=e11476]: Vehicle
+                - combobox "Vehicle" [ref=e11482]
+      - generic [ref=e11486]:
+        - button "Send message" [disabled]
+        - button "Log note" [disabled]
+        - button "Activities" [ref=e11487] [cursor=pointer]
+        - button "Search Messages" [ref=e11489] [cursor=pointer]:
+          - img [ref=e11490]: 
+        - button "Attach files" [ref=e11492] [cursor=pointer]:
+          - generic [ref=e11493]: 
+        - generic [ref=e11494]:
+          - button "" [disabled]:
+            - img: 
+            - generic: 
+        - button "Follow" [ref=e11495] [cursor=pointer]:
+          - generic [ref=e11497]: Follow
+  - generic [ref=e11501]: Loading

@@ -1,0 +1,255 @@
+{
+  "runId": "LOCAL-WAY2-2026-06-17T06-41-09-185Z",
+  "startedAt": "2026-06-17T06:41:09.186Z",
+  "backend": {
+    "uid": 2,
+    "created": {
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "firstMo": {
+        "id": 2692,
+        "name": "GMP/MOPL/00823"
+      },
+      "secondMo": {
+        "id": 2693,
+        "name": "GMP/MOPL/00824"
+      },
+      "targetPicking": {
+        "id": 16977,
+        "name": "GMP/TRPL/02170"
+      },
+      "cancelledSourcePicking": {
+        "id": 16978,
+        "name": "GMP/TRPL/02171"
+      }
+    }
+  },
+  "frontend": {
+    "beforeCancelVisible": true,
+    "afterFirstCancelVisible": true
+  },
+  "chatter": [
+    {
+      "at": "2026-06-17T06:41:12.277Z",
+      "target": "GMP/MOPL/00823",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] Created first MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:41:12.314Z",
+      "target": "GMP/MOPL/00824",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] Created second MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:41:12.349Z",
+      "target": "First Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] Created first internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:41:12.383Z",
+      "target": "Second Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] Created second internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:41:12.812Z",
+      "target": "GMP/TRPL/02170",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] Merged two transfers into one line. Qty=0.001878. Source GMP/TRPL/02171 cancelled."
+    },
+    {
+      "at": "2026-06-17T06:41:30.153Z",
+      "target": "GMP/TRPL/02170",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] After cancelling GMP/MOPL/00823 from UI, transfer stayed active and qty reduced to 0.000939."
+    },
+    {
+      "at": "2026-06-17T06:41:30.660Z",
+      "target": "GMP/TRPL/02170",
+      "body": "[LOCAL-WAY2-2026-06-17T06-41-09-185Z] After cancelling GMP/MOPL/00824, no active MO remained and transfer moved to cancel."
+    }
+  ],
+  "screenshots": [
+    "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_before_cancel_2026-06-17T06-41-09-185Z.png",
+    "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_after_first_mo_cancel_2026-06-17T06-41-09-185Z.png"
+  ],
+  "assertions": [
+    {
+      "name": "existing product is available",
+      "pass": true,
+      "details": {
+        "productId": 8298
+      }
+    },
+    {
+      "name": "existing BOM is available",
+      "pass": true,
+      "details": {
+        "bomId": 2952
+      }
+    },
+    {
+      "name": "Manufacturing Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "Transfer Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "both MOs confirmed",
+      "pass": true,
+      "details": {
+        "firstMo": {
+          "id": 2692,
+          "name": "GMP/MOPL/00823",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63305,
+            63306
+          ]
+        },
+        "secondMo": {
+          "id": 2693,
+          "name": "GMP/MOPL/00824",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63310,
+            63311
+          ]
+        }
+      }
+    },
+    {
+      "name": "first MO has raw move",
+      "pass": true,
+      "details": {
+        "firstMo": "GMP/MOPL/00823"
+      }
+    },
+    {
+      "name": "second MO has raw move",
+      "pass": true,
+      "details": {
+        "secondMo": "GMP/MOPL/00824"
+      }
+    },
+    {
+      "name": "merge target is first picking",
+      "pass": true,
+      "details": {
+        "targetPickingId": 16977,
+        "firstPickingId": 16977
+      }
+    },
+    {
+      "name": "merge consolidated to one stock move",
+      "pass": true,
+      "details": {
+        "moveIds": [
+          63315
+        ]
+      }
+    },
+    {
+      "name": "source transfer cancelled after merge",
+      "pass": true,
+      "details": {
+        "id": 16978,
+        "name": "GMP/TRPL/02171",
+        "state": "cancel"
+      }
+    },
+    {
+      "name": "merged transfer linked to both MOs",
+      "pass": true,
+      "details": {
+        "productionIds": [
+          2692,
+          2693
+        ]
+      }
+    },
+    {
+      "name": "merged qty equals raw demand sum",
+      "pass": true,
+      "details": {
+        "mergedQty": 0.001878,
+        "rawOneQty": 0.000939,
+        "rawTwoQty": 0.000939
+      }
+    },
+    {
+      "name": "frontend cancel changed first MO to cancel",
+      "pass": true,
+      "details": {
+        "id": 2692,
+        "name": "GMP/MOPL/00823",
+        "state": "cancel"
+      }
+    },
+    {
+      "name": "second MO remains active after first cancel",
+      "pass": true,
+      "details": {
+        "id": 2693,
+        "name": "GMP/MOPL/00824",
+        "state": "confirmed"
+      }
+    },
+    {
+      "name": "shared merged transfer remains active after first cancel",
+      "pass": true,
+      "details": {
+        "id": 16977,
+        "name": "GMP/TRPL/02170",
+        "state": "confirmed",
+        "move_ids": [
+          63315
+        ],
+        "production_ids": [
+          2693,
+          2692
+        ]
+      }
+    },
+    {
+      "name": "shared merged transfer has one active move after first cancel",
+      "pass": true,
+      "details": [
+        {
+          "id": 63315,
+          "state": "confirmed",
+          "product_uom_qty": 0.000939,
+          "quantity": 0
+        }
+      ]
+    },
+    {
+      "name": "shared merged transfer qty reduced to remaining MO demand",
+      "pass": true,
+      "details": {
+        "activeQty": 0.000939,
+        "expected": 0.000939
+      }
+    },
+    {
+      "name": "backend cancel changed second MO to cancel",
+      "pass": true,
+      "details": {
+        "id": 2693,
+        "name": "GMP/MOPL/00824",
+        "state": "cancel"
+      }
+    },
+    {
+      "name": "merged transfer cancels when no active MO remains",
+      "pass": true,
+      "details": {
+        "id": 16977,
+        "name": "GMP/TRPL/02170",
+        "state": "cancel"
+      }
+    }
+  ],
+  "finishedAt": "2026-06-17T06:41:30.660Z",
+  "status": "passed"
+}

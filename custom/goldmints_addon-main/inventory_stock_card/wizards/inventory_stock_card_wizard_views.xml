@@ -9,7 +9,7 @@
                     <group>
                         <field name="company_id"/>
                         <field name="product_ids" widget="many2many_tags"/>
-                        <field name="location_id"/>
+                        <field name="location_id" placeholder="All"/>
                         <field name="include_child_locations"/>
                     </group>
                     <group>

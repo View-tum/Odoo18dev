@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit_account_ocr_local" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.account.ocr.local</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <page id="invoice_tab" position="after">
+                <page name="local_ocr_tab" string="Local OCR" invisible="move_type == 'entry' or local_ocr_state == 'not_requested'">
+                    <group>
+                        <group string="Status">
+                            <field name="local_ocr_state" readonly="1"/>
+                            <field name="local_ocr_document_type" readonly="1"/>
+                            <field name="local_ocr_confidence" readonly="1"/>
+                            <field name="local_ocr_attachment_id" readonly="1"/>
+                        </group>
+                        <group string="Review">
+                            <field name="local_ocr_error" readonly="1" invisible="not local_ocr_error"/>
+                        </group>
+                    </group>
+                    <group string="Raw Text" invisible="not local_ocr_raw_text">
+                        <field name="local_ocr_raw_text" readonly="1" nolabel="1"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

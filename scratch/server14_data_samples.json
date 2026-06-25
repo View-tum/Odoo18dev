@@ -1,0 +1,1060 @@
+{
+  "menus": [
+    {
+      "id": 995,
+      "name": "Billing Notes",
+      "complete_name": "Accounting/Vendors/Billing Notes",
+      "action": "ir.actions.act_window,1651"
+    },
+    {
+      "id": 531,
+      "name": "Manufacturing Orders",
+      "complete_name": "Manufacturing/Operations/Manufacturing Orders",
+      "action": "ir.actions.act_window,821"
+    },
+    {
+      "id": 985,
+      "name": "Manufacturing Orders (Plastic)",
+      "complete_name": "Manufacturing/Operations/Manufacturing Orders (Plastic)",
+      "action": "ir.actions.act_window,1641"
+    },
+    {
+      "id": 137,
+      "name": "Receipts",
+      "complete_name": "Accounting/Vendors/Receipts",
+      "action": "ir.actions.act_window,270"
+    },
+    {
+      "id": 986,
+      "name": "Manufacturing Orders (Pharma)",
+      "complete_name": "Manufacturing/Operations/Manufacturing Orders (Pharma)",
+      "action": "ir.actions.act_window,1642"
+    },
+    {
+      "id": 808,
+      "name": "Billing",
+      "complete_name": "Accounting/Customers/Billing",
+      "action": "ir.actions.act_window,1274"
+    },
+    {
+      "id": 809,
+      "name": "Billing",
+      "complete_name": "Accounting/Vendors/Billing",
+      "action": "ir.actions.act_window,1275"
+    },
+    {
+      "id": 449,
+      "name": "Receipts",
+      "complete_name": "Inventory/Operations/Transfers/Receipts",
+      "action": "ir.actions.server,668"
+    },
+    {
+      "id": 994,
+      "name": "Billing Notes",
+      "complete_name": "Purchase/Orders/Billing Notes",
+      "action": "ir.actions.act_window,1651"
+    },
+    {
+      "id": 537,
+      "name": "Manufacturings",
+      "complete_name": "Inventory/Operations/Transfers/Manufacturings",
+      "action": "ir.actions.act_window,828"
+    },
+    {
+      "id": 561,
+      "name": "By Billing Type",
+      "complete_name": "Timesheets/Reporting/Timesheets/By Billing Type",
+      "action": "ir.actions.act_window,887"
+    },
+    {
+      "id": 519,
+      "name": "Manufacturing",
+      "complete_name": "Manufacturing",
+      "action": false
+    }
+  ],
+  "samples": {
+    "vendor_bills": [
+      {
+        "id": 69768,
+        "name": "APD/26/06/00002",
+        "partner_id": [
+          70831,
+          "บริษัท เคทีพี ซัพพลาย แอนด์ โซลูชั่น จำกัด"
+        ],
+        "amount_total": 10700.0,
+        "amount_residual": 10700.0,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-06-04"
+      },
+      {
+        "id": 69737,
+        "name": "JV/26/05/00016",
+        "partner_id": [
+          71020,
+          "บริษัท โตโยต้า ทูโช ฟอร์คลิฟท์ (ไทยแลนด์) จำกัด"
+        ],
+        "amount_total": 10000.0,
+        "amount_residual": 10000.0,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-29"
+      },
+      {
+        "id": 69732,
+        "name": "APD/26/05/00043",
+        "partner_id": [
+          70564,
+          "บริษัท ธนชาตประกันภัย จำกัด (มหาชน)"
+        ],
+        "amount_total": 2140.0,
+        "amount_residual": 2140.0,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-29"
+      },
+      {
+        "id": 69691,
+        "name": "APD/26/05/00041",
+        "partner_id": [
+          70564,
+          "บริษัท ธนชาตประกันภัย จำกัด (มหาชน)"
+        ],
+        "amount_total": 38520.0,
+        "amount_residual": 38520.0,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69687,
+        "name": "APD/26/06/00001",
+        "partner_id": [
+          70768,
+          "บริษัท อังกฤษตรางู (แอล.พี.) จำกัด"
+        ],
+        "amount_total": 125030.377777,
+        "amount_residual": 125030.377777,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-06-04"
+      },
+      {
+        "id": 69684,
+        "name": "APD/26/05/00040",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "amount_total": 95.30811,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69683,
+        "name": "APD/26/05/00039",
+        "partner_id": [
+          70302,
+          "Home Product Center Plc."
+        ],
+        "amount_total": 9000.0,
+        "amount_residual": 3600.0,
+        "payment_state": "partial",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69677,
+        "name": "APD/26/05/00038",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "amount_total": 4.765406,
+        "amount_residual": 4.765406,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69674,
+        "name": "APD/26/05/00037",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "amount_total": 1.906162,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69671,
+        "name": "APD/26/05/00044",
+        "partner_id": [
+          245899,
+          "บริษัท ซีพี ออลล์ จำกัด (มหาชน)"
+        ],
+        "amount_total": 2344.052552,
+        "amount_residual": 131.442199,
+        "payment_state": "partial",
+        "invoice_date": "2026-05-27"
+      }
+    ],
+    "vendor_cns": [
+      {
+        "id": 69764,
+        "name": "VCND/26/06/00001",
+        "partner_id": [
+          70768,
+          "บริษัท อังกฤษตรางู (แอล.พี.) จำกัด"
+        ],
+        "amount_total": 125030.377777,
+        "amount_residual": 125030.377777,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-06-04",
+        "reversed_entry_id": [
+          69687,
+          "APD/26/06/00001 (TXI)"
+        ]
+      },
+      {
+        "id": 69682,
+        "name": "VCND/26/05/00006",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "amount_total": 1.906162,
+        "amount_residual": 1.906162,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-28",
+        "reversed_entry_id": [
+          69677,
+          "APD/26/05/00038"
+        ]
+      },
+      {
+        "id": 69669,
+        "name": "VCND/26/05/00005",
+        "partner_id": [
+          246085,
+          "บริษัท อิออน (ไทยแลนด์) จำกัด"
+        ],
+        "amount_total": 10862.396404,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-27",
+        "reversed_entry_id": [
+          69048,
+          "APD/26/04/00018"
+        ]
+      },
+      {
+        "id": 69485,
+        "name": "VCND/26/05/00004",
+        "partner_id": [
+          70306,
+          "SDS International (Japan) Co., Ltd."
+        ],
+        "amount_total": 83460.0,
+        "amount_residual": 83460.0,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-20",
+        "reversed_entry_id": [
+          69457,
+          "APD/26/05/00034"
+        ]
+      },
+      {
+        "id": 69403,
+        "name": "VCND/26/05/00003",
+        "partner_id": [
+          245899,
+          "บริษัท ซีพี ออลล์ จำกัด (มหาชน)"
+        ],
+        "amount_total": 2344.052552,
+        "amount_residual": 2344.052552,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-19",
+        "reversed_entry_id": [
+          69218,
+          "APD/26/05/00005"
+        ]
+      },
+      {
+        "id": 69402,
+        "name": "VCND/26/05/00002",
+        "partner_id": [
+          282401,
+          "ร้านค้า บอส"
+        ],
+        "amount_total": 117.202628,
+        "amount_residual": 117.202628,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-19",
+        "reversed_entry_id": [
+          69381,
+          "APD/26/05/00029"
+        ]
+      },
+      {
+        "id": 69388,
+        "name": "VCND/26/05/00001",
+        "partner_id": [
+          245899,
+          "บริษัท ซีพี ออลล์ จำกัด (มหาชน)"
+        ],
+        "amount_total": 2344.052552,
+        "amount_residual": 2344.052552,
+        "payment_state": "not_paid",
+        "invoice_date": "2026-05-18",
+        "reversed_entry_id": [
+          69356,
+          "APD/26/05/00026"
+        ]
+      }
+    ],
+    "customer_invoices": [
+      {
+        "id": 69793,
+        "name": "INV-D/26/06/00006",
+        "partner_id": [
+          70302,
+          "Home Product Center Plc."
+        ],
+        "amount_total": 5400.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-06-05"
+      },
+      {
+        "id": 69788,
+        "name": "INV-D/26/06/00005",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "amount_total": 3420.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-06-05"
+      },
+      {
+        "id": 69785,
+        "name": "INV-D/26/06/00004",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "amount_total": 3420.0,
+        "amount_residual": 0.0,
+        "payment_state": "in_payment",
+        "invoice_date": "2026-06-05"
+      },
+      {
+        "id": 69782,
+        "name": "INV-D/26/06/00003",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "amount_total": 3420.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-06-05"
+      },
+      {
+        "id": 69778,
+        "name": "INV-D/26/06/00002",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "amount_total": 3420.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-06-05"
+      },
+      {
+        "id": 69743,
+        "name": "INV-E/26/05/00021",
+        "partner_id": [
+          244812,
+          "Driss Benkhalouf"
+        ],
+        "amount_total": 240.0,
+        "amount_residual": 130.625,
+        "payment_state": "partial",
+        "invoice_date": "2026-05-29"
+      },
+      {
+        "id": 69690,
+        "name": "INV-D/26/05/00025",
+        "partner_id": [
+          246041,
+          "บริษัท บิ๊กซี ซูเปอร์เซ็นเตอร์ จำกัด(มหาชน)"
+        ],
+        "amount_total": 0.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69688,
+        "name": "INV-D/26/05/00024",
+        "partner_id": [
+          246041,
+          "บริษัท บิ๊กซี ซูเปอร์เซ็นเตอร์ จำกัด(มหาชน)"
+        ],
+        "amount_total": 154085.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-28"
+      },
+      {
+        "id": 69616,
+        "name": "INV-E/26/05/00020",
+        "partner_id": [
+          244812,
+          "Driss Benkhalouf"
+        ],
+        "amount_total": 1240.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-26"
+      },
+      {
+        "id": 69614,
+        "name": "INV-E/26/05/00019",
+        "partner_id": [
+          244812,
+          "Driss Benkhalouf"
+        ],
+        "amount_total": 0.0,
+        "amount_residual": 0.0,
+        "payment_state": "paid",
+        "invoice_date": "2026-05-26"
+      }
+    ],
+    "receipts": [
+      {
+        "id": 10779,
+        "name": "GMP/IN/00122",
+        "state": "done",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "origin": "P00123",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10760,
+        "name": "GMP/IN/00121",
+        "state": "done",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "origin": "P00116",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10758,
+        "name": "GMP/IN/00120",
+        "state": "done",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "origin": "P00115",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10742,
+        "name": "GMP/IN/00119",
+        "state": "assigned",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "origin": "P00113",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10740,
+        "name": "GMP/IN/00118",
+        "state": "done",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "origin": "P00113",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10738,
+        "name": "GMP/IN/00117",
+        "state": "done",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "origin": "P00113",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10736,
+        "name": "GMP/IN/00116",
+        "state": "done",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "origin": "P00112",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10735,
+        "name": "GMP/IN/00115",
+        "state": "assigned",
+        "partner_id": [
+          282401,
+          "ร้านค้า บอส"
+        ],
+        "origin": "P00090",
+        "picking_type_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+        ]
+      },
+      {
+        "id": 10710,
+        "name": "GMP/AXIN/00477",
+        "state": "assigned",
+        "partner_id": false,
+        "origin": "PJN2602231",
+        "picking_type_id": [
+          31,
+          "GOLD MINTS PRODUCTS CO., LTD.: Report As Finish"
+        ]
+      },
+      {
+        "id": 10709,
+        "name": "GMP/AXIN/00476",
+        "state": "assigned",
+        "partner_id": false,
+        "origin": "PJN2602230",
+        "picking_type_id": [
+          31,
+          "GOLD MINTS PRODUCTS CO., LTD.: Report As Finish"
+        ]
+      }
+    ],
+    "internal_pickings": [
+      {
+        "id": 10810,
+        "name": "GMP/PRO/00026",
+        "state": "assigned",
+        "origin": false,
+        "picking_type_id": [
+          34,
+          "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+        ],
+        "scheduled_date": "2026-06-05 08:50:37"
+      },
+      {
+        "id": 10798,
+        "name": "GMP/PRO/00019",
+        "state": "done",
+        "origin": false,
+        "picking_type_id": [
+          34,
+          "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+        ],
+        "scheduled_date": "2026-06-04 02:21:01"
+      },
+      {
+        "id": 10797,
+        "name": "GMP/PRO/00018",
+        "state": "done",
+        "origin": false,
+        "picking_type_id": [
+          34,
+          "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+        ],
+        "scheduled_date": "2026-06-04 02:19:22"
+      },
+      {
+        "id": 10796,
+        "name": "GMP/PRO/00017",
+        "state": "done",
+        "origin": false,
+        "picking_type_id": [
+          34,
+          "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+        ],
+        "scheduled_date": "2026-06-04 02:18:34"
+      },
+      {
+        "id": 10794,
+        "name": "GMP/PICK/03630",
+        "state": "done",
+        "origin": "SOD-263075",
+        "picking_type_id": [
+          3,
+          "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+        ],
+        "scheduled_date": "2026-06-03 10:00:00"
+      },
+      {
+        "id": 10793,
+        "name": "GMP/TRPK/00073",
+        "state": "confirmed",
+        "origin": "SOE-260065,GMP/MO/00007",
+        "picking_type_id": [
+          58,
+          "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+        ],
+        "scheduled_date": "2027-06-02 11:00:00"
+      },
+      {
+        "id": 10792,
+        "name": "GMP/TRPH/00023",
+        "state": "confirmed",
+        "origin": "SOE-260065,GMP/MO/00007",
+        "picking_type_id": [
+          56,
+          "GOLD MINTS PRODUCTS CO., LTD.: Transfer Pharma"
+        ],
+        "scheduled_date": "2027-06-02 11:00:00"
+      },
+      {
+        "id": 10791,
+        "name": "GMP/TRPK/00072",
+        "state": "confirmed",
+        "origin": "GMP/MO/00007",
+        "picking_type_id": [
+          58,
+          "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+        ],
+        "scheduled_date": "2027-06-02 11:00:00"
+      },
+      {
+        "id": 10790,
+        "name": "GMP/PICK/03629",
+        "state": "confirmed",
+        "origin": "SOE-260065",
+        "picking_type_id": [
+          3,
+          "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+        ],
+        "scheduled_date": "2026-06-30 04:00:00"
+      },
+      {
+        "id": 10789,
+        "name": "GMP/INT/00182",
+        "state": "confirmed",
+        "origin": "Overproduction: GMP/MOPH/00515",
+        "picking_type_id": [
+          7,
+          "GOLD MINTS PRODUCTS CO., LTD.: Internal Transfers"
+        ],
+        "scheduled_date": "2026-06-02 04:19:45"
+      }
+    ],
+    "mos": [
+      {
+        "id": 905,
+        "name": "GMP/MO/00007",
+        "state": "confirmed",
+        "product_id": [
+          8606,
+          "[FG-PSS-DE-03001] ยาดมโป๊ยเซียน แผง เยอรมัน"
+        ],
+        "origin": "FG-PSS-DE-03001 - SOE-260065",
+        "date_start": "2027-06-02 11:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 904,
+        "name": "GMP/MOPL/00163",
+        "state": "confirmed",
+        "product_id": [
+          8304,
+          "[SM-BLS-FO-00005] ฟอยด์ยาดม PS"
+        ],
+        "origin": "GMP/MOPH/00516",
+        "date_start": "2026-06-04 23:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 903,
+        "name": "GMP/MOPL/00162",
+        "state": "confirmed",
+        "product_id": [
+          8316,
+          "[SM-PSS-DE-03002] ชิ้นส่วนยาดม PS ตัวล่าง เยอรมัน"
+        ],
+        "origin": "GMP/MOPL/00157",
+        "date_start": "2026-06-04 21:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 902,
+        "name": "GMP/MOPL/00161",
+        "state": "confirmed",
+        "product_id": [
+          8323,
+          "[SM-PSS-DE-03001] ชิ้นส่วนยาดม PS ตัวบน เยอรมัน"
+        ],
+        "origin": "GMP/MOPL/00156",
+        "date_start": "2026-06-04 21:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 901,
+        "name": "GMP/MOPL/00160",
+        "state": "confirmed",
+        "product_id": [
+          8028,
+          "[SM-PLS-PU-02001] ชิ้นส่วนยาดมตัวอุดหลอดน้ำW02"
+        ],
+        "origin": "GMP/MOPL/00157",
+        "date_start": "2026-06-04 21:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 900,
+        "name": "GMP/MOPL/00159",
+        "state": "progress",
+        "product_id": [
+          8316,
+          "[SM-PSS-DE-03002] ชิ้นส่วนยาดม PS ตัวล่าง เยอรมัน"
+        ],
+        "origin": "GMP/MOPL/00157",
+        "date_start": "2026-06-04 21:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 899,
+        "name": "GMP/MOPL/00158",
+        "state": "progress",
+        "product_id": [
+          8323,
+          "[SM-PSS-DE-03001] ชิ้นส่วนยาดม PS ตัวบน เยอรมัน"
+        ],
+        "origin": "GMP/MOPL/00156",
+        "date_start": "2026-06-04 21:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 898,
+        "name": "GMP/MOPH/00523",
+        "state": "progress",
+        "product_id": [
+          8573,
+          "[RM-FIL-PS-01004] ก้นกรองชุบน้ำยา PS"
+        ],
+        "origin": "GMP/MOPH/00517, GMP/MOPH/00518, GMP/MOPH/00519, GMP/MOPH/00520, GMP/MOPH/00521, GMP/MOPH/00522",
+        "date_start": "2026-06-04 22:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 897,
+        "name": "GMP/MOPL/00157",
+        "state": "confirmed",
+        "product_id": [
+          8317,
+          "[SM-PSS-DE-02002] ชิ้นส่วนยาดม PS ตัวล่าง+หลอดน้ำ เยอรมัน"
+        ],
+        "origin": "GMP/MOPH/00517, GMP/MOPH/00518, GMP/MOPH/00519, GMP/MOPH/00520, GMP/MOPH/00521, GMP/MOPH/00522",
+        "date_start": "2026-06-04 22:00:00",
+        "hide_from_shopfloor": false
+      },
+      {
+        "id": 896,
+        "name": "GMP/MOPL/00156",
+        "state": "confirmed",
+        "product_id": [
+          8326,
+          "[SM-PSS-DE-02001] ชิ้นส่วนยาดม PS ตัวบน+ตัวกลาง เยอรมัน"
+        ],
+        "origin": "GMP/MOPH/00517, GMP/MOPH/00518, GMP/MOPH/00519, GMP/MOPH/00520, GMP/MOPH/00521, GMP/MOPH/00522",
+        "date_start": "2026-06-04 22:00:00",
+        "hide_from_shopfloor": false
+      }
+    ],
+    "sale_orders": [
+      {
+        "id": 16651,
+        "name": "SOD-263080",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          2,
+          "Mobile Warehouse"
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 07:00:00",
+        "amount_total": 3420.0
+      },
+      {
+        "id": 16650,
+        "name": "SOD-263079",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          2,
+          "Mobile Warehouse"
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 07:00:00",
+        "amount_total": 3420.0
+      },
+      {
+        "id": 16649,
+        "name": "SOD-263078",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          2,
+          "Mobile Warehouse"
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 06:00:00",
+        "amount_total": 3420.0
+      },
+      {
+        "id": 16648,
+        "name": "SOD-263077",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          2,
+          "Mobile Warehouse"
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 03:00:00",
+        "amount_total": 3420.0
+      },
+      {
+        "id": 16647,
+        "name": "SOD-263076",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          2,
+          "Mobile Warehouse"
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 06:00:00",
+        "amount_total": 3420.0
+      },
+      {
+        "id": 16646,
+        "name": "SOD-263075",
+        "partner_id": [
+          238404,
+          "ระเบียบเภสัช"
+        ],
+        "warehouse_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD."
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-03 10:00:00",
+        "amount_total": 513.0
+      },
+      {
+        "id": 16645,
+        "name": "SOE-260065",
+        "partner_id": [
+          70309,
+          "WIRO Prazisions-Werkzeugbau Gmbh& Co.KG"
+        ],
+        "warehouse_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD."
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-30 04:00:00",
+        "amount_total": 250000.0
+      },
+      {
+        "id": 16644,
+        "name": "SOE-260064",
+        "partner_id": [
+          70309,
+          "WIRO Prazisions-Werkzeugbau Gmbh& Co.KG"
+        ],
+        "warehouse_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD."
+        ],
+        "state": "sale",
+        "commitment_date": "2026-06-05 01:00:00",
+        "amount_total": 250000.0
+      },
+      {
+        "id": 16642,
+        "name": "SOD-263074",
+        "partner_id": [
+          245772,
+          "หจก. เต็กเฮงเลี่ยงกี่"
+        ],
+        "warehouse_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD."
+        ],
+        "state": "sale",
+        "commitment_date": "2026-05-29 07:00:00",
+        "amount_total": 513.0
+      },
+      {
+        "id": 16640,
+        "name": "SOE-260060",
+        "partner_id": [
+          244812,
+          "Driss Benkhalouf"
+        ],
+        "warehouse_id": [
+          1,
+          "GOLD MINTS PRODUCTS CO., LTD."
+        ],
+        "state": "sale",
+        "commitment_date": "2026-05-26 07:00:00",
+        "amount_total": 1240.0
+      }
+    ],
+    "purchase_orders": [
+      {
+        "id": 185,
+        "name": "P00123",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "state": "done",
+        "amount_total": 119840.0
+      },
+      {
+        "id": 178,
+        "name": "P00116",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "state": "done",
+        "amount_total": 171200.0
+      },
+      {
+        "id": 177,
+        "name": "P00115",
+        "partner_id": [
+          70303,
+          "JW TECH CO.,LTD."
+        ],
+        "state": "done",
+        "amount_total": 513600.0
+      },
+      {
+        "id": 175,
+        "name": "P00113",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "state": "done",
+        "amount_total": 95.30811
+      },
+      {
+        "id": 174,
+        "name": "P00112",
+        "partner_id": [
+          70301,
+          "DENKI SHOJI CO.,LTD."
+        ],
+        "state": "done",
+        "amount_total": 95.30811
+      },
+      {
+        "id": 172,
+        "name": "P00110",
+        "partner_id": [
+          282442,
+          "ร้านค้าเทพบอส"
+        ],
+        "state": "done",
+        "amount_total": 12840.0
+      },
+      {
+        "id": 171,
+        "name": "P00109",
+        "partner_id": [
+          282442,
+          "ร้านค้าเทพบอส"
+        ],
+        "state": "done",
+        "amount_total": 1070000.0
+      },
+      {
+        "id": 166,
+        "name": "P00104",
+        "partner_id": [
+          70305,
+          "PENANSHIN SHIPPING (THAILAND) LTD."
+        ],
+        "state": "purchase",
+        "amount_total": 0.0
+      },
+      {
+        "id": 156,
+        "name": "P00094",
+        "partner_id": [
+          70306,
+          "SDS International (Japan) Co., Ltd."
+        ],
+        "state": "purchase",
+        "amount_total": 77040.0
+      },
+      {
+        "id": 155,
+        "name": "P00093",
+        "partner_id": [
+          70768,
+          "บริษัท อังกฤษตรางู (แอล.พี.) จำกัด"
+        ],
+        "state": "purchase",
+        "amount_total": 662.242564
+      }
+    ]
+  }
+}

@@ -36,171 +36,158 @@ class PurchaseOrderStatusReport(models.AbstractModel):
 
         lines = []
         for order in orders:
-            for order_line in order.order_line:
+            # 1. Pre-calculate billed receipts for this PO
+            BilledLines = self.env['vendor.billing.note.line'].search([
+                ('purchase_order_id', '=', order.id),
+                ('billing_note_id.state', '!=', 'cancel')
+            ])
+            billed_sa_ids = BilledLines.mapped('service_acceptance_id').ids
 
+            # 2. Sum PO-level metrics across all lines matching product filter
+            total_qty_received = 0.0
+            total_qty_invoiced = 0.0
+            total_subtotal = 0.0
+            is_billable_overall = False
+            is_already_billed_overall = True
+            products = set()
+
+            for order_line in order.order_line:
                 if wizard.product_id and order_line.product_id != wizard.product_id:
                     continue
-                
-                qty_received_total = order_line.qty_received
-                qty_invoiced_total = order_line.qty_invoiced
-                
-                # 1. Billing Note Status (Overall for the PO Line)
-                bn_lines = getattr(order_line, "billing_note_line_ids", False)
-                bn_status_overall = "no"
-                if bn_lines:
-                    qty_draft = sum(bn_lines.filtered(lambda l: l.billing_note_id.state == 'draft').mapped('quantity'))
-                    qty_confirmed = sum(bn_lines.filtered(lambda l: l.billing_note_id.state in ('confirmed', 'partial_billed', 'billed')).mapped('quantity'))
-                    
-                    if qty_confirmed >= qty_received_total - 0.001 and qty_received_total > 0:
-                        bn_status_overall = "fully"
-                    elif qty_confirmed > 0:
-                        bn_status_overall = "partial"
-                    elif qty_draft > 0:
-                        bn_status_overall = "draft"
+                products.add(order_line.product_id.display_name or '')
+                total_qty_received += order_line.qty_received
+                total_qty_invoiced += order_line.qty_invoiced
+                total_subtotal += order_line.price_subtotal
 
-                # Filter by billing note status if requested
-                wiz_bn_status = getattr(wizard, "billing_note_status", False)
-                if wiz_bn_status and bn_status_overall != wiz_bn_status:
-                    continue
+                # Check billable status for this line
+                qty_to_billing_note = (
+                    order_line._get_qty_to_billing_note()
+                    if hasattr(order_line, "_get_qty_to_billing_note")
+                    else max(order_line.qty_received - order_line.qty_billing_noted, 0.0)
+                )
+                qty_billing_basis = (
+                    order_line._get_billing_note_qty_basis()
+                    if hasattr(order_line, "_get_billing_note_qty_basis")
+                    else order_line.qty_received
+                )
 
-                # Prepare Base Data
-                expected_arrival = getattr(order, "date_planned", False)
-                base_dict = {
-                    "order_id": order.id,
-                    "order_name": order.name,
-                    "order_url": f"/web#model=purchase.order&id={order.id}&view_type=form",
-                    "company": order.company_id,
-                    "vendor": order.partner_id,
-                    "order_date": order.date_order.date() if order.date_order else "",
-                    "expected_arrival": expected_arrival.date() if expected_arrival else "",
-                    "state": order.state,
-                    "invoice_status": order.invoice_status,
-                    "product": order_line.product_id,
-                    "description": order_line.name or "",
-                    "uom": order_line.product_uom,
-                    "unit_price": order_line.price_unit,
-                    "source_document": order.origin or "",
-                    "billing_note_status": bn_status_overall,
-                    "po_line_id": order_line.id,
-                }
+                if qty_to_billing_note > 0.001:
+                    is_billable_overall = True
+                if order_line.qty_billing_noted < qty_billing_basis - 0.001 and qty_billing_basis > 0:
+                    is_already_billed_overall = False
 
-                # Collect Detailed Receipt/SA Lines
-                detail_lines_data = []
-                
-                # A. From Stock Picking
-                for move in order_line.move_ids.filtered(lambda m: m.state == 'done' and m.picking_id):
-                    detail_lines_data.append({
-                        "qty_received": move.quantity,
-                        "receipt_ref": f"📦 {move.picking_id.name}",
-                        "receipt_date": move.picking_id.date_done.date() if move.picking_id.date_done else False,
-                        "inv_ref": getattr(move.picking_id, 'invoice_reference', '') or "",
-                        "picking_id": move.picking_id.id,
-                    })
+            if not products:
+                continue
+            elif len(products) > 1:
+                product_display = "หลายรายการ"
+            else:
+                product_display = list(products)[0]
 
-                # B. From Service Acceptance
-                ServiceAcceptanceLine = self.env.get('service.acceptance.line')
-                if ServiceAcceptanceLine:
-                    sa_lines = ServiceAcceptanceLine.search([
-                        ('po_line_id', '=', order_line.id),
-                        ('acceptance_id.state', '=', 'done')
-                    ])
-                    for sa_line in sa_lines:
-                        detail_lines_data.append({
-                            "qty_received": sa_line.qty_accepted,
-                            "receipt_ref": f"✅ {sa_line.acceptance_id.name}",
-                            "receipt_date": sa_line.acceptance_id.date,
-                            "inv_ref": getattr(sa_line.acceptance_id, 'invoice_ref', '') or "",
-                            "service_acceptance_id": sa_line.acceptance_id.id,
-                        })
+            expected_arrival = getattr(order, "date_planned", False)
+            base_dict = {
+                "order_id": order.id,
+                "order_name": order.name,
+                "order_url": f"/web#model=purchase.order&id={order.id}&view_type=form",
+                "company": order.company_id,
+                "vendor": order.partner_id,
+                "order_date": order.date_order.date() if order.date_order else "",
+                "expected_arrival": expected_arrival.date() if expected_arrival else "",
+                "state": order.state,
+                "invoice_status": order.invoice_status,
+                "description": "",
+                "source_document": order.origin or "",
+                "po_line_id": False,
+            }
 
-                # --- 1. Master Header Row ---
-                header = base_dict.copy()
-                header_is_billable = (order_line.qty_received - order_line.qty_billing_noted) > 0.001
-                header.update({
-                    "is_header": True,
-                    "qty": order_line.product_qty,
-                    "qty_received": order_line.qty_received,
-                    "qty_invoiced": order_line.qty_invoiced,
-                    "qty_pending": order_line.product_qty - order_line.qty_received,
-                    "qty_pending_invoice": order_line.qty_received - order_line.qty_invoiced,
-                    "receipt_ref": _("Total Summary"),
-                    "receipt_date": False,
-                    "inv_ref": "",
-                    "is_pending": False,
-                    "subtotal": order_line.price_subtotal,
-                    "is_billable": header_is_billable,
-                    "is_already_billed": order_line.qty_billing_noted >= order_line.qty_received - 0.001 if order_line.qty_received > 0 else False,
-                })
-                lines.append(header)
+            apds = order.invoice_ids.filtered(lambda m: m.move_type == 'in_invoice' and m.state != 'cancel')
+            cns = order.invoice_ids.filtered(lambda m: m.move_type == 'in_refund' and m.state != 'cancel')
+            inv_ref_parts = []
+            if apds:
+                inv_ref_parts.append(f"APD: {', '.join(str(n) for n in apds.mapped('name') if n)}")
+            if cns:
+                inv_ref_parts.append(f"CN: {', '.join(str(n) for n in cns.mapped('name') if n)}")
+            inv_ref_display = " | ".join(inv_ref_parts)
 
-                # --- 2. Detail Rows (Receipts) ---
-                remaining_invoiced = qty_invoiced_total
-                
-                # Pre-calculate billed receipts for this PO line
-                BilledLines = self.env['vendor.billing.note.line'].search([
-                    ('purchase_line_id', '=', order_line.id),
-                    ('billing_note_id.state', '!=', 'cancel')
+            header = base_dict.copy()
+            header.update({
+                "is_header": True,
+                "product": False,
+                "product_display": product_display,
+                "uom": False,
+                "unit_price": 0.0,
+                "qty": 0.0,
+                "qty_received": total_qty_received,
+                "qty_invoiced": total_qty_invoiced,
+                "qty_pending": 0.0,
+                "qty_pending_invoice": total_qty_received - total_qty_invoiced,
+                "receipt_ref": _("Total Summary"),
+                "receipt_date": False,
+                "inv_ref": inv_ref_display,
+                "is_pending": False,
+                "subtotal": total_subtotal,
+                "is_billable": is_billable_overall,
+                "is_already_billed": is_already_billed_overall if (total_qty_received > 0 or is_billable_overall) else False,
+                "billing_note_status": 'fully' if is_already_billed_overall and (total_qty_received > 0 or is_billable_overall) else 'no',
+            })
+            lines.append(header)
+
+            # --- B. Detail Rows (Only Service Acceptance documents) ---
+            # Find unique Service Acceptance (SA) documents linked to this PO's lines
+            ServiceAcceptanceLine = self.env.get('service.acceptance.line')
+            if ServiceAcceptanceLine is not None:
+                sa_lines = ServiceAcceptanceLine.search([
+                    ('po_line_id', 'in', order.order_line.ids),
+                    ('acceptance_id.state', '=', 'done')
                 ])
-                billed_picking_ids = BilledLines.mapped('picking_id').ids
-                billed_sa_ids = BilledLines.mapped('service_acceptance_id').ids
+                # Group by acceptance_id
+                unique_sas = sa_lines.mapped('acceptance_id')
+                for sa in unique_sas:
+                    # Filter lines of this specific SA
+                    sa_detail_lines = sa_lines.filtered(lambda l: l.acceptance_id == sa)
+                    
+                    # Sum metrics for this SA row
+                    sa_qty_received = sum(l.qty_accepted for l in sa_detail_lines)
+                    sa_subtotal = sum(l.qty_accepted * l.po_line_id.price_unit for l in sa_detail_lines)
+                    
+                    sa_products = set(l.product_id.display_name or '' for l in sa_detail_lines)
+                    if len(sa_products) > 1:
+                        sa_product_display = "หลายรายการ"
+                        sa_uom = False
+                        sa_price = 0.0
+                    elif sa_products:
+                        sa_product_display = list(sa_products)[0]
+                        sa_uom = sa_detail_lines[0].product_uom
+                        sa_price = sa_detail_lines[0].price_unit
+                    else:
+                        sa_product_display = ""
+                        sa_uom = False
+                        sa_price = 0.0
 
-                for detail in detail_lines_data:
+                    is_already_billed = sa.id in billed_sa_ids
+
                     d_row = base_dict.copy()
-                    
-                    # Distribute Invoiced Qty (FIFO)
-                    current_received = detail['qty_received']
-                    current_invoiced = min(remaining_invoiced, current_received) if current_received > 0 else 0.0
-                    remaining_invoiced -= current_invoiced
-                    
-                    p_id = detail.get('picking_id')
-                    sa_id = detail.get('service_acceptance_id')
-                    
-                    is_already_billed = False
-                    if p_id and p_id in billed_picking_ids:
-                        is_already_billed = True
-                    elif sa_id and sa_id in billed_sa_ids:
-                        is_already_billed = True
-
                     d_row.update({
                         "is_header": False,
+                        "po_line_id": sa_detail_lines[0].po_line_id.id if sa_detail_lines else False,
+                        "product": sa_detail_lines[0].product_id if sa_detail_lines else False,
+                        "product_display": sa_product_display,
+                        "uom": sa_uom,
+                        "unit_price": sa_price,
                         "qty": 0.0,
-                        "qty_received": current_received,
-                        "qty_invoiced": current_invoiced,
-                        "qty_pending": 0.0,
-                        "qty_pending_invoice": current_received - current_invoiced,
-                        "receipt_ref": f"↳ {detail['receipt_ref']}",
-                        "receipt_date": detail['receipt_date'],
-                        "inv_ref": detail['inv_ref'],
-                        "picking_id": p_id,
-                        "service_acceptance_id": sa_id,
+                        "qty_received": sa_qty_received,
+                        "qty_pending_invoice": sa_qty_received,
+                        "receipt_ref": f"↳ ✅ {sa.name}",
+                        "receipt_date": sa.date,
+                        "inv_ref": getattr(sa, 'invoice_ref', '') or "",
+                        "picking_id": False,
+                        "service_acceptance_id": sa.id,
                         "is_pending": False,
-                        "subtotal": 0.0,
+                        "subtotal": sa_subtotal,
                         "is_billable": not is_already_billed,
                         "is_already_billed": is_already_billed,
+                        "billing_note_status": 'fully' if is_already_billed else 'no',
                     })
                     lines.append(d_row)
-
-                # --- 3. Pending Row (if any balance) ---
-                total_receipt_qty = sum(d['qty_received'] for d in detail_lines_data)
-                if order_line.product_qty > total_receipt_qty + 0.001:
-                    pending_qty = order_line.product_qty - total_receipt_qty
-                    p_row = base_dict.copy()
-                    p_row.update({
-                        "is_header": False,
-                        "qty": 0.0,
-                        "qty_received": 0.0,
-                        "qty_invoiced": 0.0,
-                        "qty_pending": pending_qty,
-                        "qty_pending_invoice": 0.0,
-                        "receipt_ref": f"↳ {_('🕒 Pending Balance')}",
-                        "receipt_date": False,
-                        "inv_ref": "",
-                        "is_pending": True,
-                        "subtotal": 0.0,
-                        "is_billable": False,
-                        "is_already_billed": False,
-                    })
-                    lines.append(p_row)
 
         return lines
 

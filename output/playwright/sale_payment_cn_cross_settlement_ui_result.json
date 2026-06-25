@@ -1,0 +1,39 @@
+{
+  "baseUrl": "http://127.0.0.1:8814",
+  "db": "GoldMints_Uat_Manu",
+  "saleOrderId": 17013,
+  "saleOrderName": "S12005",
+  "invoiceId": 75414,
+  "invoiceName": "INV-D/2026/00028",
+  "creditNoteName": "RINV-D/2026/00012",
+  "screenshots": {
+    "saleOrder": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_payment_cn_cross_settlement_01_sale_order.png",
+    "wizardBefore": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_payment_cn_cross_settlement_02_wizard_before.png",
+    "wizardAfterSelect": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_payment_cn_cross_settlement_03_wizard_after_select.png",
+    "invoiceAfterPayment": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_payment_cn_cross_settlement_04_invoice_after_payment.png",
+    "error": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_payment_cn_cross_settlement_error.png"
+  },
+  "startedAt": "2026-06-22T10:43:41.505Z",
+  "checks": {
+    "saleOrderOpened": true,
+    "receivePaymentButtonVisible": true,
+    "hasPartnerSettlementTab": true,
+    "hasCrossSettlementPanel": true,
+    "creditNoteVisibleBeforeSelect": true,
+    "hasOldSeparateCreditNoteHeader": false,
+    "hasPaymentJournalItemsPreviewBefore": false,
+    "amountReducedTo7500": true,
+    "creditNoteAmount2500Visible": true,
+    "hasPaymentDifference": false,
+    "hasPaymentJournalItemsPreviewAfter": false,
+    "hasRpcError": false,
+    "finalPaid": true,
+    "amountDueZero": true
+  },
+  "wizardBeforeSample": "Database neutralized for testing: no emails sent, etc.\n1\n67\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nS12005\n1\nInvoices\n1 / 1\nชำระเงิน\nSend by Email\nUnlock\nPreview\nCancel\nCreate Job Request\nSimulation Print\nSales Order1m\nTo Approve\nQuotation\n Locked\nS12005\nCustomer\n00595 -> DENKI SHOJI CO.,LTD.\nThailand\nInvoice Address\nDENKI SHOJI CO.,LTD.\nDelivery Address\nDENKI SHOJI CO.,LTD.\nIs Exported?\nExported Date\nSale Number (AX)\nSO Type\nใบกำกับภาษีแบบเต็ม\nOrder Date?\n06/22/2026 17:43:29\nPricelist?\nPayment Terms\nCustomer Payment\nNot Paid\nCustomer Balance\n$ 10,000.00\nCustomer Reference\nApply Manual Exchange\nDelivery Date?\n06/22/2026 17:43:29\nเลขที่เอกสาร?\nยอดชำระแล้ว\n$ 0.00\nOrder Lines\nOther Info\nSale Note\n\t\nNo.\n\t\nProduct\n\t\nQuantity\n\t\nDelivered\n\t\t\nInvoiced\n\t\nUoM\n\t\nUnit Price\n\t\nTaxes\n\t\nDisc.%\n\t\nAmount\n\t\n\n\t1\t\n[000805] เงินมัดจำจ่ายล่วงหน้า\n\t1.00\t1.00\t\n\t1.00\tUnit\t10,000.00\t\n\t0.00\t$ 10,000.00\t\n​\n​\n​\n\t\t\t\t\t\t\t\t\t\t\t\t\nUntaxed Amount\t$ 10,000.00\nTotal\t$ 10,000.00\nSend message\nLog note\nActivities\n1\nFollow\nToday\nOdooBot\nToday at 5:43 PM\n\nSales Order created\n\nReceive Payment\nJournal\nPayment Method?\nAmount\n$ \n10,000.00\n$ \nPayment Date\nApply Manual Exchange\nPartner Settlement\nCROSS SETTLEMENT (AP/AR)\nCredit Note Amount\n$ 0.00\nSelect\n\t\nType\n\t\nCredit Note\n\t\nDate\n\t\nAccount\n\t\nOpen Amount\n\t\nApply Amount\n\n \tCN\tRINV-D/2026/00012 (CODX-CN-SETTLEMENT-UI-USD-RERUN)\t06/22/2026\t113000 ลูกหนี้การค้า\t$ 2,500.00\t$ 0.00\n​\n​\n​\n\t\t\t\t\t\t\nCross Settlement Amount\n$ 0.00\nSelect AllUnselect All\nSelect\n\t\nType\n\t\nDocument\n\t\nDate\n\t\nAccount\n\t\nOpen Amount\n\t\nSettle Amount\n\n \tBill\tAPD/2026/05/0003\t05/26/2026\t212001 เจ้าหนี้การค้า - ในประเทศ\t$ 24,283.00\t$ 0.00\n​\n​\n​\n\t\t\t\t\t\t\nINVOICES ALLOCATION\nเลขที่ใบแจ้งหนี้\n\t\nยอดทั้งหมด\n\t\nยอดคงเหลือ\n\t\nยอดจ่าย\n\nINV-D/2026/00028\t$ 10,000.00\t$ 0.00\t$ 10,000.00\n​\n​\n​\n\t\t\t$ 10,000.00\nCreate Payment\nDiscard",
+  "wizardAfterSelectSample": "Database neutralized for testing: no emails sent, etc.\n1\n67\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nS12005\n1\nInvoices\n1 / 1\nชำระเงิน\nSend by Email\nUnlock\nPreview\nCancel\nCreate Job Request\nSimulation Print\nSales Order1m\nTo Approve\nQuotation\n Locked\nS12005\nCustomer\n00595 -> DENKI SHOJI CO.,LTD.\nThailand\nInvoice Address\nDENKI SHOJI CO.,LTD.\nDelivery Address\nDENKI SHOJI CO.,LTD.\nIs Exported?\nExported Date\nSale Number (AX)\nSO Type\nใบกำกับภาษีแบบเต็ม\nOrder Date?\n06/22/2026 17:43:29\nPricelist?\nPayment Terms\nCustomer Payment\nNot Paid\nCustomer Balance\n$ 10,000.00\nCustomer Reference\nApply Manual Exchange\nDelivery Date?\n06/22/2026 17:43:29\nเลขที่เอกสาร?\nยอดชำระแล้ว\n$ 0.00\nOrder Lines\nOther Info\nSale Note\n\t\nNo.\n\t\nProduct\n\t\nQuantity\n\t\nDelivered\n\t\t\nInvoiced\n\t\nUoM\n\t\nUnit Price\n\t\nTaxes\n\t\nDisc.%\n\t\nAmount\n\t\n\n\t1\t\n[000805] เงินมัดจำจ่ายล่วงหน้า\n\t1.00\t1.00\t\n\t1.00\tUnit\t10,000.00\t\n\t0.00\t$ 10,000.00\t\n​\n​\n​\n\t\t\t\t\t\t\t\t\t\t\t\t\nUntaxed Amount\t$ 10,000.00\nTotal\t$ 10,000.00\nSend message\nLog note\nActivities\n1\nFollow\nToday\nOdooBot\nToday at 5:43 PM\n\nSales Order created\n\nReceive Payment\nJournal\nPayment Method?\nAmount\n$ \n7,500.00\n$ \nPayment Date\nApply Manual Exchange\nPartner Settlement\nCROSS SETTLEMENT (AP/AR)\nCredit Note Amount\n$ 2,500.00\nSelect\n\t\nType\n\t\nCredit Note\n\t\nDate\n\t\nAccount\n\t\nOpen Amount\n\t\nApply Amount\n\n\n\t\nCN\n\t\nRINV-D/2026/00012 (CODX-CN-SETTLEMENT-UI-USD-RERUN)\n\t\n06/22/2026\n\t\n113000 ลูกหนี้การค้า\n\t\n$ 2,500.00\n\t\n$ \n2,500.00\n$ \n\n​\n​\n​\n\t\t\t\t\t\t\nCross Settlement Amount\n$ 0.00\nSelect AllUnselect All\nSelect\n\t\nType\n\t\nDocument\n\t\nDate\n\t\nAccount\n\t\nOpen Amount\n\t\nSettle Amount\n\n \tBill\tAPD/2026/05/0003\t05/26/2026\t212001 เจ้าหนี้การค้า - ในประเทศ\t$ 24,283.00\t$ 0.00\n​\n​\n​\n\t\t\t\t\t\t\nINVOICES ALLOCATION\nเลขที่ใบแจ้งหนี้\n\t\nยอดทั้งหมด\n\t\nยอดคงเหลือ\n\t\nยอดจ่าย\n\nINV-D/2026/00028\t$ 10,000.00\t$ 2,500.00\t$ 7,500.00\n​\n​\n​\n\t\t\t$ 7,500.00\nCreate Payment\nDiscard",
+  "finalTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n67\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nINV-D/2026/00028\n1\nPayments\n1\nSale Orders\n1 / 1\nSend\nPrint\nPreview\nCredit Note\nDebit Note\nReset to Draft\nPosted\nDraft\nWarning: this document might be a duplicate of\nUI-PS-TAB-20260622041905-INV (10,000.00 ฿)\n,\nUI-PS-TAB-RO-20260622115521-INV (10,000.00 ฿)\n,\nINV-D/2026/00027 ($ 10,000.000000)\n... (View all)\nPAID\nCustomer Invoice\nINV-D/2026/00028\nCustomer\nMobile Warehouse\nDENKI SHOJI CO.,LTD.\n \nThailand\nApply Manual Exchange\nDelivery Address?\nDENKI SHOJI CO.,LTD.\nInvoice Date\n06/22/2026\nPeriod\n06/2026\nFiscal Year\n2026\nDue Date\nCustomer Reference\nJournal\nDomestic Customer Invoice\nin\nUSD\n1\nTHB\n=\n0.03\nUSD\nInvoice Lines\nJournal Items\nOther Info\nSale Note\n\t\nNo.\n\t\nProduct\n\t\nAccount\n\t\nAnalytic\n\t\nQuantity\n\t\nUoM\n\t\nFree of Charge\n\t\nPrice\n\t\nDisc.(AMT)\n\t\nDisc.(%)\n\t\nTaxes\n\t\nManual Tax Invoice\n\t\nWHT\n\t\nAmount\n\t\n\n\t1\t\n[000805] เงินมัดจำจ่ายล่วงหน้า\n\t430000 รายได้อื่น\t\n[301] ฝ่ายขาย\n\t1.00\tUnit\t \t10,000.00\t0.00\t0.00\t\n\t \t\n\t$ 10,000.00\t\n​\n​\n​\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\nUntaxed Amount\t$ 10,000.00\nTotal\t$ 10,000.00\n\tPaid on 06/22/2026\t$ 7,500.00\n\tPaid on 06/22/2026\t$ 2,500.00\nAmount Due\n$ 0.00\nSend message\nLog note\nActivities\n1\nFollow\nToday\nAdministrator\nToday at 5:45 PM\n\nInvoice paid\n\nNot PaidPaid(Payment Status)\nOdooBot\nToday at 5:43 PM\n\nThis journal entry has been created from: S12005\n\nOdooBot\nToday at 5:43 PM\n\nInvoice Created",
+  "finalUrl": "http://127.0.0.1:8814/odoo/account.move/75414",
+  "status": "passed_ui",
+  "finishedAt": "2026-06-22T10:46:56.057Z"
+}

@@ -290,11 +290,7 @@ class MrpProduction(models.Model):
 
         for move in self.move_raw_ids.filtered(lambda m: m.state not in ("done", "cancel")):
             rounding = move.product_uom.rounding or 0.000001
-            # Shortage = New Total Demand - Currently Reserved
-            shortage = float_round(
-                move.product_uom_qty - move.quantity,
-                precision_rounding=rounding,
-            )
+            shortage = self._console_get_component_transfer_qty(move)
 
             if float_compare(shortage, 0.0, precision_rounding=rounding) <= 0:
                 continue
@@ -345,6 +341,8 @@ class MrpProduction(models.Model):
                 "location_id": src_loc.id,
                 "location_dest_id": move.location_id.id,
                 "picking_type_id": p_type.id,
+                "raw_material_production_id": self.id,
+                "move_dest_ids": [(4, move.id)],
             })
 
         if not replenishment_groups:
@@ -371,6 +369,27 @@ class MrpProduction(models.Model):
             self.message_post(body=msg)
 
         return created_pickings
+
+    def _console_get_component_transfer_qty(self, move):
+        self.ensure_one()
+        rounding = move.product_uom.rounding or 0.000001
+        transfer_moves = self.env["stock.move"].search([
+            ("id", "!=", move.id),
+            ("product_id", "=", move.product_id.id),
+            ("raw_material_production_id", "=", self.id),
+            ("picking_id.picking_type_id.code", "=", "internal"),
+            ("state", "!=", "cancel"),
+        ])
+        transferred_qty = 0.0
+        for transfer_move in transfer_moves:
+            transferred_qty += transfer_move.product_uom._compute_quantity(
+                transfer_move.product_uom_qty,
+                move.product_uom,
+            )
+        return float_round(
+            max(move.product_uom_qty - transferred_qty, 0.0),
+            precision_rounding=rounding,
+        )
 
 
     def _console_sync_component_overconsumption(self):

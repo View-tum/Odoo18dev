@@ -110,7 +110,7 @@ class AccountMoveLine(models.Model):
                 }
 
             total_price = line.quantity * line.price_unit
-            if line.fixed_discount > total_price:
+            if line.fixed_discount > 0 and line.fixed_discount > total_price:
                 line.fixed_discount = 0
                 return {
                     "warning": {

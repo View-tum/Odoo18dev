@@ -1,0 +1,1578 @@
+{
+    "routes": [
+        {
+            "id": 54,
+            "name": "Auto Transfer MTS (Packaging)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 135,
+                    "name": "Transfer MTS (copy) (Packaging)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Packaging",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 55,
+            "name": "Auto Transfer Semi (Packaging)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 136,
+                    "name": "Transfer SM (copy) (Packaging)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Packaging",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 60,
+            "name": "Auto Transfer Semi (Pharma)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 144,
+                    "name": "Transfer SM (copy) (Pharma)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Pharma",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 59,
+            "name": "Auto Transfer RM (Packaging)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 142,
+                    "name": "Transfer RM (copy) (Packaging)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/RM",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Packaging",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                },
+                {
+                    "id": 143,
+                    "name": "Transfer RM Replenish (copy) (Packaging)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "GMP/Stock/RM",
+                    "picking_type_id": "Transfer Packaging",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 61,
+            "name": "Auto Transfer Semi (Plastic)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 145,
+                    "name": "Transfer SM (copy) (Plastic)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Plastic",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 58,
+            "name": "Auto Transfer RM (Plastic)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 140,
+                    "name": "Transfer RM (copy) (Plastic)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/RM",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Plastic",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 57,
+            "name": "Auto Transfer RM (Pharma)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 138,
+                    "name": "Transfer RM (copy) (Pharma)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/RM",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Pharma",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                },
+                {
+                    "id": 139,
+                    "name": "Transfer RM Replenish (copy) (Pharma)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "GMP/Stock/RM",
+                    "picking_type_id": "Transfer Pharma",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 56,
+            "name": "Auto Transfer MTS (Plastic)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 137,
+                    "name": "Transfer MTS (copy) (Plastic)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Plastic",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 53,
+            "name": "Auto Transfer MTS (Pharma)",
+            "sequence": -5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 134,
+                    "name": "Transfer MTS (copy) (Pharma)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Transfer Pharma",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 63,
+            "name": "Manufacture (Plastic)",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 147,
+                    "name": "GMP: Stock (Production) (copy) (Plastic)",
+                    "action": "manufacture",
+                    "location_src_id": "GMP/Stock/คลังลอย",
+                    "location_dest_id": "GMP/Stock",
+                    "picking_type_id": "Manufacturing Plastic",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Mobile Warehouse: Supply Product from GOLD MINTS PRODUCTS CO., LTD.",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 37,
+                    "name": "GMP: Output → Inter-warehouse transit",
+                    "action": "pull",
+                    "location_src_id": "GMP/Output",
+                    "location_dest_id": "Physical Locations/Inter-warehouse transit",
+                    "picking_type_id": "Delivery Orders",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                },
+                {
+                    "id": 38,
+                    "name": "GMP: Stock → Output",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "GMP/Output",
+                    "picking_type_id": "Pick",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                },
+                {
+                    "id": 39,
+                    "name": "M-WH: Inter-warehouse transit → Stock",
+                    "action": "pull",
+                    "location_src_id": "Physical Locations/Inter-warehouse transit",
+                    "location_dest_id": "M-WH/Stock",
+                    "picking_type_id": "Receipts",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Auto Transfer MTS",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 44,
+                    "name": "Transfer MTS",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Internal Transfers",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Auto Transfer RM",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 40,
+                    "name": "Transfer RM",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/RM",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Internal Transfers",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Auto Transfer Semi",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 43,
+                    "name": "Transfer SM",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/Semi",
+                    "location_dest_id": "GMP/Stock/คลังลอย",
+                    "picking_type_id": "Internal Transfers",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 62,
+            "name": "Manufacture (Pharma)",
+            "sequence": 0,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 146,
+                    "name": "GMP: Stock (Production) (copy) (Pharma)",
+                    "action": "manufacture",
+                    "location_src_id": "GMP/Stock/คลังลอย",
+                    "location_dest_id": "GMP/Stock",
+                    "picking_type_id": "Manufacturing Pharma",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Buy",
+            "sequence": 5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 7,
+                    "name": "GMP: Stock (Buy)",
+                    "action": "buy",
+                    "location_src_id": false,
+                    "location_dest_id": "GMP/Stock",
+                    "picking_type_id": "Receipts",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Replenish on Order (MTO)",
+            "sequence": 5,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": true,
+            "rules": [
+                {
+                    "id": 5,
+                    "name": "GMP: Stock → Customers (MTO)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Pick",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                },
+                {
+                    "id": 9,
+                    "name": "GMP: Stock → Production (MTO)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock/คลังลอย",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Manufacturing",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                },
+                {
+                    "id": 13,
+                    "name": "WH: Stock → Subcontracting Location (MTO)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Physical Locations/Subcontracting Location",
+                    "picking_type_id": "Resupply Subcontractor",
+                    "procure_method": "mts_else_mto",
+                    "sequence": 20
+                },
+                {
+                    "id": 22,
+                    "name": "M-WH: Stock → Customers (MTO)",
+                    "action": "pull",
+                    "location_src_id": "M-WH/Stock",
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Delivery Orders",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                },
+                {
+                    "id": 29,
+                    "name": "M-WH: Stock → Production (MTO)",
+                    "action": "pull",
+                    "location_src_id": "M-WH/Stock",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Repairs",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                },
+                {
+                    "id": 36,
+                    "name": "GMP: Stock → Production (MTO)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Repairs",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                },
+                {
+                    "id": 45,
+                    "name": "GMP: Stock → Production (MTO)",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Repairs",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                },
+                {
+                    "id": 46,
+                    "name": "M-WH: Stock → Production (MTO)",
+                    "action": "pull",
+                    "location_src_id": "M-WH/Stock",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Repairs",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "GOLD MINTS PRODUCTS CO., LTD.: Receive in 2 steps (input + stock)",
+            "sequence": 9,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 34,
+                    "name": "GMP: Input → Stock",
+                    "action": "push",
+                    "location_src_id": "GMP/HOLD-V",
+                    "location_dest_id": "GMP/Stock",
+                    "picking_type_id": "Storage",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Mobile Warehouse: Receive in 1 step (stock)",
+            "sequence": 9,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": []
+        },
+        {
+            "id": 9,
+            "name": "GOLD MINTS PRODUCTS CO., LTD.: Resupply Subcontractor",
+            "sequence": 10,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 12,
+                    "name": "WH: Stock → Subcontracting Location",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Physical Locations/Subcontracting Location",
+                    "picking_type_id": "Resupply Subcontractor",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "GOLD MINTS PRODUCTS CO., LTD.: Deliver in 2 steps (pick + ship)",
+            "sequence": 10,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 19,
+                    "name": "WH: Output → Customers",
+                    "action": "push",
+                    "location_src_id": "GMP/Output",
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Delivery Orders",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                },
+                {
+                    "id": 47,
+                    "name": "GMP: Stock → Customers",
+                    "action": "pull",
+                    "location_src_id": "GMP/Stock",
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Pick",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Manufacture",
+            "sequence": 10,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 8,
+                    "name": "GMP: Stock (Production)",
+                    "action": "manufacture",
+                    "location_src_id": false,
+                    "location_dest_id": "GMP/Stock",
+                    "picking_type_id": "Manufacturing",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Mobile Warehouse: Deliver in 1 step (ship)",
+            "sequence": 10,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": true,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 30,
+                    "name": "M-WH: Stock → Customers",
+                    "action": "pull",
+                    "location_src_id": "M-WH/Stock",
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Delivery Orders",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Resupply Subcontractor on Order",
+            "sequence": 15,
+            "active": true,
+            "product_selectable": true,
+            "warehouse_selectable": false,
+            "sale_selectable": false,
+            "rules": [
+                {
+                    "id": 14,
+                    "name": "WH: Subcontracting Location → Production",
+                    "action": "pull",
+                    "location_src_id": "Physical Locations/Subcontracting Location",
+                    "location_dest_id": "Virtual Locations/Production",
+                    "picking_type_id": "Resupply Subcontractor",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "GOLD MINTS PRODUCTS CO., LTD.: Cross-Dock",
+            "sequence": 20,
+            "active": true,
+            "product_selectable": false,
+            "warehouse_selectable": false,
+            "sale_selectable": true,
+            "rules": [
+                {
+                    "id": 4,
+                    "name": "WH: Input → Output",
+                    "action": "push",
+                    "location_src_id": "GMP/HOLD-V",
+                    "location_dest_id": "GMP/Output",
+                    "picking_type_id": "Cross Dock",
+                    "procure_method": "make_to_order",
+                    "sequence": 20
+                },
+                {
+                    "id": 6,
+                    "name": "WH: False → Customers",
+                    "action": "buy",
+                    "location_src_id": false,
+                    "location_dest_id": "Partners/Customers",
+                    "picking_type_id": "Receipts",
+                    "procure_method": "make_to_stock",
+                    "sequence": 20
+                }
+            ]
+        }
+    ],
+    "warehouses": [
+        {
+            "id": 1,
+            "name": "GOLD MINTS PRODUCTS CO., LTD.",
+            "code": "GMP",
+            "lot_stock_id": "GMP/Stock",
+            "wh_input_stock_loc_id": "GMP/HOLD-V",
+            "wh_output_stock_loc_id": "GMP/Output",
+            "wh_pack_stock_loc_id": "GMP/Packing Zone",
+            "manufacture_steps": "mrp_one_step",
+            "delivery_steps": "pick_ship",
+            "reception_steps": "two_steps"
+        },
+        {
+            "id": 2,
+            "name": "Mobile Warehouse",
+            "code": "M-WH",
+            "lot_stock_id": "M-WH/Stock",
+            "wh_input_stock_loc_id": "M-WH/Input",
+            "wh_output_stock_loc_id": "M-WH/Output",
+            "wh_pack_stock_loc_id": "M-WH/Packing Zone",
+            "manufacture_steps": "mrp_one_step",
+            "delivery_steps": "ship_only",
+            "reception_steps": "one_step"
+        }
+    ],
+    "picking_types": [
+        {
+            "id": 1,
+            "name": "Receipts",
+            "code": "incoming",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "Partners/Vendors",
+            "default_location_dest_id": "GMP/HOLD-V",
+            "sequence": 0,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": false,
+            "active": true
+        },
+        {
+            "id": 6,
+            "name": "Storage",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/HOLD-V",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 1,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 3,
+            "name": "Pick",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock/FG",
+            "default_location_dest_id": "GMP/Output",
+            "sequence": 2,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 7,
+            "name": "Internal Transfers",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP",
+            "default_location_dest_id": "GMP",
+            "sequence": 3,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 2,
+            "name": "Delivery Orders",
+            "code": "outgoing",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Output",
+            "default_location_dest_id": "Partners/Customers",
+            "sequence": 4,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 56,
+            "name": "Transfer Pharma",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "GMP/Stock/คลังลอย",
+            "sequence": 5,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 57,
+            "name": "Transfer Plastic",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "GMP/Stock/คลังลอย",
+            "sequence": 6,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 58,
+            "name": "Transfer Packaging",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 7,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 59,
+            "name": "Manufacturing Pharma",
+            "code": "mrp_operation",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock/คลังลอย",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 8,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 60,
+            "name": "Manufacturing Plastic",
+            "code": "mrp_operation",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock/คลังลอย",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 9,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 11,
+            "name": "Manufacturing",
+            "code": "mrp_operation",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 10,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 16,
+            "name": "Receipts",
+            "code": "incoming",
+            "warehouse_id": "Mobile Warehouse",
+            "default_location_src_id": "Partners/Vendors",
+            "default_location_dest_id": "M-WH/Stock",
+            "sequence": 11,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": false,
+            "active": true
+        },
+        {
+            "id": 22,
+            "name": "Internal Transfers",
+            "code": "internal",
+            "warehouse_id": "Mobile Warehouse",
+            "default_location_src_id": "M-WH/Stock",
+            "default_location_dest_id": "M-WH/Stock",
+            "sequence": 12,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 17,
+            "name": "Delivery Orders",
+            "code": "outgoing",
+            "warehouse_id": "Mobile Warehouse",
+            "default_location_src_id": "M-WH/Stock",
+            "default_location_dest_id": "Partners/Customers",
+            "sequence": 13,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 33,
+            "name": "ทดสอบคุณภาพ",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "ทดลองสินค้า",
+            "sequence": 14,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 34,
+            "name": "ส่งเสริมการขาย",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "ส่งเสริมการขาย",
+            "sequence": 15,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 61,
+            "name": "Return IN",
+            "code": "incoming",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "Partners/Customers",
+            "default_location_dest_id": "GMP/Stock",
+            "sequence": 16,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 62,
+            "name": "Return OUT",
+            "code": "outgoing",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "Partners/Vendors",
+            "sequence": 17,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 31,
+            "name": "Report As Finish",
+            "code": "incoming",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "Virtual Locations/Production",
+            "default_location_dest_id": "GMP/Stock/FG",
+            "sequence": 18,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 32,
+            "name": "Adjust Report As Finish",
+            "code": "outgoing",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock/FG",
+            "default_location_dest_id": "Virtual Locations/Production",
+            "sequence": 19,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 12,
+            "name": "Repairs",
+            "code": "repair_operation",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "Virtual Locations/Production",
+            "sequence": 20,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 30,
+            "name": "Repairs",
+            "code": "repair_operation",
+            "warehouse_id": "Mobile Warehouse",
+            "default_location_src_id": "M-WH/Stock",
+            "default_location_dest_id": "Virtual Locations/Production",
+            "sequence": 21,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 13,
+            "name": "PoS Orders",
+            "code": "outgoing",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "Partners/Customers",
+            "sequence": 22,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": true,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 15,
+            "name": "Resupply Subcontractor",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/Stock",
+            "default_location_dest_id": "Physical Locations/Subcontracting Location",
+            "sequence": 23,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        },
+        {
+            "id": 8,
+            "name": "Cross Dock",
+            "code": "internal",
+            "warehouse_id": "GOLD MINTS PRODUCTS CO., LTD.",
+            "default_location_src_id": "GMP/HOLD-V",
+            "default_location_dest_id": "GMP/Output",
+            "sequence": 24,
+            "reservation_method": "at_confirm",
+            "create_backorder": "ask",
+            "use_create_lots": false,
+            "use_existing_lots": true,
+            "active": true
+        }
+    ],
+    "orderpoints": [
+        {
+            "id": 25,
+            "product_id": "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 21581.17
+        },
+        {
+            "id": 26,
+            "product_id": "[RM-MBS-WH-00001] สีผสมพลาสติก สีขาว",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 3073.87
+        },
+        {
+            "id": 27,
+            "product_id": "[SM-PLS-LO-02001] ชิ้นส่วนยาดมตัวล่างW02",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 119000885.0
+        },
+        {
+            "id": 28,
+            "product_id": "[SM-PLS-MI-02001] ชิ้นส่วนยาดมตัวกลางW02",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 8000.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 2559844.0
+        },
+        {
+            "id": 29,
+            "product_id": "[PK-BOX-PS-01002] กล่องยาดม PS สามัญ กล่อง 5โหล",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 96695.0
+        },
+        {
+            "id": 30,
+            "product_id": "[PK-BLS-PS-01014] แผง 3 ยาดม PS สามัญ",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 305473.0
+        },
+        {
+            "id": 31,
+            "product_id": "[RM-PET-RO-00001] PETแบบม้วน  380x0.25mm  สีใส",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 17022.19
+        },
+        {
+            "id": 32,
+            "product_id": "[RM-FIL-PS-01002] ก้นกรอง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 40633538.0
+        },
+        {
+            "id": 33,
+            "product_id": "[RM-FIL-PS-01003] ก้นกรองกระปุก",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 400000.0
+        },
+        {
+            "id": 34,
+            "product_id": "[RM-FIL-PS-01004] ก้นกรองชุบน้ำยา PS",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 1260846.0
+        },
+        {
+            "id": 35,
+            "product_id": "[RM-MBS-GR-00001] สีผสมพลาสติก สีเขียว",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1131.04
+        },
+        {
+            "id": 36,
+            "product_id": "[RM-PLA-PP-00002] เม็ดพลาสติก RP348N 750Kg",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1468.89
+        },
+        {
+            "id": 37,
+            "product_id": "[SM-PLS-PU-02001] ชิ้นส่วนยาดมตัวอุดหลอดน้ำW02",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 49600.0
+        },
+        {
+            "id": 38,
+            "product_id": "[SM-PLS-TU-02001] ชิ้นส่วนยาดมหลอดน้ำW02",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 15000.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 1475836.0
+        },
+        {
+            "id": 39,
+            "product_id": "[SM-PSS-TH-03002] ชิ้นส่วนยาดม PS ตัวล่าง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 1851449.0
+        },
+        {
+            "id": 40,
+            "product_id": "[SM-PSS-TH-02002] ชิ้นส่วนยาดม PS ตัวล่าง+หลอดน้ำ",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 4561901.0
+        },
+        {
+            "id": 41,
+            "product_id": "[SM-PLS-UP-02001] ชิ้นส่วนยาดมตัวบน W02",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 119199657.0
+        },
+        {
+            "id": 42,
+            "product_id": "[SM-PSS-TH-03001] ชิ้นส่วนยาดม PS ตัวบน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 591570.0
+        },
+        {
+            "id": 43,
+            "product_id": "[SM-PSS-TH-02001] ชิ้นส่วนยาดม PS ตัวบน+ตัวกลาง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 4464473.01
+        },
+        {
+            "id": 44,
+            "product_id": "[RM-MBS-PK-00001] สีผสมพลาสติก สีชมพูสะท้อนแสง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1094.61
+        },
+        {
+            "id": 45,
+            "product_id": "[SM-JOI-PK-02002] ตัวต่อสี W02 ชมพูสะท้อนแสง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 10000.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 617100.0
+        },
+        {
+            "id": 46,
+            "product_id": "[RM-MBS-VL-00001] สีผสมพลาสติก สีม่วง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1095.14
+        },
+        {
+            "id": 47,
+            "product_id": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 10000.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 1490547.0
+        },
+        {
+            "id": 48,
+            "product_id": "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1191.92
+        },
+        {
+            "id": 49,
+            "product_id": "[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 600147.0
+        },
+        {
+            "id": 50,
+            "product_id": "[RM-MBS-YL-00001] สีผสมพลาสติก สีเหลือง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1135.79
+        },
+        {
+            "id": 51,
+            "product_id": "[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 10000.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 2896836.0
+        },
+        {
+            "id": 52,
+            "product_id": "[RM-MBS-BU-00001] สีผสมพลาสติก สีน้ำเงิน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1115.0
+        },
+        {
+            "id": 53,
+            "product_id": "[FG-PSS-TH-04001] ยาดมโป๊ยเซียนชมพูสะท้อนแสง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 485.0
+        },
+        {
+            "id": 54,
+            "product_id": "[FG-PSS-TH-04002] ยาดมโป๊ยเซียนม่วง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 0.0
+        },
+        {
+            "id": 55,
+            "product_id": "[FG-PSS-TH-04003] ยาดมโป๊ยเซียนชมพู",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 0.0
+        },
+        {
+            "id": 56,
+            "product_id": "[FG-PSS-TH-04004] ยาดมโป๊ยเซียนฟ้า",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": -3000.0
+        },
+        {
+            "id": 57,
+            "product_id": "[FG-PSS-TH-04005] ยาดมโป๊ยเซียนเหลือง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": -3000.0
+        },
+        {
+            "id": 58,
+            "product_id": "[FG-PSS-TH-04006] ยาดมโป๊ยเซียนเขียว",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": -3400.0
+        },
+        {
+            "id": 59,
+            "product_id": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 111567.0
+        },
+        {
+            "id": 60,
+            "product_id": "[SO-PSS-LO-01001] น้ำยา PS Solution",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 6282.14
+        },
+        {
+            "id": 61,
+            "product_id": "[SO-PSS-UP-01001] น้ำยา PS Inhaler",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Manufacture",
+            "qty_forecast": 4717.44
+        },
+        {
+            "id": 62,
+            "product_id": "[PK-SHF-PS-01003] ShrinkFilm ยาดม PS-PePex  5โหล 360x700x19",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 1061.96
+        },
+        {
+            "id": 63,
+            "product_id": "[RM-HTF-TH-00002] ฉลาก HTF PS ตัวล่าง",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 0.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 68073800.0
+        },
+        {
+            "id": 64,
+            "product_id": "[RM-HTF-TH-00001] ฉลาก HTF PS ตัวบน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 0.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 67470078.0
+        },
+        {
+            "id": 65,
+            "product_id": "เทปกาว",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 200.0,
+            "product_max_qty": 1000.0,
+            "qty_multiple": 0.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 999880.41
+        },
+        {
+            "id": 66,
+            "product_id": "[PK-CAR-PS-01016] ลังยาดม PS 100โหล 31x39x58",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 10243.0
+        },
+        {
+            "id": 67,
+            "product_id": "[SM-PSS-DE-03001] ชิ้นส่วนยาดม PS ตัวบน เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Replenish on Order (MTO)",
+            "qty_forecast": -1280156.0
+        },
+        {
+            "id": 68,
+            "product_id": "[SM-PSS-DE-02001] ชิ้นส่วนยาดม PS ตัวบน+ตัวกลาง เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Replenish on Order (MTO)",
+            "qty_forecast": -66168.0
+        },
+        {
+            "id": 69,
+            "product_id": "[SM-PSS-DE-03002] ชิ้นส่วนยาดม PS ตัวล่าง เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Replenish on Order (MTO)",
+            "qty_forecast": -1308618.0
+        },
+        {
+            "id": 70,
+            "product_id": "[SM-PSS-DE-02002] ชิ้นส่วนยาดม PS ตัวล่าง+หลอดน้ำ เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Replenish on Order (MTO)",
+            "qty_forecast": -1347822.0
+        },
+        {
+            "id": 71,
+            "product_id": "[PK-CAR-PS-01013] ลังยาดม PS 200แผง 31x39x58",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 11255.41
+        },
+        {
+            "id": 72,
+            "product_id": "[PK-BOX-PS-01005] กล่องยาดม PS 5โหล เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 4711.0
+        },
+        {
+            "id": 73,
+            "product_id": "[RM-HTF-DE-00001] ฉลาก HTF PS ตัวบน เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 220961.0
+        },
+        {
+            "id": 74,
+            "product_id": "[RM-HTF-DE-00002] ฉลาก HTF PS ตัวล่าง เยอรมัน",
+            "location_id": "GMP/Stock",
+            "product_min_qty": 0.0,
+            "product_max_qty": 0.0,
+            "qty_multiple": 1.0,
+            "trigger": "auto",
+            "route_id": "Buy",
+            "qty_forecast": 221713.0
+        }
+    ]
+}

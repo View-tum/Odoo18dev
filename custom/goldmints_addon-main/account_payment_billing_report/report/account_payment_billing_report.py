@@ -268,7 +268,7 @@ class AccountPaymentBillingReport(models.TransientModel):
                     "sticky": False,
                 },
             }
-            
+
         where_conditions = """
             am.move_type = 'out_invoice'
             AND am.state = 'posted'
@@ -278,7 +278,7 @@ class AccountPaymentBillingReport(models.TransientModel):
         params = []
 
         if self.promised_payment_date:
-            where_conditions += " AND abl.promised_payment_date = %s"
+            where_conditions += " AND abl.billing_schedule_date = %s"
             params.append(self.promised_payment_date)
         else:
             where_conditions += (

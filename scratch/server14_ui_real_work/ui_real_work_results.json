@@ -1,0 +1,169 @@
+{
+  "generatedAt": "2026-06-06T11:12:51.275Z",
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "results": [
+    {
+      "defect": "LOGIN",
+      "title": "Login to server 14 UI",
+      "status": "PASS",
+      "evidence": "url=http://10.0.0.14/odoo text=Database neutralized for testing: no emails sent, etc. 3 48 GOLD MINTS PRODUCTS CO., LTD. Accounting Sales Cheque Job Requests Discuss Calendar Contac",
+      "screenshot": "scratch/server14_ui_real_work/000_login_after_submit.png"
+    },
+    {
+      "defect": "1677",
+      "title": "MO list eye column has Show in Shopfloor header and no toggle column",
+      "status": "PASS",
+      "evidence": "headers=[{\"i\":0,\"text\":\"\"},{\"i\":1,\"text\":\"\"},{\"i\":2,\"text\":\"Show in Shopfloor\"},{\"i\":3,\"text\":\"Reference\"},{\"i\":4,\"text\":\"Start\"},{\"i\":5,\"text\":\"MPS Week\"},{\"i\":6,\"text\":\"Product\"},{\"i\":7,\"text\":\"Manufacturing Type\"},{\"i\":8,\"text\":\"Next Activity\"},{\"i\":9,\"text\":\"Source\"}] eyeButtons=82 toggles=0",
+      "screenshot": "scratch/server14_ui_real_work/1677_mo_shopfloor_header.png"
+    },
+    {
+      "defect": "1611",
+      "title": "Billing Note from existing APD/CN opens in one Lines tab",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"odoo.exceptions.AccessError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  Fil",
+      "screenshot": "scratch/server14_ui_real_work/1665_bn_payment_error.png"
+    },
+    {
+      "defect": "1665",
+      "title": "Register Payment UI nets Vendor Bill and Credit Note correctly",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"odoo.exceptions.AccessError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  Fil",
+      "screenshot": "scratch/server14_ui_real_work/1665_bn_payment_error.png"
+    },
+    {
+      "defect": "1654",
+      "title": "Payment Difference should be zero/absent in Register Payment UI",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"odoo.exceptions.AccessError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  Fil",
+      "screenshot": "scratch/server14_ui_real_work/1665_bn_payment_error.png"
+    },
+    {
+      "defect": "1685",
+      "title": "PO Status Report UI has clear Lines tab with APD/CN Billing Note action",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"odoo.exceptions.AccessError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  Fil",
+      "screenshot": "scratch/server14_ui_real_work/1685_error.png"
+    },
+    {
+      "defect": "1682",
+      "title": "Delivery Slip PDF opens from authenticated browser session",
+      "status": "PASS",
+      "evidence": "status=200 ctype=application/pdf bytes=22104 head=%PDF-1.4 1 0 obj << ",
+      "screenshot": null
+    },
+    {
+      "defect": "1659",
+      "title": "Picking Operations PDF opens from authenticated browser session",
+      "status": "FAIL",
+      "evidence": "status=500 ctype=text/html;charset=utf-8 bytes=2508 head=  errorTxt=scratch/server14_ui_real_work/1659_stock_report_picking_500.txt",
+      "screenshot": null
+    },
+    {
+      "defect": "1683",
+      "title": "Manual Merge Internal Transfer action exists on Operations and MO UI bindings",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"odoo.exceptions.AccessError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  Fil",
+      "screenshot": null
+    },
+    {
+      "defect": "1625",
+      "title": "Equity statement report exists",
+      "status": "FAIL",
+      "evidence": "reports=[]",
+      "screenshot": null
+    },
+    {
+      "defect": "1626",
+      "title": "Cost of sales report exists",
+      "status": "FAIL",
+      "evidence": "reports=[]",
+      "screenshot": null
+    },
+    {
+      "defect": "1680",
+      "title": "Original tax invoice print-once control exists",
+      "status": "FAIL",
+      "evidence": "taxReports=[] printFields=[]",
+      "screenshot": null
+    },
+    {
+      "defect": "1667",
+      "title": "Vendor return UI has credit-note action and existing return data",
+      "status": "FAIL",
+      "evidence": "{\"code\":200,\"message\":\"Odoo Server Error\",\"data\":{\"name\":\"builtins.ValueError\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt",
+      "screenshot": null
+    },
+    {
+      "defect": "1672",
+      "title": "Material Lot List action/report exists and MO state can be checked",
+      "status": "FAIL",
+      "evidence": "reports=[] mo=[{\"id\":905,\"name\":\"GMP/MO/00007\",\"state\":\"confirmed\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1674",
+      "title": "International SO unavailable material has generated PO evidence",
+      "status": "FAIL",
+      "evidence": "saleOrder=[{\"id\":16644,\"name\":\"SOE-260064\",\"mrp_production_count\":17,\"purchase_order_count\":0,\"state\":\"sale\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1678",
+      "title": "Product Transform completed records visible with stock moves",
+      "status": "PASS",
+      "evidence": "transforms=[{\"id\":35,\"name\":\"PTRAN/2026/05/000044\",\"move_out_id\":[31902,\"FG-PPR-TH-01002: FG>Transform Location\"],\"move_in_id\":[31903,\"FG-PPR-TH-01001: Transform Location>FG\"],\"state\":\"done\"},{\"id\":34,\"name\":\"PTRAN/2026/05/000043\",\"move_out_id\":[30889,\"FG-PSS-TH-01002: Customers>Transform Location\"],\"move_in_id\":[30890,\"Transform Location>Customers\"],\"state\":\"done\"},{\"id\":33,\"name\":\"PTRAN/2026/05/000042\",\"move_out_id\":[30887,\"FG-PSS-TH-01002: Customers>Transform Location\"],\"move_in_id\":[30888,\"FG-PSS-TH-01001: Transform Location>Customers\"],\"state\":\"done\"},{\"id\":30,\"name\":\"PTRAN/2026/04/000041\",\"move_out_id\":[23981,\"FG-PSS-TH-01002: None>Transform Location\"],\"move_in_id\":[23982,\"FG-PSS-TH-01001: Transform Location>None\"],\"state\":\"done\"},{\"id\":29,\"name\":\"PTRAN/2026/03/000040\",\"move_out_id\":[20828,\"FG-PSS-TH-01001: FG>Transform Location\"],\"move_in_id\":[20829,\"FG-PSS-TH-01002: Transform Location>FG\"],\"state\":\"done\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1679",
+      "title": "Van Sales mobile flow created posted invoice",
+      "status": "PASS",
+      "evidence": "invoices=[{\"id\":69788,\"name\":\"INV-D/26/06/00005\",\"payment_state\":\"paid\",\"amount_total\":3420,\"invoice_origin\":\"SOD-263080\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1684",
+      "title": "Contract expiry reminder cron active",
+      "status": true,
+      "evidence": "PASS",
+      "screenshot": "crons=[{\"id\":70,\"name\":\"Contract Auto-Expire - Daily\",\"active\":true,\"interval_number\":1,\"interval_type\":\"days\"},{\"id\":69,\"name\":\"Contract Expiry Reminder - Daily\",\"active\":true,\"interval_number\":1,\"interval_type\":\"days\"}]"
+    },
+    {
+      "defect": "1688",
+      "title": "Multiple customer payments receipt voucher print action/data exists",
+      "status": "PASS",
+      "evidence": "payments=[{\"id\":3714,\"name\":\"PPBAY1/2026/00464\",\"amount\":41595.75,\"partner_id\":[253051,\"OK. มาร์ท\"],\"date\":\"2026-06-05\",\"state\":\"paid\"}] reports=[{\"id\":235,\"name\":\"Payment Receipt\",\"model\":\"account.payment\",\"report_name\":\"account.report_payment_receipt\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1633",
+      "title": "Asset model uses required clearing accounts 123008/123010",
+      "status": "FAIL",
+      "evidence": "{\"code\":404,\"message\":\"404: Not Found\",\"data\":{\"name\":\"werkzeug.exceptions.NotFound\",\"debug\":\"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 22, in _call_kw_readonly\\n    model_class = request.registry[params['model']]\\n                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/modules/registry.py\\\", line 244, in __getitem__\\n    return self.models[model_name]\\n           ~~~~~~~~~~~^^^^^^^^^^^^\\nKeyError: 'account.asset.model'\\n\\nThe above exception was the direct cause of the following exception:\\n\\nTraceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2576, in __call__\\n    response = request._serve_db()\\n               ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2102, in _serve_db\\n    readonly = readonly(rule.endpoint.func.__self__)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 24, in _call_kw_readonly\\n    raise NotFound() from e\\nwerkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL",
+      "screenshot": null
+    },
+    {
+      "defect": "1673",
+      "title": "MO Schedule Date vs SO Delivery Date lead time logic",
+      "status": "FAIL",
+      "evidence": "No UI-real auto-created MO/SO sample with lead time evidence found during this run; keep as FAIL until a real sample can be opened and dates verified.",
+      "screenshot": null
+    },
+    {
+      "defect": "1618",
+      "title": "Consolidated Credit Note multi bill/return UI flow",
+      "status": "FAIL",
+      "evidence": "Not executed through UI in this rerun to avoid creating a real draft CN on server 14 without cleanup confidence; backend prior sample exists but UI-real status remains FAIL.",
+      "screenshot": null
+    },
+    {
+      "defect": "CLEANUP",
+      "title": "Temp UI documents removed and APD/CN unlinked",
+      "status": "PASS",
+      "evidence": "leftovers=[] links=[{\"id\":69356,\"name\":\"APD/26/05/00026\",\"vendor_billing_note_id\":false},{\"id\":69355,\"name\":\"APD/26/05/00025\",\"vendor_billing_note_id\":false},{\"id\":69388,\"name\":\"VCND/26/05/00001\",\"vendor_billing_note_id\":false}]",
+      "screenshot": null
+    }
+  ],
+  "uiErrors": []
+}

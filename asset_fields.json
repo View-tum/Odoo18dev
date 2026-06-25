@@ -1,0 +1,439 @@
+{
+  "analytic_distribution": {
+    "string": "Analytic Distribution",
+    "type": "json"
+  },
+  "analytic_precision": {
+    "string": "Analytic Precision",
+    "type": "integer"
+  },
+  "distribution_analytic_account_ids": {
+    "string": "Distribution Analytic Account",
+    "type": "many2many"
+  },
+  "activity_ids": {
+    "string": "Activities",
+    "type": "one2many"
+  },
+  "activity_state": {
+    "help": "Status based on activities\nOverdue: Due date is already passed\nToday: Activity date is today\nPlanned: Future activities.",
+    "string": "Activity State",
+    "type": "selection"
+  },
+  "activity_user_id": {
+    "string": "Responsible User",
+    "type": "many2one"
+  },
+  "activity_type_id": {
+    "string": "Next Activity Type",
+    "type": "many2one"
+  },
+  "activity_type_icon": {
+    "help": "Font awesome icon e.g. fa-tasks",
+    "string": "Activity Type Icon",
+    "type": "char"
+  },
+  "activity_date_deadline": {
+    "string": "Next Activity Deadline",
+    "type": "date"
+  },
+  "my_activity_date_deadline": {
+    "string": "My Activity Deadline",
+    "type": "date"
+  },
+  "activity_summary": {
+    "string": "Next Activity Summary",
+    "type": "char"
+  },
+  "activity_exception_decoration": {
+    "help": "Type of the exception activity on record.",
+    "string": "Activity Exception Decoration",
+    "type": "selection"
+  },
+  "activity_exception_icon": {
+    "help": "Icon to indicate an exception activity.",
+    "string": "Icon",
+    "type": "char"
+  },
+  "activity_calendar_event_id": {
+    "string": "Next Activity Calendar Event",
+    "type": "many2one"
+  },
+  "message_is_follower": {
+    "string": "Is Follower",
+    "type": "boolean"
+  },
+  "message_follower_ids": {
+    "string": "Followers",
+    "type": "one2many"
+  },
+  "message_partner_ids": {
+    "string": "Followers (Partners)",
+    "type": "many2many"
+  },
+  "message_ids": {
+    "string": "Messages",
+    "type": "one2many"
+  },
+  "has_message": {
+    "string": "Has Message",
+    "type": "boolean"
+  },
+  "message_needaction": {
+    "help": "If checked, new messages require your attention.",
+    "string": "Action Needed",
+    "type": "boolean"
+  },
+  "message_needaction_counter": {
+    "help": "Number of messages requiring action",
+    "string": "Number of Actions",
+    "type": "integer"
+  },
+  "message_has_error": {
+    "help": "If checked, some messages have a delivery error.",
+    "string": "Message Delivery error",
+    "type": "boolean"
+  },
+  "message_has_error_counter": {
+    "help": "Number of messages with delivery error",
+    "string": "Number of errors",
+    "type": "integer"
+  },
+  "message_attachment_count": {
+    "string": "Attachment Count",
+    "type": "integer"
+  },
+  "rating_ids": {
+    "string": "Ratings",
+    "type": "one2many"
+  },
+  "website_message_ids": {
+    "help": "Website communication history",
+    "string": "Website Messages",
+    "type": "one2many"
+  },
+  "message_has_sms_error": {
+    "help": "If checked, some messages have a delivery error.",
+    "string": "SMS Delivery error",
+    "type": "boolean"
+  },
+  "depreciation_entries_count": {
+    "string": "# Posted Depreciation Entries",
+    "type": "integer"
+  },
+  "gross_increase_count": {
+    "help": "Number of assets made to increase the value of the asset",
+    "string": "# Gross Increases",
+    "type": "integer"
+  },
+  "total_depreciation_entries_count": {
+    "help": "Number of depreciation entries (posted or not)",
+    "string": "# Depreciation Entries",
+    "type": "integer"
+  },
+  "name": {
+    "string": "Asset Name",
+    "type": "char"
+  },
+  "company_id": {
+    "string": "Company",
+    "type": "many2one"
+  },
+  "country_code": {
+    "help": "The ISO country code in two chars. \nYou can use this field for quick search.",
+    "string": "Country Code",
+    "type": "char"
+  },
+  "currency_id": {
+    "string": "Currency",
+    "type": "many2one"
+  },
+  "state": {
+    "help": "When an asset is created, the status is 'Draft'.\nIf the asset is confirmed, the status goes in 'Running' and the depreciation lines can be posted in the accounting.\nThe 'On Hold' status can be set manually when you want to pause the depreciation of an asset for some time.\nYou can manually close an asset when the depreciation is over.\nBy cancelling an asset, all depreciation entries will be reversed",
+    "string": "Status",
+    "type": "selection"
+  },
+  "active": {
+    "string": "Active",
+    "type": "boolean"
+  },
+  "method": {
+    "help": "Choose the method to use to compute the amount of depreciation lines.\n  * Straight Line: Calculated on basis of: Gross Value / Duration\n  * Declining: Calculated on basis of: Residual Value * Declining Factor\n  * Declining then Straight Line: Like Declining but with a minimum depreciation value equal to the straight line value.",
+    "string": "Method",
+    "type": "selection"
+  },
+  "method_number": {
+    "help": "The number of depreciations needed to depreciate your asset",
+    "string": "Duration",
+    "type": "integer"
+  },
+  "method_period": {
+    "help": "The amount of time between two depreciations",
+    "string": "Number of Months in a Period",
+    "type": "selection"
+  },
+  "method_progress_factor": {
+    "string": "Declining Factor",
+    "type": "float"
+  },
+  "prorata_computation_type": {
+    "string": "Computation",
+    "type": "selection"
+  },
+  "prorata_date": {
+    "help": "Starting date of the period used in the prorata calculation of the first depreciation",
+    "string": "Prorata Date",
+    "type": "date"
+  },
+  "paused_prorata_date": {
+    "string": "Paused Prorata Date",
+    "type": "date"
+  },
+  "account_asset_id": {
+    "help": "Account used to record the purchase of the asset at its original price.",
+    "string": "Fixed Asset Account",
+    "type": "many2one"
+  },
+  "asset_group_id": {
+    "string": "Asset Group",
+    "type": "many2one"
+  },
+  "account_depreciation_id": {
+    "help": "Account used in the depreciation entries, to decrease the asset value.",
+    "string": "Depreciation Account",
+    "type": "many2one"
+  },
+  "account_depreciation_expense_id": {
+    "help": "Account used in the periodical entries, to record a part of the asset as expense.",
+    "string": "Expense Account",
+    "type": "many2one"
+  },
+  "journal_id": {
+    "string": "Journal",
+    "type": "many2one"
+  },
+  "original_value": {
+    "string": "Original Value",
+    "type": "monetary"
+  },
+  "book_value": {
+    "help": "Sum of the depreciable value, the salvage value and the book value of all value increase items",
+    "string": "Book Value",
+    "type": "monetary"
+  },
+  "value_residual": {
+    "string": "Depreciable Value",
+    "type": "monetary"
+  },
+  "salvage_value": {
+    "help": "It is the amount you plan to have that you cannot depreciate.",
+    "string": "Not Depreciable Value",
+    "type": "monetary"
+  },
+  "salvage_value_pct": {
+    "help": "It is the amount you plan to have that you cannot depreciate.",
+    "string": "Not Depreciable Value Percent",
+    "type": "float"
+  },
+  "total_depreciable_value": {
+    "string": "Total Depreciable Value",
+    "type": "monetary"
+  },
+  "gross_increase_value": {
+    "string": "Gross Increase Value",
+    "type": "monetary"
+  },
+  "non_deductible_tax_value": {
+    "string": "Non Deductible Tax Value",
+    "type": "monetary"
+  },
+  "related_purchase_value": {
+    "string": "Related Purchase Value",
+    "type": "monetary"
+  },
+  "depreciation_move_ids": {
+    "string": "Depreciation Lines",
+    "type": "one2many"
+  },
+  "original_move_line_ids": {
+    "string": "Journal Items",
+    "type": "many2many"
+  },
+  "asset_properties_definition": {
+    "string": "Model Properties",
+    "type": "properties_definition"
+  },
+  "asset_properties": {
+    "string": "Properties",
+    "type": "properties"
+  },
+  "acquisition_date": {
+    "string": "Acquisition Date",
+    "type": "date"
+  },
+  "disposal_date": {
+    "string": "Disposal Date",
+    "type": "date"
+  },
+  "model_id": {
+    "string": "Model",
+    "type": "many2one"
+  },
+  "account_type": {
+    "help": "Account Type is used for information purpose, to generate country-specific legal reports, and set the rules to close a fiscal year and generate opening entries.",
+    "string": "Type of the account",
+    "type": "selection"
+  },
+  "display_account_asset_id": {
+    "string": "Display Account Asset",
+    "type": "boolean"
+  },
+  "parent_id": {
+    "help": "An asset has a parent when it is the result of gaining value",
+    "string": "Parent",
+    "type": "many2one"
+  },
+  "children_ids": {
+    "help": "The children are the gains in value of this asset",
+    "string": "Children",
+    "type": "one2many"
+  },
+  "already_depreciated_amount_import": {
+    "help": "In case of an import from another software, you might need to use this field to have the right depreciation table report. This is the value that was already depreciated with entries not computed from this model",
+    "string": "Already Depreciated Amount Import",
+    "type": "monetary"
+  },
+  "asset_lifetime_days": {
+    "string": "Asset Lifetime Days",
+    "type": "float"
+  },
+  "asset_paused_days": {
+    "string": "Asset Paused Days",
+    "type": "float"
+  },
+  "net_gain_on_sale": {
+    "help": "Net value of gain or loss on sale of an asset",
+    "string": "Net gain on sale",
+    "type": "monetary"
+  },
+  "linked_assets_ids": {
+    "string": "Linked Assets",
+    "type": "one2many"
+  },
+  "count_linked_asset": {
+    "string": "Count Linked Asset",
+    "type": "integer"
+  },
+  "warning_count_assets": {
+    "string": "Warning Count Assets",
+    "type": "boolean"
+  },
+  "id": {
+    "string": "ID",
+    "type": "integer"
+  },
+  "display_name": {
+    "string": "Display Name",
+    "type": "char"
+  },
+  "create_uid": {
+    "string": "Created by",
+    "type": "many2one"
+  },
+  "create_date": {
+    "string": "Created on",
+    "type": "datetime"
+  },
+  "write_uid": {
+    "string": "Last Updated by",
+    "type": "many2one"
+  },
+  "write_date": {
+    "string": "Last Updated on",
+    "type": "datetime"
+  },
+  "responsible_id": {
+    "help": "(365 custom) ผู้รับผิดชอบสินทรัพย์",
+    "string": "Responsible",
+    "type": "many2one"
+  },
+  "asset_location": {
+    "string": "Asset Location",
+    "type": "char"
+  },
+  "asset_location_id": {
+    "help": "(365 custom) แผนกงาน/สถานที่เก็บสินทรัพย์",
+    "string": "Asset Location",
+    "type": "many2one"
+  },
+  "last_post_depreciation_date": {
+    "string": "Last Post Depreciation Date",
+    "type": "date"
+  },
+  "vehicle_id": {
+    "string": "Vehicle",
+    "type": "many2one"
+  },
+  "asset_register_number": {
+    "help": "Auto-generated Fixed Asset Register Number",
+    "string": "เลขทะเบียนคุม FIX ASSET",
+    "type": "char"
+  },
+  "related_asset_ids": {
+    "help": "Link other assets that should be considered together.",
+    "string": "Related Assets",
+    "type": "many2many"
+  },
+  "child_asset_ids": {
+    "help": "Quickly manage the children of this asset without opening each child.",
+    "string": "Child Assets",
+    "type": "many2many"
+  },
+  "is_parent_asset": {
+    "help": "Technical flag to mark assets that have children.",
+    "string": "Is Parent Asset",
+    "type": "boolean"
+  },
+  "is_child_asset": {
+    "help": "Technical flag to mark assets that have a parent.",
+    "string": "Is Child Asset",
+    "type": "boolean"
+  },
+  "child_count": {
+    "help": "Number of child assets.",
+    "string": "Child Asset Count",
+    "type": "integer"
+  },
+  "has_child_assets": {
+    "help": "Technical flag to mark assets that have children.",
+    "string": "Has Child Assets",
+    "type": "boolean"
+  },
+  "hierarchy_related_asset_ids": {
+    "help": "Shows children if they exist, otherwise the parent asset.",
+    "string": "Related Assets (Hierarchy)",
+    "type": "many2many"
+  },
+  "linked_loans_ids": {
+    "string": "Related Loans",
+    "type": "one2many"
+  },
+  "count_linked_loans": {
+    "string": "Count Linked Loans",
+    "type": "integer"
+  },
+  "bill_move_id": {
+    "help": "Bill that created this asset.",
+    "string": "Vendor Bill",
+    "type": "many2one"
+  },
+  "total_group_value": {
+    "help": "Sum of original value of this parent asset and all its children.",
+    "string": "Total Group Value",
+    "type": "monetary"
+  },
+  "x_studio_accum_depreciation": {
+    "string": "Accum Depreciation",
+    "type": "integer"
+  }
+}

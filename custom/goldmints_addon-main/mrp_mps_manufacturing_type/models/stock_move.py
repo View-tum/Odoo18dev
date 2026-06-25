@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import Command, models, fields, api
 from collections import defaultdict
 
 
@@ -7,23 +7,6 @@ class StockMove(models.Model):
 
     def _get_mto_transfer_merge_group(self):
         self.ensure_one()
-        if self.picking_type_id and self.picking_type_id.code != 'internal':
-            return self.env['procurement.group']
-        if not self.group_id:
-            return self.env['procurement.group']
-
-        mos = self.env['mrp.production'].search([
-            ('procurement_group_id', '=', self.group_id.id),
-        ])
-        source_sos = self.env['sale.order']
-        for mo in mos:
-            source_so = mo.source_sale_order_id or mo.procurement_group_id.sale_id
-            if not source_so and hasattr(mo, '_find_source_so'):
-                source_so = mo._find_source_so()
-            source_sos |= source_so
-        source_sos = source_sos.filtered(lambda sale: sale.procurement_group_id)
-        if len(source_sos) == 1:
-            return source_sos.procurement_group_id
         return self.env['procurement.group']
 
     def _get_mo_manufacturing_type(self):
@@ -72,6 +55,9 @@ class StockMove(models.Model):
     def _merge_moves_fields(self):
         vals = super()._merge_moves_fields()
         if isinstance(vals, dict):
+            for relation_field in ('move_dest_ids', 'move_orig_ids'):
+                external_moves = self.mapped(relation_field) - self
+                vals[relation_field] = [Command.link(move.id) for move in external_moves]
             return vals
         if 'move_dest_ids' in vals:
             vals.remove('move_dest_ids')

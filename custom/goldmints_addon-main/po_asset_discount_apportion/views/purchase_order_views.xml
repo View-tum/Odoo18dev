@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_apportion_discount" model="ir.ui.view">
+        <field name="name">purchase.order.form.apportion.discount</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_subtotal']" position="after">
+                <field name="original_discount_amount" optional="hide"/>
+                <field name="apportioned_discount" optional="show" readonly="1" decoration-info="apportioned_discount &gt; 0" string="Apportioned Disc."/>
+            </xpath>
+            <!--
+            <xpath expr="//field[@name='tax_totals']" position="after">
+                <field name="total_apportioned_discount"
+                       invisible="total_apportioned_discount == 0"
+                       class="oe_subtotal_footer_separator text-primary"/>
+            </xpath>
+            -->
+        </field>
+    </record>
+</odoo>

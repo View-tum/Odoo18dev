@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>AMS - Closing and Next Step</title>
+  <style>
+    body{font-family:Arial,'Noto Sans Thai',sans-serif;margin:0;background:#f8fafc;color:#172033}
+    .wrap{max-width:980px;margin:0 auto;padding:30px}
+    .hero{background:#334155;color:white;border-radius:10px;padding:24px 28px}
+    h1{margin:0;font-size:28px} h2{color:#5b1747;margin-top:26px}
+    .box{background:white;border:1px solid #dde3ee;border-radius:10px;padding:16px;margin-top:12px}
+    .warn{background:#fff7ed;border-color:#fed7aa}
+    ul{margin:8px 0 0 24px;padding:0} li{margin:8px 0;line-height:1.55}
+    .script{font-size:16px;line-height:1.75}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>สรุปปิดการนำเสนอและ Next Step</h1>
+      <p>ใช้หน้านี้ปิด meeting เพื่อให้ลูกค้าเห็นภาพรวม เห็นสิ่งที่ต้องตัดสินใจ และไปต่อด้วยกันอย่างชัดเจน</p>
+    </section>
+
+    <h2>ประโยคปิดที่แนะนำ</h2>
+    <div class="box script">
+      จากที่เรา review วันนี้ ภาพรวมคือ Odoo standard รองรับ flow หลักได้หลายส่วน เช่น Sales, Purchase, Inventory, MRP, Quality และ Accounting แต่บางจุดที่เป็นรูปแบบเฉพาะของ AMS เช่น API, report format, COA, DPPM/OEE/OPE, Budget hard lock, Netting, Multi Ledger และ WIP/valuation ต้องยืนยันรายละเอียดก่อน เพื่อออกแบบให้ถูกต้องและไม่กระทบ stock หรือบัญชี
+    </div>
+
+    <h2>สิ่งที่ต้องขอลูกค้ายืนยัน</h2>
+    <div class="box">
+      <ul>
+        <li>ยืนยันว่า request 44 ข้อ ข้อไหนเป็น Phase 1, Phase 2, Future phase</li>
+        <li>ยืนยันรูปแบบเอกสารที่ต้องใช้จริง เช่น COA, Tax invoice, BI, PI, PD, RR, PS, RE</li>
+        <li>ยืนยันสูตร KPI เช่น DPPM, OEE/OPE, delivery performance</li>
+        <li>ยืนยัน format ของไฟล์หรือ API ที่ต้องรับจากลูกค้าหรือระบบเดิม</li>
+        <li>ยืนยันวิธีคิด WIP, cost variance, valuation และเงื่อนไขที่กระทบบัญชี</li>
+        <li>ยืนยัน budget control ว่าต้องเตือนเฉย ๆ หรือ block ไม่ให้ทำรายการ</li>
+      </ul>
+    </div>
+
+    <h2>ข้อมูลที่ควรขอหลัง meeting</h2>
+    <div class="box">
+      <ul>
+        <li>ตัวอย่างเอกสารจริง 3-5 ใบต่อประเภทเอกสาร</li>
+        <li>ตัวอย่าง report ที่ผู้บริหารใช้ดูจริง</li>
+        <li>ตัวอย่าง Excel/API/EDI ที่ใช้รับ forecast หรือ customer PO</li>
+        <li>รายการ master data ที่ต้องเตรียม เช่น product, BOM, routing, supplier, customer, chart of accounts</li>
+        <li>รายชื่อ key user ของแต่ละ flow เพื่อทำ workshop และ UAT</li>
+      </ul>
+    </div>
+
+    <h2>Next Step</h2>
+    <div class="box warn">
+      <ul>
+        <li>Step 1: ลูกค้า confirm scope และ priority</li>
+        <li>Step 2: ทีมเราแยกงานเป็น Standard / Report / Integration / Custom</li>
+        <li>Step 3: ทำ workshop ราย flow เพื่อปิด rule ที่ยังไม่ชัด</li>
+        <li>Step 4: ปรับ Manday หลัง scope ชัดขึ้น</li>
+        <li>Step 5: เตรียม UAT scenario ตาม workflow ที่ตกลงร่วมกัน</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

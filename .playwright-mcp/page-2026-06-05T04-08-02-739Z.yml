@@ -1,0 +1,348 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+        - generic [ref=e10]: H
+      - menu [ref=e11]:
+        - button "Orders 1" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Orders
+          - generic [ref=e15]: "1"
+        - button "Products 2" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Products
+          - generic [ref=e19]: "2"
+        - button "Reporting 3" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Reporting
+          - generic [ref=e23]: "3"
+        - button "Configuration 4" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: Configuration
+          - generic [ref=e27]: "4"
+      - menu [ref=e28]:
+        - button "Attendance" [ref=e29] [cursor=pointer]:
+          - img "Attendance" [ref=e30]: 
+        - button "Messages 2" [ref=e32] [cursor=pointer]:
+          - img "Messages" [ref=e33]: 
+          - generic [ref=e34]: "2"
+        - button "Activities 60" [ref=e35] [cursor=pointer]:
+          - img "Activities" [ref=e36]: 
+          - generic [ref=e37]: "60"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e39]:
+          - text: 
+          - generic [ref=e40]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e42] [cursor=pointer]:
+          - img "User" [ref=e43]
+          - text: 
+  - generic [ref=e941]:
+    - generic [ref=e943]:
+      - generic [ref=e944]:
+        - button "New" [ref=e947] [cursor=pointer]
+        - generic [ref=e948]:
+          - list [ref=e949]:
+            - listitem [ref=e950]:
+              - button "" [ref=e951] [cursor=pointer]:
+                - generic [ref=e952]: 
+            - listitem [ref=e953]:
+              - text: /
+              - link "รายงานสถานะคำสั่งซื้อ" [ref=e954] [cursor=pointer]:
+                - /url: /odoo/action-1410/41/purchase.order.status.report.wizard/41
+            - listitem [ref=e955]:
+              - text: /
+              - link "รายงานสถานะคำสั่งซื้อ" [ref=e956] [cursor=pointer]:
+                - /url: /odoo/action-1410/41/purchase.order.status.report.wizard/41/purchase.order.status.report.wizard/41
+          - generic [ref=e957]:
+            - generic [ref=e959]: BN/2026/06/0064
+            - button "" [ref=e963] [cursor=pointer]:
+              - generic [ref=e964]: 
+      - button " 2 Vendor Bills" [ref=e968] [cursor=pointer]:
+        - generic [ref=e969]: 
+        - generic [ref=e970]:
+          - generic [ref=e971]: "2"
+          - generic [ref=e972]: Vendor Bills
+      - generic [ref=e973]:
+        - button "Search Knowledge Articles" [ref=e974] [cursor=pointer]:
+          - img [ref=e975]
+        - search [ref=e979]:
+          - navigation "Pager" [ref=e980]:
+            - generic [ref=e981]:
+              - generic [ref=e982]: "1"
+              - text: / 1
+            - generic [ref=e983]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e986]:
+      - generic [ref=e987]:
+        - generic [ref=e988]:
+          - button "Confirm" [ref=e989] [cursor=pointer]
+          - button "Cancel" [ref=e990] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e992]:
+          - radio "Fully Billed" [disabled]
+          - radio "Partially Billed" [disabled]
+          - radio "Confirmed" [disabled]
+          - radio "Draft" [checked] [disabled]
+      - generic [ref=e993]:
+        - generic [ref=e994]:
+          - text: Billing Note
+          - heading "BN/2026/06/0064" [level=1] [ref=e995]:
+            - generic [ref=e996]: BN/2026/06/0064
+        - generic [ref=e997]:
+          - generic [ref=e998]:
+            - generic [ref=e999]:
+              - generic [ref=e1001]: Vendor
+              - combobox "Vendor" [ref=e1007]: DENKI SHOJI CO.,LTD.
+            - generic [ref=e1010]: Purchase Orders
+            - generic [ref=e1013]:
+              - generic [ref=e1015]:
+                - text: Vendor Reference
+                - superscript [ref=e1016]: "?"
+              - textbox "Vendor Reference?" [ref=e1019]
+            - generic [ref=e1020]:
+              - generic [ref=e1022]: Billing Source
+              - generic [ref=e1025]: Existing APD/CN
+          - generic [ref=e1026]:
+            - generic [ref=e1027]:
+              - generic [ref=e1029]: Billing Date
+              - textbox "Billing Date" [ref=e1033] [cursor=pointer]: 06/05/2026
+            - generic [ref=e1034]:
+              - generic [ref=e1036]: Due Date
+              - textbox "Due Date" [ref=e1040] [cursor=pointer]
+            - generic [ref=e1041]:
+              - generic [ref=e1043]: Responsible
+              - generic [ref=e1046]:
+                - img [ref=e1048]
+                - combobox "Responsible" [ref=e1052]: Administrator
+        - generic [ref=e1053]:
+          - generic [ref=e1054]:
+            - generic [ref=e1055]:
+              - generic [ref=e1057]: Vendor Bills
+              - generic [ref=e1060]: 321.00 ฿
+            - generic [ref=e1061]:
+              - generic [ref=e1063]: Credit Notes
+              - generic [ref=e1066]: 214.00 ฿
+          - generic [ref=e1067]:
+            - generic [ref=e1068]:
+              - generic [ref=e1070]: "Total:"
+              - generic [ref=e1073]: 321.00 ฿
+            - generic [ref=e1074]:
+              - generic [ref=e1076]: "Amount Due:"
+              - generic [ref=e1079]: 107.00 ฿
+            - generic [ref=e1080]:
+              - generic [ref=e1082]: "Open Balance:"
+              - generic [ref=e1085]: 107.00 ฿
+        - generic [ref=e1086]:
+          - list [ref=e1088]:
+            - listitem [ref=e1089] [cursor=pointer]:
+              - tab "Lines" [ref=e1090]
+          - generic [ref=e1092]:
+            - table [ref=e1096]:
+              - rowgroup [ref=e1097]:
+                - row "Purchase Order  Receipt  Service Acceptance  Product  Description  Quantity  Unit Price  Discount (%)  Fixed Discount  Subtotal  " [ref=e1098]:
+                  - columnheader "Purchase Order " [ref=e1099] [cursor=pointer]:
+                    - generic [ref=e1100]:
+                      - generic [ref=e1101]: Purchase Order
+                      - generic [ref=e1102]: 
+                  - columnheader "Receipt " [ref=e1104] [cursor=pointer]:
+                    - generic [ref=e1105]:
+                      - generic [ref=e1106]: Receipt
+                      - generic [ref=e1107]: 
+                  - columnheader "Service Acceptance " [ref=e1109] [cursor=pointer]:
+                    - generic [ref=e1110]:
+                      - generic [ref=e1111]: Service Acceptance
+                      - generic [ref=e1112]: 
+                  - columnheader "Product " [ref=e1114] [cursor=pointer]:
+                    - generic [ref=e1115]:
+                      - generic [ref=e1116]: Product
+                      - generic [ref=e1117]: 
+                  - columnheader "Description " [ref=e1119] [cursor=pointer]:
+                    - generic [ref=e1120]:
+                      - generic [ref=e1121]: Description
+                      - generic [ref=e1122]: 
+                  - columnheader "Quantity " [ref=e1124] [cursor=pointer]:
+                    - generic [ref=e1125]:
+                      - generic [ref=e1126]: Quantity
+                      - generic [ref=e1127]: 
+                  - columnheader "Unit Price " [ref=e1129] [cursor=pointer]:
+                    - generic [ref=e1130]:
+                      - generic [ref=e1131]: Unit Price
+                      - generic [ref=e1132]: 
+                  - columnheader "Discount (%) " [ref=e1134] [cursor=pointer]:
+                    - generic [ref=e1135]:
+                      - generic [ref=e1136]: Discount (%)
+                      - generic [ref=e1137]: 
+                  - columnheader "Fixed Discount " [ref=e1139] [cursor=pointer]:
+                    - generic [ref=e1140]:
+                      - generic [ref=e1141]: Fixed Discount
+                      - generic [ref=e1142]: 
+                  - columnheader "Subtotal " [ref=e1144] [cursor=pointer]:
+                    - generic [ref=e1145]:
+                      - generic [ref=e1146]: Subtotal
+                      - generic [ref=e1147]: 
+                  - columnheader "" [ref=e1149]:
+                    - button "" [ref=e1151] [cursor=pointer]:
+                      - generic [ref=e1152]: 
+              - rowgroup [ref=e1153]:
+                - row [ref=e1154]:
+                  - cell [ref=e1155]
+                - row [ref=e1156]:
+                  - cell [ref=e1157]
+                - row [ref=e1158]:
+                  - cell [ref=e1159]
+                - row [ref=e1160]:
+                  - cell [ref=e1161]
+              - rowgroup [ref=e1162]:
+                - row [ref=e1163]:
+                  - cell [ref=e1164]
+                  - cell [ref=e1165]
+                  - cell [ref=e1166]
+                  - cell [ref=e1167]
+                  - cell [ref=e1168]
+                  - cell [ref=e1169]
+                  - cell [ref=e1170]
+                  - cell [ref=e1171]
+                  - cell [ref=e1172]
+                  - cell [ref=e1173]
+                  - cell [ref=e1174]
+            - table [ref=e1178]:
+              - rowgroup [ref=e1179]:
+                - row "Doc Type  APD/CN  Bill Date  Vendor Reference  Total  Amount Due  Status  Payment Status  " [ref=e1180]:
+                  - columnheader "Doc Type " [ref=e1181] [cursor=pointer]:
+                    - generic [ref=e1182]:
+                      - generic [ref=e1183]: Doc Type
+                      - generic [ref=e1184]: 
+                  - columnheader "APD/CN " [ref=e1186] [cursor=pointer]:
+                    - generic [ref=e1187]:
+                      - generic [ref=e1188]: APD/CN
+                      - generic [ref=e1189]: 
+                  - columnheader "Bill Date " [ref=e1191] [cursor=pointer]:
+                    - generic [ref=e1192]:
+                      - generic [ref=e1193]: Bill Date
+                      - generic [ref=e1194]: 
+                  - columnheader "Vendor Reference " [ref=e1196] [cursor=pointer]:
+                    - generic [ref=e1197]:
+                      - generic [ref=e1198]: Vendor Reference
+                      - generic [ref=e1199]: 
+                  - columnheader "Total " [ref=e1201] [cursor=pointer]:
+                    - generic [ref=e1202]:
+                      - generic [ref=e1203]: Total
+                      - generic [ref=e1204]: 
+                  - columnheader "Amount Due " [ref=e1206] [cursor=pointer]:
+                    - generic [ref=e1207]:
+                      - generic [ref=e1208]: Amount Due
+                      - generic [ref=e1209]: 
+                  - columnheader "Status " [ref=e1211] [cursor=pointer]:
+                    - generic [ref=e1212]:
+                      - generic [ref=e1213]: Status
+                      - generic [ref=e1214]: 
+                  - columnheader "Payment Status " [ref=e1216] [cursor=pointer]:
+                    - generic [ref=e1217]:
+                      - generic [ref=e1218]: Payment Status
+                      - generic [ref=e1219]: 
+                  - columnheader "" [ref=e1221]:
+                    - button "" [ref=e1223] [cursor=pointer]:
+                      - generic [ref=e1224]: 
+              - rowgroup [ref=e1225]:
+                - 'row "Vendor Credit Note RAPD/2026/06/0002 06/05/2026 การกลับรายการของ: APD/2026/06/0003, UI-VRCN-PO-20260605B 214.00 214.00 Posted Not Paid Delete row" [ref=e1226]':
+                  - cell "Vendor Credit Note" [ref=e1227] [cursor=pointer]:
+                    - generic [ref=e1229]: Vendor Credit Note
+                  - cell "RAPD/2026/06/0002" [ref=e1230] [cursor=pointer]
+                  - cell "06/05/2026" [ref=e1231] [cursor=pointer]
+                  - 'cell "การกลับรายการของ: APD/2026/06/0003, UI-VRCN-PO-20260605B" [ref=e1232] [cursor=pointer]'
+                  - cell "214.00" [ref=e1233] [cursor=pointer]
+                  - cell "214.00" [ref=e1234] [cursor=pointer]
+                  - cell "Posted" [ref=e1235] [cursor=pointer]:
+                    - generic [ref=e1237]: Posted
+                  - cell "Not Paid" [ref=e1238] [cursor=pointer]:
+                    - generic [ref=e1240]: Not Paid
+                  - cell "Delete row" [ref=e1241]:
+                    - button "Delete row" [ref=e1242] [cursor=pointer]: 
+                - row "Vendor Bill APD/2026/06/0003 06/05/2026 UI-VRCN-PO-20260605B-BILL 321.00 321.00 Posted Not Paid Delete row" [ref=e1243]:
+                  - cell "Vendor Bill" [ref=e1244] [cursor=pointer]:
+                    - generic [ref=e1246]: Vendor Bill
+                  - cell "APD/2026/06/0003" [ref=e1247] [cursor=pointer]
+                  - cell "06/05/2026" [ref=e1248] [cursor=pointer]
+                  - cell "UI-VRCN-PO-20260605B-BILL" [ref=e1249] [cursor=pointer]
+                  - cell "321.00" [ref=e1250] [cursor=pointer]
+                  - cell "321.00" [ref=e1251] [cursor=pointer]
+                  - cell "Posted" [ref=e1252] [cursor=pointer]:
+                    - generic [ref=e1254]: Posted
+                  - cell "Not Paid" [ref=e1255] [cursor=pointer]:
+                    - generic [ref=e1257]: Not Paid
+                  - cell "Delete row" [ref=e1258]:
+                    - button "Delete row" [ref=e1259] [cursor=pointer]: 
+                - row "Add a line" [ref=e1260]:
+                  - cell "Add a line" [ref=e1261]:
+                    - button "Add a line" [ref=e1262] [cursor=pointer]
+                - row [ref=e1263]:
+                  - cell [ref=e1264]
+              - rowgroup [ref=e1265]:
+                - row "- -" [ref=e1266]:
+                  - cell [ref=e1267]
+                  - cell [ref=e1268]
+                  - cell [ref=e1269]
+                  - cell [ref=e1270]
+                  - cell "-" [ref=e1271]
+                  - cell "-" [ref=e1272]
+                  - cell [ref=e1273]
+                  - cell [ref=e1274]
+                  - cell [ref=e1275]
+            - generic [ref=e1276]:
+              - generic [ref=e1282]:
+                - generic:
+                  - generic:        
+                - generic [ref=e1285]: Terms and Conditions / Internal Notes...
+              - generic [ref=e1286]:
+                - generic [ref=e1287]:
+                  - generic [ref=e1289]: "Untaxed Amount:"
+                  - generic [ref=e1292]: 300.00 ฿
+                - generic [ref=e1293]:
+                  - generic [ref=e1295]: "Taxes:"
+                  - generic [ref=e1298]: 21.00 ฿
+                - generic [ref=e1299]:
+                  - generic [ref=e1302]: "Total:"
+                  - generic [ref=e1305]: 321.00 ฿
+                - generic [ref=e1306]:
+                  - generic [ref=e1308]: "Credit Notes:"
+                  - generic [ref=e1311]: 214.00 ฿
+                - generic [ref=e1312]:
+                  - generic [ref=e1315]: "Amount Due:"
+                  - generic [ref=e1318]: 107.00 ฿
+      - generic [ref=e1320]:
+        - generic [ref=e1322]:
+          - button "Send message" [ref=e1323] [cursor=pointer]
+          - button "Log note" [ref=e1324] [cursor=pointer]
+          - button "Activities" [ref=e1325] [cursor=pointer]
+          - button "Search Messages" [ref=e1327] [cursor=pointer]:
+            - img [ref=e1328]: 
+          - button "Attach files" [ref=e1330] [cursor=pointer]:
+            - generic [ref=e1331]: 
+          - button "1" [ref=e1333] [cursor=pointer]:
+            - img [ref=e1334]: 
+            - superscript: "1"
+          - button "Following" [ref=e1335] [cursor=pointer]:
+            - generic [ref=e1337]: Following
+        - generic [ref=e1339]:
+          - generic [ref=e1340]:
+            - generic [ref=e1342]:
+              - separator [ref=e1343]
+              - generic [ref=e1344]: Today
+              - separator [ref=e1345]
+            - group "System notification" [ref=e1346]:
+              - generic [ref=e1347]:
+                - generic "Open card" [ref=e1349] [cursor=pointer]:
+                  - img [ref=e1350]
+                - generic [ref=e1351]:
+                  - generic [ref=e1352]:
+                    - generic "Open card" [ref=e1353] [cursor=pointer]:
+                      - strong [ref=e1354]: Administrator
+                    - generic "6/5/2026, 11:08:00 AM" [ref=e1355]: Today at 11:08 AM
+                  - paragraph [ref=e1362]: Vendor Billing Note created
+          - button "" [ref=e1363] [cursor=pointer]:
+            - generic [ref=e1364]: 

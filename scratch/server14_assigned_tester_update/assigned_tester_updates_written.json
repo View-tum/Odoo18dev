@@ -1,0 +1,129 @@
+{
+  "uid": 2,
+  "before": [
+    {
+      "id": 1665,
+      "name": "ต้องทำให้ billing note ต้องสามารถดึง vendor bill และ credit note มาทำได้",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1667,
+      "name": "Defect-0277: เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อม",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1684,
+      "name": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1622,
+      "name": "Defect-0233: รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบ Advance รองรับกระบวนการขอซื้อดราฟท์ธนาคาร โดยมี Flow การทำงานเทียบเคียงกับการจ่ายด้วยเช็ค</p>"
+    },
+    {
+      "id": 1596,
+      "name": "Defect-0207: CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของกา",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    }
+  ],
+  "write_results": [
+    {
+      "id": 1665,
+      "write": true,
+      "summary": "PASS - BN APD/CN payment net due verified"
+    },
+    {
+      "id": 1667,
+      "write": true,
+      "summary": "PASS - Vendor Return linked to Credit Note"
+    },
+    {
+      "id": 1684,
+      "write": true,
+      "summary": "PASS - Contract expiry/reminder cron verified"
+    },
+    {
+      "id": 1622,
+      "write": true,
+      "summary": "NEEDS UAT - Advance bank draft flow not executed yet"
+    },
+    {
+      "id": 1596,
+      "write": true,
+      "summary": "NEEDS UAT - CN RMA blocked until RMA flow ready"
+    }
+  ],
+  "after": [
+    {
+      "id": 1665,
+      "name": "ต้องทำให้ billing note ต้องสามารถดึง vendor bill และ credit note มาทำได้",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_test_steps": "PASS - BN APD/CN payment net due verified",
+      "x_studio_test_step": "<ol>\n<li>Open Purchase/Accounting vendor billing note flow on server14 database goldmints_uat.</li>\n<li>Select existing posted Vendor Bill and Vendor Credit Note for the same vendor.</li>\n<li>Create Vendor Billing Note from selected APD/CN documents.</li>\n<li>Confirm the Billing Note, then open Register Payment from the Billing Note.</li>\n<li>Verify Vendor Bills, Credit Notes, Net Due, and Payment Difference in the payment wizard.</li>\n<li>Regression check: Purchase Order Status Report / APD/CN source must still be usable for Billing Note creation.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Vendor Billing Note can include both Vendor Bill and Vendor Credit Note.</li>\n<li>Billing Note net due equals Vendor Bills minus Credit Notes.</li>\n<li>Register Payment amount uses the net due amount and Payment Difference must be 0.00.</li>\n<li>Existing vendor bill / credit note fields and links are not overwritten incorrectly.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Billing Note: BN/2026/06/0069, state billed, payment status not paid.</li>\n<li>Vendor Bills: 500.00, Credit Notes: 321.00, Net Due: 179.00, Residual Net Due: 179.00.</li>\n<li>Register Payment wizard account.payment.register:3170 showed Amount 179.00 and Payment Difference 0.00.</li>\n<li>Related records: vendor.billing.note:69, account.move ids 69804 and 69799, active move lines 214213 and 214203.</li>\n</ul>"
+    },
+    {
+      "id": 1667,
+      "name": "Defect-0277: เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อม",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_test_steps": "PASS - Vendor Return linked to Credit Note",
+      "x_studio_test_step": "<ol>\n<li>Open existing Vendor Return documents on server14 database goldmints_uat.</li>\n<li>Create or open the related Vendor Credit Note from the Vendor Return flow.</li>\n<li>Verify the Credit Note stores the selected return pickings.</li>\n<li>Return to each Vendor Return and verify the Vendor Credit Note smart/link fields and status/count.</li>\n<li>Regression check: posted credit note must keep normal accounting state and residual/payment status.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Vendor Return can be connected to Vendor Credit Note.</li>\n<li>Warehouse users can see whether each return already has a Credit Note.</li>\n<li>Credit Note remains posted normally and linked return count is correct.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Vendor Credit Note VCND/26/06/00002 (account.move:69804) is posted and move_type is in_refund.</li>\n<li>Credit Note links 2 returns: GMP/R-OUT/00011 (stock.picking:10818) and GMP/R-OUT/00012 (stock.picking:10819).</li>\n<li>Both return pickings are done and vendor_credit_note_count = 1.</li>\n<li>Credit Note amount total signed/residual signed = 321.00 and payment state is not paid.</li>\n</ul>"
+    },
+    {
+      "id": 1684,
+      "name": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_test_steps": "PASS - Contract expiry/reminder cron verified",
+      "x_studio_test_step": "<ol>\n<li>Open server14 database goldmints_uat with admin user.</li>\n<li>Verify scheduled actions related to contract expiry and reminder.</li>\n<li>Check active flag, interval, model, and nextcall for each scheduled action.</li>\n<li>Confirm the trigger is configured on the Contract Document model and can run automatically.</li>\n<li>Regression check: the cron setup must not disable unrelated accounting accrual scheduled actions.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Contract expiry/reminder triggers exist and are active.</li>\n<li>Triggers run automatically on the expected schedule.</li>\n<li>Configuration uses the correct model and does not conflict with unrelated scheduled actions.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Contract Auto-Expire - Daily (ir.cron:70) is active, interval 1 day, model Contract Document.</li>\n<li>Contract Expiry Reminder - Daily (ir.cron:69) is active, interval 1 day, model Contract Document.</li>\n<li>Related Accrual Auto Reverse scheduled action (ir.cron:77) remains active.</li>\n<li>Evidence captured from server14 retest file dated 2026-06-07.</li>\n</ul>"
+    },
+    {
+      "id": 1622,
+      "name": "Defect-0233: รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_test_steps": "NEEDS UAT - Advance bank draft flow not executed yet",
+      "x_studio_test_step": "<ol>\n<li>Open the Advance flow on server14 database goldmints_uat.</li>\n<li>Select an existing Advance document that represents a bank draft purchase request.</li>\n<li>Verify the flow supports the same key steps as Cheque: request data, approval, payment instrument details, accounting posting, and printable report.</li>\n<li>Post/confirm only when business owner approves using existing UAT data.</li>\n<li>Regression check: existing Cheque payment/report flow must still work and must not be overwritten by the bank draft flow.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Advance supports bank draft purchase workflow similar to Cheque.</li>\n<li>Required bank draft fields are available before posting/accounting.</li>\n<li>Accounting/report output is correct and does not break Cheque behavior.</li>\n</ul>\n<p><b>Actual Test Result - NEEDS UAT</b></p>\n<ul>\n<li>No completed server14 UI/UAT evidence was found in the current assigned tester retest records for this task.</li>\n<li>Task requirement is documented, but real transaction test still needs an approved existing Advance bank draft scenario from the business team.</li>\n<li>Do not mark PASS until a real Advance bank draft document is processed end to end and compared with Cheque behavior.</li>\n</ul>"
+    },
+    {
+      "id": 1596,
+      "name": "Defect-0207: CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของกา",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_test_steps": "NEEDS UAT - CN RMA blocked until RMA flow ready",
+      "x_studio_test_step": "<ol>\n<li>Open RMA workflow on server14 database goldmints_uat.</li>\n<li>Select an existing RMA case that is ready for Credit Note testing.</li>\n<li>Create or open the related customer/vendor Credit Note from the RMA flow as required by the ticket.</li>\n<li>Verify document links, quantities, accounting state, residual amount, and return/RMA status.</li>\n<li>Regression check: normal Credit Note creation outside RMA must still work.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Credit Note can be tested from the RMA flow once RMA is complete.</li>\n<li>RMA, return document, and Credit Note links are visible and consistent.</li>\n<li>Accounting values and RMA statuses remain correct.</li>\n</ul>\n<p><b>Actual Test Result - NEEDS UAT</b></p>\n<ul>\n<li>Task description says CN/RMA was not tested because the RMA part was not finished.</li>\n<li>No completed server14 UI/UAT evidence was found in the current assigned tester retest records for this task.</li>\n<li>Do not mark PASS until an existing finished RMA case is used for end-to-end Credit Note validation.</li>\n</ul>"
+    }
+  ]
+}

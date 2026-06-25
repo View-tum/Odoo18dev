@@ -1,0 +1,130 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e2460] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e2461] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e2462] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e2463] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 41" [ref=e3432] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "41"
+        - button "Toggle Studio" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e6495]:
+    - generic [ref=e6497]:
+      - generic [ref=e6498]:
+        - button "New" [ref=e6501] [cursor=pointer]
+        - generic [ref=e6502]:
+          - generic [ref=e6504]: Purchase Requests
+          - button "" [ref=e6508] [cursor=pointer]:
+            - generic [ref=e6509]: 
+      - search [ref=e6511]:
+        - search [ref=e6512]:
+          - button "Search..." [ref=e6513] [cursor=pointer]:
+            - img [ref=e6514]: 
+          - generic [ref=e6515]:
+            - listitem "search" [ref=e6516]:
+              - button "Requested By " [ref=e6518] [cursor=pointer]:
+                - text: Requested By
+                - generic [ref=e6520]: 
+              - generic [ref=e6521]:
+                - generic "Administrator" [ref=e6522]
+                - button "Remove" [ref=e6523] [cursor=pointer]: 
+            - listitem "search" [ref=e6524]:
+              - img [ref=e6526] [cursor=pointer]:
+                - generic [ref=e6527]: 
+                - generic [ref=e6529]: 
+              - generic [ref=e6530]:
+                - generic "Requested by" [ref=e6531]
+                - button "Remove" [ref=e6532] [cursor=pointer]: 
+            - searchbox "Search..." [active] [ref=e6533]
+        - button "" [ref=e6534] [cursor=pointer]
+      - generic [ref=e6535]:
+        - search [ref=e6536]:
+          - navigation "Pager" [ref=e6537]:
+            - generic [ref=e6538]:
+              - generic [ref=e6539]: 1-1
+              - text: / 1
+            - generic [ref=e6540]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+        - navigation [ref=e6541]:
+          - button "" [ref=e6542] [cursor=pointer]:
+            - generic [ref=e6543]: 
+          - button "" [ref=e6544] [cursor=pointer]:
+            - generic [ref=e6545]: 
+    - table [ref=e6548]:
+      - rowgroup [ref=e6549]:
+        - row "Request Reference  Creation date  Requested By  Activities Source Document  Status  " [ref=e6550]:
+          - columnheader [ref=e6551] [cursor=pointer]:
+            - checkbox [ref=e6553]
+          - columnheader "Request Reference " [ref=e6554] [cursor=pointer]:
+            - generic [ref=e6555]:
+              - generic [ref=e6556]: Request Reference
+              - generic [ref=e6557]: 
+          - columnheader "Creation date " [ref=e6559] [cursor=pointer]:
+            - generic [ref=e6560]:
+              - generic [ref=e6561]: Creation date
+              - generic [ref=e6562]: 
+          - columnheader "Requested By " [ref=e6564] [cursor=pointer]:
+            - generic [ref=e6565]:
+              - generic [ref=e6566]: Requested By
+              - generic [ref=e6567]: 
+          - columnheader "Activities" [ref=e6569]:
+            - generic [ref=e6570]:
+              - generic [ref=e6571]: Activities
+              - text: 
+          - columnheader "Source Document " [ref=e6573] [cursor=pointer]:
+            - generic [ref=e6574]:
+              - generic [ref=e6575]: Source Document
+              - generic [ref=e6576]: 
+          - columnheader "Status " [ref=e6578] [cursor=pointer]:
+            - generic [ref=e6579]:
+              - generic [ref=e6580]: Status
+              - generic [ref=e6581]: 
+          - columnheader "" [ref=e6583]:
+            - button "" [ref=e6585] [cursor=pointer]:
+              - generic [ref=e6586]: 
+      - rowgroup [ref=e6587]:
+        - row " Administrator (17)" [ref=e6588] [cursor=pointer]:
+          - columnheader " Administrator (17)" [ref=e6589]:
+            - generic [ref=e6590]:
+              - generic [ref=e6591]: 
+              - text: Administrator (17)
+          - columnheader [ref=e6592]
+      - rowgroup [ref=e6593]:
+        - row [ref=e6594]:
+          - cell [ref=e6595]
+          - cell [ref=e6596]
+          - cell [ref=e6597]
+          - cell [ref=e6598]
+          - cell [ref=e6599]
+          - cell [ref=e6600]
+          - cell [ref=e6601]
+          - cell [ref=e6602]
+  - generic [ref=e6604]: Request Reference

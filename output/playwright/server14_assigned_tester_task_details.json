@@ -1,0 +1,1370 @@
+[
+  {
+    "id": 1703,
+    "name": "Approve MTO แล้ว แต่ระบบไม่ Generate PO อัตโนมัติ",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"460100844065582\">ระบบเปิด MO อัตโนมัติมาให้แล้วถูกต้อง แต่ RM ที่ไม่มีของระบบไม่เปิด PO มาให้อัตโนมัติ</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3936-a14acfa3/image.png?access_token=9999508d-6ce6-420d-ae30-d961ff320d6c\" style=\"width: 50%;\"></div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3933-2a39ea98/image.png?access_token=cbc275e3-66c5-47fa-8d11-7789cdd3ffab\"></div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3934-bc4fd1da/image.png?access_token=2d0ac505-7648-408c-b0bb-c0a86d19ae71\"></div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-17 00:39:11",
+    "create_date": "2026-06-16 09:30:39",
+    "message_ids": [
+      268973,
+      268972,
+      268951
+    ],
+    "description_text": "ระบบเปิด MO อัตโนมัติมาให้แล้วถูกต้อง แต่ RM ที่ไม่มีของระบบไม่เปิด PO มาให้อัตโนมัติ",
+    "recent_messages": [
+      {
+        "id": 268973,
+        "date": "2026-06-17 00:39:11",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268972,
+        "date": "2026-06-17 00:39:02",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>ตัว component merge เข้าใบที่เปิดไว้แล้วครับผม</p>",
+        "attachment_ids": [
+          3940,
+          3939
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ตัว component merge เข้าใบที่เปิดไว้แล้วครับผม"
+      },
+      {
+        "id": 268951,
+        "date": "2026-06-16 09:30:39",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3940,
+        "name": "Screenshot 2026-06-17 073746.png",
+        "mimetype": "image/png",
+        "file_size": 64551,
+        "create_date": "2026-06-17 00:38:33"
+      },
+      {
+        "id": 3939,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 75805,
+        "create_date": "2026-06-17 00:37:35"
+      },
+      {
+        "id": 3936,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 69724,
+        "create_date": "2026-06-16 09:36:47"
+      },
+      {
+        "id": 3934,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 23379,
+        "create_date": "2026-06-16 09:32:35"
+      }
+    ]
+  },
+  {
+    "id": 1701,
+    "name": "Configure ว่า Van sale คนไหน ผูกกับ Car location คันไหน",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3686354645474747\">ขั้นตอนการ Validate DO ทาง Van Sales จะต้องมั่นใจว่า Source Location เป็นรถตัวเองเท่านั้น มิฉะนั้นจะไปดึงของออกจากรถคนอื่น</div><div><br></div><div>จุดนี้มีความเสี่ยง Human Error สูงมาก จึงขอให้ระบบผูกไว้เลยว่า Sales คนไหนผูกกับรถคันไหน เพื่อลดความผิดพลาด</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3864-0bb38e7a/image.png?access_token=826a7ed5-297c-440c-91eb-2862dd3198f7\"></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3866-878a11b3/image.png?access_token=0407a027-56a9-4123-8e91-240a1bfb7d90\"></div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-16 07:55:00",
+    "create_date": "2026-06-15 12:42:14",
+    "message_ids": [
+      268261,
+      268259,
+      268257,
+      268250,
+      268203,
+      268136
+    ],
+    "description_text": "ขั้นตอนการ Validate DO ทาง Van Sales จะต้องมั่นใจว่า Source Location เป็นรถตัวเองเท่านั้น มิฉะนั้นจะไปดึงของออกจากรถคนอื่น\nจุดนี้มีความเสี่ยง Human Error สูงมาก จึงขอให้ระบบผูกไว้เลยว่า Sales คนไหนผูกกับรถคันไหน เพื่อลดความผิดพลาด",
+    "recent_messages": [
+      {
+        "id": 268261,
+        "date": "2026-06-16 07:56:51",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>path เข้าที่ module setting - manage users - และเลือก user 1 คน คลิ๊กเข้าไป - เลื่อนลงมาข่างล่างสุดครับ</p>",
+        "attachment_ids": [
+          3895
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "path เข้าที่ module setting - manage users - และเลือก user 1 คน คลิ๊กเข้าไป - เลื่อนลงมาข่างล่างสุดครับ"
+      },
+      {
+        "id": 268259,
+        "date": "2026-06-16 07:55:23",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [
+          3893
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          1,
+          "Discussions"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268257,
+        "date": "2026-06-16 07:54:54",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268250,
+        "date": "2026-06-16 07:16:49",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p><strong>ผลตรวจ Server 14: ยังไม่ส่ง Assigned Tester</strong></p>\n      <p><strong>สิ่งที่ตรวจแล้ว:</strong> field res.users.van_sale_location_id มีอยู่ และ label คือ Van Sales Source Location</p>\n      <p><strong>ข้อจำกัดข้อมูลจริง:</strong> ไม่พบ active user ในกลุ่ม Van Sales ที่ตั้งค่า Van Sales Source Location ไว้ จึงยังทำ real UI happy path แบบไม่แก้ master data ไม่ได้</p>\n      <p><strong>Expected ก่อนส่ง Tester:</strong> ต้องมี Van Sales user ที่ตั้ง location รถไว้ แล้ว confirm SO ให้ DO ใช้ source location รถ และลอง validate DO ที่ผิด location ต้องถูก block ด้วย error; non-van flow ต้องไม่ถูกบังคับ</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ผลตรวจ Server 14: ยังไม่ส่ง Assigned Tester\n\n\nสิ่งที่ตรวจแล้ว:\n field res.users.van_sale_location_id มีอยู่ และ label คือ Van Sales Source Location\n\n\nข้อจำกัดข้อมูลจริง:\n ไม่พบ active user ในกลุ่ม Van Sales ที่ตั้งค่า Van Sales Source Location ไว้ จึงยังทำ real UI happy path แบบไม่แก้ master data ไม่ได้\n\n\nExpected ก่อนส่ง Tester:\n ต้องมี Van Sales user ที่ตั้ง location รถไว้ แล้ว confirm SO ให้ DO ใช้ source location รถ และลอง validate DO ที่ผิด location ต้องถูก block ด้วย error; non-van flow ต้องไม่ถูกบังคับ"
+      },
+      {
+        "id": 268203,
+        "date": "2026-06-16 03:40:02",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268136,
+        "date": "2026-06-15 12:42:14",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3895,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 4594,
+        "create_date": "2026-06-16 07:56:21"
+      },
+      {
+        "id": 3893,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 4151,
+        "create_date": "2026-06-16 07:55:21"
+      },
+      {
+        "id": 3866,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 48933,
+        "create_date": "2026-06-15 12:46:31"
+      },
+      {
+        "id": 3864,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 14028,
+        "create_date": "2026-06-15 12:44:16"
+      }
+    ]
+  },
+  {
+    "id": 1693,
+    "name": "ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",1622073007116712,2409036280132018,4397165592414507,11654409287064,1829594922337317,4343283004520540,1092679507661479,4230263435010711,4119924123885270,651702710179070,3290783272243217,3841459693757445,1222597549631580,2164240960217412,1901471023625781,2653710828501756,725960608461660,197970797810901,1126335648814321,3102388836275557,3411061578284317,2436408528231732,2723469399106816,3151422660657337,4201542524588593,4313916812086307,2011165870913198,85329442268854,297683379353536,2343063290921010,1271934826241210,674835015917702,1430275286909877,3273163078946356,3535242954492754,1385363946574254,3380641919141091,3540860242975527,3154667249524345,3482973470852513,3218541863353040,347379973303386,1998616868027962,1459412386093265,3595075076493115,2479555496478244,172968645423419,2967675391925044,1595791899611519,884739491746691,1937539178866969,4064085248919329,2607870366674425,2325568747011194,3263268534568256,3853233038005683,368824420678247,2340351937537567,3544121970336606,2006124701319495,4077975206581874,2784228405155798,2877859930892389,3317099197399927,4021734724831228,2004117182235566,3738428766037670,3402964394094948,3960124437061189,1280011971467653,3582511200316414,4207644244809716,3295725823116848,1944410274931057,4115591028391443,3384067426763542,2241143376954040,1730466681624927,3114800037252568,1152893195715058,3109215610087948,2928889745974789,857681453654824,2957618831448748,1128088677630264,1973643319580626,339594535514861,3854391389735,2130790962387219,4209834914966323,3680020171918046,4330515917909471,2979772232692781,2239044692315833,454327405495931,927072311656561,774587083423057,173525448063514,2598118441662413,2354420566168508,938422850303737,524216525438168,4149689497366571,4290065735295547,2692806277260887,1774880870508915,1979330652925623,2091180627595446,4373367119412951,3768969892127651,2330631826703915,2112835748893601,449125192600449,2415816230257194,480657317877290,3945886800677020,4279600066451453,552735753707405,1277290158965682,703355889090145,1142788276608496,1513545553558621,1943610711016700,3027016572714937,2402103429490281,2384569503887625,411783366142029,662573628200199,1783212806360520,713479386129042,761690388146430,1380613303525389,4499260920673189,2386452494354390,869375079680021,406360448176234,2747832778983089,709697370335933,960733528399385,3058683977471921,2439000428882483,298811735497479,3731497287187560,562761706448807,4441917889427220,3314780664396039,2328319899890461,4315326974783291,1852214327563853,2109426081149938,2288695511915328,3661803867278824,2990458632179598,2982546858485528,4263665083216902,3565224179154781,1390572683648831,1267301094332473,1960737651229435,459760643007073,1342843860079389,4308842600433016,1328382049208350,2729217692132667,909267032674321,955863953482716,1457912730299662,3573708361600819,2132692851769908,3987856042439052,2977578821863707,2814183287773081,3851769544722832,1744603450838468,3659794513641751,1750170691141411,616225819849668,1564207254392800,2037519932079980,4073461494574429,2561709122020646,3185800550332195,3292611335290973,755444559274986,3783746740051490,1368239337403630,1446231141910431,860357765203299,3930594541067470,2772718324761582,1452870908707899,2864320109383123,2067066889135286,4108559818463212,2511604583702099,3735886939088729,240223040439771,306940324672245,4432098641090336,3084342874423035,2748524039773761,2717392846144553,3585818364162707,1370744643799065,4037541512435275,1798941511985210,1086990588004036,497144739343720,98756954181242,1895441827136794,3139996996563746,1720116167389712,826365391277870,2670783443487174,2430285833946980,2399095470786950,1250530444890677\">ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้ (Product Type = Goods แต่ยังไม่ได้ Receipts) เพื่อ Create Billing Note</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3832-f67c77a3/image.png?access_token=c864bed7-bbbd-464b-89e1-2d6c9adb9cdc\"></div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-16 08:54:46",
+    "create_date": "2026-06-11 03:08:47",
+    "message_ids": [
+      268246,
+      268245,
+      265235,
+      265234
+    ],
+    "description_text": "ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้ (Product Type = Goods แต่ยังไม่ได้ Receipts) เพื่อ Create Billing Note",
+    "recent_messages": [
+      {
+        "id": 268245,
+        "date": "2026-06-16 07:16:14",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p><strong>ผลทดสอบ: PASS - Fixed Asset PO สามารถทำ Billing Note ได้แม้ยังไม่ Receive</strong></p>\n      <p><strong>Environment:</strong> Server 14, DB goldmints_uat, tested on 16/06/2026</p>\n      <p><strong>Test Data:</strong> PO P00125, Product Injection Machine, Quantity 1.000, Received 0.000, Billed 0.000</p>\n      <p><strong>Test Steps:</strong></p>\n      <ol>\n        <li>เข้า Purchase &gt; Orders &gt; Purchase Orders</li>\n        <li>เปิดเอกสาร PO: P00125</li>\n        <li>ตรวจสอบว่าสินค้าเป็น Fixed Asset และยังไม่ได้รับสินค้า Received = 0.000</li>\n        <li>ตรวจสอบว่าปุ่ม Create Billing Note แสดงบนหน้า PO</li>\n        <li>ตรวจ backend field purchase.order.is_billing_note_ready = True</li>\n      </ol>\n      <p><strong>Expected Result:</strong> Fixed Asset PO ต้องพร้อมทำ Billing Note โดยใช้ product_qty เป็น basis แม้ qty_received = 0 และสินค้าปกติยังอิง qty_received เหมือนเดิม</p>\n      <p><strong>Actual Result:</strong> ตรงตาม Expected Result. P00125 แสดงปุ่ม Create Billing Note ทั้งที่ Received = 0.000 และ readiness เป็น True.</p>",
+        "attachment_ids": [
+          3886
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ผลทดสอบ: PASS - Fixed Asset PO สามารถทำ Billing Note ได้แม้ยังไม่ Receive\n\n\nEnvironment:\n Server 14, DB goldmints_uat, tested on 16/06/2026\n\n\nTest Data:\n PO P00125, Product Injection Machine, Quantity 1.000, Received 0.000, Billed 0.000\n\n\nTest Steps:\n\n\n\n\nเข้า Purchase > Orders > Purchase Orders\n\n\nเปิดเอกสาร PO: P00125\n\n\nตรวจสอบว่าสินค้าเป็น Fixed Asset และยังไม่ได้รับสินค้า Received = 0.000\n\n\nตรวจสอบว่าปุ่ม Create Billing Note แสดงบนหน้า PO\n\n\nตรวจ backend field purchase.order.is_billing_note_ready = True\n\n\n\n\nExpected Result:\n Fixed Asset PO ต้องพร้อมทำ Billing Note โดยใช้ product_qty เป็น basis แม้ qty_received = 0 และสินค้าปกติยังอิง qty_received เหมือนเดิม\n\n\nActual Result:\n ตรงตาม Expected Result. P00125 แสดงปุ่ม Create Billing Note ทั้งที่ Received = 0.000 และ readiness เป็น True."
+      },
+      {
+        "id": 268246,
+        "date": "2026-06-16 07:16:14",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 265235,
+        "date": "2026-06-11 03:08:53",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 265234,
+        "date": "2026-06-11 03:08:47",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3886,
+        "name": "1693_fixed_asset_billing_note_P00125_pass_20260616.png",
+        "mimetype": "image/png",
+        "file_size": 70474,
+        "create_date": "2026-06-16 07:16:14"
+      }
+    ]
+  },
+  {
+    "id": 1691,
+    "name": "[Van Sales] แก้ไขข้อมูลบนใบกำกับภาษี 3+1 จุด",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3501032241100485\">[Van Sales]&nbsp;</div><div><strong>1) เอา QR Code จากใบกำกับภาษีออ</strong>ก เปลี่ยนเป็นข้อมูลเลขที่บัญชีแทน</div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​ธนาคาร: กสิกรไทย&nbsp;สาขา เซ็นทรัล บางนา</div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​ประเภทบัญชี: ออมทรัพย์</div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​ชื่อบัญชี: บริษัท โกลด์ มิ้นท์ โปรดักส์ จำกัด</div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​เลขที่บัญชี: 011-3-18586-4</div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​<br></div><div><span class=\"oe-tabs\" style=\"width: 40px;\">\t</span>​<strong>ขอตัวใหญ่ๆ หน่อย</strong></div><div><br></div><div><strong>2) เอาข้อความ \"หน้า 1/2, 2/2\" ออกไปเลย</strong></div><div><br></div><div><strong>3) เปลี่ยนชื่อเอกสาร</strong></div><div>จาก: ใบกำกับ (ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ)</div><div>เป็น:&nbsp;ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ</div><div><br></div><div><strong>4) เพิ่มข้อมูล Lot</strong></div><div>5) เพิ่มชื่อ&nbsp;ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ เป็น&nbsp;ใบกำกับภาษี / ใบส่งของ / ใบเสร็จรับเงิน<br>ุุ6) ตัดจำนวนเงินที่ปัดเศษ&nbsp;<br><br></div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-12 08:01:47",
+    "create_date": "2026-06-09 03:24:46",
+    "message_ids": [
+      268974,
+      267348,
+      266684,
+      266377,
+      266363,
+      266361,
+      264913,
+      264815,
+      264741,
+      264740,
+      264736,
+      264735,
+      264452,
+      264444
+    ],
+    "description_text": "[Van Sales] \n1) เอา QR Code จากใบกำกับภาษีออ\nก เปลี่ยนเป็นข้อมูลเลขที่บัญชีแทน\n \n​ธนาคาร: กสิกรไทย สาขา เซ็นทรัล บางนา\n \n​ประเภทบัญชี: ออมทรัพย์\n \n​ชื่อบัญชี: บริษัท โกลด์ มิ้นท์ โปรดักส์ จำกัด\n \n​เลขที่บัญชี: 011-3-18586-4\n \n​\n \n​\nขอตัวใหญ่ๆ หน่อย\n2) เอาข้อความ \"หน้า 1/2, 2/2\" ออกไปเลย\n3) เปลี่ยนชื่อเอกสาร\nจาก: ใบกำกับ (ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ)\nเป็น: ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ\n4) เพิ่มข้อมูล Lot\n5) เพิ่มชื่อ ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ เป็น ใบกำกับภาษี / ใบส่งของ / ใบเสร็จรับเงิน\nุุ6) ตัดจำนวนเงินที่ปัดเศษ",
+    "recent_messages": [
+      {
+        "id": 268974,
+        "date": "2026-06-17 02:28:03",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>ใบกำกับภาษีนี้ จะสามารถออกรายการได้สูงสุดแค่ 10 รายการ</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ใบกำกับภาษีนี้ จะสามารถออกรายการได้สูงสุดแค่ 10 รายการ"
+      },
+      {
+        "id": 267348,
+        "date": "2026-06-12 08:01:44",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 266684,
+        "date": "2026-06-11 08:17:52",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>แจ้งเพิ่มเติมจากคุณดาว<br>5) เพิ่มชื่อ ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ เป็น ใบกำกับภาษี / ใบส่งของ / ใบเสร็จรับเงิน<br>ุุ6) ตัดจำนวนเงินที่ปัดเศษ</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "แจ้งเพิ่มเติมจากคุณดาว\n5) เพิ่มชื่อ ใบกำกับภาษี / ใบส่งของ / ใบเสร็จ เป็น ใบกำกับภาษี / ใบส่งของ / ใบเสร็จรับเงิน\nุุ6) ตัดจำนวนเงินที่ปัดเศษ"
+      },
+      {
+        "id": 266377,
+        "date": "2026-06-11 05:02:56",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 266363,
+        "date": "2026-06-11 04:30:33",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>แจ้งเพิ่มเติมจากคุณดาวว่าต้องมีข้อมูล Lot ด้วย</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "แจ้งเพิ่มเติมจากคุณดาวว่าต้องมีข้อมูล Lot ด้วย"
+      },
+      {
+        "id": 266361,
+        "date": "2026-06-11 04:29:46",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264913,
+        "date": "2026-06-10 09:27:07",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264815,
+        "date": "2026-06-10 07:08:45",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264741,
+        "date": "2026-06-10 01:08:29",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264740,
+        "date": "2026-06-10 01:08:28",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3923,
+        "name": "task_1691_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 73471,
+        "create_date": "2026-06-16 08:56:47"
+      }
+    ]
+  },
+  {
+    "id": 1690,
+    "name": "Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"1774040719352070\">Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว</div><div><br></div><div>MO 1:&nbsp;GMP/MOPL/00169</div><div>MO 2: GMP/MOPL/00170</div><div>Merged Transfer No.:&nbsp;GMP/TRPL/00059</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3815-afb037a1/image.png?access_token=21a029e5-7e51-4fdf-a2d2-d11be2dee5e0\"></div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-16 07:10:16",
+    "create_date": "2026-06-08 15:08:53",
+    "message_ids": [
+      268226,
+      268224,
+      264738,
+      264290
+    ],
+    "description_text": "Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว\nMO 1: GMP/MOPL/00169\nMO 2: GMP/MOPL/00170\nMerged Transfer No.: GMP/TRPL/00059",
+    "recent_messages": [
+      {
+        "id": 268224,
+        "date": "2026-06-16 04:01:50",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268226,
+        "date": "2026-06-16 04:01:50",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p><strong>Assigned to Tester - ผลทดสอบ UI</strong></p>\n    <p>ตรวจสอบบน Server 14 แล้ว: Internal Transfer <strong>GMP/TRPL/00059</strong> แสดง smart button <strong>Manufacturing Orders</strong> และสามารถเปิดกลับไปดู MO ที่เกี่ยวข้องได้</p>\n    <p><strong>Test Steps:</strong></p>\n    <ol>\n      <li>เข้า Inventory &gt; Operations &gt; Transfers</li>\n      <li>เปิด Internal Transfer GMP/TRPL/00059</li>\n      <li>ตรวจสอบ smart button Manufacturing Orders</li>\n      <li>กดเปิด Manufacturing Orders และตรวจว่าเชื่อมกลับ MO ได้</li>\n    </ol>\n    <p><strong>Expected Result:</strong> Internal Transfer ที่ merge แล้วต้องมี link กลับ Manufacturing Orders ที่เกี่ยวข้อง ไม่หลงเหลือ HTML หรือข้อความเสียใน log</p>",
+        "attachment_ids": [
+          3878
+        ],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "Assigned to Tester - ผลทดสอบ UI\n\n\nตรวจสอบบน Server 14 แล้ว: Internal Transfer \nGMP/TRPL/00059\n แสดง smart button \nManufacturing Orders\n และสามารถเปิดกลับไปดู MO ที่เกี่ยวข้องได้\n\n\nTest Steps:\n\n\n\n\nเข้า Inventory > Operations > Transfers\n\n\nเปิด Internal Transfer GMP/TRPL/00059\n\n\nตรวจสอบ smart button Manufacturing Orders\n\n\nกดเปิด Manufacturing Orders และตรวจว่าเชื่อมกลับ MO ได้\n\n\n\n\nExpected Result:\n Internal Transfer ที่ merge แล้วต้องมี link กลับ Manufacturing Orders ที่เกี่ยวข้อง ไม่หลงเหลือ HTML หรือข้อความเสียใน log"
+      },
+      {
+        "id": 264738,
+        "date": "2026-06-10 01:07:48",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264290,
+        "date": "2026-06-08 15:08:53",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3878,
+        "name": "task1690_transfer_links_two_mos.png",
+        "mimetype": "image/png",
+        "file_size": 85640,
+        "create_date": "2026-06-16 04:01:50"
+      },
+      {
+        "id": 3815,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 82532,
+        "create_date": "2026-06-08 15:10:39"
+      }
+    ]
+  },
+  {
+    "id": 1689,
+    "name": "เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --> จำนวน RM ในใบ Transfer ไม่ครบถ้วน",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"2343669534514038\">เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --&gt; จำนวน RM ในใบ Transfer ไม่ครบถ้วน</div><div><br></div><div>MO no.: GMP/MOPL/00167</div><div>Internal Transfer no.: GMP/TRPL/00057</div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-17 07:02:32",
+    "create_date": "2026-06-08 14:51:29",
+    "message_ids": [
+      269027,
+      268249,
+      264739,
+      264272,
+      264271
+    ],
+    "description_text": "เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --> จำนวน RM ในใบ Transfer ไม่ครบถ้วน\nMO no.: GMP/MOPL/00167\nInternal Transfer no.: GMP/TRPL/00057",
+    "recent_messages": [
+      {
+        "id": 269027,
+        "date": "2026-06-17 07:02:32",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268249,
+        "date": "2026-06-16 07:16:49",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>สร้าง MO ทดสอบจริงจาก product/BOM เดิม ไม่สร้าง master data ใหม่:GMP/MOPL/00195<br>GMP/MOPL/00196<br><br>Confirm แล้วระบบสร้าง Transfer:GMP/TRPL/00071<br>GMP/TRPL/00072<br><br>RM สีชมพูเข้ม demand 0.41 ต่อ MO ถูกสร้างใน transfer เต็ม 0.41 ไม่ถูกตัดเหลือบางส่วนเหมือน defect เก่า<br>ทดสอบ merge transfer แล้ว target GMP/TRPL/00071 มี move lines ครบ 2 รายการ รวม 0.82<span class=\"o-mail-Message-edited\"></span></p>",
+        "attachment_ids": [
+          3943
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "สร้าง MO ทดสอบจริงจาก product/BOM เดิม ไม่สร้าง master data ใหม่:GMP/MOPL/00195\nGMP/MOPL/00196\nConfirm แล้วระบบสร้าง Transfer:GMP/TRPL/00071\nGMP/TRPL/00072\nRM สีชมพูเข้ม demand 0.41 ต่อ MO ถูกสร้างใน transfer เต็ม 0.41 ไม่ถูกตัดเหลือบางส่วนเหมือน defect เก่า\nทดสอบ merge transfer แล้ว target GMP/TRPL/00071 มี move lines ครบ 2 รายการ รวม 0.82"
+      },
+      {
+        "id": 264739,
+        "date": "2026-06-10 01:07:55",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264272,
+        "date": "2026-06-08 14:59:12",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 264271,
+        "date": "2026-06-08 14:51:29",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3943,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 114559,
+        "create_date": "2026-06-17 04:20:16"
+      },
+      {
+        "id": 3905,
+        "name": "task_1689_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 84630,
+        "create_date": "2026-06-16 08:56:16"
+      }
+    ]
+  },
+  {
+    "id": 1684,
+    "name": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า",
+    "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",2833313979042093,2894538018253155,889398611720303,2707688194851509,4440521395255960,1474690475103503,4139446218247867,1961042359091296,4432890383831266,1426911757224827,4010634452328233,2629858415578841,4496231254371875,1052191455426915,1880818534771622,2439997627325482,785048648705160,3160084849464264,3806842823349682,186347009243676,1205246094076408,1469182362062031,2908001326823376,4270176541197438,3359603045892157,1428666171991404,1338431342052460,1193426538133433,3300366025955124,4384932636955054,4125475145572676,3687529735031306,217209638500168,3491583789343493,2876003874742659,254782060080816,1952091865449262,2525661179031724,646416259576932,389971710494389,2257532521469609,696731883164389,4458797401468994,2420471391341801,4396944011602612,3476616891808423,626129509742642,4133197763989958,4063956168023235,2334671483758314,333931407956168,4384773135106870,3412016404028267,3887143221884653,1355945003873212,3860278714957409,453757082138386,2452619991373169,1033391060987319,3733178769721413,2707234386438704,1099051807696035,513844267875536,3455436409105013,3452859439775085,2394020389788315,869497682022181,4487440330505453,1539598644150273,1890597472985017,674430564152285,3262189254068755,1058718987093974,2429159634419064,2441276698653561,869180145873643,433813751620690,648337217854782,195976730813867,766831380224298,1196805864399937,1707171770185949,3920998718233084,4236177555114307,2803564909778446,4184701391473512,2597364953224331,2864331395800122,342723869675908,3132180193847745,3831877061817113,3348300985144927,2043194016804055,1403177840827673,4086889777477155,1907278729038368,65806865845070,737614766498637,1083906421192655,2604162584864506,4197466454477029,64773665560315,4114184716876583,2722726526960854,3761632847174156,596724445599439,3314537695680684,1595210846307692,112396224682338,687998168542163,2284137893613815,3666399650299494,3015784504517031,3141641119600353,3035427186706991,867350542354552,1055382905071489,2497279719603600,955689253428469,2746485061451439,577279719679508,4375008063546748,2891799443022216,3264452191065528,2191742498187092,1587209103224199,2301112928103985,3034169454878899,1339304824582921,1241248452622312,2418071656386388,3951880539983229,1043646527069986,2123450021867056,960374025830148,4101350796825505,468763686387271,3249551602778523,2396873964507143,4119042739369764,2388320780502195,1011262589982019,3488433599957608,2958870669175771,2556303166609028,4010480480496442,1211887328342985,2268808085603914,133687946322573,4052335801584686,215937108459238\">งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า Logic เป็นยังไง เขียนธิบายมาหน่อย</div><div><br></div><div>** ใส่คำอธิบายแล้ว ปรับ stage มาเป็น assign BA และเลือก assign Cook ได้เลย **</div>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-12 15:46:12",
+    "create_date": "2026-06-03 15:58:00",
+    "message_ids": [
+      263414,
+      262032,
+      261970
+    ],
+    "description_text": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า Logic เป็นยังไง เขียนธิบายมาหน่อย\n** ใส่คำอธิบายแล้ว ปรับ stage มาเป็น assign BA และเลือก assign Cook ได้เลย **",
+    "recent_messages": [
+      {
+        "id": 263414,
+        "date": "2026-06-08 02:55:39",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 262032,
+        "date": "2026-06-04 06:14:41",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261970,
+        "date": "2026-06-03 15:58:00",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<div summary=\"o_mail_notification\"><p>A new task has been created in the \"Defects List\" project.</p></div>",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          23,
+          "Task Created"
+        ],
+        "body_text": "A new task has been created in the \"Defects List\" project."
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3921,
+        "name": "task_1684_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 72026,
+        "create_date": "2026-06-16 08:56:44"
+      }
+    ]
+  },
+  {
+    "id": 1673,
+    "name": "Defect-0283: MO Schedule Date = SO Delivery Date ซึ่งไม่ถูกต้อง",
+    "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"19852659239783\">ในกรณีที่ระบบ Auto Create MO มาจาก MTO ระบบใส่ MO Schedule Date = Delivery Date ซึ่งไม่ถูกต้อง<br><br><strong>Requirement</strong></p><ol><li>เพิ่มฟิลด์ \"Produce Period&nbsp;(Days)\" ใน Product</li><li>MO Start Date = SO Delivery Date -&nbsp;Produce Period&nbsp;(Days)<br><br></li></ol>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-17 04:23:37",
+    "create_date": "2026-06-02 11:07:12",
+    "message_ids": [
+      268997,
+      268247,
+      264800,
+      262061,
+      261948,
+      261636,
+      261633,
+      261632
+    ],
+    "description_text": "ในกรณีที่ระบบ Auto Create MO มาจาก MTO ระบบใส่ MO Schedule Date = Delivery Date ซึ่งไม่ถูกต้อง\nRequirement\nเพิ่มฟิลด์ \"Produce Period (Days)\" ใน Product\nMO Start Date = SO Delivery Date - Produce Period (Days)",
+    "recent_messages": [
+      {
+        "id": 268997,
+        "date": "2026-06-17 04:23:37",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 268247,
+        "date": "2026-06-16 07:16:49",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>ใช้เอกสารจริง: SOE-260070<br>Delivery Date: 2026-08-28 09:00<br>Product MFG Lead Time: 5 days<br>MO ที่ระบบสร้าง: GMP/MOPH/00534<br>MO Start Date: 2026-08-23 09:00<span class=\"o-mail-Message-edited\"></span></p>",
+        "attachment_ids": [
+          3945
+        ],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ใช้เอกสารจริง: SOE-260070\nDelivery Date: 2026-08-28 09:00\nProduct MFG Lead Time: 5 days\nMO ที่ระบบสร้าง: GMP/MOPH/00534\nMO Start Date: 2026-08-23 09:00"
+      },
+      {
+        "id": 264800,
+        "date": "2026-06-10 04:21:21",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>ข้อมูล confirm กลับมาอยู่ที่ #1675</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "ข้อมูล confirm กลับมาอยู่ที่ #1675"
+      },
+      {
+        "id": 262061,
+        "date": "2026-06-04 06:31:33",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261948,
+        "date": "2026-06-03 09:41:52",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261636,
+        "date": "2026-06-02 11:25:15",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261633,
+        "date": "2026-06-02 11:21:11",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261632,
+        "date": "2026-06-02 11:18:33",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3945,
+        "name": "image.png",
+        "mimetype": "image/png",
+        "file_size": 130196,
+        "create_date": "2026-06-17 04:23:05"
+      },
+      {
+        "id": 3903,
+        "name": "task_1673_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 80667,
+        "create_date": "2026-06-16 08:56:13"
+      }
+    ]
+  },
+  {
+    "id": 1667,
+    "name": "Defect-0277: เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อม",
+    "description": "<p>เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อมกับ Credit Note เพื่อดึงข้อมูลจากเอกสาร Return ไปใส่ใน Credit Note และเพิ่มสถานะให้ฝ่ายคลังรับรู้ว่าเอกสาร Return ออก Credit Note แล้วหรือยัง</p>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-12 15:46:12",
+    "create_date": "2026-06-02 11:07:12",
+    "message_ids": [
+      263420,
+      262083,
+      262027
+    ],
+    "description_text": "เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อมกับ Credit Note เพื่อดึงข้อมูลจากเอกสาร Return ไปใส่ใน Credit Note และเพิ่มสถานะให้ฝ่ายคลังรับรู้ว่าเอกสาร Return ออก Credit Note แล้วหรือยัง",
+    "recent_messages": [
+      {
+        "id": 263420,
+        "date": "2026-06-08 02:56:37",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 262083,
+        "date": "2026-06-04 06:35:17",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 262027,
+        "date": "2026-06-04 05:09:36",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3917,
+        "name": "task_1667_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 76243,
+        "create_date": "2026-06-16 08:56:37"
+      }
+    ]
+  },
+  {
+    "id": 1665,
+    "name": "ต้องทำให้ billing note ต้องสามารถดึง vendor bill และ credit note มาทำได้",
+    "description": "<p>ต้องทำให้ billing note ต้องสามารถดึง  vendo bill และ credit note มาทำได้ และ flow ต้องแก้ให้ ไม่ใช่ service acceptance สามารถตั้งหนี้ตรงได้และต้องสามารถดึง vendor bill กลับมาทำ billing note ได้ และต้องทำ payment หน้า billing note เหมือน payment wizard ของ odoo และ หน้า purchase_order_status_report ต้องโชว์ apd และ cn ด้วย</p>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-12 15:46:12",
+    "create_date": "2026-06-02 11:07:12",
+    "message_ids": [
+      263421,
+      261945
+    ],
+    "description_text": "ต้องทำให้ billing note ต้องสามารถดึง  vendo bill และ credit note มาทำได้ และ flow ต้องแก้ให้ ไม่ใช่ service acceptance สามารถตั้งหนี้ตรงได้และต้องสามารถดึง vendor bill กลับมาทำ billing note ได้ และต้องทำ payment หน้า billing note เหมือน payment wizard ของ odoo และ หน้า purchase_order_status_report ต้องโชว์ apd และ cn ด้วย",
+    "recent_messages": [
+      {
+        "id": 263421,
+        "date": "2026-06-08 02:56:41",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261945,
+        "date": "2026-06-03 09:37:38",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3915,
+        "name": "task_1665_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 80544,
+        "create_date": "2026-06-16 08:56:33"
+      }
+    ]
+  },
+  {
+    "id": 1622,
+    "name": "Defect-0233: รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+    "description": "<p>รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque\n</p>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-12 15:46:12",
+    "create_date": "2026-06-02 11:07:12",
+    "message_ids": [
+      261939
+    ],
+    "description_text": "รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+    "recent_messages": [
+      {
+        "id": 261939,
+        "date": "2026-06-03 09:22:35",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": ""
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3913,
+        "name": "task_1622_screen_2026-06-16.png",
+        "mimetype": "image/png",
+        "file_size": 75684,
+        "create_date": "2026-06-16 08:56:30"
+      }
+    ]
+  },
+  {
+    "id": 1596,
+    "name": "Defect-0207: CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของกา",
+    "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"1716421552991615\">CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของการทำ RMA ยังไม่เสร็จ</p>",
+    "stage_id": [
+      56,
+      "06) Assigned Tester"
+    ],
+    "project_id": [
+      3,
+      "Defects List"
+    ],
+    "user_ids": [],
+    "tag_ids": [],
+    "priority": "0",
+    "write_date": "2026-06-13 01:24:33",
+    "create_date": "2026-06-02 11:07:12",
+    "message_ids": [
+      267357,
+      261630,
+      261629
+    ],
+    "description_text": "CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของการทำ RMA ยังไม่เสร็จ",
+    "recent_messages": [
+      {
+        "id": 267357,
+        "date": "2026-06-13 01:20:38",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p><b>QA Test Update 2026-06-13</b></p>\n<p>อัปเดต Test Step เป็นภาษาไทย และทดสอบ RMA/CN ด้วยข้อมูลจริงบน server14 แล้ว</p>\n<ul>\n<li>RMA: RMA0022 / RMATR/2026/06/000015 - Transform Return</li>\n<li>CN: CCND/26/06/00002 เปิดได้จาก Smart Button Refund Invoices บน RMA</li>\n<li>ผล: PASS - เปิด CN จาก RMA ได้ และ CN มี link กลับผ่าน rma_transform_claim_id / rma_transform_return_id</li>\n<li>ข้อสังเกต: field claim_id มาตรฐานยังว่าง เพราะ transform flow ใช้ field rma_transform_claim_id แทน ถ้ารายงานหรือหน้าจอใดอิง claim_id ต้องรองรับ field transform ด้วย</li>\n</ul>",
+        "attachment_ids": [
+          3862,
+          3860,
+          3858
+        ],
+        "message_type": "notification",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "QA Test Update 2026-06-13\n\n\nอัปเดต Test Step เป็นภาษาไทย และทดสอบ RMA/CN ด้วยข้อมูลจริงบน server14 แล้ว\n\n\n\n\nRMA: RMA0022 / RMATR/2026/06/000015 - Transform Return\n\n\nCN: CCND/26/06/00002 เปิดได้จาก Smart Button Refund Invoices บน RMA\n\n\nผล: PASS - เปิด CN จาก RMA ได้ และ CN มี link กลับผ่าน rma_transform_claim_id / rma_transform_return_id\n\n\nข้อสังเกต: field claim_id มาตรฐานยังว่าง เพราะ transform flow ใช้ field rma_transform_claim_id แทน ถ้ารายงานหรือหน้าจอใดอิง claim_id ต้องรองรับ field transform ด้วย"
+      },
+      {
+        "id": 261630,
+        "date": "2026-06-02 11:15:45",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "",
+        "attachment_ids": [],
+        "message_type": "notification",
+        "subtype_id": [
+          24,
+          "Stage Changed"
+        ],
+        "body_text": ""
+      },
+      {
+        "id": 261629,
+        "date": "2026-06-02 11:15:42",
+        "author_id": [
+          3,
+          "Administrator"
+        ],
+        "body": "<p>[Cook: 17-May-2026] ส่งกลับไปที่ Tester ได้เลย จากที่ได้รับ update มาเข้าใจว่าสามารถใช้งานได้ครบแล้ว</p>",
+        "attachment_ids": [],
+        "message_type": "comment",
+        "subtype_id": [
+          2,
+          "Note"
+        ],
+        "body_text": "[Cook: 17-May-2026] ส่งกลับไปที่ Tester ได้เลย จากที่ได้รับ update มาเข้าใจว่าสามารถใช้งานได้ครบแล้ว"
+      }
+    ],
+    "attachments": [
+      {
+        "id": 3862,
+        "name": "cn_70245_form.png",
+        "mimetype": "image/png",
+        "file_size": 93367,
+        "create_date": "2026-06-13 01:20:38"
+      },
+      {
+        "id": 3860,
+        "name": "rma_0022_form.png",
+        "mimetype": "image/png",
+        "file_size": 84251,
+        "create_date": "2026-06-13 01:20:38"
+      },
+      {
+        "id": 3858,
+        "name": "task_1596_thai_test_result.png",
+        "mimetype": "image/png",
+        "file_size": 146039,
+        "create_date": "2026-06-13 01:20:37"
+      }
+    ]
+  }
+]

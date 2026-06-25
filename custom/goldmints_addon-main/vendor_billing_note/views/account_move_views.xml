@@ -5,11 +5,26 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_create_vendor_billing_note"
+                        string="Create Vendor Billing Note"
+                        type="object"
+                        invisible="move_type not in ('in_invoice', 'in_refund') or vendor_billing_note_id"/>
+            </xpath>
             
             <xpath expr="//field[@name='ref']" position="after">
-                <field name="vendor_billing_note_id" invisible="move_type != 'in_invoice' or not vendor_billing_note_id"/>
+                <field name="vendor_billing_note_id" invisible="move_type not in ('in_invoice', 'in_refund') or not vendor_billing_note_id"/>
             </xpath>
 
         </field>
+    </record>
+
+    <record id="action_create_vendor_billing_note_from_moves" model="ir.actions.server">
+        <field name="name">Create Vendor Billing Note</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_create_vendor_billing_note()</field>
     </record>
 </odoo>

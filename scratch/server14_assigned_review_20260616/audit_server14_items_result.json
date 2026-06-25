@@ -1,0 +1,1166 @@
+{
+  "uid": 2,
+  "tasks": [
+    {
+      "id": 1673,
+      "name": "Defect-0283: MO Schedule Date = SO Delivery Date ซึ่งไม่ถูกต้อง",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p>ระบบ Auto Create MO</p>",
+      "x_studio_expected_result": "<p data-oe-version=\"1.2\">ให้ใส่ MO Schedule Date เป็น&nbsp;MO Start Date = SO Delivery Date - Produce Time (Days)</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"19852659239783\">ในกรณีที่ระบบ Auto Create MO มาจาก MTO ระบบใส่ MO Schedule Date = Delivery Date ซึ่งไม่ถูกต้อง<br><br><strong>Requirement</strong></p><ol><li>เพิ่มฟิลด์ \"Produce Period&nbsp;(Days)\" ใน Product</li><li>MO Start Date = SO Delivery Date -&nbsp;Produce Period&nbsp;(Days)<br><br></li></ol>",
+      "message_attachment_count": 0
+    },
+    {
+      "id": 1675,
+      "name": "กำหนด MFG Lead (Related  Defect#1673)",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Inventory",
+      "x_studio_function": "Data",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<ol data-oe-version=\"1.2\" data-last-history-steps=\"1306383159559758\"><li>List Product ออกมาส่งให้คุณไอซ์</li><li>ติดตามให้คุณไอซ์กำหนดมาว่า&nbsp;Produce Time (Days) เป็นเท่าไหร่ เพื่อ Import เข้าระบบ</li></ol>",
+      "message_attachment_count": 1
+    },
+    {
+      "id": 1689,
+      "name": "เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --> จำนวน RM ในใบ Transfer ไม่ครบถ้วน",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>เปิด MO ด้วย Product&nbsp;SM-JOI-PK-02001จำนวน 10,000 --&gt;&nbsp;GMP/MOPL/00167</li><li>Check จำนวนใน Internal Transfer แล้วถูกต้อง</li><li>เปิด MO ด้วย Product&nbsp;SM-JOI-PK-02001จำนวน 30,000 --&gt; ระบบรวมจำนวนที่ GMP/MOPL/00167 เป็น 30,000</li><li>Check จำนวนใน Internal Transfer แล้วจำนวนยังเป็นจำนวนเดิมที่เปิดใบแรก</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">ในเมื่อ MO มารวมกันแล้ว ใบ Internal Transfer ควรจะรวมจำนวนที่ต้องเบิกให้ถูกต้องด้วย</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"2343669534514038\">เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --&gt; จำนวน RM ในใบ Transfer ไม่ครบถ้วน</div><div><br></div><div>MO no.: GMP/MOPL/00167</div><div>Internal Transfer no.: GMP/TRPL/00057</div>",
+      "message_attachment_count": 0
+    },
+    {
+      "id": 1690,
+      "name": "Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Create MO ของ Product&nbsp;[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า (MO&nbsp;GMP/MOPL/00169)</li><li>Create MO ของ Product&nbsp;[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง (MO.&nbsp;GMP/MOPL/00170)</li><li>เลือก 2 MO นี้แล้ว Merge ใบ Transfer</li><li>ตรวจสอบข้อมูลพบว่า ปุ่มด้านบนมี Link กลับไปที่ MO แค่ใบเดียว</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">เนื่องจาก Merge มาจาก MO หลายใบ จึงควรจะ Link กลับไปที่ MO ทุกใบที่ Merge มาด้วย และจำนวน RM เดียวกันต้องรวมกันได้ถูกต้อง</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"1774040719352070\">Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว</div><div><br></div><div>MO 1:&nbsp;GMP/MOPL/00169</div><div>MO 2: GMP/MOPL/00170</div><div>Merged Transfer No.:&nbsp;GMP/TRPL/00059</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3815-afb037a1/image.png?access_token=21a029e5-7e51-4fdf-a2d2-d11be2dee5e0\"></div>",
+      "message_attachment_count": 1
+    },
+    {
+      "id": 1693,
+      "name": "ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">ต้องสามารถเลือกเพื่อ Create Billing Note ได้ ถึงแม้ว่าจะยังไม่ได้รับของก็ตาม</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",1622073007116712,2409036280132018,4397165592414507,11654409287064,1829594922337317,4343283004520540,1092679507661479,4230263435010711,4119924123885270,651702710179070,3290783272243217,3841459693757445,1222597549631580,2164240960217412,1901471023625781,2653710828501756,725960608461660,197970797810901,1126335648814321,3102388836275557,3411061578284317,2436408528231732,2723469399106816,3151422660657337,4201542524588593,4313916812086307,2011165870913198,85329442268854,297683379353536,2343063290921010,1271934826241210,674835015917702,1430275286909877,3273163078946356,3535242954492754,1385363946574254,3380641919141091,3540860242975527,3154667249524345,3482973470852513,3218541863353040,347379973303386,1998616868027962,1459412386093265,3595075076493115,2479555496478244,172968645423419,2967675391925044,1595791899611519,884739491746691,1937539178866969,4064085248919329,2607870366674425,2325568747011194,3263268534568256,3853233038005683,368824420678247,2340351937537567,3544121970336606,2006124701319495,4077975206581874,2784228405155798,2877859930892389,3317099197399927,4021734724831228,2004117182235566,3738428766037670,3402964394094948,3960124437061189,1280011971467653,3582511200316414,4207644244809716,3295725823116848,1944410274931057,4115591028391443,3384067426763542,2241143376954040,1730466681624927,3114800037252568,1152893195715058,3109215610087948,2928889745974789,857681453654824,2957618831448748,1128088677630264,1973643319580626,339594535514861,3854391389735,2130790962387219,4209834914966323,3680020171918046,4330515917909471,2979772232692781,2239044692315833,454327405495931,927072311656561,774587083423057,173525448063514,2598118441662413,2354420566168508,938422850303737,524216525438168,4149689497366571,4290065735295547,2692806277260887,1774880870508915,1979330652925623,2091180627595446,4373367119412951,3768969892127651,2330631826703915,2112835748893601,449125192600449,2415816230257194,480657317877290,3945886800677020,4279600066451453,552735753707405,1277290158965682,703355889090145,1142788276608496,1513545553558621,1943610711016700,3027016572714937,2402103429490281,2384569503887625,411783366142029,662573628200199,1783212806360520,713479386129042,761690388146430,1380613303525389,4499260920673189,2386452494354390,869375079680021,406360448176234,2747832778983089,709697370335933,960733528399385,3058683977471921,2439000428882483,298811735497479,3731497287187560,562761706448807,4441917889427220,3314780664396039,2328319899890461,4315326974783291,1852214327563853,2109426081149938,2288695511915328,3661803867278824,2990458632179598,2982546858485528,4263665083216902,3565224179154781,1390572683648831,1267301094332473,1960737651229435,459760643007073,1342843860079389,4308842600433016,1328382049208350,2729217692132667,909267032674321,955863953482716,1457912730299662,3573708361600819,2132692851769908,3987856042439052,2977578821863707,2814183287773081,3851769544722832,1744603450838468,3659794513641751,1750170691141411,616225819849668,1564207254392800,2037519932079980,4073461494574429,2561709122020646,3185800550332195,3292611335290973,755444559274986,3783746740051490,1368239337403630,1446231141910431,860357765203299,3930594541067470,2772718324761582,1452870908707899,2864320109383123,2067066889135286,4108559818463212,2511604583702099,3735886939088729,240223040439771,306940324672245,4432098641090336,3084342874423035,2748524039773761,2717392846144553,3585818364162707,1370744643799065,4037541512435275,1798941511985210,1086990588004036,497144739343720,98756954181242,1895441827136794,3139996996563746,1720116167389712,826365391277870,2670783443487174,2430285833946980,2399095470786950,1250530444890677\">ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้ (Product Type = Goods แต่ยังไม่ได้ Receipts) เพื่อ Create Billing Note</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3832-f67c77a3/image.png?access_token=c864bed7-bbbd-464b-89e1-2d6c9adb9cdc\"></div>",
+      "message_attachment_count": 0
+    },
+    {
+      "id": 1694,
+      "name": "เพิ่มรายงาน \"ใบรับสินทรัพย์\" ที่หน้า Receipt",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Inventory &gt; Receipts</li><li>เลือกใบ Receipts ที่ต้องการ</li><li>กดฟันเฟือง &gt; Print &gt; ใบรับสินทรัพย์</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">เหมือนใบรับสินค้าแค่&nbsp;เปลี่ยนแค่หัวเอกสารเป็น ใบรับทรัพย์สิน</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"1892883948562379\">\"ใบรับสินทรัพย์\" ในกรณีที่ซื้อสินทรัพย์และต้องมีลายเซ็นวิศวกร จะต้องพิมพ์ออกมาเซ็นก่อน Register Asset</div><div><br></div><div>คุณดาว confirm รูปแบบรายงานที่ต้องการใช้</div>",
+      "message_attachment_count": 0
+    },
+    {
+      "id": 1697,
+      "name": "เพิ่มฟิลด์ที่หน้า Asset list เพื่อแสดง Last post depreciation date",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<div data-oe-version=\"1.2\">Accounting &gt; Accounting &gt; Asset</div>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">จะต้องมีฟิลด์ Last post depreciation date โดยแสดงข้อมูลวันที่ล่าสุด ถ้าวันที่/เดือน เป็นของเดือนก่อนหน้าแสดงว่า Asset ตัวนั้นไม่ได้รับการ Compute ต้องได้รับการตรวจสอบ</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3827217861448036\"><br></div><div>เพิ่มฟิลด์ Last post depreciation date</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3836-9315b4a3/image.png?access_token=7ead1327-d5a8-4c22-8f5d-c42f694bce64\"></div>",
+      "message_attachment_count": 1
+    },
+    {
+      "id": 1698,
+      "name": "ที่หน้าสรุปใบ Invoice อยากเพิ่มฟิลด์ให้เป็นว่าเอกสารใบไหน Print ไปแล้วบ้าง",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",586358757069921,4292748886595862,2961231556947320,1651920745392722,2444263941609782,3504352323294294,3907766266548063,2184440145633702,4351086226411402,607323096976278,2136739552042101,749339271251764,1730434880428616,4003743037009567,2600639185269588,2061144225070771,2993240170168378,2577054129261052,1339568297446482,3848104199755341,1131305814777336,1174971055667293,1508182164245890,1407658016929913,2736086111184524,673461287099354,4215053806145411,803404562218567,2119592755670621,4091777967798186,1164767478863284,3324356572958280,3128189112948432,3614129538794260,2846314869456705,3770997933080333,1903354603391283,3653773100376764,2650006994006760,3175768591361378,3140411008221940,2431056606685633,739832413035349,2173558982576731,2554149269770861,3750569593410627,246001126398671,633468536688823,4270568046668674,2075698284507472,610526037213562,4139972541379137,3807841802164908,4287617488233237,2373385253570169,3141655413444497,448235163133003,4137927019890598,3992469562408768,4231316969729319,931147405605279,2407425063006271,4460034344052548,1779544282845917,3456392050831375,908411220365623,422864643933326,791216406159003,3769679241086514,2197563679469840,1230983459940320,3315236435363734,3946897303934671,1246557946937350,2116824522724783,3767332904513835,4032123066672994,3608237883411734,4018380820562274,3008282058490443,1789835611933091,485996153301052,4028294955326073,4035319938695181,2664013924063340,1593692994358570,297310080216742,4201701966938913,1500662933493850,4096555130009814,1768548517612858,1254169600845951,3132972852542575,4384438222753821,2012889529904426,2049723441472274,944222295917458,3832491811550474,1749022852596416,3128158482978837,2021860394741827,3829299309291597,4117988070006103,1789848535874740,1667848426460027,3497716143728103,2963372654194613,4160622222016345,911447995915267,3580393300369071,4197675652577049,511346226135388,2100579238499378,1448900586373590,132393534413215,2771263046556831,1621795284780851,594131771534571,2273002602077263,2870203559509139,1398367889476873,4181025166357423,3716855685727060,1999268344825865,2180547408665445,1798247299793112,2908324646249190,3691114593197100,1390067845995269,4217472906027665,2890366348784408,1920770503823058,649211601082134,1353289301918202,1444721040403278,2924447724432889,3348714163473096,3177386394140875,91734627745422,2158917341932572,1151635795581939,4253636739499100,3342567394874750,3531494398175727,3872838523032949,4268937759768871,4121257283373599,1128446924912674,2803019593183139,1769694158759197,3339668924830577,2774153781950465,4040705244194176,418270322033941,1858123464500355,1958033146613612,3564491482468858,3372377241810399,1926660065990590,3798142176628483,1078502151587494,822034615063841,942191934188854,4371371581168080,951253909392824,2182847222292133,157224022438103,4243335072727144,971851415129246,3882734421968061,1266581305892344,4333598792386392,4235257990410039,3537367442599962,3770173827930390,3669596861859122,4483051976691629,3706319667344589,1880866857770038,396546532289875,1357461662542924,4429840411657087,1918283377492593,646952778562767,1140438490614526,735573257530262,864041807634858,209261199550894,3847993270893156,1988730420095184,3975587975763028,1882600740517688,3247449435713615,4164516453715568,969092267827165,2459493553096837,696649707111320,2184770340181319,3936261553070663,4410018415520051,3035680498537394,1239019926231356,495634658025207,13940451070734,4109121903564964,3267747452629649,1641480965568078,2225231357439653,2999133496512564,1404109374711328,1322729856345898,840780625389728,2627618140008323,4431564198002780,3376358547510792,2074538892527390,1631785509729737,1470558438438490,1523395571642303,715130650973882,2427738769701696,629264385991446,1327720465600112,1723400317149877,1143705820847402,453253945321910,399823199009713,2434947123033103,1463837663621665,2129507442490942,229290097946430,822015739572272,980378575627523,2911749136941339,196341445350971,2738097088103819,2980091326809680,3120372377708825,3858170359905184,3259408648552015,3706700375404625,3997605789006631,2969786057679898,3271979086820852,3539611246710851,2879010840109852,2349537622639827,1847122875971282,3395914316971246,3631953787944444,1197120593040757,2167658518005144,4469250034284692,1352823551673389,2085640528360420,1441190181893229,2616193009505011,4267365747944407,573989910898026,1537462856626756,3192359116328607,2209996328322667,1050043306200058,4067278107430125,3072857934812250,1720851475001945,4494847081160,4474845693852473,3882870080020813,3057801327998385,20276105089259,3839556092256062,347570089689772,207248861732393,1223547501485911,1559616377106133,3080026603602527,1237853430218411,1183536111400063,1095020839638520,2367124803499981,1452809181646814,3898627217838600,2670466240519990,4075403081102548,1355510717073840,3400651660890196,4135574232501596,3611653775115782,3095892868900653,3030026728325604,1563977517278380,1851562946407524,997394569550883,2197154041801301,2405107472695139,2715704840189440,3003588750974819,2691678320759393,219017649450940,2606752806035128,435325541451259,3138799870815434,2518555670400446,3430681606735353,2692518893713499,4295327875853333,2516877367493225,582154671228663,4271842600988415,375422950007753,645222741481690,2655773416222344,1922802607167557,152896107419754,2410552645858410,4066617661420607,221759205997874,2710785626526687,2174494257174678,655433090567678,99998490366327,2228873481985663,4404881142841438,2511666782816325,3340880957257268,3101865921611046,118339259726142,3189756558924383,2743948809625584,3142563201747513,2397929406687747,2268669513475821,4138569843825807,3842472325934859,2258079294290890,1800897101901778,2967708186577286,1398984097018464,1506389818433550,3267450366043558,2987134281170615,3613009299310064,4215973081363871,1100868220686121,488612090337976,3596710872346575,3334854771121051,3219447753732326,406967013725026,98130560427786,2503305783525524,433790388203401,286385829550884,2638385012698061,1668664354448855,820826110087347,1358224329025474,3341086136364407,269762046875214,4153116346892241,1458355131080514,2678213395189298,43890410974973,699381333361180,2980174484922671,4474839729890700,3098004296069770,169993010067260,4355484253508612,2610789438399602,358087780272632,3346539319678952,434442143011554,657094937950012,1945705752680536,1900247455699956,3748893829700848,3400479001721518,2660509864208767,279179698439960,1722333473043771,2744216324838693,3576956991280059,2515341762404032,2220866468230922,1039030828816533,3628839914530289,2063023724155203,1796944085938073,1261247028646377,4261286663582523,1827979281038852,832801016709862,479115035855258,3091007842690514,4219367490056327,2756432911958032,275294197504175,140109645085911,1161924293612311,1516603090139247,2820179972863504,88442916670340,433517448360496,3402505330847781,3543987904959033,2120074006957590,4220669057605229,2319806836623640,3448502155901212,1529076492257763,1822825282575367,1387754000874789,2951758553781731,2200782640631877,1381879809219650,559553536844062,1756415964333518,2910757113843156,3440114591958991,2783264703243347,3813084325853365,3196607535948333,4453714992112075,3879530890155216,4156729438537901,2834495915666771,2773529274471289,4283000953003959,3671586284693510,4090954716255694,3745596827393743,1095973157847986,4469759809037089,1375435053976315,317221333971614,2424264584350415,3278180365516998,36263318073313,3718572745099927,853486308792899,3041242080831184,90211273367313,3475923836680564,4295836598568059,3855290922892068,3188781507587455,4073298674766974,2121244230326463,3455858586098260,406277489780328,3309197891306960,2598493300804084,1808254818976869,1517180284101051,73856842181973,4334084531505755,1202020522596529,2971033489224481,535978200688130,1679506874289968,1106235938299848,4137942746261525,401003336645391,1822594462397067,4090192065153301,1099429793550767,730445804167793,2336297643875775,2934849294662508,3727953673559808,4099333808845630,4246289251883134,3122313036048171,2374827862411102,460795090162461,815582406323404,3460107357551527,4205216484876102,5852063954167,1803523542333399\"><br></div><div>ที่หน้าสรุปใบ Invoice อยากเพิ่มฟิลด์ให้เป็นว่าเอกสารใบไหน Print ไปแล้วบ้าง</div><div><br></div><div>step</div><ol><li>เลือกใบ Invoice</li><li>กดปุ่ม Print &gt; ระบบจะต้องเก็บค่าไว้ว่า invoice ใบนี้ Print ไปแล้ว วันไหน กี่โมง&nbsp;</li><li class=\"oe-nested\"><ol><li>Print status (Printed / Not Print)</li><li>Print Timestamp (dd/mm/yyyy hh:mm)</li></ol></li><li>ข้อมูล Print Status / Print timestamp จะต้องแสดงในหน้าจอ Invoice และหน้า Invoice Summary ด้วย (แต่ไม่แสดงใน Invoice Report)</li></ol><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3839-dab26485/image.png?access_token=07c5697b-e427-4a56-8365-6278abb4d4e0\"></div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3840-2c79b184/image.png?access_token=b6529663-69d1-4707-893a-375de88a3e46\"></div>",
+      "message_attachment_count": 0
+    },
+    {
+      "id": 1701,
+      "name": "Configure ว่า Van sale คนไหน ผูกกับ Car location คันไหน",
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_module": "Sales",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Sales &gt; เลือก SO ที่ต้องการ</li><li>กดปุ่ม Delivery</li><li>Source Location</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">Source Location จะต้อง Default เป็นของ Sales คนนั้นๆ</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3686354645474747\">ขั้นตอนการ Validate DO ทาง Van Sales จะต้องมั่นใจว่า Source Location เป็นรถตัวเองเท่านั้น มิฉะนั้นจะไปดึงของออกจากรถคนอื่น</div><div><br></div><div>จุดนี้มีความเสี่ยง Human Error สูงมาก จึงขอให้ระบบผูกไว้เลยว่า Sales คนไหนผูกกับรถคันไหน เพื่อลดความผิดพลาด</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3864-0bb38e7a/image.png?access_token=826a7ed5-297c-440c-91eb-2862dd3198f7\"></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3866-878a11b3/image.png?access_token=0407a027-56a9-4123-8e91-240a1bfb7d90\"></div>",
+      "message_attachment_count": 2
+    }
+  ],
+  "modules": [
+    {
+      "id": 1462,
+      "name": "account_asset_customization",
+      "state": "installed",
+      "latest_version": "18.0.1.0.0"
+    },
+    {
+      "id": 1479,
+      "name": "auto_asset_from_vendor_bill",
+      "state": "installed",
+      "latest_version": "18.0.2.0.2"
+    },
+    {
+      "id": 1623,
+      "name": "mrp_auto_merge",
+      "state": "installed",
+      "latest_version": "18.0.1.0.0"
+    },
+    {
+      "id": 1522,
+      "name": "mrp_mps_manufacturing_type",
+      "state": "installed",
+      "latest_version": "18.0.1.1.0"
+    },
+    {
+      "id": 1523,
+      "name": "purchase_order_status_report",
+      "state": "installed",
+      "latest_version": "18.0.1.0.0"
+    },
+    {
+      "id": 1560,
+      "name": "sale_auto_confirm_invoice",
+      "state": "installed",
+      "latest_version": "18.0.1.0.0"
+    },
+    {
+      "id": 1675,
+      "name": "sale_tax_invoice",
+      "state": "installed",
+      "latest_version": "18.0.1.0.0"
+    },
+    {
+      "id": 1663,
+      "name": "vendor_billing_note",
+      "state": "installed",
+      "latest_version": "18.0.2.0.0"
+    }
+  ],
+  "field_checks": {
+    "account.asset": {
+      "depreciation_entries_count": {
+        "store": false,
+        "string": "# Posted Depreciation Entries",
+        "type": "integer"
+      },
+      "total_depreciation_entries_count": {
+        "store": false,
+        "string": "# Depreciation Entries",
+        "type": "integer"
+      },
+      "account_depreciation_id": {
+        "relation": "account.account",
+        "store": true,
+        "string": "Depreciation Account",
+        "type": "many2one"
+      },
+      "account_depreciation_expense_id": {
+        "relation": "account.account",
+        "store": true,
+        "string": "Expense Account",
+        "type": "many2one"
+      },
+      "depreciation_move_ids": {
+        "relation": "account.move",
+        "store": true,
+        "string": "Depreciation Lines",
+        "type": "one2many"
+      },
+      "write_uid": {
+        "relation": "res.users",
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      },
+      "last_post_depreciation_date": {
+        "store": true,
+        "string": "Last Post Depreciation Date",
+        "type": "date"
+      },
+      "x_studio_accum_depreciation": {
+        "store": true,
+        "string": "Accum Depreciation",
+        "type": "integer"
+      }
+    },
+    "account.move": {
+      "billing_ids": {
+        "relation": "account.billing",
+        "store": false,
+        "string": "Billings",
+        "type": "many2many"
+      },
+      "billing_schedule_date": {
+        "store": true,
+        "string": "วันที่นัดชำระ",
+        "type": "date"
+      },
+      "vendor_billing_note_id": {
+        "relation": "vendor.billing.note",
+        "store": true,
+        "string": "Billing Note Ref.",
+        "type": "many2one"
+      }
+    },
+    "sale.order": {
+      "is_printed": {
+        "store": true,
+        "string": "Is Printed",
+        "type": "boolean"
+      }
+    },
+    "product.template": {
+      "sale_delay": {
+        "store": true,
+        "string": "Customer Lead Time",
+        "type": "integer"
+      },
+      "mrp_product_qty": {
+        "store": false,
+        "string": "Manufactured",
+        "type": "float"
+      },
+      "mfg_lead_time": {
+        "store": true,
+        "string": "MFG Lead Time",
+        "type": "integer"
+      },
+      "manufacturing_type": {
+        "store": true,
+        "string": "Manufacturing Type",
+        "type": "selection"
+      }
+    },
+    "product.product": {
+      "mrp_product_qty": {
+        "store": false,
+        "string": "Manufactured",
+        "type": "float"
+      },
+      "sale_delay": {
+        "store": false,
+        "string": "Customer Lead Time",
+        "type": "integer"
+      },
+      "mfg_lead_time": {
+        "store": false,
+        "string": "MFG Lead Time",
+        "type": "integer"
+      },
+      "manufacturing_type": {
+        "store": false,
+        "string": "Manufacturing Type",
+        "type": "selection"
+      }
+    },
+    "stock.picking": {
+      "origin": {
+        "store": true,
+        "string": "Source Document",
+        "type": "char"
+      },
+      "move_type": {
+        "store": true,
+        "string": "Shipping Policy",
+        "type": "selection"
+      },
+      "move_ids": {
+        "relation": "stock.move",
+        "store": true,
+        "string": "Stock Moves",
+        "type": "one2many"
+      },
+      "move_ids_without_package": {
+        "relation": "stock.move",
+        "store": true,
+        "string": "Stock move",
+        "type": "one2many"
+      },
+      "has_scrap_move": {
+        "store": false,
+        "string": "Has Scrap Moves",
+        "type": "boolean"
+      },
+      "picking_type_entire_packs": {
+        "store": false,
+        "string": "Move Entire Packages",
+        "type": "boolean"
+      },
+      "move_line_ids": {
+        "relation": "stock.move.line",
+        "store": true,
+        "string": "Operations",
+        "type": "one2many"
+      },
+      "move_line_ids_without_package": {
+        "relation": "stock.move.line",
+        "store": true,
+        "string": "Operations without package",
+        "type": "one2many"
+      },
+      "move_line_exist": {
+        "store": false,
+        "string": "Has Pack Operations",
+        "type": "boolean"
+      },
+      "production_count": {
+        "store": false,
+        "string": "Count of MO generated",
+        "type": "integer"
+      },
+      "production_ids": {
+        "relation": "mrp.production",
+        "store": false,
+        "string": "Production",
+        "type": "many2many"
+      },
+      "late_backorder_move_count": {
+        "store": false,
+        "string": "Late Backorder Lines",
+        "type": "integer"
+      },
+      "ax_prod_id": {
+        "store": true,
+        "string": "Production ID (AX)",
+        "type": "char"
+      },
+      "manufacturing_type": {
+        "store": true,
+        "string": "Manufacturing Type",
+        "type": "selection"
+      }
+    },
+    "stock.move": {
+      "move_orig_ids": {
+        "relation": "stock.move",
+        "store": true,
+        "string": "Original Move",
+        "type": "many2many"
+      },
+      "origin": {
+        "store": true,
+        "string": "Source Document",
+        "type": "char"
+      },
+      "origin_returned_move_id": {
+        "relation": "stock.move",
+        "store": true,
+        "string": "Origin return move",
+        "type": "many2one"
+      },
+      "orderpoint_id": {
+        "relation": "stock.warehouse.orderpoint",
+        "store": true,
+        "string": "Original Reordering Rule",
+        "type": "many2one"
+      },
+      "created_production_id": {
+        "relation": "mrp.production",
+        "store": true,
+        "string": "Created Production Order",
+        "type": "many2one"
+      },
+      "production_id": {
+        "relation": "mrp.production",
+        "store": true,
+        "string": "Production Order for finished products",
+        "type": "many2one"
+      },
+      "raw_material_production_id": {
+        "relation": "mrp.production",
+        "store": true,
+        "string": "Production Order for components",
+        "type": "many2one"
+      }
+    },
+    "purchase.order.status.report.wizard.line": {
+      "is_billable": {
+        "store": true,
+        "string": "Is Billable",
+        "type": "boolean"
+      },
+      "is_already_billed": {
+        "store": true,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "billing_note_status": {
+        "store": true,
+        "string": "สถานะการวางบิล",
+        "type": "selection"
+      },
+      "account_move_id": {
+        "relation": "account.move",
+        "store": true,
+        "string": "Vendor Bill/Credit Note",
+        "type": "many2one"
+      },
+      "move_type": {
+        "store": false,
+        "string": "Document Type",
+        "type": "selection"
+      },
+      "bill_invoice_date": {
+        "store": false,
+        "string": "Bill Date",
+        "type": "date"
+      },
+      "bill_ref": {
+        "store": false,
+        "string": "Vendor Reference",
+        "type": "char"
+      },
+      "bill_payment_reference": {
+        "store": false,
+        "string": "Payment Reference",
+        "type": "char"
+      },
+      "bill_currency_id": {
+        "relation": "res.currency",
+        "store": true,
+        "string": "Bill Currency",
+        "type": "many2one"
+      },
+      "bill_amount_untaxed": {
+        "store": true,
+        "string": "Bill Untaxed",
+        "type": "monetary"
+      },
+      "bill_amount_total": {
+        "store": true,
+        "string": "Bill Total",
+        "type": "monetary"
+      },
+      "bill_amount_residual": {
+        "store": true,
+        "string": "Open Balance",
+        "type": "monetary"
+      },
+      "vendor_billing_note_id": {
+        "relation": "vendor.billing.note",
+        "store": false,
+        "string": "Billing Note",
+        "type": "many2one"
+      }
+    }
+  },
+  "asset_custom_views": [
+    {
+      "id": 4876,
+      "name": "account.asset.tree.custom",
+      "model": "account.asset",
+      "type": "list",
+      "inherit_id": [
+        2277,
+        "account.asset.list"
+      ],
+      "active": true
+    }
+  ],
+  "sample_assets": [
+    {
+      "id": 11555,
+      "name": "โปรแกรมคอมพิวเตอร์-ผลิต",
+      "display_name": "โปรแกรมคอมพิวเตอร์-ผลิต",
+      "state": "model",
+      "last_post_depreciation_date": false,
+      "original_value": 0.0,
+      "book_value": 0.0
+    },
+    {
+      "id": 11554,
+      "name": "ค่าใช้จ่ายจ่ายล่วงหน้า-ผลิต",
+      "display_name": "ค่าใช้จ่ายจ่ายล่วงหน้า-ผลิต",
+      "state": "model",
+      "last_post_depreciation_date": false,
+      "original_value": 0.0,
+      "book_value": 0.0
+    },
+    {
+      "id": 11553,
+      "name": "Injection Machine เป็น series X99900",
+      "display_name": "Injection Machine เป็น series X99900",
+      "state": "open",
+      "last_post_depreciation_date": "2026-06-11",
+      "original_value": 600000.0,
+      "book_value": 599671.547837
+    },
+    {
+      "id": 11552,
+      "name": "รถบอส",
+      "display_name": "รถบอส",
+      "state": "open",
+      "last_post_depreciation_date": false,
+      "original_value": 1000000.0,
+      "book_value": 1000000.0
+    },
+    {
+      "id": 11551,
+      "name": "Computer\nครีบอร์ด",
+      "display_name": "Computer\nครีบอร์ด",
+      "state": "draft",
+      "last_post_depreciation_date": false,
+      "original_value": 500.0,
+      "book_value": 500.0
+    },
+    {
+      "id": 11550,
+      "name": "Computer\nเมาส์",
+      "display_name": "Computer\nเมาส์",
+      "state": "open",
+      "last_post_depreciation_date": false,
+      "original_value": 2000.0,
+      "book_value": 2000.0
+    },
+    {
+      "id": 11549,
+      "name": "asus",
+      "display_name": "asus",
+      "state": "open",
+      "last_post_depreciation_date": false,
+      "original_value": 1000.0,
+      "book_value": 3000.0
+    },
+    {
+      "id": 11548,
+      "name": "เครื่องใช้สำนักงาน",
+      "display_name": "เครื่องใช้สำนักงาน",
+      "state": "draft",
+      "last_post_depreciation_date": false,
+      "original_value": 10000.0,
+      "book_value": 10000.0
+    },
+    {
+      "id": 11547,
+      "name": "คอมพิวเตอร์",
+      "display_name": "คอมพิวเตอร์",
+      "state": "draft",
+      "last_post_depreciation_date": false,
+      "original_value": 20000.0,
+      "book_value": 20000.0
+    },
+    {
+      "id": 11546,
+      "name": "Computer",
+      "display_name": "Computer",
+      "state": "draft",
+      "last_post_depreciation_date": false,
+      "original_value": 10000.0,
+      "book_value": 10000.0
+    }
+  ],
+  "asset_receipt_reports": [],
+  "stock_reports_receipt": [
+    {
+      "id": 612,
+      "name": "Reception Report",
+      "model": "stock.picking",
+      "report_name": "stock.report_reception",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 614,
+      "name": "Picking Operations",
+      "model": "stock.picking",
+      "report_name": "stock.report_picking",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    },
+    {
+      "id": 615,
+      "name": "Delivery Slip",
+      "model": "stock.picking",
+      "report_name": "stock.report_deliveryslip",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 616,
+      "name": "Packages",
+      "model": "stock.picking",
+      "report_name": "stock.report_picking_packages",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    },
+    {
+      "id": 631,
+      "name": "Return slip",
+      "model": "stock.picking",
+      "report_name": "stock.report_return_slip",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    }
+  ],
+  "sample_mos": [
+    {
+      "id": 913,
+      "name": "GMP/MOPL/00167",
+      "product_id": [
+        8298,
+        "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู"
+      ],
+      "product_qty": 30000.0,
+      "product_uom_id": [
+        1,
+        "Unit"
+      ],
+      "state": "cancel",
+      "origin": false,
+      "date_start": "2026-06-08 14:44:07",
+      "date_finished": "2026-06-08 16:18:45",
+      "date_deadline": false,
+      "move_raw_ids": [
+        33802,
+        33803
+      ],
+      "picking_ids": [
+        10866
+      ],
+      "manufacturing_type": "plastic"
+    },
+    {
+      "id": 915,
+      "name": "GMP/MOPL/00169",
+      "product_id": [
+        8300,
+        "[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า"
+      ],
+      "product_qty": 20000.0,
+      "product_uom_id": [
+        1,
+        "Unit"
+      ],
+      "state": "cancel",
+      "origin": false,
+      "date_start": "2026-06-08 15:04:02",
+      "date_finished": "2026-06-08 16:07:07",
+      "date_deadline": false,
+      "move_raw_ids": [
+        33810,
+        33811
+      ],
+      "picking_ids": [
+        10868
+      ],
+      "manufacturing_type": "plastic"
+    },
+    {
+      "id": 916,
+      "name": "GMP/MOPL/00170",
+      "product_id": [
+        8303,
+        "[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง"
+      ],
+      "product_qty": 10000.0,
+      "product_uom_id": [
+        1,
+        "Unit"
+      ],
+      "state": "cancel",
+      "origin": false,
+      "date_start": "2026-06-08 15:04:49",
+      "date_finished": "2026-06-08 15:36:22",
+      "date_deadline": false,
+      "move_raw_ids": [
+        33814,
+        33815
+      ],
+      "picking_ids": [],
+      "manufacturing_type": "plastic"
+    }
+  ],
+  "sample_pickings": [
+    {
+      "id": 10866,
+      "name": "GMP/TRPL/00057",
+      "state": "cancel",
+      "origin": "GMP/MOPL/00167",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "scheduled_date": "2026-06-08 14:44:07",
+      "manufacturing_type": "plastic",
+      "move_ids": [
+        33805
+      ],
+      "move_ids_without_package": [
+        33805
+      ],
+      "move_line_ids": []
+    },
+    {
+      "id": 10868,
+      "name": "GMP/TRPL/00059",
+      "state": "cancel",
+      "origin": "GMP/MOPL/00169, GMP/MOPL/00170, GMP/TRPL/00059, GMP/TRPL/00060",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "scheduled_date": "2026-06-08 15:04:02",
+      "manufacturing_type": "plastic",
+      "move_ids": [
+        33813,
+        33817
+      ],
+      "move_ids_without_package": [
+        33813,
+        33817
+      ],
+      "move_line_ids": []
+    }
+  ],
+  "sample_moves": [
+    {
+      "id": 33802,
+      "name": "New",
+      "product_id": [
+        8363,
+        "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+      ],
+      "product_uom_qty": 28.16,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        913,
+        "GMP/MOPL/00167"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00167"
+    },
+    {
+      "id": 33803,
+      "name": "New",
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        913,
+        "GMP/MOPL/00167"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00167"
+    },
+    {
+      "id": 33805,
+      "name": "GMP: Stock → Production (MTO)",
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.14,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": [
+        10866,
+        "GMP/TRPL/00057"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "raw_material_production_id": false,
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00167"
+    },
+    {
+      "id": 33810,
+      "name": "GMP/MOPL/00169",
+      "product_id": [
+        8363,
+        "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+      ],
+      "product_uom_qty": 18.77,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        915,
+        "GMP/MOPL/00169"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00169"
+    },
+    {
+      "id": 33811,
+      "name": "GMP/MOPL/00169",
+      "product_id": [
+        8344,
+        "[RM-MBS-BU-00001] สีผสมพลาสติก สีน้ำเงิน"
+      ],
+      "product_uom_qty": 0.27,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        915,
+        "GMP/MOPL/00169"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00169"
+    },
+    {
+      "id": 33813,
+      "name": "GMP: Stock → Production (MTO)",
+      "product_id": [
+        8344,
+        "[RM-MBS-BU-00001] สีผสมพลาสติก สีน้ำเงิน"
+      ],
+      "product_uom_qty": 0.27,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": [
+        10868,
+        "GMP/TRPL/00059"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "raw_material_production_id": false,
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00169"
+    },
+    {
+      "id": 33814,
+      "name": "GMP/MOPL/00170",
+      "product_id": [
+        8363,
+        "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+      ],
+      "product_uom_qty": 9.39,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        916,
+        "GMP/MOPL/00170"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00170"
+    },
+    {
+      "id": 33815,
+      "name": "GMP/MOPL/00170",
+      "product_id": [
+        8347,
+        "[RM-MBS-YL-00001] สีผสมพลาสติก สีเหลือง"
+      ],
+      "product_uom_qty": 0.14,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": false,
+      "location_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "location_dest_id": [
+        15,
+        "Virtual Locations/Production"
+      ],
+      "raw_material_production_id": [
+        916,
+        "GMP/MOPL/00170"
+      ],
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00170"
+    },
+    {
+      "id": 33817,
+      "name": "GMP: Stock → Production (MTO)",
+      "product_id": [
+        8347,
+        "[RM-MBS-YL-00001] สีผสมพลาสติก สีเหลือง"
+      ],
+      "product_uom_qty": 0.14,
+      "quantity": 0.0,
+      "product_uom": [
+        12,
+        "Kgs"
+      ],
+      "state": "cancel",
+      "picking_id": [
+        10868,
+        "GMP/TRPL/00059"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "raw_material_production_id": false,
+      "production_id": false,
+      "created_production_id": false,
+      "origin": "GMP/MOPL/00170"
+    }
+  ],
+  "po_status_wizard_models": {
+    "purchase.order.status.report.wizard": {
+      "billing_note_status": {
+        "store": true,
+        "string": "สถานะการวางบิล",
+        "type": "selection"
+      },
+      "has_selected_lines": {
+        "store": false,
+        "string": "Has Selected Lines",
+        "type": "boolean"
+      }
+    },
+    "purchase.order.status.report.wizard.line": {
+      "is_selected": {
+        "store": true,
+        "string": "Select",
+        "type": "boolean"
+      },
+      "is_billable": {
+        "store": true,
+        "string": "Is Billable",
+        "type": "boolean"
+      },
+      "is_already_billed": {
+        "store": true,
+        "string": "Already Billed",
+        "type": "boolean"
+      },
+      "billing_note_status": {
+        "store": true,
+        "string": "สถานะการวางบิล",
+        "type": "selection"
+      },
+      "account_move_id": {
+        "relation": "account.move",
+        "store": true,
+        "string": "Vendor Bill/Credit Note",
+        "type": "many2one"
+      },
+      "move_type": {
+        "store": false,
+        "string": "Document Type",
+        "type": "selection"
+      },
+      "bill_invoice_date": {
+        "store": false,
+        "string": "Bill Date",
+        "type": "date"
+      },
+      "bill_ref": {
+        "store": false,
+        "string": "Vendor Reference",
+        "type": "char"
+      },
+      "bill_payment_reference": {
+        "store": false,
+        "string": "Payment Reference",
+        "type": "char"
+      },
+      "bill_currency_id": {
+        "relation": "res.currency",
+        "store": true,
+        "string": "Bill Currency",
+        "type": "many2one"
+      },
+      "bill_amount_untaxed": {
+        "store": true,
+        "string": "Bill Untaxed",
+        "type": "monetary"
+      },
+      "bill_amount_total": {
+        "store": true,
+        "string": "Bill Total",
+        "type": "monetary"
+      },
+      "bill_amount_residual": {
+        "store": true,
+        "string": "Open Balance",
+        "type": "monetary"
+      },
+      "vendor_billing_note_id": {
+        "relation": "vendor.billing.note",
+        "store": false,
+        "string": "Billing Note",
+        "type": "many2one"
+      }
+    }
+  }
+}

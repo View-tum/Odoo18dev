@@ -1,0 +1,168 @@
+{
+  "runId": "LOCAL-WAY2-2026-06-17T06-37-51-028Z",
+  "startedAt": "2026-06-17T06:37:51.029Z",
+  "backend": {
+    "uid": 2,
+    "created": {
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "firstMo": {
+        "id": 2688,
+        "name": "GMP/MOPL/00819"
+      },
+      "secondMo": {
+        "id": 2689,
+        "name": "GMP/MOPL/00820"
+      },
+      "targetPicking": {
+        "id": 16973,
+        "name": "GMP/TRPL/02166"
+      },
+      "cancelledSourcePicking": {
+        "id": 16974,
+        "name": "GMP/TRPL/02167"
+      }
+    }
+  },
+  "frontend": {},
+  "chatter": [
+    {
+      "at": "2026-06-17T06:37:59.809Z",
+      "target": "GMP/MOPL/00819",
+      "body": "[LOCAL-WAY2-2026-06-17T06-37-51-028Z] Created first MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:37:59.846Z",
+      "target": "GMP/MOPL/00820",
+      "body": "[LOCAL-WAY2-2026-06-17T06-37-51-028Z] Created second MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:37:59.886Z",
+      "target": "First Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-37-51-028Z] Created first internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:37:59.923Z",
+      "target": "Second Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-37-51-028Z] Created second internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:38:00.499Z",
+      "target": "GMP/TRPL/02166",
+      "body": "[LOCAL-WAY2-2026-06-17T06-37-51-028Z] Merged two transfers into one line. Qty=0.001878. Source GMP/TRPL/02167 cancelled."
+    }
+  ],
+  "screenshots": [],
+  "assertions": [
+    {
+      "name": "existing product is available",
+      "pass": true,
+      "details": {
+        "productId": 8298
+      }
+    },
+    {
+      "name": "existing BOM is available",
+      "pass": true,
+      "details": {
+        "bomId": 2952
+      }
+    },
+    {
+      "name": "Manufacturing Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "Transfer Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "both MOs confirmed",
+      "pass": true,
+      "details": {
+        "firstMo": {
+          "id": 2688,
+          "name": "GMP/MOPL/00819",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63281,
+            63282
+          ]
+        },
+        "secondMo": {
+          "id": 2689,
+          "name": "GMP/MOPL/00820",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63286,
+            63287
+          ]
+        }
+      }
+    },
+    {
+      "name": "first MO has raw move",
+      "pass": true,
+      "details": {
+        "firstMo": "GMP/MOPL/00819"
+      }
+    },
+    {
+      "name": "second MO has raw move",
+      "pass": true,
+      "details": {
+        "secondMo": "GMP/MOPL/00820"
+      }
+    },
+    {
+      "name": "merge target is first picking",
+      "pass": true,
+      "details": {
+        "targetPickingId": 16973,
+        "firstPickingId": 16973
+      }
+    },
+    {
+      "name": "merge consolidated to one stock move",
+      "pass": true,
+      "details": {
+        "moveIds": [
+          63291
+        ]
+      }
+    },
+    {
+      "name": "source transfer cancelled after merge",
+      "pass": true,
+      "details": {
+        "id": 16974,
+        "name": "GMP/TRPL/02167",
+        "state": "cancel"
+      }
+    },
+    {
+      "name": "merged transfer linked to both MOs",
+      "pass": true,
+      "details": {
+        "productionIds": [
+          2688,
+          2689
+        ]
+      }
+    },
+    {
+      "name": "merged qty equals raw demand sum",
+      "pass": true,
+      "details": {
+        "mergedQty": 0.001878,
+        "rawOneQty": 0.000939,
+        "rawTwoQty": 0.000939
+      }
+    }
+  ],
+  "finishedAt": "2026-06-17T06:38:36.020Z",
+  "status": "failed",
+  "error": "page.waitForLoadState: Timeout 30000ms exceeded.\n=========================== logs ===========================\n  \"domcontentloaded\" event fired\n  \"load\" event fired\n============================================================\n    at frontendVerifyAndCancel (C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:304:14)\n    at async C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:407:5"
+}

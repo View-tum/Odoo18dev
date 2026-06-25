@@ -4,15 +4,26 @@
         <field name="name">account.fixed.asset.report.form</field>
         <field name="model">account.fixed.asset.report</field>
         <field name="arch" type="xml">
-            <form string="Fixed Asset Report">
-                <group col="2">
-                    <field name="asset_model_id"/>
-                    <field name="asset_location_id"/>
-                    <field name="asset_status"/>
-                </group>
+            <form string="รายงานสินทรัพย์ถาวร">
+                <sheet>
+                    <group name="main_group">
+                        <group name="header_left">
+                            <separator string="รายละเอียดสินทรัพย์"/>
+                            <field name="asset_model_id" placeholder="ทั้งหมด"/>
+                            <field name="asset_location_id" placeholder="ทั้งหมด"/>
+                            <field name="asset_status" placeholder="ทั้งหมด"/>
+                        </group>
+                        <group name="header_right">
+                            <separator string="รายละเอียดตัวกรอง"/>
+                            <field name="report_id" force_save="1" invisible="1"/>
+                            <field name="excel_id"/>
+                        </group>
+                    </group>
+                </sheet>
                 <footer>
-                    <button string="Export Excel" name="action_excel" type="object" class="btn-primary"/>
-                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    <button string="Print PDF" name="action_print_report" type="object" class="btn-primary"/>
+                    <button string="Export Excel" name="action_excel_report" type="object" class="btn-secondary"/>
+                    <button string="Cancel" special="cancel" class="btn-link"/>
                 </footer>
             </form>
         </field>

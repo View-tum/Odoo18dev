@@ -1,0 +1,32 @@
+{
+  "baseUrl": "http://127.0.0.1:8822",
+  "db": "GoldMints_Uat_Manu",
+  "saleOrderId": 17110,
+  "saleOrderName": "S12102",
+  "invoiceId": 79595,
+  "invoiceName": "INV-D/2026/00040",
+  "creditNoteName": "RINV-D/2026/00022",
+  "screenshots": {
+    "saleOrder": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_auto_confirm_invoice_cn_payment\\01_sale_order_before_payment.png",
+    "wizardInitial": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_auto_confirm_invoice_cn_payment\\02_payment_popup_initial.png",
+    "wizardSelected": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_auto_confirm_invoice_cn_payment\\03_payment_popup_cn_selected.png",
+    "invoiceAfter": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_auto_confirm_invoice_cn_payment\\04_invoice_after_payment.png",
+    "error": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\sale_auto_confirm_invoice_cn_payment\\error.png"
+  },
+  "startedAt": "2026-06-23T09:24:27.896Z",
+  "checks": {
+    "saleOrderOpened": true,
+    "creditNoteVisible": true,
+    "oldCrossSettlementVisible": false,
+    "separateCreditNoteHeaderVisible": false,
+    "paymentPreviewVisible": false,
+    "creditNoteSelectedAmountVisible": true,
+    "bankPaymentVisible": true,
+    "balanceZeroVisible": false,
+    "paymentDifferenceVisible": false,
+    "rpcErrorVisible": false,
+    "invoicePaidVisible": true
+  },
+  "status": "passed_ui",
+  "finishedAt": "2026-06-23T09:26:45.094Z"
+}

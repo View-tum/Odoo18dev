@@ -8,7 +8,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="location_ids" widget="many2many_tags" options="{'no_create_edit': True}" required="1" domain="[('usage', '=', 'internal')]" />
+                            <field name="location_ids" placeholder="All" widget="many2many_tags" options="{'no_create_edit': True}" required="0" domain="[('usage', '=', 'internal')]" />
                             <field name="include_child_locations" />
                             <field name="only_on_hand" />
                             <field name="mode" />

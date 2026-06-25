@@ -1,0 +1,129 @@
+{
+  "invoice_found": true,
+  "invoice": {
+    "id": 74272,
+    "name": "INV-D/2026/00020",
+    "move_type": "out_invoice",
+    "state": "posted",
+    "payment_state": "paid",
+    "partner_id": 70301,
+    "partner": "DENKI SHOJI CO.,LTD.",
+    "amount_total": 10000.0,
+    "amount_total_signed": 10000.0,
+    "amount_residual": 0.0,
+    "amount_residual_signed": 0.0,
+    "ref": false
+  },
+  "receivable_lines": [
+    {
+      "id": 223277,
+      "account": "113000 ลูกหนี้การค้า",
+      "balance": 10000.0,
+      "amount_currency": 10000.0,
+      "amount_residual": 0.0,
+      "amount_residual_currency": 0.0,
+      "reconciled": true,
+      "matched_debit_ids": [],
+      "matched_credit_ids": [
+        15214
+      ]
+    }
+  ],
+  "partials": [
+    {
+      "id": 15214,
+      "amount": 10000.0,
+      "debit_move_id": 223277,
+      "debit_move": "INV-D/2026/00020",
+      "credit_move_id": 223283,
+      "credit_move": "PPBAY1/2026/00422"
+    }
+  ],
+  "counterpart_moves": [
+    {
+      "id": 74273,
+      "name": "PPBAY1/2026/00422",
+      "move_type": "entry",
+      "state": "posted"
+    }
+  ],
+  "payments": [
+    {
+      "id": 3994,
+      "name": "PPBAY1/2026/00422",
+      "amount": 10000.0,
+      "state": "paid",
+      "payment_type": "inbound",
+      "partner_type": "customer",
+      "move_id": 74273,
+      "move_name": "PPBAY1/2026/00422",
+      "same_side_credit_note_embedded": false,
+      "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+      "method": "Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)",
+      "method_has_account": true,
+      "move_lines": [
+        {
+          "id": 223282,
+          "account_type": "asset_cash",
+          "account": "111201 BAY CA สามแยก #046-0-14721-8",
+          "partner": "DENKI SHOJI CO.,LTD.",
+          "debit": 10000.0,
+          "credit": 0.0,
+          "balance": 10000.0,
+          "amount_currency": 10000.0,
+          "reconciled": false
+        },
+        {
+          "id": 223283,
+          "account_type": "asset_receivable",
+          "account": "113000 ลูกหนี้การค้า",
+          "partner": "DENKI SHOJI CO.,LTD.",
+          "debit": 0.0,
+          "credit": 10000.0,
+          "balance": -10000.0,
+          "amount_currency": -10000.0,
+          "reconciled": true
+        }
+      ]
+    }
+  ],
+  "candidate_open_customer_cns": [
+    {
+      "id": 74085,
+      "name": "RINV-D/2026/00002",
+      "state": "posted",
+      "payment_state": "not_paid",
+      "amount_total": 25.0,
+      "amount_total_signed": -25.0,
+      "amount_residual": 25.0,
+      "amount_residual_signed": -25.0,
+      "ref": "UI-CN-EMBED-20260620-CUST-CN",
+      "receivable_lines": [
+        {
+          "id": 222870,
+          "balance": -25.0,
+          "amount_residual": -25.0,
+          "amount_residual_currency": -25.0,
+          "reconciled": false
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "date": "2026-06-22 02:09:48",
+      "author": "Administrator",
+      "body": ""
+    },
+    {
+      "date": "2026-06-22 02:09:07",
+      "author": "Administrator",
+      "body": ""
+    },
+    {
+      "date": "2026-06-22 02:08:55",
+      "author": "Administrator",
+      "body": "<div summary=\"o_mail_notification\"><p>Invoice Created</p></div>"
+    }
+  ]
+}

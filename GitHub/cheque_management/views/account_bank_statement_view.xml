@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bank_statement_form_auto_match" model="ir.ui.view">
+            <field name="name">account.bank.statement.form.auto.match</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="oi_bank_reconciliation.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_auto_match_cheques" type="object" string="Auto Match Cheques" class="oe_highlight" invisible="state != 'open'"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

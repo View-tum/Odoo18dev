@@ -1,0 +1,1511 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Accounting" [ref=e151]
+        - generic [ref=e152]: Accounting
+      - menu [ref=e153]:
+        - menuitem "Dashboard" [ref=e154] [cursor=pointer]
+        - button "Customers" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: Customers
+        - button "Vendors" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: Vendors
+        - button "Accounting" [ref=e159] [cursor=pointer]:
+          - generic [ref=e160]: Accounting
+        - button "Reporting" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: Reporting
+        - button "Configuration" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 59" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "59"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e20]:
+          - text: 
+          - generic [ref=e21]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e2694]:
+    - generic [ref=e2696]:
+      - generic [ref=e2697]:
+        - generic [ref=e2699]:
+          - button "New" [ref=e2700] [cursor=pointer]
+          - toolbar "Main actions" [ref=e2701]:
+            - button "Upload" [ref=e2703] [cursor=pointer]
+        - generic [ref=e2704]:
+          - generic [ref=e2706]: Bills
+          - button "" [ref=e2710] [cursor=pointer]:
+            - generic [ref=e2711]: 
+      - search [ref=e2713]:
+        - search [ref=e2714]:
+          - button "Search..." [ref=e2715] [cursor=pointer]:
+            - img [ref=e2716]: 
+          - generic [ref=e2717]:
+            - listitem "search" [ref=e2718]:
+              - button " " [ref=e2720] [cursor=pointer]:
+                - generic [ref=e2721]: 
+                - generic [ref=e2723]: 
+              - generic [ref=e2724]:
+                - generic "Bills" [ref=e2725]
+                - button "Remove" [ref=e2726] [cursor=pointer]: 
+            - searchbox "Search..." [ref=e2727]
+        - button "" [ref=e2728] [cursor=pointer]
+      - generic [ref=e2729]:
+        - search [ref=e2730]:
+          - navigation "Pager" [ref=e2731]:
+            - generic [ref=e2732]:
+              - generic [ref=e2733]: 1-80
+              - text: / 179
+            - generic [ref=e2734]:
+              - button "Previous" [ref=e2735] [cursor=pointer]:
+                - generic [ref=e2736]: 
+              - button "Next" [ref=e2737] [cursor=pointer]:
+                - generic [ref=e2738]: 
+        - navigation [ref=e2739]:
+          - button "" [ref=e2740] [cursor=pointer]:
+            - generic [ref=e2741]: 
+          - button "" [ref=e2742] [cursor=pointer]:
+            - generic [ref=e2743]: 
+          - button "" [ref=e2744] [cursor=pointer]:
+            - generic [ref=e2745]: 
+    - table [ref=e2748]:
+      - rowgroup [ref=e2749]:
+        - row "Number  Vendor  Bill Date  Due Date  Period  Fiscal Year  Reference  Tax Excluded  Total  Status " [ref=e2750]:
+          - columnheader [ref=e2751] [cursor=pointer]:
+            - checkbox [ref=e2753]
+          - columnheader "Number " [ref=e2754] [cursor=pointer]:
+            - generic [ref=e2755]:
+              - generic [ref=e2756]: Number
+              - generic [ref=e2757]: 
+          - columnheader "Vendor " [ref=e2759] [cursor=pointer]:
+            - generic [ref=e2760]:
+              - generic [ref=e2761]: Vendor
+              - generic [ref=e2762]: 
+          - columnheader "Bill Date " [ref=e2764] [cursor=pointer]:
+            - generic [ref=e2765]:
+              - generic [ref=e2766]: Bill Date
+              - generic [ref=e2767]: 
+          - columnheader "Due Date " [ref=e2769] [cursor=pointer]:
+            - generic [ref=e2770]:
+              - generic [ref=e2771]: Due Date
+              - generic [ref=e2772]: 
+          - columnheader "Period " [ref=e2774] [cursor=pointer]:
+            - generic [ref=e2775]:
+              - generic [ref=e2776]: Period
+              - generic [ref=e2777]: 
+          - columnheader "Fiscal Year " [ref=e2779] [cursor=pointer]:
+            - generic [ref=e2780]:
+              - generic [ref=e2781]: Fiscal Year
+              - generic [ref=e2782]: 
+          - columnheader "Reference " [ref=e2784] [cursor=pointer]:
+            - generic [ref=e2785]:
+              - generic [ref=e2786]: Reference
+              - generic [ref=e2787]: 
+          - columnheader "Tax Excluded " [ref=e2789] [cursor=pointer]:
+            - generic [ref=e2790]:
+              - generic [ref=e2791]: Tax Excluded
+              - generic [ref=e2792]: 
+          - columnheader "Total " [ref=e2794] [cursor=pointer]:
+            - generic [ref=e2795]:
+              - generic [ref=e2796]: Total
+              - generic [ref=e2797]: 
+          - columnheader "Status" [ref=e2799]:
+            - generic [ref=e2800]:
+              - generic [ref=e2801]: Status
+              - text: 
+          - columnheader "" [ref=e2803]:
+            - button "" [ref=e2805] [cursor=pointer]:
+              - generic [ref=e2806]: 
+      - rowgroup [ref=e2807]:
+        - row "APD/2026/05/0009 Home Product Center Plc. 05/30/2026 Tomorrow 05/2026 2026 -900.00 ฿ -963.00 ฿ Not Paid" [ref=e2808]:
+          - cell [ref=e2809]:
+            - checkbox [ref=e2811] [cursor=pointer]
+          - cell "APD/2026/05/0009" [ref=e2812] [cursor=pointer]:
+            - generic [ref=e2813]: APD/2026/05/0009
+          - cell "Home Product Center Plc." [ref=e2814] [cursor=pointer]
+          - cell "05/30/2026" [ref=e2815] [cursor=pointer]
+          - cell "Tomorrow" [ref=e2816] [cursor=pointer]:
+            - generic "05/30/2026" [ref=e2818]: Tomorrow
+          - cell "05/2026" [ref=e2819] [cursor=pointer]
+          - cell "2026" [ref=e2820] [cursor=pointer]
+          - cell [ref=e2821] [cursor=pointer]
+          - cell "-900.00 ฿" [ref=e2822] [cursor=pointer]
+          - cell "-963.00 ฿" [ref=e2823] [cursor=pointer]
+          - cell "Not Paid" [ref=e2824] [cursor=pointer]:
+            - generic [ref=e2826]: Not Paid
+          - cell [ref=e2827]
+        - row "/ Test Supplier Confirm Today 05/2026 2026 -500.00 ฿ -500.00 ฿ Draft" [ref=e2828]:
+          - cell [ref=e2829]:
+            - checkbox [ref=e2831] [cursor=pointer]
+          - cell / [ref=e2832] [cursor=pointer]:
+            - generic [ref=e2833]: /
+          - cell "Test Supplier Confirm" [ref=e2834] [cursor=pointer]
+          - cell [ref=e2835] [cursor=pointer]
+          - cell "Today" [ref=e2836] [cursor=pointer]:
+            - generic "05/29/2026" [ref=e2838]: Today
+          - cell "05/2026" [ref=e2839] [cursor=pointer]
+          - cell "2026" [ref=e2840] [cursor=pointer]
+          - cell [ref=e2841] [cursor=pointer]
+          - cell "-500.00 ฿" [ref=e2842] [cursor=pointer]
+          - cell "-500.00 ฿" [ref=e2843] [cursor=pointer]
+          - cell "Draft" [ref=e2844] [cursor=pointer]:
+            - generic [ref=e2846]: Draft
+          - cell [ref=e2847]
+        - row "APD/2026/05/0008 LF LOGISTICS (THAILAND) LTD. 05/28/2026 Yesterday 05/2026 2026 -1,790,000.00 ฿ -1,915,300.00 ฿ Not Paid" [ref=e2848]:
+          - cell [ref=e2849]:
+            - checkbox [ref=e2851] [cursor=pointer]
+          - cell "APD/2026/05/0008" [ref=e2852] [cursor=pointer]:
+            - generic [ref=e2853]: APD/2026/05/0008
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e2854] [cursor=pointer]
+          - cell "05/28/2026" [ref=e2855] [cursor=pointer]
+          - cell "Yesterday" [ref=e2856] [cursor=pointer]:
+            - generic "05/28/2026" [ref=e2858]: Yesterday
+          - cell "05/2026" [ref=e2859] [cursor=pointer]
+          - cell "2026" [ref=e2860] [cursor=pointer]
+          - cell [ref=e2861] [cursor=pointer]
+          - cell "-1,790,000.00 ฿" [ref=e2862] [cursor=pointer]
+          - cell "-1,915,300.00 ฿" [ref=e2863] [cursor=pointer]
+          - cell "Not Paid" [ref=e2864] [cursor=pointer]:
+            - generic [ref=e2866]: Not Paid
+          - cell [ref=e2867]
+        - row "APD/2026/05/0007 JW TECH CO.,LTD. 05/27/2026 In 58 days 05/2026 2026 QA JL APPORTION 2026-05-27 -896,000.00 ฿ -958,720.00 ฿ Not Paid" [ref=e2868]:
+          - cell [ref=e2869]:
+            - checkbox [ref=e2871] [cursor=pointer]
+          - cell "APD/2026/05/0007" [ref=e2872] [cursor=pointer]:
+            - generic [ref=e2873]: APD/2026/05/0007
+          - cell "JW TECH CO.,LTD." [ref=e2874] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2875] [cursor=pointer]
+          - cell "In 58 days" [ref=e2876] [cursor=pointer]:
+            - generic "07/26/2026" [ref=e2878]: In 58 days
+          - cell "05/2026" [ref=e2879] [cursor=pointer]
+          - cell "2026" [ref=e2880] [cursor=pointer]
+          - cell "QA JL APPORTION 2026-05-27" [ref=e2881] [cursor=pointer]
+          - cell "-896,000.00 ฿" [ref=e2882] [cursor=pointer]
+          - cell "-958,720.00 ฿" [ref=e2883] [cursor=pointer]
+          - cell "Not Paid" [ref=e2884] [cursor=pointer]:
+            - generic [ref=e2886]: Not Paid
+          - cell [ref=e2887]
+        - row "APD/2026/05/0006 JW TECH CO.,LTD. 05/27/2026 In 58 days 05/2026 2026 -896,000.00 ฿ -958,720.00 ฿ Not Paid" [ref=e2888]:
+          - cell [ref=e2889]:
+            - checkbox [ref=e2891] [cursor=pointer]
+          - cell "APD/2026/05/0006" [ref=e2892] [cursor=pointer]:
+            - generic [ref=e2893]: APD/2026/05/0006
+          - cell "JW TECH CO.,LTD." [ref=e2894] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2895] [cursor=pointer]
+          - cell "In 58 days" [ref=e2896] [cursor=pointer]:
+            - generic "07/26/2026" [ref=e2898]: In 58 days
+          - cell "05/2026" [ref=e2899] [cursor=pointer]
+          - cell "2026" [ref=e2900] [cursor=pointer]
+          - cell [ref=e2901] [cursor=pointer]
+          - cell "-896,000.00 ฿" [ref=e2902] [cursor=pointer]
+          - cell "-958,720.00 ฿" [ref=e2903] [cursor=pointer]
+          - cell "Not Paid" [ref=e2904] [cursor=pointer]:
+            - generic [ref=e2906]: Not Paid
+          - cell [ref=e2907]
+        - row "/ JW TECH CO.,LTD. 3 days ago 05/2026 2026 -850,000.00 ฿ -912,300.00 ฿ Draft" [ref=e2908]:
+          - cell [ref=e2909]:
+            - checkbox [ref=e2911] [cursor=pointer]
+          - cell / [ref=e2912] [cursor=pointer]:
+            - generic [ref=e2913]: /
+          - cell "JW TECH CO.,LTD." [ref=e2914] [cursor=pointer]
+          - cell [ref=e2915] [cursor=pointer]
+          - cell "3 days ago" [ref=e2916] [cursor=pointer]:
+            - generic "05/26/2026" [ref=e2918]: 3 days ago
+          - cell "05/2026" [ref=e2919] [cursor=pointer]
+          - cell "2026" [ref=e2920] [cursor=pointer]
+          - cell [ref=e2921] [cursor=pointer]
+          - cell "-850,000.00 ฿" [ref=e2922] [cursor=pointer]
+          - cell "-912,300.00 ฿" [ref=e2923] [cursor=pointer]
+          - cell "Draft" [ref=e2924] [cursor=pointer]:
+            - generic [ref=e2926]: Draft
+          - cell [ref=e2927]
+        - row "/ JW TECH CO.,LTD. In 57 days 05/2026 2026 -890,000.00 ฿ -953,000.00 ฿ Draft" [ref=e2928]:
+          - cell [ref=e2929]:
+            - checkbox [ref=e2931] [cursor=pointer]
+          - cell / [ref=e2932] [cursor=pointer]:
+            - generic [ref=e2933]: /
+          - cell "JW TECH CO.,LTD." [ref=e2934] [cursor=pointer]
+          - cell [ref=e2935] [cursor=pointer]
+          - cell "In 57 days" [ref=e2936] [cursor=pointer]:
+            - generic "07/25/2026" [ref=e2938]: In 57 days
+          - cell "05/2026" [ref=e2939] [cursor=pointer]
+          - cell "2026" [ref=e2940] [cursor=pointer]
+          - cell [ref=e2941] [cursor=pointer]
+          - cell "-890,000.00 ฿" [ref=e2942] [cursor=pointer]
+          - cell "-953,000.00 ฿" [ref=e2943] [cursor=pointer]
+          - cell "Draft" [ref=e2944] [cursor=pointer]:
+            - generic [ref=e2946]: Draft
+          - cell [ref=e2947]
+        - row "/ JW TECH CO.,LTD. In 57 days 05/2026 2026 -890,000.00 ฿ -953,000.00 ฿ Draft" [ref=e2948]:
+          - cell [ref=e2949]:
+            - checkbox [ref=e2951] [cursor=pointer]
+          - cell / [ref=e2952] [cursor=pointer]:
+            - generic [ref=e2953]: /
+          - cell "JW TECH CO.,LTD." [ref=e2954] [cursor=pointer]
+          - cell [ref=e2955] [cursor=pointer]
+          - cell "In 57 days" [ref=e2956] [cursor=pointer]:
+            - generic "07/25/2026" [ref=e2958]: In 57 days
+          - cell "05/2026" [ref=e2959] [cursor=pointer]
+          - cell "2026" [ref=e2960] [cursor=pointer]
+          - cell [ref=e2961] [cursor=pointer]
+          - cell "-890,000.00 ฿" [ref=e2962] [cursor=pointer]
+          - cell "-953,000.00 ฿" [ref=e2963] [cursor=pointer]
+          - cell "Draft" [ref=e2964] [cursor=pointer]:
+            - generic [ref=e2966]: Draft
+          - cell [ref=e2967]
+        - row "/ LF LOGISTICS (THAILAND) LTD. 3 days ago 05/2026 2026 -900,000.00 ฿ -963,000.00 ฿ Draft" [ref=e2968]:
+          - cell [ref=e2969]:
+            - checkbox [ref=e2971] [cursor=pointer]
+          - cell / [ref=e2972] [cursor=pointer]:
+            - generic [ref=e2973]: /
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e2974] [cursor=pointer]
+          - cell [ref=e2975] [cursor=pointer]
+          - cell "3 days ago" [ref=e2976] [cursor=pointer]:
+            - generic "05/26/2026" [ref=e2978]: 3 days ago
+          - cell "05/2026" [ref=e2979] [cursor=pointer]
+          - cell "2026" [ref=e2980] [cursor=pointer]
+          - cell [ref=e2981] [cursor=pointer]
+          - cell "-900,000.00 ฿" [ref=e2982] [cursor=pointer]
+          - cell "-963,000.00 ฿" [ref=e2983] [cursor=pointer]
+          - cell "Draft" [ref=e2984] [cursor=pointer]:
+            - generic [ref=e2986]: Draft
+          - cell [ref=e2987]
+        - row "/ LF LOGISTICS (THAILAND) LTD. 3 days ago 05/2026 2026 -900,000.00 ฿ -963,000.00 ฿ Draft" [ref=e2988]:
+          - cell [ref=e2989]:
+            - checkbox [ref=e2991] [cursor=pointer]
+          - cell / [ref=e2992] [cursor=pointer]:
+            - generic [ref=e2993]: /
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e2994] [cursor=pointer]
+          - cell [ref=e2995] [cursor=pointer]
+          - cell "3 days ago" [ref=e2996] [cursor=pointer]:
+            - generic "05/26/2026" [ref=e2998]: 3 days ago
+          - cell "05/2026" [ref=e2999] [cursor=pointer]
+          - cell "2026" [ref=e3000] [cursor=pointer]
+          - cell [ref=e3001] [cursor=pointer]
+          - cell "-900,000.00 ฿" [ref=e3002] [cursor=pointer]
+          - cell "-963,000.00 ฿" [ref=e3003] [cursor=pointer]
+          - cell "Draft" [ref=e3004] [cursor=pointer]:
+            - generic [ref=e3006]: Draft
+          - cell [ref=e3007]
+        - row "API/2026/05/0001 DENKI SHOJI CO.,LTD. 05/26/2026 In 27 days 05/2026 2026 -100,000.00 ฿ -107,000.00 ฿ Not Paid" [ref=e3008]:
+          - cell [ref=e3009]:
+            - checkbox [ref=e3011] [cursor=pointer]
+          - cell "API/2026/05/0001" [ref=e3012] [cursor=pointer]:
+            - generic [ref=e3013]: API/2026/05/0001
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3014] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3015] [cursor=pointer]
+          - cell "In 27 days" [ref=e3016] [cursor=pointer]:
+            - generic "06/25/2026" [ref=e3018]: In 27 days
+          - cell "05/2026" [ref=e3019] [cursor=pointer]
+          - cell "2026" [ref=e3020] [cursor=pointer]
+          - cell [ref=e3021] [cursor=pointer]
+          - cell "-100,000.00 ฿" [ref=e3022] [cursor=pointer]
+          - cell "-107,000.00 ฿" [ref=e3023] [cursor=pointer]
+          - cell "Not Paid" [ref=e3024] [cursor=pointer]:
+            - generic [ref=e3026]: Not Paid
+          - cell [ref=e3027]
+        - row "APD/2026/05/0005 JW TECH CO.,LTD. 05/26/2026 In 57 days 05/2026 2026 TC1-P01066 -850,000.00 ฿ -909,500.00 ฿ Not Paid" [ref=e3028]:
+          - cell [ref=e3029]:
+            - checkbox [ref=e3031] [cursor=pointer]
+          - cell "APD/2026/05/0005" [ref=e3032] [cursor=pointer]:
+            - generic [ref=e3033]: APD/2026/05/0005
+          - cell "JW TECH CO.,LTD." [ref=e3034] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3035] [cursor=pointer]
+          - cell "In 57 days" [ref=e3036] [cursor=pointer]:
+            - generic "07/25/2026" [ref=e3038]: In 57 days
+          - cell "05/2026" [ref=e3039] [cursor=pointer]
+          - cell "2026" [ref=e3040] [cursor=pointer]
+          - cell "TC1-P01066" [ref=e3041] [cursor=pointer]
+          - cell "-850,000.00 ฿" [ref=e3042] [cursor=pointer]
+          - cell "-909,500.00 ฿" [ref=e3043] [cursor=pointer]
+          - cell "Not Paid" [ref=e3044] [cursor=pointer]:
+            - generic [ref=e3046]: Not Paid
+          - cell [ref=e3047]
+        - row "APD/2026/05/0004 JW TECH CO.,LTD. 05/26/2026 In 57 days 05/2026 2026 TC2-P01065 -900,000.00 ฿ -963,000.00 ฿ Not Paid" [ref=e3048]:
+          - cell [ref=e3049]:
+            - checkbox [ref=e3051] [cursor=pointer]
+          - cell "APD/2026/05/0004" [ref=e3052] [cursor=pointer]:
+            - generic [ref=e3053]: APD/2026/05/0004
+          - cell "JW TECH CO.,LTD." [ref=e3054] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3055] [cursor=pointer]
+          - cell "In 57 days" [ref=e3056] [cursor=pointer]:
+            - generic "07/25/2026" [ref=e3058]: In 57 days
+          - cell "05/2026" [ref=e3059] [cursor=pointer]
+          - cell "2026" [ref=e3060] [cursor=pointer]
+          - cell "TC2-P01065" [ref=e3061] [cursor=pointer]
+          - cell "-900,000.00 ฿" [ref=e3062] [cursor=pointer]
+          - cell "-963,000.00 ฿" [ref=e3063] [cursor=pointer]
+          - cell "Not Paid" [ref=e3064] [cursor=pointer]:
+            - generic [ref=e3066]: Not Paid
+          - cell [ref=e3067]
+        - row "APD/2026/05/0003 DENKI SHOJI CO.,LTD. 05/26/2026 In 27 days 05/2026 2026 $ -809.40 $ -866.06 Partially Paid" [ref=e3068]:
+          - cell [ref=e3069]:
+            - checkbox [ref=e3071] [cursor=pointer]
+          - cell "APD/2026/05/0003" [ref=e3072] [cursor=pointer]:
+            - generic [ref=e3073]: APD/2026/05/0003
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3074] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3075] [cursor=pointer]
+          - cell "In 27 days" [ref=e3076] [cursor=pointer]:
+            - generic "06/25/2026" [ref=e3078]: In 27 days
+          - cell "05/2026" [ref=e3079] [cursor=pointer]
+          - cell "2026" [ref=e3080] [cursor=pointer]
+          - cell [ref=e3081] [cursor=pointer]
+          - cell "$ -809.40" [ref=e3082] [cursor=pointer]
+          - cell "$ -866.06" [ref=e3083] [cursor=pointer]
+          - cell "Partially Paid" [ref=e3084] [cursor=pointer]:
+            - generic [ref=e3086]: Partially Paid
+          - cell [ref=e3087]
+        - row "/ DENKI SHOJI CO.,LTD. In 19 days 05/2026 2026 0.00 ฿ 0.00 ฿ Draft" [ref=e3088]:
+          - cell [ref=e3089]:
+            - checkbox [ref=e3091] [cursor=pointer]
+          - cell / [ref=e3092] [cursor=pointer]:
+            - generic [ref=e3093]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3094] [cursor=pointer]
+          - cell [ref=e3095] [cursor=pointer]
+          - cell "In 19 days" [ref=e3096] [cursor=pointer]:
+            - generic "06/17/2026" [ref=e3098]: In 19 days
+          - cell "05/2026" [ref=e3099] [cursor=pointer]
+          - cell "2026" [ref=e3100] [cursor=pointer]
+          - cell [ref=e3101] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3102] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3103] [cursor=pointer]
+          - cell "Draft" [ref=e3104] [cursor=pointer]:
+            - generic [ref=e3106]: Draft
+          - cell [ref=e3107]
+        - row "/ DENKI SHOJI CO.,LTD. In 19 days 05/2026 2026 -5,000.00 ฿ -5,350.00 ฿ Draft" [ref=e3108]:
+          - cell [ref=e3109]:
+            - checkbox [ref=e3111] [cursor=pointer]
+          - cell / [ref=e3112] [cursor=pointer]:
+            - generic [ref=e3113]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3114] [cursor=pointer]
+          - cell [ref=e3115] [cursor=pointer]
+          - cell "In 19 days" [ref=e3116] [cursor=pointer]:
+            - generic "06/17/2026" [ref=e3118]: In 19 days
+          - cell "05/2026" [ref=e3119] [cursor=pointer]
+          - cell "2026" [ref=e3120] [cursor=pointer]
+          - cell [ref=e3121] [cursor=pointer]
+          - cell "-5,000.00 ฿" [ref=e3122] [cursor=pointer]
+          - cell "-5,350.00 ฿" [ref=e3123] [cursor=pointer]
+          - cell "Draft" [ref=e3124] [cursor=pointer]:
+            - generic [ref=e3126]: Draft
+          - cell [ref=e3127]
+        - row "/ DENKI SHOJI CO.,LTD. In 19 days 05/2026 2026 0.00 ฿ 0.00 ฿ Draft" [ref=e3128]:
+          - cell [ref=e3129]:
+            - checkbox [ref=e3131] [cursor=pointer]
+          - cell / [ref=e3132] [cursor=pointer]:
+            - generic [ref=e3133]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3134] [cursor=pointer]
+          - cell [ref=e3135] [cursor=pointer]
+          - cell "In 19 days" [ref=e3136] [cursor=pointer]:
+            - generic "06/17/2026" [ref=e3138]: In 19 days
+          - cell "05/2026" [ref=e3139] [cursor=pointer]
+          - cell "2026" [ref=e3140] [cursor=pointer]
+          - cell [ref=e3141] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3142] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3143] [cursor=pointer]
+          - cell "Draft" [ref=e3144] [cursor=pointer]:
+            - generic [ref=e3146]: Draft
+          - cell [ref=e3147]
+        - row "APD/2026/05/0002 DENKI SHOJI CO.,LTD. 05/15/2026 05/2026 2026 -1,015.18 ฿ -1,086.24 ฿ Paid" [ref=e3148]:
+          - cell [ref=e3149]:
+            - checkbox [ref=e3151] [cursor=pointer]
+          - cell "APD/2026/05/0002" [ref=e3152] [cursor=pointer]:
+            - generic [ref=e3153]: APD/2026/05/0002
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3154] [cursor=pointer]
+          - cell "05/15/2026" [ref=e3155] [cursor=pointer]
+          - cell [ref=e3156] [cursor=pointer]
+          - cell "05/2026" [ref=e3157] [cursor=pointer]
+          - cell "2026" [ref=e3158] [cursor=pointer]
+          - cell [ref=e3159] [cursor=pointer]
+          - cell "-1,015.18 ฿" [ref=e3160] [cursor=pointer]
+          - cell "-1,086.24 ฿" [ref=e3161] [cursor=pointer]
+          - cell "Paid" [ref=e3162] [cursor=pointer]:
+            - generic [ref=e3164]: Paid
+          - cell [ref=e3165]
+        - row "APD/2026/05/0001 DENKI SHOJI CO.,LTD. 05/14/2026 05/2026 2026 -1,015.18 ฿ -1,086.24 ฿ Paid" [ref=e3166]:
+          - cell [ref=e3167]:
+            - checkbox [ref=e3169] [cursor=pointer]
+          - cell "APD/2026/05/0001" [ref=e3170] [cursor=pointer]:
+            - generic [ref=e3171]: APD/2026/05/0001
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3172] [cursor=pointer]
+          - cell "05/14/2026" [ref=e3173] [cursor=pointer]
+          - cell [ref=e3174] [cursor=pointer]
+          - cell "05/2026" [ref=e3175] [cursor=pointer]
+          - cell "2026" [ref=e3176] [cursor=pointer]
+          - cell [ref=e3177] [cursor=pointer]
+          - cell "-1,015.18 ฿" [ref=e3178] [cursor=pointer]
+          - cell "-1,086.24 ฿" [ref=e3179] [cursor=pointer]
+          - cell "Paid" [ref=e3180] [cursor=pointer]:
+            - generic [ref=e3182]: Paid
+          - cell [ref=e3183]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 19 days ago 04/2026 2026 -365,829.00 ฿ -366,543.00 ฿ Draft" [ref=e3184]:
+          - cell [ref=e3185]:
+            - checkbox [ref=e3187] [cursor=pointer]
+          - cell / [ref=e3188] [cursor=pointer]:
+            - generic [ref=e3189]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3190] [cursor=pointer]
+          - cell [ref=e3191] [cursor=pointer]
+          - cell "19 days ago" [ref=e3192] [cursor=pointer]:
+            - generic "05/10/2026" [ref=e3194]: 19 days ago
+          - cell "04/2026" [ref=e3195] [cursor=pointer]
+          - cell "2026" [ref=e3196] [cursor=pointer]
+          - cell [ref=e3197] [cursor=pointer]
+          - cell "-365,829.00 ฿" [ref=e3198] [cursor=pointer]
+          - cell "-366,543.00 ฿" [ref=e3199] [cursor=pointer]
+          - cell "Draft" [ref=e3200] [cursor=pointer]:
+            - generic [ref=e3202]: Draft
+          - cell [ref=e3203]
+        - row "APD/26/04/00005 บริษัท ซีพี ออลล์ จำกัด (มหาชน) 04/10/2026 In 11 days 04/2026 2026 -2,190.70 ฿ -2,344.05 ฿ Not Paid" [ref=e3204]:
+          - cell [ref=e3205]:
+            - checkbox [ref=e3207] [cursor=pointer]
+          - cell "APD/26/04/00005" [ref=e3208] [cursor=pointer]:
+            - generic [ref=e3209]: APD/26/04/00005
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e3210] [cursor=pointer]
+          - cell "04/10/2026" [ref=e3211] [cursor=pointer]
+          - cell "In 11 days" [ref=e3212] [cursor=pointer]:
+            - generic "06/09/2026" [ref=e3214]: In 11 days
+          - cell "04/2026" [ref=e3215] [cursor=pointer]
+          - cell "2026" [ref=e3216] [cursor=pointer]
+          - cell [ref=e3217] [cursor=pointer]
+          - cell "-2,190.70 ฿" [ref=e3218] [cursor=pointer]
+          - cell "-2,344.05 ฿" [ref=e3219] [cursor=pointer]
+          - cell "Not Paid" [ref=e3220] [cursor=pointer]:
+            - generic [ref=e3222]: Not Paid
+          - cell [ref=e3223]
+        - 'row "/ #Created by: Administrator 50 days ago 04/2026 2026 0.00 ฿ 0.00 ฿ Draft" [ref=e3224]':
+          - cell [ref=e3225]:
+            - checkbox [ref=e3227] [cursor=pointer]
+          - cell / [ref=e3228] [cursor=pointer]:
+            - generic [ref=e3229]: /
+          - 'cell "#Created by: Administrator" [ref=e3230] [cursor=pointer]'
+          - cell [ref=e3231] [cursor=pointer]
+          - cell "50 days ago" [ref=e3232] [cursor=pointer]:
+            - generic "04/09/2026" [ref=e3234]: 50 days ago
+          - cell "04/2026" [ref=e3235] [cursor=pointer]
+          - cell "2026" [ref=e3236] [cursor=pointer]
+          - cell [ref=e3237] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3238] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3239] [cursor=pointer]
+          - cell "Draft" [ref=e3240] [cursor=pointer]:
+            - generic [ref=e3242]: Draft
+          - cell [ref=e3243]
+        - 'row "/ #Created by: Administrator 51 days ago 04/2026 2026 -2,000.00 ฿ -2,000.00 ฿ Draft" [ref=e3244]':
+          - cell [ref=e3245]:
+            - checkbox [ref=e3247] [cursor=pointer]
+          - cell / [ref=e3248] [cursor=pointer]:
+            - generic [ref=e3249]: /
+          - 'cell "#Created by: Administrator" [ref=e3250] [cursor=pointer]'
+          - cell [ref=e3251] [cursor=pointer]
+          - cell "51 days ago" [ref=e3252] [cursor=pointer]:
+            - generic "04/08/2026" [ref=e3254]: 51 days ago
+          - cell "04/2026" [ref=e3255] [cursor=pointer]
+          - cell "2026" [ref=e3256] [cursor=pointer]
+          - cell [ref=e3257] [cursor=pointer]
+          - cell "-2,000.00 ฿" [ref=e3258] [cursor=pointer]
+          - cell "-2,000.00 ฿" [ref=e3259] [cursor=pointer]
+          - cell "Draft" [ref=e3260] [cursor=pointer]:
+            - generic [ref=e3262]: Draft
+          - cell [ref=e3263]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 04/08/2026 21 days ago 04/2026 2026 BI0026116 -380,349.24 ฿ -381,021.24 ฿ Draft" [ref=e3264]:
+          - cell [ref=e3265]:
+            - checkbox [ref=e3267] [cursor=pointer]
+          - cell / [ref=e3268] [cursor=pointer]:
+            - generic [ref=e3269]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3270] [cursor=pointer]
+          - cell "04/08/2026" [ref=e3271] [cursor=pointer]
+          - cell "21 days ago" [ref=e3272] [cursor=pointer]:
+            - generic "05/08/2026" [ref=e3274]: 21 days ago
+          - cell "04/2026" [ref=e3275] [cursor=pointer]
+          - cell "2026" [ref=e3276] [cursor=pointer]
+          - cell "BI0026116" [ref=e3277] [cursor=pointer]
+          - cell "-380,349.24 ฿" [ref=e3278] [cursor=pointer]
+          - cell "-381,021.24 ฿" [ref=e3279] [cursor=pointer]
+          - cell "Draft" [ref=e3280] [cursor=pointer]:
+            - generic [ref=e3282]: Draft
+          - cell [ref=e3283]
+        - row "/ DENKI SHOJI CO.,LTD. 23 days ago 04/2026 2026 -73,000.00 ฿ -78,110.00 ฿ Draft" [ref=e3284]:
+          - cell [ref=e3285]:
+            - checkbox [ref=e3287] [cursor=pointer]
+          - cell / [ref=e3288] [cursor=pointer]:
+            - generic [ref=e3289]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3290] [cursor=pointer]
+          - cell [ref=e3291] [cursor=pointer]
+          - cell "23 days ago" [ref=e3292] [cursor=pointer]:
+            - generic "05/06/2026" [ref=e3294]: 23 days ago
+          - cell "04/2026" [ref=e3295] [cursor=pointer]
+          - cell "2026" [ref=e3296] [cursor=pointer]
+          - cell [ref=e3297] [cursor=pointer]
+          - cell "-73,000.00 ฿" [ref=e3298] [cursor=pointer]
+          - cell "-78,110.00 ฿" [ref=e3299] [cursor=pointer]
+          - cell "Draft" [ref=e3300] [cursor=pointer]:
+            - generic [ref=e3302]: Draft
+          - cell [ref=e3303]
+        - row "/ DENKI SHOJI CO.,LTD. 04/03/2026 26 days ago 04/2026 2026 365 Test Freight -10,000.00 ฿ -10,000.00 ฿ Draft" [ref=e3304]:
+          - cell [ref=e3305]:
+            - checkbox [ref=e3307] [cursor=pointer]
+          - cell / [ref=e3308] [cursor=pointer]:
+            - generic [ref=e3309]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3310] [cursor=pointer]
+          - cell "04/03/2026" [ref=e3311] [cursor=pointer]
+          - cell "26 days ago" [ref=e3312] [cursor=pointer]:
+            - generic "05/03/2026" [ref=e3314]: 26 days ago
+          - cell "04/2026" [ref=e3315] [cursor=pointer]
+          - cell "2026" [ref=e3316] [cursor=pointer]
+          - cell "365 Test Freight" [ref=e3317] [cursor=pointer]
+          - cell "-10,000.00 ฿" [ref=e3318] [cursor=pointer]
+          - cell "-10,000.00 ฿" [ref=e3319] [cursor=pointer]
+          - cell "Draft" [ref=e3320] [cursor=pointer]:
+            - generic [ref=e3322]: Draft
+          - cell [ref=e3323]
+        - row "APD/26/04/00003 DENKI SHOJI CO.,LTD. 04/03/2026 26 days ago 04/2026 2026 -73,000.00 ฿ -78,110.00 ฿ Partially Paid" [ref=e3324]:
+          - cell [ref=e3325]:
+            - checkbox [ref=e3327] [cursor=pointer]
+          - cell "APD/26/04/00003" [ref=e3328] [cursor=pointer]:
+            - generic [ref=e3329]: APD/26/04/00003
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3330] [cursor=pointer]
+          - cell "04/03/2026" [ref=e3331] [cursor=pointer]
+          - cell "26 days ago" [ref=e3332] [cursor=pointer]:
+            - generic "05/03/2026" [ref=e3334]: 26 days ago
+          - cell "04/2026" [ref=e3335] [cursor=pointer]
+          - cell "2026" [ref=e3336] [cursor=pointer]
+          - cell [ref=e3337] [cursor=pointer]
+          - cell "-73,000.00 ฿" [ref=e3338] [cursor=pointer]
+          - cell "-78,110.00 ฿" [ref=e3339] [cursor=pointer]
+          - cell "Partially Paid" [ref=e3340] [cursor=pointer]:
+            - generic [ref=e3342]: Partially Paid
+          - cell [ref=e3343]
+        - row "/ DENKI SHOJI CO.,LTD. 27 days ago 04/2026 2026 0.00 ฿ 0.00 ฿ Draft" [ref=e3344]:
+          - cell [ref=e3345]:
+            - checkbox [ref=e3347] [cursor=pointer]
+          - cell / [ref=e3348] [cursor=pointer]:
+            - generic [ref=e3349]: /
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3350] [cursor=pointer]
+          - cell [ref=e3351] [cursor=pointer]
+          - cell "27 days ago" [ref=e3352] [cursor=pointer]:
+            - generic "05/02/2026" [ref=e3354]: 27 days ago
+          - cell "04/2026" [ref=e3355] [cursor=pointer]
+          - cell "2026" [ref=e3356] [cursor=pointer]
+          - cell [ref=e3357] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3358] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3359] [cursor=pointer]
+          - cell "Draft" [ref=e3360] [cursor=pointer]:
+            - generic [ref=e3362]: Draft
+          - cell [ref=e3363]
+        - row "/ บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 58 days ago 04/2026 2026 -20,000.00 ฿ -21,400.00 ฿ Draft" [ref=e3364]:
+          - cell [ref=e3365]:
+            - checkbox [ref=e3367] [cursor=pointer]
+          - cell / [ref=e3368] [cursor=pointer]:
+            - generic [ref=e3369]: /
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3370] [cursor=pointer]
+          - cell [ref=e3371] [cursor=pointer]
+          - cell "58 days ago" [ref=e3372] [cursor=pointer]:
+            - generic "04/01/2026" [ref=e3374]: 58 days ago
+          - cell "04/2026" [ref=e3375] [cursor=pointer]
+          - cell "2026" [ref=e3376] [cursor=pointer]
+          - cell [ref=e3377] [cursor=pointer]
+          - cell "-20,000.00 ฿" [ref=e3378] [cursor=pointer]
+          - cell "-21,400.00 ฿" [ref=e3379] [cursor=pointer]
+          - cell "Draft" [ref=e3380] [cursor=pointer]:
+            - generic [ref=e3382]: Draft
+          - cell [ref=e3383]
+        - row "/ LF LOGISTICS (THAILAND) LTD. 04/01/2026 58 days ago 04/2026 2026 -10,000.00 ฿ -10,700.00 ฿ Draft" [ref=e3384]:
+          - cell [ref=e3385]:
+            - checkbox [ref=e3387] [cursor=pointer]
+          - cell / [ref=e3388] [cursor=pointer]:
+            - generic [ref=e3389]: /
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3390] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3391] [cursor=pointer]
+          - cell "58 days ago" [ref=e3392] [cursor=pointer]:
+            - generic "04/01/2026" [ref=e3394]: 58 days ago
+          - cell "04/2026" [ref=e3395] [cursor=pointer]
+          - cell "2026" [ref=e3396] [cursor=pointer]
+          - cell [ref=e3397] [cursor=pointer]
+          - cell "-10,000.00 ฿" [ref=e3398] [cursor=pointer]
+          - cell "-10,700.00 ฿" [ref=e3399] [cursor=pointer]
+          - cell "Draft" [ref=e3400] [cursor=pointer]:
+            - generic [ref=e3402]: Draft
+          - cell [ref=e3403]
+        - row "APD/26/04/00002 DENKI SHOJI CO.,LTD. 04/01/2026 28 days ago 04/2026 2026 -10,000.00 ฿ -10,700.00 ฿ Not Paid" [ref=e3404]:
+          - cell [ref=e3405]:
+            - checkbox [ref=e3407] [cursor=pointer]
+          - cell "APD/26/04/00002" [ref=e3408] [cursor=pointer]:
+            - generic [ref=e3409]: APD/26/04/00002
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3410] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3411] [cursor=pointer]
+          - cell "28 days ago" [ref=e3412] [cursor=pointer]:
+            - generic "05/01/2026" [ref=e3414]: 28 days ago
+          - cell "04/2026" [ref=e3415] [cursor=pointer]
+          - cell "2026" [ref=e3416] [cursor=pointer]
+          - cell [ref=e3417] [cursor=pointer]
+          - cell "-10,000.00 ฿" [ref=e3418] [cursor=pointer]
+          - cell "-10,700.00 ฿" [ref=e3419] [cursor=pointer]
+          - cell "Not Paid" [ref=e3420] [cursor=pointer]:
+            - generic [ref=e3422]: Not Paid
+          - cell [ref=e3423]
+        - row "APD/26/04/00001 DENKI SHOJI CO.,LTD. 04/01/2026 04/2026 2026 -5,000.00 ฿ -5,350.00 ฿ Paid" [ref=e3424]:
+          - cell [ref=e3425]:
+            - checkbox [ref=e3427] [cursor=pointer]
+          - cell "APD/26/04/00001" [ref=e3428] [cursor=pointer]:
+            - generic [ref=e3429]: APD/26/04/00001
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3430] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3431] [cursor=pointer]
+          - cell [ref=e3432] [cursor=pointer]
+          - cell "04/2026" [ref=e3433] [cursor=pointer]
+          - cell "2026" [ref=e3434] [cursor=pointer]
+          - cell [ref=e3435] [cursor=pointer]
+          - cell "-5,000.00 ฿" [ref=e3436] [cursor=pointer]
+          - cell "-5,350.00 ฿" [ref=e3437] [cursor=pointer]
+          - cell "Paid" [ref=e3438] [cursor=pointer]:
+            - generic [ref=e3440]: Paid
+          - cell [ref=e3441]
+        - row "APD/26/02/00002 บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 03/01/2026 59 days ago 03/2026 2026 -380,759.24 ฿ -381,431.24 ฿ Not Paid" [ref=e3442]:
+          - cell [ref=e3443]:
+            - checkbox [ref=e3445] [cursor=pointer]
+          - cell "APD/26/02/00002" [ref=e3446] [cursor=pointer]:
+            - generic [ref=e3447]: APD/26/02/00002
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3448] [cursor=pointer]
+          - cell "03/01/2026" [ref=e3449] [cursor=pointer]
+          - cell "59 days ago" [ref=e3450] [cursor=pointer]:
+            - generic "03/31/2026" [ref=e3452]: 59 days ago
+          - cell "03/2026" [ref=e3453] [cursor=pointer]
+          - cell "2026" [ref=e3454] [cursor=pointer]
+          - cell [ref=e3455] [cursor=pointer]
+          - cell "-380,759.24 ฿" [ref=e3456] [cursor=pointer]
+          - cell "-381,431.24 ฿" [ref=e3457] [cursor=pointer]
+          - cell "Not Paid" [ref=e3458] [cursor=pointer]:
+            - generic [ref=e3460]: Not Paid
+          - cell [ref=e3461]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 02/01/2026 87 days ago 02/2026 2026 -9,600.00 ฿ -10,272.00 ฿ Draft" [ref=e3462]:
+          - cell [ref=e3463]:
+            - checkbox [ref=e3465] [cursor=pointer]
+          - cell / [ref=e3466] [cursor=pointer]:
+            - generic [ref=e3467]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3468] [cursor=pointer]
+          - cell "02/01/2026" [ref=e3469] [cursor=pointer]
+          - cell "87 days ago" [ref=e3470] [cursor=pointer]:
+            - generic "03/03/2026" [ref=e3472]: 87 days ago
+          - cell "02/2026" [ref=e3473] [cursor=pointer]
+          - cell "2026" [ref=e3474] [cursor=pointer]
+          - cell [ref=e3475] [cursor=pointer]
+          - cell "-9,600.00 ฿" [ref=e3476] [cursor=pointer]
+          - cell "-10,272.00 ฿" [ref=e3477] [cursor=pointer]
+          - cell "Draft" [ref=e3478] [cursor=pointer]:
+            - generic [ref=e3480]: Draft
+          - cell [ref=e3481]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 02/01/2026 87 days ago 02/2026 2026 -9,600.00 ฿ -10,272.00 ฿ Draft" [ref=e3482]:
+          - cell [ref=e3483]:
+            - checkbox [ref=e3485] [cursor=pointer]
+          - cell / [ref=e3486] [cursor=pointer]:
+            - generic [ref=e3487]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3488] [cursor=pointer]
+          - cell "02/01/2026" [ref=e3489] [cursor=pointer]
+          - cell "87 days ago" [ref=e3490] [cursor=pointer]:
+            - generic "03/03/2026" [ref=e3492]: 87 days ago
+          - cell "02/2026" [ref=e3493] [cursor=pointer]
+          - cell "2026" [ref=e3494] [cursor=pointer]
+          - cell [ref=e3495] [cursor=pointer]
+          - cell "-9,600.00 ฿" [ref=e3496] [cursor=pointer]
+          - cell "-10,272.00 ฿" [ref=e3497] [cursor=pointer]
+          - cell "Draft" [ref=e3498] [cursor=pointer]:
+            - generic [ref=e3500]: Draft
+          - cell [ref=e3501]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 02/01/2026 02/2026 2026 -365,829.00 ฿ -366,543.00 ฿ Cancelled" [ref=e3502]:
+          - cell [ref=e3503]:
+            - checkbox [ref=e3505] [cursor=pointer]
+          - cell / [ref=e3506] [cursor=pointer]:
+            - generic [ref=e3507]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3508] [cursor=pointer]
+          - cell "02/01/2026" [ref=e3509] [cursor=pointer]
+          - cell [ref=e3510] [cursor=pointer]
+          - cell "02/2026" [ref=e3511] [cursor=pointer]
+          - cell "2026" [ref=e3512] [cursor=pointer]
+          - cell [ref=e3513] [cursor=pointer]
+          - cell "-365,829.00 ฿" [ref=e3514] [cursor=pointer]
+          - cell "-366,543.00 ฿" [ref=e3515] [cursor=pointer]
+          - cell "Cancelled" [ref=e3516] [cursor=pointer]:
+            - generic [ref=e3518]: Cancelled
+          - cell [ref=e3519]
+        - row "APD/26/02/00003 บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 02/01/2026 87 days ago 02/2026 2026 -9,600.00 ฿ -10,272.00 ฿ Not Paid" [ref=e3520]:
+          - cell [ref=e3521]:
+            - checkbox [ref=e3523] [cursor=pointer]
+          - cell "APD/26/02/00003" [ref=e3524] [cursor=pointer]:
+            - generic [ref=e3525]: APD/26/02/00003
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3526] [cursor=pointer]
+          - cell "02/01/2026" [ref=e3527] [cursor=pointer]
+          - cell "87 days ago" [ref=e3528] [cursor=pointer]:
+            - generic "03/03/2026" [ref=e3530]: 87 days ago
+          - cell "02/2026" [ref=e3531] [cursor=pointer]
+          - cell "2026" [ref=e3532] [cursor=pointer]
+          - cell [ref=e3533] [cursor=pointer]
+          - cell "-9,600.00 ฿" [ref=e3534] [cursor=pointer]
+          - cell "-10,272.00 ฿" [ref=e3535] [cursor=pointer]
+          - cell "Not Paid" [ref=e3536] [cursor=pointer]:
+            - generic [ref=e3538]: Not Paid
+          - cell [ref=e3539]
+        - row "APD/26/02/00001 บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 02/01/2026 02/2026 2026 -380,349.24 ฿ -381,021.24 ฿ Cancelled" [ref=e3540]:
+          - cell [ref=e3541]:
+            - checkbox [ref=e3543] [cursor=pointer]
+          - cell "APD/26/02/00001" [ref=e3544] [cursor=pointer]:
+            - generic [ref=e3545]: APD/26/02/00001
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3546] [cursor=pointer]
+          - cell "02/01/2026" [ref=e3547] [cursor=pointer]
+          - cell [ref=e3548] [cursor=pointer]
+          - cell "02/2026" [ref=e3549] [cursor=pointer]
+          - cell "2026" [ref=e3550] [cursor=pointer]
+          - cell [ref=e3551] [cursor=pointer]
+          - cell "-380,349.24 ฿" [ref=e3552] [cursor=pointer]
+          - cell "-381,021.24 ฿" [ref=e3553] [cursor=pointer]
+          - cell "Cancelled" [ref=e3554] [cursor=pointer]:
+            - generic [ref=e3556]: Cancelled
+          - cell [ref=e3557]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 84 days ago 02/2026 2026 123456789 -9,600.00 ฿ -10,272.00 ฿ Draft" [ref=e3558]:
+          - cell [ref=e3559]:
+            - checkbox [ref=e3561] [cursor=pointer]
+          - cell / [ref=e3562] [cursor=pointer]:
+            - generic [ref=e3563]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3564] [cursor=pointer]
+          - cell [ref=e3565] [cursor=pointer]
+          - cell "84 days ago" [ref=e3566] [cursor=pointer]:
+            - generic "03/06/2026" [ref=e3568]: 84 days ago
+          - cell "02/2026" [ref=e3569] [cursor=pointer]
+          - cell "2026" [ref=e3570] [cursor=pointer]
+          - cell "123456789" [ref=e3571] [cursor=pointer]
+          - cell "-9,600.00 ฿" [ref=e3572] [cursor=pointer]
+          - cell "-10,272.00 ฿" [ref=e3573] [cursor=pointer]
+          - cell "Draft" [ref=e3574] [cursor=pointer]:
+            - generic [ref=e3576]: Draft
+          - cell [ref=e3577]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 84 days ago 02/2026 2026 BI0026116 -380,349.24 ฿ -406,631.19 ฿ Draft" [ref=e3578]:
+          - cell [ref=e3579]:
+            - checkbox [ref=e3581] [cursor=pointer]
+          - cell / [ref=e3582] [cursor=pointer]:
+            - generic [ref=e3583]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3584] [cursor=pointer]
+          - cell [ref=e3585] [cursor=pointer]
+          - cell "84 days ago" [ref=e3586] [cursor=pointer]:
+            - generic "03/06/2026" [ref=e3588]: 84 days ago
+          - cell "02/2026" [ref=e3589] [cursor=pointer]
+          - cell "2026" [ref=e3590] [cursor=pointer]
+          - cell "BI0026116" [ref=e3591] [cursor=pointer]
+          - cell "-380,349.24 ฿" [ref=e3592] [cursor=pointer]
+          - cell "-406,631.19 ฿" [ref=e3593] [cursor=pointer]
+          - cell "Draft" [ref=e3594] [cursor=pointer]:
+            - generic [ref=e3596]: Draft
+          - cell [ref=e3597]
+        - row "/ บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด 84 days ago 02/2026 2026 IC0020269 -375,456.40 ฿ -401,738.35 ฿ Draft" [ref=e3598]:
+          - cell [ref=e3599]:
+            - checkbox [ref=e3601] [cursor=pointer]
+          - cell / [ref=e3602] [cursor=pointer]:
+            - generic [ref=e3603]: /
+          - cell "บริษัท เวิลด์ลิ้งค์ ชิปปิ้ง จำกัด" [ref=e3604] [cursor=pointer]
+          - cell [ref=e3605] [cursor=pointer]
+          - cell "84 days ago" [ref=e3606] [cursor=pointer]:
+            - generic "03/06/2026" [ref=e3608]: 84 days ago
+          - cell "02/2026" [ref=e3609] [cursor=pointer]
+          - cell "2026" [ref=e3610] [cursor=pointer]
+          - cell "IC0020269" [ref=e3611] [cursor=pointer]
+          - cell "-375,456.40 ฿" [ref=e3612] [cursor=pointer]
+          - cell "-401,738.35 ฿" [ref=e3613] [cursor=pointer]
+          - cell "Draft" [ref=e3614] [cursor=pointer]:
+            - generic [ref=e3616]: Draft
+          - cell [ref=e3617]
+        - row "APD/25/12/00002 บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด 12/27/2025 01/26/2026 12/2025 2025 -142,475.80 ฿ -152,449.11 ฿ Not Paid" [ref=e3618]:
+          - cell [ref=e3619]:
+            - checkbox [ref=e3621] [cursor=pointer]
+          - cell "APD/25/12/00002" [ref=e3622] [cursor=pointer]:
+            - generic [ref=e3623]: APD/25/12/00002
+          - cell "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด" [ref=e3624] [cursor=pointer]
+          - cell "12/27/2025" [ref=e3625] [cursor=pointer]
+          - cell "01/26/2026" [ref=e3626] [cursor=pointer]:
+            - generic "01/26/2026" [ref=e3628]
+          - cell "12/2025" [ref=e3629] [cursor=pointer]
+          - cell "2025" [ref=e3630] [cursor=pointer]
+          - cell [ref=e3631] [cursor=pointer]
+          - cell "-142,475.80 ฿" [ref=e3632] [cursor=pointer]
+          - cell "-152,449.11 ฿" [ref=e3633] [cursor=pointer]
+          - cell "Not Paid" [ref=e3634] [cursor=pointer]:
+            - generic [ref=e3636]: Not Paid
+          - cell [ref=e3637]
+        - row "APD/25/12/00001 บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด 12/27/2025 01/26/2026 12/2025 2025 3,181.90 ฿ 3,404.63 ฿ Not Paid" [ref=e3638]:
+          - cell [ref=e3639]:
+            - checkbox [ref=e3641] [cursor=pointer]
+          - cell "APD/25/12/00001" [ref=e3642] [cursor=pointer]:
+            - generic [ref=e3643]: APD/25/12/00001
+          - cell "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด" [ref=e3644] [cursor=pointer]
+          - cell "12/27/2025" [ref=e3645] [cursor=pointer]
+          - cell "01/26/2026" [ref=e3646] [cursor=pointer]:
+            - generic "01/26/2026" [ref=e3648]
+          - cell "12/2025" [ref=e3649] [cursor=pointer]
+          - cell "2025" [ref=e3650] [cursor=pointer]
+          - cell [ref=e3651] [cursor=pointer]
+          - cell "3,181.90 ฿" [ref=e3652] [cursor=pointer]
+          - cell "3,404.63 ฿" [ref=e3653] [cursor=pointer]
+          - cell "Not Paid" [ref=e3654] [cursor=pointer]:
+            - generic [ref=e3656]: Not Paid
+          - cell [ref=e3657]
+        - row "APD/25/12/00004 บริษัท เอ็น.อาร์.พัฒนา จำกัด 12/23/2025 12/23/2025 12/2025 2025 -588,785.05 ฿ -630,000.00 ฿ Not Paid" [ref=e3658]:
+          - cell [ref=e3659]:
+            - checkbox [ref=e3661] [cursor=pointer]
+          - cell "APD/25/12/00004" [ref=e3662] [cursor=pointer]:
+            - generic [ref=e3663]: APD/25/12/00004
+          - cell "บริษัท เอ็น.อาร์.พัฒนา จำกัด" [ref=e3664] [cursor=pointer]
+          - cell "12/23/2025" [ref=e3665] [cursor=pointer]
+          - cell "12/23/2025" [ref=e3666] [cursor=pointer]:
+            - generic "12/23/2025" [ref=e3668]
+          - cell "12/2025" [ref=e3669] [cursor=pointer]
+          - cell "2025" [ref=e3670] [cursor=pointer]
+          - cell [ref=e3671] [cursor=pointer]
+          - cell "-588,785.05 ฿" [ref=e3672] [cursor=pointer]
+          - cell "-630,000.00 ฿" [ref=e3673] [cursor=pointer]
+          - cell "Not Paid" [ref=e3674] [cursor=pointer]:
+            - generic [ref=e3676]: Not Paid
+          - cell [ref=e3677]
+        - row "APD/25/12/00003 บริษัท เอ็น.อาร์.พัฒนา จำกัด 12/23/2025 12/23/2025 12/2025 2025 -3,835,514.02 ฿ -4,104,000.00 ฿ Not Paid" [ref=e3678]:
+          - cell [ref=e3679]:
+            - checkbox [ref=e3681] [cursor=pointer]
+          - cell "APD/25/12/00003" [ref=e3682] [cursor=pointer]:
+            - generic [ref=e3683]: APD/25/12/00003
+          - cell "บริษัท เอ็น.อาร์.พัฒนา จำกัด" [ref=e3684] [cursor=pointer]
+          - cell "12/23/2025" [ref=e3685] [cursor=pointer]
+          - cell "12/23/2025" [ref=e3686] [cursor=pointer]:
+            - generic "12/23/2025" [ref=e3688]
+          - cell "12/2025" [ref=e3689] [cursor=pointer]
+          - cell "2025" [ref=e3690] [cursor=pointer]
+          - cell [ref=e3691] [cursor=pointer]
+          - cell "-3,835,514.02 ฿" [ref=e3692] [cursor=pointer]
+          - cell "-4,104,000.00 ฿" [ref=e3693] [cursor=pointer]
+          - cell "Not Paid" [ref=e3694] [cursor=pointer]:
+            - generic [ref=e3696]: Not Paid
+          - cell [ref=e3697]
+        - row "APD/25/12/00005 บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด 12/20/2025 01/19/2026 12/2025 2025 -390,873.60 ฿ -418,234.75 ฿ Not Paid" [ref=e3698]:
+          - cell [ref=e3699]:
+            - checkbox [ref=e3701] [cursor=pointer]
+          - cell "APD/25/12/00005" [ref=e3702] [cursor=pointer]:
+            - generic [ref=e3703]: APD/25/12/00005
+          - cell "บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด" [ref=e3704] [cursor=pointer]
+          - cell "12/20/2025" [ref=e3705] [cursor=pointer]
+          - cell "01/19/2026" [ref=e3706] [cursor=pointer]:
+            - generic "01/19/2026" [ref=e3708]
+          - cell "12/2025" [ref=e3709] [cursor=pointer]
+          - cell "2025" [ref=e3710] [cursor=pointer]
+          - cell [ref=e3711] [cursor=pointer]
+          - cell "-390,873.60 ฿" [ref=e3712] [cursor=pointer]
+          - cell "-418,234.75 ฿" [ref=e3713] [cursor=pointer]
+          - cell "Not Paid" [ref=e3714] [cursor=pointer]:
+            - generic [ref=e3716]: Not Paid
+          - cell [ref=e3717]
+        - row "APD/25/12/00013 บริษัท เวิลด์เฮ้าส์ จำกัด 12/19/2025 02/17/2026 12/2025 2025 -194,000.00 ฿ -207,580.00 ฿ Not Paid" [ref=e3718]:
+          - cell [ref=e3719]:
+            - checkbox [ref=e3721] [cursor=pointer]
+          - cell "APD/25/12/00013" [ref=e3722] [cursor=pointer]:
+            - generic [ref=e3723]: APD/25/12/00013
+          - cell "บริษัท เวิลด์เฮ้าส์ จำกัด" [ref=e3724] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3725] [cursor=pointer]
+          - cell "02/17/2026" [ref=e3726] [cursor=pointer]:
+            - generic "02/17/2026" [ref=e3728]
+          - cell "12/2025" [ref=e3729] [cursor=pointer]
+          - cell "2025" [ref=e3730] [cursor=pointer]
+          - cell [ref=e3731] [cursor=pointer]
+          - cell "-194,000.00 ฿" [ref=e3732] [cursor=pointer]
+          - cell "-207,580.00 ฿" [ref=e3733] [cursor=pointer]
+          - cell "Not Paid" [ref=e3734] [cursor=pointer]:
+            - generic [ref=e3736]: Not Paid
+          - cell [ref=e3737]
+        - row "APD/25/12/00012 บริษัท อุตสาหกรรม วินิลเทค จำกัด 12/19/2025 12/19/2025 12/2025 2025 -21,011.20 ฿ -22,481.98 ฿ Not Paid" [ref=e3738]:
+          - cell [ref=e3739]:
+            - checkbox [ref=e3741] [cursor=pointer]
+          - cell "APD/25/12/00012" [ref=e3742] [cursor=pointer]:
+            - generic [ref=e3743]: APD/25/12/00012
+          - cell "บริษัท อุตสาหกรรม วินิลเทค จำกัด" [ref=e3744] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3745] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3746] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3748]
+          - cell "12/2025" [ref=e3749] [cursor=pointer]
+          - cell "2025" [ref=e3750] [cursor=pointer]
+          - cell [ref=e3751] [cursor=pointer]
+          - cell "-21,011.20 ฿" [ref=e3752] [cursor=pointer]
+          - cell "-22,481.98 ฿" [ref=e3753] [cursor=pointer]
+          - cell "Not Paid" [ref=e3754] [cursor=pointer]:
+            - generic [ref=e3756]: Not Paid
+          - cell [ref=e3757]
+        - row "APD/25/12/00011 บริษัท อุตสาหกรรม วินิลเทค จำกัด 12/19/2025 12/19/2025 12/2025 2025 -2,900.00 ฿ -3,103.00 ฿ Not Paid" [ref=e3758]:
+          - cell [ref=e3759]:
+            - checkbox [ref=e3761] [cursor=pointer]
+          - cell "APD/25/12/00011" [ref=e3762] [cursor=pointer]:
+            - generic [ref=e3763]: APD/25/12/00011
+          - cell "บริษัท อุตสาหกรรม วินิลเทค จำกัด" [ref=e3764] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3765] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3766] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3768]
+          - cell "12/2025" [ref=e3769] [cursor=pointer]
+          - cell "2025" [ref=e3770] [cursor=pointer]
+          - cell [ref=e3771] [cursor=pointer]
+          - cell "-2,900.00 ฿" [ref=e3772] [cursor=pointer]
+          - cell "-3,103.00 ฿" [ref=e3773] [cursor=pointer]
+          - cell "Not Paid" [ref=e3774] [cursor=pointer]:
+            - generic [ref=e3776]: Not Paid
+          - cell [ref=e3777]
+        - row "APD/25/12/00010 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/19/2025 12/19/2025 12/2025 2025 -249,461.00 ฿ -266,923.27 ฿ Not Paid" [ref=e3778]:
+          - cell [ref=e3779]:
+            - checkbox [ref=e3781] [cursor=pointer]
+          - cell "APD/25/12/00010" [ref=e3782] [cursor=pointer]:
+            - generic [ref=e3783]: APD/25/12/00010
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3784] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3785] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3786] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3788]
+          - cell "12/2025" [ref=e3789] [cursor=pointer]
+          - cell "2025" [ref=e3790] [cursor=pointer]
+          - cell [ref=e3791] [cursor=pointer]
+          - cell "-249,461.00 ฿" [ref=e3792] [cursor=pointer]
+          - cell "-266,923.27 ฿" [ref=e3793] [cursor=pointer]
+          - cell "Not Paid" [ref=e3794] [cursor=pointer]:
+            - generic [ref=e3796]: Not Paid
+          - cell [ref=e3797]
+        - row "APD/25/12/00009 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/19/2025 12/19/2025 12/2025 2025 -257,286.00 ฿ -275,296.02 ฿ Not Paid" [ref=e3798]:
+          - cell [ref=e3799]:
+            - checkbox [ref=e3801] [cursor=pointer]
+          - cell "APD/25/12/00009" [ref=e3802] [cursor=pointer]:
+            - generic [ref=e3803]: APD/25/12/00009
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3804] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3805] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3806] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3808]
+          - cell "12/2025" [ref=e3809] [cursor=pointer]
+          - cell "2025" [ref=e3810] [cursor=pointer]
+          - cell [ref=e3811] [cursor=pointer]
+          - cell "-257,286.00 ฿" [ref=e3812] [cursor=pointer]
+          - cell "-275,296.02 ฿" [ref=e3813] [cursor=pointer]
+          - cell "Not Paid" [ref=e3814] [cursor=pointer]:
+            - generic [ref=e3816]: Not Paid
+          - cell [ref=e3817]
+        - row "APD/25/12/00008 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/19/2025 12/19/2025 12/2025 2025 -64,260.00 ฿ -68,758.20 ฿ Not Paid" [ref=e3818]:
+          - cell [ref=e3819]:
+            - checkbox [ref=e3821] [cursor=pointer]
+          - cell "APD/25/12/00008" [ref=e3822] [cursor=pointer]:
+            - generic [ref=e3823]: APD/25/12/00008
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3824] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3825] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3826] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3828]
+          - cell "12/2025" [ref=e3829] [cursor=pointer]
+          - cell "2025" [ref=e3830] [cursor=pointer]
+          - cell [ref=e3831] [cursor=pointer]
+          - cell "-64,260.00 ฿" [ref=e3832] [cursor=pointer]
+          - cell "-68,758.20 ฿" [ref=e3833] [cursor=pointer]
+          - cell "Not Paid" [ref=e3834] [cursor=pointer]:
+            - generic [ref=e3836]: Not Paid
+          - cell [ref=e3837]
+        - row "APD/25/12/00007 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/19/2025 12/19/2025 12/2025 2025 -62,748.00 ฿ -67,140.36 ฿ Not Paid" [ref=e3838]:
+          - cell [ref=e3839]:
+            - checkbox [ref=e3841] [cursor=pointer]
+          - cell "APD/25/12/00007" [ref=e3842] [cursor=pointer]:
+            - generic [ref=e3843]: APD/25/12/00007
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3844] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3845] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3846] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3848]
+          - cell "12/2025" [ref=e3849] [cursor=pointer]
+          - cell "2025" [ref=e3850] [cursor=pointer]
+          - cell [ref=e3851] [cursor=pointer]
+          - cell "-62,748.00 ฿" [ref=e3852] [cursor=pointer]
+          - cell "-67,140.36 ฿" [ref=e3853] [cursor=pointer]
+          - cell "Not Paid" [ref=e3854] [cursor=pointer]:
+            - generic [ref=e3856]: Not Paid
+          - cell [ref=e3857]
+        - row "APD/25/12/00006 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/19/2025 12/19/2025 12/2025 2025 -34,700.00 ฿ -37,129.00 ฿ Not Paid" [ref=e3858]:
+          - cell [ref=e3859]:
+            - checkbox [ref=e3861] [cursor=pointer]
+          - cell "APD/25/12/00006" [ref=e3862] [cursor=pointer]:
+            - generic [ref=e3863]: APD/25/12/00006
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3864] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3865] [cursor=pointer]
+          - cell "12/19/2025" [ref=e3866] [cursor=pointer]:
+            - generic "12/19/2025" [ref=e3868]
+          - cell "12/2025" [ref=e3869] [cursor=pointer]
+          - cell "2025" [ref=e3870] [cursor=pointer]
+          - cell [ref=e3871] [cursor=pointer]
+          - cell "-34,700.00 ฿" [ref=e3872] [cursor=pointer]
+          - cell "-37,129.00 ฿" [ref=e3873] [cursor=pointer]
+          - cell "Not Paid" [ref=e3874] [cursor=pointer]:
+            - generic [ref=e3876]: Not Paid
+          - cell [ref=e3877]
+        - row "APD/25/12/00014 บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด 12/18/2025 01/17/2026 12/2025 2025 -1,207,275.60 ฿ -1,291,784.89 ฿ Not Paid" [ref=e3878]:
+          - cell [ref=e3879]:
+            - checkbox [ref=e3881] [cursor=pointer]
+          - cell "APD/25/12/00014" [ref=e3882] [cursor=pointer]:
+            - generic [ref=e3883]: APD/25/12/00014
+          - cell "บริษัท บี.ที.ไอ. บรรจุภัณฑ์ จำกัด" [ref=e3884] [cursor=pointer]
+          - cell "12/18/2025" [ref=e3885] [cursor=pointer]
+          - cell "01/17/2026" [ref=e3886] [cursor=pointer]:
+            - generic "01/17/2026" [ref=e3888]
+          - cell "12/2025" [ref=e3889] [cursor=pointer]
+          - cell "2025" [ref=e3890] [cursor=pointer]
+          - cell [ref=e3891] [cursor=pointer]
+          - cell "-1,207,275.60 ฿" [ref=e3892] [cursor=pointer]
+          - cell "-1,291,784.89 ฿" [ref=e3893] [cursor=pointer]
+          - cell "Not Paid" [ref=e3894] [cursor=pointer]:
+            - generic [ref=e3896]: Not Paid
+          - cell [ref=e3897]
+        - row "APD/25/12/00015 ห้างหุ้นส่วนจำกัด อี.เยอร์เกนส์ 12/17/2025 12/24/2025 12/2025 2025 -3,362,000.00 ฿ -3,597,340.00 ฿ Not Paid" [ref=e3898]:
+          - cell [ref=e3899]:
+            - checkbox [ref=e3901] [cursor=pointer]
+          - cell "APD/25/12/00015" [ref=e3902] [cursor=pointer]:
+            - generic [ref=e3903]: APD/25/12/00015
+          - cell "ห้างหุ้นส่วนจำกัด อี.เยอร์เกนส์" [ref=e3904] [cursor=pointer]
+          - cell "12/17/2025" [ref=e3905] [cursor=pointer]
+          - cell "12/24/2025" [ref=e3906] [cursor=pointer]:
+            - generic "12/24/2025" [ref=e3908]
+          - cell "12/2025" [ref=e3909] [cursor=pointer]
+          - cell "2025" [ref=e3910] [cursor=pointer]
+          - cell [ref=e3911] [cursor=pointer]
+          - cell "-3,362,000.00 ฿" [ref=e3912] [cursor=pointer]
+          - cell "-3,597,340.00 ฿" [ref=e3913] [cursor=pointer]
+          - cell "Not Paid" [ref=e3914] [cursor=pointer]:
+            - generic [ref=e3916]: Not Paid
+          - cell [ref=e3917]
+        - row "APD/25/12/00016 บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด 12/16/2025 01/15/2026 12/2025 2025 -142,922.30 ฿ -152,926.86 ฿ Not Paid" [ref=e3918]:
+          - cell [ref=e3919]:
+            - checkbox [ref=e3921] [cursor=pointer]
+          - cell "APD/25/12/00016" [ref=e3922] [cursor=pointer]:
+            - generic [ref=e3923]: APD/25/12/00016
+          - cell "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด" [ref=e3924] [cursor=pointer]
+          - cell "12/16/2025" [ref=e3925] [cursor=pointer]
+          - cell "01/15/2026" [ref=e3926] [cursor=pointer]:
+            - generic "01/15/2026" [ref=e3928]
+          - cell "12/2025" [ref=e3929] [cursor=pointer]
+          - cell "2025" [ref=e3930] [cursor=pointer]
+          - cell [ref=e3931] [cursor=pointer]
+          - cell "-142,922.30 ฿" [ref=e3932] [cursor=pointer]
+          - cell "-152,926.86 ฿" [ref=e3933] [cursor=pointer]
+          - cell "Not Paid" [ref=e3934] [cursor=pointer]:
+            - generic [ref=e3936]: Not Paid
+          - cell [ref=e3937]
+        - row "APD/25/12/00026 บริษัท วรกิจออโต้ชริ้งค์แพค จำกัด 12/15/2025 12/15/2025 12/2025 2025 -11,109.00 ฿ -11,886.63 ฿ Not Paid" [ref=e3938]:
+          - cell [ref=e3939]:
+            - checkbox [ref=e3941] [cursor=pointer]
+          - cell "APD/25/12/00026" [ref=e3942] [cursor=pointer]:
+            - generic [ref=e3943]: APD/25/12/00026
+          - cell "บริษัท วรกิจออโต้ชริ้งค์แพค จำกัด" [ref=e3944] [cursor=pointer]
+          - cell "12/15/2025" [ref=e3945] [cursor=pointer]
+          - cell "12/15/2025" [ref=e3946] [cursor=pointer]:
+            - generic "12/15/2025" [ref=e3948]
+          - cell "12/2025" [ref=e3949] [cursor=pointer]
+          - cell "2025" [ref=e3950] [cursor=pointer]
+          - cell [ref=e3951] [cursor=pointer]
+          - cell "-11,109.00 ฿" [ref=e3952] [cursor=pointer]
+          - cell "-11,886.63 ฿" [ref=e3953] [cursor=pointer]
+          - cell "Not Paid" [ref=e3954] [cursor=pointer]:
+            - generic [ref=e3956]: Not Paid
+          - cell [ref=e3957]
+        - row "APD/25/12/00025 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 -60,528.00 ฿ -64,764.96 ฿ Not Paid" [ref=e3958]:
+          - cell [ref=e3959]:
+            - checkbox [ref=e3961] [cursor=pointer]
+          - cell "APD/25/12/00025" [ref=e3962] [cursor=pointer]:
+            - generic [ref=e3963]: APD/25/12/00025
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e3964] [cursor=pointer]
+          - cell "12/15/2025" [ref=e3965] [cursor=pointer]
+          - cell "01/14/2026" [ref=e3966] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e3968]
+          - cell "12/2025" [ref=e3969] [cursor=pointer]
+          - cell "2025" [ref=e3970] [cursor=pointer]
+          - cell [ref=e3971] [cursor=pointer]
+          - cell "-60,528.00 ฿" [ref=e3972] [cursor=pointer]
+          - cell "-64,764.96 ฿" [ref=e3973] [cursor=pointer]
+          - cell "Not Paid" [ref=e3974] [cursor=pointer]:
+            - generic [ref=e3976]: Not Paid
+          - cell [ref=e3977]
+        - row "APD/25/12/00024 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 558.72 ฿ 597.83 ฿ Not Paid" [ref=e3978]:
+          - cell [ref=e3979]:
+            - checkbox [ref=e3981] [cursor=pointer]
+          - cell "APD/25/12/00024" [ref=e3982] [cursor=pointer]:
+            - generic [ref=e3983]: APD/25/12/00024
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e3984] [cursor=pointer]
+          - cell "12/15/2025" [ref=e3985] [cursor=pointer]
+          - cell "01/14/2026" [ref=e3986] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e3988]
+          - cell "12/2025" [ref=e3989] [cursor=pointer]
+          - cell "2025" [ref=e3990] [cursor=pointer]
+          - cell [ref=e3991] [cursor=pointer]
+          - cell "558.72 ฿" [ref=e3992] [cursor=pointer]
+          - cell "597.83 ฿" [ref=e3993] [cursor=pointer]
+          - cell "Not Paid" [ref=e3994] [cursor=pointer]:
+            - generic [ref=e3996]: Not Paid
+          - cell [ref=e3997]
+        - row "APD/25/12/00023 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 114.00 ฿ 121.98 ฿ Not Paid" [ref=e3998]:
+          - cell [ref=e3999]:
+            - checkbox [ref=e4001] [cursor=pointer]
+          - cell "APD/25/12/00023" [ref=e4002] [cursor=pointer]:
+            - generic [ref=e4003]: APD/25/12/00023
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4004] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4005] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4006] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4008]
+          - cell "12/2025" [ref=e4009] [cursor=pointer]
+          - cell "2025" [ref=e4010] [cursor=pointer]
+          - cell [ref=e4011] [cursor=pointer]
+          - cell "114.00 ฿" [ref=e4012] [cursor=pointer]
+          - cell "121.98 ฿" [ref=e4013] [cursor=pointer]
+          - cell "Not Paid" [ref=e4014] [cursor=pointer]:
+            - generic [ref=e4016]: Not Paid
+          - cell [ref=e4017]
+        - row "APD/25/12/00022 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 41.66 ฿ 44.58 ฿ Not Paid" [ref=e4018]:
+          - cell [ref=e4019]:
+            - checkbox [ref=e4021] [cursor=pointer]
+          - cell "APD/25/12/00022" [ref=e4022] [cursor=pointer]:
+            - generic [ref=e4023]: APD/25/12/00022
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4024] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4025] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4026] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4028]
+          - cell "12/2025" [ref=e4029] [cursor=pointer]
+          - cell "2025" [ref=e4030] [cursor=pointer]
+          - cell [ref=e4031] [cursor=pointer]
+          - cell "41.66 ฿" [ref=e4032] [cursor=pointer]
+          - cell "44.58 ฿" [ref=e4033] [cursor=pointer]
+          - cell "Not Paid" [ref=e4034] [cursor=pointer]:
+            - generic [ref=e4036]: Not Paid
+          - cell [ref=e4037]
+        - row "APD/25/12/00021 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 24.92 ฿ 26.66 ฿ Not Paid" [ref=e4038]:
+          - cell [ref=e4039]:
+            - checkbox [ref=e4041] [cursor=pointer]
+          - cell "APD/25/12/00021" [ref=e4042] [cursor=pointer]:
+            - generic [ref=e4043]: APD/25/12/00021
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4044] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4045] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4046] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4048]
+          - cell "12/2025" [ref=e4049] [cursor=pointer]
+          - cell "2025" [ref=e4050] [cursor=pointer]
+          - cell [ref=e4051] [cursor=pointer]
+          - cell "24.92 ฿" [ref=e4052] [cursor=pointer]
+          - cell "26.66 ฿" [ref=e4053] [cursor=pointer]
+          - cell "Not Paid" [ref=e4054] [cursor=pointer]:
+            - generic [ref=e4056]: Not Paid
+          - cell [ref=e4057]
+        - row "APD/25/12/00020 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 22.16 ฿ 23.71 ฿ Not Paid" [ref=e4058]:
+          - cell [ref=e4059]:
+            - checkbox [ref=e4061] [cursor=pointer]
+          - cell "APD/25/12/00020" [ref=e4062] [cursor=pointer]:
+            - generic [ref=e4063]: APD/25/12/00020
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4064] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4065] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4066] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4068]
+          - cell "12/2025" [ref=e4069] [cursor=pointer]
+          - cell "2025" [ref=e4070] [cursor=pointer]
+          - cell [ref=e4071] [cursor=pointer]
+          - cell "22.16 ฿" [ref=e4072] [cursor=pointer]
+          - cell "23.71 ฿" [ref=e4073] [cursor=pointer]
+          - cell "Not Paid" [ref=e4074] [cursor=pointer]:
+            - generic [ref=e4076]: Not Paid
+          - cell [ref=e4077]
+        - row "APD/25/12/00019 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 21.50 ฿ 23.01 ฿ Not Paid" [ref=e4078]:
+          - cell [ref=e4079]:
+            - checkbox [ref=e4081] [cursor=pointer]
+          - cell "APD/25/12/00019" [ref=e4082] [cursor=pointer]:
+            - generic [ref=e4083]: APD/25/12/00019
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4084] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4085] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4086] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4088]
+          - cell "12/2025" [ref=e4089] [cursor=pointer]
+          - cell "2025" [ref=e4090] [cursor=pointer]
+          - cell [ref=e4091] [cursor=pointer]
+          - cell "21.50 ฿" [ref=e4092] [cursor=pointer]
+          - cell "23.01 ฿" [ref=e4093] [cursor=pointer]
+          - cell "Not Paid" [ref=e4094] [cursor=pointer]:
+            - generic [ref=e4096]: Not Paid
+          - cell [ref=e4097]
+        - row "APD/25/12/00018 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 16.42 ฿ 17.57 ฿ Not Paid" [ref=e4098]:
+          - cell [ref=e4099]:
+            - checkbox [ref=e4101] [cursor=pointer]
+          - cell "APD/25/12/00018" [ref=e4102] [cursor=pointer]:
+            - generic [ref=e4103]: APD/25/12/00018
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4104] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4105] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4106] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4108]
+          - cell "12/2025" [ref=e4109] [cursor=pointer]
+          - cell "2025" [ref=e4110] [cursor=pointer]
+          - cell [ref=e4111] [cursor=pointer]
+          - cell "16.42 ฿" [ref=e4112] [cursor=pointer]
+          - cell "17.57 ฿" [ref=e4113] [cursor=pointer]
+          - cell "Not Paid" [ref=e4114] [cursor=pointer]:
+            - generic [ref=e4116]: Not Paid
+          - cell [ref=e4117]
+        - row "APD/25/12/00017 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/15/2025 01/14/2026 12/2025 2025 6.15 ฿ 6.58 ฿ Not Paid" [ref=e4118]:
+          - cell [ref=e4119]:
+            - checkbox [ref=e4121] [cursor=pointer]
+          - cell "APD/25/12/00017" [ref=e4122] [cursor=pointer]:
+            - generic [ref=e4123]: APD/25/12/00017
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4124] [cursor=pointer]
+          - cell "12/15/2025" [ref=e4125] [cursor=pointer]
+          - cell "01/14/2026" [ref=e4126] [cursor=pointer]:
+            - generic "01/14/2026" [ref=e4128]
+          - cell "12/2025" [ref=e4129] [cursor=pointer]
+          - cell "2025" [ref=e4130] [cursor=pointer]
+          - cell [ref=e4131] [cursor=pointer]
+          - cell "6.15 ฿" [ref=e4132] [cursor=pointer]
+          - cell "6.58 ฿" [ref=e4133] [cursor=pointer]
+          - cell "Not Paid" [ref=e4134] [cursor=pointer]:
+            - generic [ref=e4136]: Not Paid
+          - cell [ref=e4137]
+        - row "APD/25/12/00027 บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด 12/13/2025 01/12/2026 12/2025 2025 -142,786.00 ฿ -152,781.02 ฿ Not Paid" [ref=e4138]:
+          - cell [ref=e4139]:
+            - checkbox [ref=e4141] [cursor=pointer]
+          - cell "APD/25/12/00027" [ref=e4142] [cursor=pointer]:
+            - generic [ref=e4143]: APD/25/12/00027
+          - cell "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด" [ref=e4144] [cursor=pointer]
+          - cell "12/13/2025" [ref=e4145] [cursor=pointer]
+          - cell "01/12/2026" [ref=e4146] [cursor=pointer]:
+            - generic "01/12/2026" [ref=e4148]
+          - cell "12/2025" [ref=e4149] [cursor=pointer]
+          - cell "2025" [ref=e4150] [cursor=pointer]
+          - cell [ref=e4151] [cursor=pointer]
+          - cell "-142,786.00 ฿" [ref=e4152] [cursor=pointer]
+          - cell "-152,781.02 ฿" [ref=e4153] [cursor=pointer]
+          - cell "Not Paid" [ref=e4154] [cursor=pointer]:
+            - generic [ref=e4156]: Not Paid
+          - cell [ref=e4157]
+        - row "APD/25/12/00029 ห้างหุ้นส่วนสามัญนิติบุคคล เอ็งจิ้นแซเชียง 12/12/2025 12/12/2025 12/2025 2025 -1,091,244.00 ฿ -1,167,631.08 ฿ Not Paid" [ref=e4158]:
+          - cell [ref=e4159]:
+            - checkbox [ref=e4161] [cursor=pointer]
+          - cell "APD/25/12/00029" [ref=e4162] [cursor=pointer]:
+            - generic [ref=e4163]: APD/25/12/00029
+          - cell "ห้างหุ้นส่วนสามัญนิติบุคคล เอ็งจิ้นแซเชียง" [ref=e4164] [cursor=pointer]
+          - cell "12/12/2025" [ref=e4165] [cursor=pointer]
+          - cell "12/12/2025" [ref=e4166] [cursor=pointer]:
+            - generic "12/12/2025" [ref=e4168]
+          - cell "12/2025" [ref=e4169] [cursor=pointer]
+          - cell "2025" [ref=e4170] [cursor=pointer]
+          - cell [ref=e4171] [cursor=pointer]
+          - cell "-1,091,244.00 ฿" [ref=e4172] [cursor=pointer]
+          - cell "-1,167,631.08 ฿" [ref=e4173] [cursor=pointer]
+          - cell "Not Paid" [ref=e4174] [cursor=pointer]:
+            - generic [ref=e4176]: Not Paid
+          - cell [ref=e4177]
+        - row "APD/25/12/00028 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/12/2025 12/12/2025 12/2025 2025 462.00 ฿ 494.34 ฿ Not Paid" [ref=e4178]:
+          - cell [ref=e4179]:
+            - checkbox [ref=e4181] [cursor=pointer]
+          - cell "APD/25/12/00028" [ref=e4182] [cursor=pointer]:
+            - generic [ref=e4183]: APD/25/12/00028
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4184] [cursor=pointer]
+          - cell "12/12/2025" [ref=e4185] [cursor=pointer]
+          - cell "12/12/2025" [ref=e4186] [cursor=pointer]:
+            - generic "12/12/2025" [ref=e4188]
+          - cell "12/2025" [ref=e4189] [cursor=pointer]
+          - cell "2025" [ref=e4190] [cursor=pointer]
+          - cell [ref=e4191] [cursor=pointer]
+          - cell "462.00 ฿" [ref=e4192] [cursor=pointer]
+          - cell "494.34 ฿" [ref=e4193] [cursor=pointer]
+          - cell "Not Paid" [ref=e4194] [cursor=pointer]:
+            - generic [ref=e4196]: Not Paid
+          - cell [ref=e4197]
+        - row "APD/25/12/00038 บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด 12/11/2025 01/10/2026 12/2025 2025 -141,836.60 ฿ -151,765.16 ฿ Not Paid" [ref=e4198]:
+          - cell [ref=e4199]:
+            - checkbox [ref=e4201] [cursor=pointer]
+          - cell "APD/25/12/00038" [ref=e4202] [cursor=pointer]:
+            - generic [ref=e4203]: APD/25/12/00038
+          - cell "บริษัท รอยซ์ ยูนิเวอร์แซล จำกัด" [ref=e4204] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4205] [cursor=pointer]
+          - cell "01/10/2026" [ref=e4206] [cursor=pointer]:
+            - generic "01/10/2026" [ref=e4208]
+          - cell "12/2025" [ref=e4209] [cursor=pointer]
+          - cell "2025" [ref=e4210] [cursor=pointer]
+          - cell [ref=e4211] [cursor=pointer]
+          - cell "-141,836.60 ฿" [ref=e4212] [cursor=pointer]
+          - cell "-151,765.16 ฿" [ref=e4213] [cursor=pointer]
+          - cell "Not Paid" [ref=e4214] [cursor=pointer]:
+            - generic [ref=e4216]: Not Paid
+          - cell [ref=e4217]
+        - row "APD/25/12/00037 บริษัท วรกิจออโต้ชริ้งค์แพค จำกัด 12/11/2025 12/11/2025 12/2025 2025 -11,615.00 ฿ -12,428.05 ฿ Not Paid" [ref=e4218]:
+          - cell [ref=e4219]:
+            - checkbox [ref=e4221] [cursor=pointer]
+          - cell "APD/25/12/00037" [ref=e4222] [cursor=pointer]:
+            - generic [ref=e4223]: APD/25/12/00037
+          - cell "บริษัท วรกิจออโต้ชริ้งค์แพค จำกัด" [ref=e4224] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4225] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4226] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4228]
+          - cell "12/2025" [ref=e4229] [cursor=pointer]
+          - cell "2025" [ref=e4230] [cursor=pointer]
+          - cell [ref=e4231] [cursor=pointer]
+          - cell "-11,615.00 ฿" [ref=e4232] [cursor=pointer]
+          - cell "-12,428.05 ฿" [ref=e4233] [cursor=pointer]
+          - cell "Not Paid" [ref=e4234] [cursor=pointer]:
+            - generic [ref=e4236]: Not Paid
+          - cell [ref=e4237]
+        - row "APD/25/12/00036 บริษัท อุตสาหกรรม วินิลเทค จำกัด 12/11/2025 12/11/2025 12/2025 2025 -13,000.00 ฿ -13,910.00 ฿ Not Paid" [ref=e4238]:
+          - cell [ref=e4239]:
+            - checkbox [ref=e4241] [cursor=pointer]
+          - cell "APD/25/12/00036" [ref=e4242] [cursor=pointer]:
+            - generic [ref=e4243]: APD/25/12/00036
+          - cell "บริษัท อุตสาหกรรม วินิลเทค จำกัด" [ref=e4244] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4245] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4246] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4248]
+          - cell "12/2025" [ref=e4249] [cursor=pointer]
+          - cell "2025" [ref=e4250] [cursor=pointer]
+          - cell [ref=e4251] [cursor=pointer]
+          - cell "-13,000.00 ฿" [ref=e4252] [cursor=pointer]
+          - cell "-13,910.00 ฿" [ref=e4253] [cursor=pointer]
+          - cell "Not Paid" [ref=e4254] [cursor=pointer]:
+            - generic [ref=e4256]: Not Paid
+          - cell [ref=e4257]
+        - row "APD/25/12/00035 บริษัท อุตสาหกรรม วินิลเทค จำกัด 12/11/2025 12/11/2025 12/2025 2025 -1,963.00 ฿ -2,100.41 ฿ Not Paid" [ref=e4258]:
+          - cell [ref=e4259]:
+            - checkbox [ref=e4261] [cursor=pointer]
+          - cell "APD/25/12/00035" [ref=e4262] [cursor=pointer]:
+            - generic [ref=e4263]: APD/25/12/00035
+          - cell "บริษัท อุตสาหกรรม วินิลเทค จำกัด" [ref=e4264] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4265] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4266] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4268]
+          - cell "12/2025" [ref=e4269] [cursor=pointer]
+          - cell "2025" [ref=e4270] [cursor=pointer]
+          - cell [ref=e4271] [cursor=pointer]
+          - cell "-1,963.00 ฿" [ref=e4272] [cursor=pointer]
+          - cell "-2,100.41 ฿" [ref=e4273] [cursor=pointer]
+          - cell "Not Paid" [ref=e4274] [cursor=pointer]:
+            - generic [ref=e4276]: Not Paid
+          - cell [ref=e4277]
+        - row "APD/25/12/00034 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/11/2025 12/11/2025 12/2025 2025 802.68 ฿ 858.87 ฿ Not Paid" [ref=e4278]:
+          - cell [ref=e4279]:
+            - checkbox [ref=e4281] [cursor=pointer]
+          - cell "APD/25/12/00034" [ref=e4282] [cursor=pointer]:
+            - generic [ref=e4283]: APD/25/12/00034
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4284] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4285] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4286] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4288]
+          - cell "12/2025" [ref=e4289] [cursor=pointer]
+          - cell "2025" [ref=e4290] [cursor=pointer]
+          - cell [ref=e4291] [cursor=pointer]
+          - cell "802.68 ฿" [ref=e4292] [cursor=pointer]
+          - cell "858.87 ฿" [ref=e4293] [cursor=pointer]
+          - cell "Not Paid" [ref=e4294] [cursor=pointer]:
+            - generic [ref=e4296]: Not Paid
+          - cell [ref=e4297]
+        - row "APD/25/12/00033 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/11/2025 12/11/2025 12/2025 2025 2,067.51 ฿ 2,212.24 ฿ Not Paid" [ref=e4298]:
+          - cell [ref=e4299]:
+            - checkbox [ref=e4301] [cursor=pointer]
+          - cell "APD/25/12/00033" [ref=e4302] [cursor=pointer]:
+            - generic [ref=e4303]: APD/25/12/00033
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4304] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4305] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4306] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4308]
+          - cell "12/2025" [ref=e4309] [cursor=pointer]
+          - cell "2025" [ref=e4310] [cursor=pointer]
+          - cell [ref=e4311] [cursor=pointer]
+          - cell "2,067.51 ฿" [ref=e4312] [cursor=pointer]
+          - cell "2,212.24 ฿" [ref=e4313] [cursor=pointer]
+          - cell "Not Paid" [ref=e4314] [cursor=pointer]:
+            - generic [ref=e4316]: Not Paid
+          - cell [ref=e4317]
+        - row "APD/25/12/00032 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/11/2025 12/11/2025 12/2025 2025 47.55 ฿ 50.88 ฿ Not Paid" [ref=e4318]:
+          - cell [ref=e4319]:
+            - checkbox [ref=e4321] [cursor=pointer]
+          - cell "APD/25/12/00032" [ref=e4322] [cursor=pointer]:
+            - generic [ref=e4323]: APD/25/12/00032
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4324] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4325] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4326] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4328]
+          - cell "12/2025" [ref=e4329] [cursor=pointer]
+          - cell "2025" [ref=e4330] [cursor=pointer]
+          - cell [ref=e4331] [cursor=pointer]
+          - cell "47.55 ฿" [ref=e4332] [cursor=pointer]
+          - cell "50.88 ฿" [ref=e4333] [cursor=pointer]
+          - cell "Not Paid" [ref=e4334] [cursor=pointer]:
+            - generic [ref=e4336]: Not Paid
+          - cell [ref=e4337]
+        - row "APD/25/12/00031 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/11/2025 12/11/2025 12/2025 2025 20.03 ฿ 21.43 ฿ Not Paid" [ref=e4338]:
+          - cell [ref=e4339]:
+            - checkbox [ref=e4341] [cursor=pointer]
+          - cell "APD/25/12/00031" [ref=e4342] [cursor=pointer]:
+            - generic [ref=e4343]: APD/25/12/00031
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4344] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4345] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4346] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4348]
+          - cell "12/2025" [ref=e4349] [cursor=pointer]
+          - cell "2025" [ref=e4350] [cursor=pointer]
+          - cell [ref=e4351] [cursor=pointer]
+          - cell "20.03 ฿" [ref=e4352] [cursor=pointer]
+          - cell "21.43 ฿" [ref=e4353] [cursor=pointer]
+          - cell "Not Paid" [ref=e4354] [cursor=pointer]:
+            - generic [ref=e4356]: Not Paid
+          - cell [ref=e4357]
+        - row "APD/25/12/00030 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 12/11/2025 12/11/2025 12/2025 2025 87.15 ฿ 93.25 ฿ Not Paid" [ref=e4358]:
+          - cell [ref=e4359]:
+            - checkbox [ref=e4361] [cursor=pointer]
+          - cell "APD/25/12/00030" [ref=e4362] [cursor=pointer]:
+            - generic [ref=e4363]: APD/25/12/00030
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e4364] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4365] [cursor=pointer]
+          - cell "12/11/2025" [ref=e4366] [cursor=pointer]:
+            - generic "12/11/2025" [ref=e4368]
+          - cell "12/2025" [ref=e4369] [cursor=pointer]
+          - cell "2025" [ref=e4370] [cursor=pointer]
+          - cell [ref=e4371] [cursor=pointer]
+          - cell "87.15 ฿" [ref=e4372] [cursor=pointer]
+          - cell "93.25 ฿" [ref=e4373] [cursor=pointer]
+          - cell "Not Paid" [ref=e4374] [cursor=pointer]:
+            - generic [ref=e4376]: Not Paid
+          - cell [ref=e4377]
+        - row "APD/25/12/00041 บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด 12/10/2025 01/09/2026 12/2025 2025 -31,040.00 ฿ -33,212.80 ฿ Not Paid" [ref=e4378]:
+          - cell [ref=e4379]:
+            - checkbox [ref=e4381] [cursor=pointer]
+          - cell "APD/25/12/00041" [ref=e4382] [cursor=pointer]:
+            - generic [ref=e4383]: APD/25/12/00041
+          - cell "บริษัท เอสแอนด์ดี อินดัสทรี้ จำกัด" [ref=e4384] [cursor=pointer]
+          - cell "12/10/2025" [ref=e4385] [cursor=pointer]
+          - cell "01/09/2026" [ref=e4386] [cursor=pointer]:
+            - generic "01/09/2026" [ref=e4388]
+          - cell "12/2025" [ref=e4389] [cursor=pointer]
+          - cell "2025" [ref=e4390] [cursor=pointer]
+          - cell [ref=e4391] [cursor=pointer]
+          - cell "-31,040.00 ฿" [ref=e4392] [cursor=pointer]
+          - cell "-33,212.80 ฿" [ref=e4393] [cursor=pointer]
+          - cell "Not Paid" [ref=e4394] [cursor=pointer]:
+            - generic [ref=e4396]: Not Paid
+          - cell [ref=e4397]
+      - rowgroup [ref=e4398]:
+        - row "- -" [ref=e4399]:
+          - cell [ref=e4400]
+          - cell [ref=e4401]
+          - cell [ref=e4402]
+          - cell [ref=e4403]
+          - cell [ref=e4404]
+          - cell [ref=e4405]
+          - cell [ref=e4406]
+          - cell [ref=e4407]
+          - cell "-" [ref=e4408]
+          - cell "-" [ref=e4409]
+          - cell [ref=e4410]
+          - cell [ref=e4411]
+  - dialog [ref=e4412]:
+    - generic [ref=e4413]:
+      - banner [ref=e4414]:
+        - heading "Oops!" [level=4] [ref=e4415]
+        - button "Close" [ref=e4416] [cursor=pointer]
+      - main [ref=e4417]:
+        - alert [ref=e4418]:
+          - paragraph [ref=e4419]: Something went wrong... If you really are stuck, share the report with your friendly support service
+          - button "See technical details" [active] [ref=e4420] [cursor=pointer]
+      - contentinfo [ref=e4421]:
+        - button "Close" [ref=e4422] [cursor=pointer]
+        - button "Share" [ref=e4423] [cursor=pointer]

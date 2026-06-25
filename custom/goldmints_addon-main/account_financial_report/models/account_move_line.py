@@ -1,6 +1,7 @@
 # Copyright 2019 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 from odoo.fields import Command
 
 
@@ -10,6 +11,15 @@ class AccountMoveLine(models.Model):
     analytic_account_ids = fields.Many2many(
         "account.analytic.account", compute="_compute_analytic_account_ids", store=True
     )
+
+    @api.constrains("account_id")
+    def _check_view_account(self):
+        for line in self:
+            if line.account_id.is_view:
+                raise ValidationError(
+                    _("Cannot post transaction to a View/Header account: %s")
+                    % line.account_id.display_name
+                )
 
     @api.depends("analytic_distribution")
     def _compute_analytic_account_ids(self):

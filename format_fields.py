@@ -1,0 +1,14 @@
+
+import json
+with open('asset_fields.json', 'r', encoding='utf-8') as f:
+    fields = json.load(f)
+
+md = '# ???????????????????? account.asset (??? Server 10.0.0.14)\n\n'
+md += '| ????????? (Technical Name) | ?????? (Type) | ??????????? (Label/String) |\n'
+md += '|---|---|---|\n'
+for name, data in fields.items():
+    md += f'| {name} | {data.get("type")} | {data.get("string")} |\n'
+
+with open('asset_fields.md', 'w', encoding='utf-8') as f:
+    f.write(md)
+

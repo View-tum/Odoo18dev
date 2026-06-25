@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Extend the Credit Note form view to display:
+          - consolidated_bill_ids : all source bills consolidated into this CN
+          - customer_ref        : replaces ref in the Customer Reference slot for CNs
+
+        Priority 20 (> default 16) ensures this runs after move_customer_reference,
+        so the preceding-sibling xpath can find the ref field it inserted.
+    -->
+    <record id="view_account_move_refund_multi_cn_inherit" model="ir.ui.view">
+        <field name="name">account.move.refund.multi.cn.reversed.bills.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='reversed_entry_id']" position="after">
+                <field name="consolidated_bill_ids"
+                       readonly="1"
+                       invisible="consolidated_bill_ids == []"
+                       string="Reversed Vendor Bills"
+                       widget="many2many_tags"
+                       options="{'no_create': True, 'no_open': False}"/>
+            </xpath>
+
+            <!-- Override the ref field that move_customer_reference inserted
+                 before delivery_date: show customer_ref when this is a
+                 consolidated CN, keep ref for all other documents. -->
+            <xpath expr="//field[@name='delivery_date']/preceding-sibling::field[@name='ref'][1]" position="replace">
+                <field name="customer_ref"
+                       string="Customer Reference"
+                       invisible="not consolidated_bill_ids"/>
+                <field name="ref"
+                       string="Customer Reference"
+                       invisible="consolidated_bill_ids"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!--
+        Extend the Vendor Bill form view to display:
+          - consolidated_cn_id  : the consolidated CN created from this bill
+        These fields are read-only and appear in the "Other Info" tab
+        so they do not clutter the main invoice layout.
+    -->
+    <record id="view_account_move_vendor_bill_inherit" model="ir.ui.view">
+        <field name="name">account.move.vendor.bill.multi.cn.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='reversed_entry_id']" position="after">
+                <field name="consolidated_cn_id"
+                       readonly="1"
+                       invisible="consolidated_cn_id == False"
+                       string="Consolidated Credit Note"
+                       options="{'no_create': True, 'no_open': False}"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

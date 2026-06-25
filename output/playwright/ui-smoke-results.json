@@ -1,0 +1,57 @@
+[
+  {
+    "name": "login",
+    "ok": true,
+    "url": "http://127.0.0.1:8811/odoo"
+  },
+  {
+    "name": "Vendor Billing Note List",
+    "ok": true,
+    "matched": [
+      "Billing Note"
+    ],
+    "url": "http://127.0.0.1:8811/odoo/action-1651"
+  },
+  {
+    "name": "PO Status Billing Wizard",
+    "ok": true,
+    "matched": [
+      "สถานะการวางบิล",
+      "สถานะการตั้งหนี้"
+    ],
+    "url": "http://127.0.0.1:8811/odoo/action-1410/new"
+  },
+  {
+    "name": "PO Status Billing Wizard Preview",
+    "ok": true,
+    "matched": [
+      "Lines",
+      "Select APD/CN",
+      "Select Billable",
+      "Vendor Bill",
+      "Vendor Credit Note",
+      "Billing Note"
+    ],
+    "url": "http://127.0.0.1:8811/odoo/action-1410/71/purchase.order.status.report.wizard/71"
+  },
+  {
+    "name": "MRP Production List",
+    "ok": true,
+    "matched": [
+      "Manufacturing Orders",
+      "Shopfloor",
+      "Manufacturing Type"
+    ],
+    "url": "http://127.0.0.1:8811/odoo/manufacturing"
+  },
+  {
+    "name": "Parallel Shopfloor Client Action",
+    "ok": true,
+    "matched": [
+      "GMP Shop Floor",
+      "Open Console",
+      "Plastic Shop Floor"
+    ],
+    "url": "http://127.0.0.1:8811/odoo/action-1401"
+  }
+]

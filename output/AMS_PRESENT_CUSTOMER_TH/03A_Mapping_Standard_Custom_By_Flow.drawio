@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="ams-flow-standard-custom" name="Flow Standard Custom Map">
+    <mxGraphModel dx="2175" dy="1214" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1420" pageHeight="1160" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5B1747;fontColor=#FFFFFF;strokeColor=#5B1747;fontStyle=1;fontSize=20;align=center;verticalAlign=middle;" value="AMS Flow Mapping: Module / Standard Odoo / ต้องทำเพิ่ม" vertex="1">
+          <mxGeometry height="58" width="1320" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FED7AA;fontColor=#111827;fontSize=13;align=left;spacing=12;" value="วิธีอ่าน: ไล่ทีละ Flow จากซ้ายไปขวา ดูก่อนว่าอยู่ใน Odoo module ไหน จากนั้นดูว่าส่วนไหนใช้ standard/config ได้ และส่วนไหนต้องทำรายงานเพิ่ม เชื่อมระบบเพิ่ม หรือ custom เฉพาะ AMS" vertex="1">
+          <mxGeometry height="70" width="1320" x="40" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="h_flow" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#334155;fontColor=#FFFFFF;strokeColor=#334155;fontStyle=1;fontSize=14;align=center;verticalAlign=middle;" value="Flow" vertex="1">
+          <mxGeometry height="46" width="200" x="40" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="h_module" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#334155;fontColor=#FFFFFF;strokeColor=#334155;fontStyle=1;fontSize=14;align=center;verticalAlign=middle;" value="Odoo Module" vertex="1">
+          <mxGeometry height="46" width="300" x="256" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="h_standard" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#334155;fontColor=#FFFFFF;strokeColor=#334155;fontStyle=1;fontSize=14;align=center;verticalAlign=middle;" value="Standard Odoo ใช้ได้" vertex="1">
+          <mxGeometry height="46" width="390" x="572" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="h_custom" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#334155;fontColor=#FFFFFF;strokeColor=#334155;fontStyle=1;fontSize=14;align=center;verticalAlign=middle;" value="ต้องทำเพิ่ม / Custom / Report" vertex="1">
+          <mxGeometry height="46" width="390" x="978" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Sales + Forecast" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Sales, CRM, Invoicing, MRP/MPS" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Quotation, Sales Order, Customer PO, Invoice" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Forecast/API import, legacy BI/SP/FA forms" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="253" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Procurement" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Purchase, Approvals, Inventory, Accounting Budget" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="PR/RFQ/PO, vendor, blanket agreement, approval" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Auto grouping, supplier score, budget hard lock" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="RM Warehouse" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="429" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Inventory, Barcode, Purchase" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="429" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Receive, lot, shelf/location, barcode, owner stock" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="429" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Customer supplied material report/valuation" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="429" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Engineering" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="517" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Manufacturing, PLM, Inventory" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="517" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Product, BOM, routing, work center, PLM base" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="517" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="PCC form, approval/revision, PPAP template" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="517" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Planning" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Manufacturing, MPS/MRP, Inventory" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="MPS/MRP, reorder, buy/make, material issue" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="IS/WI legacy form, forecast accuracy view" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Production" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Manufacturing, Shop Floor, Quality, Maintenance" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="MO/WO, work order, quality check, scrap/rework base" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="OEE/OPE, WIP/variance, exact rework route" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Quality" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Quality, Manufacturing, Inventory" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Quality point/check/alert" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="COA customer format, DPPM dashboard" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="781" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="FG + Delivery" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="869" as="geometry" />
+        </mxCell>
+        <mxCell id="m8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Inventory, Barcode, Sales, Fleet" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="869" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="FG receipt, delivery order, stock move" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="869" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Delivery ticket, driver KPI, non-fulfillment report" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="869" as="geometry" />
+        </mxCell>
+        <mxCell id="f9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF2FF;strokeColor=#93C5FD;fontColor=#111827;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Accounting" vertex="1">
+          <mxGeometry height="76" width="200" x="40" y="957" as="geometry" />
+        </mxCell>
+        <mxCell id="m9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#A5B4FC;fontColor=#312E81;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Accounting, Thai Localization, Spreadsheet, Approvals" vertex="1">
+          <mxGeometry height="76" width="300" x="256" y="957" as="geometry" />
+        </mxCell>
+        <mxCell id="s9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#86EFAC;fontColor=#14532D;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Invoice, payment, bank reconcile, Thai localization, QR base" vertex="1">
+          <mxGeometry height="76" width="390" x="572" y="957" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FDBA74;fontColor=#7C2D12;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="Netting, multi-ledger, consolidation, legacy reports" vertex="1">
+          <mxGeometry height="76" width="390" x="978" y="957" as="geometry" />
+        </mxCell>
+        <mxCell id="close" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FED7AA;fontColor=#111827;fontSize=13;align=left;spacing=12;" value="ข้อความหลักตอน present: เราใช้ Odoo module มาตรฐานก่อน แล้วทำเพิ่มเฉพาะจุดที่รูปแบบงานของ AMS ต้องการมากกว่า standard โดยเฉพาะจุดที่กระทบ Stock, MRP และ Accounting ต้องยืนยัน rule ก่อน" vertex="1">
+          <mxGeometry height="72" width="1320" x="40" y="1055" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

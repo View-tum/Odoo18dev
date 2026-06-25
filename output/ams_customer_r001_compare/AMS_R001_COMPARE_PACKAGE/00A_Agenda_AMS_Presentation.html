@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMS Presentation Agenda</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Tahoma, sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 28px 48px;
+}
+.hero {
+  background: #5b1747;
+  color: white;
+  padding: 28px 32px;
+  border-radius: 8px;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+}
+.hero p {
+  margin: 0;
+  color: #f7d9ec;
+  font-size: 15px;
+}
+.section {
+  margin-top: 22px;
+  background: white;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+h2 {
+  margin: 0;
+  padding: 18px 22px;
+  font-size: 18px;
+  background: #edf2f7;
+  border-bottom: 1px solid #dbe3ef;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e6edf5;
+  vertical-align: top;
+  font-size: 14px;
+}
+th {
+  text-align: left;
+  background: #f8fafc;
+  color: #334155;
+}
+td:first-child {
+  width: 44px;
+  font-weight: 700;
+  color: #5b1747;
+}
+td:nth-child(4) {
+  width: 92px;
+  white-space: nowrap;
+}
+td:nth-child(5) {
+  width: 220px;
+  color: #0f5e7a;
+  word-break: break-word;
+}
+ul {
+  margin: 0;
+  padding: 18px 28px 22px 42px;
+}
+li {
+  margin: 0 0 12px;
+}
+li span {
+  display: block;
+  margin-top: 4px;
+  color: #475569;
+}
+.footer {
+  margin-top: 18px;
+  color: #64748b;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>AMS Odoo Blueprint Presentation Agenda</h1>
+    <p>ลำดับการนำเสนอสำหรับคุยกับลูกค้า: เริ่มจากภาพรวม ไป mapping, workflow, manday และปิดด้วย next step</p>
+  </section>
+  <section class="section">
+    <h2>Agenda หลัก</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>หัวข้อ</th>
+          <th>เป้าหมายที่ต้องคุยให้จบ</th>
+          <th>เวลา</th>
+          <th>ไฟล์ที่เปิด</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>เปิดเป้าหมายการประชุม</td><td>ยืนยันว่าเราจะดูภาพรวมงาน AMS, request R001, flow, standard/custom และ manday</td><td>5 นาที</td><td>00_เริ่มที่นี่_AMS_PRESENT_ลูกค้า.html</td></tr>
+<tr><td>2</td><td>สรุปภาพรวมว่า Odoo ช่วยอะไร</td><td>ชี้ให้เห็นจุดลดงาน manual, จุดที่ระบบทำ auto และจุดที่ยังต้อง confirm เพิ่ม</td><td>10 นาที</td><td>01_Dashboard_AMS_เราช่วยอะไร.html</td></tr>
+<tr><td>3</td><td>ยืนยันขอบเขต request ลูกค้า</td><td>อธิบายว่า customer request จริงมี 44 ข้อ และ supporting point ใช้ช่วย mapping เท่านั้น</td><td>10 นาที</td><td>03_Mapping_44_Request_กับ_Flow.html</td></tr>
+<tr><td>4</td><td>Mapping Standard vs Custom</td><td>ไล่ทีละ flow ว่า Odoo standard รองรับอะไร และจุดไหนต้อง custom/report/approval เพิ่ม</td><td>20 นาที</td><td>03A_Mapping_Standard_Custom_By_Flow.drawio</td></tr>
+<tr><td>5</td><td>ดู Flow ลูกค้าเดิมแบบ Standard/Custom</td><td>เปิด flow เดิมของลูกค้า layout เดิม แล้วใช้สี block อธิบายว่าอะไรเป็น Odoo standard และอะไรต้อง custom</td><td>20 นาที</td><td>04A_Client_Original_Flow_Standard_vs_Custom.drawio</td></tr>
+<tr><td>6</td><td>อธิบาย Business Flow ใหญ่</td><td>เปิดหน้า Overall ของ workflow แล้วอธิบายตั้งแต่ Sales ถึง Accounting</td><td>15 นาที</td><td>04_Workflow_Business_Flow_AMS.drawio</td></tr>
+<tr><td>7</td><td>ลงรายละเอียด Flow ราย module</td><td>ไล่ Sales, Purchase, RM Warehouse, Engineering, Quality, Planning, Production, Delivery, Accounting</td><td>35 นาที</td><td>04_Workflow_Business_Flow_AMS.drawio</td></tr>
+<tr><td>8</td><td>ชี้จุด Confirm / Approve</td><td>แยกให้ลูกค้าเห็นว่า step ไหน user ต้อง confirm/approve และ step ไหน Odoo ทำต่อให้</td><td>10 นาที</td><td>04_Workflow_Business_Flow_AMS.drawio</td></tr>
+<tr><td>9</td><td>ยืนยัน DB Setup และ Test Flow ใน Odoo</td><td>เปิดหลักฐานว่า database AMS port 8813 setup product, BOM, routing, quality และ test PO/SO/MO/DO/Invoice ผ่านครบ</td><td>15 นาที</td><td>06_หลักฐาน_Setup_DB_AMS_และ_Mapping_Standard_Custom.xlsx</td></tr>
+<tr><td>10</td><td>สรุป Manday และ Phase</td><td>อธิบาย effort โดยเริ่มจาก summary แล้วลงรายละเอียดเฉพาะข้อสำคัญ</td><td>15 นาที</td><td>02_Manday_และ_รายละเอียด_Request.xlsx</td></tr>
+<tr><td>11</td><td>Open Issues / สิ่งที่ต้องตัดสินใจ</td><td>เก็บประเด็นที่ต้อง confirm เช่น approval policy, report format, API, legacy document</td><td>10 นาที</td><td>05_สรุปปิดการนำเสนอ_และ_Action_Next.html</td></tr>
+<tr><td>12</td><td>สรุป Next Step</td><td>ปิดด้วยรายการ action, owner, due date และข้อมูลที่ต้องขอจากลูกค้า</td><td>5 นาที</td><td>05_สรุปปิดการนำเสนอ_และ_Action_Next.html</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="section">
+    <h2>Speaker Notes</h2>
+    <ul>
+      <li><strong>เปิดประชุม</strong><span>วันนี้เราจะไม่เริ่มจากหน้าจอระบบก่อน แต่จะเริ่มจาก business flow เพื่อให้ทุกฝ่ายเห็นภาพเดียวกันก่อนลงรายละเอียด</span></li>
+<li><strong>Dashboard</strong><span>ให้ลูกค้าเห็นก่อนว่า Odoo จะช่วยลดงานซ้ำ ลดเอกสาร manual และทำให้ข้อมูลไหลจากต้นทางไปบัญชีได้อย่างไร</span></li>
+<li><strong>Mapping</strong><span>ย้ำว่าตารางนี้ไม่ได้เพิ่ม request เอง แต่แยก customer request 44 ข้อออกจาก supporting mapping point</span></li>
+<li><strong>Flow ลูกค้าเดิม</strong><span>ใช้ไฟล์ 04A เพื่อคุยจากภาพเดิมของลูกค้าก่อน สีเขียวคือ Odoo standard/config สีส้มคือ custom/report/API/approval เพิ่ม สีเทาคือเอกสารหรือ reference ภายนอก</span></li>
+<li><strong>Workflow</strong><span>อ่านจากซ้ายไปขวาและดู lane ว่าแต่ละขั้นอยู่ทีมไหน สีเขียวคือระบบทำให้ สีฟ้าคือ user ทำ สีม่วงคือ confirm/approve</span></li>
+<li><strong>DB Setup</strong><span>ใช้ไฟล์ 06 ยืนยันว่าระบบ demo สร้างข้อมูลจริงใน Odoo แล้ว เช่น product, BOM, 21 operation, quality point, PO, receipt, SO, MO, delivery และ invoice</span></li>
+<li><strong>Manday</strong><span>อธิบายว่า manday เป็น initial estimate สำหรับวาง phase และใช้ยืนยัน scope ก่อนทำ quotation ขั้นสุดท้าย</span></li>
+<li><strong>ปิดประชุม</strong><span>สรุปสิ่งที่เห็นตรงกัน สิ่งที่ต้องถามเพิ่ม และ action ที่ต้องได้จากลูกค้าก่อนเริ่ม setup/config/custom</span></li>
+    </ul>
+  </section>
+  <p class="footer">ไฟล์นี้มี version Excel ให้แก้ไขเวลา/ข้อความก่อนประชุม: 00A_Agenda_AMS_Presentation.xlsx</p>
+</main>
+</body>
+</html>

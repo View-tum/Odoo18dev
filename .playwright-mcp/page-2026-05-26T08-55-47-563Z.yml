@@ -1,0 +1,87 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e151]
+        - generic [ref=e152]: Purchase
+      - menu [ref=e153]:
+        - button "Orders" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Orders
+        - button "Products" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Products
+        - button "Reporting" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]: Reporting
+        - button "Configuration" [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 23" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "23"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e20]:
+          - text: 
+          - generic [ref=e21]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e2779]:
+    - generic [ref=e2781]:
+      - generic [ref=e2782]:
+        - button "Back to Quotation" [ref=e2845] [cursor=pointer]
+        - generic [ref=e2786]:
+          - list [ref=e2787]:
+            - listitem [ref=e2788]:
+              - link "Requests for Quotation" [ref=e2789] [cursor=pointer]:
+                - /url: /odoo/purchase
+            - listitem [ref=e2790]:
+              - text: /
+              - link "P01057" [ref=e2791] [cursor=pointer]:
+                - /url: /odoo/purchase/1119
+          - generic [ref=e2792]:
+            - generic [ref=e2794]: Products
+            - button "" [ref=e2798] [cursor=pointer]:
+              - generic [ref=e2799]: 
+      - search [ref=e2801]:
+        - search [ref=e2802]:
+          - button "Search..." [ref=e2803] [cursor=pointer]:
+            - img [ref=e2804]: 
+          - generic [ref=e2805]:
+            - listitem "search" [ref=e2806]:
+              - button " " [ref=e2808] [cursor=pointer]:
+                - generic [ref=e2809]: 
+                - generic [ref=e2811]: 
+              - generic [ref=e2812]:
+                - generic "Products" [ref=e2813]
+                - button "Remove" [ref=e2814] [cursor=pointer]: 
+            - listitem "search" [ref=e2846]:
+              - button "Product " [ref=e2848] [cursor=pointer]:
+                - text: Product
+                - generic [ref=e2850]: 
+              - generic [ref=e2851]:
+                - generic "discount asset" [ref=e2852]
+                - button "Remove" [ref=e2853] [cursor=pointer]: 
+            - searchbox "Search..." [active] [ref=e2815]
+        - button "" [ref=e2816] [cursor=pointer]
+    - generic [ref=e2817]:
+      - generic [ref=e2818]:
+        - button "" [ref=e2819] [cursor=pointer]:
+          - generic [ref=e2820]: 
+        - button "All" [ref=e2822] [cursor=pointer]:
+          - generic [ref=e2823]: All
+      - generic [ref=e2825]:
+        - alert:
+          - generic [ref=e2826]:
+            - paragraph [ref=e2827]:
+              - text: No products could be found.
+              - button "Create a product" [ref=e2828] [cursor=pointer]
+            - paragraph [ref=e2829]: You must define a product for everything you sell or purchase, whether it's a storable product, a consumable or a service.

@@ -1,0 +1,1093 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Accounting" [ref=e151]
+        - generic [ref=e152]: Accounting
+      - menu [ref=e153]:
+        - menuitem "Dashboard" [ref=e154] [cursor=pointer]
+        - button "Customers" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: Customers
+        - button "Vendors" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: Vendors
+        - button "Accounting" [ref=e159] [cursor=pointer]:
+          - generic [ref=e160]: Accounting
+        - button "Reporting" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: Reporting
+        - button "Configuration" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 21" [ref=e730] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "21"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e1036]:
+    - generic [ref=e1038]:
+      - generic [ref=e1039]:
+        - generic [ref=e1042]: Settings
+        - generic [ref=e1043]:
+          - button "Save" [ref=e1044] [cursor=pointer]
+          - button "Discard" [ref=e1045] [cursor=pointer]
+      - search [ref=e1047]:
+        - search [ref=e1048]:
+          - img "Search..." [ref=e1049]: 
+          - searchbox "Search..." [active] [ref=e1051]
+      - button "Search Knowledge Articles" [ref=e1053] [cursor=pointer]:
+        - img [ref=e1054]
+    - generic [ref=e1060]:
+      - generic [ref=e1062]:
+        - tab "General Settings" [ref=e1063] [cursor=pointer]:
+          - generic [ref=e1065]: General Settings
+        - tab "CRM" [ref=e1066] [cursor=pointer]:
+          - generic [ref=e1068]: CRM
+        - tab "Sales" [ref=e1069] [cursor=pointer]:
+          - generic [ref=e1071]: Sales
+        - tab "Calendar" [ref=e1072] [cursor=pointer]:
+          - generic [ref=e1074]: Calendar
+        - tab "Cheque" [ref=e1075] [cursor=pointer]:
+          - generic [ref=e1077]: Cheque
+        - tab "Purchase" [ref=e1078] [cursor=pointer]:
+          - generic [ref=e1080]: Purchase
+        - tab "Inventory" [ref=e1081] [cursor=pointer]:
+          - generic [ref=e1083]: Inventory
+        - tab "Manufacturing" [ref=e1084] [cursor=pointer]:
+          - generic [ref=e1086]: Manufacturing
+        - tab "Maintenance" [ref=e1087] [cursor=pointer]:
+          - generic [ref=e1089]: Maintenance
+        - tab "Accounting" [ref=e1090] [cursor=pointer]:
+          - generic [ref=e1092]: Accounting
+        - tab "Project" [ref=e1093] [cursor=pointer]:
+          - generic [ref=e1095]: Project
+        - tab "Sign" [ref=e1096] [cursor=pointer]:
+          - generic [ref=e1098]: Sign
+        - tab "Planning" [ref=e1099] [cursor=pointer]:
+          - generic [ref=e1101]: Planning
+        - tab "Timesheets" [ref=e1102] [cursor=pointer]:
+          - generic [ref=e1104]: Timesheets
+        - tab "Email Marketing" [ref=e1105] [cursor=pointer]:
+          - generic [ref=e1107]: Email Marketing
+        - tab "Employees" [ref=e1108] [cursor=pointer]:
+          - generic [ref=e1110]: Employees
+        - tab "Documents" [ref=e1111] [cursor=pointer]:
+          - generic [ref=e1113]: Documents
+        - tab "Attendances" [ref=e1114] [cursor=pointer]:
+          - generic [ref=e1116]: Attendances
+        - tab "Expenses" [ref=e1117] [cursor=pointer]:
+          - generic [ref=e1119]: Expenses
+        - tab "Fleet" [ref=e1120] [cursor=pointer]:
+          - generic [ref=e1122]: Fleet
+        - tab "UI Customization" [ref=e1123] [cursor=pointer]:
+          - generic [ref=e1125]: UI Customization
+        - tab "Jasper Report" [ref=e1126] [cursor=pointer]:
+          - generic [ref=e1128]: Jasper Report
+        - tab "Workflow" [ref=e1129] [cursor=pointer]:
+          - generic [ref=e1131]: Workflow
+      - generic [ref=e1133]:
+        - heading "Fiscal Localization" [level=2] [ref=e1134]:
+          - generic [ref=e1135]: Fiscal Localization
+        - generic [ref=e1138]:
+          - generic [ref=e1140]: Fiscal Localization
+          - link "" [ref=e1141] [cursor=pointer]:
+            - /url: https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations.html
+            - generic [ref=e1142]: 
+          - generic [ref=e1144]: Taxes, fiscal positions, chart of accounts & legal statements for your country
+          - generic [ref=e1147]:
+            - generic [ref=e1148]:
+              - generic [ref=e1150]: Package
+              - generic [ref=e1151]: 🇹🇭 Thailand
+            - button " Reload" [ref=e1153] [cursor=pointer]:
+              - generic [ref=e1154]: 
+              - generic [ref=e1155]: Reload
+        - heading "Accounting Import" [level=2] [ref=e1156]:
+          - generic [ref=e1157]: Accounting Import
+        - generic [ref=e1160]:
+          - generic [ref=e1162]: Initial Setup
+          - generic [ref=e1164]: Choose how you want to setup your CoA
+          - generic [ref=e1166]:
+            - generic [ref=e1167]:
+              - button " Review Manually" [ref=e1168] [cursor=pointer]:
+                - generic [ref=e1169]: 
+                - generic [ref=e1170]: Review Manually
+              - generic [ref=e1172]: (end of year balances)
+            - generic [ref=e1173]:
+              - button " Import" [ref=e1174] [cursor=pointer]:
+                - generic [ref=e1175]: 
+                - generic [ref=e1176]: Import
+              - generic [ref=e1178]: (for full history)
+        - heading "Taxes" [level=2] [ref=e1179]:
+          - generic [ref=e1180]: Taxes
+        - generic [ref=e1181]:
+          - generic [ref=e1183]:
+            - generic [ref=e1185]: Default Taxes
+            - link "" [ref=e1186] [cursor=pointer]:
+              - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxation/taxes/default_taxes.html
+              - generic [ref=e1187]: 
+            - generic [ref=e1189]: Default taxes applied when creating new products.
+            - generic [ref=e1191]:
+              - generic [ref=e1192]:
+                - generic [ref=e1194]: Sales Tax
+                - generic [ref=e1196]:
+                  - combobox "Sales Tax" [ref=e1199]: Output VAT 7%
+                  - button "Internal link" [ref=e1200] [cursor=pointer]: 
+              - generic [ref=e1201]:
+                - generic [ref=e1203]: Purchase Tax
+                - generic [ref=e1205]:
+                  - combobox "Purchase Tax" [ref=e1208]: Input VAT 7%
+                  - button "Internal link" [ref=e1209] [cursor=pointer]: 
+              - generic [ref=e1210]:
+                - generic [ref=e1211]:
+                  - generic [ref=e1213]: Prices
+                  - generic "This setting cannot be changed after an invoice is created." [ref=e1214]: 
+                - generic [ref=e1215]: Tax Excluded
+          - generic [ref=e1216]:
+            - checkbox "Credit/Debit Notes" [ref=e1220] [cursor=pointer]
+            - generic [ref=e1221]:
+              - generic [ref=e1223]: Credit/Debit Notes
+              - generic [ref=e1225]: Automatically reconcile credit and debit notes when they are posted.
+          - generic [ref=e1227]:
+            - generic [ref=e1229]: Tax Return Periodicity
+            - link "" [ref=e1230] [cursor=pointer]:
+              - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/declarations/tax_returns.html
+              - generic [ref=e1231]: 
+            - generic [ref=e1233]: How often tax returns have to be made
+            - generic [ref=e1235]:
+              - generic [ref=e1236]:
+                - generic [ref=e1238]: Periodicity
+                - combobox "Periodicity" [ref=e1240] [cursor=pointer]:
+                  - option "annually"
+                  - option "semi-annually"
+                  - option "every 4 months"
+                  - option "quarterly"
+                  - option "every 2 months"
+                  - option "monthly" [selected]
+              - generic [ref=e1241]:
+                - generic [ref=e1243]: Reminder
+                - generic [ref=e1244]:
+                  - textbox "Reminder" [ref=e1246]: "7"
+                  - generic [ref=e1247]: days after period
+              - generic [ref=e1248]:
+                - generic [ref=e1250]: Journal
+                - generic [ref=e1252]:
+                  - combobox "Journal" [ref=e1255]: Miscellaneous Operations
+                  - button "Internal link" [ref=e1256] [cursor=pointer]: 
+              - button " Configure your tax accounts" [ref=e1258] [cursor=pointer]:
+                - generic [ref=e1259]: 
+                - generic [ref=e1260]: Configure your tax accounts
+          - generic [ref=e1262]:
+            - generic [ref=e1264]: Rounding Method
+            - generic [ref=e1266]: How total tax amount is computed in orders and invoices
+            - radiogroup "Tax calculation rounding method" [ref=e1269]:
+              - generic [ref=e1270]:
+                - radio "Round per Line" [ref=e1271] [cursor=pointer]
+                - generic [ref=e1273] [cursor=pointer]: Round per Line
+              - generic [ref=e1274]:
+                - radio "Round Globally" [checked] [ref=e1275] [cursor=pointer]
+                - generic [ref=e1277] [cursor=pointer]: Round Globally
+          - generic [ref=e1278]:
+            - checkbox "EU Intra-community Distance Selling" [ref=e1282] [cursor=pointer]
+            - generic [ref=e1283]:
+              - generic [ref=e1285]: EU Intra-community Distance Selling
+              - link "" [ref=e1286] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxation/taxes/eu_distance_selling.html
+                - generic [ref=e1287]: 
+              - generic [ref=e1289]: Apply VAT of the EU country to which goods and services are delivered.
+          - generic [ref=e1290]:
+            - checkbox "Verify VAT Numbers" [ref=e1294] [cursor=pointer]
+            - generic [ref=e1295]:
+              - generic [ref=e1297]: Verify VAT Numbers
+              - link "" [ref=e1298] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxation/taxes/vat_validation.html
+                - generic [ref=e1299]: 
+              - generic [ref=e1301]: Verify VAT numbers using the European VIES service
+          - generic [ref=e1302]:
+            - checkbox "Cash Basis" [checked] [ref=e1306] [cursor=pointer]
+            - generic [ref=e1307]:
+              - generic [ref=e1309]: Cash Basis
+              - link "" [ref=e1310] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxation/taxes/cash_basis_taxes.html
+                - generic [ref=e1311]: 
+              - generic [ref=e1313]: Allow to configure taxes using cash basis
+              - generic [ref=e1315]:
+                - generic [ref=e1316]:
+                  - generic [ref=e1318]: Tax Cash Basis Journal
+                  - generic [ref=e1320]:
+                    - combobox "Tax Cash Basis Journal" [ref=e1323]: Cash Basis Taxes
+                    - button "Internal link" [ref=e1324] [cursor=pointer]: 
+                - generic [ref=e1325]:
+                  - generic [ref=e1327]: Base Tax Received Account
+                  - combobox "Base Tax Received Account" [ref=e1332]
+          - generic [ref=e1334]:
+            - generic [ref=e1336]: Fiscal Country
+            - generic [ref=e1338]: Domestic country of your accounting
+            - combobox "Fiscal Country" [ref=e1344]: Thailand
+          - generic [ref=e1345]:
+            - checkbox "Keep Zero Line Taxes" [checked] [ref=e1349] [cursor=pointer]
+            - generic [ref=e1350]:
+              - generic [ref=e1352]: Keep Zero Line Taxes
+              - generic [ref=e1354]: Enable this to record tax lines with zero amount in invoices.
+        - heading "Manual Currency Exchange rate setting" [level=2] [ref=e1355]:
+          - generic [ref=e1356]: Manual Currency Exchange rate setting
+        - generic [ref=e1357]:
+          - generic [ref=e1358]:
+            - checkbox "Normal Rate" [ref=e1362] [cursor=pointer]
+            - generic [ref=e1365]: Normal Rate
+          - generic [ref=e1366]:
+            - checkbox "Inverted Rate" [checked] [ref=e1370] [cursor=pointer]
+            - generic [ref=e1373]: Inverted Rate
+        - heading "Currencies" [level=2] [ref=e1374]:
+          - generic [ref=e1375]: Currencies
+        - generic [ref=e1376]:
+          - generic [ref=e1378]:
+            - generic [ref=e1380]: Main Currency
+            - link "" [ref=e1381] [cursor=pointer]:
+              - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/others/multi_currency.html
+              - generic [ref=e1382]: 
+            - generic [ref=e1384]: Main currency of your company
+            - generic [ref=e1386]:
+              - generic [ref=e1387]:
+                - generic [ref=e1389]: Currency
+                - combobox "Currency" [ref=e1394]: THB
+              - button " Currencies" [ref=e1396] [cursor=pointer]:
+                - generic [ref=e1397]: 
+                - generic [ref=e1398]: Currencies
+          - generic [ref=e1399]:
+            - checkbox "Automatic Currency Rates" [checked] [ref=e1403] [cursor=pointer]
+            - generic [ref=e1404]:
+              - generic [ref=e1406]: Automatic Currency Rates
+              - link "" [ref=e1407] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/others/multi_currency.html
+                - generic [ref=e1408]: 
+              - generic [ref=e1410]: Update exchange rates automatically
+              - generic [ref=e1412]:
+                - generic [ref=e1413]:
+                  - generic [ref=e1415]: Service
+                  - combobox "Service" [ref=e1417] [cursor=pointer]:
+                    - option
+                    - option "European Central Bank"
+                    - option "xe.com"
+                    - option "[AE] Central Bank of the UAE"
+                    - option "[BG] Bulgaria National Bank"
+                    - option "[BR] Central Bank of Brazil"
+                    - option "[CA] Bank of Canada"
+                    - option "[CH] Federal Tax Administration of Switzerland"
+                    - option "[CL] Central Bank of Chile via mindicador.cl"
+                    - option "[CO] Bank of the Republic"
+                    - option "[CZ] Czech National Bank"
+                    - option "[EG] Central Bank of Egypt"
+                    - option "[GT] Bank of Guatemala"
+                    - option "[HU] Magyar Nemzeti Bank"
+                    - option "[ID] Bank Indonesia"
+                    - option "[IT] Bank of Italy"
+                    - option "[MX] Bank of Mexico"
+                    - option "[MY] Bank Negara Malaysia"
+                    - option "[PE] SUNAT (replaces Bank of Peru)"
+                    - option "[PL] National Bank of Poland"
+                    - option "[RO] National Bank of Romania"
+                    - option "[SE] Sveriges Riksbank"
+                    - option "[SI] Bank of Slovenia"
+                    - option "[TH] Bank of Thailand" [selected]
+                    - option "[TR] Central Bank of the Republic of Türkiye"
+                    - option "[UK] HM Revenue & Customs"
+                    - option "[UY] Uruguayan Central Bank"
+                - generic [ref=e1418]:
+                  - generic [ref=e1420]: Interval
+                  - combobox "Interval" [ref=e1422] [cursor=pointer]:
+                    - option "Manually"
+                    - option "Daily" [selected]
+                    - option "Weekly"
+                    - option "Monthly"
+                - generic [ref=e1423]:
+                  - generic [ref=e1425]: Next Run
+                  - textbox "Next Run" [ref=e1428] [cursor=pointer]: 04/01/2026
+                  - button "Update now" [ref=e1429] [cursor=pointer]:
+                    - img "Update now" [ref=e1430]: 
+        - heading "Customer Invoices" [level=2] [ref=e1431]:
+          - generic [ref=e1432]: Customer Invoices
+        - generic [ref=e1433]:
+          - generic [ref=e1434]:
+            - checkbox "Snailmail" [checked] [ref=e1438] [cursor=pointer]
+            - generic [ref=e1439]:
+              - generic [ref=e1441]: Snailmail
+              - link "" [ref=e1442] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_invoices/snailmail.html
+                - generic [ref=e1443]: 
+              - generic [ref=e1445]: Send invoices and payment follow-ups by post
+              - generic [ref=e1446]:
+                - generic [ref=e1447]:
+                  - generic [ref=e1448]:
+                    - checkbox "Print In Color" [checked] [ref=e1451] [cursor=pointer]
+                    - generic [ref=e1453]: Print In Color
+                    - generic "Values set here are company-specific." [ref=e1454]: 
+                  - generic [ref=e1455]:
+                    - checkbox "Print Both sides" [ref=e1458] [cursor=pointer]
+                    - generic [ref=e1460]: Print Both sides
+                    - generic "Values set here are company-specific." [ref=e1461]: 
+                  - generic [ref=e1462]:
+                    - checkbox "Add a Cover Page" [ref=e1465] [cursor=pointer]
+                    - generic [ref=e1467]: Add a Cover Page
+                    - generic "Values set here are company-specific." [ref=e1468]: 
+                - generic [ref=e1471]:
+                  - button " Manage Service & Buy Credits" [ref=e1472] [cursor=pointer]:
+                    - generic [ref=e1473]: 
+                    - text: Manage Service & Buy Credits
+                  - button " View My Services" [ref=e1474] [cursor=pointer]:
+                    - generic [ref=e1475]: 
+                    - text: View My Services
+          - generic [ref=e1476]:
+            - checkbox "Customer Addresses" [ref=e1480] [cursor=pointer]
+            - generic [ref=e1481]:
+              - generic [ref=e1483]: Customer Addresses
+              - link "" [ref=e1484] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/sales/sales/send_quotations/different_addresses.html
+                - generic [ref=e1485]: 
+              - generic [ref=e1487]: Select specific invoice and delivery addresses
+          - generic [ref=e1488]:
+            - checkbox "Warnings" [ref=e1492] [cursor=pointer]
+            - generic [ref=e1493]:
+              - generic [ref=e1495]: Warnings
+              - generic [ref=e1497]: Get warnings when invoicing specific customers
+          - generic [ref=e1498]:
+            - checkbox "Cash Rounding" [ref=e1502] [cursor=pointer]
+            - generic [ref=e1503]:
+              - generic [ref=e1505]: Cash Rounding
+              - link "" [ref=e1506] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_invoices/cash_rounding.html
+                - generic [ref=e1507]: 
+              - generic [ref=e1509]: Define the smallest coinage of the currency used to pay by cash
+          - generic [ref=e1510]:
+            - checkbox "Intrastat" [ref=e1514] [cursor=pointer]
+            - generic [ref=e1515]:
+              - generic [ref=e1517]: Intrastat
+              - link "" [ref=e1518] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/declarations/intrastat.html
+                - generic [ref=e1519]: 
+              - generic [ref=e1521]: Collect information and produce statistics on the trade in goods in Europe with intrastat
+          - generic [ref=e1523]:
+            - generic [ref=e1525]: Default Incoterm
+            - generic [ref=e1527]: Default Incoterm of your company
+            - combobox "Default Incoterm" [ref=e1533]
+          - generic [ref=e1534]:
+            - checkbox "Sale Receipt" [ref=e1538] [cursor=pointer]
+            - generic [ref=e1539]:
+              - generic [ref=e1541]: Sale Receipt
+              - generic [ref=e1543]: Activate to create sale receipt
+          - generic [ref=e1544]:
+            - checkbox "Default Terms & Conditions" [ref=e1548] [cursor=pointer]
+            - generic [ref=e1549]:
+              - generic [ref=e1551]: Default Terms & Conditions
+              - generic [ref=e1553]: Add your terms & conditions at the bottom of invoices/orders/quotations
+          - generic [ref=e1554]:
+            - checkbox "Sales Credit Limit" [checked] [ref=e1558] [cursor=pointer]
+            - generic [ref=e1559]:
+              - generic [ref=e1561]: Sales Credit Limit
+              - generic [ref=e1563]: Trigger alerts when creating Invoices and Sales Orders for Partners with a Total Receivable amount exceeding a limit. Set a value greater than 0.0 to activate a credit limit check
+              - generic [ref=e1566]:
+                - generic [ref=e1568]: Default Credit Limit
+                - generic [ref=e1570]:
+                  - generic:
+                    - generic: "0.00"
+                    - generic: ฿
+                  - textbox "Default Credit Limit" [ref=e1571]: "0.00"
+                  - generic [ref=e1572]: ฿
+          - generic [ref=e1573]:
+            - checkbox "Total amount of invoice in letters" [ref=e1577] [cursor=pointer]
+            - generic [ref=e1578]:
+              - generic [ref=e1580]: Total amount of invoice in letters
+              - generic [ref=e1582]: Display the total amount of an invoice in letters
+          - generic [ref=e1583]:
+            - checkbox "Taxes in company currency" [checked] [ref=e1587] [cursor=pointer]
+            - generic [ref=e1588]:
+              - generic [ref=e1590]: Taxes in company currency
+              - generic [ref=e1592]: Taxes are also displayed in local currency on invoices
+          - generic [ref=e1593]:
+            - checkbox "Authorized Signatory on invoice" [ref=e1597] [cursor=pointer]
+            - generic [ref=e1598]:
+              - generic [ref=e1600]: Authorized Signatory on invoice
+              - generic [ref=e1602]: To enhance authenticity, add a signature to your invoices
+        - heading "Units of Measure" [level=2] [ref=e1603]:
+          - generic [ref=e1604]: Units of Measure
+        - generic [ref=e1606]:
+          - checkbox "Units of Measure" [checked] [ref=e1610] [cursor=pointer]
+          - generic [ref=e1611]:
+            - generic [ref=e1613]: Units of Measure
+            - generic [ref=e1615]: Sell and purchase products in different units of measure
+            - button " Units of Measure" [ref=e1618] [cursor=pointer]:
+              - generic [ref=e1619]: 
+              - generic [ref=e1620]: Units of Measure
+        - heading "Customer Payments" [level=2] [ref=e1621]:
+          - generic [ref=e1622]: Customer Payments
+        - generic [ref=e1623]:
+          - generic [ref=e1624]:
+            - checkbox "Invoice Online Payment" [checked] [ref=e1628] [cursor=pointer]
+            - generic [ref=e1629]:
+              - generic [ref=e1631]: Invoice Online Payment
+              - link "" [ref=e1632] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_payments/online_payment.html
+                - generic [ref=e1633]: 
+              - generic [ref=e1635]: Let your customers pay their invoices online
+          - generic [ref=e1636]:
+            - checkbox "Batch Payments" [ref=e1640] [cursor=pointer]
+            - generic [ref=e1641]:
+              - generic [ref=e1643]: Batch Payments
+              - link "" [ref=e1644] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_payments/batch.html
+                - generic [ref=e1645]: 
+              - generic [ref=e1647]: Group payments into a single batch to ease the reconciliation process
+          - generic [ref=e1648]:
+            - checkbox "SEPA Direct Debit (SDD)" [ref=e1652] [cursor=pointer]
+            - generic [ref=e1653]:
+              - generic [ref=e1655]: SEPA Direct Debit (SDD)
+              - link "" [ref=e1656] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_payments/batch_sdd.html
+                - generic [ref=e1657]: 
+              - generic [ref=e1659]: Collect customer payments in one-click using Euro SEPA Service
+          - generic [ref=e1660]:
+            - checkbox "QR Codes" [ref=e1664] [cursor=pointer]
+            - generic [ref=e1665]:
+              - generic [ref=e1667]: QR Codes
+              - link "" [ref=e1668] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/receivables/customer_invoices/epc_qr_code.html
+                - generic [ref=e1669]: 
+              - generic [ref=e1671]: Add a payment QR-code to your invoices
+          - generic [ref=e1672]:
+            - checkbox "Multi-Invoice Allocation" [checked] [ref=e1676] [cursor=pointer]
+            - generic [ref=e1677]:
+              - generic [ref=e1679]: Multi-Invoice Allocation
+              - generic [ref=e1681]: Enable interactive table for selecting amounts per invoice in Payment Register.
+        - heading "Vendor Bills" [level=2] [ref=e1682]:
+          - generic [ref=e1683]: Vendor Bills
+        - generic [ref=e1684]:
+          - generic [ref=e1685]:
+            - checkbox "Purchase Receipt" [checked] [ref=e1689] [cursor=pointer]
+            - generic [ref=e1690]:
+              - generic [ref=e1692]: Purchase Receipt
+              - generic [ref=e1694]: Activate to create purchase receipt
+          - generic [ref=e1695]:
+            - checkbox "Auto-validate bills" [checked] [ref=e1699] [cursor=pointer]
+            - generic [ref=e1700]:
+              - generic [ref=e1702]: Auto-validate bills
+              - generic [ref=e1704]: After importing three bills for a vendor without making changes, Odoo will suggest automatically validating future bills. You can toggle this feature at any time in the vendor's profile.
+          - generic [ref=e1705]:
+            - checkbox "Predict vendor bill product" [ref=e1709] [cursor=pointer]
+            - generic [ref=e1710]:
+              - generic [ref=e1712]: Predict vendor bill product
+              - generic [ref=e1714]: The system will try to predict the product on vendor bill lines based on the label of the line
+        - heading "Payment Auto Differences" [level=2] [ref=e1715]:
+          - generic [ref=e1716]: Payment Auto Differences
+        - generic [ref=e1721]:
+          - generic [ref=e1722]:
+            - generic [ref=e1724]: Default Auto Difference Account
+            - generic [ref=e1726]:
+              - combobox "Default Auto Difference Account" [ref=e1729]: 430005 รายได้อื่น ๆ
+              - button "Internal link" [ref=e1730] [cursor=pointer]: 
+          - generic [ref=e1731]:
+            - generic [ref=e1733]: Default Auto Difference Label
+            - textbox "Default Auto Difference Label" [ref=e1735]: ปัดเศษสตางค์
+          - generic [ref=e1736]:
+            - generic [ref=e1738]: Default Analytic Distribution
+            - generic "[301] ฝ่ายขาย" [ref=e1741]:
+              - generic [ref=e1742]: "[301] ฝ่ายขาย"
+        - heading "Vendor Payments" [level=2] [ref=e1745]:
+          - generic [ref=e1746]: Vendor Payments
+        - generic [ref=e1747]:
+          - generic [ref=e1748]:
+            - checkbox "Checks" [checked] [ref=e1752] [cursor=pointer]
+            - generic [ref=e1753]:
+              - generic [ref=e1755]: Checks
+              - link "" [ref=e1756] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/payables/pay/check.html
+                - generic [ref=e1757]: 
+              - generic [ref=e1759]: Print checks to pay your vendors
+              - generic [ref=e1761]:
+                - generic [ref=e1762]:
+                  - generic [ref=e1764]: Check Layout
+                  - combobox "Check Layout" [ref=e1766] [cursor=pointer]:
+                    - option "None" [selected]
+                - generic [ref=e1767]:
+                  - generic [ref=e1769]: Multi-Pages Check Stub
+                  - checkbox "Multi-Pages Check Stub" [ref=e1772] [cursor=pointer]
+                - generic [ref=e1773]:
+                  - generic [ref=e1775]: Check Top Margin
+                  - textbox "Check Top Margin" [ref=e1777]: "0.25"
+                - generic [ref=e1778]:
+                  - generic [ref=e1780]: Check Left Margin
+                  - textbox "Check Left Margin" [ref=e1782]: "0.25"
+          - generic [ref=e1783]:
+            - checkbox "SEPA Credit Transfer / ISO20022" [ref=e1787] [cursor=pointer]
+            - generic [ref=e1788]:
+              - generic [ref=e1790]: SEPA Credit Transfer / ISO20022
+              - link "" [ref=e1791] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/payables/pay/sepa.html
+                - generic [ref=e1792]: 
+              - generic [ref=e1794]: Pay your bills in one-click using Euro SEPA Service
+        - heading "Digitization" [level=2] [ref=e1795]:
+          - generic [ref=e1796]: Digitization
+        - generic [ref=e1797]:
+          - generic [ref=e1798]:
+            - checkbox "Document Digitization" [checked] [ref=e1802] [cursor=pointer]
+            - generic [ref=e1803]:
+              - generic [ref=e1805]: Document Digitization
+              - link "" [ref=e1806] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/payables/supplier_bills/invoice_digitization.html
+                - generic [ref=e1807]: 
+              - generic [ref=e1809]: Digitize your PDF or scanned documents with OCR and Artificial Intelligence
+          - generic [ref=e1811]:
+            - generic [ref=e1813]: Bank Statements
+            - radiogroup "Bank Statements" [ref=e1816]:
+              - generic [ref=e1817]:
+                - radio "Do not digitize" [ref=e1818] [cursor=pointer]
+                - generic [ref=e1820] [cursor=pointer]: Do not digitize
+              - generic [ref=e1821]:
+                - radio "Digitize automatically" [checked] [ref=e1822] [cursor=pointer]
+                - generic [ref=e1824] [cursor=pointer]: Digitize automatically
+          - generic [ref=e1830]:
+            - button " Manage Service & Buy Credits" [ref=e1831] [cursor=pointer]:
+              - generic [ref=e1832]: 
+              - text: Manage Service & Buy Credits
+            - button " View My Services" [ref=e1833] [cursor=pointer]:
+              - generic [ref=e1834]: 
+              - text: View My Services
+          - generic [ref=e1836]:
+            - generic [ref=e1838]: Vendor Bills
+            - radiogroup "Vendor Bills" [ref=e1841]:
+              - generic [ref=e1842]:
+                - radio "Do not digitize" [ref=e1843] [cursor=pointer]
+                - generic [ref=e1845] [cursor=pointer]: Do not digitize
+              - generic [ref=e1846]:
+                - radio "Digitize on demand only" [ref=e1847] [cursor=pointer]
+                - generic [ref=e1849] [cursor=pointer]: Digitize on demand only
+              - generic [ref=e1850]:
+                - radio "Digitize automatically" [checked] [ref=e1851] [cursor=pointer]
+                - generic [ref=e1853] [cursor=pointer]: Digitize automatically
+          - generic [ref=e1855]:
+            - generic [ref=e1857]: Customer Invoices
+            - radiogroup "Customer Invoices" [ref=e1860]:
+              - generic [ref=e1861]:
+                - radio "Do not digitize" [ref=e1862] [cursor=pointer]
+                - generic [ref=e1864] [cursor=pointer]: Do not digitize
+              - generic [ref=e1865]:
+                - radio "Digitize on demand only" [checked] [ref=e1866] [cursor=pointer]
+                - generic [ref=e1868] [cursor=pointer]: Digitize on demand only
+              - generic [ref=e1869]:
+                - radio "Digitize automatically" [ref=e1870] [cursor=pointer]
+                - generic [ref=e1872] [cursor=pointer]: Digitize automatically
+          - generic [ref=e1873]:
+            - checkbox "Single Invoice Line Per Tax" [checked] [ref=e1877] [cursor=pointer]
+            - generic [ref=e1878]:
+              - generic [ref=e1880]: Single Invoice Line Per Tax
+              - generic [ref=e1882]: Enable to get only one invoice line per tax
+        - heading "Default Accounts" [level=2] [ref=e1883]:
+          - generic [ref=e1884]: Default Accounts
+        - generic [ref=e1885]:
+          - generic [ref=e1887]:
+            - generic [ref=e1889]: "Exchange difference entries:"
+            - generic [ref=e1891]:
+              - generic [ref=e1892]:
+                - generic [ref=e1894]: Journal
+                - generic [ref=e1896]:
+                  - combobox "Journal" [ref=e1899]: Exchange Difference
+                  - button "Internal link" [ref=e1900] [cursor=pointer]: 
+              - generic [ref=e1901]:
+                - generic [ref=e1903]: Gain
+                - generic [ref=e1905]:
+                  - combobox "Gain" [ref=e1908]: 430003 กำไร(ขาดทุน)จากอัตราแลกเปลี่ยน
+                  - button "Internal link" [ref=e1909] [cursor=pointer]: 
+              - generic [ref=e1910]:
+                - generic [ref=e1912]: Loss
+                - generic [ref=e1914]:
+                  - combobox "Loss" [ref=e1917]: 430003 กำไร(ขาดทุน)จากอัตราแลกเปลี่ยน
+                  - button "Internal link" [ref=e1918] [cursor=pointer]: 
+          - generic [ref=e1920]:
+            - generic [ref=e1922]: "Bank transactions and payments:"
+            - generic [ref=e1924]:
+              - generic [ref=e1925]:
+                - generic [ref=e1927]: Bank Suspense
+                - generic [ref=e1929]:
+                  - combobox "Bank Suspense" [ref=e1932]: 113005 เช็ครับลงวันที่ล่วงหน้า
+                  - button "Internal link" [ref=e1933] [cursor=pointer]: 
+              - generic [ref=e1934]:
+                - generic [ref=e1936]: Internal Transfer
+                - combobox "Internal Transfer" [ref=e1941]
+          - generic [ref=e1943]:
+            - generic [ref=e1945]: "Deferred expense entries:"
+            - generic [ref=e1947]:
+              - generic [ref=e1948]:
+                - generic [ref=e1950]: Journal
+                - generic [ref=e1952]:
+                  - combobox "Journal" [ref=e1955]: Miscellaneous Operations
+                  - button "Internal link" [ref=e1956] [cursor=pointer]: 
+              - generic [ref=e1957]:
+                - generic [ref=e1959]: Deferred expense
+                - combobox "Deferred expense" [ref=e1964]
+              - generic [ref=e1965]:
+                - generic [ref=e1967]: Generate Entries
+                - combobox "Generate Entries" [ref=e1969] [cursor=pointer]:
+                  - option "On bill validation" [selected]
+                  - option "Manually & Grouped"
+              - generic [ref=e1970]:
+                - generic [ref=e1972]: Based on
+                - combobox "Based on" [ref=e1974] [cursor=pointer]:
+                  - option "Days"
+                  - option "Months" [selected]
+                  - option "Full Months"
+          - generic [ref=e1976]:
+            - generic [ref=e1978]: "Deferred revenue entries:"
+            - generic [ref=e1980]:
+              - generic [ref=e1981]:
+                - generic [ref=e1983]: Journal
+                - generic [ref=e1985]:
+                  - combobox "Journal" [ref=e1988]: Miscellaneous Operations
+                  - button "Internal link" [ref=e1989] [cursor=pointer]: 
+              - generic [ref=e1990]:
+                - generic [ref=e1992]: Deferred revenue
+                - combobox "Deferred revenue" [ref=e1997]
+              - generic [ref=e1998]:
+                - generic [ref=e2000]: Generate Entries
+                - combobox "Generate Entries" [ref=e2002] [cursor=pointer]:
+                  - option "On bill validation" [selected]
+                  - option "Manually & Grouped"
+              - generic [ref=e2003]:
+                - generic [ref=e2005]: Based on
+                - combobox "Based on" [ref=e2007] [cursor=pointer]:
+                  - option "Days"
+                  - option "Months" [selected]
+                  - option "Full Months"
+          - generic [ref=e2009]:
+            - generic [ref=e2011]: "Invoice line discounts:"
+            - generic [ref=e2013]:
+              - generic [ref=e2014]:
+                - generic [ref=e2016]: Customer Invoices
+                - combobox "Customer Invoices" [ref=e2021]
+              - generic [ref=e2022]:
+                - generic [ref=e2024]: Vendor Bills
+                - combobox "Vendor Bills" [ref=e2029]
+          - generic [ref=e2031]:
+            - generic [ref=e2033]: "Early payment discounts:"
+            - generic [ref=e2035]:
+              - generic [ref=e2036]:
+                - generic [ref=e2038]: Early Discount Gain
+                - combobox "Early Discount Gain" [ref=e2043]
+              - generic [ref=e2044]:
+                - generic [ref=e2046]: Early Discount Loss
+                - generic [ref=e2048]:
+                  - combobox "Early Discount Loss" [ref=e2051]: 410032 ส่วนลดจ่ายในประเทศ
+                  - button "Internal link" [ref=e2052] [cursor=pointer]: 
+        - heading "Default Payment Routings" [level=2] [ref=e2053]:
+          - generic [ref=e2054]: Default Payment Routings
+        - generic [ref=e2055]:
+          - generic [ref=e2057]:
+            - generic [ref=e2059]: Vendor Payments (AP)
+            - generic [ref=e2061]: Default journal and method for paying vendor bills.
+            - generic [ref=e2063]:
+              - generic [ref=e2064]:
+                - generic [ref=e2066]: Default AP Journal
+                - combobox "Default AP Journal" [ref=e2071]
+              - generic [ref=e2072]:
+                - generic [ref=e2074]: Default AP Payment Method
+                - combobox "Default AP Payment Method" [ref=e2079]
+          - generic [ref=e2081]:
+            - generic [ref=e2083]: Customer Receipts (AR)
+            - generic [ref=e2085]: Default journal and method for receiving customer payments.
+            - generic [ref=e2087]:
+              - generic [ref=e2088]:
+                - generic [ref=e2090]: Default AR Journal
+                - combobox "Default AR Journal" [ref=e2095]: เงินสดจากการขาย (ตจว.)
+              - generic [ref=e2096]:
+                - generic [ref=e2098]: Default AR Payment Method
+                - combobox "Default AR Payment Method" [ref=e2103]: Manual Payment (เงินสดจากการขาย (ตจว.))
+        - heading "Stock Valuation" [level=2] [ref=e2104]:
+          - generic [ref=e2105]: Stock Valuation
+        - generic [ref=e2106]:
+          - generic [ref=e2108]:
+            - generic [ref=e2110]: General Account Properties
+            - generic [ref=e2112]:
+              - generic [ref=e2113]:
+                - generic [ref=e2115]: Income Account
+                - generic [ref=e2117]:
+                  - combobox "Income Account" [ref=e2120]: 410000 รายได้จากการขายในประเทศ
+                  - button "Internal link" [ref=e2121] [cursor=pointer]: 
+              - generic [ref=e2122]:
+                - generic [ref=e2124]: Expense Account
+                - generic [ref=e2126]:
+                  - combobox "Expense Account" [ref=e2129]: 510000 ต้นทุนขายในประเทศ
+                  - button "Internal link" [ref=e2130] [cursor=pointer]: 
+          - generic [ref=e2132]:
+            - generic [ref=e2134]: WIP Account Properties
+            - generic [ref=e2136]:
+              - generic [ref=e2137]:
+                - generic [ref=e2139]: WIP Account
+                - generic [ref=e2141]:
+                  - combobox "WIP Account" [ref=e2144]: 116021 งานระหว่างทำ
+                  - button "Internal link" [ref=e2145] [cursor=pointer]: 
+              - generic [ref=e2146]:
+                - generic [ref=e2148]: WIP Overhead Account
+                - generic [ref=e2150]:
+                  - combobox "WIP Overhead Account" [ref=e2153]: 590001 Resource Absorption
+                  - button "Internal link" [ref=e2154] [cursor=pointer]: 
+          - generic [ref=e2155]:
+            - checkbox "Automatic Accounting" [checked] [ref=e2159] [cursor=pointer]
+            - generic [ref=e2160]:
+              - generic [ref=e2162]: Automatic Accounting
+              - generic [ref=e2164]: Enable automatic accounting entries for stock movements
+              - generic [ref=e2166]:
+                - generic [ref=e2168]: The below accounts will be used by default for automatic inventory valuation.
+                - generic [ref=e2169]:
+                  - generic [ref=e2171]: Stock Valuation Account
+                  - combobox "Stock Valuation Account" [ref=e2176]
+                - generic [ref=e2177]:
+                  - generic [ref=e2179]: Stock Journal
+                  - generic [ref=e2181]:
+                    - combobox "Stock Journal" [ref=e2184]: ใบสำคัญบันทึกสินค้า
+                    - button "Internal link" [ref=e2185] [cursor=pointer]: 
+                - generic [ref=e2186]:
+                  - generic [ref=e2188]: Stock Input Account
+                  - combobox "Stock Input Account" [ref=e2193]
+                - generic [ref=e2194]:
+                  - generic [ref=e2196]: Stock Output Account
+                  - combobox "Stock Output Account" [ref=e2201]
+                - generic [ref=e2202]:
+                  - generic [ref=e2204]: Production Account
+                  - combobox "Production Account" [ref=e2209]
+        - heading "Bank & Cash" [level=2] [ref=e2210]:
+          - generic [ref=e2211]: Bank & Cash
+        - generic [ref=e2212]:
+          - generic [ref=e2213]:
+            - checkbox "CSV, XLS, and XLSX Import" [checked] [ref=e2217] [cursor=pointer]
+            - generic [ref=e2218]:
+              - generic [ref=e2220]: CSV, XLS, and XLSX Import
+              - generic [ref=e2222]: Import your bank statements in CSV, XLS, and XLSX
+          - generic [ref=e2223]:
+            - checkbox "QIF Import" [ref=e2227] [cursor=pointer]
+            - generic [ref=e2228]:
+              - generic [ref=e2230]: QIF Import
+              - generic [ref=e2232]: Import your bank statements in QIF
+          - generic [ref=e2233]:
+            - checkbox "OFX Import" [checked] [ref=e2237] [cursor=pointer]
+            - generic [ref=e2238]:
+              - generic [ref=e2240]: OFX Import
+              - generic [ref=e2242]: Import your bank statements in OFX
+          - generic [ref=e2243]:
+            - checkbox "CAMT Import" [checked] [ref=e2247] [cursor=pointer]
+            - generic [ref=e2248]:
+              - generic [ref=e2250]: CAMT Import
+              - generic [ref=e2252]: Import your bank statements in CAMT.053
+          - generic [ref=e2253]:
+            - checkbox "Anglo-Saxon Accounting" [checked] [ref=e2257] [cursor=pointer]
+            - generic [ref=e2258]:
+              - generic [ref=e2260]: Anglo-Saxon Accounting
+              - generic [ref=e2262]: Record cost of goods sold in your journal entries
+        - heading "Fiscal Periods" [level=2] [ref=e2263]:
+          - generic [ref=e2264]: Fiscal Periods
+        - generic [ref=e2265]:
+          - generic [ref=e2267]:
+            - generic [ref=e2269]: Fiscal Year
+            - generic [ref=e2272]:
+              - generic [ref=e2274]: Last Day
+              - generic [ref=e2275]:
+                - combobox "Last Day" [ref=e2277] [cursor=pointer]:
+                  - option "January"
+                  - option "February"
+                  - option "March"
+                  - option "April"
+                  - option "May"
+                  - option "June"
+                  - option "July"
+                  - option "August"
+                  - option "September"
+                  - option "October"
+                  - option "November"
+                  - option "December" [selected]
+                - textbox [ref=e2279]: "31"
+          - generic [ref=e2281]:
+            - generic [ref=e2283]: Invoicing Switch Threshold
+            - generic [ref=e2285]: The invoices before this date will not be taken into account as accounting entries
+            - textbox "Invoicing Switch Threshold" [ref=e2289] [cursor=pointer]
+          - generic [ref=e2290]:
+            - checkbox "Fiscal Years" [ref=e2294] [cursor=pointer]
+            - generic [ref=e2295]:
+              - generic [ref=e2297]: Fiscal Years
+              - generic [ref=e2299]: Define fiscal years of more or less than one year
+          - generic [ref=e2300]:
+            - checkbox "Dynamic Reports" [checked] [ref=e2304] [cursor=pointer]
+            - generic [ref=e2305]:
+              - generic [ref=e2307]: Dynamic Reports
+              - generic [ref=e2309]: Navigate easily through reports and see what is behind the numbers
+        - heading "Analytics" [level=2] [ref=e2310]:
+          - generic [ref=e2311]: Analytics
+        - generic [ref=e2312]:
+          - generic [ref=e2313]:
+            - checkbox "Analytic Accounting" [checked] [ref=e2317] [cursor=pointer]
+            - generic [ref=e2318]:
+              - generic [ref=e2320]: Analytic Accounting
+              - link "" [ref=e2321] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/others/analytic_accounting.html
+                - generic [ref=e2322]: 
+              - generic [ref=e2324]: Track costs & revenues by project, department, etc
+          - generic [ref=e2325]:
+            - checkbox "Budget Management" [checked] [ref=e2329] [cursor=pointer]
+            - generic [ref=e2330]:
+              - generic [ref=e2332]: Budget Management
+              - link "" [ref=e2333] [cursor=pointer]:
+                - /url: https://www.odoo.com/documentation/18.0/applications/finance/accounting/others/adviser/budget.html
+                - generic [ref=e2334]: 
+              - generic [ref=e2336]: Use budgets to compare actual with expected revenues and costs
+          - generic [ref=e2337]:
+            - checkbox "Margin Analysis" [ref=e2341] [cursor=pointer]
+            - generic [ref=e2342]:
+              - generic [ref=e2344]: Margin Analysis
+              - generic [ref=e2346]: Monitor your product margins from invoices
+        - heading "OCA Aged Report Configuration" [level=2] [ref=e2347]:
+          - generic [ref=e2348]: OCA Aged Report Configuration
+        - generic [ref=e2351]:
+          - generic [ref=e2353]: Intervals configuration
+          - generic [ref=e2355]: Here you can set the intervals that will appear on the Aged Partner Balance.
+          - generic [ref=e2356]:
+            - generic [ref=e2357]:
+              - generic [ref=e2359]: Intervals configuration
+              - combobox "Intervals configuration" [ref=e2364]
+            - button " Configurations" [ref=e2366] [cursor=pointer]:
+              - generic [ref=e2367]: 
+              - generic [ref=e2368]: Configurations
+        - heading "Reporting" [level=2] [ref=e2369]:
+          - generic [ref=e2370]: Reporting
+        - generic [ref=e2371]:
+          - generic [ref=e2372]:
+            - checkbox "Add totals below sections" [ref=e2376] [cursor=pointer]
+            - generic [ref=e2377]:
+              - generic [ref=e2379]: Add totals below sections
+              - generic [ref=e2381]: When ticked, totals and subtotals appear below the sections of the report
+          - button "Download the Data Inalterability Check Report" [ref=e2385] [cursor=pointer]:
+            - generic [ref=e2386]: Download the Data Inalterability Check Report
+        - heading "Storno Accounting" [level=2] [ref=e2387]:
+          - generic [ref=e2388]: Storno Accounting
+        - generic [ref=e2390]:
+          - checkbox "Storno accounting" [ref=e2394] [cursor=pointer]
+          - generic [ref=e2395]:
+            - generic [ref=e2397]: Storno accounting
+            - generic [ref=e2399]: Use Storno accounting
+        - heading "Accounting Firms mode" [level=2] [ref=e2400]:
+          - generic [ref=e2401]: Accounting Firms mode
+        - generic [ref=e2402]:
+          - generic [ref=e2403]:
+            - paragraph [ref=e2404]:
+              - generic [ref=e2405]: "Accounting firm mode will change invoice/bill encoding:"
+            - paragraph [ref=e2406]:
+              - generic [ref=e2407]: "- The document's sequence becomes editable on all documents."
+            - paragraph [ref=e2408]:
+              - generic [ref=e2409]: "- A new field « Total (tax inc.) » to speed up and control the encoding by automating line creation with the right account & tax."
+            - paragraph [ref=e2410]:
+              - generic [ref=e2411]: "- A default Customer Invoice / Vendor Bill date will be suggested."
+          - generic [ref=e2413]:
+            - generic [ref=e2415]: Quick encoding
+            - combobox "Quick encoding" [ref=e2418] [cursor=pointer]:
+              - option "Disabled" [selected]
+              - option "Customer Invoices"
+              - option "Vendor Bills"
+              - option "Customer Invoices and Vendor Bills"
+        - heading "Audit Trail" [level=2] [ref=e2419]:
+          - generic [ref=e2420]: Audit Trail
+        - generic [ref=e2422]:
+          - checkbox "Audit Trail" [ref=e2426] [cursor=pointer]
+          - generic [ref=e2427]:
+            - generic [ref=e2429]: Audit Trail
+            - generic [ref=e2431]: Activate Audit Trail
+            - alert [ref=e2433]:
+              - paragraph [ref=e2434]:
+                - strong [ref=e2435]:
+                  - generic [ref=e2436]: "Warning:"
+                - generic [ref=e2437]: Once the Audit Trail is enabled, it cannot be disabled again if there are any existing journal items.
+        - heading "Thai Localization" [level=2] [ref=e2438]:
+          - generic [ref=e2439]: Thai Localization
+        - generic [ref=e2440]:
+          - generic [ref=e2442]:
+            - generic [ref=e2444]: Customer Tax Invoice Number
+            - generic [ref=e2446]: In case of Sales Undue VAT, Define your tax invoice number which is created after payment when user didn't setup Tax Invoice Sequence in Tax setting.
+            - radiogroup "Customer Tax Invoice Number (Undue VAT)" [ref=e2451]:
+              - generic [ref=e2452]:
+                - radio "Customer Payment Number" [checked] [ref=e2453] [cursor=pointer]
+                - generic [ref=e2455] [cursor=pointer]: Customer Payment Number
+              - generic [ref=e2456]:
+                - radio "Customer Invoice Number" [ref=e2457] [cursor=pointer]
+                - generic [ref=e2459] [cursor=pointer]: Customer Invoice Number
+          - generic [ref=e2461]:
+            - generic [ref=e2463]: Tax Report Format
+            - generic [ref=e2465]: Default format tax report applied to standard or revenue department.
+            - generic [ref=e2467]:
+              - generic [ref=e2468]:
+                - generic [ref=e2470]: Tax Report
+                - combobox "Tax Report" [ref=e2472] [cursor=pointer]:
+                  - option "Standard" [selected]
+                  - option "Revenue Department"
+              - generic [ref=e2473]:
+                - generic [ref=e2475]: WHT Text File
+                - combobox "WHT Text File" [ref=e2477] [cursor=pointer]:
+                  - option "Standard" [selected]
+                  - option "Revenue Department"
+          - generic [ref=e2478]:
+            - checkbox "Preprint - Withholding Tax Cert Form" [ref=e2482] [cursor=pointer]
+            - generic [ref=e2483]:
+              - generic [ref=e2485]: Preprint - Withholding Tax Cert Form
+              - generic [ref=e2487]: Thai withholding tax layout with pre-print (No background). You must customize template 'withholding_layout_preprint_report'
+        - heading "Automated Journal Selection" [level=2] [ref=e2488]:
+          - generic [ref=e2489]: Automated Journal Selection
+        - generic [ref=e2490]:
+          - generic [ref=e2492]:
+            - generic [ref=e2494]: Auto Local Journal
+            - generic [ref=e2497]:
+              - combobox "Auto Local Journal" [ref=e2500]: Domestic Customer Invoice
+              - button "Internal link" [ref=e2501] [cursor=pointer]: 
+          - generic [ref=e2503]:
+            - generic [ref=e2505]: Auto Foreign Journal
+            - generic [ref=e2508]:
+              - combobox "Auto Foreign Journal" [ref=e2511]: International Customer Invoice (USD)
+              - button "Internal link" [ref=e2512] [cursor=pointer]: 
+        - heading "Update Fiscal Year/Period to Old Records" [level=2] [ref=e2513]:
+          - generic [ref=e2514]: Update Fiscal Year/Period to Old Records
+        - button "Update Old Records" [ref=e2519] [cursor=pointer]:
+          - generic [ref=e2520]: Update Old Records
+        - generic [ref=e2522]:
+          - checkbox "Enable Approval work Flow" [ref=e2526] [cursor=pointer]
+          - generic [ref=e2527]:
+            - generic [ref=e2529]: Enable Approval work Flow
+            - generic [ref=e2531]: Enable Approval work Flow
+        - generic [ref=e2532]:
+          - generic [ref=e2533]:
+            - checkbox "Restrict record creation for Closed Fiscal Period or Closed Fiscal Year" [ref=e2537] [cursor=pointer]
+            - generic [ref=e2538]:
+              - generic [ref=e2540]: Restrict record creation for Closed Fiscal Period or Closed Fiscal Year
+              - generic [ref=e2542]: Restrict record creation for Closed Fiscal Period or Closed Fiscal Year
+          - generic [ref=e2543]:
+            - checkbox "Open Current Period Only" [checked] [ref=e2547] [cursor=pointer]
+            - generic [ref=e2548]:
+              - generic [ref=e2550]: Open Current Period Only
+              - generic [ref=e2552]: Only current month period is open by default; past and future periods are closed.
+          - generic [ref=e2553]:
+            - checkbox "Auto Close Future Periods" [checked] [ref=e2557] [cursor=pointer]
+            - generic [ref=e2558]:
+              - generic [ref=e2560]: Auto Close Future Periods
+              - generic [ref=e2562]: When generating periods, future periods are created as closed.
+          - generic [ref=e2563]:
+            - checkbox "Sync Odoo Global Lock Date from Closed Periods" [checked] [ref=e2567] [cursor=pointer]
+            - generic [ref=e2568]:
+              - generic [ref=e2570]: Sync Odoo Global Lock Date from Closed Periods
+              - generic [ref=e2572]: Sync Odoo Global Lock Date to the latest closed fiscal period.
+        - heading "Due/Overdue Statement Display configuration" [level=2] [ref=e2573]:
+          - generic [ref=e2574]: Due/Overdue Statement Display configuration
+        - generic [ref=e2577]:
+          - generic [ref=e2579]: Display Due/Overdue Statements
+          - combobox "Display Due/Overdue Statements" [ref=e2581] [cursor=pointer]:
+            - option "Only Due"
+            - option "Only Overdue"
+            - option "Both" [selected]
+        - heading "Account Statement Menu Display in portal configuration" [level=2] [ref=e2582]:
+          - generic [ref=e2583]: Account Statement Menu Display in portal configuration
+        - generic [ref=e2584]:
+          - generic [ref=e2585]:
+            - checkbox "Show Customer Statement Menu in portal ?" [ref=e2589] [cursor=pointer]
+            - generic [ref=e2592]: Show Customer Statement Menu in portal ?
+          - generic [ref=e2593]:
+            - checkbox "Show Vendor Statement Menu in portal ?" [ref=e2597] [cursor=pointer]
+            - generic [ref=e2600]: Show Vendor Statement Menu in portal ?
+        - heading "Account Statement Mail Log History Configuration" [level=2] [ref=e2601]:
+          - generic [ref=e2602]: Account Statement Mail Log History Configuration
+        - generic [ref=e2603]:
+          - generic [ref=e2604]:
+            - checkbox "Customer Statement Mail Log History" [ref=e2608] [cursor=pointer]
+            - generic [ref=e2611]: Customer Statement Mail Log History
+          - generic [ref=e2612]:
+            - checkbox "Vendor Statement Mail Log History" [ref=e2616] [cursor=pointer]
+            - generic [ref=e2619]: Vendor Statement Mail Log History
+        - generic [ref=e2620]:
+          - generic [ref=e2621]:
+            - checkbox "Customer Overdue Statement Mail Log History" [ref=e2625] [cursor=pointer]
+            - generic [ref=e2628]: Customer Overdue Statement Mail Log History
+          - generic [ref=e2629]:
+            - checkbox "Vendor Overdue Statement Mail Log History" [ref=e2633] [cursor=pointer]
+            - generic [ref=e2636]: Vendor Overdue Statement Mail Log History
+        - button " See all mail log history" [ref=e2639] [cursor=pointer]:
+          - generic [ref=e2640]: 
+          - generic [ref=e2641]: See all mail log history
+        - heading "Account Statement Auto Send Configuration" [level=2] [ref=e2642]:
+          - generic [ref=e2643]: Account Statement Auto Send Configuration
+        - generic [ref=e2644]:
+          - generic [ref=e2645]:
+            - checkbox "Customer Statement Auto Send" [ref=e2649] [cursor=pointer]
+            - generic [ref=e2652]: Customer Statement Auto Send
+          - generic [ref=e2653]:
+            - checkbox "Vendor Statement Auto Send" [ref=e2657] [cursor=pointer]
+            - generic [ref=e2660]: Vendor Statement Auto Send
+        - generic [ref=e2662]:
+          - generic [ref=e2663]:
+            - checkbox "Customer Overdue Statement Auto Send" [ref=e2667] [cursor=pointer]
+            - generic [ref=e2670]: Customer Overdue Statement Auto Send
+          - generic [ref=e2671]:
+            - checkbox "Vendor Overdue Statement Auto Send" [ref=e2675] [cursor=pointer]
+            - generic [ref=e2678]: Vendor Overdue Statement Auto Send
+        - generic [ref=e2679]:
+          - generic [ref=e2680]:
+            - checkbox "Filter Only Unpaid, Send nothing if all invoices are paid" [ref=e2684] [cursor=pointer]
+            - generic [ref=e2687]: Filter Only Unpaid, Send nothing if all invoices are paid
+          - generic [ref=e2688]:
+            - checkbox "Filter Only Unpaid, Send nothing if all bills are paid" [ref=e2692] [cursor=pointer]
+            - generic [ref=e2695]: Filter Only Unpaid, Send nothing if all bills are paid
+        - heading "Statement Send Whatsapp Configuration" [level=2] [ref=e2696]:
+          - generic [ref=e2697]: Statement Send Whatsapp Configuration
+        - generic [ref=e2698]:
+          - generic [ref=e2699]:
+            - checkbox "Signature?" [checked] [ref=e2703] [cursor=pointer]
+            - generic [ref=e2704]:
+              - generic [ref=e2706]: Signature?
+              - generic [ref=e2708]: Show Signature
+          - generic [ref=e2709]:
+            - checkbox "Display in Chatter Message?" [checked] [ref=e2713] [cursor=pointer]
+            - generic [ref=e2714]:
+              - generic [ref=e2716]: Display in Chatter Message?
+              - generic [ref=e2718]: Show Message in Chatter
+          - generic [ref=e2719]:
+            - checkbox "Send Report URL in Message?" [checked] [ref=e2723] [cursor=pointer]
+            - generic [ref=e2724]:
+              - generic [ref=e2726]: Send Report URL in Message?
+              - generic [ref=e2728]: Send Report Url in Message
+          - generic [ref=e2729]:
+            - checkbox "Send Statement URL in Message?" [checked] [ref=e2733] [cursor=pointer]
+            - generic [ref=e2734]:
+              - generic [ref=e2736]: Send Statement URL in Message?
+              - generic [ref=e2738]: Send Statement Url in Message
+        - heading "Easy Petty Cash" [level=2] [ref=e2739]:
+          - generic [ref=e2740]: Easy Petty Cash
+        - generic [ref=e2745]:
+          - generic [ref=e2746]:
+            - generic [ref=e2749]: Default Petty Cash Journal
+            - combobox "Default Petty Cash Journal" [ref=e2755]
+          - generic [ref=e2759]: Default Analytic Distribution
+        - heading "Easy Advance Cash" [level=2] [ref=e2765]:
+          - generic [ref=e2766]: Easy Advance Cash
+        - generic [ref=e2771]:
+          - generic [ref=e2772]:
+            - generic [ref=e2775]: Default Advance Cash Journal
+            - combobox "Default Advance Cash Journal" [ref=e2781]
+          - generic [ref=e2782]:
+            - generic [ref=e2785]: Reimbursement Journal
+            - combobox "Reimbursement Journal" [ref=e2791]
+          - generic [ref=e2792]:
+            - generic [ref=e2795]: Reimbursement Account
+            - combobox "Reimbursement Account" [ref=e2801]
+          - generic [ref=e2802]:
+            - generic [ref=e2805]: Return Account
+            - combobox "Return Account" [ref=e2811]
+          - generic [ref=e2815]: Default Advance Cash Analytic Distribution

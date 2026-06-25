@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cheque_inbound_outbound_list_view_advance_cash" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.list.advance.cash</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="inherit_id" ref="cheque_management.cheque_inbound_outbound_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='memo']" position="after">
+                <field name="advance_cash_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cheque_inbound_outbound_form_view_advance_cash" model="ir.ui.view">
+        <field name="name">cheque.inbound.outbound.form.advance.cash</field>
+        <field name="model">cheque.inbound.outbound</field>
+        <field name="inherit_id" ref="cheque_management.cheque_inbound_outbound_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="before">
+                <field name="advance_cash_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_advance_cash"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-money"
+                    invisible="not advance_cash_id">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Advance Cash</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

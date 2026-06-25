@@ -1,0 +1,219 @@
+<form string="Pay">
+                    <!-- Invisible fields -->
+                    <field name="line_ids" invisible="1"/>
+                <field name="is_multi_allocation_enabled" invisible="1"/>
+                    <field name="can_edit_wizard" invisible="1" force_save="1"/>
+                    <field name="can_group_payments" invisible="1" force_save="1"/>
+                    <field name="early_payment_discount_mode" invisible="1" force_save="1"/>
+                    <field name="installments_mode" invisible="1"/>
+                    <field name="installments_switch_amount" invisible="1"/>
+                    <field name="installments_switch_html" invisible="1"/>
+                    <field name="payment_type" invisible="1" force_save="1"/>
+                    <field name="partner_type" invisible="1" force_save="1"/>
+                    <field name="source_amount" invisible="1" force_save="1"/>
+                    <field name="source_amount_currency" invisible="1" force_save="1"/>
+                    <field name="source_currency_id" invisible="1" force_save="1"/>
+                    <field name="company_id" invisible="1" force_save="1"/>
+                    <field name="partner_id" invisible="1" force_save="1"/>
+                    <field name="country_code" invisible="1" force_save="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="custom_user_amount" invisible="1"/>
+                    <field name="custom_user_currency_id" invisible="1"/>
+
+                    <field name="show_partner_bank_account" invisible="1"/>
+                    <field name="require_partner_bank_account" invisible="1"/>
+                    <field name="available_journal_ids" invisible="1"/>
+                    <field name="available_payment_method_line_ids" invisible="1"/>
+                    <field name="is_cheque_incoming" invisible="1"/>
+                    <field name="is_cheque_outgoing" invisible="1"/>
+                    <field name="is_bank_draft_incoming" invisible="1"/>
+                    <field name="is_bank_draft_outgoing" invisible="1"/>
+                    <field name="is_cheque_already_added_ids" invisible="1"/>
+                    <field name="available_partner_bank_ids" invisible="1"/>
+                    <field name="company_currency_id" invisible="1"/>
+                    <field name="hide_writeoff_section" invisible="1"/>
+                    <field name="writeoff_is_exchange_account" invisible="1"/>
+                    <field name="untrusted_bank_ids" invisible="1"/>
+                    <field name="missing_account_partners" invisible="1"/>
+
+                    <div role="alert" class="alert alert-info" invisible="not hide_writeoff_section">
+                        <p class="m-0"><b>Early Payment Discount of <field name="payment_difference"/> has been applied.</b></p>
+                    </div>
+                    <div role="alert" class="alert alert-warning" invisible="untrusted_payments_count == 0">
+                        <span class="fw-bold"><field name="untrusted_payments_count" class="oe_inline"/> out of <field name="total_payments_amount" class="oe_inline"/> payments will be skipped due to <button class="oe_link p-0 align-baseline" type="object" name="action_open_untrusted_bank_accounts">untrusted bank accounts</button>.</span>
+                    </div>
+                    <div role="alert" class="alert alert-warning" invisible="not missing_account_partners">
+                        <span class="fw-bold">Payments related to partners with no bank account specified will be skipped. <button class="oe_link p-0 align-baseline" type="object" name="action_open_missing_account_partners">View Partner(s)</button></span>
+                    </div>
+                    <div role="alert" class="alert alert-warning" invisible="not duplicate_payment_ids">
+                        <span>This payment has the same partner, amount and date as </span>
+                        <field name="duplicate_payment_ids" widget="x2many_buttons" string="Duplicated Payments"/>
+                    </div>
+                    <div role="alert" invisible="not actionable_errors">
+                        <field name="actionable_errors" widget="actionable_errors" class="w-100"/>
+                    </div>
+                    <group>
+                        <group name="group1">
+                <field name="company_group_id" invisible="1" readonly="1"/>
+                            <field name="journal_id" options="{'no_open': True, 'no_create': True}" required="1"/>
+                            <field name="payment_method_line_id" context="{'hide_payment_journal_id': 1}" required="1" options="{'no_create': True, 'no_open': True}"/>
+                <field name="payment_method_code" invisible="1"/>
+                <field name="suitable_payment_token_ids" invisible="1"/>
+                <field name="use_electronic_payment_method" invisible="1"/>
+                <field name="payment_token_id" options="{'no_create': True}" invisible="not use_electronic_payment_method or not can_edit_wizard or (can_group_payments and not group_payment)"/>
+                            <field name="partner_bank_id" invisible="not show_partner_bank_account or not can_edit_wizard" readonly="payment_type == 'inbound'" required="require_partner_bank_account and can_edit_wizard" placeholder="Account Number" context="{'display_account_trust': True, 'default_partner_id': partner_id}"/>
+                            <field name="group_payment" invisible="not can_group_payments"/>
+                            <label for="payment_difference" invisible="not show_payment_difference"/>
+                            <div invisible="payment_difference == 0">
+                                <field name="payment_difference"/>
+                                <field name="payment_difference_handling" widget="radio" nolabel="1" invisible="is_register_payment_on_draft"/>
+                <div invisible="payment_difference_handling != 'reconcile'">
+                    <label for="wht_tax_id" class="oe_edit_only" string="Withholding Tax"/>
+                    <field name="wht_tax_id" placeholder="Withholding Tax" options="{'no_create': True, 'no_open': True}"/>
+                    <label for="wht_amount_base" class="oe_edit_only" string="Withholding Base"/>
+                    <field name="wht_amount_base"/>
+                </div>
+                                <div class="o_inner_group grid col-lg-12 p-0" invisible="(hide_writeoff_section or payment_difference_handling == 'open') or (payment_difference_handling != 'reconcile')">
+                                    <div class="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0">
+                                        <div class="o_cell o_wrap_label text-break text-900">
+                                            <label for="writeoff_account_id" string="Post Difference In" class="oe_edit_only"/>
+                                        </div>
+                                        <div class="o_cell o_wrap_input text-break">
+                                            <field name="writeoff_account_id" string="Post Difference In" options="{'no_create': True}" required="payment_difference_handling == 'reconcile' and not early_payment_discount_mode"/>
+                                        </div>
+                                    </div>
+                                    <div class="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0">
+                                        <div class="o_cell o_wrap_label text-break text-900">
+                                            <label for="writeoff_label" class="oe_edit_only" string="Label" invisible="writeoff_is_exchange_account"/>
+                                        </div>
+                                        <div class="o_cell o_wrap_input text-break">
+                                            <field name="writeoff_label" required="payment_difference_handling == 'reconcile'" invisible="writeoff_is_exchange_account"/>
+                <label for="bill_partner_id" class="oe_edit_only" string="Partner" required="wht_tax_id" invisible="not wht_tax_id"/>
+                <field name="bill_partner_id" required="wht_tax_id" invisible="not wht_tax_id"/>
+                                        </div>
+                                    </div>
+                <div class="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0" invisible="payment_difference_handling != 'reconcile'" groups="analytic.group_analytic_accounting">
+                    <div class="o_cell o_wrap_label text-break text-900">
+                        <label for="analytic_distribution" class="oe_edit_only"/>
+                    </div>
+                    <div class="o_cell o_wrap_input text-break">
+                        <field name="analytic_distribution" widget="analytic_distribution" groups="analytic.group_analytic_accounting" options="{'product_field': 'product_id', 'account_field': 'account_id', 'business_domain': 'expense'}"/>
+                    </div>
+                </div>
+                                </div>
+                            </div>
+                        </group>
+                        <group name="group2">
+                            <label for="amount"/>
+                            <div name="amount_div" class="o_row">
+                                <field name="amount" force_save="1" readonly="not can_edit_payment_amount or (can_group_payments and not group_payment and not show_cross_settlement)"/>
+                                <field name="currency_id" required="1" options="{'no_create': True, 'no_open': True}" invisible="0" groups="base.group_multi_currency"/>
+                            </div>
+                            <field name="installments_switch_html" string="" widget="account_payment_register_html" invisible="1"/>
+                            <field name="payment_date"/>
+                            <field name="communication" invisible="not can_edit_wizard"/>
+                    <field name="manual_currency_rate_active" invisible="0"/>
+                    <field name="manual_currency_rate" invisible="not manual_currency_rate_active" required="manual_currency_rate_active"/>
+                        </group>
+                <group colspan="4" invisible="payment_difference_handling != 'reconcile_multi_deduct'">
+                    <field name="deduct_residual" invisible="1"/>
+                    <field name="deduct_analytic_distribution" invisible="1"/>
+                    <field name="deduction_ids" nolabel="1" colspan="2" context="{'default_amount': deduct_residual, 'default_analytic_distribution': deduct_analytic_distribution}">
+                        <list editable="bottom">
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="is_open"/>
+                <field name="partner_id"/>
+                <field name="wht_tax_id" string="WHT"/>
+                <field name="wht_amount_base" string="Base"/>
+                            <field name="account_id" required="not is_open"/>
+                            <field name="analytic_distribution" widget="analytic_distribution" groups="analytic.group_analytic_accounting" options="{'product_field': 'product_id', 'account_field': 'account_id', 'business_domain': 'expense'}"/>
+                            <field name="name"/>
+                            <field name="amount" sum="Total Deduction"/>
+                        </list>
+                    </field>
+                </group>
+                    <group string="Outgoing Cheque" name="outbound_cheque" colspan="4" invisible="payment_type != 'outbound' or (not is_cheque_outgoing and not is_bank_draft_outgoing)">
+                        <field name="wizard_outbound_cheque_lines" context="{'default_journal_id': journal_id, 'default_amount': amount, 'default_payment_type': 'outbound'}" nolabel="1">
+                            <list editable="bottom">
+                                <field name="journal_id" required="1" options="{'no_create': True}" column_invisible="0"/>
+                                <field name="is_cheque_already_added_ids" column_invisible="1"/>
+                                <field name="cheque_id" required="1" options="{'no_create': True}"/>
+                                <field name="bank_account_id" required="1"/>
+                                <field name="branch"/>
+                                <field name="payment_type" column_invisible="1"/>
+                                <field name="date" required="1"/>
+                                <field name="ac_payee" widget="boolean_toggle"/>
+                                <field name="amount" required="1" sum="Total"/>
+                                <field name="remarks"/>
+                            </list>
+                        </field>
+                    </group>
+                    <group string="Incoming Cheque" name="inbound_cheque" colspan="4" invisible="payment_type != 'inbound' or (not is_cheque_incoming and not is_bank_draft_incoming)">
+                        <field name="wizard_inbound_cheque_lines" context="{'default_journal_id': journal_id, 'default_amount': amount, 'default_payment_type': 'inbound'}" nolabel="1">
+                            <list editable="bottom">
+                            	<field name="journal_id"/>
+                                <field name="cheque_id" required="1"/>
+                                <field name="bank_account_id" required="1"/>
+                                <field name="branch"/>
+                                <field name="payment_type"/>
+                                <field name="date" required="1"/>
+                                <field name="ac_payee" widget="boolean_toggle"/>
+                                <field name="amount" required="1" sum="Total"/>
+                                <field name="remarks"/>
+                            </list>
+                        </field>
+                    </group>
+                        <field name="qr_code" invisible="1"/>
+                        <div invisible="not qr_code" colspan="2" class="text-center">
+                            <field name="qr_code"/>
+                        </div>
+                    </group>
+                <group invisible="1">
+                    <field name="show_cross_settlement"/>
+                    <field name="cross_settlement_partner_eligible"/>
+                    <field name="cross_settlement_amount_editable"/>
+                    <field name="can_edit_payment_amount"/>
+                </group>
+                <group string="Cross Settlement" invisible="not partner_id or cross_settlement_partner_eligible">
+                    <div class="text-warning">
+                        Cross settlement is available only when the contact is marked as both Is a Customer and Is a Supplier.
+                    </div>
+                </group>
+                <group string="Cross Settlement (Same Partner / Same Company / Same Currency)" invisible="not show_cross_settlement">
+                    <field name="cross_settlement_amount" readonly="1"/>
+                    <div class="mb-2">
+                        <button name="action_select_all" type="object" string="Select All" class="btn-link p-0 me-2" icon="fa-check-square-o"/>
+                        <button name="action_unselect_all" type="object" string="Unselect All" class="btn-link p-0" icon="fa-square-o"/>
+                    </div>
+                    <field name="cross_settlement_line_ids" nolabel="1">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="is_selected"/>
+                            <field name="document_label" string="Type"/>
+                            <field name="move_id" string="Document"/>
+                            <field name="move_date" string="Date"/>
+                            <field name="residual_signed_amount" string="Open Amount" readonly="1"/>
+                            <field name="amount_to_settle" string="Settle Amount" readonly="not is_selected"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="account_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </group>
+                <group string="Invoices Allocation" invisible="not is_multi_allocation_enabled or not allocation_line_ids">
+                    <field name="allocation_line_ids" nolabel="1" colspan="2" force_save="1">
+                        <list editable="bottom" create="0" delete="0">
+                            <field name="move_line_id" column_invisible="True" force_save="1"/>
+                            <field name="amount_residual_original" column_invisible="True" force_save="1"/>
+                            <field name="move_id" string="เลขที่ใบแจ้งหนี้"/>
+                            <field name="amount_total" string="ยอดทั้งหมด" readonly="1" force_save="1"/>
+                            <field name="amount_residual" string="ยอดคงเหลือ"/>
+                            <field name="amount_to_pay" string="ยอดจ่าย" sum="Total"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </group>
+                    <footer>
+                        <button string="Create Payments" name="action_create_payments" type="object" class="oe_highlight" data-hotkey="q" invisible="total_payments_amount == 1"/>
+                        <button string="Create Payment" name="action_create_payments" type="object" class="oe_highlight" data-hotkey="q" invisible="total_payments_amount != 1"/>
+                        <button string="Discard" class="btn btn-secondary" special="cancel" data-hotkey="x"/>
+                    </footer>
+                </form>

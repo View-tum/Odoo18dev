@@ -1,0 +1,2230 @@
+{
+  "res_user_van_fields": [
+    "resource_ids",
+    "resource_calendar_id",
+    "work_location_id",
+    "work_location_name",
+    "work_location_type",
+    "employee_resource_calendar_id",
+    "allocation_count",
+    "allocation_remaining_display",
+    "allocation_display",
+    "allowed_warehouse_ids",
+    "allowed_location_ids",
+    "property_warehouse_id",
+    "van_sale_location_id"
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "Administrator",
+      "login": "admin",
+      "resource_ids": [
+        1
+      ],
+      "resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "work_location_id": false,
+      "work_location_name": false,
+      "work_location_type": "other",
+      "employee_resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "allocation_count": 0.0,
+      "allocation_remaining_display": "0",
+      "allocation_display": "0",
+      "allowed_warehouse_ids": [],
+      "allowed_location_ids": [],
+      "property_warehouse_id": false,
+      "van_sale_location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ]
+    },
+    {
+      "id": 82,
+      "name": "เกษม แซ่จอง",
+      "login": "kasem.s@gmppoysian.com",
+      "resource_ids": [
+        665
+      ],
+      "resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "work_location_id": false,
+      "work_location_name": false,
+      "work_location_type": "other",
+      "employee_resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "allocation_count": 0.0,
+      "allocation_remaining_display": "0",
+      "allocation_display": "0",
+      "allowed_warehouse_ids": [],
+      "allowed_location_ids": [],
+      "property_warehouse_id": false,
+      "van_sale_location_id": false
+    },
+    {
+      "id": 130,
+      "name": "มนัส พรมมา",
+      "login": "manut.p@gmppoysian.com",
+      "resource_ids": [
+        680
+      ],
+      "resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "work_location_id": false,
+      "work_location_name": false,
+      "work_location_type": "other",
+      "employee_resource_calendar_id": [
+        1,
+        "Standard 40 hours/week"
+      ],
+      "allocation_count": 0.0,
+      "allocation_remaining_display": "0",
+      "allocation_display": "0",
+      "allowed_warehouse_ids": [],
+      "allowed_location_ids": [],
+      "property_warehouse_id": [
+        2,
+        "Mobile Warehouse"
+      ],
+      "van_sale_location_id": [
+        37,
+        "M-WH/Stock/CARSALEU2"
+      ]
+    }
+  ],
+  "picks": [
+    {
+      "id": 10997,
+      "name": "M-WH/OUT/03821",
+      "state": "done",
+      "origin": "SOB-263113",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34524,
+        34525,
+        34526,
+        34527,
+        34528,
+        34529,
+        34530
+      ],
+      "move_line_ids": [
+        38413,
+        38414,
+        38415,
+        38416,
+        38417,
+        38418,
+        38419
+      ],
+      "scheduled_date": "2026-06-18 08:00:00",
+      "sale_id": [
+        16730,
+        "SOB-263113"
+      ],
+      "group_id": [
+        7490,
+        "SOB-263113"
+      ]
+    },
+    {
+      "id": 10996,
+      "name": "M-WH/OUT/03820",
+      "state": "done",
+      "origin": "SOB-263112",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34516,
+        34517,
+        34518,
+        34519,
+        34520,
+        34521,
+        34522,
+        34523
+      ],
+      "move_line_ids": [
+        38398,
+        38399,
+        38400,
+        38401,
+        38402,
+        38403,
+        38404,
+        38405
+      ],
+      "scheduled_date": "2026-06-18 08:00:00",
+      "sale_id": [
+        16729,
+        "SOB-263112"
+      ],
+      "group_id": [
+        7489,
+        "SOB-263112"
+      ]
+    },
+    {
+      "id": 10995,
+      "name": "M-WH/OUT/03819",
+      "state": "done",
+      "origin": "SOB-263111",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34514
+      ],
+      "move_line_ids": [
+        38389
+      ],
+      "scheduled_date": "2026-06-18 08:05:57",
+      "sale_id": [
+        16727,
+        "SOB-263111"
+      ],
+      "group_id": [
+        7488,
+        "SOB-263111"
+      ]
+    },
+    {
+      "id": 10994,
+      "name": "M-WH/OUT/03818",
+      "state": "done",
+      "origin": "SOB-263111",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34507,
+        34508,
+        34509,
+        34510,
+        34511,
+        34512,
+        34513
+      ],
+      "move_line_ids": [
+        38381,
+        38382,
+        38383,
+        38384,
+        38385,
+        38386,
+        38387
+      ],
+      "scheduled_date": "2026-06-18 08:05:57",
+      "sale_id": [
+        16727,
+        "SOB-263111"
+      ],
+      "group_id": [
+        7488,
+        "SOB-263111"
+      ]
+    },
+    {
+      "id": 10993,
+      "name": "M-WH/OUT/03817",
+      "state": "assigned",
+      "origin": "SOB-263110",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34498,
+        34499,
+        34500,
+        34501,
+        34502,
+        34503,
+        34504,
+        34505,
+        34506
+      ],
+      "move_line_ids": [
+        38366,
+        38367,
+        38368,
+        38369,
+        38370,
+        38371,
+        38372,
+        38373
+      ],
+      "scheduled_date": "2026-06-18 06:00:00",
+      "sale_id": [
+        16720,
+        "SOB-263110"
+      ],
+      "group_id": [
+        7487,
+        "SOB-263110"
+      ]
+    },
+    {
+      "id": 10989,
+      "name": "M-WH/OUT/03816",
+      "state": "done",
+      "origin": "SOB-263106",
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34475,
+        34476
+      ],
+      "move_line_ids": [
+        38335,
+        38336
+      ],
+      "scheduled_date": "2026-06-18 06:00:00",
+      "sale_id": [
+        16711,
+        "SOB-263106"
+      ],
+      "group_id": [
+        7483,
+        "SOB-263106"
+      ]
+    },
+    {
+      "id": 10978,
+      "name": "M-WH/OUT/03813",
+      "state": "assigned",
+      "origin": "SOB-263105",
+      "location_id": [
+        37,
+        "M-WH/Stock/CARSALEU2"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34436
+      ],
+      "move_line_ids": [
+        38310
+      ],
+      "scheduled_date": "2026-06-16 09:00:00",
+      "sale_id": [
+        16708,
+        "SOB-263105"
+      ],
+      "group_id": [
+        7473,
+        "SOB-263105"
+      ]
+    },
+    {
+      "id": 10977,
+      "name": "M-WH/OUT/03812",
+      "state": "assigned",
+      "origin": "SOB-263104",
+      "location_id": [
+        37,
+        "M-WH/Stock/CARSALEU2"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34435
+      ],
+      "move_line_ids": [
+        38308,
+        38309
+      ],
+      "scheduled_date": "2026-06-16 09:00:00",
+      "sale_id": [
+        16707,
+        "SOB-263104"
+      ],
+      "group_id": [
+        7472,
+        "SOB-263104"
+      ]
+    },
+    {
+      "id": 10975,
+      "name": "M-WH/OUT/03810",
+      "state": "assigned",
+      "origin": "SOB-263102",
+      "location_id": [
+        29,
+        "M-WH/Stock"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34433
+      ],
+      "move_line_ids": [
+        38301,
+        38302,
+        38303,
+        38304,
+        38305
+      ],
+      "scheduled_date": "2026-06-16 09:00:00",
+      "sale_id": [
+        16705,
+        "SOB-263102"
+      ],
+      "group_id": [
+        7470,
+        "SOB-263102"
+      ]
+    },
+    {
+      "id": 10950,
+      "name": "M-WH/OUT/03809",
+      "state": "assigned",
+      "origin": "SOB-263101",
+      "location_id": [
+        29,
+        "M-WH/Stock"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "move_ids": [
+        34175
+      ],
+      "move_line_ids": [
+        38228,
+        38229,
+        38230
+      ],
+      "scheduled_date": "2026-06-16 08:00:00",
+      "sale_id": [
+        16677,
+        "SOB-263101"
+      ],
+      "group_id": [
+        7451,
+        "SOB-263101"
+      ]
+    }
+  ],
+  "moves": [
+    {
+      "id": 34498,
+      "name": "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)",
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38366
+      ]
+    },
+    {
+      "id": 34499,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 4.0,
+      "quantity": 4.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38367
+      ]
+    },
+    {
+      "id": 34507,
+      "name": "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)",
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38381
+      ]
+    },
+    {
+      "id": 34508,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 4.0,
+      "quantity": 4.0,
+      "state": "done",
+      "move_line_ids": [
+        38382
+      ]
+    },
+    {
+      "id": 34516,
+      "name": "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)",
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38398
+      ]
+    },
+    {
+      "id": 34517,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 4.0,
+      "quantity": 4.0,
+      "state": "done",
+      "move_line_ids": [
+        38399
+      ]
+    },
+    {
+      "id": 34524,
+      "name": "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)",
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38413
+      ]
+    },
+    {
+      "id": 34525,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 4.0,
+      "quantity": 4.0,
+      "state": "done",
+      "move_line_ids": [
+        38414
+      ]
+    },
+    {
+      "id": 34500,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38368
+      ]
+    },
+    {
+      "id": 34509,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38383
+      ]
+    },
+    {
+      "id": 34518,
+      "name": "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง",
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38400
+      ]
+    },
+    {
+      "id": 34526,
+      "name": "[FG-PSS-PB-01001] Piggy Bank - Poysian",
+      "product_id": [
+        8035,
+        "[FG-PSS-PB-01001] Piggy Bank - Poysian"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38415
+      ]
+    },
+    {
+      "id": 34501,
+      "name": "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)",
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38369
+      ]
+    },
+    {
+      "id": 34510,
+      "name": "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)",
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38384
+      ]
+    },
+    {
+      "id": 34519,
+      "name": "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)",
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38401
+      ]
+    },
+    {
+      "id": 34527,
+      "name": "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)",
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38416
+      ]
+    },
+    {
+      "id": 34502,
+      "name": "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )",
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38370
+      ]
+    },
+    {
+      "id": 34511,
+      "name": "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )",
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38385
+      ]
+    },
+    {
+      "id": 34520,
+      "name": "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )",
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38402
+      ]
+    },
+    {
+      "id": 34528,
+      "name": "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง",
+      "product_id": [
+        8210,
+        "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38417
+      ]
+    },
+    {
+      "id": 34503,
+      "name": "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)",
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38371
+      ]
+    },
+    {
+      "id": 34512,
+      "name": "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)",
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38386
+      ]
+    },
+    {
+      "id": 34521,
+      "name": "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)",
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38403
+      ]
+    },
+    {
+      "id": 34529,
+      "name": "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )",
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38418
+      ]
+    },
+    {
+      "id": 34504,
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38372
+      ]
+    },
+    {
+      "id": 34513,
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38387
+      ]
+    },
+    {
+      "id": 34522,
+      "name": "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )",
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38404
+      ]
+    },
+    {
+      "id": 34530,
+      "name": "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)",
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38419
+      ]
+    },
+    {
+      "id": 34505,
+      "name": "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )",
+      "product_id": [
+        8208,
+        "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 0.0,
+      "state": "confirmed",
+      "move_line_ids": []
+    },
+    {
+      "id": 34514,
+      "name": "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )",
+      "product_id": [
+        8208,
+        "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10995,
+        "M-WH/OUT/03819"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38389
+      ]
+    },
+    {
+      "id": 34523,
+      "name": "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )",
+      "product_id": [
+        8208,
+        "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "done",
+      "move_line_ids": [
+        38405
+      ]
+    },
+    {
+      "id": 34506,
+      "name": "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง",
+      "product_id": [
+        8210,
+        "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ],
+      "product_uom_qty": 1.0,
+      "quantity": 1.0,
+      "state": "assigned",
+      "move_line_ids": [
+        38373
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "id": 38366,
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        7210,
+        "FC00126"
+      ],
+      "move_id": [
+        34498,
+        "SOB-263110/FG-PNC-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38367,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 4.0,
+      "picked": false,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34499,
+        "SOB-263110/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38368,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34500,
+        "SOB-263110/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38369,
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        7250,
+        "FA00226"
+      ],
+      "move_id": [
+        34501,
+        "SOB-263110/FG-PNF-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38370,
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        7262,
+        "AA00726"
+      ],
+      "move_id": [
+        34502,
+        "SOB-263110/FG-PSS-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38371,
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        6598,
+        "FB00625"
+      ],
+      "move_id": [
+        34503,
+        "SOB-263110/FG-PNR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38372,
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        7236,
+        "AA00326"
+      ],
+      "move_id": [
+        34504,
+        "SOB-263110/FG-PSS-TH-01005: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38373,
+      "product_id": [
+        8210,
+        "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": false,
+      "lot_id": [
+        7214,
+        "CA00126"
+      ],
+      "move_id": [
+        34506,
+        "SOB-263110/FG-PPR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10993,
+        "M-WH/OUT/03817"
+      ]
+    },
+    {
+      "id": 38381,
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7210,
+        "FC00126"
+      ],
+      "move_id": [
+        34507,
+        "SOB-263111/FG-PNC-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38382,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 4.0,
+      "picked": true,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34508,
+        "SOB-263111/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38383,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34509,
+        "SOB-263111/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38384,
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7250,
+        "FA00226"
+      ],
+      "move_id": [
+        34510,
+        "SOB-263111/FG-PNF-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38385,
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7262,
+        "AA00726"
+      ],
+      "move_id": [
+        34511,
+        "SOB-263111/FG-PSS-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38386,
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7256,
+        "FB00226"
+      ],
+      "move_id": [
+        34512,
+        "SOB-263111/FG-PNR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38387,
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7236,
+        "AA00326"
+      ],
+      "move_id": [
+        34513,
+        "SOB-263111/FG-PSS-TH-01005: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10994,
+        "M-WH/OUT/03818"
+      ]
+    },
+    {
+      "id": 38389,
+      "product_id": [
+        8208,
+        "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7269,
+        "CB00226"
+      ],
+      "move_id": [
+        34514,
+        "SOB-263111/FG-PPK-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10995,
+        "M-WH/OUT/03819"
+      ]
+    },
+    {
+      "id": 38398,
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7210,
+        "FC00126"
+      ],
+      "move_id": [
+        34516,
+        "SOB-263112/FG-PNC-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38399,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 4.0,
+      "picked": true,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34517,
+        "SOB-263112/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38400,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34518,
+        "SOB-263112/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38401,
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7250,
+        "FA00226"
+      ],
+      "move_id": [
+        34519,
+        "SOB-263112/FG-PNF-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38402,
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7262,
+        "AA00726"
+      ],
+      "move_id": [
+        34520,
+        "SOB-263112/FG-PSS-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38403,
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7256,
+        "FB00226"
+      ],
+      "move_id": [
+        34521,
+        "SOB-263112/FG-PNR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38404,
+      "product_id": [
+        8224,
+        "[FG-PSS-TH-01005] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)\n( Each carton contains 16 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7263,
+        "AA00726"
+      ],
+      "move_id": [
+        34522,
+        "SOB-263112/FG-PSS-TH-01005: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38405,
+      "product_id": [
+        8208,
+        "[FG-PPK-TH-01002] Pepex 2in1 with keyholder (1*1)( Each carton contains 216 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7269,
+        "CB00226"
+      ],
+      "move_id": [
+        34523,
+        "SOB-263112/FG-PPK-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10996,
+        "M-WH/OUT/03820"
+      ]
+    },
+    {
+      "id": 38413,
+      "product_id": [
+        7983,
+        "[FG-PNC-TH-01002] Pim Saen Balm Oil (8cc Cotton) Thai Label 12*1\n(Each carton contains 120 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7210,
+        "FC00126"
+      ],
+      "move_id": [
+        34524,
+        "SOB-263113/FG-PNC-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38414,
+      "product_id": [
+        8223,
+        "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 4.0,
+      "picked": true,
+      "lot_id": [
+        6587,
+        "AA03725"
+      ],
+      "move_id": [
+        34525,
+        "SOB-263113/FG-PSS-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38415,
+      "product_id": [
+        8035,
+        "[FG-PSS-PB-01001] Piggy Bank - Poysian"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": false,
+      "move_id": [
+        34526,
+        "SOB-263113/FG-PSS-PB-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38416,
+      "product_id": [
+        7989,
+        "[FG-PNR-TH-01001] Pim Saen Balm Oil (5cc Roll On) Thai Label 12*1\n(Each carton contains 80 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7256,
+        "FB00226"
+      ],
+      "move_id": [
+        34527,
+        "SOB-263113/FG-PNR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38417,
+      "product_id": [
+        8210,
+        "[FG-PPR-TH-01001] ยาดมพีเป๊กซ์แดง (1x6) แผง"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7214,
+        "CA00126"
+      ],
+      "move_id": [
+        34528,
+        "SOB-263113/FG-PPR-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38418,
+      "product_id": [
+        8215,
+        "[FG-PSS-TH-01002] Poy-Sian Brand Mark II Inhaler  (Thai Label) 10*6 (5dz)( Each carton contains 20 units )"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7262,
+        "AA00726"
+      ],
+      "move_id": [
+        34529,
+        "SOB-263113/FG-PSS-TH-01002: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    },
+    {
+      "id": 38419,
+      "product_id": [
+        7973,
+        "[FG-PNF-TH-01001] Pim Saen Balm Oil (3cc Bottle) Thai Label 12*1\n(Each carton contains 72 dozen)"
+      ],
+      "location_id": [
+        36,
+        "M-WH/Stock/CARSALEU1"
+      ],
+      "location_dest_id": [
+        5,
+        "Partners/Customers"
+      ],
+      "quantity": 1.0,
+      "picked": true,
+      "lot_id": [
+        7250,
+        "FA00226"
+      ],
+      "move_id": [
+        34530,
+        "SOB-263113/FG-PNF-TH-01001: CARSALEU1>Customers"
+      ],
+      "picking_id": [
+        10997,
+        "M-WH/OUT/03821"
+      ]
+    }
+  ]
+}

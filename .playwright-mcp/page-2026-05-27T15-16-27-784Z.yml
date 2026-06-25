@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e7]
+        - generic [ref=e8]: Sales
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "To Invoice" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: To Invoice
+        - button "Products" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Products
+        - button "After-Sale Services" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: After-Sale Services
+        - button "Reporting" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: Reporting
+        - button "Configuration" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Configuration
+      - menu [ref=e22]:
+        - button "Attendance" [ref=e23] [cursor=pointer]:
+          - img "Attendance" [ref=e24]: 
+        - button "Open developer tools" [ref=e26] [cursor=pointer]:
+          - img "Open developer tools" [ref=e27]: 
+        - button "Messages 126" [ref=e29] [cursor=pointer]:
+          - img "Messages" [ref=e30]: 
+          - generic [ref=e31]: "126"
+        - button "Activities 54" [ref=e32] [cursor=pointer]:
+          - img "Activities" [ref=e33]: 
+          - generic [ref=e34]: "54"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e36]:
+          - text: 
+          - generic [ref=e37]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User Administrator  GoldMints_Uat_Manu" [ref=e39] [cursor=pointer]:
+          - img "User" [ref=e40]
+          - generic [ref=e41]:
+            - text: Administrator
+            - mark [ref=e42]:
+              - generic [ref=e43]: 
+              - text: GoldMints_Uat_Manu
+  - generic [ref=e45]: Loading (1)

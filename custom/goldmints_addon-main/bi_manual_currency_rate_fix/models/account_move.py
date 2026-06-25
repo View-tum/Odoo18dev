@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class AccountMove(models.Model):
@@ -43,3 +43,14 @@ class AccountMove(models.Model):
         if self and not self.company_id[:1].auto_reconcile_reversals:
             return reverse_moves
         return super()._reconcile_reversed_moves(reverse_moves, move_reverse_cancel)
+
+    @api.onchange('manual_currency_rate_active', 'currency_id')
+    def check_currency_id(self):
+        active_before = self.manual_currency_rate_active
+        rate_before = self.manual_currency_rate
+        res = super().check_currency_id()
+        if active_before and not self.manual_currency_rate_active:
+            if self.payment_id and self.payment_id.manual_currency_rate_active:
+                self.manual_currency_rate_active = active_before
+                self.manual_currency_rate = rate_before
+        return res

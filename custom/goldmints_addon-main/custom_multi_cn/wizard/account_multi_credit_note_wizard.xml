@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================== -->
+    <!--  Wizard Form View                                                    -->
+    <!-- ================================================================== -->
+    <record id="view_account_multi_credit_note_wizard" model="ir.ui.view">
+        <field name="name">account.multi.credit.note.form</field>
+        <field name="model">account.multi.credit.note</field>
+        <field name="arch" type="xml">
+            <form string="Create Consolidated Credit Note">
+
+                <!-- Bills Summary (read-only, shown at the top) -->
+                <group string="Selected Vendor Bills">
+                    <field name="vendor_name"
+                           string="Vendor"
+                           readonly="1"
+                           nolabel="0"/>
+                    <field name="total_amount"
+                           string="Combined Total"
+                           readonly="1"/>
+                    <!-- Bug 6 fix: use default Text widget (not widget="char")
+                         so newline-separated bill lines render correctly. -->
+                    <field name="bill_summary"
+                           string="Bills"
+                           readonly="1"
+                           nolabel="0"
+                           colspan="2"/>
+                </group>
+
+                <separator/>
+
+                <!-- CN Parameters -->
+                <group string="Credit Note Details">
+                    <field name="date"/>
+                    <field name="journal_id"
+                           options="{'no_create': True, 'no_open': True}"/>
+                    <field name="reason"/>
+                    <field name="company_id"
+                           readonly="1"
+                           groups="base.group_multi_company"/>
+                </group>
+
+                <!-- Tax Invoice (Thai localization — optional) -->
+                <group string="Tax Invoice (Optional)">
+                    <field name="tax_invoice_number"/>
+                    <field name="tax_invoice_date"/>
+                </group>
+
+                <footer>
+                    <button name="action_create_credit_note"
+                            string="Create Credit Note"
+                            type="object"
+                            class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================================================== -->
+    <!--  Server Action — bound to Vendor Bills list view                    -->
+    <!--                                                                      -->
+    <!--  NOTE: binding_domain does NOT exist on ir.actions.server in        -->
+    <!--  Odoo 18. Filtering is handled inside the code block below.         -->
+    <!-- ================================================================== -->
+    <record id="action_multi_credit_note_server" model="ir.actions.server">
+        <field name="name">Create Credit Note (Multi)</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+# Guard: silently do nothing if no records are selected
+active_ids = env.context.get('active_ids', [])
+if not active_ids:
+    raise UserError("Please select at least one Vendor Bill.")
+
+# Guard: abort early if any selected record is NOT a Vendor Bill (in_invoice).
+# This replaces binding_domain which is not available on ir.actions.server in Odoo 18.
+moves = env['account.move'].browse(active_ids)
+non_bills = moves.filtered(lambda m: m.move_type != 'in_invoice')
+if non_bills:
+    raise UserError(
+        "This action is only available for Vendor Bills.\n"
+        "The following selected records are not Vendor Bills:\n\n"
+        + '\n'.join(f"  • {m.name or str(m.id)}" for m in non_bills)
+    )
+
+ctx = {
+    'active_ids': active_ids,
+    'active_id':  env.context.get('active_id'),
+    'active_model': 'account.move',
+}
+wizard_model = env['account.multi.credit.note'].with_context(**ctx)
+# Bug 2 fix: include bill_ids so default_get persists bills on the wizard
+# record — the form view then reads from bill_ids instead of active_ids,
+# which may not survive the context round-trip to the Odoo 18 web client.
+defaults = wizard_model.default_get(
+    ['date', 'journal_id', 'reason', 'company_id', 'bill_ids']
+)
+wizard = wizard_model.create(defaults)
+action = wizard.action_open_wizard()
+        ]]></field>
+    </record>
+
+</odoo>

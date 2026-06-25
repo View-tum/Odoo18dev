@@ -14,11 +14,11 @@ class TaxReportWizard(models.TransientModel):
     tax_id = fields.Many2one(
         comodel_name="account.tax",
         string="Tax",
-        required=False, #2026-02-18 change from True to False
+        required=False,  # 2026-02-18 change from True to False
         domain=[
             ("tax_exigibility", "=", "on_invoice"),
             ("type_tax_use", "in", ["sale", "purchase"]),
-            ("include_base_amount", "=", False),
+            # ("include_base_amount", "=", False),
         ],
     )
 
@@ -45,8 +45,8 @@ class TaxReportWizard(models.TransientModel):
             "date_to": self.date_to,
             "tax_id": self.tax_id.id,
             "show_cancel": self.show_cancel,
-            #2026-02-18 add new param
-            "so_type_id" : self.so_type_id,
+            # 2026-02-18 add new param
+            "so_type_id": self.so_type_id,
         }
 
     def _get_report_name(self, report_type):

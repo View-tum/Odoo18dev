@@ -1,0 +1,240 @@
+{
+  "mos": [
+    {
+      "id": 957,
+      "name": "GMP/MOPL/00195",
+      "state": "confirmed",
+      "origin": "CODex E2E 1689 skip pair 1",
+      "product_id": [
+        8298,
+        "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู"
+      ],
+      "product_qty": 30000.0,
+      "date_start": "2026-07-17 08:00:00",
+      "move_raw_ids": [
+        34447,
+        34448
+      ],
+      "picking_ids": [
+        10981
+      ],
+      "manufacturing_type": "plastic"
+    },
+    {
+      "id": 958,
+      "name": "GMP/MOPL/00196",
+      "state": "confirmed",
+      "origin": "CODex E2E 1689 skip pair 2",
+      "product_id": [
+        8298,
+        "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู"
+      ],
+      "product_qty": 30000.0,
+      "date_start": "2026-07-17 08:00:00",
+      "move_raw_ids": [
+        34452,
+        34453
+      ],
+      "picking_ids": [
+        10982
+      ],
+      "manufacturing_type": "plastic"
+    }
+  ],
+  "raw": [
+    {
+      "id": 34447,
+      "product_id": [
+        8363,
+        "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+      ],
+      "product_uom_qty": 28.16,
+      "quantity": 28.16,
+      "state": "assigned",
+      "picking_id": false,
+      "raw_material_production_id": [
+        957,
+        "GMP/MOPL/00195"
+      ],
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        9,
+        "GMP: Stock → Production (MTO)"
+      ]
+    },
+    {
+      "id": 34448,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.0,
+      "state": "confirmed",
+      "picking_id": false,
+      "raw_material_production_id": [
+        957,
+        "GMP/MOPL/00195"
+      ],
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        9,
+        "GMP: Stock → Production (MTO)"
+      ]
+    },
+    {
+      "id": 34452,
+      "product_id": [
+        8363,
+        "[RM-PLA-PP-00001] เม็ดพลาสติก HP648N 750KG"
+      ],
+      "product_uom_qty": 28.16,
+      "quantity": 28.16,
+      "state": "assigned",
+      "picking_id": false,
+      "raw_material_production_id": [
+        958,
+        "GMP/MOPL/00196"
+      ],
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        9,
+        "GMP: Stock → Production (MTO)"
+      ]
+    },
+    {
+      "id": 34453,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.0,
+      "state": "confirmed",
+      "picking_id": false,
+      "raw_material_production_id": [
+        958,
+        "GMP/MOPL/00196"
+      ],
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        9,
+        "GMP: Stock → Production (MTO)"
+      ]
+    }
+  ],
+  "pickings": [
+    {
+      "id": 10981,
+      "name": "GMP/TRPL/00071",
+      "state": "assigned",
+      "origin": "GMP/MOPL/00195",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "manufacturing_type": "plastic",
+      "move_ids_without_package": [
+        34457
+      ],
+      "production_ids": [
+        957
+      ],
+      "group_id": [
+        7477,
+        "GMP/MOPL/00195"
+      ]
+    },
+    {
+      "id": 10982,
+      "name": "GMP/TRPL/00072",
+      "state": "assigned",
+      "origin": "GMP/MOPL/00196",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "manufacturing_type": "plastic",
+      "move_ids_without_package": [
+        34458
+      ],
+      "production_ids": [
+        958
+      ],
+      "group_id": [
+        7478,
+        "GMP/MOPL/00196"
+      ]
+    }
+  ],
+  "picking_moves": [
+    {
+      "id": 34457,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.41,
+      "state": "assigned",
+      "picking_id": [
+        10981,
+        "GMP/TRPL/00071"
+      ],
+      "raw_material_production_id": false,
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        140,
+        "Transfer RM (copy) (Plastic)"
+      ]
+    },
+    {
+      "id": 34458,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.41,
+      "state": "assigned",
+      "picking_id": [
+        10982,
+        "GMP/TRPL/00072"
+      ],
+      "raw_material_production_id": false,
+      "move_orig_ids": [],
+      "move_dest_ids": [],
+      "procure_method": "make_to_stock",
+      "rule_id": [
+        140,
+        "Transfer RM (copy) (Plastic)"
+      ]
+    }
+  ]
+}

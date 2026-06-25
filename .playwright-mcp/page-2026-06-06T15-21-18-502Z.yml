@@ -1,0 +1,98 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e142] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Project" [ref=e143]
+        - generic [ref=e144]: Project
+      - menu [ref=e145]:
+        - menuitem "Projects" [ref=e146] [cursor=pointer]
+        - button "Tasks" [ref=e147] [cursor=pointer]:
+          - generic [ref=e148]: Tasks
+        - button "Reporting" [ref=e149] [cursor=pointer]:
+          - generic [ref=e150]: Reporting
+        - button "Configuration" [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 48" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "48"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e20]:
+          - text: 
+          - generic [ref=e21]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e153]:
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - button "New" [ref=e159] [cursor=pointer]
+        - generic [ref=e160]:
+          - generic [ref=e162]: Projects
+          - button "" [ref=e166] [cursor=pointer]:
+            - generic [ref=e167]: 
+      - search [ref=e169]:
+        - search [ref=e170]:
+          - button "Search..." [ref=e171] [cursor=pointer]:
+            - img [ref=e172]: 
+          - searchbox "Search..." [active] [ref=e174]
+        - button "" [ref=e175] [cursor=pointer]
+      - generic [ref=e176]:
+        - search [ref=e177]:
+          - navigation "Pager" [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]: 1-2
+              - text: / 2
+            - generic [ref=e181]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+        - navigation [ref=e182]:
+          - button "" [ref=e183] [cursor=pointer]:
+            - generic [ref=e184]: 
+          - button "" [ref=e185] [cursor=pointer]:
+            - generic [ref=e186]: 
+    - generic [ref=e188]:
+      - article [ref=e189] [cursor=pointer]:
+        - generic [ref=e190]:
+          - link "Add to Favorites" [ref=e193]:
+            - /url: "#"
+            - img "Add to Favorites" [ref=e194]: 
+          - generic "Backlog" [ref=e196]
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - link "0Tasks" [ref=e200]:
+              - /url: "#"
+              - generic [ref=e201]: 0Tasks
+            - button "Show activities" [ref=e203]:
+              - img [ref=e204]: 
+          - generic [ref=e205]:
+            - img [ref=e209]
+            - button [ref=e211]
+      - article [ref=e214] [cursor=pointer]:
+        - generic [ref=e215]:
+          - link "Add to Favorites" [ref=e218]:
+            - /url: "#"
+            - img "Add to Favorites" [ref=e219]: 
+          - generic "Defects List" [ref=e221]
+        - generic [ref=e222]:
+          - generic [ref=e223]:
+            - link "115Tasks" [ref=e225]:
+              - /url: "#"
+              - generic [ref=e226]: 115Tasks
+            - button "Show activities" [ref=e228]:
+              - img [ref=e229]: 
+          - generic [ref=e230]:
+            - img [ref=e234]
+            - button [ref=e236]:
+              - generic "At Risk" [ref=e237]

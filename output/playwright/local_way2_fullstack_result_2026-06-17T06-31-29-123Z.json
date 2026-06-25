@@ -1,0 +1,116 @@
+{
+  "runId": "LOCAL-WAY2-2026-06-17T06-31-29-123Z",
+  "startedAt": "2026-06-17T06:31:29.124Z",
+  "backend": {
+    "uid": 2
+  },
+  "frontend": {},
+  "chatter": [
+    {
+      "at": "2026-06-17T06:31:35.562Z",
+      "target": "GMP/MOPL/00817",
+      "body": "[LOCAL-WAY2-2026-06-17T06-31-29-123Z] Created first MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:31:35.636Z",
+      "target": "GMP/MOPL/00818",
+      "body": "[LOCAL-WAY2-2026-06-17T06-31-29-123Z] Created second MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:31:35.706Z",
+      "target": "First Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-31-29-123Z] Created first internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:31:35.782Z",
+      "target": "Second Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-31-29-123Z] Created second internal transfer before merge."
+    }
+  ],
+  "screenshots": [],
+  "assertions": [
+    {
+      "name": "existing product is available",
+      "pass": true,
+      "details": {
+        "productId": 8298
+      }
+    },
+    {
+      "name": "existing BOM is available",
+      "pass": true,
+      "details": {
+        "bomId": 2952
+      }
+    },
+    {
+      "name": "Manufacturing Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "Transfer Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "both MOs confirmed",
+      "pass": true,
+      "details": {
+        "firstMo": {
+          "id": 2686,
+          "name": "GMP/MOPL/00817",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63269,
+            63270
+          ]
+        },
+        "secondMo": {
+          "id": 2687,
+          "name": "GMP/MOPL/00818",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63274,
+            63275
+          ]
+        }
+      }
+    },
+    {
+      "name": "first MO has raw move",
+      "pass": true,
+      "details": {
+        "firstMo": "GMP/MOPL/00817"
+      }
+    },
+    {
+      "name": "second MO has raw move",
+      "pass": true,
+      "details": {
+        "secondMo": "GMP/MOPL/00818"
+      }
+    },
+    {
+      "name": "merge target is first picking",
+      "pass": true,
+      "details": {
+        "targetPickingId": 16971,
+        "firstPickingId": 16971
+      }
+    },
+    {
+      "name": "merge consolidated to one stock move",
+      "pass": false,
+      "details": {
+        "moveIds": [
+          63279,
+          63280
+        ]
+      }
+    }
+  ],
+  "finishedAt": "2026-06-17T06:31:36.124Z",
+  "status": "failed",
+  "error": "Error: Assertion failed: merge consolidated to one stock move {\"moveIds\":[63279,63280]}\n    at assertCheck (C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:39:11)\n    at createScenario (C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:251:3)\n    at async C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:406:22"
+}

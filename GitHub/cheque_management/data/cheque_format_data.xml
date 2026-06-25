@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <!-- Standard Cheque Format -->
+      <record id="standerd_cheque_format" model="dynamic.cheque">
+            <field name="name">Standard Cheque</field>
+            <field name="cheque_hight"> 362.88 </field>
+            <field name="cheque_width"> 720 </field>
+            <field name="ac_top_margin"> 20 </field>
+            <field name="ac_left_margin"> 40 </field>
+            <field name="ac_font_size"> 22 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 100 </field>
+            <field name="left_margin"> 600 </field>
+            <field name="font_size"> 24 </field>
+            <field name="char_spacing"> 12 </field>
+            <field name="payee_top_margin"> 20 </field>
+            <field name="payee_left_margin"> 40 </field>
+            <field name="payee_width"> 30 </field>
+            <field name="payee_font_size"> 22 </field>
+            <field name="af_top_margin"> 10 </field>
+            <field name="af_left_margin"> 10 </field>
+            <field name="af_width"> 20 </field>
+            <field name="af_font_size"> 18 </field>
+            <field name="fl_top_margin"> 20 </field>
+            <field name="fl_left_margin"> 40 </field>
+            <field name="fl_width"> 20 </field>
+            <field name="words_in_fl_line"> 35 </field>
+            <field name="sc_top_margin"> 20 </field>
+            <field name="sc_left_margin"> 40 </field>
+            <field name="sc_width"> 00 </field>
+            <field name="words_in_sc_line"> 60 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="sc_currency_name"> True </field>
+            <field name="comapny_name"> True </field>
+            <field name="comp_font_size"> 24 </field>
+            <field name="comp_top_margin"> 20 </field>
+            <field name="comp_left_margin"> 40 </field>
+            <field name="sb_width"> 100 </field>
+            <field name="sb_hight"> 30 </field>
+            <field name="sb_top_margin"> 20 </field>
+            <field name="sb_left_margin"> 20 </field>
+      </record>
+
+      <!-- UOB Cheque Format -->
+      <record id="uob_cheque_format" model="dynamic.cheque">
+            <field name="name">UOB</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 190.39 </field>
+            <field name="oa_left_margin"> 570.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 2.8 </field>
+            <field name="ac_left_margin"> 365.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 8.00 </field>
+            <field name="left_margin"> 630 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">70</field>
+            <field name="payee_left_margin"> 100 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 200 </field>
+            <field name="fl_top_margin"> 119.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 0 </field>
+            <field name="sc_top_margin"> 35.63 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 65 </field>
+            <field name="words_in_sc_line"> 100 </field>
+      </record>
+
+      <!-- KTB Cheque Format -->
+      <record id="ktb_cheque_format" model="dynamic.cheque">
+      	<field name="name">KTB</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 195.39 </field>
+            <field name="oa_left_margin"> 560.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 2.8 </field>
+            <field name="ac_left_margin"> 295.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 12.00 </field>
+            <field name="left_margin"> 610 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">107.15</field>
+            <field name="payee_left_margin"> 85.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 115.98 </field>
+            <field name="fl_top_margin"> 154.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 0 </field>
+            <field name="sc_top_margin"> 30.63 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 40 </field>
+            <field name="words_in_sc_line"> 100 </field>
+      </record>
+
+      <!-- K Bank Cheque Format -->
+      <record id="kbank_cheque_format" model="dynamic.cheque">
+      	<field name="name">K Bank</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 215.39 </field>
+            <field name="oa_left_margin"> 610.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 15.8 </field>
+            <field name="ac_left_margin"> 250.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 12.5 </field>
+            <field name="left_margin"> 680 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 23 </field>
+            <field name="payee_top_margin">120.15</field>
+            <field name="payee_left_margin"> 130.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 130.98 </field>
+            <field name="fl_top_margin"> 165.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 175.18 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+      <!-- BBL Cheque Format -->
+      <record id="bbl_cheque_format" model="dynamic.cheque">
+            <field name="name">BBL</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 195 </field>
+            <field name="oa_left_margin"> 588.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 15.8 </field>
+            <field name="ac_left_margin"> 240.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 9.00 </field>
+            <field name="left_margin"> 630 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">89.15</field>
+            <field name="payee_left_margin"> 35.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 65.98 </field>
+            <field name="fl_top_margin"> 145.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 183.18 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+      <!-- TTB Cheque Format -->
+      <record id="ttb_cheque_format" model="dynamic.cheque">
+            <field name="name">TTB</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 195 </field>
+            <field name="oa_left_margin"> 588.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 4.8 </field>
+            <field name="ac_left_margin"> 160.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 12.50 </field>
+            <field name="left_margin"> 630.00 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">100.15</field>
+            <field name="payee_left_margin"> 70.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 65.98 </field>
+            <field name="fl_top_margin"> 145.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 179.18 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+      <!-- BAY Cheque Format -->
+      <record id="bay_cheque_format" model="dynamic.cheque">
+      	<field name="name">BAY</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 195.39 </field>
+            <field name="oa_left_margin"> 605.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 25 </field>
+            <field name="ac_left_margin"> 170 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 29.50 </field>
+            <field name="left_margin"> 655 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">103.15</field>
+            <field name="payee_left_margin"> 135.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 140.98 </field>
+            <field name="fl_top_margin"> 156.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 184.63 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+      <!-- SCB Cheque Format -->
+      <record id="scb_cheque_format" model="dynamic.cheque">
+            <field name="name">SCB</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 203.39 </field>
+            <field name="oa_left_margin"> 568.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 55 </field>
+            <field name="ac_left_margin"> 170 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 12.50 </field>
+            <field name="left_margin"> 630 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 22 </field>
+            <field name="payee_top_margin">99.15</field>
+            <field name="payee_left_margin"> 110.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size"> 18 </field>
+            <field name="fl_left_margin"> 140.98 </field>
+            <field name="fl_top_margin"> 145.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 181.18 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+      <!-- GSB Cheque Format -->
+      <record id="gsb_cheque_format" model="dynamic.cheque">
+            <field name="name">GSB</field>
+            <field name="cheque_hight"> 90 </field>
+            <field name="cheque_width"> 175 </field>
+            <field name="is_origin_amount"> True </field>
+            <field name="oa_top_margin"> 185.39 </field>
+            <field name="oa_left_margin"> 540.98 </field>
+            <field name="oa_font_size"> 22 </field>
+            <field name="ac_top_margin"> 15.8 </field>
+            <field name="ac_left_margin"> 200.16 </field>
+            <field name="ac_font_size"> 30 </field>
+            <field name="ac_color"> Red </field>
+            <field name="top_margin"> 4.00 </field>
+            <field name="left_margin"> 630.98 </field>
+            <field name="font_size"> 20 </field>
+            <field name="char_spacing"> 12 </field>
+            <field name="payee_top_margin">85.15</field>
+            <field name="payee_left_margin"> 150.59 </field>
+            <field name="payee_font_size"> 18 </field>
+            <field name="sc_font_size">  18  </field>
+            <field name="fl_left_margin"> 120.98 </field>
+            <field name="fl_top_margin"> 139.39 </field>
+            <field name="fl_width"> 0 </field>
+            <field name="sc_left_margin"> 73.15 </field>
+            <field name="sc_top_margin"> 174.18 </field>
+            <field name="sc_width"> 0 </field>
+            <field name="words_in_fl_line"> 100 </field>
+      </record>
+
+</odoo>

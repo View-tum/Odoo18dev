@@ -1,0 +1,12 @@
+<odoo>
+	<record id="view_bank_statement_line_form_reconciliation_cheque" model="ir.ui.view">
+		<field name="name">account.bank.statement.line.form.reconciliation.cheque</field>
+		<field name="model">account.bank.statement.line</field>
+		<field name="inherit_id" ref="oi_bank_reconciliation.view_bank_statement_line_form_reconciliation" />
+		<field name="arch" type="xml">
+			<field name="matched_move_line_ids" position="attributes">
+				<attribute name="domain">[('parent_state','=', 'posted'), ('reconciled','=', False), ('payment_id','=', False), ('amount_residual','!=', 0), ('statement_id','=', False), ('move_id.status', 'not in', ['void', 'transform', 'cancel']), ('account_id','not in', [journal_id.default_account_id, journal_id.suspense_account_id])]</attribute>
+			</field>
+		</field>
+	</record>
+</odoo>

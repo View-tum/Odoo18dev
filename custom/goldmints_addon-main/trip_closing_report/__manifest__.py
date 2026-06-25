@@ -23,6 +23,8 @@
         "account",  
         "stock",
         "hr",
+        "cheque_management",
+        "cheque_partner_info",
     ],
     "assets": {
         "web.report_assets_common": [

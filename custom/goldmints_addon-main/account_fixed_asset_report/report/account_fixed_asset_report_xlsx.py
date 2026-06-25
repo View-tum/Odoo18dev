@@ -1,5 +1,6 @@
 import io
 import xlsxwriter
+from datetime import datetime
 
 
 class AccountFixedAssetReportXlsx:
@@ -121,3 +122,129 @@ class AccountFixedAssetReportXlsx:
                 }
             ),
         }
+
+
+class AccountAssetTransactionXlsx:
+    def generate_excel(self, asset_data):
+        output = io.BytesIO()
+        workbook = xlsxwriter.Workbook(output, {"in_memory": True})
+        self._write_sheet(workbook, asset_data)
+        workbook.close()
+        output.seek(0)
+        return output.read()
+
+    def _write_sheet(self, workbook, asset_data):
+        worksheet = workbook.add_worksheet("Fixed Asset Transactions")
+
+        worksheet.set_column("A:A", 24)  # Column A
+        worksheet.set_column("B:B", 18)  # Column B
+        worksheet.set_column("C:C", 73)  # Column C
+        worksheet.set_column("D:D", 24)  # Column D
+        worksheet.set_column("E:E", 15)  # Column E
+        worksheet.set_column("F:F", 12)  # Column F
+        worksheet.set_column("G:G", 27)  # Column G
+        worksheet.set_column("H:H", 13)  # Column H
+        worksheet.set_column("I:I", 15)  # Column I
+
+        # กำหนด Formats ตาม Font Angsana New ขนาด 16 เป็นอย่างน้อย
+        base_style = {"font_name": "Angsana New", "font_size": 16}
+        header_style = workbook.add_format({**base_style, "bold": True})
+        date_style = workbook.add_format({**base_style, "num_format": "dd/mm/yyyy"})
+        amount_style = workbook.add_format({**base_style, "num_format": "#,##0.00"})
+        normal_style = workbook.add_format(base_style)
+
+        # สไตล์สำหรับ Header (หนา + เส้นล่าง)
+        header_bottom_style = workbook.add_format(
+            {**base_style, "bold": True, "bottom": 1}
+        )
+        # สไตล์สำหรับข้อมูลทั่วไป (เส้นล่าง)
+        normal_bottom_style = workbook.add_format({**base_style, "bottom": 1})
+        # สไตล์สำหรับวันที่/ตัวเลข (เส้นล่าง)
+        amount_bottom_style = workbook.add_format(
+            {**base_style, "bottom": 1, "num_format": "#,##0.00"}
+        )
+
+        # A1 & I1: Header ข้อมูลปัจจุบัน
+        now = datetime.now()
+        worksheet.write("A1", "Fixed asset transactions", header_style)
+        worksheet.write("I1", f"Date: {now.strftime('%d/%m/%Y')}", normal_style)
+
+        # A2 & I2: ข้อมูลบริษัทและเวลา
+        worksheet.write("A2", "GOLD MINTS PRODUCTS CO., LTD.", header_style)
+        worksheet.write("I2", f"Time: {now.strftime('%H:%M:%S')}", normal_style)
+
+        row = 3
+        for asset in asset_data:
+            # Row 3 & 4: ข้อมูลหลักของ Asset
+            # worksheet.write(row, 0, "Fixed asset", header_style)  # A3
+            # row += 1
+
+            headers_4 = [
+                "Fixed asset group",
+                "Fixed asset number",
+                "Name",
+                "Book",
+                "Book type",
+                "Status",
+                "Location",
+                "Acquisition",
+                "Net book value",
+            ]
+            for col, text in enumerate(headers_4):
+                # worksheet.write(row, col, text, header_style)
+                worksheet.write(row, col, text, header_bottom_style)
+            row += 1
+
+            # ข้อมูล Row 5 (ดึงจาก account.asset)
+            worksheet.write(row, 0, asset.get("group", ""), normal_style)
+            worksheet.write(row, 1, asset.get("number", ""), normal_style)
+            worksheet.write(row, 2, asset.get("name", ""), normal_style)
+            worksheet.write(row, 3, asset.get("book", ""), normal_style)
+            worksheet.write(row, 4, asset.get("book_type", ""), normal_style)
+            worksheet.write(row, 5, asset.get("status", ""), normal_style)
+            worksheet.write(row, 6, asset.get("location", ""), normal_style)
+            worksheet.write(row, 7, asset.get("acquisition", ""), amount_style)
+            worksheet.write(row, 8, asset.get("net_book_value", 0), amount_style)
+            row += 2  # เว้นบรรทัดก่อนขึ้น Transaction
+
+            # Row 6: ข้อมูล Transactions (ดึงจาก account.move)
+            headers_6 = [
+                "",
+                "Transaction date",
+                "Voucher",
+                "Description",
+                "Transaction type",
+                "Amount",
+                "Amount in transaction currency",
+                "Currency",
+            ]
+            for col, text in enumerate(headers_6):
+                if text:
+                    # worksheet.write(row, col, text, header_style)
+                    worksheet.write(row, col, text, header_bottom_style)
+            row += 1
+
+            worksheet.write(row, 1, asset.get("acquisition_date", ""), date_style)
+            worksheet.write(row, 5, asset.get("acquisition", 0), amount_style)
+            worksheet.write(row, 6, asset.get("acquisition", 0), amount_style)
+            worksheet.write(row, 7, asset.get("currency", ""), normal_style)
+            row += 1
+
+            for line in asset.get("transactions", []):
+                worksheet.write(row, 1, line.get("date", ""), date_style)
+                worksheet.write(row, 2, line.get("voucher", ""), normal_style)
+                worksheet.write(row, 3, line.get("description", ""), normal_style)
+                worksheet.write(row, 4, line.get("type", ""), normal_style)
+                worksheet.write(row, 5, line.get("amount", 0), amount_style)
+                worksheet.write(row, 6, line.get("amount_curr", 0), amount_style)
+                worksheet.write(row, 7, line.get("currency", ""), normal_style)
+                row += 1
+
+            acquisition_val = asset.get("acquisition", 0)
+            sum_transactions = sum(
+                t.get("amount", 0) for t in asset.get("transactions", [])
+            )
+            total_net_value = acquisition_val + sum_transactions
+            worksheet.write(row, 1, "Total", header_style)
+            worksheet.write(row, 5, total_net_value, amount_style)
+            row += 2

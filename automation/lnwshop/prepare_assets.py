@@ -8,12 +8,12 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
-from PIL import Image, ImageChops, ImageEnhance, ImageFilter
+from PIL import Image, ImageChops, ImageEnhance
 
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_EXCEL = ROOT / "output" / "spreadsheet" / "IMOU_LnwShop_AI_ready.xlsx"
-WATERMARK = Path(__file__).resolve().parent / "สำเนาของ watermark (15).png"
+WATERMARK = Path(__file__).resolve().parent / "watermark_current_transparent_hq.png"
 WATERMARKED_DIR = ROOT / "output" / "spreadsheet" / "imou_product_images_watermarked"
 WATERMARKED_EXCEL = ROOT / "output" / "spreadsheet" / "IMOU_LnwShop_AI_ready_watermarked.xlsx"
 CATEGORY_EXCEL = ROOT / "output" / "spreadsheet" / "IMOU_LnwShop_categories.xlsx"
@@ -35,7 +35,7 @@ def crop_watermark(mark: Image.Image) -> Image.Image:
     for y in range(rgba.height):
         for x in range(rgba.width):
             r, g, b, a = pixels[x, y]
-            if a < 8 or (r > 245 and g > 245 and b > 245):
+            if a < 8 or (r >= 253 and g >= 253 and b >= 253):
                 data.append((255, 255, 255, 0))
             else:
                 data.append((r, g, b, a))
@@ -57,7 +57,8 @@ def strengthen_watermark(mark: Image.Image) -> Image.Image:
             if a < 8:
                 data.append((255, 255, 255, 0))
                 continue
-            data.append((int(r * 0.58), int(g * 0.58), int(b * 0.58), min(255, max(a, 235))))
+            boosted_alpha = 255 if a >= 120 else min(255, int(a * 1.65))
+            data.append((r, g, b, boosted_alpha))
     boosted = Image.new("RGBA", rgba.size)
     boosted.putdata(data)
     return boosted
@@ -80,18 +81,12 @@ def apply_watermark(image_path: Path, out_path: Path, mark: Image.Image) -> None
 
         resized = mark.resize((target_w, target_h), Image.Resampling.LANCZOS)
         alpha = resized.getchannel("A")
-        alpha = ImageEnhance.Brightness(alpha).enhance(1.00)
+        alpha = ImageEnhance.Brightness(alpha).enhance(1.35)
         resized.putalpha(alpha)
 
         pad = max(4, int(min(base_w, base_h) * 0.04))
         x = max(pad, base_w - target_w - pad)
         y = max(pad, base_h - target_h - pad)
-        shadow_alpha = alpha.filter(ImageFilter.GaussianBlur(max(1, int(min(base_w, base_h) * 0.012))))
-        shadow_alpha = ImageEnhance.Brightness(shadow_alpha).enhance(0.40)
-        shadow = Image.new("RGBA", resized.size, (0, 0, 0, 0))
-        shadow.putalpha(shadow_alpha)
-        offset = max(1, int(min(base_w, base_h) * 0.012))
-        base.alpha_composite(shadow, (min(base_w - target_w, x + offset), min(base_h - target_h, y + offset)))
         base.alpha_composite(resized, (x, y))
 
         out_path.parent.mkdir(parents=True, exist_ok=True)

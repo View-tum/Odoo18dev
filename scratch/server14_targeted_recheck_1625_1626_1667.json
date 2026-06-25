@@ -1,0 +1,930 @@
+{
+  "generated_at": "2026-06-06T22:19:30.616503",
+  "checks": {
+    "1625": {
+      "reports": [],
+      "menus": [
+        {
+          "id": 61,
+          "name": "Users",
+          "complete_name": "Settings/Users & Companies/Users",
+          "action": "ir.actions.act_window,70"
+        },
+        {
+          "id": 67,
+          "name": "General Settings",
+          "complete_name": "Settings/General Settings",
+          "action": "ir.actions.act_window,85"
+        },
+        {
+          "id": 152,
+          "name": "Settings",
+          "complete_name": "Accounting/Configuration/Settings",
+          "action": "ir.actions.act_window,297"
+        },
+        {
+          "id": 259,
+          "name": "Challenges",
+          "complete_name": "Settings/Gamification Tools/Challenges",
+          "action": "ir.actions.act_window,398"
+        },
+        {
+          "id": 319,
+          "name": "Settings",
+          "complete_name": "Employees/Configuration/Settings",
+          "action": "ir.actions.act_window,454"
+        },
+        {
+          "id": 342,
+          "name": "Settings",
+          "complete_name": "Email Marketing/Configuration/Settings",
+          "action": "ir.actions.act_window,491"
+        },
+        {
+          "id": 361,
+          "name": "Settings",
+          "complete_name": "Project/Configuration/Settings",
+          "action": "ir.actions.act_window,524"
+        },
+        {
+          "id": 407,
+          "name": "Settings",
+          "complete_name": "CRM/Configuration/Settings",
+          "action": "ir.actions.act_window,590"
+        },
+        {
+          "id": 421,
+          "name": "Lead Mining Requests",
+          "complete_name": "CRM/Configuration/Lead Generation/Lead Mining Requests",
+          "action": "ir.actions.act_window,606"
+        },
+        {
+          "id": 453,
+          "name": "Overview",
+          "complete_name": "Inventory/Overview",
+          "action": "ir.actions.act_window,684"
+        },
+        {
+          "id": 462,
+          "name": "Settings",
+          "complete_name": "Inventory/Configuration/Settings",
+          "action": "ir.actions.act_window,700"
+        },
+        {
+          "id": 514,
+          "name": "Requests for Quotation",
+          "complete_name": "Purchase/Orders/Requests for Quotation",
+          "action": "ir.actions.act_window,766"
+        },
+        {
+          "id": 516,
+          "name": "Settings",
+          "complete_name": "Purchase/Configuration/Settings",
+          "action": "ir.actions.act_window,775"
+        },
+        {
+          "id": 539,
+          "name": "Settings",
+          "complete_name": "Manufacturing/Configuration/Settings",
+          "action": "ir.actions.act_window,832"
+        },
+        {
+          "id": 570,
+          "name": "Expenses Analysis",
+          "complete_name": "Expenses/Reporting/Expenses Analysis",
+          "action": "ir.actions.act_window,894"
+        },
+        {
+          "id": 575,
+          "name": "Settings",
+          "complete_name": "Expenses/Configuration/Settings",
+          "action": "ir.actions.act_window,906"
+        },
+        {
+          "id": 577,
+          "name": "Documents",
+          "complete_name": "Documents/Documents",
+          "action": "ir.actions.act_window,916"
+        },
+        {
+          "id": 607,
+          "name": "Dashboard",
+          "complete_name": "Maintenance/Dashboard",
+          "action": "ir.actions.act_window,1014"
+        },
+        {
+          "id": 622,
+          "name": "Settings",
+          "complete_name": "Maintenance/Configuration/Settings",
+          "action": "ir.actions.act_window,1016"
+        },
+        {
+          "id": 641,
+          "name": "Helpdesk Teams",
+          "complete_name": "Helpdesk/Configuration/Helpdesk Teams",
+          "action": "ir.actions.act_window,1052"
+        }
+      ],
+      "actions": [],
+      "status": "PASS"
+    },
+    "1626": {
+      "reports": [],
+      "menus": [
+        {
+          "id": 61,
+          "name": "Users",
+          "complete_name": "Settings/Users & Companies/Users",
+          "action": "ir.actions.act_window,70"
+        },
+        {
+          "id": 67,
+          "name": "General Settings",
+          "complete_name": "Settings/General Settings",
+          "action": "ir.actions.act_window,85"
+        },
+        {
+          "id": 152,
+          "name": "Settings",
+          "complete_name": "Accounting/Configuration/Settings",
+          "action": "ir.actions.act_window,297"
+        },
+        {
+          "id": 259,
+          "name": "Challenges",
+          "complete_name": "Settings/Gamification Tools/Challenges",
+          "action": "ir.actions.act_window,398"
+        },
+        {
+          "id": 319,
+          "name": "Settings",
+          "complete_name": "Employees/Configuration/Settings",
+          "action": "ir.actions.act_window,454"
+        },
+        {
+          "id": 342,
+          "name": "Settings",
+          "complete_name": "Email Marketing/Configuration/Settings",
+          "action": "ir.actions.act_window,491"
+        },
+        {
+          "id": 361,
+          "name": "Settings",
+          "complete_name": "Project/Configuration/Settings",
+          "action": "ir.actions.act_window,524"
+        },
+        {
+          "id": 407,
+          "name": "Settings",
+          "complete_name": "CRM/Configuration/Settings",
+          "action": "ir.actions.act_window,590"
+        },
+        {
+          "id": 421,
+          "name": "Lead Mining Requests",
+          "complete_name": "CRM/Configuration/Lead Generation/Lead Mining Requests",
+          "action": "ir.actions.act_window,606"
+        },
+        {
+          "id": 453,
+          "name": "Overview",
+          "complete_name": "Inventory/Overview",
+          "action": "ir.actions.act_window,684"
+        },
+        {
+          "id": 462,
+          "name": "Settings",
+          "complete_name": "Inventory/Configuration/Settings",
+          "action": "ir.actions.act_window,700"
+        },
+        {
+          "id": 514,
+          "name": "Requests for Quotation",
+          "complete_name": "Purchase/Orders/Requests for Quotation",
+          "action": "ir.actions.act_window,766"
+        },
+        {
+          "id": 516,
+          "name": "Settings",
+          "complete_name": "Purchase/Configuration/Settings",
+          "action": "ir.actions.act_window,775"
+        },
+        {
+          "id": 539,
+          "name": "Settings",
+          "complete_name": "Manufacturing/Configuration/Settings",
+          "action": "ir.actions.act_window,832"
+        },
+        {
+          "id": 570,
+          "name": "Expenses Analysis",
+          "complete_name": "Expenses/Reporting/Expenses Analysis",
+          "action": "ir.actions.act_window,894"
+        },
+        {
+          "id": 575,
+          "name": "Settings",
+          "complete_name": "Expenses/Configuration/Settings",
+          "action": "ir.actions.act_window,906"
+        },
+        {
+          "id": 577,
+          "name": "Documents",
+          "complete_name": "Documents/Documents",
+          "action": "ir.actions.act_window,916"
+        },
+        {
+          "id": 607,
+          "name": "Dashboard",
+          "complete_name": "Maintenance/Dashboard",
+          "action": "ir.actions.act_window,1014"
+        },
+        {
+          "id": 622,
+          "name": "Settings",
+          "complete_name": "Maintenance/Configuration/Settings",
+          "action": "ir.actions.act_window,1016"
+        },
+        {
+          "id": 641,
+          "name": "Helpdesk Teams",
+          "complete_name": "Helpdesk/Configuration/Helpdesk Teams",
+          "action": "ir.actions.act_window,1052"
+        }
+      ],
+      "actions": [],
+      "status": "PASS"
+    },
+    "1667": {
+      "fields": {
+        "vendor_credit_note_ids": {
+          "relation": "account.move",
+          "string": "Vendor Credit Notes",
+          "type": "many2many"
+        },
+        "vendor_credit_note_count": {
+          "string": "Vendor Credit Note Count",
+          "type": "integer"
+        },
+        "vendor_credit_note_state": {
+          "string": "Vendor Credit Note Status",
+          "type": "selection"
+        }
+      },
+      "credit_notes_with_return_picking": [],
+      "pickings_with_credit_note_count": [
+        {
+          "id": 10815,
+          "name": "GMP/STOR/00101",
+          "state": "cancel",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": "SERVER14-E2E-MERGE-DEPLOY",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10814,
+          "name": "GMP/STOR/00100",
+          "state": "confirmed",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": "SERVER14-E2E-MERGE-DEPLOY, GMP/STOR/00100, GMP/STOR/00101",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10810,
+          "name": "GMP/PRO/00026",
+          "state": "assigned",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10805,
+          "name": "M-WH/OUT/03772",
+          "state": "done",
+          "picking_type_id": [
+            17,
+            "Mobile Warehouse: Delivery Orders"
+          ],
+          "origin": "SOD-263080",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10804,
+          "name": "M-WH/OUT/03771",
+          "state": "done",
+          "picking_type_id": [
+            17,
+            "Mobile Warehouse: Delivery Orders"
+          ],
+          "origin": "SOD-263079",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10803,
+          "name": "M-WH/OUT/03770",
+          "state": "done",
+          "picking_type_id": [
+            17,
+            "Mobile Warehouse: Delivery Orders"
+          ],
+          "origin": "SOD-263078",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10802,
+          "name": "M-WH/OUT/03769",
+          "state": "done",
+          "picking_type_id": [
+            17,
+            "Mobile Warehouse: Delivery Orders"
+          ],
+          "origin": "SOD-263077",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10801,
+          "name": "M-WH/OUT/03768",
+          "state": "done",
+          "picking_type_id": [
+            17,
+            "Mobile Warehouse: Delivery Orders"
+          ],
+          "origin": "SOD-263076",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10798,
+          "name": "GMP/PRO/00019",
+          "state": "done",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10797,
+          "name": "GMP/PRO/00018",
+          "state": "done",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10796,
+          "name": "GMP/PRO/00017",
+          "state": "done",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10795,
+          "name": "GMP/OUT/02554",
+          "state": "assigned",
+          "picking_type_id": [
+            2,
+            "GOLD MINTS PRODUCTS CO., LTD.: Delivery Orders"
+          ],
+          "origin": "SOD-263075",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10794,
+          "name": "GMP/PICK/03630",
+          "state": "done",
+          "picking_type_id": [
+            3,
+            "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+          ],
+          "origin": "SOD-263075",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10793,
+          "name": "GMP/TRPK/00073",
+          "state": "confirmed",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "SOE-260065,GMP/MO/00007",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10792,
+          "name": "GMP/TRPH/00023",
+          "state": "confirmed",
+          "picking_type_id": [
+            56,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Pharma"
+          ],
+          "origin": "SOE-260065,GMP/MO/00007",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10791,
+          "name": "GMP/TRPK/00072",
+          "state": "confirmed",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "GMP/MO/00007",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10790,
+          "name": "GMP/PICK/03629",
+          "state": "confirmed",
+          "picking_type_id": [
+            3,
+            "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+          ],
+          "origin": "SOE-260065",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10789,
+          "name": "GMP/INT/00182",
+          "state": "confirmed",
+          "picking_type_id": [
+            7,
+            "GOLD MINTS PRODUCTS CO., LTD.: Internal Transfers"
+          ],
+          "origin": "Overproduction: GMP/MOPH/00515",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10788,
+          "name": "GMP/PICK/03628",
+          "state": "confirmed",
+          "picking_type_id": [
+            3,
+            "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+          ],
+          "origin": "SOE-260064",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10787,
+          "name": "GMP/TRPL/00053",
+          "state": "assigned",
+          "picking_type_id": [
+            57,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+          ],
+          "origin": "GMP/MOPL/00160,GMP/MOPL/00155,GMP/MOPL/00163",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10786,
+          "name": "GMP/TRPK/00071",
+          "state": "assigned",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "GMP/MOPL/00158,GMP/MOPL/00159,GMP/MOPH/00523,GMP/MOPH/00516,GMP/MOPH/00517,GMP/MOPH/00518,GMP/MOPH/00519,GMP/MOPH/00520,GMP/MOPH/00521,GMP/MOPH/00522,GMP/MOPL/00161,GMP/MOPL/00162",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10785,
+          "name": "GMP/TRPH/00022",
+          "state": "confirmed",
+          "picking_type_id": [
+            56,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Pharma"
+          ],
+          "origin": "GMP/MOPL/00158,GMP/MOPL/00159,GMP/MOPL/00156,GMP/MOPL/00157,GMP/MOPH/00523,GMP/MOPH/00517,GMP/MOPH/00518,GMP/MOPH/00519,GMP/MOPH/00520,GMP/MOPH/00521,GMP/MOPH/00522,GMP/MOPH/00516,GMP/MOPL/00161,GMP/MOPL/00162",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10784,
+          "name": "GMP/TRPK/00070",
+          "state": "assigned",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "GMP/MOPL/00158,GMP/MOPL/00159,GMP/MOPH/00523,GMP/MOPH/00516,GMP/MOPH/00518,GMP/MOPH/00519,GMP/MOPH/00520,GMP/MOPH/00521,GMP/MOPH/00522,GMP/MOPL/00161,GMP/MOPL/00162,GMP/MOPH/00517",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10783,
+          "name": "GMP/INT/00181",
+          "state": "done",
+          "picking_type_id": [
+            7,
+            "GOLD MINTS PRODUCTS CO., LTD.: Internal Transfers"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10782,
+          "name": "GMP/STOR/00099",
+          "state": "assigned",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10781,
+          "name": "GMP/STOR/00098",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10780,
+          "name": "GMP/STOR/00097",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": "P00123",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10779,
+          "name": "GMP/IN/00122",
+          "state": "done",
+          "picking_type_id": [
+            1,
+            "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+          ],
+          "origin": "P00123",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10778,
+          "name": "GMP/STOR/00096",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10777,
+          "name": "GMP/INT/00180",
+          "state": "cancel",
+          "picking_type_id": [
+            7,
+            "GOLD MINTS PRODUCTS CO., LTD.: Internal Transfers"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10776,
+          "name": "GMP/INT/00179",
+          "state": "done",
+          "picking_type_id": [
+            7,
+            "GOLD MINTS PRODUCTS CO., LTD.: Internal Transfers"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10775,
+          "name": "GMP/PICK/03627",
+          "state": "confirmed",
+          "picking_type_id": [
+            3,
+            "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+          ],
+          "origin": "SOE-260063",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10774,
+          "name": "GMP/TRPL/00052",
+          "state": "assigned",
+          "picking_type_id": [
+            57,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+          ],
+          "origin": "GMP/MOPL/00154,GMP/MOPL/00149",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10773,
+          "name": "GMP/TRPK/00069",
+          "state": "confirmed",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "GMP/MOPL/00152,GMP/MOPL/00153,GMP/MOPH/00514,GMP/MOPH/00507",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10772,
+          "name": "GMP/TRPH/00021",
+          "state": "confirmed",
+          "picking_type_id": [
+            56,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Pharma"
+          ],
+          "origin": "GMP/MOPL/00152,GMP/MOPL/00153,GMP/MOPL/00150,GMP/MOPL/00151,GMP/MOPH/00514,GMP/MOPH/00508,GMP/MOPH/00509,GMP/MOPH/00510,GMP/MOPH/00511,GMP/MOPH/00512,GMP/MOPH/00513,GMP/MOPH/00507",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10771,
+          "name": "GMP/TRPK/00068",
+          "state": "assigned",
+          "picking_type_id": [
+            58,
+            "GOLD MINTS PRODUCTS CO., LTD.: Transfer Packaging"
+          ],
+          "origin": "GMP/MOPL/00152,GMP/MOPL/00153,GMP/MOPH/00514,GMP/MOPH/00507",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10762,
+          "name": "GMP/STOR/00095",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10761,
+          "name": "GMP/STOR/00094",
+          "state": "confirmed",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": "Scrap Replenish for GMP/MOPH/00488",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10760,
+          "name": "GMP/IN/00121",
+          "state": "done",
+          "picking_type_id": [
+            1,
+            "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+          ],
+          "origin": "P00116",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10759,
+          "name": "GMP/STOR/00093",
+          "state": "assigned",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": "P00115",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10758,
+          "name": "GMP/IN/00120",
+          "state": "done",
+          "picking_type_id": [
+            1,
+            "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+          ],
+          "origin": "P00115",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10757,
+          "name": "GMP/STOR/00092",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10753,
+          "name": "GMP/STOR/00091",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10752,
+          "name": "GMP/STOR/00090",
+          "state": "done",
+          "picking_type_id": [
+            6,
+            "GOLD MINTS PRODUCTS CO., LTD.: Storage"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10751,
+          "name": "GMP/QC/00003",
+          "state": "assigned",
+          "picking_type_id": [
+            33,
+            "GOLD MINTS PRODUCTS CO., LTD.: ทดสอบคุณภาพ"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10749,
+          "name": "GMP/PICK/03626",
+          "state": "assigned",
+          "picking_type_id": [
+            3,
+            "GOLD MINTS PRODUCTS CO., LTD.: Pick"
+          ],
+          "origin": "SOD-263074",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10748,
+          "name": "GMP/PRO/00015",
+          "state": "done",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10747,
+          "name": "GMP/PRO/00014",
+          "state": "done",
+          "picking_type_id": [
+            34,
+            "GOLD MINTS PRODUCTS CO., LTD.: ส่งเสริมการขาย"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10746,
+          "name": "GMP/R-OUT/00007",
+          "state": "done",
+          "picking_type_id": [
+            62,
+            "GOLD MINTS PRODUCTS CO., LTD.: Return OUT"
+          ],
+          "origin": false,
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        },
+        {
+          "id": 10745,
+          "name": "GMP/R-OUT/00006",
+          "state": "done",
+          "picking_type_id": [
+            62,
+            "GOLD MINTS PRODUCTS CO., LTD.: Return OUT"
+          ],
+          "origin": "Return of GMP/IN/00094",
+          "vendor_credit_note_state": "not_required",
+          "vendor_credit_note_count": 0,
+          "vendor_credit_note_ids": []
+        }
+      ],
+      "status": "PASS"
+    }
+  }
+}

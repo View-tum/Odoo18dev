@@ -1,0 +1,1227 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 2" [ref=e11] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "2"
+        - button "Activities 68" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "68"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e18]:
+          - text: 
+          - generic [ref=e19]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e21] [cursor=pointer]:
+          - img "User" [ref=e22]
+          - text: 
+  - generic [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - button "New" [ref=e31] [cursor=pointer]
+        - generic [ref=e32]:
+          - generic [ref=e34]: INV-D/26/03/00954
+          - button "" [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: 
+      - button " 1 Sale Orders" [ref=e43] [cursor=pointer]:
+        - generic [ref=e44]: 
+        - generic [ref=e45]:
+          - generic [ref=e46]: "1"
+          - generic [ref=e47]: Sale Orders
+      - generic [ref=e48]:
+        - button "Search Knowledge Articles" [ref=e49] [cursor=pointer]:
+          - img [ref=e50]
+        - search [ref=e54]:
+          - navigation "Pager" [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: "1"
+              - text: / 1
+            - generic [ref=e58]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - button "Send" [ref=e64] [cursor=pointer]
+          - button "Print" [ref=e65] [cursor=pointer]
+          - button "Pay" [ref=e66] [cursor=pointer]
+          - button "Preview" [ref=e67] [cursor=pointer]
+          - button "Credit Note" [ref=e68] [cursor=pointer]
+          - button "Debit Note" [ref=e69] [cursor=pointer]
+          - button "Reset to Draft" [ref=e70] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e72]:
+          - radio "Posted" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e76]: Customer Invoice
+          - heading "INV-D/26/03/00954" [level=1] [ref=e77]:
+            - generic [ref=e78]: INV-D/26/03/00954
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - generic [ref=e83]: Customer
+              - generic [ref=e85]:
+                - link "Mobile Warehouse" [ref=e87] [cursor=pointer]:
+                  - /url: /odoo/stock.warehouse/2
+                  - generic [ref=e88]: Mobile Warehouse
+                - generic [ref=e89]:
+                  - link "ร้านการ์ตูน" [ref=e91] [cursor=pointer]:
+                    - /url: /odoo/res.partner/270222
+                    - generic [ref=e92]: ร้านการ์ตูน
+                  - generic [ref=e93]: 87 ถนนหมู่บ้านเศรษกิจ แขวงบางแคเหนือ บางแค Thailand
+            - generic [ref=e95]:
+              - generic [ref=e97]: Apply Manual Exchange
+              - generic [ref=e100]:
+                - checkbox [disabled]
+            - generic [ref=e101]:
+              - generic [ref=e103]:
+                - text: Delivery Address
+                - superscript [ref=e104]: "?"
+              - link "ร้านการ์ตูน" [ref=e107] [cursor=pointer]:
+                - /url: /odoo/res.partner/270222
+                - generic [ref=e108]: ร้านการ์ตูน
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e112]: Invoice Date
+              - generic [ref=e116]: 03/24/2026
+            - generic [ref=e117]:
+              - generic [ref=e119]: Period
+              - link "03/2026" [ref=e122] [cursor=pointer]:
+                - /url: /odoo/sh.account.period/4
+                - generic [ref=e123]: 03/2026
+            - generic [ref=e124]:
+              - generic [ref=e126]: Fiscal Year
+              - link "2026" [ref=e129] [cursor=pointer]:
+                - /url: /odoo/sh.fiscal.year/1
+                - generic [ref=e130]: "2026"
+            - generic [ref=e131]:
+              - generic [ref=e134]: Due Date
+              - generic [ref=e136]:
+                - textbox "Due Date" [ref=e139] [cursor=pointer]:
+                  - /placeholder: Date
+                  - text: 03/27/2026
+                - textbox [ref=e142] [cursor=pointer]
+            - generic [ref=e144]:
+              - generic [ref=e146]: Customer Reference
+              - textbox "Customer Reference" [ref=e149]
+            - generic [ref=e150]:
+              - generic [ref=e152]: Delivery Date
+              - generic [ref=e156]: 03/24/2026
+            - generic [ref=e157]:
+              - generic [ref=e159]: Journal
+              - generic [ref=e161]:
+                - generic [ref=e163]: Domestic Customer Invoice
+                - generic [ref=e165]: in
+                - link "THB" [ref=e169] [cursor=pointer]:
+                  - /url: /odoo/res.currency/133
+                  - generic [ref=e170]: THB
+        - generic [ref=e171]:
+          - list [ref=e173]:
+            - listitem [ref=e174] [cursor=pointer]:
+              - tab "Invoice Lines" [ref=e175]
+            - listitem [ref=e176] [cursor=pointer]:
+              - tab "Journal Items" [ref=e177]
+            - listitem [ref=e178] [cursor=pointer]:
+              - tab "Tax Invoice" [ref=e179]
+            - listitem [ref=e180] [cursor=pointer]:
+              - tab "Other Info" [ref=e181]
+            - listitem [ref=e182] [cursor=pointer]:
+              - tab "Sale Note" [ref=e183]
+          - generic [ref=e185]:
+            - table [ref=e189]:
+              - rowgroup [ref=e190]:
+                - row "No.  Product  Account  Analytic  Quantity  UoM  Free of Charge  Price  Disc.(AMT)  Disc.(%)  Taxes Manual Tax Invoice  WHT Amount  " [ref=e191]:
+                  - columnheader [ref=e192] [cursor=pointer]
+                  - columnheader "No. " [ref=e193] [cursor=pointer]:
+                    - generic [ref=e194]:
+                      - generic [ref=e195]: No.
+                      - generic [ref=e196]: 
+                  - columnheader "Product " [ref=e198] [cursor=pointer]:
+                    - generic [ref=e199]:
+                      - generic [ref=e200]: Product
+                      - generic [ref=e201]: 
+                  - columnheader "Account " [ref=e203] [cursor=pointer]:
+                    - generic [ref=e204]:
+                      - generic [ref=e205]: Account
+                      - generic [ref=e206]: 
+                  - columnheader "Analytic " [ref=e208] [cursor=pointer]:
+                    - generic [ref=e209]:
+                      - generic [ref=e210]: Analytic
+                      - generic [ref=e211]: 
+                  - columnheader "Quantity " [ref=e213] [cursor=pointer]:
+                    - generic [ref=e214]:
+                      - generic [ref=e215]: Quantity
+                      - generic [ref=e216]: 
+                  - columnheader "UoM " [ref=e218] [cursor=pointer]:
+                    - generic [ref=e219]:
+                      - generic [ref=e220]: UoM
+                      - generic [ref=e221]: 
+                  - columnheader "Free of Charge " [ref=e223] [cursor=pointer]:
+                    - generic [ref=e224]:
+                      - generic [ref=e225]: Free of Charge
+                      - generic [ref=e226]: 
+                  - columnheader "Price " [ref=e228] [cursor=pointer]:
+                    - generic [ref=e229]:
+                      - generic [ref=e230]: Price
+                      - generic [ref=e231]: 
+                  - columnheader "Disc.(AMT) " [ref=e233] [cursor=pointer]:
+                    - generic [ref=e234]:
+                      - generic [ref=e235]: Disc.(AMT)
+                      - generic [ref=e236]: 
+                  - columnheader "Disc.(%) " [ref=e238] [cursor=pointer]:
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: Disc.(%)
+                      - generic [ref=e241]: 
+                  - columnheader "Taxes" [ref=e243]:
+                    - generic [ref=e244]:
+                      - generic [ref=e245]: Taxes
+                      - text: 
+                  - columnheader "Manual Tax Invoice " [ref=e247] [cursor=pointer]:
+                    - generic [ref=e248]:
+                      - generic [ref=e249]: Manual Tax Invoice
+                      - generic [ref=e250]: 
+                  - columnheader "WHT" [ref=e252]:
+                    - generic [ref=e253]:
+                      - generic [ref=e254]: WHT
+                      - text: 
+                  - columnheader "Amount " [ref=e256] [cursor=pointer]:
+                    - generic [ref=e257]:
+                      - generic [ref=e258]: Amount
+                      - generic [ref=e259]: 
+                  - columnheader "" [ref=e261]:
+                    - button "" [ref=e263] [cursor=pointer]:
+                      - generic [ref=e264]: 
+              - rowgroup [ref=e265]:
+                - row "1 [FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง 410001 รายได้จากการขายในประเทศ - ยาดม [301] ฝ่ายขาย 2.00 Unit 90.00 0.00 0.00 Output VAT 7% Tax Included 168.22 ฿" [ref=e266]:
+                  - cell [ref=e267] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e268] [cursor=pointer]
+                  - cell "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง" [ref=e269] [cursor=pointer]:
+                    - link "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง" [ref=e272]:
+                      - /url: /odoo/product.product/8223
+                      - generic [ref=e273]: "[FG-PSS-TH-01001] ยาดมโป๊ยเซียน (1x6) แผง"
+                  - cell "410001 รายได้จากการขายในประเทศ - ยาดม" [ref=e274] [cursor=pointer]
+                  - cell "[301] ฝ่ายขาย" [ref=e275] [cursor=pointer]:
+                    - generic "[301] ฝ่ายขาย" [ref=e278]:
+                      - generic [ref=e279]: "[301] ฝ่ายขาย"
+                  - cell "2.00" [ref=e280] [cursor=pointer]
+                  - cell "Unit" [ref=e281] [cursor=pointer]
+                  - cell [ref=e282] [cursor=pointer]:
+                    - generic [ref=e1163]:
+                      - checkbox [disabled]
+                  - cell "90.00" [ref=e284] [cursor=pointer]
+                  - cell "0.00" [ref=e285] [cursor=pointer]
+                  - cell "0.00" [ref=e286] [cursor=pointer]
+                  - cell "Output VAT 7% Tax Included" [ref=e287] [cursor=pointer]:
+                    - generic "Output VAT 7% Tax Included" [ref=e290]:
+                      - generic [ref=e291]: Output VAT 7% Tax Included
+                  - cell [ref=e292] [cursor=pointer]:
+                    - generic [ref=e1164]:
+                      - checkbox [disabled]
+                  - cell [ref=e294] [cursor=pointer]
+                  - cell "168.22 ฿" [ref=e296] [cursor=pointer]
+                  - cell [ref=e297]
+                - row [ref=e298]:
+                  - cell [ref=e299]
+                - row [ref=e300]:
+                  - cell [ref=e301]
+                - row [ref=e302]:
+                  - cell [ref=e303]
+              - rowgroup [ref=e304]:
+                - row [ref=e305]:
+                  - cell [ref=e306]
+                  - cell [ref=e307]
+                  - cell [ref=e308]
+                  - cell [ref=e309]
+                  - cell [ref=e310]
+                  - cell [ref=e311]
+                  - cell [ref=e312]
+                  - cell [ref=e313]
+                  - cell [ref=e314]
+                  - cell [ref=e315]
+                  - cell [ref=e316]
+                  - cell [ref=e317]
+                  - cell [ref=e318]
+                  - cell [ref=e319]
+                  - cell [ref=e320]
+                  - cell [ref=e321]
+            - generic [ref=e322]:
+              - generic [ref=e328]:
+                - generic:
+                  - generic:        
+                - generic [ref=e331]: Terms and Conditions
+              - generic [ref=e333]:
+                - table [ref=e337]:
+                  - rowgroup [ref=e338]:
+                    - 'row "Untaxed Amount: 168.22 ฿" [ref=e339]':
+                      - cell "Untaxed Amount:" [ref=e340]:
+                        - generic [ref=e341]: "Untaxed Amount:"
+                      - cell "168.22 ฿" [ref=e342]
+                    - 'row "VAT 7%: 11.78 ฿" [ref=e343]':
+                      - cell "VAT 7%:" [ref=e344]:
+                        - generic [ref=e345]: "VAT 7%:"
+                      - cell "11.78 ฿" [ref=e346]:
+                        - generic [ref=e347]: 11.78 ฿
+                    - 'row "Total: 180.00 ฿" [ref=e348]':
+                      - cell "Total:" [ref=e349]:
+                        - generic [ref=e350]: "Total:"
+                      - cell "180.00 ฿" [ref=e351]
+                - generic [ref=e353]:
+                  - generic:
+                    - generic:
+                      - table
+                - generic [ref=e354]:
+                  - generic [ref=e356]: "Amount Due:"
+                  - generic [ref=e359]: 180.00 ฿
+      - generic [ref=e361]:
+        - generic [ref=e363]:
+          - button "Send message" [ref=e364] [cursor=pointer]
+          - button "Log note" [ref=e365] [cursor=pointer]
+          - button "Activities" [ref=e366] [cursor=pointer]
+          - button "Search Messages" [ref=e368] [cursor=pointer]:
+            - img [ref=e369]: 
+          - button "Attach files" [ref=e371] [cursor=pointer]:
+            - generic [ref=e372]: 
+          - button "3" [ref=e374] [cursor=pointer]:
+            - img [ref=e375]: 
+            - superscript: "3"
+          - button "Following" [ref=e376] [cursor=pointer]:
+            - generic [ref=e378]: Following
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - generic [ref=e381] [cursor=pointer]:
+              - separator [ref=e382]
+              - generic [ref=e383]:
+                - generic [ref=e384]: 
+                - text: Planned Activities
+              - separator [ref=e385]
+            - generic [ref=e386]:
+              - generic [ref=e387]:
+                - button [ref=e388] [cursor=pointer]:
+                  - img [ref=e389]
+                - generic [ref=e391]: 
+              - generic [ref=e392]:
+                - generic [ref=e393]:
+                  - generic [ref=e394]: "88 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e395]: for มนัส พรมมา
+                  - button "Info" [ref=e396] [cursor=pointer]:
+                    - img "Info" [ref=e397]: 
+                - paragraph [ref=e399]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e400]:
+                  - button " Mark Done" [ref=e401] [cursor=pointer]:
+                    - generic [ref=e402]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e403] [cursor=pointer]:
+                    - generic [ref=e404]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e405] [cursor=pointer]:
+                    - generic [ref=e406]: 
+                    - text: Cancel
+            - generic [ref=e407]:
+              - generic [ref=e408]:
+                - button [ref=e409] [cursor=pointer]:
+                  - img [ref=e410]
+                - generic [ref=e412]: 
+              - generic [ref=e413]:
+                - generic [ref=e414]:
+                  - generic [ref=e415]: "86 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e416]: for มนัส พรมมา
+                  - button "Info" [ref=e417] [cursor=pointer]:
+                    - img "Info" [ref=e418]: 
+                - paragraph [ref=e420]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e421]:
+                  - button " Mark Done" [ref=e422] [cursor=pointer]:
+                    - generic [ref=e423]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e424] [cursor=pointer]:
+                    - generic [ref=e425]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e426] [cursor=pointer]:
+                    - generic [ref=e427]: 
+                    - text: Cancel
+            - generic [ref=e428]:
+              - generic [ref=e429]:
+                - button [ref=e430] [cursor=pointer]:
+                  - img [ref=e431]
+                - generic [ref=e433]: 
+              - generic [ref=e434]:
+                - generic [ref=e435]:
+                  - generic [ref=e436]: "84 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e437]: for มนัส พรมมา
+                  - button "Info" [ref=e438] [cursor=pointer]:
+                    - img "Info" [ref=e439]: 
+                - paragraph [ref=e441]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e442]:
+                  - button " Mark Done" [ref=e443] [cursor=pointer]:
+                    - generic [ref=e444]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e445] [cursor=pointer]:
+                    - generic [ref=e446]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e447] [cursor=pointer]:
+                    - generic [ref=e448]: 
+                    - text: Cancel
+            - generic [ref=e449]:
+              - generic [ref=e450]:
+                - button [ref=e451] [cursor=pointer]:
+                  - img [ref=e452]
+                - generic [ref=e454]: 
+              - generic [ref=e455]:
+                - generic [ref=e456]:
+                  - generic [ref=e457]: "82 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e458]: for มนัส พรมมา
+                  - button "Info" [ref=e459] [cursor=pointer]:
+                    - img "Info" [ref=e460]: 
+                - paragraph [ref=e462]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e463]:
+                  - button " Mark Done" [ref=e464] [cursor=pointer]:
+                    - generic [ref=e465]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e466] [cursor=pointer]:
+                    - generic [ref=e467]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e468] [cursor=pointer]:
+                    - generic [ref=e469]: 
+                    - text: Cancel
+            - generic [ref=e470]:
+              - generic [ref=e471]:
+                - button [ref=e472] [cursor=pointer]:
+                  - img [ref=e473]
+                - generic [ref=e475]: 
+              - generic [ref=e476]:
+                - generic [ref=e477]:
+                  - generic [ref=e478]: "80 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e479]: for มนัส พรมมา
+                  - button "Info" [ref=e480] [cursor=pointer]:
+                    - img "Info" [ref=e481]: 
+                - paragraph [ref=e483]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e484]:
+                  - button " Mark Done" [ref=e485] [cursor=pointer]:
+                    - generic [ref=e486]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e487] [cursor=pointer]:
+                    - generic [ref=e488]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e489] [cursor=pointer]:
+                    - generic [ref=e490]: 
+                    - text: Cancel
+            - generic [ref=e491]:
+              - generic [ref=e492]:
+                - button [ref=e493] [cursor=pointer]:
+                  - img [ref=e494]
+                - generic [ref=e496]: 
+              - generic [ref=e497]:
+                - generic [ref=e498]:
+                  - generic [ref=e499]: "78 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e500]: for มนัส พรมมา
+                  - button "Info" [ref=e501] [cursor=pointer]:
+                    - img "Info" [ref=e502]: 
+                - paragraph [ref=e504]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e505]:
+                  - button " Mark Done" [ref=e506] [cursor=pointer]:
+                    - generic [ref=e507]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e508] [cursor=pointer]:
+                    - generic [ref=e509]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e510] [cursor=pointer]:
+                    - generic [ref=e511]: 
+                    - text: Cancel
+            - generic [ref=e512]:
+              - generic [ref=e513]:
+                - button [ref=e514] [cursor=pointer]:
+                  - img [ref=e515]
+                - generic [ref=e517]: 
+              - generic [ref=e518]:
+                - generic [ref=e519]:
+                  - generic [ref=e520]: "76 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e521]: for มนัส พรมมา
+                  - button "Info" [ref=e522] [cursor=pointer]:
+                    - img "Info" [ref=e523]: 
+                - paragraph [ref=e525]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e526]:
+                  - button " Mark Done" [ref=e527] [cursor=pointer]:
+                    - generic [ref=e528]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e529] [cursor=pointer]:
+                    - generic [ref=e530]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e531] [cursor=pointer]:
+                    - generic [ref=e532]: 
+                    - text: Cancel
+            - generic [ref=e533]:
+              - generic [ref=e534]:
+                - button [ref=e535] [cursor=pointer]:
+                  - img [ref=e536]
+                - generic [ref=e538]: 
+              - generic [ref=e539]:
+                - generic [ref=e540]:
+                  - generic [ref=e541]: "74 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e542]: for มนัส พรมมา
+                  - button "Info" [ref=e543] [cursor=pointer]:
+                    - img "Info" [ref=e544]: 
+                - paragraph [ref=e546]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e547]:
+                  - button " Mark Done" [ref=e548] [cursor=pointer]:
+                    - generic [ref=e549]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e550] [cursor=pointer]:
+                    - generic [ref=e551]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e552] [cursor=pointer]:
+                    - generic [ref=e553]: 
+                    - text: Cancel
+            - generic [ref=e554]:
+              - generic [ref=e555]:
+                - button [ref=e556] [cursor=pointer]:
+                  - img [ref=e557]
+                - generic [ref=e559]: 
+              - generic [ref=e560]:
+                - generic [ref=e561]:
+                  - generic [ref=e562]: "72 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e563]: for มนัส พรมมา
+                  - button "Info" [ref=e564] [cursor=pointer]:
+                    - img "Info" [ref=e565]: 
+                - paragraph [ref=e567]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e568]:
+                  - button " Mark Done" [ref=e569] [cursor=pointer]:
+                    - generic [ref=e570]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e571] [cursor=pointer]:
+                    - generic [ref=e572]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e573] [cursor=pointer]:
+                    - generic [ref=e574]: 
+                    - text: Cancel
+            - generic [ref=e575]:
+              - generic [ref=e576]:
+                - button [ref=e577] [cursor=pointer]:
+                  - img [ref=e578]
+                - generic [ref=e580]: 
+              - generic [ref=e581]:
+                - generic [ref=e582]:
+                  - generic [ref=e583]: "70 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e584]: for มนัส พรมมา
+                  - button "Info" [ref=e585] [cursor=pointer]:
+                    - img "Info" [ref=e586]: 
+                - paragraph [ref=e588]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e589]:
+                  - button " Mark Done" [ref=e590] [cursor=pointer]:
+                    - generic [ref=e591]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e592] [cursor=pointer]:
+                    - generic [ref=e593]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e594] [cursor=pointer]:
+                    - generic [ref=e595]: 
+                    - text: Cancel
+            - generic [ref=e596]:
+              - generic [ref=e597]:
+                - button [ref=e598] [cursor=pointer]:
+                  - img [ref=e599]
+                - generic [ref=e601]: 
+              - generic [ref=e602]:
+                - generic [ref=e603]:
+                  - generic [ref=e604]: "68 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e605]: for มนัส พรมมา
+                  - button "Info" [ref=e606] [cursor=pointer]:
+                    - img "Info" [ref=e607]: 
+                - paragraph [ref=e609]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e610]:
+                  - button " Mark Done" [ref=e611] [cursor=pointer]:
+                    - generic [ref=e612]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e613] [cursor=pointer]:
+                    - generic [ref=e614]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e615] [cursor=pointer]:
+                    - generic [ref=e616]: 
+                    - text: Cancel
+            - generic [ref=e617]:
+              - generic [ref=e618]:
+                - button [ref=e619] [cursor=pointer]:
+                  - img [ref=e620]
+                - generic [ref=e622]: 
+              - generic [ref=e623]:
+                - generic [ref=e624]:
+                  - generic [ref=e625]: "66 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e626]: for มนัส พรมมา
+                  - button "Info" [ref=e627] [cursor=pointer]:
+                    - img "Info" [ref=e628]: 
+                - paragraph [ref=e630]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e631]:
+                  - button " Mark Done" [ref=e632] [cursor=pointer]:
+                    - generic [ref=e633]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e634] [cursor=pointer]:
+                    - generic [ref=e635]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e636] [cursor=pointer]:
+                    - generic [ref=e637]: 
+                    - text: Cancel
+            - generic [ref=e638]:
+              - generic [ref=e639]:
+                - button [ref=e640] [cursor=pointer]:
+                  - img [ref=e641]
+                - generic [ref=e643]: 
+              - generic [ref=e644]:
+                - generic [ref=e645]:
+                  - generic [ref=e646]: "57 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e647]: for มนัส พรมมา
+                  - button "Info" [ref=e648] [cursor=pointer]:
+                    - img "Info" [ref=e649]: 
+                - paragraph [ref=e651]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e652]:
+                  - button " Mark Done" [ref=e653] [cursor=pointer]:
+                    - generic [ref=e654]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e655] [cursor=pointer]:
+                    - generic [ref=e656]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e657] [cursor=pointer]:
+                    - generic [ref=e658]: 
+                    - text: Cancel
+            - generic [ref=e659]:
+              - generic [ref=e660]:
+                - button [ref=e661] [cursor=pointer]:
+                  - img [ref=e662]
+                - generic [ref=e664]: 
+              - generic [ref=e665]:
+                - generic [ref=e666]:
+                  - generic [ref=e667]: "55 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e668]: for มนัส พรมมา
+                  - button "Info" [ref=e669] [cursor=pointer]:
+                    - img "Info" [ref=e670]: 
+                - paragraph [ref=e672]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e673]:
+                  - button " Mark Done" [ref=e674] [cursor=pointer]:
+                    - generic [ref=e675]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e676] [cursor=pointer]:
+                    - generic [ref=e677]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e678] [cursor=pointer]:
+                    - generic [ref=e679]: 
+                    - text: Cancel
+            - generic [ref=e680]:
+              - generic [ref=e681]:
+                - button [ref=e682] [cursor=pointer]:
+                  - img [ref=e683]
+                - generic [ref=e685]: 
+              - generic [ref=e686]:
+                - generic [ref=e687]:
+                  - generic [ref=e688]: "53 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e689]: for มนัส พรมมา
+                  - button "Info" [ref=e690] [cursor=pointer]:
+                    - img "Info" [ref=e691]: 
+                - paragraph [ref=e693]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e694]:
+                  - button " Mark Done" [ref=e695] [cursor=pointer]:
+                    - generic [ref=e696]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e697] [cursor=pointer]:
+                    - generic [ref=e698]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e699] [cursor=pointer]:
+                    - generic [ref=e700]: 
+                    - text: Cancel
+            - generic [ref=e701]:
+              - generic [ref=e702]:
+                - button [ref=e703] [cursor=pointer]:
+                  - img [ref=e704]
+                - generic [ref=e706]: 
+              - generic [ref=e707]:
+                - generic [ref=e708]:
+                  - generic [ref=e709]: "51 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e710]: for มนัส พรมมา
+                  - button "Info" [ref=e711] [cursor=pointer]:
+                    - img "Info" [ref=e712]: 
+                - paragraph [ref=e714]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e715]:
+                  - button " Mark Done" [ref=e716] [cursor=pointer]:
+                    - generic [ref=e717]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e718] [cursor=pointer]:
+                    - generic [ref=e719]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e720] [cursor=pointer]:
+                    - generic [ref=e721]: 
+                    - text: Cancel
+            - generic [ref=e722]:
+              - generic [ref=e723]:
+                - button [ref=e724] [cursor=pointer]:
+                  - img [ref=e725]
+                - generic [ref=e727]: 
+              - generic [ref=e728]:
+                - generic [ref=e729]:
+                  - generic [ref=e730]: "49 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e731]: for มนัส พรมมา
+                  - button "Info" [ref=e732] [cursor=pointer]:
+                    - img "Info" [ref=e733]: 
+                - paragraph [ref=e735]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e736]:
+                  - button " Mark Done" [ref=e737] [cursor=pointer]:
+                    - generic [ref=e738]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e739] [cursor=pointer]:
+                    - generic [ref=e740]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e741] [cursor=pointer]:
+                    - generic [ref=e742]: 
+                    - text: Cancel
+            - generic [ref=e743]:
+              - generic [ref=e744]:
+                - button [ref=e745] [cursor=pointer]:
+                  - img [ref=e746]
+                - generic [ref=e748]: 
+              - generic [ref=e749]:
+                - generic [ref=e750]:
+                  - generic [ref=e751]: "44 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e752]: for มนัส พรมมา
+                  - button "Info" [ref=e753] [cursor=pointer]:
+                    - img "Info" [ref=e754]: 
+                - paragraph [ref=e756]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e757]:
+                  - button " Mark Done" [ref=e758] [cursor=pointer]:
+                    - generic [ref=e759]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e760] [cursor=pointer]:
+                    - generic [ref=e761]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e762] [cursor=pointer]:
+                    - generic [ref=e763]: 
+                    - text: Cancel
+            - generic [ref=e764]:
+              - generic [ref=e765]:
+                - button [ref=e766] [cursor=pointer]:
+                  - img [ref=e767]
+                - generic [ref=e769]: 
+              - generic [ref=e770]:
+                - generic [ref=e771]:
+                  - generic [ref=e772]: "42 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e773]: for มนัส พรมมา
+                  - button "Info" [ref=e774] [cursor=pointer]:
+                    - img "Info" [ref=e775]: 
+                - paragraph [ref=e777]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e778]:
+                  - button " Mark Done" [ref=e779] [cursor=pointer]:
+                    - generic [ref=e780]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e781] [cursor=pointer]:
+                    - generic [ref=e782]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e783] [cursor=pointer]:
+                    - generic [ref=e784]: 
+                    - text: Cancel
+            - generic [ref=e785]:
+              - generic [ref=e786]:
+                - button [ref=e787] [cursor=pointer]:
+                  - img [ref=e788]
+                - generic [ref=e790]: 
+              - generic [ref=e791]:
+                - generic [ref=e792]:
+                  - generic [ref=e793]: "40 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e794]: for มนัส พรมมา
+                  - button "Info" [ref=e795] [cursor=pointer]:
+                    - img "Info" [ref=e796]: 
+                - paragraph [ref=e798]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e799]:
+                  - button " Mark Done" [ref=e800] [cursor=pointer]:
+                    - generic [ref=e801]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e802] [cursor=pointer]:
+                    - generic [ref=e803]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e804] [cursor=pointer]:
+                    - generic [ref=e805]: 
+                    - text: Cancel
+            - generic [ref=e806]:
+              - generic [ref=e807]:
+                - button [ref=e808] [cursor=pointer]:
+                  - img [ref=e809]
+                - generic [ref=e811]: 
+              - generic [ref=e812]:
+                - generic [ref=e813]:
+                  - generic [ref=e814]: "37 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e815]: for มนัส พรมมา
+                  - button "Info" [ref=e816] [cursor=pointer]:
+                    - img "Info" [ref=e817]: 
+                - paragraph [ref=e819]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e820]:
+                  - button " Mark Done" [ref=e821] [cursor=pointer]:
+                    - generic [ref=e822]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e823] [cursor=pointer]:
+                    - generic [ref=e824]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e825] [cursor=pointer]:
+                    - generic [ref=e826]: 
+                    - text: Cancel
+            - generic [ref=e827]:
+              - generic [ref=e828]:
+                - button [ref=e829] [cursor=pointer]:
+                  - img [ref=e830]
+                - generic [ref=e832]: 
+              - generic [ref=e833]:
+                - generic [ref=e834]:
+                  - generic [ref=e835]: "35 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e836]: for มนัส พรมมา
+                  - button "Info" [ref=e837] [cursor=pointer]:
+                    - img "Info" [ref=e838]: 
+                - paragraph [ref=e840]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e841]:
+                  - button " Mark Done" [ref=e842] [cursor=pointer]:
+                    - generic [ref=e843]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e844] [cursor=pointer]:
+                    - generic [ref=e845]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e846] [cursor=pointer]:
+                    - generic [ref=e847]: 
+                    - text: Cancel
+            - generic [ref=e848]:
+              - generic [ref=e849]:
+                - button [ref=e850] [cursor=pointer]:
+                  - img [ref=e851]
+                - generic [ref=e853]: 
+              - generic [ref=e854]:
+                - generic [ref=e855]:
+                  - generic [ref=e856]: "33 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e857]: for มนัส พรมมา
+                  - button "Info" [ref=e858] [cursor=pointer]:
+                    - img "Info" [ref=e859]: 
+                - paragraph [ref=e861]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e862]:
+                  - button " Mark Done" [ref=e863] [cursor=pointer]:
+                    - generic [ref=e864]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e865] [cursor=pointer]:
+                    - generic [ref=e866]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e867] [cursor=pointer]:
+                    - generic [ref=e868]: 
+                    - text: Cancel
+            - generic [ref=e869]:
+              - generic [ref=e870]:
+                - button [ref=e871] [cursor=pointer]:
+                  - img [ref=e872]
+                - generic [ref=e874]: 
+              - generic [ref=e875]:
+                - generic [ref=e876]:
+                  - generic [ref=e877]: "30 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e878]: for มนัส พรมมา
+                  - button "Info" [ref=e879] [cursor=pointer]:
+                    - img "Info" [ref=e880]: 
+                - paragraph [ref=e882]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e883]:
+                  - button " Mark Done" [ref=e884] [cursor=pointer]:
+                    - generic [ref=e885]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e886] [cursor=pointer]:
+                    - generic [ref=e887]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e888] [cursor=pointer]:
+                    - generic [ref=e889]: 
+                    - text: Cancel
+            - generic [ref=e890]:
+              - generic [ref=e891]:
+                - button [ref=e892] [cursor=pointer]:
+                  - img [ref=e893]
+                - generic [ref=e895]: 
+              - generic [ref=e896]:
+                - generic [ref=e897]:
+                  - generic [ref=e898]: "28 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e899]: for มนัส พรมมา
+                  - button "Info" [ref=e900] [cursor=pointer]:
+                    - img "Info" [ref=e901]: 
+                - paragraph [ref=e903]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e904]:
+                  - button " Mark Done" [ref=e905] [cursor=pointer]:
+                    - generic [ref=e906]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e907] [cursor=pointer]:
+                    - generic [ref=e908]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e909] [cursor=pointer]:
+                    - generic [ref=e910]: 
+                    - text: Cancel
+            - generic [ref=e911]:
+              - generic [ref=e912]:
+                - button [ref=e913] [cursor=pointer]:
+                  - img [ref=e914]
+                - generic [ref=e916]: 
+              - generic [ref=e917]:
+                - generic [ref=e918]:
+                  - generic [ref=e919]: "26 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e920]: for มนัส พรมมา
+                  - button "Info" [ref=e921] [cursor=pointer]:
+                    - img "Info" [ref=e922]: 
+                - paragraph [ref=e924]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e925]:
+                  - button " Mark Done" [ref=e926] [cursor=pointer]:
+                    - generic [ref=e927]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e928] [cursor=pointer]:
+                    - generic [ref=e929]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e930] [cursor=pointer]:
+                    - generic [ref=e931]: 
+                    - text: Cancel
+            - generic [ref=e932]:
+              - generic [ref=e933]:
+                - button [ref=e934] [cursor=pointer]:
+                  - img [ref=e935]
+                - generic [ref=e937]: 
+              - generic [ref=e938]:
+                - generic [ref=e939]:
+                  - generic [ref=e940]: "20 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e941]: for มนัส พรมมา
+                  - button "Info" [ref=e942] [cursor=pointer]:
+                    - img "Info" [ref=e943]: 
+                - paragraph [ref=e945]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e946]:
+                  - button " Mark Done" [ref=e947] [cursor=pointer]:
+                    - generic [ref=e948]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e949] [cursor=pointer]:
+                    - generic [ref=e950]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e951] [cursor=pointer]:
+                    - generic [ref=e952]: 
+                    - text: Cancel
+            - generic [ref=e953]:
+              - generic [ref=e954]:
+                - button [ref=e955] [cursor=pointer]:
+                  - img [ref=e956]
+                - generic [ref=e958]: 
+              - generic [ref=e959]:
+                - generic [ref=e960]:
+                  - generic [ref=e961]: "18 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e962]: for มนัส พรมมา
+                  - button "Info" [ref=e963] [cursor=pointer]:
+                    - img "Info" [ref=e964]: 
+                - paragraph [ref=e966]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e967]:
+                  - button " Mark Done" [ref=e968] [cursor=pointer]:
+                    - generic [ref=e969]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e970] [cursor=pointer]:
+                    - generic [ref=e971]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e972] [cursor=pointer]:
+                    - generic [ref=e973]: 
+                    - text: Cancel
+            - generic [ref=e974]:
+              - generic [ref=e975]:
+                - button [ref=e976] [cursor=pointer]:
+                  - img [ref=e977]
+                - generic [ref=e979]: 
+              - generic [ref=e980]:
+                - generic [ref=e981]:
+                  - generic [ref=e982]: "16 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e983]: for มนัส พรมมา
+                  - button "Info" [ref=e984] [cursor=pointer]:
+                    - img "Info" [ref=e985]: 
+                - paragraph [ref=e987]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e988]:
+                  - button " Mark Done" [ref=e989] [cursor=pointer]:
+                    - generic [ref=e990]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e991] [cursor=pointer]:
+                    - generic [ref=e992]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e993] [cursor=pointer]:
+                    - generic [ref=e994]: 
+                    - text: Cancel
+            - generic [ref=e995]:
+              - generic [ref=e996]:
+                - button [ref=e997] [cursor=pointer]:
+                  - img [ref=e998]
+                - generic [ref=e1000]: 
+              - generic [ref=e1001]:
+                - generic [ref=e1002]:
+                  - generic [ref=e1003]: "13 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1004]: for มนัส พรมมา
+                  - button "Info" [ref=e1005] [cursor=pointer]:
+                    - img "Info" [ref=e1006]: 
+                - paragraph [ref=e1008]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1009]:
+                  - button " Mark Done" [ref=e1010] [cursor=pointer]:
+                    - generic [ref=e1011]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1012] [cursor=pointer]:
+                    - generic [ref=e1013]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1014] [cursor=pointer]:
+                    - generic [ref=e1015]: 
+                    - text: Cancel
+            - generic [ref=e1016]:
+              - generic [ref=e1017]:
+                - button [ref=e1018] [cursor=pointer]:
+                  - img [ref=e1019]
+                - generic [ref=e1021]: 
+              - generic [ref=e1022]:
+                - generic [ref=e1023]:
+                  - generic [ref=e1024]: "11 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1025]: for มนัส พรมมา
+                  - button "Info" [ref=e1026] [cursor=pointer]:
+                    - img "Info" [ref=e1027]: 
+                - paragraph [ref=e1029]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1030]:
+                  - button " Mark Done" [ref=e1031] [cursor=pointer]:
+                    - generic [ref=e1032]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1033] [cursor=pointer]:
+                    - generic [ref=e1034]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1035] [cursor=pointer]:
+                    - generic [ref=e1036]: 
+                    - text: Cancel
+            - generic [ref=e1037]:
+              - generic [ref=e1038]:
+                - button [ref=e1039] [cursor=pointer]:
+                  - img [ref=e1040]
+                - generic [ref=e1042]: 
+              - generic [ref=e1043]:
+                - generic [ref=e1044]:
+                  - generic [ref=e1045]: "8 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1046]: for มนัส พรมมา
+                  - button "Info" [ref=e1047] [cursor=pointer]:
+                    - img "Info" [ref=e1048]: 
+                - paragraph [ref=e1050]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1051]:
+                  - button " Mark Done" [ref=e1052] [cursor=pointer]:
+                    - generic [ref=e1053]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1054] [cursor=pointer]:
+                    - generic [ref=e1055]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1056] [cursor=pointer]:
+                    - generic [ref=e1057]: 
+                    - text: Cancel
+            - generic [ref=e1058]:
+              - generic [ref=e1059]:
+                - button [ref=e1060] [cursor=pointer]:
+                  - img [ref=e1061]
+                - generic [ref=e1063]: 
+              - generic [ref=e1064]:
+                - generic [ref=e1065]:
+                  - generic [ref=e1066]: "6 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1067]: for มนัส พรมมา
+                  - button "Info" [ref=e1068] [cursor=pointer]:
+                    - img "Info" [ref=e1069]: 
+                - paragraph [ref=e1071]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1072]:
+                  - button " Mark Done" [ref=e1073] [cursor=pointer]:
+                    - generic [ref=e1074]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1075] [cursor=pointer]:
+                    - generic [ref=e1076]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1077] [cursor=pointer]:
+                    - generic [ref=e1078]: 
+                    - text: Cancel
+            - generic [ref=e1079]:
+              - generic [ref=e1080]:
+                - button [ref=e1081] [cursor=pointer]:
+                  - img [ref=e1082]
+                - generic [ref=e1084]: 
+              - generic [ref=e1085]:
+                - generic [ref=e1086]:
+                  - generic [ref=e1087]: "2 days overdue:"
+                  - text: "“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1088]: for มนัส พรมมา
+                  - button "Info" [ref=e1089] [cursor=pointer]:
+                    - img "Info" [ref=e1090]: 
+                - paragraph [ref=e1092]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1093]:
+                  - button " Mark Done" [ref=e1094] [cursor=pointer]:
+                    - generic [ref=e1095]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1096] [cursor=pointer]:
+                    - generic [ref=e1097]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1098] [cursor=pointer]:
+                    - generic [ref=e1099]: 
+                    - text: Cancel
+            - generic [ref=e1100]:
+              - generic [ref=e1101]:
+                - button [ref=e1102] [cursor=pointer]:
+                  - img [ref=e1103]
+                - generic [ref=e1105]: 
+              - generic [ref=e1106]:
+                - generic [ref=e1107]:
+                  - text: "Today:“Overdue: ใบแจ้งหนี้ค้างชำระ”"
+                  - generic [ref=e1108]: for มนัส พรมมา
+                  - button "Info" [ref=e1109] [cursor=pointer]:
+                    - img "Info" [ref=e1110]: 
+                - paragraph [ref=e1112]: "ลูกค้า: ร้านการ์ตูน เอกสาร: INV-D/26/03/00954 ครบกำหนด: 2026-03-27 ยอดค้างชำระ: 180.00 โปรดติดตามและประสานงานกับลูกค้าเพื่อเร่งการชำระเงิน."
+                - generic [ref=e1113]:
+                  - button " Mark Done" [ref=e1114] [cursor=pointer]:
+                    - generic [ref=e1115]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e1116] [cursor=pointer]:
+                    - generic [ref=e1117]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e1118] [cursor=pointer]:
+                    - generic [ref=e1119]: 
+                    - text: Cancel
+          - generic [ref=e1120]:
+            - generic [ref=e1121]:
+              - generic [ref=e1123]:
+                - separator [ref=e1124]
+                - generic [ref=e1125]: Mar 27, 2026
+                - separator [ref=e1126]
+              - group "System notification" [ref=e1127]:
+                - generic [ref=e1128]:
+                  - generic "Open card" [ref=e1130] [cursor=pointer]:
+                    - img [ref=e1131]
+                  - generic [ref=e1132]:
+                    - generic [ref=e1133]:
+                      - generic "Open card" [ref=e1134] [cursor=pointer]:
+                        - strong [ref=e1135]: Administrator
+                      - generic "3/27/2026, 3:47:20 PM" [ref=e1136]: Mar 27, 3:47 PM
+                    - paragraph [ref=e1143]:
+                      - text: "This journal entry has been created from:"
+                      - link "SOB-263052" [ref=e1144] [cursor=pointer]:
+                        - /url: "#"
+              - group "System notification" [ref=e1145]:
+                - generic [ref=e1146]:
+                  - generic "Open card" [ref=e1148] [cursor=pointer]:
+                    - img [ref=e1149]
+                  - generic [ref=e1150]:
+                    - generic [ref=e1151]:
+                      - generic "Open card" [ref=e1152] [cursor=pointer]:
+                        - strong [ref=e1153]: Administrator
+                      - generic "3/27/2026, 3:47:20 PM" [ref=e1154]: Mar 27, 3:47 PM
+                    - paragraph [ref=e1159]: Invoice Created
+            - button "" [ref=e1160] [cursor=pointer]:
+              - generic [ref=e1161]: 
+  - dialog [ref=e1167]:
+    - generic [ref=e1168]:
+      - banner [ref=e1169]:
+        - heading "Pay" [level=4] [ref=e1170]
+        - button "Close" [ref=e1171] [cursor=pointer]
+      - main [ref=e1172]:
+        - generic [ref=e1176]:
+          - generic [ref=e1177]:
+            - generic [ref=e1178]:
+              - generic [ref=e1179]:
+                - generic [ref=e1181]: Journal
+                - combobox "Journal" [ref=e1187]: Cheque for Customer Invoices
+              - generic [ref=e1188]:
+                - generic [ref=e1190]:
+                  - text: Payment Method
+                  - superscript [ref=e1191]: "?"
+                - generic [ref=e1196]:
+                  - combobox "Payment Method?" [expanded] [active] [ref=e1197]: Manual Payment
+                  - menu [ref=e1279]:
+                    - listitem [ref=e1280]:
+                      - option "Manual Payment" [selected] [ref=e1281] [cursor=pointer]
+                    - listitem [ref=e1282]:
+                      - option "Checks" [ref=e1283] [cursor=pointer]
+                    - listitem [ref=e1284]:
+                      - option "Search More..." [ref=e1285] [cursor=pointer]
+            - generic [ref=e1198]:
+              - generic [ref=e1199]:
+                - generic [ref=e1201]: Amount
+                - generic [ref=e1203]:
+                  - generic [ref=e1205]:
+                    - generic:
+                      - generic: "180.00"
+                      - generic: ฿
+                    - textbox "Amount" [ref=e1206]: "180.00"
+                    - generic [ref=e1207]: ฿
+                  - combobox [ref=e1212]: THB
+              - generic [ref=e1213]:
+                - generic [ref=e1215]: Payment Date
+                - textbox "Payment Date" [ref=e1219] [cursor=pointer]: 06/24/2026
+              - generic [ref=e1221]:
+                - generic [ref=e1223]: Apply Manual Exchange
+                - checkbox "Apply Manual Exchange Apply Manual Exchange" [ref=e1227] [cursor=pointer]
+          - generic [ref=e1228]:
+            - generic [ref=e1230]: Invoices Allocation
+            - table [ref=e1236]:
+              - rowgroup [ref=e1237]:
+                - row "เลขที่ใบแจ้งหนี้  ยอดทั้งหมด ยอดคงเหลือ  ยอดจ่าย " [ref=e1238]:
+                  - columnheader "เลขที่ใบแจ้งหนี้ " [ref=e1239] [cursor=pointer]:
+                    - generic [ref=e1240]:
+                      - generic [ref=e1241]: เลขที่ใบแจ้งหนี้
+                      - generic [ref=e1242]: 
+                  - columnheader "ยอดทั้งหมด" [ref=e1244]:
+                    - generic [ref=e1245]:
+                      - generic [ref=e1246]: ยอดทั้งหมด
+                      - text: 
+                  - columnheader "ยอดคงเหลือ " [ref=e1248] [cursor=pointer]:
+                    - generic [ref=e1249]:
+                      - generic [ref=e1250]: ยอดคงเหลือ
+                      - generic [ref=e1251]: 
+                  - columnheader "ยอดจ่าย " [ref=e1253] [cursor=pointer]:
+                    - generic [ref=e1254]:
+                      - generic [ref=e1255]: ยอดจ่าย
+                      - generic [ref=e1256]: 
+              - rowgroup [ref=e1258]:
+                - row "INV-D/26/03/00954 180.00 ฿ 0.00 ฿ 180.00 ฿" [ref=e1259]:
+                  - cell "INV-D/26/03/00954" [ref=e1260] [cursor=pointer]
+                  - cell "180.00 ฿" [ref=e1261] [cursor=pointer]
+                  - cell "0.00 ฿" [ref=e1262] [cursor=pointer]
+                  - cell "180.00 ฿" [ref=e1263] [cursor=pointer]
+                - row [ref=e1264]:
+                  - cell [ref=e1265]
+                - row [ref=e1266]:
+                  - cell [ref=e1267]
+                - row [ref=e1268]:
+                  - cell [ref=e1269]
+              - rowgroup [ref=e1270]:
+                - row "180.00 ฿" [ref=e1271]:
+                  - cell [ref=e1272]
+                  - cell [ref=e1273]
+                  - cell [ref=e1274]
+                  - cell "180.00 ฿" [ref=e1275]
+      - contentinfo [ref=e1276]:
+        - button "Create Payment" [ref=e1277] [cursor=pointer]
+        - button "Discard" [ref=e1278] [cursor=pointer]

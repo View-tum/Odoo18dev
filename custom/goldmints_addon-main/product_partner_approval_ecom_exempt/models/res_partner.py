@@ -20,7 +20,7 @@ class ResPartner(models.Model):
     def action_approve(self):
         for record in self:
             if not self.env.user.has_group('account.group_account_manager'):
-                raise UserError(_("Only Accounting Managers can approve products."))
+                raise UserError(_("Only Accounting Managers can approve customers."))
             record.write({'approval_state': 'approved', 'is_lock': True})
             
 

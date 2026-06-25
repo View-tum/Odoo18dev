@@ -107,7 +107,7 @@
                                 <span t-esc="l['vendor'].name if l['vendor'] else '-'" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
                             </td>
                             <td>
-                                <span t-esc="l['product'].display_name if l['product'] else '-'" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
+                                <span t-esc="l['product_display'] or '-'" t-att-style="'opacity: 1;' if l['is_header'] else 'opacity: 0.6;'"/>
                             </td>
                             <td class="text-right">
                                 <span t-if="l['is_header'] or l['qty'] > 0" t-esc="'{:,.2f}'.format(l['qty'])"/>
@@ -115,13 +115,13 @@
                             <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty_received'])"/></td>
                             <td class="text-right"><span t-esc="'{:,.2f}'.format(l['qty_pending_invoice'])"/></td>
                             <td class="text-center">
-                                <span t-if="l['is_header']" t-esc="l['uom'].name if l['uom'] else '-'"/>
+                                <span t-if="l['is_header'] or l.get('service_acceptance_id')" t-esc="l['uom'].name if l['uom'] else '-'"/>
                             </td>
                             <td class="text-right">
-                                <span t-if="l['is_header']" t-esc="'{:,.2f}'.format(l['unit_price'])"/>
+                                <span t-if="l['is_header'] or (l.get('service_acceptance_id') and l['unit_price'] > 0)" t-esc="'{:,.2f}'.format(l['unit_price'])"/>
                             </td>
                             <td class="text-right">
-                                <span t-if="l['is_header']" t-esc="'{:,.2f}'.format(l['subtotal'])"/>
+                                <span t-if="l['is_header'] or l.get('service_acceptance_id')" t-esc="'{:,.2f}'.format(l['subtotal'])"/>
                             </td>
 
                             <td class="text-center">

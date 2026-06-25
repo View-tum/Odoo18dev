@@ -12,7 +12,7 @@
                         <span>
                             This bill contains products under an <b>Asset</b> category.
                         </span>
-                        <button name="action_create_assets_from_bill_lines" invisible="asset_creatd == True"
+                        <button name="action_create_assets_from_bill_lines" invisible="asset_creatd == True or state != 'posted'"
 					        type="object"
 					        string="Create Assets"
 					        class="btn btn-primary ms-2" 

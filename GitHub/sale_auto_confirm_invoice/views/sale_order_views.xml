@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_van_sales_payment" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.van.sales.payment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="van_sales_receive_payment_available" invisible="1"/>
+            </xpath>
+            <xpath expr="//header/button[@id='create_invoice']" position="after">
+                <button name="action_receive_van_sale_payment"
+                        type="object"
+                        string="ชำระเงิน"
+                        class="btn-primary"
+                        invisible="not van_sales_receive_payment_available"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="van_sales_payment_state"
+                       widget="badge"
+                       decoration-success="van_sales_payment_state == 'paid'"
+                       decoration-warning="van_sales_payment_state == 'partial'"
+                       decoration-danger="van_sales_payment_state == 'not_paid'"
+                       readonly="1"/>
+                <field name="van_sales_amount_residual"
+                       widget="monetary"
+                       readonly="1"
+                       invisible="van_sales_payment_state == 'paid'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_tree_inherit_van_sales_payment" model="ir.ui.view">
+        <field name="name">sale.order.list.inherit.van.sales.payment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="van_sales_payment_state"
+                       string="Customer Payment"
+                       widget="badge"
+                       decoration-success="van_sales_payment_state == 'paid'"
+                       decoration-warning="van_sales_payment_state == 'partial'"
+                       decoration-danger="van_sales_payment_state == 'not_paid'"
+                       optional="show"/>
+                <field name="van_sales_amount_residual"
+                       string="Customer Balance"
+                       widget="monetary"
+                       optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

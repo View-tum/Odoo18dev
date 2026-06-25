@@ -1,0 +1,351 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e25]
+        - generic [ref=e26]: Purchase
+      - menu [ref=e27]:
+        - button "Orders" [ref=e28] [cursor=pointer]:
+          - generic [ref=e29]: Orders
+        - button "Products" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: Products
+        - button "Reporting" [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]: Reporting
+        - button "Configuration" [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]: Configuration
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 126" [ref=e36] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "126"
+        - button "Activities 48" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "48"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "" [disabled] [ref=e18]:
+          - generic [ref=e19]: 
+        - button "User" [ref=e21] [cursor=pointer]:
+          - img "User" [ref=e22]
+          - text: 
+  - generic [ref=e38]:
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - button "New" [ref=e44] [cursor=pointer]
+        - generic [ref=e45]:
+          - generic [ref=e47]: APD/2026/05/0007 (QA JL APPORTION 2026-05-27)
+          - button "" [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]: 
+      - button " Purchase Matching" [ref=e56] [cursor=pointer]:
+        - generic [ref=e57]: 
+        - generic [ref=e59]: Purchase Matching
+      - generic [ref=e60]:
+        - button "Search Knowledge Articles" [ref=e61] [cursor=pointer]:
+          - img [ref=e62]
+        - search [ref=e66]:
+          - navigation "Pager" [ref=e67]:
+            - generic [ref=e68]:
+              - generic [ref=e69]: "1"
+              - text: / 1
+            - generic [ref=e70]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - button "Print" [ref=e634] [cursor=pointer]
+          - button "Pay" [ref=e635] [cursor=pointer]
+          - button "Credit Note" [ref=e636] [cursor=pointer]
+          - button "Debit Note" [ref=e637] [cursor=pointer]
+          - button "Reset to Draft" [ref=e638] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e79]:
+          - radio "Posted" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - alert [ref=e81]:
+        - generic [ref=e82]: This bill contains products under an Asset category.
+        - button "Create Assets" [ref=e83] [cursor=pointer]
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e87]: Vendor Bill
+          - heading "APD/2026/05/0007" [level=1] [ref=e639]:
+            - generic [ref=e640]: APD/2026/05/0007
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e93]: Vendor
+              - generic [ref=e641]:
+                - link "JW TECH CO.,LTD." [ref=e643] [cursor=pointer]:
+                  - /url: /odoo/res.partner/70303
+                  - generic [ref=e644]: JW TECH CO.,LTD.
+                - generic [ref=e645]: Thailand
+            - generic [ref=e103]:
+              - generic [ref=e105]: Apply Manual Exchange
+              - generic [ref=e108]:
+                - checkbox "Apply Manual Exchange" [disabled]
+            - generic [ref=e110]:
+              - generic [ref=e112]: Bill Reference
+              - textbox "Bill Reference" [ref=e115]: QA JL APPORTION 2026-05-27
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e129]: Period
+              - link "05/2026" [ref=e132] [cursor=pointer]:
+                - /url: /odoo/sh.account.period/6
+                - generic [ref=e133]: 05/2026
+            - generic [ref=e134]:
+              - generic [ref=e136]: Fiscal Year
+              - link "2026" [ref=e139] [cursor=pointer]:
+                - /url: /odoo/sh.fiscal.year/1
+                - generic [ref=e140]: "2026"
+            - generic [ref=e141]:
+              - generic [ref=e143]: Bill Date
+              - generic [ref=e646]: 05/27/2026
+            - generic [ref=e148]:
+              - generic [ref=e150]: Accounting Date
+              - generic [ref=e647]: 05/27/2026
+            - generic [ref=e155]:
+              - generic [ref=e157]:
+                - text: Payment Reference
+                - superscript [ref=e158]: "?"
+              - textbox "Payment Reference?" [ref=e161]:
+                - /placeholder: Use Bill Reference
+            - generic [ref=e162]:
+              - generic [ref=e164]:
+                - text: Recipient Bank
+                - superscript [ref=e165]: "?"
+              - combobox "Recipient Bank?" [ref=e171]
+            - generic [ref=e172]:
+              - generic [ref=e175]: Payment terms
+              - generic [ref=e177]:
+                - textbox [ref=e180] [cursor=pointer]
+                - link "60 Days" [ref=e648] [cursor=pointer]:
+                  - /url: /odoo/account.payment.term/12
+                  - generic [ref=e649]: 60 Days
+            - generic [ref=e186]:
+              - generic [ref=e188]: Customer Reference
+              - textbox "Customer Reference" [ref=e191]: QA JL APPORTION 2026-05-27
+            - generic [ref=e192]:
+              - generic [ref=e194]: Journal
+              - generic [ref=e196]:
+                - generic [ref=e650]: Domestic Vendor Bills
+                - generic [ref=e203]: in
+                - link "THB" [ref=e651] [cursor=pointer]:
+                  - /url: /odoo/res.currency/133
+                  - generic [ref=e652]: THB
+        - generic [ref=e211]:
+          - list [ref=e213]:
+            - listitem [ref=e214] [cursor=pointer]:
+              - tab "Invoice Lines" [ref=e215]
+            - listitem [ref=e216] [cursor=pointer]:
+              - tab "Journal Items" [active] [ref=e217]
+            - listitem [ref=e218] [cursor=pointer]:
+              - tab "Tax Invoice" [ref=e219]
+            - listitem [ref=e220] [cursor=pointer]:
+              - tab "Other Info" [ref=e221]
+            - listitem [ref=e222] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e223]
+          - table [ref=e967]:
+            - rowgroup [ref=e968]:
+              - row "Account  Label  Analytic Distribution  Debit  Credit  Tax Grids Manual Tax Invoice  " [ref=e969]:
+                - columnheader "Account " [ref=e970] [cursor=pointer]:
+                  - generic [ref=e971]:
+                    - generic [ref=e972]: Account
+                    - generic [ref=e973]: 
+                - columnheader "Label " [ref=e975] [cursor=pointer]:
+                  - generic [ref=e976]:
+                    - generic [ref=e977]: Label
+                    - generic [ref=e978]: 
+                - columnheader "Analytic Distribution " [ref=e980] [cursor=pointer]:
+                  - generic [ref=e981]:
+                    - generic [ref=e982]: Analytic Distribution
+                    - generic [ref=e983]: 
+                - columnheader "Debit " [ref=e985] [cursor=pointer]:
+                  - generic [ref=e986]:
+                    - generic [ref=e987]: Debit
+                    - generic [ref=e989]: 
+                - columnheader "Credit " [ref=e991] [cursor=pointer]:
+                  - generic [ref=e992]:
+                    - generic [ref=e993]: Credit
+                    - generic [ref=e994]: 
+                - columnheader "Tax Grids" [ref=e996]:
+                  - generic [ref=e997]:
+                    - generic [ref=e998]: Tax Grids
+                    - text: 
+                - columnheader "Manual Tax Invoice " [ref=e1000] [cursor=pointer]:
+                  - generic [ref=e1001]:
+                    - generic [ref=e1002]: Manual Tax Invoice
+                    - generic [ref=e1003]: 
+                - columnheader [ref=e1005]
+                - columnheader "" [ref=e1006]:
+                  - button "" [ref=e1008] [cursor=pointer]:
+                    - generic [ref=e1009]: 
+            - rowgroup [ref=e1010]:
+              - row "123003 เครื่องจักร Injection Machine test1 [301] ฝ่ายขาย 540,000.00 ฿ 0.00 ฿ +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1011]:
+                - cell "123003 เครื่องจักร" [ref=e1012] [cursor=pointer]
+                - cell "Injection Machine test1" [ref=e1013] [cursor=pointer]:
+                  - generic [ref=e1014]: Injection Machine test1
+                - cell "[301] ฝ่ายขาย" [ref=e1015] [cursor=pointer]:
+                  - generic "[301] ฝ่ายขาย" [ref=e1018]:
+                    - generic [ref=e1019]: "[301] ฝ่ายขาย"
+                - cell "540,000.00 ฿" [ref=e1020] [cursor=pointer]
+                - cell "0.00 ฿" [ref=e1021] [cursor=pointer]
+                - cell "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1022] [cursor=pointer]:
+                  - generic "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1025]:
+                    - generic [ref=e1026]: +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation
+                - cell [ref=e1027] [cursor=pointer]:
+                  - generic [ref=e1028]:
+                    - checkbox [disabled]
+                - cell [ref=e1029] [cursor=pointer]
+                - cell [ref=e1030]
+              - row "123003 เครื่องจักร Injection Machine test2 [301] ฝ่ายขาย 360,000.00 ฿ 0.00 ฿ +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1031]:
+                - cell "123003 เครื่องจักร" [ref=e1032] [cursor=pointer]
+                - cell "Injection Machine test2" [ref=e1033] [cursor=pointer]:
+                  - generic [ref=e1034]: Injection Machine test2
+                - cell "[301] ฝ่ายขาย" [ref=e1035] [cursor=pointer]:
+                  - generic "[301] ฝ่ายขาย" [ref=e1038]:
+                    - generic [ref=e1039]: "[301] ฝ่ายขาย"
+                - cell "360,000.00 ฿" [ref=e1040] [cursor=pointer]
+                - cell "0.00 ฿" [ref=e1041] [cursor=pointer]
+                - cell "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1042] [cursor=pointer]:
+                  - generic "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1045]:
+                    - generic [ref=e1046]: +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation
+                - cell [ref=e1047] [cursor=pointer]:
+                  - generic [ref=e1048]:
+                    - checkbox [disabled]
+                - cell [ref=e1049] [cursor=pointer]
+                - cell [ref=e1050]
+              - row "117001 ภาษีซื้อ Input VAT 7% 62,720.00 ฿ 0.00 ฿ +7. Input tax (according to invoice of purchase amount in 6.)" [ref=e1051]:
+                - cell "117001 ภาษีซื้อ" [ref=e1052] [cursor=pointer]
+                - cell "Input VAT 7%" [ref=e1053] [cursor=pointer]:
+                  - generic [ref=e1054]: Input VAT 7%
+                - cell [ref=e1055] [cursor=pointer]
+                - cell "62,720.00 ฿" [ref=e1057] [cursor=pointer]
+                - cell "0.00 ฿" [ref=e1058] [cursor=pointer]
+                - cell "+7. Input tax (according to invoice of purchase amount in 6.)" [ref=e1059] [cursor=pointer]:
+                  - generic "+7. Input tax (according to invoice of purchase amount in 6.)" [ref=e1062]:
+                    - generic [ref=e1063]: +7. Input tax (according to invoice of purchase amount in 6.)
+                - cell [ref=e1064] [cursor=pointer]:
+                  - generic [ref=e1065]:
+                    - checkbox [disabled]
+                - cell [ref=e1066] [cursor=pointer]
+                - cell [ref=e1067]
+              - 'row "123003 เครื่องจักร discount asset ในปท - Allocation: Injection Machine test1 [301] ฝ่ายขาย 0.00 ฿ 2,400.00 ฿ +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1068]':
+                - cell "123003 เครื่องจักร" [ref=e1069] [cursor=pointer]
+                - 'cell "discount asset ในปท - Allocation: Injection Machine test1" [ref=e1070] [cursor=pointer]':
+                  - generic [ref=e1071]: "discount asset ในปท - Allocation: Injection Machine test1"
+                - cell "[301] ฝ่ายขาย" [ref=e1072] [cursor=pointer]:
+                  - generic "[301] ฝ่ายขาย" [ref=e1075]:
+                    - generic [ref=e1076]: "[301] ฝ่ายขาย"
+                - cell "0.00 ฿" [ref=e1077] [cursor=pointer]
+                - cell "2,400.00 ฿" [ref=e1078] [cursor=pointer]
+                - cell "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1079] [cursor=pointer]:
+                  - generic "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1082]:
+                    - generic [ref=e1083]: +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation
+                - cell [ref=e1084] [cursor=pointer]:
+                  - generic [ref=e1085]:
+                    - checkbox [disabled]
+                - cell [ref=e1086] [cursor=pointer]
+                - cell [ref=e1087]
+              - row "212001 เจ้าหนี้การค้า - ในประเทศ 0.00 ฿ 958,720.00 ฿" [ref=e1088]:
+                - cell "212001 เจ้าหนี้การค้า - ในประเทศ" [ref=e1089] [cursor=pointer]
+                - cell [ref=e1090] [cursor=pointer]
+                - cell [ref=e1091] [cursor=pointer]
+                - cell "0.00 ฿" [ref=e1093] [cursor=pointer]
+                - cell "958,720.00 ฿" [ref=e1094] [cursor=pointer]
+                - cell [ref=e1095] [cursor=pointer]
+                - cell [ref=e1097] [cursor=pointer]:
+                  - generic [ref=e1098]:
+                    - checkbox [disabled]
+                - cell [ref=e1099] [cursor=pointer]
+                - cell [ref=e1100]
+              - 'row "123003 เครื่องจักร discount asset ในปท - Allocation: Injection Machine test2 [301] ฝ่ายขาย 0.00 ฿ 1,600.00 ฿ +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1101]':
+                - cell "123003 เครื่องจักร" [ref=e1102] [cursor=pointer]
+                - 'cell "discount asset ในปท - Allocation: Injection Machine test2" [ref=e1103] [cursor=pointer]':
+                  - generic [ref=e1104]: "discount asset ในปท - Allocation: Injection Machine test2"
+                - cell "[301] ฝ่ายขาย" [ref=e1105] [cursor=pointer]:
+                  - generic "[301] ฝ่ายขาย" [ref=e1108]:
+                    - generic [ref=e1109]: "[301] ฝ่ายขาย"
+                - cell "0.00 ฿" [ref=e1110] [cursor=pointer]
+                - cell "1,600.00 ฿" [ref=e1111] [cursor=pointer]
+                - cell "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1112] [cursor=pointer]:
+                  - generic "+6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation" [ref=e1115]:
+                    - generic [ref=e1116]: +6. Purchase amount that is entitled to deduction of input tax from output tax in tax computation
+                - cell [ref=e1117] [cursor=pointer]:
+                  - generic [ref=e1118]:
+                    - checkbox [disabled]
+                - cell [ref=e1119] [cursor=pointer]
+                - cell [ref=e1120]
+            - rowgroup [ref=e1121]:
+              - row "962,720.00 ฿ 962,720.00 ฿" [ref=e1122]:
+                - cell [ref=e1123]
+                - cell [ref=e1124]
+                - cell [ref=e1125]
+                - cell "962,720.00 ฿" [ref=e1126]
+                - cell "962,720.00 ฿" [ref=e1127]
+                - cell [ref=e1128]
+                - cell [ref=e1129]
+                - cell [ref=e1130]
+                - cell [ref=e1131]
+      - generic [ref=e473]:
+        - generic [ref=e475]:
+          - button "Send message" [ref=e476] [cursor=pointer]
+          - button "Log note" [ref=e477] [cursor=pointer]
+          - button "Activities" [ref=e478] [cursor=pointer]
+          - button "Search Messages" [ref=e480] [cursor=pointer]:
+            - img [ref=e481]: 
+          - button "Attach files" [ref=e483] [cursor=pointer]:
+            - generic [ref=e484]: 
+          - button "1" [ref=e664] [cursor=pointer]:
+            - img [ref=e487]: 
+            - superscript: "1"
+          - button "Follow" [ref=e488] [cursor=pointer]:
+            - generic [ref=e490]: Follow
+        - generic [ref=e492]:
+          - generic [ref=e493]:
+            - generic [ref=e665]:
+              - separator [ref=e666]
+              - generic [ref=e667]: Today
+              - separator [ref=e668]
+            - group "System notification" [ref=e669]:
+              - generic [ref=e670]:
+                - generic "Open card" [ref=e672] [cursor=pointer]:
+                  - img [ref=e673]
+                - generic [ref=e674]:
+                  - generic [ref=e675]:
+                    - generic "Open card" [ref=e676] [cursor=pointer]:
+                      - strong [ref=e677]: Administrator
+                    - generic "5/27/2026, 10:09:00 AM" [ref=e678]: Today at 10:09 AM
+                  - list [ref=e683]:
+                    - group [ref=e684]:
+                      - text: "No"
+                      - generic [ref=e685]: 
+                      - text: "Yes"
+                      - generic [ref=e686]: (Checked)
+                    - group [ref=e687]:
+                      - text: None
+                      - generic [ref=e688]: 
+                      - text: APD/2026/05/0007
+                      - generic [ref=e689]: (Number)
+                    - group [ref=e690]:
+                      - text: Draft
+                      - generic [ref=e691]: 
+                      - text: Posted
+                      - generic [ref=e692]: (Status)
+            - group "System notification" [ref=e499]:
+              - generic [ref=e500]:
+                - generic "Open card" [ref=e502] [cursor=pointer]:
+                  - img [ref=e503]
+                - generic [ref=e504]:
+                  - generic [ref=e505]:
+                    - generic "Open card" [ref=e506] [cursor=pointer]:
+                      - strong [ref=e507]: OdooBot
+                    - generic "5/27/2026, 10:08:16 AM" [ref=e508]: Today at 10:08 AM
+                  - paragraph [ref=e515]: Vendor Bill Created
+          - button "" [ref=e962] [cursor=pointer]:
+            - generic [ref=e963]: 

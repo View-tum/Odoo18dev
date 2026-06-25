@@ -39,16 +39,17 @@ class PurchaseOrderStatusReportWizard(models.TransientModel):
         default=lambda self: date.today(),
     )
 
-    # Order Status
-    state = fields.Selection([
-        ("draft", "ใบขอเสนอราคา"),
-        ("sent", "ส่งใบขอเสนอราคาแล้ว"),
-        ("to approve", "รออนุมัติ"),
-        ("purchase", "ใบสั่งซื้อ"),
-        ("done", "ล็อกแล้ว"),
-        ("rejected", "ปฏิเสธ"),
-        ("cancel", "ยกเลิก"),
-    ], string="สถานะใบสั่งซื้อ")
+    @api.model
+    def _get_state_selection(self):
+        selection = self.env["purchase.order"]._fields["state"].selection
+        if callable(selection):
+            return selection(self.env["purchase.order"])
+        return selection
+
+    state = fields.Selection(
+        selection="_get_state_selection",
+        string="สถานะใบสั่งซื้อ"
+    )
 
     # Billing Status
     invoice_status = fields.Selection([
@@ -130,6 +131,7 @@ class PurchaseOrderStatusReportWizard(models.TransientModel):
                 "expected_arrival": data.get("expected_arrival"),
                 "vendor_id": data.get("vendor").id if data.get("vendor") else False,
                 "product_id": data.get("product").id if data.get("product") else False,
+                "product_display": data.get("product_display"),
                 "qty": data.get("qty"),
                 "qty_received": data.get("qty_received"),
                 "qty_pending_invoice": data.get("qty_pending_invoice"),

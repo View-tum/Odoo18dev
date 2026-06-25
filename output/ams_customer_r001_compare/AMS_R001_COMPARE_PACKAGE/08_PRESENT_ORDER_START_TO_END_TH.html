@@ -1,0 +1,212 @@
+<!doctype html><html><head><meta charset="utf-8"><title>AMS R001 Present Order</title>
+<style>body{font-family:Arial,'Noto Sans Thai',sans-serif;max-width:1180px;margin:32px;line-height:1.58;color:#111827}h1{color:#5B1747;font-size:30px}h2{margin-top:34px;border-bottom:2px solid #E5E7EB;padding-bottom:8px;color:#1F2937}h3{margin-top:26px;color:#374151}.file{background:#F3F4F6;border:1px solid #E5E7EB;border-radius:6px;padding:2px 6px}li{margin:5px 0}p{margin:8px 0}.callout{background:#FFF7ED;border-left:5px solid #F97316;padding:12px 14px;margin:16px 0}code{background:#F3F4F6;padding:2px 5px;border-radius:4px}</style></head><body>
+<h1>ลำดับการ Present ทั้งหมด: AMS R001 / Odoo Standard Mapping</h1>
+<p>เอกสารนี้ใช้เป็น script เปิดไฟล์ตั้งแต่ต้นจนจบสำหรับคุยกับลูกค้า R001 เป้าหมายคือทำให้ลูกค้าเข้าใจเร็วว่าเราเข้ามาช่วยอะไร ทำไม Odoo standard ช่วยได้หลายส่วน จุดไหนต้องเพิ่ม และ Manday ใช้ไปกับอะไร</p>
+<h2>Message หลักที่ต้องพูดตั้งแต่ต้น</h2>
+<p>เราจะไม่เริ่มจากการ custom ทุกอย่างทันที แต่จะเริ่มจาก Odoo standard/config ก่อน แล้วค่อยแยกเฉพาะจุดที่ standard ไม่มีหรือไม่พอเป็น report, integration หรือ custom เพราะงานที่กระทบ Stock, MRP และ Accounting ต้องรักษาความถูกต้องของ flow, valuation และเอกสารบัญชี</p>
+<h2>ลำดับเปิดไฟล์แบบเร็ว</h2>
+<ul>
+<li>1. `00_DASHBOARD_AMS_R001_CLIENT_SUMMARY.html`</li>
+<li>2. `01_AMS_R001_Comparison_Manday_Sequence.xlsx` Sheet `05 Manday Summary`</li>
+<li>3. `09_R001_Flow_Mapping_Table.xlsx` หรือ `10_R001_Flow_Mapping_Table.html`</li>
+<li>4. `06_AMS_R001_Blueprint_Swimlane_TH.drawio`</li>
+<li>5. `01_AMS_R001_Comparison_Manday_Sequence.xlsx` Sheet `01 R001 vs Our Mapping`</li>
+<li>6. `01_AMS_R001_Comparison_Manday_Sequence.xlsx` Sheet `04 Odoo Function Detail`</li>
+<li>7. `01_AMS_R001_Comparison_Manday_Sequence.xlsx` Sheet `07 Workshop Questions`</li>
+</ul>
+<h2>0. เปิด Package Folder</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">C:\365_project\TheCool18e\Dev\output\ams_customer_r001_compare\AMS_R001_COMPARE_PACKAGE</span></p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>วันนี้เราจะใช้ package R001 ชุดใหม่ที่ทำเพิ่มจาก requirement ใหม่ของลูกค้าและภาพ TFI blueprint โดยไม่ได้แก้ flow baseline เดิม ชุดนี้ใช้เพื่อ present, workshop และเตรียม scope สำหรับ UAT/quotation รอบถัดไป</p>
+<p class="callout"><strong>ผลลัพธ์ที่ต้องการ:</strong></p>
+<p>ลูกค้าเข้าใจว่าเอกสารชุดนี้เป็น working package สำหรับ confirm scope ไม่ใช่แค่ diagram สวย ๆ</p>
+<h2>1. เปิด Dashboard เป็นหน้าแรก</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">00_DASHBOARD_AMS_R001_CLIENT_SUMMARY.html</span></p>
+<p class="callout"><strong>ไฟล์สำรอง:</strong></p>
+<p><span class="file">00_DASHBOARD_AMS_R001_CLIENT_SUMMARY.png</span></p>
+<p><span class="file">00_DASHBOARD_AMS_R001_CLIENT_SUMMARY.xlsx</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>3-5 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>หน้าแรกนี้สรุปให้เห็นก่อนว่าเราเข้ามาทำอะไรให้ AMS ทำงานง่ายขึ้น เราเอา R001 และ blueprint มาจัดเป็น Odoo flow, แยกว่าส่วนไหนใช้ standard/config ได้, ส่วนไหนต้องทำรายงานหรือ KPI และส่วนไหน standard ไม่มี ต้องเป็น integration/custom</p>
+<p class="callout"><strong>จุดที่ต้องชี้:</strong></p>
+<ul>
+<li>Customer request จริงใน R001 มี 44 ข้อ ส่วนอีก 24 จุดคือ blueprint/add-on mapping points ที่ใช้ประกอบการอธิบาย ไม่ใช่ request เพิ่ม</li>
+<li>Standard/Config 196 MD คือส่วนที่ใช้ Odoo function และ setup process เป็นหลัก</li>
+<li>Report/KPI 67 MD คือส่วนที่ต้องทำแบบฟอร์ม, dashboard, COA, DPPM, OEE/OPE</li>
+<li>Custom/Integration 95 MD คือส่วนที่ต้องเชื่อม API/import, ทำ control guard หรือ design accounting เพิ่ม</li>
+</ul>
+<p class="callout"><strong>ประโยคปิดช่วงนี้:</strong></p>
+<p>ดังนั้นภาพรวมคือเราไม่ได้ custom ทั้งระบบ แต่เราแยกให้เห็นก่อนว่าส่วนไหนใช้ Odoo ได้ทันที และส่วนไหนต้องตัดสินใจเป็น scope เพิ่ม</p>
+<h2>2. ต่อด้วย Manday ว่าใช้ไปกับอะไร</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">01_AMS_R001_Comparison_Manday_Sequence.xlsx</span></p>
+<p class="callout"><strong>Sheet:</strong></p>
+<p><span class="file">05 Manday Summary</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>5-7 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>Manday ในไฟล์นี้เป็น initial estimate สำหรับ planning/workshop ยังไม่ใช่ fixed quotation ตัวเลขนี้ใช้เพื่อดูว่า effort กระจุกอยู่ตรงไหน และช่วยตัด scope เป็น P1/P2/P3 ได้ง่ายขึ้น</p>
+<p class="callout"><strong>ตัวเลขหลัก:</strong></p>
+<ul>
+<li>R001 numbered requirements: 44 items, Recommended 220.5 MD</li>
+<li>R001 solution/blueprint additions: 24 items, Recommended 137.5 MD</li>
+<li>Total mapping scope if all included: 44 customer requests + 24 supporting mapping points, Recommended 358 MD</li>
+<li>Range โดยประมาณ: 226.5-493.5 MD</li>
+</ul>
+<p class="callout"><strong>วิธีอธิบาย Manday:</strong></p>
+<ul>
+<li>Standard/Config ใช้กับ setup module, master data, workflow, access, UAT standard flow</li>
+<li>Report/KPI ใช้กับเอกสารและ dashboard เช่น COA, DPPM, OEE/OPE, BI, slow/dead stock</li>
+<li>Custom/Integration ใช้กับ API/import, hard lock, netting, multi-ledger, consolidation, accounting/stock design</li>
+</ul>
+<p class="callout"><strong>จุดที่ต้องย้ำ:</strong></p>
+<p>Manday ไม่ใช่การคิดราคาปิดทันที แต่เป็นตัวช่วยคุย priority ถ้าลูกค้าอยากลด scope ต้องเลือกว่าจะเลื่อน requirement ใดไป future phase</p>
+<h2>3. เปิดตาราง Mapping ราย Flow ก่อนเข้า Diagram</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">09_R001_Flow_Mapping_Table.xlsx</span></p>
+<p class="callout"><strong>ไฟล์สำรอง:</strong></p>
+<p><span class="file">10_R001_Flow_Mapping_Table.html</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>5-10 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>ตารางนี้เป็นตัวตอบว่าเก็บครบทุกจุดตาม R001 และ blueprint ที่ได้รับหรือไม่ โดยแยกให้ชัดว่า customer request จริงมี 44 ข้อ และมี blueprint/add-on mapping points อีก 24 จุดสำหรับประกอบการอธิบาย flow รวมเป็น mapping scope 68 จุด ไม่ใช่ request ลูกค้า 68 ข้อ</p>
+<p class="callout"><strong>วิธีอ่าน:</strong></p>
+<ul>
+<li>Sheet `00 Flow Mapping Summary` ใช้ดูภาพรวมแต่ละ flow ว่ามีกี่ข้อ, Standard/Config กี่ข้อ, Report/KPI กี่ข้อ, Custom/Integration กี่ข้อ และ MD เท่าไร</li>
+<li>Sheet `01 Detail Mapping 44+24` ใช้ไล่ราย customer request/add-on point ว่าอยู่ flow ไหน, Odoo standard รองรับอะไร, ต้องเพิ่มอะไร, MD/Phase/Priority คืออะไร</li>
+<li>Sheet `02 วิธีอ่าน` ใช้เป็นคำอธิบายสั้นสำหรับทีม present</li>
+</ul>
+<p class="callout"><strong>จุดที่ต้องย้ำ:</strong></p>
+<p>คำว่า “ครบ” หมายถึงครบตามเอกสาร R001 และรูป blueprint ที่ได้รับในระดับ workshop/presentation แล้ว แต่รายการที่เป็น API, report format, COA, DPPM/OEE/OPE, budget hard lock, netting, multi-ledger และ WIP/valuation ต้อง confirm rule/sample กับลูกค้าก่อน final quotation</p>
+<h2>4. เปิด Workflow / Business Flow</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">06_AMS_R001_Blueprint_Swimlane_TH.drawio</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>30-45 นาที</p>
+<p class="callout"><strong>เริ่มหน้า:</strong></p>
+<p><span class="file">00 วิธีอ่าน R001 Blueprint Flow</span></p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>ก่อนเข้า flow จริง เราจะอธิบายวิธีอ่านสัญลักษณ์ก่อน เช่น Start/End, Process, Decision, Input/Output, Document, Database และ Connector เพื่อให้ทุกฝ่ายอ่าน diagram ด้วยภาษาเดียวกัน</p>
+<p class="callout"><strong>ลำดับหน้าใน draw.io:</strong></p>
+<ul>
+<li>1. `00 วิธีอ่าน R001 Blueprint Flow`</li>
+<li>2. `01 Overall R001 Blueprint End-to-End`</li>
+<li>3. `02 Sales + Customer Forecast API`</li>
+<li>4. `03 Procurement + PR PO Approval`</li>
+<li>5. `04 RM Warehouse + Customer Supplied Material`</li>
+<li>6. `05 Engineering + PCC BOM Routing`</li>
+<li>7. `06 Quality + COA`</li>
+<li>8. `07 Planning + IS WI MRP`</li>
+<li>9. `08 Production + MO WO Rework`</li>
+<li>10. `09 FG Warehouse + Delivery`</li>
+<li>11. `10 Accounting + Thai Tax Legacy Docs`</li>
+</ul>
+<p class="callout"><strong>วิธีเล่า flow ใหญ่:</strong></p>
+<p>เริ่มจากลูกค้าส่ง RFQ/Forecast หรือ PO เข้าระบบ จากนั้น Sales สร้าง quotation/SO, Planning ใช้ MPS/MRP แตกความต้องการ, Procurement ซื้อ RM, Warehouse รับและจ่ายวัตถุดิบ, Engineering ดู BOM/Routing/PCC, Production ผลิตผ่าน MO/WO, Quality ตรวจและออก COA, FG Warehouse รับสำเร็จรูปและส่งสินค้า, Accounting ออก IV/BI/PD/RR/PS/RE และปิดบัญชี</p>
+<p class="callout"><strong>จุดตัดสินใจสำคัญ:</strong></p>
+<ul>
+<li>Customer Forecast จะรับเป็น manual, Excel, EDI หรือ API</li>
+<li>Budget control ต้อง warning หรือ hard block</li>
+<li>Customer supplied material ต้องถือ stock owner และ valuation แบบใด</li>
+<li>COA format ต้องอิง spec จาก customer, product หรือ lot</li>
+<li>WIP จะ track ด้วย stock location หรือ process/accounting report</li>
+<li>Netting payment และ multi-ledger ต้องการระดับ statutory หรือ management report</li>
+</ul>
+<h2>5. กลับมา Excel เพื่อเทียบ R001 vs Our Mapping</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">01_AMS_R001_Comparison_Manday_Sequence.xlsx</span></p>
+<p class="callout"><strong>Sheet:</strong></p>
+<p><span class="file">01 R001 vs Our Mapping</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>15-20 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>Sheet นี้เป็นตารางหลักสำหรับไล่ทีละ requirement ว่าขอเดิมของลูกค้าตรงกับ mapping เดิมของเราตรงไหน ถ้ามีอยู่แล้วจะบอกว่าเราอธิบายเพิ่มอะไร ถ้าเป็นเรื่องใหม่จะถูกจัดเป็น New / Need Mapping</p>
+<p class="callout"><strong>คอลัมน์ที่ต้องอธิบาย:</strong></p>
+<ul>
+<li>`Customer Requirement`: สิ่งที่ลูกค้าเขียนใน R001</li>
+<li>`Customer Solution`: note ของลูกค้า เช่น Multi Company, API, MPS, RMA</li>
+<li>`Our Existing Mapping`: requirement เดิมของเราที่ match</li>
+<li>`Odoo Standard Explanation`: Odoo standard รองรับด้วย module/function ใด</li>
+<li>`Standard vs Custom`: สรุปว่าเป็น Standard, Config, Report, Integration หรือ Custom</li>
+<li>`What to Add / Explain`: สิ่งที่เราต้องอธิบายเพิ่มตอน present</li>
+<li>`MD Rec`: Manday recommended</li>
+</ul>
+<p class="callout"><strong>ตัวอย่างที่ควรหยิบพูด:</strong></p>
+<ul>
+<li>Consolidation: Odoo multi-company มี แต่ consolidation/elimination ต้อง design เพิ่ม</li>
+<li>Budget Limit: Odoo budget มี แต่ hard block PR/PO ต้อง custom guard</li>
+<li>Customer Forecast API: Odoo MPS/MRP รองรับ demand แต่ automotive API/import ต้อง integration</li>
+<li>COA/DPPM/OEE: Quality/MRP มีข้อมูลต้นทาง แต่ report/formula ต้องทำเพิ่ม</li>
+<li>Thai Tax/QR: standard localization มีฐาน แต่ legacy format และ sequence ต้อง map เพิ่ม</li>
+</ul>
+<h2>6. เปิด Odoo Function Detail</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">01_AMS_R001_Comparison_Manday_Sequence.xlsx</span></p>
+<p class="callout"><strong>Sheet:</strong></p>
+<p><span class="file">04 Odoo Function Detail</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>10-15 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>Sheet นี้ใช้ตอบคำถามเชิง function ว่า Odoo standard รองรับอะไร และ pain point ที่ต้องเพิ่มคืออะไร ตามหลัก Standard First, Custom Later</p>
+<p class="callout"><strong>จุดที่ต้องเน้น:</strong></p>
+<ul>
+<li>Sales, Purchase, Inventory, MRP, Quality, Accounting เป็น standard flow ที่ควรเริ่มก่อน</li>
+<li>งานเอกสาร legacy เช่น SP, FA, IMR, PCC, IS, WI, PI, IV, BI, PD, RR, PS, RE ต้อง map กับ Odoo document/model</li>
+<li>งาน KPI/report สามารถเริ่มจากข้อมูลมาตรฐาน แต่รูปแบบลูกค้าอาจต้องทำ report เพิ่ม</li>
+<li>งานที่กระทบ stock/accounting เช่น WIP, valuation, netting, multi-ledger ต้อง design review ก่อน custom</li>
+</ul>
+<h2>7. เปิด Workshop Questions เพื่อปิด scope</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">01_AMS_R001_Comparison_Manday_Sequence.xlsx</span></p>
+<p class="callout"><strong>Sheet:</strong></p>
+<p><span class="file">07 Workshop Questions</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>10 นาที</p>
+<p class="callout"><strong>พูด:</strong></p>
+<p>คำถามเหล่านี้คือสิ่งที่ต้องตอบก่อน final quotation หรือก่อนทำ UAT scenario เพราะบาง requirement ยังมีหลายวิธีทำใน Odoo</p>
+<p class="callout"><strong>คำถามสำคัญ:</strong></p>
+<ul>
+<li>Consolidation ต้องเป็น statutory consolidation หรือ management report</li>
+<li>Budget ต้อง warning หรือ hard block</li>
+<li>Multi Ledger หมายถึงหลายสมุดบัญชี, หลาย reporting basis หรือหลาย company</li>
+<li>Forecast เข้ามาทาง Excel, EDI, API หรือ manual</li>
+<li>Customer supplied material ต้อง valuate หรือ off-balance</li>
+<li>COA format และ spec source คืออะไร</li>
+<li>OEE/OPE/DPPM ใช้สูตร approved แบบใด</li>
+<li>WIP ต้อง track ตาม location หรือ process</li>
+<li>ระบบเดิม Access/BP Soft/Express/Excel ต้อง migrate หรือ retire ตัวไหน</li>
+</ul>
+<h2>8. ปิดการ Present</h2>
+<p class="callout"><strong>ไฟล์:</strong></p>
+<p><span class="file">01_AMS_R001_Comparison_Manday_Sequence.xlsx</span></p>
+<p class="callout"><strong>Sheet:</strong></p>
+<p><span class="file">06 Present Sequence</span></p>
+<p class="callout"><strong>ใช้เวลา:</strong></p>
+<p>5 นาที</p>
+<p class="callout"><strong>พูดสรุป:</strong></p>
+<p>สิ่งที่เราทำคือแปลง R001 ให้เป็น Odoo-ready flow, แยก standard/config/report/custom, ทำ Manday เพื่อใช้จัด priority และสร้าง swimlane flow เพื่อใช้ยืนยัน owner, document, decision และ UAT scenario</p>
+<p class="callout"><strong>Output ที่ต้องได้จาก meeting:</strong></p>
+<ul>
+<li>ยืนยัน scope P1/P2/P3</li>
+<li>ยืนยัน owner ของแต่ละ flow</li>
+<li>ยืนยัน requirement ที่ยังไม่ชัด</li>
+<li>ขอ sample document, report, file import/API</li>
+<li>ตกลง UAT scenario ตาม business flow</li>
+</ul>
+<h2>สรุปลำดับไฟล์ที่ใช้ present จริง</h2>
+<ul>
+<li>1. `00_DASHBOARD_AMS_R001_CLIENT_SUMMARY.html`</li>
+<li>2. `01_AMS_R001_Comparison_Manday_Sequence.xlsx`</li>
+<li>3. `09_R001_Flow_Mapping_Table.xlsx` หรือ `10_R001_Flow_Mapping_Table.html`</li>
+<li>4. `06_AMS_R001_Blueprint_Swimlane_TH.drawio`</li>
+<li>5. `07_PRESENT_ORDER_START_TO_END_TH.md` หรือ `08_PRESENT_ORDER_START_TO_END_TH.html`</li>
+<li>6. `02_AMS_R001_Presentation_Guide_TH.md` หรือ `03_AMS_R001_Presentation_Guide_TH.html`</li>
+<li>7. `04_Manday_Summary_Preview.png`</li>
+<li>8. `05_TFI_Blueprint_Reference.jpg`</li>
+</ul>
+<h2>หมายเหตุเรื่อง flow baseline เดิม</h2>
+<p>Flow baseline เดิมยังใช้เป็น reference ภาพรวมได้ แต่ไม่ต้องแก้หรือทับไฟล์เดิม สำหรับ R001 ให้ใช้ <code>06_AMS_R001_Blueprint_Swimlane_TH.drawio</code> เป็น version ใหม่ เพราะมี detail เพิ่มจาก R001 เช่น legacy document code, customer supplied material, COA, IS/WI, Thai Tax, Netting, Multi Ledger และ Forecast API</p>
+</body></html>

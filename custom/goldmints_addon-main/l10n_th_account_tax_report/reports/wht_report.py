@@ -104,7 +104,7 @@ class WithholdingTaxReport(models.AbstractModel):
                     "cert_cancel": cert_cancel,
                     "cert_date": cert.date,
                     "cert_date_str": cert.date.strftime("%d/%m/%Y"),
-                    "cert_name": cert.name,
+                    "cert_name": cert.number,
                     "cert_tax_payer": cert.tax_payer,
                     "cert_tax_payer_display": selection.get(cert.tax_payer),
                     "cert_tax_payer_code": cert_tax_payer_code,

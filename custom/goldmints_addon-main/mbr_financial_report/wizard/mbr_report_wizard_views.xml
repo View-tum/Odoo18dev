@@ -8,7 +8,9 @@
 	                <group>
 	                    <field name="company_id"/>
 	                    <field name="year"/>
-	                    <field name="month"/>
+	                    <field name="period_type"/>
+	                    <field name="quarter" invisible="period_type != 'quarter'" required="period_type == 'quarter'"/>
+	                    <field name="month" invisible="period_type != 'month'" required="period_type == 'month'"/>
 	                    <field name="target_move"/>
 	                    <field name="journal_ids" widget="many2many_tags"/>
 	                    <field name="scale"/>

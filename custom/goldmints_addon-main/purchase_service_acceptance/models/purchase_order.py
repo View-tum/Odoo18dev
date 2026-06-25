@@ -12,11 +12,11 @@ class PurchaseOrder(models.Model):
     has_service_product = fields.Boolean(
         compute='_compute_has_service_product', store=True)
 
-    @api.depends('order_line.product_id.type', 'order_line.qty_received', 'order_line.product_qty')
+    @api.depends('order_line.product_id.type', 'order_line.qty_received', 'order_line.product_qty', 'order_line.price_subtotal')
     def _compute_has_service_product(self):
         for order in self:
             order.has_service_product = any(
-                line.product_id.type == 'service' and line.qty_received < line.product_qty
+                line.product_id.type == 'service' and line.price_subtotal >= 0 and line.qty_received < line.product_qty
                 for line in order.order_line
             )
 
@@ -24,6 +24,14 @@ class PurchaseOrder(models.Model):
     def _compute_service_acceptance_count(self):
         for order in self:
             order.service_acceptance_count = len(order.service_acceptance_ids)
+
+    def button_confirm(self):
+        res = super(PurchaseOrder, self).button_confirm()
+        for order in self:
+            for line in order.order_line:
+                if line.product_id.type == 'service' and line.price_subtotal < 0:
+                    line.qty_received = line.product_qty
+        return res
 
     def action_create_invoice(self):
         """Override to check for service acceptance before creating bill."""
@@ -54,7 +62,7 @@ class PurchaseOrder(models.Model):
         # Prepare lines
         lines = []
         for line in self.order_line:
-            if line.product_id.type == 'service' and line.product_qty > line.qty_received:
+            if line.product_id.type == 'service' and line.price_subtotal >= 0 and line.product_qty > line.qty_received:
                 lines.append((0, 0, {
                     'po_line_id': line.id,
                     'name': line.name,
@@ -62,11 +70,8 @@ class PurchaseOrder(models.Model):
                 }))
 
         if not lines:
-            # If no service lines or all fully received, maybe still allow creating empty?
-            # Or just show warning. Let's allow creating but maybe empty or with all lines.
-            # Let's filter for service lines at least.
             for line in self.order_line:
-                if line.product_id.type == 'service':
+                if line.product_id.type == 'service' and line.price_subtotal >= 0:
                     lines.append((0, 0, {
                         'po_line_id': line.id,
                         'name': line.name,
@@ -90,10 +95,10 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
-    @api.depends('qty_received', 'qty_invoiced', 'product_qty')
+    @api.depends('qty_received', 'qty_invoiced', 'product_qty', 'price_subtotal')
     def _compute_qty_invoiced(self):
         super()._compute_qty_invoiced()
         for line in self:
-            if line.product_id.type == 'service':
+            if line.product_id.type == 'service' and line.price_subtotal >= 0:
                 # Force billing based on received quantity for services
                 line.qty_to_invoice = line.qty_received - line.qty_invoiced

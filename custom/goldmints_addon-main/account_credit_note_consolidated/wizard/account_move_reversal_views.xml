@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_move_reversal_vendor_returns" model="ir.ui.view">
+        <field name="name">account.move.reversal.form.vendor.returns</field>
+        <field name="model">account.move.reversal</field>
+        <field name="inherit_id" ref="account.view_account_move_reversal"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='available_journal_ids']" position="after">
+                <field name="include_vendor_returns" invisible="1"/>
+                <field name="available_return_picking_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="//group[1]" position="after">
+                <group string="Vendor Returns" invisible="not include_vendor_returns">
+                    <field name="return_picking_ids"
+                           widget="many2many_tags"
+                           domain="[('id', 'in', available_return_picking_ids)]"
+                           options="{'no_create': True}"/>
+                    <field name="return_line_ids" nolabel="1" colspan="2" readonly="1">
+                        <list create="0" delete="0">
+                            <field name="picking_id"/>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="price_unit"/>
+                            <field name="source_bill_line_id"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+            <xpath expr="//button[@name='modify_moves']" position="attributes">
+                <attribute name="invisible">move_type == 'entry' or return_picking_ids</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

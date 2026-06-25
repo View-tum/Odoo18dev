@@ -1,0 +1,38 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Accounting" [ref=e151]
+        - generic [ref=e152]: Accounting
+      - menu [ref=e153]:
+        - menuitem "Dashboard" [ref=e154] [cursor=pointer]
+        - button "Customers" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: Customers
+        - button "Vendors" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: Vendors
+        - button "Accounting" [ref=e159] [cursor=pointer]:
+          - generic [ref=e160]: Accounting
+        - button "Reporting" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: Reporting
+        - button "Configuration" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 19" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "19"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 

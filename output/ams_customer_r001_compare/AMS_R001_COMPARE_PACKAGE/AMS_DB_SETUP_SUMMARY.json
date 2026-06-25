@@ -1,0 +1,109 @@
+{
+  "run_code": "AMS-DEMO-20260619-1531",
+  "database": "AMS",
+  "port": 8813,
+  "standard_only": true,
+  "installed_custom_modules": [],
+  "configured": [
+    "Company set to AMS Co., Ltd. with THB currency",
+    "Demo customer and supplier configured",
+    "Products, product codes, categories, stockability, lot tracking, sale/purchase flags configured",
+    "BOM AMS.400 REV 00 configured with 18 components and 21 routing operations",
+    "Raw material and trading stock lots loaded to WH/Stock for demo production",
+    "Reordering rules configured for raw materials",
+    "Quality control points configured on selected manufacturing operations"
+  ],
+  "records": {
+    "required_modules": {
+      "sale_management": "installed",
+      "purchase": "installed",
+      "stock": "installed",
+      "mrp": "installed",
+      "mrp_workorder": "installed",
+      "quality_control": "installed",
+      "quality_mrp": "installed",
+      "stock_account": "installed",
+      "account": "installed",
+      "approvals": "installed",
+      "stock_barcode": "installed",
+      "l10n_th": "installed"
+    },
+    "products": 30,
+    "bom": "AMS.400 REV 00: [AMS.400] AMS.400 REV 00",
+    "bom_components": 18,
+    "bom_operations": 21,
+    "quality_points_total": 15,
+    "raw_material_orderpoints": 17
+  },
+  "test_flow": [
+    {
+      "step": "Purchase Order confirmed",
+      "status": "passed",
+      "record": "P00005",
+      "model": "purchase.order",
+      "id": 5
+    },
+    {
+      "step": "Vendor receipt validated",
+      "status": "passed",
+      "record": "WH/IN/00003",
+      "model": "stock.picking",
+      "id": 6
+    },
+    {
+      "step": "Sales Order confirmed",
+      "status": "passed",
+      "record": "S00004",
+      "model": "sale.order",
+      "id": 4
+    },
+    {
+      "step": "Manufacturing Order produced",
+      "status": "passed",
+      "record": "WH/MO/00006",
+      "model": "mrp.production",
+      "id": 6
+    },
+    {
+      "step": "Customer delivery validated",
+      "status": "passed",
+      "record": "WH/OUT/00004",
+      "model": "stock.picking",
+      "id": 7
+    },
+    {
+      "step": "Customer invoice posted",
+      "status": "passed",
+      "record": "INV/2026/00003 (AMS-DEMO-20260619-1531)",
+      "model": "account.move",
+      "id": 3
+    }
+  ],
+  "custom_gaps": [
+    {
+      "flow": "Request FA Sample",
+      "gap": "ต้องมีฟอร์มและ approval เฉพาะ",
+      "standard_position": "ใช้ Sales/CRM + Activity เป็น workaround ได้"
+    },
+    {
+      "flow": "Request Raw Material",
+      "gap": "ฟอร์มเบิก/ขอวัตถุดิบเฉพาะและ approval หลายระดับ",
+      "standard_position": "ใช้ Manufacturing component demand / internal transfer ได้บางส่วน"
+    },
+    {
+      "flow": "PCC / Process Control Chart",
+      "gap": "รูปแบบเอกสาร PCC เฉพาะลูกค้า",
+      "standard_position": "ใช้ Quality Check เป็น data source ได้ แต่ template/report ต้อง custom"
+    },
+    {
+      "flow": "Document Control",
+      "gap": "ทะเบียนเอกสารและ revision control เฉพาะ",
+      "standard_position": "ใช้ Documents/PLM ได้บางส่วน แต่ format และ workflow ต้อง custom/config เพิ่ม"
+    },
+    {
+      "flow": "Legacy Thai Forms / QR Label",
+      "gap": "แบบฟอร์มและ QR ตามรูปเดิม",
+      "standard_position": "ข้อมูลมีใน Odoo แต่ report layout ต้อง custom"
+    }
+  ]
+}

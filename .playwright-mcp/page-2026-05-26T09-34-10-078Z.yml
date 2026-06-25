@@ -1,0 +1,364 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e7920] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e7921] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e7922] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e7923] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 41" [ref=e7592] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "41"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e7925]:
+    - generic [ref=e7927]:
+      - generic [ref=e7928]:
+        - button "New" [ref=e7931] [cursor=pointer]
+        - generic [ref=e7932]:
+          - list [ref=e7933]:
+            - listitem [ref=e7934]:
+              - button "" [ref=e7935] [cursor=pointer]:
+                - generic [ref=e7936]: 
+            - listitem [ref=e7937]:
+              - text: /
+              - link "PR00035" [ref=e7938] [cursor=pointer]:
+                - /url: /odoo/action-1020/36
+            - listitem [ref=e7939]:
+              - text: /
+              - link "RFQ" [ref=e7940] [cursor=pointer]:
+                - /url: /odoo/action-1020/36/19/purchase.order
+          - generic [ref=e7941]:
+            - generic [ref=e7943]: P01066
+            - button "" [ref=e7947] [cursor=pointer]:
+              - generic [ref=e7948]: 
+      - generic [ref=e7951]:
+        - button " 1 Purchase Requests" [ref=e7952] [cursor=pointer]:
+          - generic [ref=e7953]: 
+          - generic [ref=e7954]:
+            - generic [ref=e7955]: "1"
+            - generic [ref=e7956]: Purchase Requests
+        - button "Price History" [ref=e7957] [cursor=pointer]:
+          - generic [ref=e7958]: 
+          - generic [ref=e7959]: Price History
+        - button " Budget" [ref=e7960] [cursor=pointer]:
+          - generic [ref=e7961]: 
+          - generic [ref=e7962]: Budget
+      - generic [ref=e7963]:
+        - button "Search Knowledge Articles" [ref=e7964] [cursor=pointer]:
+          - img [ref=e7965]
+        - search [ref=e7969]:
+          - navigation "Pager" [ref=e7970]:
+            - generic [ref=e7971]:
+              - generic [ref=e7972]: "1"
+              - text: / 1
+            - generic [ref=e7973]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e7976]:
+      - generic [ref=e7977]:
+        - generic [ref=e7978]:
+          - button "Send by Email" [ref=e7979] [cursor=pointer]
+          - button "Print RFQ" [ref=e7980] [cursor=pointer]
+          - button "Cancel" [ref=e7981] [cursor=pointer]
+          - button " Confirm" [ref=e7982] [cursor=pointer]:
+            - generic [ref=e7983]: 
+            - text: Confirm
+        - radiogroup "Statusbar" [ref=e7985]:
+          - radio "Purchase Order" [disabled]
+          - radio "To Approve LV2" [disabled]
+          - radio "To Approve" [disabled]
+          - radio "RFQ1m" [checked] [disabled]
+      - generic [ref=e7986]:
+        - generic [ref=e7987]:
+          - text: Request for Quotation
+          - heading "Priority P01066" [level=1] [ref=e7988]:
+            - radiogroup "Priority" [ref=e7990]:
+              - radio "Urgent" [ref=e7991] [cursor=pointer]: 
+            - generic [ref=e7992]: P01066
+        - generic [ref=e7993]:
+          - generic [ref=e7994]:
+            - generic [ref=e7995]:
+              - generic [ref=e7997]:
+                - text: Vendor
+                - superscript [ref=e7998]: "?"
+              - combobox "Vendor?" [ref=e8004]: JW TECH CO.,LTD.
+            - generic [ref=e8005]:
+              - generic [ref=e8007]:
+                - text: Vendor Reference
+                - superscript [ref=e8008]: "?"
+              - textbox "Vendor Reference?" [ref=e8011]
+            - generic [ref=e8013]:
+              - generic [ref=e8015]: Apply Manual Exchange
+              - checkbox "Apply Manual Exchange" [ref=e8019] [cursor=pointer]
+            - generic [ref=e8020]:
+              - generic [ref=e8022]: Agreement
+              - combobox "Agreement" [ref=e8028]
+            - generic [ref=e8029]:
+              - generic [ref=e8031]: Currency
+              - combobox "Currency" [ref=e8037]: THB
+          - generic [ref=e8038]:
+            - generic [ref=e8039]:
+              - generic [ref=e8041]:
+                - text: Order Deadline
+                - superscript [ref=e8042]: "?"
+              - textbox "Order Deadline?" [ref=e8046] [cursor=pointer]: 05/26/2026 16:33:46
+            - generic [ref=e8047]:
+              - generic [ref=e8049]:
+                - text: Expected Arrival
+                - superscript [ref=e8050]: "?"
+              - generic [ref=e8052]:
+                - textbox "Expected Arrival?" [ref=e8055] [cursor=pointer]: 05/26/2026 16:33:46
+                - button "98 % On-Time Delivery" [ref=e8057] [cursor=pointer]:
+                  - generic [ref=e8058]:
+                    - generic [ref=e8059]: "98"
+                    - text: "% On-Time Delivery"
+            - generic [ref=e8060]:
+              - generic [ref=e8062]:
+                - text: Deliver To
+                - superscript [ref=e8063]: "?"
+              - combobox "Deliver To?" [ref=e8069]: "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+            - generic [ref=e8070]:
+              - generic [ref=e8072]: Project
+              - combobox "Project" [ref=e8078]
+        - generic [ref=e8079]:
+          - list [ref=e8081]:
+            - listitem [ref=e8082] [cursor=pointer]:
+              - tab "Products" [ref=e8083]
+            - listitem [ref=e8084] [cursor=pointer]:
+              - tab "Other Information" [ref=e8085]
+            - listitem [ref=e8086] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e8087]
+          - generic [ref=e8089]:
+            - table [ref=e8093]:
+              - rowgroup [ref=e8094]:
+                - row "No.  Product  Analytic Distribution  Quantity  UoM  Unit Price  Avg Price Disc.(AMT)  Disc.(%)  Taxes Amount  " [ref=e8095]:
+                  - columnheader [ref=e8096] [cursor=pointer]
+                  - columnheader "No. " [ref=e8097] [cursor=pointer]:
+                    - generic [ref=e8098]:
+                      - generic [ref=e8099]: No.
+                      - generic [ref=e8100]: 
+                  - columnheader "Product " [ref=e8102] [cursor=pointer]:
+                    - generic [ref=e8103]:
+                      - generic [ref=e8104]: Product
+                      - generic [ref=e8105]: 
+                  - columnheader "Analytic Distribution " [ref=e8107] [cursor=pointer]:
+                    - generic [ref=e8108]:
+                      - generic [ref=e8109]: Analytic Distribution
+                      - generic [ref=e8110]: 
+                  - columnheader "Quantity " [ref=e8112] [cursor=pointer]:
+                    - generic [ref=e8113]:
+                      - generic [ref=e8114]: Quantity
+                      - generic [ref=e8115]: 
+                  - columnheader [ref=e8117]
+                  - columnheader "UoM " [ref=e8118] [cursor=pointer]:
+                    - generic [ref=e8119]:
+                      - generic [ref=e8120]: UoM
+                      - generic [ref=e8121]: 
+                  - columnheader "Unit Price " [ref=e8123] [cursor=pointer]:
+                    - generic [ref=e8124]:
+                      - generic [ref=e8125]: Unit Price
+                      - generic [ref=e8126]: 
+                  - columnheader "Avg Price" [ref=e8128]:
+                    - generic [ref=e8129]:
+                      - generic [ref=e8130]: Avg Price
+                      - text: 
+                  - columnheader "Disc.(AMT) " [ref=e8132] [cursor=pointer]:
+                    - generic [ref=e8133]:
+                      - generic [ref=e8134]: Disc.(AMT)
+                      - generic [ref=e8135]: 
+                  - columnheader "Disc.(%) " [ref=e8137] [cursor=pointer]:
+                    - generic [ref=e8138]:
+                      - generic [ref=e8139]: Disc.(%)
+                      - generic [ref=e8140]: 
+                  - columnheader [ref=e8142]
+                  - columnheader "Taxes" [ref=e8143]:
+                    - generic [ref=e8144]:
+                      - generic [ref=e8145]: Taxes
+                      - text: 
+                  - columnheader "Amount " [ref=e8147] [cursor=pointer]:
+                    - generic [ref=e8148]:
+                      - generic [ref=e8149]: Amount
+                      - generic [ref=e8150]: 
+                  - columnheader [ref=e8152]
+                  - columnheader "" [ref=e8153]:
+                    - button "" [ref=e8155] [cursor=pointer]:
+                      - generic [ref=e8156]: 
+              - rowgroup [ref=e8157]:
+                - row " 1 discount asset ในปท [301] ฝ่ายขาย 1.000 Unit -40,000.000 -23,333.333 0.000 0.000  -40,000.000 ฿  Delete row" [ref=e8158]:
+                  - cell "" [ref=e8159] [cursor=pointer]:
+                    - generic [ref=e8161]: 
+                  - cell "1" [ref=e8162] [cursor=pointer]
+                  - cell "discount asset ในปท" [ref=e8163] [cursor=pointer]:
+                    - generic [ref=e8167]: discount asset ในปท
+                  - cell "[301] ฝ่ายขาย" [ref=e8168] [cursor=pointer]:
+                    - generic "[301] ฝ่ายขาย" [ref=e8171]:
+                      - generic [ref=e8172]: "[301] ฝ่ายขาย"
+                  - cell "1.000" [ref=e8173] [cursor=pointer]
+                  - cell [ref=e8174] [cursor=pointer]
+                  - cell "Unit" [ref=e8175] [cursor=pointer]
+                  - cell "-40,000.000" [ref=e8176] [cursor=pointer]
+                  - cell "-23,333.333" [ref=e8177] [cursor=pointer]
+                  - cell "0.000" [ref=e8178] [cursor=pointer]
+                  - cell "0.000" [ref=e8179] [cursor=pointer]
+                  - cell "" [ref=e8180] [cursor=pointer]:
+                    - button "" [ref=e8182]:
+                      - generic [ref=e8183]: 
+                  - cell [ref=e8184] [cursor=pointer]
+                  - cell "-40,000.000 ฿" [ref=e8186] [cursor=pointer]
+                  - cell "" [ref=e8187] [cursor=pointer]:
+                    - button "" [ref=e8189]:
+                      - generic [ref=e8190]: 
+                  - cell "Delete row" [ref=e8191]:
+                    - button "Delete row" [ref=e8192] [cursor=pointer]: 
+                - row "2 Injection Machine Internal link  [301] ฝ่ายขาย 1.000  Unit 900,000.000 680,000.000 0.000 0.000  Input VAT 7% Delete 900,000.000 ฿  Delete row" [ref=e8336]:
+                  - cell [ref=e8337] [cursor=pointer]
+                  - cell "2" [ref=e8197] [cursor=pointer]:
+                    - textbox [ref=e8339]: "2"
+                  - cell "Injection Machine Internal link " [ref=e8340] [cursor=pointer]:
+                    - generic [ref=e8341]:
+                      - combobox "Search a product" [ref=e8344]: Injection Machine
+                      - button "Internal link" [ref=e8345]: 
+                      - button "" [ref=e8346]
+                  - cell "[301] ฝ่ายขาย" [ref=e8203] [cursor=pointer]:
+                    - generic "[301] ฝ่ายขาย" [ref=e8206]:
+                      - generic [ref=e8207]: "[301] ฝ่ายขาย"
+                  - cell "1.000" [ref=e8208] [cursor=pointer]:
+                    - textbox [ref=e8350]: "1.000"
+                  - cell "" [ref=e8209] [cursor=pointer]:
+                    - button "" [ref=e8211]:
+                      - generic [ref=e8212]: 
+                  - cell "Unit" [ref=e8213] [cursor=pointer]:
+                    - combobox [ref=e8355]: Unit
+                  - cell "900,000.000" [ref=e8214] [cursor=pointer]:
+                    - textbox [ref=e8357]: 900,000.000
+                  - cell "680,000.000" [ref=e8215] [cursor=pointer]:
+                    - generic [ref=e8358]: 680,000.000
+                  - cell "0.000" [ref=e8216] [cursor=pointer]:
+                    - textbox [active] [ref=e8360]: "0.000"
+                  - cell "0.000" [ref=e8217] [cursor=pointer]:
+                    - textbox [ref=e8362]: "0.000"
+                  - cell "" [ref=e8218] [cursor=pointer]:
+                    - button "" [ref=e8220]:
+                      - generic [ref=e8221]: 
+                  - cell "Input VAT 7% Delete" [ref=e8363] [cursor=pointer]:
+                    - generic [ref=e8224]:
+                      - generic "Input VAT 7%" [ref=e8225]:
+                        - generic [ref=e8226]: Input VAT 7%
+                        - link "Delete" [ref=e8364]:
+                          - /url: "#"
+                          - generic [ref=e8365]: 
+                      - combobox [ref=e8369]
+                  - cell "900,000.000 ฿" [ref=e8227] [cursor=pointer]:
+                    - generic [ref=e8371]: 900,000.000 ฿
+                  - cell "" [ref=e8228] [cursor=pointer]:
+                    - button "" [ref=e8230]:
+                      - generic [ref=e8231]: 
+                  - cell "Delete row" [ref=e8232]:
+                    - button "Delete row" [ref=e8233] [cursor=pointer]: 
+                - row "Add a productAdd a sectionAdd a note Catalog" [ref=e8234]:
+                  - cell [ref=e8235]
+                  - cell "Add a productAdd a sectionAdd a note Catalog" [ref=e8236]:
+                    - button "Add a product" [ref=e8237] [cursor=pointer]
+                    - button "Add a section" [ref=e8238] [cursor=pointer]
+                    - button "Add a note" [ref=e8239] [cursor=pointer]
+                    - button "Catalog" [ref=e8240] [cursor=pointer]
+                - row [ref=e8241]:
+                  - cell [ref=e8242]
+              - rowgroup [ref=e8243]:
+                - row [ref=e8244]:
+                  - cell [ref=e8245]
+                  - cell [ref=e8246]
+                  - cell [ref=e8247]
+                  - cell [ref=e8248]
+                  - cell [ref=e8249]
+                  - cell [ref=e8250]
+                  - cell [ref=e8251]
+                  - cell [ref=e8252]
+                  - cell [ref=e8253]
+                  - cell [ref=e8254]
+                  - cell [ref=e8255]
+                  - cell [ref=e8256]
+                  - cell [ref=e8257]
+                  - cell [ref=e8258]
+                  - cell [ref=e8259]
+                  - cell [ref=e8260]
+            - generic [ref=e8261]:
+              - generic [ref=e8267]:
+                - generic:
+                  - generic:        
+                - generic [ref=e8270]:
+                  - text: Define your terms and conditions ...
+                  - text: Define your terms and conditions ...
+              - table [ref=e8275]:
+                - rowgroup [ref=e8276]:
+                  - 'row "Untaxed Amount: 860,000.000 ฿" [ref=e8277]':
+                    - cell "Untaxed Amount:" [ref=e8278]:
+                      - generic [ref=e8279]: "Untaxed Amount:"
+                    - cell "860,000.000 ฿" [ref=e8280]
+                  - 'row "VAT 7%: 63,000.000 ฿" [ref=e8281]':
+                    - cell "VAT 7%:" [ref=e8282]:
+                      - generic [ref=e8283]: "VAT 7%:"
+                    - cell "63,000.000 ฿" [ref=e8284]:
+                      - generic [ref=e8285]: 63,000.000 ฿
+                  - 'row "Total: 923,000.000 ฿" [ref=e8286]':
+                    - cell "Total:" [ref=e8287]:
+                      - generic [ref=e8288]: "Total:"
+                    - cell "923,000.000 ฿" [ref=e8289]
+      - generic [ref=e8291]:
+        - generic [ref=e8293]:
+          - button "Send message" [ref=e8294] [cursor=pointer]
+          - button "Log note" [ref=e8295] [cursor=pointer]
+          - button "Activities" [ref=e8296] [cursor=pointer]
+          - button "Search Messages" [ref=e8298] [cursor=pointer]:
+            - img [ref=e8299]: 
+          - button "Attach files" [ref=e8301] [cursor=pointer]:
+            - generic [ref=e8302]: 
+          - button "1" [ref=e8304] [cursor=pointer]:
+            - img [ref=e8305]: 
+            - superscript: "1"
+          - button "Following" [ref=e8306] [cursor=pointer]:
+            - generic [ref=e8308]: Following
+        - generic [ref=e8310]:
+          - generic [ref=e8311]:
+            - generic [ref=e8313]:
+              - separator [ref=e8314]
+              - generic [ref=e8315]: Today
+              - separator [ref=e8316]
+            - group "System notification" [ref=e8317]:
+              - generic [ref=e8318]:
+                - generic "Open card" [ref=e8320] [cursor=pointer]:
+                  - img [ref=e8321]
+                - generic [ref=e8322]:
+                  - generic [ref=e8323]:
+                    - generic "Open card" [ref=e8324] [cursor=pointer]:
+                      - strong [ref=e8325]: Administrator
+                    - generic "5/26/2026, 4:33:46 PM" [ref=e8326]: Today at 4:33 PM
+                  - paragraph [ref=e8333]: Purchase Order created
+          - button "" [ref=e8334] [cursor=pointer]:
+            - generic [ref=e8335]: 

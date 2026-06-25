@@ -64,6 +64,13 @@ class TripClosingXlsx(models.AbstractModel):
 
         trip_count = len(data.get("trip_nos", []))
 
+        # สร้าง period_label จาก wizard โดยตรง ไม่ต้อง query report อีกครั้ง
+        period_label = data.get("_period_label", "")
+        if not period_label:
+            date_start = self._fmt_date(wizard.date_start)
+            date_end = self._fmt_date(wizard.date_end)
+            period_label = f"ช่วงวันที่ {date_start} - {date_end}"
+
         output = io.BytesIO()
         workbook = xlsxwriter.Workbook(output, {"in_memory": True})
         sheet = workbook.add_worksheet("Trip Closing")
@@ -76,18 +83,19 @@ class TripClosingXlsx(models.AbstractModel):
         sheet.set_margins(0.5, 0.5, 0.75, 0.75)
 
         # ---------- Column layout (QWeb aligned) ----------
-        sheet.set_column("A:A", 18)        # วันที่
-        sheet.set_column("B:C", 32)        # รายการ (merge)
-        sheet.set_column(3, 3 + trip_count - 1, 7)  # ครั้งที่ (dynamic)
-
-        base_col = 3 + trip_count
-        sheet.set_column(base_col, base_col + 9, 11)
+        # col 0-1 = รายการ, col 2..2+n-1 = ครั้งที่, col 2+n..2+n+9 = tail
+        base_col = 2 + trip_count
+        last_col = base_col + 9
+        sheet.set_column(0, 1, 20)                                    # A:B รายการ
+        if trip_count > 0:
+            sheet.set_column(2, base_col - 1, 10)                     # ครั้งที่
+        sheet.set_column(base_col, base_col + 9, 11)                  # tail cols
 
         # ---------- Styles ----------
         fmt = self._build_formats(workbook)
 
         row = 0
-        row = self._render_header(sheet, row, wizard, data, fmt)
+        row = self._render_header(sheet, row, wizard, data, fmt, period_label=period_label, last_col=last_col)
         row = self._render_product_table(sheet, row, data, fmt)
         row = self._render_summary_and_travel(sheet, row, wizard, data, fmt)
 
@@ -163,7 +171,7 @@ class TripClosingXlsx(models.AbstractModel):
                 "top": 1,
                 "left": 1,
                 "right": 1,
-                # ❌ ไม่มี bottom
+                "bottom": 1,
             }),
 
             "box_body": workbook.add_format({
@@ -171,10 +179,10 @@ class TripClosingXlsx(models.AbstractModel):
                 "valign": "bottom",
                 "num_format": "#,##0.00",
                 "text_wrap": True,
+                "top": 1,
                 "left": 1,
                 "right": 1,
                 "bottom": 1,
-                # ❌ ไม่มี top
             }),
             "sign_head": workbook.add_format({
                 "align": "center",
@@ -183,14 +191,15 @@ class TripClosingXlsx(models.AbstractModel):
                 "top": 1,
                 "left": 1,
                 "right": 1,
-                # ❌ no bottom
+                "bottom": 1,
             }),
             "sign_line": workbook.add_format({
                 "align": "center",
                 "valign": "bottom",
+                "top": 1,
                 "left": 1,
                 "right": 1,
-                # ❌ no top / bottom
+                "bottom": 1,
             }),
             "sign_name": workbook.add_format({
                 "align": "center",
@@ -218,23 +227,20 @@ class TripClosingXlsx(models.AbstractModel):
     # =========================================================
     # Header
     # =========================================================
-    def _render_header(self, sheet, row, wizard, data, f):
-        report = self.env["report.trip_closing_report.report_trip_closing"]
-        values = report._get_report_values([wizard.id], {"wizard_id": wizard.id})
-        period_label = values.get("period_label", "")
-
-        sheet.merge_range(row, 0, row, 14, "สรุปปิดการปฏิบัติงานหน่วยรถขายนอก", f["title"])
+    def _render_header(self, sheet, row, wizard, data, f, period_label="", last_col=14):
+        mid = last_col // 2
+        sheet.merge_range(row, 0, row, last_col, "สรุปปิดการปฏิบัติงานหน่วยรถขายนอก", f["title"])
         row += 1
-        sheet.merge_range(row, 0, row, 14, period_label, f["subtitle"])
+        sheet.merge_range(row, 0, row, last_col, period_label, f["subtitle"])
         row += 2
 
-        sheet.merge_range(row, 0, row, 7, f"หน่วยรถขาย: {data.get('carsale_location_name','')}", f["cell"])
-        sheet.merge_range(row, 8, row, 14, f"ช่วงวันที่: {self._fmt_date(wizard.date_start)} - {self._fmt_date(wizard.date_end)}", f["cell"])
+        sheet.merge_range(row, 0, row, mid, f"หน่วยรถขาย: {data.get('carsale_location_name','')}", f["cell"])
+        sheet.merge_range(row, mid + 1, row, last_col, f"ช่วงวันที่: {self._fmt_date(wizard.date_start)} - {self._fmt_date(wizard.date_end)}", f["cell"])
         row += 1
 
-        sheet.merge_range(row, 0, row, 7, f"พนักงานขาย/คนขับ: {wizard.driver_id.name}", f["cell"])
+        sheet.merge_range(row, 0, row, mid, f"พนักงานขาย/คนขับ: {wizard.driver_id.name}", f["cell"])
         sheet.merge_range(
-            row, 8, row, 14,
+            row, mid + 1, row, last_col,
             f"วันที่พิมพ์รายงาน: {self._fmt_date(fields.Date.context_today(self))}",
             f["cell"]
         )
@@ -246,16 +252,19 @@ class TripClosingXlsx(models.AbstractModel):
     def _render_product_table(self, sheet, row, data, f):
         trip_nos = data.get("trip_nos", [])
         trip_count = len(trip_nos)
+        trip_date_map = data.get("trip_date_map", {})
 
-        sheet.merge_range(row, 0, row + 1, 0, "ว.ด.ป.", f["th"])
-        sheet.merge_range(row, 1, row + 1, 2, "รายการ", f["th"])
+        sheet.set_column("A:B", 20)
+        sheet.set_column(2, 2 + trip_count - 1, 10) # ช่องครั้งที่
+
+        sheet.merge_range(row, 0, row + 1, 1, "รายการ", f["th"])
 
         if trip_count == 1:
-            sheet.write(row, 3, "ครั้งที่", f["th"])
+            sheet.write(row, 2, "ครั้งที่", f["th"])
         elif trip_count > 1:
-            sheet.merge_range(row, 3, row, 3 + trip_count - 1, "ครั้งที่", f["th"])
+            sheet.merge_range(row, 2, row, 2 + trip_count - 1, "ครั้งที่", f["th"])
 
-        base_col = 3 + trip_count
+        base_col = 2 + trip_count
         tail_headers = [
             "รวม", "เหลือ", "ชดเชย", "ชดเชยพิเศษ",
             "ตัวอย่าง", "แปลงสินค้าออก", "รับสินค้าเข้า\nจากการแปลง",
@@ -267,23 +276,30 @@ class TripClosingXlsx(models.AbstractModel):
 
         row += 1
         for i, t in enumerate(trip_nos):
-            val = " " if not t or int(t) == 0 else str(t)
-            sheet.write(row, 3 + i, val, f["th"])
+            date_str = self._fmt_date(trip_date_map.get(t))
+            # นำคำว่า ครั้งที่ มาต่อด้วยวันที่ และบังคับขึ้นบรรทัดใหม่
+            val = f"ครั้งที่ {t}\n{date_str}" if t else ""
+            sheet.write(row, 2 + i, val, f["th"]) # f["th"] มี text_wrap=True อยู่แล้ว
 
         row += 1
 
         for l in data.get("lines", []):
-            sheet.write(row, 0, self._fmt_date(l.get("latest_transfer_date")), f["cell_c"])
-            sheet.merge_range(row, 1, row, 2, l.get("product_name", ""), f["cell"])
+            # เขียนชื่อรายการที่ Col 0-1
+            sheet.merge_range(row, 0, row, 1, l.get("product_name", ""), f["cell"])
 
             for i in range(trip_count):
                 qtys = l.get("trip_qtys", [])
                 q = qtys[i] if i < len(qtys) else None
-                sheet.write(row, 3 + i, "" if not q else q, f["cell_c"])
+                sheet.write(row, 2 + i, "" if not q else q, f["cell_c"])
 
             col = base_col
             sheet.write(row, col, l.get("transfer_total", 0), f["num"]); col += 1
-            for _ in range(6):
+            sheet.write(row, col, "", f["cell"]); col += 1
+            
+            # --- ตรงนี้คือการนำ free_qty ยอดของแถมไปใส่ในชดเชย (จาก Step 1) ---
+            sheet.write(row, col, l.get("free_qty", 0) or "", f["num"]); col += 1 
+            
+            for _ in range(4): # ชดเชยพิเศษ, ตัวอย่าง, แปลงออก, รับเข้า
                 sheet.write(row, col, "", f["cell"]); col += 1
             sheet.write(row, col, l.get("sold_qty", 0), f["num"]); col += 1
             sheet.write(row, col, l.get("price", 0), f["num"]); col += 1
@@ -297,6 +313,8 @@ class TripClosingXlsx(models.AbstractModel):
     # =========================================================
     def _render_summary_and_travel(self, sheet, row, wizard, data, f):
         totals = data.get("totals", {})
+        trip_count = len(data.get("trip_nos", []))
+        total_cols = 2 + trip_count + 9   # last_col index (0-based); same as last_col in generate_xlsx
 
         # -------------------------
         # LEFT : mileage / misc
@@ -326,29 +344,33 @@ class TripClosingXlsx(models.AbstractModel):
         sheet.write(start + 1, 6, "", f["cell"])
 
         # -------------------------
-        # RIGHT : summary (MATCH QWEB)
+        # RIGHT : summary — ตำแหน่ง column คำนวณจาก trip_count
         # -------------------------
+        s_lbl_start = max(9, 2 + trip_count + 4)  # เริ่มหลัง ชดเชยพิเศษ; ไม่ทับ data cols
+        s_val_start = total_cols - 1              # col ก่อนสุดท้าย (ราคา)
+        s_val_end   = total_cols                  # col สุดท้าย (จำนวนเงิน)
+        # guard: label ต้องไม่ทับ value
+        if s_lbl_start >= s_val_start:
+            s_lbl_start = s_val_start - 2
+
         summary = [
             ("ยอดขายก่อนส่วนลด", totals.get("gross_sales", 0.0)),
-            ("หัก ส่วนลด", totals.get("discount_amount", 0.0)),
-            ("ยอดขายหลังส่วนลด (ไม่รวม VAT)", totals.get("untaxed_amount", 0.0)),
-            ("VAT", totals.get("vat_amount", 0.0)),
-            ("ยอดขายรวมภาษี", totals.get("total_amount", 0.0)),
+            ("หัก ส่วนลด",        totals.get("discount_amount", 0.0)),
             ("หัก คืนของ/ลดหนี้", totals.get("return_amount", 0.0)),
         ]
 
         r = start
         for label, val in summary:
-            sheet.merge_range(r, 9, r, 12, label, f["box_l"])
-            sheet.merge_range(r, 13, r, 14, val, f["box_v"])
+            sheet.merge_range(r, s_lbl_start, r, s_val_start - 1, label, f["box_l"])
+            sheet.merge_range(r, s_val_start,  r, s_val_end,       val,   f["box_v"])
             r += 1
 
         # -------------------------
-        # FINAL TOTAL (bold / highlight)
+        # FINAL TOTAL
         # -------------------------
-        sheet.merge_range(r, 9, r, 12, "ยอดขายสุทธิ", f["box_l"])
+        sheet.merge_range(r, s_lbl_start, r, s_val_start - 1, "ยอดขายสุทธิ", f["box_l"])
         sheet.merge_range(
-            r, 13, r, 14,
+            r, s_val_start, r, s_val_end,
             totals.get("net_sales", 0.0),
             f["box_v"]
         )
@@ -415,8 +437,7 @@ class TripClosingXlsx(models.AbstractModel):
 
         total_transfer = 0.0
         all_transfers = data.get("__all_bank_transfers", [])
-
-        for l in data.get("__all_bank_transfers", []):
+        for l in all_transfers:
             sheet.write(row, 0, l.get("partner_name",""), f["cell"])
             sheet.write(row, 1, l.get("ref") or l.get("communication",""), f["cell"])
             sheet.write(row, 2, self._fmt_date(l.get("payment_date")), f["cell_c"])
@@ -474,7 +495,7 @@ class TripClosingXlsx(models.AbstractModel):
         summary = data.get("final_summary", {})
         grand_total = summary.get("grand_total", 0.0)
 
-        for l in data.get("__all_cheques", []):
+        for l in all_cheques:
             sheet.write(row, 0, l.get("cheque_number",""), f["cell"])
             sheet.write(row, 1, self._fmt_date(l.get("cheque_date")), f["cell_c"])
             sheet.write(row, 2, l.get("partner_name",""), f["cell"])
@@ -667,17 +688,18 @@ class TripClosingXlsx(models.AbstractModel):
         row += 1
 
         # แถวยอดรวม
+        # start=2 = Excel row หลัง header (0-indexed row 1 = Excel row 2)
+        # end = row-1 เพื่อไม่รวม summary label row ที่เพิ่ง append ไป
         start_excel_row = 2
-        end_excel_row = row 
+        end_excel_row = row - 1   # ไม่รวม "จ่ายเงินสด" row
 
-        # แถวยอดรวม
         sheet.write(row, 0, "ยอดรวม", f["box_l"])
         sheet.write_formula(
             row, 1,
             f"=SUM(B{start_excel_row}:B{end_excel_row})",
             f["box_v"]
         )
-        
+
         sheet.write(row, 2, "ยอดรวม", f["box_l"])
         sheet.write_formula(
             row, 3,

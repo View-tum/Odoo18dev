@@ -110,7 +110,7 @@ class PurchaseRequestLine(models.Model):
                 }
 
             total_price = line.product_qty * line.unit_cost
-            if line.fixed_discount > total_price:
+            if line.fixed_discount > 0 and line.fixed_discount > total_price:
                 line.fixed_discount = 0
                 return {
                     "warning": {

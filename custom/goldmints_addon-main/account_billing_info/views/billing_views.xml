@@ -11,13 +11,31 @@
         </field>
     </record>
 
-    <record id="view_account_billing_form_inherit_rename_promised" model="ir.ui.view">
-        <field name="name">account.billing.form.inherit.rename.promised</field>
+    <record id="view_account_billing_form_inherit_billing_schedule_date" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit.billing_schedule_date</field>
         <field name="model">account.billing</field>
-        <field name="inherit_id" ref="account_billing_promised_date.view_account_billing_form_inherit_promised_date"/>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='promised_payment_date']" position="replace">
-                <field name="billing_schedule_date"/>
+            <xpath expr="//field[@name='billing_line_ids']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+
+            <!-- Make other fields readonly if not draft -->
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='name']" position="attributes">
+                <attribute name="readonly">parent.state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='invoice_date']" position="attributes">
+                <attribute name="readonly">parent.state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='threshold_date']" position="attributes">
+                <attribute name="readonly">parent.state != 'draft'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='origin']" position="attributes">
+                <attribute name="readonly">parent.state != 'draft'</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='billing_line_ids']/list/field[@name='threshold_date']" position="after">
+                <field name="billing_schedule_date" readonly="0" force_save="1"/>
             </xpath>
         </field>
     </record>

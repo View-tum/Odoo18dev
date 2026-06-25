@@ -1,0 +1,163 @@
+{
+  "claim": {
+    "id": 22,
+    "display_name": "RMATR/2026/06/000015 - Transform Return",
+    "code": "RMA0022",
+    "name": "RMATR/2026/06/000015 - Transform Return",
+    "state": "close",
+    "sale_id": [
+      16664,
+      "SOB-263089"
+    ],
+    "picking_id": [
+      10897,
+      "M-WH/OUT/03783"
+    ],
+    "return_picking_id": [
+      10898,
+      "GMP/R-IN/00031"
+    ],
+    "return_picking_count": 1,
+    "refund_invoice_ids": [
+      70245
+    ],
+    "refund_invoice_count": 1,
+    "invoice_id": [
+      70242,
+      "INV-C/26/06/00002"
+    ],
+    "claim_line_ids": [
+      34
+    ],
+    "move_product_ids": [
+      8223,
+      9387
+    ]
+  },
+  "open_refund_action": {
+    "id": 264,
+    "name": "Credit Notes",
+    "type": "ir.actions.act_window",
+    "xml_id": "account.action_move_out_refund_type",
+    "path": "credit-notes",
+    "help": "<p class=\"o_view_nocontent_smiling_face\">\n                Create a credit note\n              </p><p>\n                Note that the easiest way to create a credit note is to do it directly\n                from the customer invoice.\n              </p>\n            ",
+    "binding_model_id": false,
+    "binding_type": "action",
+    "binding_view_types": "list,form",
+    "display_name": "Credit Notes",
+    "view_id": [
+      714,
+      "account.out.invoice.list"
+    ],
+    "domain": "[('move_type', 'in', ['out_invoice', 'out_refund'])]",
+    "context": "{'search_default_out_refund': 1, 'default_move_type': 'out_refund', 'display_account_trust': True}",
+    "res_id": 70245,
+    "res_model": "account.move",
+    "target": "current",
+    "view_mode": "list,kanban,form,activity",
+    "mobile_view_mode": "kanban",
+    "views": [
+      [
+        720,
+        "form"
+      ],
+      [
+        714,
+        "list"
+      ],
+      [
+        false,
+        "kanban"
+      ],
+      [
+        false,
+        "activity"
+      ]
+    ],
+    "limit": 80,
+    "groups_id": [],
+    "search_view_id": [
+      723,
+      "account.invoice.select"
+    ],
+    "embedded_action_ids": [],
+    "filter": false
+  },
+  "refunds": [
+    {
+      "id": 70245,
+      "name": "CCND/26/06/00002",
+      "move_type": "out_refund",
+      "state": "posted",
+      "payment_state": "not_paid",
+      "invoice_origin": "SOB-263089",
+      "claim_id": false,
+      "invoice_date": "2026-06-11",
+      "amount_total": 15.0,
+      "amount_residual": 15.0,
+      "partner_id": [
+        282426,
+        "ร้านค้าณัฐกิตติ์"
+      ],
+      "invoice_line_ids": [
+        215146
+      ]
+    }
+  ],
+  "pickings": [
+    {
+      "id": 10897,
+      "name": "M-WH/OUT/03783",
+      "state": "done",
+      "picking_type_id": [
+        17,
+        "Mobile Warehouse: Delivery Orders"
+      ],
+      "origin": "SOB-263089",
+      "claim_id": false,
+      "move_ids": [
+        33868
+      ]
+    },
+    {
+      "id": 10898,
+      "name": "GMP/R-IN/00031",
+      "state": "done",
+      "picking_type_id": [
+        61,
+        "GOLD MINTS PRODUCTS CO., LTD.: Return IN"
+      ],
+      "origin": "RMATR/2026/06/000015 / M-WH/OUT/03783 / INV-C/26/06/00002",
+      "claim_id": [
+        22,
+        "RMATR/2026/06/000015 - Transform Return"
+      ],
+      "move_ids": [
+        33869
+      ]
+    }
+  ],
+  "claim_lines": [
+    {
+      "id": 34,
+      "product_id": [
+        9387,
+        "ยาดมโป๊ยเซียน ชิ้น (1*1) V2"
+      ],
+      "quantity": 1.0,
+      "return_qty": 1.0,
+      "claim_type": "refund",
+      "rma_reason_id": [
+        76,
+        "สินค้าเสื่อมสภาพ"
+      ],
+      "move_id": [
+        33868,
+        "SOB-263089/FG-PSS-TH-01001: Stock>Customers"
+      ],
+      "serial_lot_ids": [
+        7564
+      ]
+    }
+  ]
+}

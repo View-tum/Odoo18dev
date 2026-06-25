@@ -1,0 +1,1484 @@
+{
+  "filters": [
+    {
+      "id": 107,
+      "name": "view",
+      "domain": "[\"&\", (\"is_closed\", \"=\", False), (\"x_studio_assign_365\", \"=\", \"View\")]",
+      "context": "{'group_by': []}",
+      "user_id": [
+        2,
+        "Administrator"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": 51,
+      "name": "01) New",
+      "sequence": 0
+    },
+    {
+      "id": 52,
+      "name": "02) Pending at Customer",
+      "sequence": 1
+    },
+    {
+      "id": 53,
+      "name": "03) Assigned PM",
+      "sequence": 2
+    },
+    {
+      "id": 54,
+      "name": "04) Assigned BA",
+      "sequence": 3
+    },
+    {
+      "id": 55,
+      "name": "05) Assigned Dev",
+      "sequence": 4
+    },
+    {
+      "id": 56,
+      "name": "06) Assigned Tester",
+      "sequence": 5
+    },
+    {
+      "id": 57,
+      "name": "07) Ready for UAT",
+      "sequence": 6
+    },
+    {
+      "id": 58,
+      "name": "08) Completed",
+      "sequence": 7
+    },
+    {
+      "id": 59,
+      "name": "09) Rejected by 365",
+      "sequence": 8
+    },
+    {
+      "id": 60,
+      "name": "10) Cancelled by Customer",
+      "sequence": 9
+    },
+    {
+      "id": 61,
+      "name": "11) Later Release",
+      "sequence": 10
+    }
+  ],
+  "field_defs": {
+    "id": {
+      "string": "ID",
+      "type": "integer"
+    },
+    "name": {
+      "string": "Title",
+      "type": "char"
+    },
+    "project_id": {
+      "string": "Project",
+      "type": "many2one"
+    },
+    "stage_id": {
+      "string": "Stage",
+      "type": "many2one"
+    },
+    "x_studio_assign_365": {
+      "string": "Assign 365",
+      "type": "selection"
+    },
+    "x_studio_module": {
+      "string": "Module",
+      "type": "selection"
+    },
+    "x_studio_function": {
+      "string": "Function",
+      "type": "selection"
+    },
+    "x_studio_test_steps": {
+      "string": "Test Steps",
+      "type": "char"
+    },
+    "x_studio_test_step": {
+      "string": "Test Step",
+      "type": "html"
+    },
+    "x_studio_expected_result": {
+      "string": "Expected Result",
+      "type": "html"
+    },
+    "description": {
+      "string": "Description",
+      "type": "html"
+    },
+    "message_attachment_count": {
+      "string": "Attachment Count",
+      "type": "integer"
+    },
+    "user_ids": {
+      "string": "Assignees",
+      "type": "many2many"
+    },
+    "priority": {
+      "string": "Priority",
+      "type": "selection"
+    },
+    "is_closed": {
+      "string": "Closed state",
+      "type": "boolean"
+    }
+  },
+  "tasks": [
+    {
+      "id": 1673,
+      "name": "Defect-0283: MO Schedule Date = SO Delivery Date ซึ่งไม่ถูกต้อง",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p>ระบบ Auto Create MO</p>",
+      "x_studio_expected_result": "<p data-oe-version=\"1.2\">ให้ใส่ MO Schedule Date เป็น&nbsp;MO Start Date = SO Delivery Date - Produce Time (Days)</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"19852659239783\">ในกรณีที่ระบบ Auto Create MO มาจาก MTO ระบบใส่ MO Schedule Date = Delivery Date ซึ่งไม่ถูกต้อง<br><br><strong>Requirement</strong></p><ol><li>เพิ่มฟิลด์ \"Produce Period&nbsp;(Days)\" ใน Product</li><li>MO Start Date = SO Delivery Date -&nbsp;Produce Period&nbsp;(Days)<br><br></li></ol>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1675,
+      "name": "กำหนด MFG Lead (Related  Defect#1673)",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Inventory",
+      "x_studio_function": "Data",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<ol data-oe-version=\"1.2\" data-last-history-steps=\"1306383159559758\"><li>List Product ออกมาส่งให้คุณไอซ์</li><li>ติดตามให้คุณไอซ์กำหนดมาว่า&nbsp;Produce Time (Days) เป็นเท่าไหร่ เพื่อ Import เข้าระบบ</li></ol>",
+      "message_attachment_count": 1,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1689,
+      "name": "เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --> จำนวน RM ในใบ Transfer ไม่ครบถ้วน",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>เปิด MO ด้วย Product&nbsp;SM-JOI-PK-02001จำนวน 10,000 --&gt;&nbsp;GMP/MOPL/00167</li><li>Check จำนวนใน Internal Transfer แล้วถูกต้อง</li><li>เปิด MO ด้วย Product&nbsp;SM-JOI-PK-02001จำนวน 30,000 --&gt; ระบบรวมจำนวนที่ GMP/MOPL/00167 เป็น 30,000</li><li>Check จำนวนใน Internal Transfer แล้วจำนวนยังเป็นจำนวนเดิมที่เปิดใบแรก</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">ในเมื่อ MO มารวมกันแล้ว ใบ Internal Transfer ควรจะรวมจำนวนที่ต้องเบิกให้ถูกต้องด้วย</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"2343669534514038\">เปิด MO 2 ใบที่ผลิตเหมือนกัน ที่ต้อง Transfer จากคลังหลักมาคลังลอย --&gt; จำนวน RM ในใบ Transfer ไม่ครบถ้วน</div><div><br></div><div>MO no.: GMP/MOPL/00167</div><div>Internal Transfer no.: GMP/TRPL/00057</div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1690,
+      "name": "Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Create MO ของ Product&nbsp;[SM-JOI-BU-02001] ตัวต่อสี W02 ฟ้า (MO&nbsp;GMP/MOPL/00169)</li><li>Create MO ของ Product&nbsp;[SM-JOI-YW-02001] ตัวต่อสี W02 เหลือง (MO.&nbsp;GMP/MOPL/00170)</li><li>เลือก 2 MO นี้แล้ว Merge ใบ Transfer</li><li>ตรวจสอบข้อมูลพบว่า ปุ่มด้านบนมี Link กลับไปที่ MO แค่ใบเดียว</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">เนื่องจาก Merge มาจาก MO หลายใบ จึงควรจะ Link กลับไปที่ MO ทุกใบที่ Merge มาด้วย และจำนวน RM เดียวกันต้องรวมกันได้ถูกต้อง</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"1774040719352070\">Merge Internal Transfer จาก MO 2 ใบ แต่ใน Internal Transfer ใบที่ Merge Link กลับ MO ไปได้แค่ใบเดียว</div><div><br></div><div>MO 1:&nbsp;GMP/MOPL/00169</div><div>MO 2: GMP/MOPL/00170</div><div>Merged Transfer No.:&nbsp;GMP/TRPL/00059</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3815-afb037a1/image.png?access_token=21a029e5-7e51-4fdf-a2d2-d11be2dee5e0\"></div>",
+      "message_attachment_count": 1,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1693,
+      "name": "ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">ต้องสามารถเลือกเพื่อ Create Billing Note ได้ ถึงแม้ว่าจะยังไม่ได้รับของก็ตาม</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",1622073007116712,2409036280132018,4397165592414507,11654409287064,1829594922337317,4343283004520540,1092679507661479,4230263435010711,4119924123885270,651702710179070,3290783272243217,3841459693757445,1222597549631580,2164240960217412,1901471023625781,2653710828501756,725960608461660,197970797810901,1126335648814321,3102388836275557,3411061578284317,2436408528231732,2723469399106816,3151422660657337,4201542524588593,4313916812086307,2011165870913198,85329442268854,297683379353536,2343063290921010,1271934826241210,674835015917702,1430275286909877,3273163078946356,3535242954492754,1385363946574254,3380641919141091,3540860242975527,3154667249524345,3482973470852513,3218541863353040,347379973303386,1998616868027962,1459412386093265,3595075076493115,2479555496478244,172968645423419,2967675391925044,1595791899611519,884739491746691,1937539178866969,4064085248919329,2607870366674425,2325568747011194,3263268534568256,3853233038005683,368824420678247,2340351937537567,3544121970336606,2006124701319495,4077975206581874,2784228405155798,2877859930892389,3317099197399927,4021734724831228,2004117182235566,3738428766037670,3402964394094948,3960124437061189,1280011971467653,3582511200316414,4207644244809716,3295725823116848,1944410274931057,4115591028391443,3384067426763542,2241143376954040,1730466681624927,3114800037252568,1152893195715058,3109215610087948,2928889745974789,857681453654824,2957618831448748,1128088677630264,1973643319580626,339594535514861,3854391389735,2130790962387219,4209834914966323,3680020171918046,4330515917909471,2979772232692781,2239044692315833,454327405495931,927072311656561,774587083423057,173525448063514,2598118441662413,2354420566168508,938422850303737,524216525438168,4149689497366571,4290065735295547,2692806277260887,1774880870508915,1979330652925623,2091180627595446,4373367119412951,3768969892127651,2330631826703915,2112835748893601,449125192600449,2415816230257194,480657317877290,3945886800677020,4279600066451453,552735753707405,1277290158965682,703355889090145,1142788276608496,1513545553558621,1943610711016700,3027016572714937,2402103429490281,2384569503887625,411783366142029,662573628200199,1783212806360520,713479386129042,761690388146430,1380613303525389,4499260920673189,2386452494354390,869375079680021,406360448176234,2747832778983089,709697370335933,960733528399385,3058683977471921,2439000428882483,298811735497479,3731497287187560,562761706448807,4441917889427220,3314780664396039,2328319899890461,4315326974783291,1852214327563853,2109426081149938,2288695511915328,3661803867278824,2990458632179598,2982546858485528,4263665083216902,3565224179154781,1390572683648831,1267301094332473,1960737651229435,459760643007073,1342843860079389,4308842600433016,1328382049208350,2729217692132667,909267032674321,955863953482716,1457912730299662,3573708361600819,2132692851769908,3987856042439052,2977578821863707,2814183287773081,3851769544722832,1744603450838468,3659794513641751,1750170691141411,616225819849668,1564207254392800,2037519932079980,4073461494574429,2561709122020646,3185800550332195,3292611335290973,755444559274986,3783746740051490,1368239337403630,1446231141910431,860357765203299,3930594541067470,2772718324761582,1452870908707899,2864320109383123,2067066889135286,4108559818463212,2511604583702099,3735886939088729,240223040439771,306940324672245,4432098641090336,3084342874423035,2748524039773761,2717392846144553,3585818364162707,1370744643799065,4037541512435275,1798941511985210,1086990588004036,497144739343720,98756954181242,1895441827136794,3139996996563746,1720116167389712,826365391277870,2670783443487174,2430285833946980,2399095470786950,1250530444890677\">ที่หน้ารายงานสถานะคำสั่งซื้อ ไม่สามารถเลือกรายการที่เป็น Fixed Asset ได้ (Product Type = Goods แต่ยังไม่ได้ Receipts) เพื่อ Create Billing Note</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3832-f67c77a3/image.png?access_token=c864bed7-bbbd-464b-89e1-2d6c9adb9cdc\"></div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1694,
+      "name": "เพิ่มรายงาน \"ใบรับสินทรัพย์\" ที่หน้า Receipt",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Inventory &gt; Receipts</li><li>เลือกใบ Receipts ที่ต้องการ</li><li>กดฟันเฟือง &gt; Print &gt; ใบรับสินทรัพย์</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">เหมือนใบรับสินค้าแค่&nbsp;เปลี่ยนแค่หัวเอกสารเป็น ใบรับทรัพย์สิน</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"1892883948562379\">\"ใบรับสินทรัพย์\" ในกรณีที่ซื้อสินทรัพย์และต้องมีลายเซ็นวิศวกร จะต้องพิมพ์ออกมาเซ็นก่อน Register Asset</div><div><br></div><div>คุณดาว confirm รูปแบบรายงานที่ต้องการใช้</div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1697,
+      "name": "เพิ่มฟิลด์ที่หน้า Asset list เพื่อแสดง Last post depreciation date",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<div data-oe-version=\"1.2\">Accounting &gt; Accounting &gt; Asset</div>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">จะต้องมีฟิลด์ Last post depreciation date โดยแสดงข้อมูลวันที่ล่าสุด ถ้าวันที่/เดือน เป็นของเดือนก่อนหน้าแสดงว่า Asset ตัวนั้นไม่ได้รับการ Compute ต้องได้รับการตรวจสอบ</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3827217861448036\"><br></div><div>เพิ่มฟิลด์ Last post depreciation date</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3836-9315b4a3/image.png?access_token=7ead1327-d5a8-4c22-8f5d-c42f694bce64\"></div>",
+      "message_attachment_count": 1,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1698,
+      "name": "ที่หน้าสรุปใบ Invoice อยากเพิ่มฟิลด์ให้เป็นว่าเอกสารใบไหน Print ไปแล้วบ้าง",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",586358757069921,4292748886595862,2961231556947320,1651920745392722,2444263941609782,3504352323294294,3907766266548063,2184440145633702,4351086226411402,607323096976278,2136739552042101,749339271251764,1730434880428616,4003743037009567,2600639185269588,2061144225070771,2993240170168378,2577054129261052,1339568297446482,3848104199755341,1131305814777336,1174971055667293,1508182164245890,1407658016929913,2736086111184524,673461287099354,4215053806145411,803404562218567,2119592755670621,4091777967798186,1164767478863284,3324356572958280,3128189112948432,3614129538794260,2846314869456705,3770997933080333,1903354603391283,3653773100376764,2650006994006760,3175768591361378,3140411008221940,2431056606685633,739832413035349,2173558982576731,2554149269770861,3750569593410627,246001126398671,633468536688823,4270568046668674,2075698284507472,610526037213562,4139972541379137,3807841802164908,4287617488233237,2373385253570169,3141655413444497,448235163133003,4137927019890598,3992469562408768,4231316969729319,931147405605279,2407425063006271,4460034344052548,1779544282845917,3456392050831375,908411220365623,422864643933326,791216406159003,3769679241086514,2197563679469840,1230983459940320,3315236435363734,3946897303934671,1246557946937350,2116824522724783,3767332904513835,4032123066672994,3608237883411734,4018380820562274,3008282058490443,1789835611933091,485996153301052,4028294955326073,4035319938695181,2664013924063340,1593692994358570,297310080216742,4201701966938913,1500662933493850,4096555130009814,1768548517612858,1254169600845951,3132972852542575,4384438222753821,2012889529904426,2049723441472274,944222295917458,3832491811550474,1749022852596416,3128158482978837,2021860394741827,3829299309291597,4117988070006103,1789848535874740,1667848426460027,3497716143728103,2963372654194613,4160622222016345,911447995915267,3580393300369071,4197675652577049,511346226135388,2100579238499378,1448900586373590,132393534413215,2771263046556831,1621795284780851,594131771534571,2273002602077263,2870203559509139,1398367889476873,4181025166357423,3716855685727060,1999268344825865,2180547408665445,1798247299793112,2908324646249190,3691114593197100,1390067845995269,4217472906027665,2890366348784408,1920770503823058,649211601082134,1353289301918202,1444721040403278,2924447724432889,3348714163473096,3177386394140875,91734627745422,2158917341932572,1151635795581939,4253636739499100,3342567394874750,3531494398175727,3872838523032949,4268937759768871,4121257283373599,1128446924912674,2803019593183139,1769694158759197,3339668924830577,2774153781950465,4040705244194176,418270322033941,1858123464500355,1958033146613612,3564491482468858,3372377241810399,1926660065990590,3798142176628483,1078502151587494,822034615063841,942191934188854,4371371581168080,951253909392824,2182847222292133,157224022438103,4243335072727144,971851415129246,3882734421968061,1266581305892344,4333598792386392,4235257990410039,3537367442599962,3770173827930390,3669596861859122,4483051976691629,3706319667344589,1880866857770038,396546532289875,1357461662542924,4429840411657087,1918283377492593,646952778562767,1140438490614526,735573257530262,864041807634858,209261199550894,3847993270893156,1988730420095184,3975587975763028,1882600740517688,3247449435713615,4164516453715568,969092267827165,2459493553096837,696649707111320,2184770340181319,3936261553070663,4410018415520051,3035680498537394,1239019926231356,495634658025207,13940451070734,4109121903564964,3267747452629649,1641480965568078,2225231357439653,2999133496512564,1404109374711328,1322729856345898,840780625389728,2627618140008323,4431564198002780,3376358547510792,2074538892527390,1631785509729737,1470558438438490,1523395571642303,715130650973882,2427738769701696,629264385991446,1327720465600112,1723400317149877,1143705820847402,453253945321910,399823199009713,2434947123033103,1463837663621665,2129507442490942,229290097946430,822015739572272,980378575627523,2911749136941339,196341445350971,2738097088103819,2980091326809680,3120372377708825,3858170359905184,3259408648552015,3706700375404625,3997605789006631,2969786057679898,3271979086820852,3539611246710851,2879010840109852,2349537622639827,1847122875971282,3395914316971246,3631953787944444,1197120593040757,2167658518005144,4469250034284692,1352823551673389,2085640528360420,1441190181893229,2616193009505011,4267365747944407,573989910898026,1537462856626756,3192359116328607,2209996328322667,1050043306200058,4067278107430125,3072857934812250,1720851475001945,4494847081160,4474845693852473,3882870080020813,3057801327998385,20276105089259,3839556092256062,347570089689772,207248861732393,1223547501485911,1559616377106133,3080026603602527,1237853430218411,1183536111400063,1095020839638520,2367124803499981,1452809181646814,3898627217838600,2670466240519990,4075403081102548,1355510717073840,3400651660890196,4135574232501596,3611653775115782,3095892868900653,3030026728325604,1563977517278380,1851562946407524,997394569550883,2197154041801301,2405107472695139,2715704840189440,3003588750974819,2691678320759393,219017649450940,2606752806035128,435325541451259,3138799870815434,2518555670400446,3430681606735353,2692518893713499,4295327875853333,2516877367493225,582154671228663,4271842600988415,375422950007753,645222741481690,2655773416222344,1922802607167557,152896107419754,2410552645858410,4066617661420607,221759205997874,2710785626526687,2174494257174678,655433090567678,99998490366327,2228873481985663,4404881142841438,2511666782816325,3340880957257268,3101865921611046,118339259726142,3189756558924383,2743948809625584,3142563201747513,2397929406687747,2268669513475821,4138569843825807,3842472325934859,2258079294290890,1800897101901778,2967708186577286,1398984097018464,1506389818433550,3267450366043558,2987134281170615,3613009299310064,4215973081363871,1100868220686121,488612090337976,3596710872346575,3334854771121051,3219447753732326,406967013725026,98130560427786,2503305783525524,433790388203401,286385829550884,2638385012698061,1668664354448855,820826110087347,1358224329025474,3341086136364407,269762046875214,4153116346892241,1458355131080514,2678213395189298,43890410974973,699381333361180,2980174484922671,4474839729890700,3098004296069770,169993010067260,4355484253508612,2610789438399602,358087780272632,3346539319678952,434442143011554,657094937950012,1945705752680536,1900247455699956,3748893829700848,3400479001721518,2660509864208767,279179698439960,1722333473043771,2744216324838693,3576956991280059,2515341762404032,2220866468230922,1039030828816533,3628839914530289,2063023724155203,1796944085938073,1261247028646377,4261286663582523,1827979281038852,832801016709862,479115035855258,3091007842690514,4219367490056327,2756432911958032,275294197504175,140109645085911,1161924293612311,1516603090139247,2820179972863504,88442916670340,433517448360496,3402505330847781,3543987904959033,2120074006957590,4220669057605229,2319806836623640,3448502155901212,1529076492257763,1822825282575367,1387754000874789,2951758553781731,2200782640631877,1381879809219650,559553536844062,1756415964333518,2910757113843156,3440114591958991,2783264703243347,3813084325853365,3196607535948333,4453714992112075,3879530890155216,4156729438537901,2834495915666771,2773529274471289,4283000953003959,3671586284693510,4090954716255694,3745596827393743,1095973157847986,4469759809037089,1375435053976315,317221333971614,2424264584350415,3278180365516998,36263318073313,3718572745099927,853486308792899,3041242080831184,90211273367313,3475923836680564,4295836598568059,3855290922892068,3188781507587455,4073298674766974,2121244230326463,3455858586098260,406277489780328,3309197891306960,2598493300804084,1808254818976869,1517180284101051,73856842181973,4334084531505755,1202020522596529,2971033489224481,535978200688130,1679506874289968,1106235938299848,4137942746261525,401003336645391,1822594462397067,4090192065153301,1099429793550767,730445804167793,2336297643875775,2934849294662508,3727953673559808,4099333808845630,4246289251883134,3122313036048171,2374827862411102,460795090162461,815582406323404,3460107357551527,4205216484876102,5852063954167,1803523542333399\"><br></div><div>ที่หน้าสรุปใบ Invoice อยากเพิ่มฟิลด์ให้เป็นว่าเอกสารใบไหน Print ไปแล้วบ้าง</div><div><br></div><div>step</div><ol><li>เลือกใบ Invoice</li><li>กดปุ่ม Print &gt; ระบบจะต้องเก็บค่าไว้ว่า invoice ใบนี้ Print ไปแล้ว วันไหน กี่โมง&nbsp;</li><li class=\"oe-nested\"><ol><li>Print status (Printed / Not Print)</li><li>Print Timestamp (dd/mm/yyyy hh:mm)</li></ol></li><li>ข้อมูล Print Status / Print timestamp จะต้องแสดงในหน้าจอ Invoice และหน้า Invoice Summary ด้วย (แต่ไม่แสดงใน Invoice Report)</li></ol><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3839-dab26485/image.png?access_token=07c5697b-e427-4a56-8365-6278abb4d4e0\"></div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3840-2c79b184/image.png?access_token=b6529663-69d1-4707-893a-375de88a3e46\"></div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1701,
+      "name": "Configure ว่า Van sale คนไหน ผูกกับ Car location คันไหน",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        55,
+        "05) Assigned Dev"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Sales",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>Sales &gt; เลือก SO ที่ต้องการ</li><li>กดปุ่ม Delivery</li><li>Source Location</li></ol>",
+      "x_studio_expected_result": "<div data-oe-version=\"1.2\">Source Location จะต้อง Default เป็นของ Sales คนนั้นๆ</div>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3686354645474747\">ขั้นตอนการ Validate DO ทาง Van Sales จะต้องมั่นใจว่า Source Location เป็นรถตัวเองเท่านั้น มิฉะนั้นจะไปดึงของออกจากรถคนอื่น</div><div><br></div><div>จุดนี้มีความเสี่ยง Human Error สูงมาก จึงขอให้ระบบผูกไว้เลยว่า Sales คนไหนผูกกับรถคันไหน เพื่อลดความผิดพลาด</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3864-0bb38e7a/image.png?access_token=826a7ed5-297c-440c-91eb-2862dd3198f7\"></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3866-878a11b3/image.png?access_token=0407a027-56a9-4123-8e91-240a1bfb7d90\"></div>",
+      "message_attachment_count": 2,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1596,
+      "name": "Defect-0207: CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของกา",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "PASS - เปิด CN จาก RMA ได้ และมี link กลับผ่าน transform fields",
+      "x_studio_test_step": "<ol>\n<li>เข้าเมนู RMA แล้วเลือกเอกสาร RMA ที่มีข้อมูลจริงในระบบ โดยไม่สร้างสินค้า ลูกค้า หรือ master data ใหม่</li>\n<li>ตรวจสอบว่า RMA มีเอกสารขาย Delivery Order, Return Picking และ RMA Line ครบถ้วน</li>\n<li>กด Smart Button <b>Refund Invoices / Credit Notes</b> จากหน้า RMA เพื่อเปิดใบลดหนี้ที่ระบบผูกไว้กับ RMA</li>\n<li>ตรวจสอบใบลดหนี้ว่าเป็น Customer Credit Note, สถานะบัญชีถูกต้อง และยอดเงิน/ยอดคงเหลือถูกต้อง</li>\n<li>กลับมาตรวจสอบหน้า RMA ว่าแสดงจำนวน Refund Invoice ถูกต้อง และ Return Picking เชื่อมกลับมายัง RMA</li>\n<li>Regression: การเปิดใบลดหนี้จาก RMA ต้องไม่กระทบ flow การสร้าง/เปิด Credit Note ปกติของ Accounting</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>ผลลัพธ์ที่คาดหวัง</b></p>\n<ul>\n<li>ผู้ใช้สามารถเปิดใบลดหนี้จากหน้า RMA ได้โดยตรงผ่าน Smart Button</li>\n<li>RMA ต้องเห็นจำนวน Refund Invoice/Credit Note ที่ถูกต้อง</li>\n<li>Return Picking ต้องเชื่อมกับ RMA และอยู่ในสถานะที่ถูกต้อง</li>\n<li>ใบลดหนี้ต้องเป็น Customer Credit Note, post ได้ตาม flow บัญชี และยอดคงเหลือถูกต้อง</li>\n<li>ถ้าเป็น RMA Transform Return ระบบต้องมี field อ้างอิงกลับไป RMA/Transform Return ให้ตรวจสอบย้อนหลังได้</li>\n</ul>\n<p><b>ผลทดสอบจริง - PASS / มีข้อสังเกต (server14, 2026-06-13)</b></p>\n<ul>\n<li>ใช้ข้อมูลเดิมในระบบ: RMA0022 / RMATR/2026/06/000015 - Transform Return (crm.claim.ept:22)</li>\n<li>RMA state = close, Sale Order = SOB-263089, Delivery = M-WH/OUT/03783, Return Picking = GMP/R-IN/00031</li>\n<li>Return Picking GMP/R-IN/00031 state = done และมี claim_id กลับมาที่ RMA0022 ถูกต้อง</li>\n<li>กด/open smart button Refund Invoices แล้วระบบเปิด CN ได้: CCND/26/06/00002 (account.move:70245)</li>\n<li>CN เป็น move_type = out_refund, state = posted, payment_state = not_paid, amount_total = 15.00, amount_residual = 15.00</li>\n<li>CN มี link กลับไป RMA ผ่าน rma_transform_claim_id = RMA0022 และ rma_transform_return_id = RMATR/2026/06/000015</li>\n<li>ข้อสังเกต: field claim_id มาตรฐานของ rma_ept ว่าง แต่ flow transform ใช้ rma_transform_claim_id แทน ถ้ารายงาน/หน้าจอใดอิง claim_id ต้องปรับให้อ่าน field transform ด้วย</li>\n<li>สรุป: flow เปิด CN จาก RMA ใช้งานได้ และตรวจสอบย้อนหลังได้ผ่าน field ของ transform flow</li>\n</ul>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"1716421552991615\">CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของการทำ RMA ยังไม่เสร็จ</p>",
+      "message_attachment_count": 3,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1622,
+      "name": "Defect-0233: รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "NEEDS UAT - Advance bank draft flow not executed yet",
+      "x_studio_test_step": "<ol>\n<li>Open the Advance flow on server14 database goldmints_uat.</li>\n<li>Select an existing Advance document that represents a bank draft purchase request.</li>\n<li>Verify the flow supports the same key steps as Cheque: request data, approval, payment instrument details, accounting posting, and printable report.</li>\n<li>Post/confirm only when business owner approves using existing UAT data.</li>\n<li>Regression check: existing Cheque payment/report flow must still work and must not be overwritten by the bank draft flow.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Advance supports bank draft purchase workflow similar to Cheque.</li>\n<li>Required bank draft fields are available before posting/accounting.</li>\n<li>Accounting/report output is correct and does not break Cheque behavior.</li>\n</ul>\n<p><b>Actual Test Result - NEEDS UAT</b></p>\n<ul>\n<li>No completed server14 UI/UAT evidence was found in the current assigned tester retest records for this task.</li>\n<li>Task requirement is documented, but real transaction test still needs an approved existing Advance bank draft scenario from the business team.</li>\n<li>Do not mark PASS until a real Advance bank draft document is processed end to end and compared with Cheque behavior.</li>\n</ul>",
+      "description": "<p>รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque\n</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1665,
+      "name": "ต้องทำให้ billing note ต้องสามารถดึง vendor bill และ credit note มาทำได้",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "PASS - BN APD/CN payment net due verified",
+      "x_studio_test_step": "<ol>\n<li>Open Purchase/Accounting vendor billing note flow on server14 database goldmints_uat.</li>\n<li>Select existing posted Vendor Bill and Vendor Credit Note for the same vendor.</li>\n<li>Create Vendor Billing Note from selected APD/CN documents.</li>\n<li>Confirm the Billing Note, then open Register Payment from the Billing Note.</li>\n<li>Verify Vendor Bills, Credit Notes, Net Due, and Payment Difference in the payment wizard.</li>\n<li>Regression check: Purchase Order Status Report / APD/CN source must still be usable for Billing Note creation.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Vendor Billing Note can include both Vendor Bill and Vendor Credit Note.</li>\n<li>Billing Note net due equals Vendor Bills minus Credit Notes.</li>\n<li>Register Payment amount uses the net due amount and Payment Difference must be 0.00.</li>\n<li>Existing vendor bill / credit note fields and links are not overwritten incorrectly.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Billing Note: BN/2026/06/0069, state billed, payment status not paid.</li>\n<li>Vendor Bills: 500.00, Credit Notes: 321.00, Net Due: 179.00, Residual Net Due: 179.00.</li>\n<li>Register Payment wizard account.payment.register:3170 showed Amount 179.00 and Payment Difference 0.00.</li>\n<li>Related records: vendor.billing.note:69, account.move ids 69804 and 69799, active move lines 214213 and 214203.</li>\n</ul>",
+      "description": "<p>ต้องทำให้ billing note ต้องสามารถดึง  vendo bill และ credit note มาทำได้ และ flow ต้องแก้ให้ ไม่ใช่ service acceptance สามารถตั้งหนี้ตรงได้และต้องสามารถดึง vendor bill กลับมาทำ billing note ได้ และต้องทำ payment หน้า billing note เหมือน payment wizard ของ odoo และ หน้า purchase_order_status_report ต้องโชว์ apd และ cn ด้วย</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1667,
+      "name": "Defect-0277: เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อม",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Inventory",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "PASS - Vendor Return linked to Credit Note",
+      "x_studio_test_step": "<ol>\n<li>Open existing Vendor Return documents on server14 database goldmints_uat.</li>\n<li>Create or open the related Vendor Credit Note from the Vendor Return flow.</li>\n<li>Verify the Credit Note stores the selected return pickings.</li>\n<li>Return to each Vendor Return and verify the Vendor Credit Note smart/link fields and status/count.</li>\n<li>Regression check: posted credit note must keep normal accounting state and residual/payment status.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Vendor Return can be connected to Vendor Credit Note.</li>\n<li>Warehouse users can see whether each return already has a Credit Note.</li>\n<li>Credit Note remains posted normally and linked return count is correct.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Vendor Credit Note VCND/26/06/00002 (account.move:69804) is posted and move_type is in_refund.</li>\n<li>Credit Note links 2 returns: GMP/R-OUT/00011 (stock.picking:10818) and GMP/R-OUT/00012 (stock.picking:10819).</li>\n<li>Both return pickings are done and vendor_credit_note_count = 1.</li>\n<li>Credit Note amount total signed/residual signed = 321.00 and payment state is not paid.</li>\n</ul>",
+      "description": "<p>เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อมกับ Credit Note เพื่อดึงข้อมูลจากเอกสาร Return ไปใส่ใน Credit Note และเพิ่มสถานะให้ฝ่ายคลังรับรู้ว่าเอกสาร Return ออก Credit Note แล้วหรือยัง</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1684,
+      "name": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "PASS - Contract expiry/reminder cron verified",
+      "x_studio_test_step": "<ol>\n<li>Open server14 database goldmints_uat with admin user.</li>\n<li>Verify scheduled actions related to contract expiry and reminder.</li>\n<li>Check active flag, interval, model, and nextcall for each scheduled action.</li>\n<li>Confirm the trigger is configured on the Contract Document model and can run automatically.</li>\n<li>Regression check: the cron setup must not disable unrelated accounting accrual scheduled actions.</li>\n</ol>",
+      "x_studio_expected_result": "<p><b>Expected Result</b></p>\n<ul>\n<li>Contract expiry/reminder triggers exist and are active.</li>\n<li>Triggers run automatically on the expected schedule.</li>\n<li>Configuration uses the correct model and does not conflict with unrelated scheduled actions.</li>\n</ul>\n<p><b>Actual Test Result - PASS (server14 retest evidence)</b></p>\n<ul>\n<li>Contract Auto-Expire - Daily (ir.cron:70) is active, interval 1 day, model Contract Document.</li>\n<li>Contract Expiry Reminder - Daily (ir.cron:69) is active, interval 1 day, model Contract Document.</li>\n<li>Related Accrual Auto Reverse scheduled action (ir.cron:77) remains active.</li>\n<li>Evidence captured from server14 retest file dated 2026-06-07.</li>\n</ul>",
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",2833313979042093,2894538018253155,889398611720303,2707688194851509,4440521395255960,1474690475103503,4139446218247867,1961042359091296,4432890383831266,1426911757224827,4010634452328233,2629858415578841,4496231254371875,1052191455426915,1880818534771622,2439997627325482,785048648705160,3160084849464264,3806842823349682,186347009243676,1205246094076408,1469182362062031,2908001326823376,4270176541197438,3359603045892157,1428666171991404,1338431342052460,1193426538133433,3300366025955124,4384932636955054,4125475145572676,3687529735031306,217209638500168,3491583789343493,2876003874742659,254782060080816,1952091865449262,2525661179031724,646416259576932,389971710494389,2257532521469609,696731883164389,4458797401468994,2420471391341801,4396944011602612,3476616891808423,626129509742642,4133197763989958,4063956168023235,2334671483758314,333931407956168,4384773135106870,3412016404028267,3887143221884653,1355945003873212,3860278714957409,453757082138386,2452619991373169,1033391060987319,3733178769721413,2707234386438704,1099051807696035,513844267875536,3455436409105013,3452859439775085,2394020389788315,869497682022181,4487440330505453,1539598644150273,1890597472985017,674430564152285,3262189254068755,1058718987093974,2429159634419064,2441276698653561,869180145873643,433813751620690,648337217854782,195976730813867,766831380224298,1196805864399937,1707171770185949,3920998718233084,4236177555114307,2803564909778446,4184701391473512,2597364953224331,2864331395800122,342723869675908,3132180193847745,3831877061817113,3348300985144927,2043194016804055,1403177840827673,4086889777477155,1907278729038368,65806865845070,737614766498637,1083906421192655,2604162584864506,4197466454477029,64773665560315,4114184716876583,2722726526960854,3761632847174156,596724445599439,3314537695680684,1595210846307692,112396224682338,687998168542163,2284137893613815,3666399650299494,3015784504517031,3141641119600353,3035427186706991,867350542354552,1055382905071489,2497279719603600,955689253428469,2746485061451439,577279719679508,4375008063546748,2891799443022216,3264452191065528,2191742498187092,1587209103224199,2301112928103985,3034169454878899,1339304824582921,1241248452622312,2418071656386388,3951880539983229,1043646527069986,2123450021867056,960374025830148,4101350796825505,468763686387271,3249551602778523,2396873964507143,4119042739369764,2388320780502195,1011262589982019,3488433599957608,2958870669175771,2556303166609028,4010480480496442,1211887328342985,2268808085603914,133687946322573,4052335801584686,215937108459238\">งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า Logic เป็นยังไง เขียนธิบายมาหน่อย</div><div><br></div><div>** ใส่คำอธิบายแล้ว ปรับ stage มาเป็น assign BA และเลือก assign Cook ได้เลย **</div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1466,
+      "name": "Defect-0076: วิธีดูสรุป mo นี้ใช้ วัตถุไปเท่าไหร่ผลิตได้เท่าไหร",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>วิธีดูสรุป mo นี้ใช้ วัตถุไปเท่าไหร่ผลิตได้เท่าไหร่ ใช้เวลาเท่าไหร่ แบบ list view</p>",
+      "description": "<p>วิธีดูสรุป mo นี้ใช้ วัตถุไปเท่าไหร่ผลิตได้เท่าไหร่ ใช้เวลาเท่าไหร่ แบบ list view\nในระบบ ใบแปะถัง  อยาก track  กลับ vendor ใครเป็นคนทำและรายงาน  Phase 1</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1467,
+      "name": "Defect-0077: เปลี่ยน mold ระหว่างผลิต",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>mold ต้องมี capcity เมื่อเต็มต้องมี pop up บอกว่าควรเปลี่ยน Phase 1\nMold ต้องฉลาดพอที่จะรู้ว่าตอนนี้ forcast ต้องการอะไรแล้ว Match เข้า เครื่องที่ต้องทำได้เลย Phase 2</p>",
+      "description": "<p>เปลี่ยน mold ระหว่างผลิต</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1483,
+      "name": "Defect-0093: ยอดลูกหนี้การค้า-ต่างประเทศ ที่ตั้งหนี้ เมื่อจ่ายช",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p>1. เปิด Modul Accounting &gt; Customer &gt; Invoice เลือกรายการที่ต้องการรับเงิน\n2. กด Pay\n3. เลือก Journal: Bank หรือ Cash\n4. ตรวจสอบยอดเงิน (Amount) ว่าเต็มจำนวน\n5. กด \"Create Payment\"\nุ6. เข้าไปที่ Payment เพื่อตรวจเช็คขาบัญชี\nกรณี รับเงินต่างประเทศ\n\"- กรณี Rate ตั้งหนี้กับ Pay ต่างกัน</p>",
+      "x_studio_expected_result": "<p>ยอดลูกหนี้การค้า-ต่างประเทศ ที่ตั้งหนี้ เมื่อจ่ายชำระต้องดึงยอดลูกหนี้-ต่างประเทศ มาแสดงใน journal ยอดเดียวกัน และจะเกิดกำไรขาดทุนจากอัตราแลกเปลี่ยน ที่รับชำระ</p>",
+      "description": "<p>ยอดลูกหนี้การค้า-ต่างประเทศ ที่ตั้งหนี้ เมื่อจ่ายชำระดึงยอดมาไม่ตรงกัน</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1578,
+      "name": "Defect-0189: หน่วยซื้อและหน่วยใช้ไม่เท่ากัน\nระบบต้องรองรับการ c",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>หน่วยซื้อและหน่วยใช้ไม่เท่ากัน\nระบบต้องรองรับการ convert หน่วย ได้\nตัวอย่าง: ซื้อ 1 ถุง แต่เวลาใช้งานจริงแตกเป็น 1000 Kg</p>",
+      "description": "<p>หน่วยซื้อและหน่วยใช้ไม่เท่ากัน\nระบบต้องรองรับการ convert หน่วย ได้\nตัวอย่าง: ซื้อ 1 ถุง แต่เวลาใช้งานจริงแตกเป็น 1000 Kg</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1579,
+      "name": "Defect-0190: MBR Report ต้อง สามารถดูเป็น quarter ได้และสามรถดู",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>MBR Report ต้อง สามารถดูเป็น quarter ได้และสามรถดู ขายในประเทศ กับ ต่างประเทศได้</p>",
+      "description": "<p>MBR Report ต้อง สามารถดูเป็น quarter ได้และสามรถดู ขายในประเทศ กับ ต่างประเทศได้\n\n[Cook] Severity = Low --&gt; ถ้ามีเวลาพอ จะแก้ให้ก่อน Go-Live แต่ถ้าไม่พอก็ไปแก้หลัง Go-Live</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1581,
+      "name": "Defect-0192: อัตราแลกเปลี่ยนคุณดาวขอเป็นการดึงข้อมูล Auto จากแบ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบสามารถดึงข้อมูลอัตราแลกเปลี่ยนแบบอัตโนมัติ (Auto) จากธนาคารแห่งประเทศไทยได้ (รอทางคุณดาวคอนเฟิร์มว่าจะใช้ Rate ไหนอีกครั้ง)</p>",
+      "description": "<p>อัตราแลกเปลี่ยนคุณดาวขอเป็นการดึงข้อมูล Auto จากแบงค์ชาติ แต่จะคอนเฟิร์มว่าจะใช้ Rate ไหนอีกครั้ง\n** รอคุณดาว คอนเฟิร์มว่าจะใช้ Rate ไหนอีกครั้ง (ซื้อ / ขาย / เฉลี่ย) **\nอัตราแลกเปลี่ยนของแบงค์ชาติ คุณดาวบัญชียืนยันใช้ อัตราซื้อถัวเฉลี่ย ซื้อเงินโอน</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1590,
+      "name": "Defect-0201: - ทำ Transaction ใหญ่เกินแล้ว Error\n- กด Check Ava",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>- ทำ Transaction ใหญ่เกินแล้ว Error\n- กด Check Availability แล้วของไม่มา แต่ของไม่ได้ถูกจอง\n- สูตร To Consume คำนวณแปลกๆ และมีตัวเลขติดลบ</p>",
+      "description": "<p>- ทำ Transaction ใหญ่เกินแล้ว Error\n- กด Check Availability แล้วของไม่มา แต่ของไม่ได้ถูกจอง\n- สูตร To Consume คำนวณแปลกๆ และมีตัวเลขติดลบ</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1599,
+      "name": "Defect-0210: ในระบบเปิด WHT. ที่ทำจ่ายแล้วไม่ได้ แต่มีไฟล์ PDF ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>User สามารถคลิกเปิดดูข้อมูล WHT ที่ทำจ่ายไปแล้วจากหน้าระบบได้โดยตรง ซึ่งข้อมูลต้องตรงกับไฟล์ PDF ที่ถูกสร้างขึ้น</p>",
+      "description": "<p>ในระบบเปิด WHT. ที่ทำจ่ายแล้วไม่ได้ แต่มีไฟล์ PDF ออกมาแล้ว</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1600,
+      "name": "Defect-0211: เพิ่มใบวางบิลยอด WHT. (สรุปลูกค้าให้)",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>เพิ่มใบวางบิลยอด WHT. (สรุปลูกค้าให้)</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1602,
+      "name": "Defect-0213: เลข Reference ของ Customer และ Vendor ใหม่ควรจะ ru",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>เมื่อสร้าง Customer หรือ Vendor ใหม่ ระบบจะสร้างเลข Reference No. รันให้อัตโนมัติและไม่ซ้ำกัน</p>",
+      "description": "<p>เลข Reference ของ Customer และ Vendor ใหม่ควรจะ run Auto</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1606,
+      "name": "Defect-0217: การคีย์ รายละเอียด Tax Invoice ต้องเพิ่ม Brach id ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>หน้าจอคีย์ Tax Invoice มีฟิลด์ Branch ID ให้ระบุ และข้อมูลสาขานี้จะถูกดึงไปแสดงผลในรายงานภาษีซื้อ (Input Tax Report) อย่างถูกต้อง</p>",
+      "description": "<p>การคีย์ รายละเอียด Tax Invoice ต้องเพิ่ม Brach id เพื่อให้ผู้ใช้ทราบว่าเลือกสาขาไหนอยู่ และแสดงข้อมูลในรายงานภาษีซื้อ</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1607,
+      "name": "Defect-0218: คุณดาวฝากถามว่า ล้างรายการ Settle ยังไง",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>User (คุณดาว) ได้รับคำแนะนำหรือคู่มือขั้นตอนการล้างรายการ (Clear/Reconcile) Settle ในระบบที่ถูกต้อง</p>",
+      "description": "<p>คุณดาวฝากถามว่า ล้างรายการ Settle ยังไง</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1609,
+      "name": "Defect-0220: กรณีทำ settlement แล้วเลข GLไม่มา",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>เมื่อทำรายการ Settlement เสร็จสิ้น ระบบสามารถดึงและบันทึกเลขที่บัญชี (GL Account) ได้อย่างครบถ้วน</p>",
+      "description": "<p>กรณีทำ settlement แล้วเลข GLไม่มา</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1612,
+      "name": "Defect-0223: กรองวันที่นัดชำระได้ หน้าของ billing ได้ (Billing ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>หน้าจอ Billing สามารถใช้ฟิลด์ Due Date (วันที่นัดชำระ) ในการ Filter หรือค้นหาข้อมูลเอกสารได้</p>",
+      "description": "<p>กรองวันที่นัดชำระได้ หน้าของ billing ได้ (Billing Notes field due date)</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1613,
+      "name": "Defect-0224: เพิ่ม ให้มันแยกรายการ ที่ report po status",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>รายงานสถานะใบสั่งซื้อ (PO Status Report) สามารถแสดงผลแบบแยกย่อยตามรายการสินค้า (Line Items) ได้</p>",
+      "description": "<p>เพิ่ม ให้มันแยกรายการ ที่ report po status</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1614,
+      "name": "Defect-0225: เพิ่มเลข inv ที่ใบตรวจรับงาน และเพิ่มฟิลด์ ให้คีย์",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ใบตรวจรับงานมีการแสดงเลข Invoice และมีฟิลด์ \"Inv Ref\" ให้ User กรอกข้อมูลอ้างอิงได้ (รูปแบบเดียวกับใบรับของ)</p>",
+      "description": "<p>เพิ่มเลข inv ที่ใบตรวจรับงาน และเพิ่มฟิลด์ ให้คีย์ inv ref (คล้ายๆ ใบรับของ)</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1617,
+      "name": "Defect-0228: ถ้ามีการคืนของจากใบ po แล้วต้องแสดงข้อมูลจากคลัง\n*",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>หากทำรายการคืนสินค้าโดยอ้างอิงจาก PO ระบบจะอัปเดตและแสดงข้อมูลสต็อกสินค้าที่คืนเข้าคลังได้อย่างถูกต้อง</p>",
+      "description": "<p>ถ้ามีการคืนของจากใบ po แล้วต้องแสดงข้อมูลจากคลัง\n***รอconfime request คุณดาวอีกรอบ***</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1619,
+      "name": "Defect-0230: รายการชำระต้องสามารถ Mat ระหว่าง Vendor และ Custom",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบรองรับการทำ Clearing/Matching ยอดชำระเงินระหว่างคู่ค้าที่เป็นทั้ง Vendor และ Customer ในนิติบุคคลเดียวกันได้</p>",
+      "description": "<p>รายการชำระต้องสามารถ Mat ระหว่าง Vendor และ Customer ได้</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1632,
+      "name": "Defect-0243: ทางบัญชีอยากให้มีเลขทะเบียนคุม FIX ASSET ในแต่ละ A",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>ทางบัญชีอยากให้มีเลขทะเบียนคุม FIX ASSET ในแต่ละ Asset Model</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1634,
+      "name": "Defect-0245: ต้องแก้ให้มีการเปิด PO แต่ต้องมีการจ่ายเงินซื้อ As",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>ต้องแก้ให้มีการเปิด PO แต่ต้องมีการจ่ายเงินซื้อ Asset ก่อนโดยยังไม่ได้รับของ</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1635,
+      "name": "Defect-0246: ทางบัญชีขอให้มีการอนุมัติในระบบ จากฝ่ายที่สั่งซื้อ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>ทางบัญชีขอให้มีการอนุมัติในระบบ จากฝ่ายที่สั่งซื้อ กรณีที่เปิด PO แต่ยังไม่มีการรับของเพื่อให้ทำวางบิลได้ โดยให้ผู้อนุมัติ ใส่จำนวนเงิน หรือ จำนวน % ที่จ่ายชำระให้ทางบัญชีทราบ</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1639,
+      "name": "Defect-0250: ให้ข้อมูลในส่วนของ Deferred label ที่จะดึงมาจาก AP",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>ให้ข้อมูลในส่วนของ Deferred label ที่จะดึงมาจาก APD ไปแสดงในส่วนของ Deferred Entries รายเดือนได้</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1649,
+      "name": "Defect-0260: เพิ่ม Product Transfrom ในใบ OUT สำหรับ RMA เพื่อใ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Sales",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>เพิ่ม Product Transfrom ในใบ OUT สำหรับ RMA เพื่อให้ฝ่ายขายสามารถทำคืนเป็นหน่วยย่อยได้ โดยที่ดึง Reference ทั้งหมดให้เหมือนเอกสาร OUT เดิม</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1655,
+      "name": "Defect-0266: PO มัดจำต้องมีการออกใบวางบิลก่อน",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>PO มัดจำต้องมีการออกใบวางบิลก่อน</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1656,
+      "name": "Defect-0267: PO จะต้องสามารถออกส่วนลดท้ายบิลในส่วนของ Asset ได้",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<p>PO จะต้องสามารถออกส่วนลดท้ายบิลในส่วนของ Asset ได้</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1658,
+      "name": "Defect-0268: สำหรับ MTS ระบบจะต้องรัน Trigger ทุกวันเพื่อตรวจสอบค่า min ของ FG/SFG",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p data-oe-version=\"1.2\">จะต้อง\n1) สร้าง MO ให้อัตโนมัติ และมี notification แสดงบนหน้าจอหัวหน้างานฝ่ายผลิตเพื่อให้เข้าไปดำเนินการใส่ Lot number&nbsp;<br>2) Reserve RM สำหรับ FG/Semi FG ที่ &lt; min</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"1142970959797048\">สำหรับ MTS ระบบจะต้องรัน Trigger ทุกวันเพื่อตรวจสอบว่า FG / Semi-FG ตัวไหนที่ &lt; min</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1663,
+      "name": "Defect-0273: Process Name: PO_001_Purchasing\nProcess Group: P2_",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบจะแสดง Notification ขึ้นมาบนหน้าจอของเจ้าหน้าที่จัดซื้อ หลังจาก PR ได้รับการอนุมัติแล้ว</p>",
+      "description": "<p>Process Name: PO_001_Purchasing\nProcess Group: P2_Purchase Order\nProcess Number: P2_001\nระบบไม่แสดง Notification ไปที่เจ้าหน้าที่จัดซื้อหลังจาก PR ได้รับการอนุมัติแล้ว</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1664,
+      "name": "Defect-0274: Process Name: INV_IN_001_Purchase Receipt\nProcess ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Inventory",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p data-oe-version=\"1.2\">1) เข้าเมนู Inventory → Receipts_x000B_</p><p>2) ค้นหาใบ Receipt จากเลข Purchase Order หรือ Vendor หรือเลือกจากรายการที่แสดงบนหน้าจอ_x000B_</p><p>3) เปิดใบ Receipt ที่เกี่ยวข้องแล้วพิมพ์เอกสาร Receipt</p>",
+      "x_studio_expected_result": "<p>ระบบจะแสดง Notification ขึ้นมาบนหน้าจอของเจ้าหน้าที่จัดซื้อ หลังจาก PR ได้รับการอนุมัติแล้ว</p>",
+      "description": "<p>Process Name: INV_IN_001_Purchase Receipt\nProcess Group: P1_Receiving\nProcess Number: P2_002\nระบบไม่แสดง Screen ใบรับสินค้า</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1674,
+      "name": "Defect-0284: สร้าง SO ขายต่างประเทศขึ้นมา แต่ระบบไม่ Auto Gen PO",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        57,
+        "07) Ready for UAT"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p>1) สร้าง SO ต่างประเทศ\n2) ตรวจผล\n-- MO\n-- PO</p>",
+      "x_studio_expected_result": "<p>ระบบจะต้องสร้าง PO ขึ้นมาอัตโนมัติในกรณีที่เจอว่า RM ไม่เพียงพอใน Stock</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"1301477793833105\">สร้าง SO ขายต่างประเทศขึ้นมา (MTO) ระบบ Auto Generate MO ขึ้นมาให้แล้ว แต่พบว่า Material บางตัวไม่มีใน Warehouse \n\nระบบควรสร้าง PO ขึ้นมาอัตโนมัติ แต่ระบบไม่สร้าง PO ให้</p><p><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3786-91238060/image.png?access_token=72c61538-e469-4aea-89f2-5ae304cf425c\"></p><p><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3788-5d15309d/image.png?access_token=9bb6eba5-712b-4e2f-b388-66680577fac2\" style=\"width: 50%;\"></p><p><br></p>",
+      "message_attachment_count": 2,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1668,
+      "name": "Defect-0278: MO Status = Confirmed\n\nแค่เข้าไปตรวจดูข้อมูล แล้วเ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        59,
+        "09) Rejected by 365"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<p>1) เข้าไปดู MO\n2) เลือก Consumed ที่ Component\n3) กด Save (ตรงรูปเมฆใกล้ๆ รูปเฟืองด้านบน)</p>",
+      "x_studio_expected_result": "<p>MO status ควรจะยังเป็น Confirmed อยู่ เพราะว่ายังไม่ทันได้กด ปุ่ม Start กับ Add Qty ใน Shopfloor เลย</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"2307003822515267\">MO Status = Confirmed\n\nแต่เข้าไปตรวจดูข้อมูล แล้วเลือก Consumed ที่ Component &gt; Save ระบบก็ปรับ MO Status เป็น In Progress ให้ทันที</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1671,
+      "name": "Defect-0281: เอา Trigger เรื่อง Material Lot List ออก เดี๋ยวพี่",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        59,
+        "09) Rejected by 365"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบต้อง default เป็น Hide from shopfloor</p>",
+      "description": "<p>เอา Trigger เรื่อง Material Lot List ออก เดี๋ยวพี่ไป Review กับ User ก่อนแล้วจะมา Confirm นะ ให้เตรียม solution ไว้\n\nส่วน ปุ่ม Start กับ Add Qty ตรงนั้นโอเค ไม่น่าติดอะไร</p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1686,
+      "name": "วางบิลมาจาก Register Deposit จะต้องไปลงบัญชีเป็น ค่าเงินมัดจำ",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        60,
+        "10) Cancelled by Customer"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": "<ol data-oe-version=\"1.2\"><li>เข้ามาใน PO</li><li>กดปุ่ม Register Deposit</li></ol>",
+      "x_studio_expected_result": false,
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\",3680225258109152,3953369754997638,3165734717197037,3325882957581861,2766747912214773,1673455315433332,2845251271259422,2681293062713409,2441059384524657,1156019199947826,2750460604023542,3981691021583323,2630972045205215,3257382599987767,4018122095296749,1328697055828763,3869196205675953,3488466814658843,3415938535318998,3226576022135449,3173603988368073,2151680635811087,2253117114619914,386471324055271,1615285791381979,2440731287648660,1936294073245246,700922421209928,700645769370620,3189231040746943,1645927124255229,4210128784094561,840894673721216,3416116320175370,3910626220831647,815508775060701,3740559695322646,2027365905524449,3899203644370334,1339726938783232,450119361476286,2719758850230549,3340114569414433,2333793757869695,2510624861654574,1141671931418711,416481155201439,2581996236686743,1704208728230984,3611563807613344,562648797788744,4163779747135884,42984463185961,1535716698825731,2462230509161248,4456780741315510,2038902585014877,4386096042978316,1491176710808191,1387569136943889,1443486582285693,3372383766284757,3703180741024215,2608817341162682,2111388650979069,1550308164546232,3704896900580991,1793267964886737,3740435831817343,3941152422432874,1522068796919545,3995166643214438,1595007127700564,1518079747345582,4361939248070733,402959491398644,3461204148697720,4450681442578176,50774732473623,3630648718360377,3634354070562816,2302028101787660,3627910476403428,2027677801425853,4051996948877265,2097779682914388,467841345768672,3277550811828750,3119010858244055,3015594740688703,1137580272346360,2258230494085428,2092321123886725,741077137108706,2049671006901670,4299020306467586,1265122966670379,262694537235398,2723981044121654,1033687241789168,141910836301243,1332031228657165,691291436707235,1908445868653587,2183559815241533,3274497925862904,3173320996162789,2393964610444108,1205030214538814,448477320277237,2477962708680637,4084957059405730,1877344063828668,3160439733991008,2366946880931308,2337804884966003,162610110272594,1333416777885281,3755861161659168,133169492024397,589580397835936,2855226539102797,3760536310481792,3600573117718997,3332870879089101,3345554418678381,2904622656161479\">ในกรณีที่วางบิลมาจาก Register Deposit จะต้องลงบัญชี</div><div>Dr. เงินมัดจำ (เช็คกับโอ๋ว่าเป็นบัญชีเบอร์อะไร)</div><div>Cr. ค่าใช้จ่ายอื่น</div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1687,
+      "name": "Confirm ข้อมูลการกำหนดเลขที่ใบกำกับภาษี (อย่างเต็ม / อย่างย่อ)",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        60,
+        "10) Cancelled by Customer"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"3751586851401384\">ต้องการให้ Confirm ว่าตกลงแล้วเลขที่เอกสารต้องแสดงยังไง<br>1) ปัจจุบันตั้งค่าไว้ยังไง</div><div>2) จาก requirement ของคุณดาว จะนำเสนอยังไง</div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1577,
+      "name": "Defect-0188: ค่า tolerance ใช้เป็นแนวทางแก้ปัญหากรณี ผลิตไปแล้ว",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        61,
+        "11) Later Release"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Manufacturing",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>เพื่อแก้ปัญหานี้ เราต้องวาง Standard Operating Procedure (SOP) ควบคู่ไปกับการเปิดใช้ Tolerance (Flexible Consumption) ใน Odoo 18</p>",
+      "description": "<p data-oe-version=\"1.2\" data-last-history-steps=\"3098772539627841\">ค่า tolerance ใช้เป็นแนวทางแก้ปัญหากรณี ผลิตไปแล้ว แต่จำนวน components ในคลังบวมมากกว่าความจริง\n\n-- สามารถปรับใน MO ได้หากมีการผลิตขาด หรือเกิน \n* ดูว่าสามารถดึงออกมาได้หรือไม่ว่ามี MO ใบไหนบ้างที่ถูกแก้ไขส่วนนี้</p><p><br></p>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    },
+    {
+      "id": 1696,
+      "name": "ถ้าเลือกเป็น Year ระบบจะยัง Compute ทุกๆ เดือนและ Generate Bill เป็นรายเดือนอยู่หรือไม่",
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "stage_id": [
+        61,
+        "11) Later Release"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false,
+      "description": "<div data-oe-version=\"1.2\" data-last-history-steps=\"2945330416415675\">ต้องการใส่เป็นปี แล้วให้ระบบคำนวนเป็น Month เอง</div><div>ซึ่งความต้องการพื้นฐานยังเหมือนเดิมคือให้ระบบคำนวนให้ทุกๆ เดือน (มีรายการ Bill ในทุกๆ เดือน) ในระยะเวลาตามที่กำหนด</div><div><br></div><div>คำถาม</div><div>1) Duration --&gt; ถ้าเลือกเป็น Year ระบบจะยัง Compute ทุกๆ เดือนและ Generate Bill เป็นรายเดือนอยู่หรือไม่ -- ถ้าเลือกเป็น Month ระบบจะออก Bill เป็น Month แต่ถ้าเลือกเป็น Year จะออก Bill เป็นรายปี</div><div>2) ต้องการใส่เป็นปี แล้วให้ระบบคำนวนเป็น Month เอง ได้มั้ย? --&gt; next phas</div><div><br></div><div><img class=\"img-fluid\" data-file-name=\"image.png\" src=\"/web/image/3834-f710546d/image.png?access_token=b2b9711a-2b96-4e2b-88c8-5e8e821e86a9\"></div>",
+      "message_attachment_count": 0,
+      "user_ids": [],
+      "priority": "0",
+      "is_closed": false
+    }
+  ],
+  "attachments": [
+    {
+      "id": 3858,
+      "name": "task_1596_thai_test_result.png",
+      "res_id": 1596,
+      "mimetype": "image/png",
+      "file_size": 146039
+    },
+    {
+      "id": 3860,
+      "name": "rma_0022_form.png",
+      "res_id": 1596,
+      "mimetype": "image/png",
+      "file_size": 84251
+    },
+    {
+      "id": 3862,
+      "name": "cn_70245_form.png",
+      "res_id": 1596,
+      "mimetype": "image/png",
+      "file_size": 93367
+    },
+    {
+      "id": 3786,
+      "name": "image.png",
+      "res_id": 1674,
+      "mimetype": "image/png",
+      "file_size": 347713
+    },
+    {
+      "id": 3788,
+      "name": "image.png",
+      "res_id": 1674,
+      "mimetype": "image/png",
+      "file_size": 285043
+    },
+    {
+      "id": 3819,
+      "name": "Inventory_Item master_20260318_MFG Lead.xlsx",
+      "res_id": 1675,
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_size": 55062
+    },
+    {
+      "id": 3815,
+      "name": "image.png",
+      "res_id": 1690,
+      "mimetype": "image/png",
+      "file_size": 82532
+    },
+    {
+      "id": 3837,
+      "name": "image.png",
+      "res_id": 1697,
+      "mimetype": "image/png",
+      "file_size": 123167
+    },
+    {
+      "id": 3864,
+      "name": "image.png",
+      "res_id": 1701,
+      "mimetype": "image/png",
+      "file_size": 14028
+    },
+    {
+      "id": 3866,
+      "name": "image.png",
+      "res_id": 1701,
+      "mimetype": "image/png",
+      "file_size": 48933
+    }
+  ],
+  "messages": [
+    {
+      "id": 261656,
+      "res_id": 1577,
+      "date": "2026-06-03 06:01:37",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>[Cook 2-Jun-2026] ให้ระบบสามารถใส่ค่า Yield ได้ใน BOM เวลาที่ทำ Internal Transfer ให้เบิก component ตาม BOM + Yield %<br>(เบิกเกินดีกว่าขาด หากมีของเสียจะได้มีของที่เบิกเผื่อไว้แล้วที่หน้างานเลย)</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 261629,
+      "res_id": 1596,
+      "date": "2026-06-02 11:15:42",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>[Cook: 17-May-2026] ส่งกลับไปที่ Tester ได้เลย จากที่ได้รับ update มาเข้าใจว่าสามารถใช้งานได้ครบแล้ว</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 261639,
+      "res_id": 1668,
+      "date": "2026-06-02 11:27:04",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>[Cook] ซ้ำกับ 1672<span class=\"o-mail-Message-edited\"></span></p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 264800,
+      "res_id": 1673,
+      "date": "2026-06-10 04:21:21",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>ข้อมูล confirm กลับมาอยู่ที่ #1675</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 264797,
+      "res_id": 1675,
+      "date": "2026-06-10 04:13:45",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>คุณไอซ์ส่งข้อมูลกลับมาให้แล้ว ดูตามไฟล์แนบ<br><br>ตัวสีแดงคือยกเลิกผลิตไปแล้ว</p>",
+      "subject": false,
+      "attachment_ids": [
+        3819
+      ]
+    },
+    {
+      "id": 261952,
+      "res_id": 1675,
+      "date": "2026-06-03 09:54:39",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>ส่ง email ให้คุณไอซ์ เมื่อวันที่ 3-Jun</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 262026,
+      "res_id": 1686,
+      "date": "2026-06-04 05:07:49",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>ปรับเป็นการสร้าง Create Bill Note ตามปกติแล้วไปแก้ใน Journal ตอนหลัง</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 266370,
+      "res_id": 1687,
+      "date": "2026-06-11 04:50:49",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>คุณดาวต้องการใช้เพื่อตรวจสอบว่าใบไหน Print แล้วหรือยัง ไม่จำเป็นต้องเปลี่ยนข้อมูลการกำหนดเลขที่ใบกำกับภาษีแล้ว --&gt; เปิด defect ใหม่ #1698</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 264458,
+      "res_id": 1687,
+      "date": "2026-06-09 03:37:47",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>Confirmed ตามที่นำเสนอมา<span class=\"o-mail-Message-edited\"></span></p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 262060,
+      "res_id": 1687,
+      "date": "2026-06-04 06:31:26",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>1.ปัจจุบัน Inv. ถูกตั้งค่าโดยเลือกจาก So Type ดังนี้<br>&nbsp; &nbsp;So Type ใบกำกับภาษีอย่างย่อ เรียง Sequence ด้วย C<br>&nbsp; &nbsp;So Type ใบกำกับภาษีแบบเต็ม เรียง Sequence ด้วย D<br>&nbsp; &nbsp;So Type ใบสั่งขายต่างประเทศ&nbsp;เรียง Sequence&nbsp;ด้วย&nbsp;E<br><br>2. คุณดาวต้องการแยก inv. ที่เป็นรถขายออกมาแยกจากการขายปกติ<br>แนะนำว่า ในกรณีที่เป็นการขายจาก Mobile Warehouse<br>   So Type ใบกำกับภาษีอย่างย่อ เรียง Sequence ด้วย CC<br>&nbsp; &nbsp;So Type ใบกำกับภาษีแบบเต็ม เรียง Sequence ด้วย DC<br><br>เพื่อให้การเรียง no. ของ Inv. แยกตามการขายหน่วยรถ ตามที่บัญชีต้องการ<br><br>ซึ่งการเรียง Sequence ใหม่ ต้อง Dev เพิ่มเท่านั้นค่ะ<span class=\"o-mail-Message-edited\"></span></p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 268134,
+      "res_id": 1694,
+      "date": "2026-06-15 12:38:42",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>[Cook] Confirm จากคุณดาวว่าเปลี่ยนแค่หัวเอกสารเป็น ใบรับทรัพย์สิน นอกนั้นไม่มีแก้ไข</p>",
+      "subject": false,
+      "attachment_ids": []
+    },
+    {
+      "id": 266365,
+      "res_id": 1697,
+      "date": "2026-06-11 04:39:56",
+      "author_id": [
+        3,
+        "Administrator"
+      ],
+      "body": "<p>เพิ่มให้เรียบร้อยครับ by. วิว</p>",
+      "subject": false,
+      "attachment_ids": [
+        3837
+      ]
+    }
+  ]
+}

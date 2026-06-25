@@ -1,0 +1,31 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to Content" [ref=e3] [cursor=pointer]:
+      - /url: "#wrap"
+    - main [ref=e4]:
+      - generic [ref=e7]:
+        - img "Logo" [ref=e9]
+        - form [ref=e10]:
+          - generic [ref=e11]:
+            - generic [ref=e12]: Email
+            - textbox "Email" [ref=e13]: admin
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - text: Password
+              - link "Reset Password" [ref=e16] [cursor=pointer]:
+                - /url: /web/reset_password?
+            - textbox "Password Reset Password" [active] [ref=e17]:
+              - /placeholder: Password
+          - alert [ref=e18]: Wrong login/password
+          - generic [ref=e19]:
+            - button "Log in" [ref=e20] [cursor=pointer]
+            - button "Log in as superuser" [ref=e21] [cursor=pointer]
+          - paragraph [ref=e22]:
+            - link "Don't have an account?" [ref=e23] [cursor=pointer]:
+              - /url: /web/signup?
+        - generic [ref=e24]:
+          - link "Manage Databases" [ref=e25] [cursor=pointer]:
+            - /url: /web/database/manager
+          - link "Powered by Odoo" [ref=e26] [cursor=pointer]:
+            - /url: https://www.odoo.com?utm_source=db&utm_medium=auth
+  - generic [ref=e28]: "Database neutralized for testing: no emails sent, etc."

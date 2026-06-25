@@ -66,9 +66,17 @@
                             <tr>
                                 <td colspan="13"><strong>1. Revenue</strong></td>
                             </tr>
+                            <t t-set="rev_curr_base" t-value="dataset['totals']['total_rev_curr'] or 1"/>
+                            <t t-set="rev_ytd_base" t-value="dataset['totals']['total_rev_ytd'] or 1"/>
+
                             <t t-foreach="[l for l in dataset['lines'] if l['section']=='revenue']" t-as="line">
+                                <t t-if="line['code'] == '1.1.1'">
+                                    <tr>
+                                        <td colspan="13" style="padding-left: 20px;"><strong>1.1 Revenue from Sales</strong></td>
+                                    </tr>
+                                </t>
                                 <tr>
-                                    <td><t t-esc="('%s %s' % (line['code'], line['name'])).strip()"/></td>
+                                    <td t-attf-style="padding-left: {{ '30px' if line['code'].startswith('1.1.') else '10px' }};"><t t-esc="('%s %s' % (line['code'], line['name'])).strip()"/></td>
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['curr_actual'] or 0)"/></td>
                                     <td class="text-right"><t t-esc="str(round((line['curr_pct_revenue'] or 0)*100, 1)) + '%'"/></td>
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['curr_budget'] or 0)"/></td>
@@ -82,6 +90,23 @@
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['ytd_diff'] or 0)"/></td>
                                     <td class="text-right"><t t-esc="str(round((line['ytd_diff_pct'] or 0)*100, 1)) + '%'"/></td>
                                 </tr>
+                                <t t-if="line['code'] == '1.1.2'">
+                                    <tr style="background-color: #f8f9fa;">
+                                        <td style="padding-left: 20px;"><strong>Total 1.1 Revenue from Sales</strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_rev_1_1_curr']/rev_curr_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_budget_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_rev_1_1_budget_curr']/rev_curr_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_diff_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round(((dataset['totals']['total_rev_1_1_diff_curr'])/(dataset['totals']['total_rev_1_1_budget_curr'] or 1))*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_rev_1_1_ytd']/rev_ytd_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_budget_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_rev_1_1_budget_ytd']/rev_ytd_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_rev_1_1_diff_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round(((dataset['totals']['total_rev_1_1_diff_ytd'])/(dataset['totals']['total_rev_1_1_budget_ytd'] or 1))*100,1)) + '%'"/></strong></td>
+                                    </tr>
+                                </t>
                             </t>
 
                             <t t-set="rev_curr_base" t-value="dataset['totals']['total_rev_curr'] or 1"/>
@@ -107,8 +132,13 @@
                                 <td colspan="13"><strong>2. Cost of Sales / Services</strong></td>
                             </tr>
                             <t t-foreach="[l for l in dataset['lines'] if l['section']=='cogs']" t-as="line">
+                                <t t-if="line['code'] == '2.1.1'">
+                                    <tr>
+                                        <td colspan="13" style="padding-left: 20px;"><strong>2.1 Cost of Sales</strong></td>
+                                    </tr>
+                                </t>
                                 <tr>
-                                    <td><t t-esc="('%s %s' % (line['code'], line['name'])).strip()"/></td>
+                                    <td t-attf-style="padding-left: {{ '30px' if line['code'].startswith('2.1.') else '10px' }};"><t t-esc="('%s %s' % (line['code'], line['name'])).strip()"/></td>
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['curr_actual'] or 0)"/></td>
                                     <td class="text-right"><t t-esc="str(round((line['curr_pct_revenue'] or 0)*100, 1)) + '%'"/></td>
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['curr_budget'] or 0)"/></td>
@@ -122,6 +152,23 @@
                                     <td class="text-right"><t t-esc="'{:,.0f}'.format(line['ytd_diff'] or 0)"/></td>
                                     <td class="text-right"><t t-esc="str(round((line['ytd_diff_pct'] or 0)*100, 1)) + '%'"/></td>
                                 </tr>
+                                <t t-if="line['code'] == '2.1.2'">
+                                    <tr style="background-color: #f8f9fa;">
+                                        <td style="padding-left: 20px;"><strong>Total 2.1 Cost of Sales</strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_cogs_2_1_curr']/rev_curr_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_budget_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_cogs_2_1_budget_curr']/rev_curr_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_diff_curr'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round(((dataset['totals']['total_cogs_2_1_diff_curr'])/(dataset['totals']['total_cogs_2_1_budget_curr'] or 1))*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_cogs_2_1_ytd']/rev_ytd_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_budget_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round((dataset['totals']['total_cogs_2_1_budget_ytd']/rev_ytd_base)*100,1)) + '%'"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="'{:,.0f}'.format(dataset['totals']['total_cogs_2_1_diff_ytd'] or 0)"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="str(round(((dataset['totals']['total_cogs_2_1_diff_ytd'])/(dataset['totals']['total_cogs_2_1_budget_ytd'] or 1))*100,1)) + '%'"/></strong></td>
+                                    </tr>
+                                </t>
                             </t>
 
                             <tr>

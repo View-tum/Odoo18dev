@@ -2,7 +2,7 @@
     "name": "Auto Asset from Vendor Bill",
     "summary": "Separate action to create assets from Vendor Bills when product category is flagged.",
     "description": "Separate action to create assets from Vendor Bills when product category is flagged.",
-    "version": "18.0.2.0.1",
+    "version": "18.0.2.0.2",
     "author": "Phyo Thet Paing/paingphyothet561@gmail.com",
     "website": "https://www.365infotech.co.th/",
     "license": "LGPL-3",

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_tax_invoice_config_form" model="ir.ui.view">
+            <field name="name">sale.tax.invoice.config.form</field>
+            <field name="model">sale.tax.invoice.config</field>
+            <field name="arch" type="xml">
+                <form string="ตั้งค่าการพิมพ์ใบกำกับภาษี">
+                    <sheet>
+                        <group>
+                            <field name="sequence" width="120px"/>
+                            <field name="report_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sale_tax_invoice_config_tree" model="ir.ui.view">
+            <field name="name">sale.tax.invoice.config.tree</field>
+            <field name="model">sale.tax.invoice.config</field>
+            <field name="arch" type="xml">
+                <list string="ตั้งค่าการพิมพ์ใบกำกับภาษี">
+                    <field name="sequence" width="120px"/>
+                    <field name="report_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="sale_tax_invoice_config_action" model="ir.actions.act_window">
+            <field name="name">ตั้งค่าการพิมพ์ใบกำกับภาษี</field>
+            <field name="res_model">sale.tax.invoice.config</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_sale_tax_invoice_config" name="ตั้งค่าการพิมพ์ใบกำกับภาษี" parent="sale.menu_sale_config" action="sale_tax_invoice_config_action" sequence="100"/>
+    </data>
+</odoo>

@@ -1,0 +1,42 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e4800] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Settings" [ref=e4801]
+        - generic [ref=e8]: Settings
+      - menu [ref=e9]:
+        - menuitem "General Settings" [ref=e4802] [cursor=pointer]
+        - button "Users & Companies" [ref=e4803] [cursor=pointer]:
+          - generic [ref=e4804]: Users & Companies
+        - button "Translations" [ref=e4805] [cursor=pointer]:
+          - generic [ref=e4806]: Translations
+        - button "General Settings" [ref=e4807] [cursor=pointer]:
+          - generic [ref=e4808]: General Settings
+        - button "Gamification Tools" [ref=e4809] [cursor=pointer]:
+          - generic [ref=e4810]: Gamification Tools
+        - button "Workflow" [ref=e4811] [cursor=pointer]:
+          - generic [ref=e4812]: Workflow
+        - button "Technical" [ref=e4813] [cursor=pointer]:
+          - generic [ref=e4814]: Technical
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 23" [ref=e4675] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "23"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e4820]: Loading

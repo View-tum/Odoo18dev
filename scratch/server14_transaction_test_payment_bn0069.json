@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-06-07T08:55:45.351899",
+  "expected": 179.0,
+  "payment_wizard_id": 3165,
+  "payment_wizard": {
+    "id": 3165,
+    "amount": 179.0,
+    "payment_difference": 642.0,
+    "payment_type": "outbound",
+    "journal_id": [
+      51,
+      "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8"
+    ],
+    "payment_method_line_id": [
+      38,
+      "Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)"
+    ],
+    "group_payment": true,
+    "payment_difference_handling": "open"
+  },
+  "payment_posted": false,
+  "payment_result": null,
+  "payment_error": null,
+  "bill_after": {
+    "id": 69799,
+    "name": "APD/26/06/00003",
+    "payment_state": "not_paid",
+    "amount_residual": 500.0,
+    "amount_total": 500.0
+  },
+  "cn_after": {
+    "id": 69804,
+    "name": "VCND/26/06/00002",
+    "payment_state": "not_paid",
+    "amount_residual": 321.0,
+    "amount_total": 321.0
+  },
+  "bn_after": {
+    "id": 69,
+    "name": "BN/2026/06/0069",
+    "payment_state": "not_paid",
+    "amount_residual_net_due": 179.0,
+    "amount_net_due": 179.0
+  },
+  "status": {
+    "payment_wizard": "FAIL",
+    "payment_posted": "SKIPPED"
+  }
+}

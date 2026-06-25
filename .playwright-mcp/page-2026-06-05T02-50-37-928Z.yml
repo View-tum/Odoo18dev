@@ -1,0 +1,244 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - generic [ref=e1773]: H
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 2" [ref=e11] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "2"
+        - button "Activities 60" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "60"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e21]:
+          - text: 
+          - generic [ref=e22]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e24] [cursor=pointer]:
+          - img "User" [ref=e25]
+          - text: 
+  - generic [ref=e1775]:
+    - generic [ref=e1777]:
+      - generic [ref=e1778]:
+        - button "New" [ref=e1781] [cursor=pointer]
+        - generic [ref=e1782]:
+          - list [ref=e1783]:
+            - listitem [ref=e1784]:
+              - link "Bills" [ref=e1785] [cursor=pointer]:
+                - /url: /odoo/bills
+          - generic [ref=e1786]:
+            - generic [ref=e1788]: BN/2026/06/0059
+            - button "" [ref=e1792] [cursor=pointer]:
+              - generic [ref=e1793]: 
+      - button " 2 Vendor Bills" [ref=e1797] [cursor=pointer]:
+        - generic [ref=e1798]: 
+        - generic [ref=e1799]:
+          - generic [ref=e1800]: "2"
+          - generic [ref=e1801]: Vendor Bills
+      - generic [ref=e1802]:
+        - button "Search Knowledge Articles" [ref=e1803] [cursor=pointer]:
+          - img [ref=e1804]
+        - search [ref=e1808]:
+          - navigation "Pager" [ref=e1809]:
+            - generic [ref=e1810]:
+              - generic [ref=e1811]: "1"
+              - text: / 1
+            - generic [ref=e1812]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e1815]:
+      - generic [ref=e1816]:
+        - generic [ref=e1817]:
+          - button "Confirm" [ref=e1818] [cursor=pointer]
+          - button "Cancel" [ref=e1819] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e1821]:
+          - radio "Fully Billed" [disabled]
+          - radio "Partially Billed" [disabled]
+          - radio "Confirmed" [disabled]
+          - radio "Draft" [checked] [disabled]
+      - generic [ref=e1822]:
+        - generic [ref=e1823]:
+          - text: Billing Note
+          - heading "BN/2026/06/0059" [level=1] [ref=e1824]:
+            - generic [ref=e1825]: BN/2026/06/0059
+        - generic [ref=e1826]:
+          - generic [ref=e1827]:
+            - generic [ref=e1828]:
+              - generic [ref=e1830]: Vendor
+              - combobox "Vendor" [ref=e1836]: UI-VBN-CN-20260605024600 Test Vendor
+            - generic [ref=e1839]: Purchase Orders
+            - generic [ref=e1842]:
+              - generic [ref=e1844]:
+                - text: Vendor Reference
+                - superscript [ref=e1845]: "?"
+              - textbox "Vendor Reference?" [ref=e1848]
+            - generic [ref=e1849]:
+              - generic [ref=e1851]: Billing Source
+              - generic [ref=e1854]: Existing APD/CN
+          - generic [ref=e1855]:
+            - generic [ref=e1856]:
+              - generic [ref=e1858]: Billing Date
+              - textbox "Billing Date" [ref=e1862] [cursor=pointer]: 06/05/2026
+            - generic [ref=e1863]:
+              - generic [ref=e1865]: Due Date
+              - textbox "Due Date" [ref=e1869] [cursor=pointer]
+            - generic [ref=e1870]:
+              - generic [ref=e1872]: Responsible
+              - generic [ref=e1875]:
+                - img [ref=e1877]
+                - combobox "Responsible" [ref=e1881]: Administrator
+        - generic [ref=e1882]:
+          - generic [ref=e1883]:
+            - generic [ref=e1884]:
+              - generic [ref=e1886]: Vendor Bills
+              - generic [ref=e1889]: 1,000.00 ฿
+            - generic [ref=e1890]:
+              - generic [ref=e1892]: Credit Notes
+              - generic [ref=e1895]: 250.00 ฿
+          - generic [ref=e1896]:
+            - generic [ref=e1897]:
+              - generic [ref=e1899]: "Total:"
+              - generic [ref=e1902]: 1,000.00 ฿
+            - generic [ref=e1903]:
+              - generic [ref=e1905]: "Amount Due:"
+              - generic [ref=e1908]: 750.00 ฿
+            - generic [ref=e1909]:
+              - generic [ref=e1911]: "Open Balance:"
+              - generic [ref=e1914]: 750.00 ฿
+        - generic [ref=e1915]:
+          - list [ref=e1917]:
+            - listitem [ref=e1918] [cursor=pointer]:
+              - tab "PO / Service Lines" [ref=e1919]
+            - listitem [ref=e1920] [cursor=pointer]:
+              - tab "Vendor Bills & Credit Notes" [ref=e1921]
+          - generic [ref=e1923]:
+            - table [ref=e1927]:
+              - rowgroup [ref=e1928]:
+                - row "Purchase Order  Receipt  Service Acceptance  Product  Description  Quantity  Unit Price  Discount (%)  Fixed Discount  Subtotal  " [ref=e1929]:
+                  - columnheader "Purchase Order " [ref=e1930] [cursor=pointer]:
+                    - generic [ref=e1931]:
+                      - generic [ref=e1932]: Purchase Order
+                      - generic [ref=e1933]: 
+                  - columnheader "Receipt " [ref=e1935] [cursor=pointer]:
+                    - generic [ref=e1936]:
+                      - generic [ref=e1937]: Receipt
+                      - generic [ref=e1938]: 
+                  - columnheader "Service Acceptance " [ref=e1940] [cursor=pointer]:
+                    - generic [ref=e1941]:
+                      - generic [ref=e1942]: Service Acceptance
+                      - generic [ref=e1943]: 
+                  - columnheader "Product " [ref=e1945] [cursor=pointer]:
+                    - generic [ref=e1946]:
+                      - generic [ref=e1947]: Product
+                      - generic [ref=e1948]: 
+                  - columnheader "Description " [ref=e1950] [cursor=pointer]:
+                    - generic [ref=e1951]:
+                      - generic [ref=e1952]: Description
+                      - generic [ref=e1953]: 
+                  - columnheader "Quantity " [ref=e1955] [cursor=pointer]:
+                    - generic [ref=e1956]:
+                      - generic [ref=e1957]: Quantity
+                      - generic [ref=e1958]: 
+                  - columnheader "Unit Price " [ref=e1960] [cursor=pointer]:
+                    - generic [ref=e1961]:
+                      - generic [ref=e1962]: Unit Price
+                      - generic [ref=e1963]: 
+                  - columnheader "Discount (%) " [ref=e1965] [cursor=pointer]:
+                    - generic [ref=e1966]:
+                      - generic [ref=e1967]: Discount (%)
+                      - generic [ref=e1968]: 
+                  - columnheader "Fixed Discount " [ref=e1970] [cursor=pointer]:
+                    - generic [ref=e1971]:
+                      - generic [ref=e1972]: Fixed Discount
+                      - generic [ref=e1973]: 
+                  - columnheader "Subtotal " [ref=e1975] [cursor=pointer]:
+                    - generic [ref=e1976]:
+                      - generic [ref=e1977]: Subtotal
+                      - generic [ref=e1978]: 
+                  - columnheader "" [ref=e1980]:
+                    - button "" [ref=e1982] [cursor=pointer]:
+                      - generic [ref=e1983]: 
+              - rowgroup [ref=e1984]:
+                - row [ref=e1985]:
+                  - cell [ref=e1986]
+                - row [ref=e1987]:
+                  - cell [ref=e1988]
+                - row [ref=e1989]:
+                  - cell [ref=e1990]
+                - row [ref=e1991]:
+                  - cell [ref=e1992]
+              - rowgroup [ref=e1993]:
+                - row [ref=e1994]:
+                  - cell [ref=e1995]
+                  - cell [ref=e1996]
+                  - cell [ref=e1997]
+                  - cell [ref=e1998]
+                  - cell [ref=e1999]
+                  - cell [ref=e2000]
+                  - cell [ref=e2001]
+                  - cell [ref=e2002]
+                  - cell [ref=e2003]
+                  - cell [ref=e2004]
+                  - cell [ref=e2005]
+            - generic [ref=e2006]:
+              - generic [ref=e2012]:
+                - generic:
+                  - generic:        
+                - generic [ref=e2015]: Terms and Conditions / Internal Notes...
+              - generic [ref=e2016]:
+                - generic [ref=e2017]:
+                  - generic [ref=e2019]: "Untaxed Amount:"
+                  - generic [ref=e2022]: 1,000.00 ฿
+                - generic [ref=e2023]:
+                  - generic [ref=e2025]: "Taxes:"
+                  - generic [ref=e2028]: 0.00 ฿
+                - generic [ref=e2029]:
+                  - generic [ref=e2032]: "Total:"
+                  - generic [ref=e2035]: 1,000.00 ฿
+                - generic [ref=e2036]:
+                  - generic [ref=e2038]: "Credit Notes:"
+                  - generic [ref=e2041]: 250.00 ฿
+                - generic [ref=e2042]:
+                  - generic [ref=e2045]: "Amount Due:"
+                  - generic [ref=e2048]: 750.00 ฿
+      - generic [ref=e2050]:
+        - generic [ref=e2052]:
+          - button "Send message" [ref=e2053] [cursor=pointer]
+          - button "Log note" [ref=e2054] [cursor=pointer]
+          - button "Activities" [ref=e2055] [cursor=pointer]
+          - button "Search Messages" [ref=e2057] [cursor=pointer]:
+            - img [ref=e2058]: 
+          - button "Attach files" [ref=e2060] [cursor=pointer]:
+            - generic [ref=e2061]: 
+          - button "1" [ref=e2063] [cursor=pointer]:
+            - img [ref=e2064]: 
+            - superscript: "1"
+          - button "Following" [ref=e2065] [cursor=pointer]:
+            - generic [ref=e2067]: Following
+        - generic [ref=e2069]:
+          - generic [ref=e2070]:
+            - generic [ref=e2072]:
+              - separator [ref=e2073]
+              - generic [ref=e2074]: Today
+              - separator [ref=e2075]
+            - group "System notification" [ref=e2076]:
+              - generic [ref=e2077]:
+                - generic "Open card" [ref=e2079] [cursor=pointer]:
+                  - img [ref=e2080]
+                - generic [ref=e2081]:
+                  - generic [ref=e2082]:
+                    - generic "Open card" [ref=e2083] [cursor=pointer]:
+                      - strong [ref=e2084]: Administrator
+                    - generic "6/5/2026, 9:50:36 AM" [ref=e2085]: Today at 9:50 AM
+                  - paragraph [ref=e2092]: Vendor Billing Note created
+          - button "" [ref=e2093] [cursor=pointer]:
+            - generic [ref=e2094]: 

@@ -1,0 +1,29 @@
+<odoo>
+    <template id="pr_status_report_inherit_vendor_billing_note" inherit_id="purchase_request_status_report.pr_status_report">
+        <xpath expr="//table[contains(@class, 'pr-table')]/thead/tr/th[last()]" position="before">
+            <th class="text-right">Received</th>
+            <th class="text-right">BN Qty</th>
+            <th class="text-right">Ready BN</th>
+            <th class="text-center">Billing Note</th>
+        </xpath>
+        <xpath expr="//table[contains(@class, 'pr-table')]/tbody/tr/td[last()]" position="before">
+            <td class="text-right">
+                <span t-esc="'{:,.2f}'.format(l.get('qty_received', 0.0))"/>
+            </td>
+            <td class="text-right">
+                <span t-esc="'{:,.2f}'.format(l.get('qty_billing_noted', 0.0))"/>
+            </td>
+            <td class="text-right">
+                <span t-esc="'{:,.2f}'.format(l.get('qty_to_billing_note', 0.0))"/>
+            </td>
+            <td class="text-center">
+                <span t-if="l.get('billing_note_status') == 'ready'" class="badge badge-progress">Ready</span>
+                <span t-elif="l.get('billing_note_status') == 'partial'" class="badge badge-lv1">Partial</span>
+                <span t-elif="l.get('billing_note_status') == 'done'" class="badge badge-done">Done</span>
+                <span t-else="" class="badge badge-draft">Not Ready</span>
+                <br t-if="l.get('billing_note_names')"/>
+                <small t-if="l.get('billing_note_names')" t-esc="l.get('billing_note_names')"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

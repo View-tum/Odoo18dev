@@ -1,0 +1,79 @@
+{
+  "so": {
+    "id": 16704,
+    "name": "SOE-260070",
+    "state": "sale",
+    "commitment_date": "2026-08-28 09:00:00",
+    "expected_date": "2026-06-16 09:17:46",
+    "warehouse_id": [
+      1,
+      "GOLD MINTS PRODUCTS CO., LTD."
+    ],
+    "so_type_id": [
+      3,
+      "ใบสั่งขายต่างประเทศ"
+    ],
+    "order_line": [
+      39374
+    ],
+    "origin": false
+  },
+  "lines": [
+    {
+      "id": 39374,
+      "product_id": [
+        8606,
+        "[FG-PSS-DE-03001] ยาดมโป๊ยเซียน แผง เยอรมัน"
+      ],
+      "product_uom_qty": 10000.0,
+      "mfg_lead_time": 0,
+      "scheduled_date": "2026-08-28 09:00:00",
+      "customer_lead": 0.0,
+      "move_ids": [
+        34176
+      ]
+    }
+  ],
+  "mo": {
+    "id": 940,
+    "name": "GMP/MOPH/00534",
+    "state": "confirmed",
+    "origin": "SOE-260070, FG-PSS-DE-03001 - SOE-260070",
+    "product_id": [
+      8606,
+      "[FG-PSS-DE-03001] ยาดมโป๊ยเซียน แผง เยอรมัน"
+    ],
+    "product_qty": 290000.0,
+    "date_start": "2026-08-23 09:00:00",
+    "date_deadline": "2026-08-28 09:00:00",
+    "source_sale_order_id": [
+      16704,
+      "SOE-260070"
+    ],
+    "procurement_group_id": [
+      7453,
+      "GMP/MOPH/00534"
+    ],
+    "move_raw_ids": [
+      34177,
+      34178,
+      34179,
+      34180,
+      34181,
+      34182,
+      34183,
+      34184
+    ],
+    "picking_ids": [
+      10964,
+      10963,
+      10962
+    ],
+    "manufacturing_type": "pharma"
+  },
+  "product": {
+    "id": 8606,
+    "display_name": "[FG-PSS-DE-03001] ยาดมโป๊ยเซียน แผง เยอรมัน",
+    "mfg_lead_time": 5
+  }
+}

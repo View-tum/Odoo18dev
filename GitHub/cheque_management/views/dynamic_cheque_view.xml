@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="dynamic_cheque_form_view" model="ir.ui.view">
+			<field name="name">dynamic.cheque.form.view</field>
+			<field name="model">dynamic.cheque</field>
+			<field name="arch" type="xml">
+				<form string="Cheque">
+					<sheet>
+						<div class="alert alert-success" role="alert">
+						<strong>Note :</strong> Consider value of all the parameter in px.
+						</div>
+						<group>
+							<field name="name" placeholder="Cheque Format"/>
+						</group>
+						<group>
+							<group>
+								<field name="cheque_hight" />
+							</group>
+							<group >
+								<field name="cheque_width"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Origin Date" colspan="1" col="2">
+								<field name="is_origin_date" widget="boolean_toggle"/>
+								<field name="od_top_margin"/>
+								<field name="od_left_margin"/>
+								<field name="od_font_size"/>
+							</group>
+							<group string="Origin Pay To" colspan="1" col="2">
+								<field name="is_origin_pay_to" widget="boolean_toggle"/>
+								<field name="opt_top_margin"/>
+								<field name="opt_left_margin"/>
+								<field name="opt_width"/>
+								<field name="opt_font_size"/>
+							</group>
+							<group string="Origin Pay Date" colspan="1" col="2">
+								<field name="is_origin_pay_date" widget="boolean_toggle"/>
+								<field name="opd_top_margin"/>
+								<field name="opd_left_margin"/>
+								<field name="opd_font_size"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Origin amount" colspan="1" col="2">
+								<field name="is_origin_amount" widget="boolean_toggle"/>
+								<field name="oa_top_margin"/>
+								<field name="oa_left_margin"/>
+								<field name="oa_width"/>
+								<field name="oa_font_size"/>
+							</group>
+							<group string="Origin remark" colspan="1" col="2">
+								<field name="is_origin_remark" widget="boolean_toggle"/>
+								<field name="or_top_margin"/>
+								<field name="or_left_margin"/>
+								<field name="or_width"/>
+								<field name="or_font_size"/>
+							</group>
+							<group string="Line" colspan="1" col="2">
+								<field name="is_line" widget="boolean_toggle"/>
+								<field name="line_top_margin"/>
+								<field name="line_left_margin"/>
+								<field name="line_width"/>
+								<field name="line_size"/>
+								<field name="line_color" placeholder="e.g. black or e.g. #000000 " widget="color"/>
+								<field name="line_rotate"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="A/c Pay" colspan="1" col="2">
+								<!-- <field name="ac_pay" widget="boolean_toggle"/> -->
+								<field name="ac_top_margin"/>
+								<field name="ac_left_margin"/>
+								<field name="ac_width"/>
+								<field name="ac_font_size"/>
+								<field name="ac_color" placeholder="e.g. black or e.g. #000000 " widget="color"/>
+							</group>
+							<group string="Cheque Date" colspan="1" col="2">
+								<field name="top_margin"/>
+								<field name="left_margin"/>
+								<field name="font_size"/>
+								<field name="char_spacing"/>
+							</group>
+							<group string="Payee Name" colspan="1" col="2">
+								<field name="payee_top_margin"/>
+								<field name="payee_left_margin"/>
+								<field name="payee_width"/>
+								<field name="payee_font_size"/>
+							</group>
+						</group>
+						<group col="3">
+							<group string="Signature Box" colspan="1" col="2">
+								<field name="is_signature_box" widget="boolean_toggle"/>
+								<field name="sb_width"/>
+								<field name="sb_hight"/>
+								<field name="sb_top_margin"/>
+								<field name="sb_left_margin"/>
+							</group>
+							<group string="Company Sign" colspan="1" col="2">
+								<field name="comapny_name" widget="boolean_toggle"/>
+								<field name="comp_top_margin"/>
+								<field name="comp_left_margin"/>
+								<field name="comp_width"/>
+								<field name="comp_font_size"/>
+							</group>
+							<group string="Amount in Figure" colspan="1" col="2">
+								<field name="af_top_margin"/>
+								<field name="af_left_margin"/>
+								<field name="af_width"/>
+								<field name="af_font_size"/>
+							</group>
+						</group>
+						<group string="Amount in Word" col="6" colspan="2">
+								<field name="sc_currency_name" widget="boolean_toggle"/>
+								<field name="sc_currency_name_position"/>
+								<field name="sc_font_size"/>	
+						</group>
+						<group col="6" colspan="2">
+								<field name="fl_left_margin"/>
+								<field name="fl_top_margin"/>
+								<field name="fl_width"/>
+								<field name="words_in_fl_line"/>									
+						</group>
+						<group col="6" colspan="2">
+								<field name="sc_left_margin"/>
+								<field name="sc_top_margin"/>
+								<field name="sc_width"/>
+								<field name="words_in_sc_line"/>
+								
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="dynamic_cheque_print_list_view" model="ir.ui.view">
+			<field name="name">dynamic.cheque.list.view</field>
+			<field name="model">dynamic.cheque</field>
+			<field name="arch" type="xml">
+				<list string="Cheque">
+					<field name="name"/>
+				</list>
+			</field>
+		</record>
+
+		<record id="action_dynamic_cheque_print" model="ir.actions.act_window">
+			<field name="name">Cheque</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">dynamic.cheque</field>
+			<field name="view_mode">list,form</field>
+		</record>
+
+		 <menuitem name="Cheque Lists"
+			id="dynamic_cheque_config_menu"
+			parent = "cheque_management.menu_cheque_configuration"
+			action="action_dynamic_cheque_print"
+			sequence = '10'
+		/>
+
+	</data>
+</odoo>

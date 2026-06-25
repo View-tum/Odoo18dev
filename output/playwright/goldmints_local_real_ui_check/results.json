@@ -1,0 +1,39 @@
+[
+  {
+    "step": "login",
+    "status": "pass"
+  },
+  {
+    "step": "open_bn_form",
+    "status": "pass",
+    "detail": "BN/2026/06/0246"
+  },
+  {
+    "step": "bn_register_payment_modal",
+    "status": "pass",
+    "detail": {
+      "hasPaymentDifference": false,
+      "hasBadDifference": false,
+      "hasAmount86": true,
+      "modalText": "Register Payment\nJournal\nPayment Method?\nRecipient Bank Account\nGroup Payments?\nAmount\n86.00\n ฿\n ฿\nPayment Date\nMemo\nApply Manual Exchange\nCROSS SETTLEMENT (SAME PARTNER / SAME COMPANY / SAME CURRENCY)\nCross Settlement Amount\n0.00 ฿\nSelect AllUnselect All\nSelect\n\t\nType\n\t\nDocument\n\t\nDate\n\t\nOpen Amount\n\t\nSettle Amount\n\n​\n​\n​\n​\n\t\t\t\t\t\nINVOICES ALLOCATION\nเลขที่ใบแจ้งหนี้\n\t\nยอดทั้งหมด\n\t\nยอดคงเหลือ\n\t\nยอดจ่าย\n\nRAPD/2026/06/0001 (การกลับรายการของ: APD/2026/06/0002, UI-VRCN- [...])\t-214.00 ฿\t0.00 ฿\t-214.00 ฿\nAPD/2026/06/0002 (UI-VRCN-TEST-20260604)\t300.00 ฿\t0.00 ฿\t300.00 ฿\n​\n​\n\t\t\t86.00 ฿\nCreate Payment\nDiscard"
+    }
+  },
+  {
+    "step": "po_status_wizard_layout",
+    "status": "pass",
+    "detail": {
+      "createButtonVisible": true,
+      "lineTabVisible": true,
+      "oldPoTabVisible": false,
+      "oldBillTabVisible": false
+    }
+  },
+  {
+    "step": "stock_report_picking_html",
+    "status": "pass",
+    "detail": {
+      "status": 200,
+      "containsPicking": true
+    }
+  }
+]

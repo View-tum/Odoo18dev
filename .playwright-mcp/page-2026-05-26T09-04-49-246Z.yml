@@ -1,0 +1,143 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 39" [ref=e25] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "39"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e631]:
+    - generic [ref=e633]:
+      - generic [ref=e634]:
+        - button "New" [ref=e637] [cursor=pointer]
+        - generic [ref=e638]:
+          - list [ref=e639]:
+            - listitem [ref=e640]:
+              - link "Requests for Quotation" [ref=e641] [cursor=pointer]:
+                - /url: /odoo/purchase
+            - listitem [ref=e642]:
+              - text: /
+              - link "P01057" [ref=e643] [cursor=pointer]:
+                - /url: /odoo/purchase/1119
+          - generic [ref=e644]:
+            - generic [ref=e646]: Billing Notes
+            - button "" [ref=e650] [cursor=pointer]:
+              - generic [ref=e651]: 
+      - search [ref=e653]:
+        - search [ref=e654]:
+          - button "Search..." [ref=e655] [cursor=pointer]:
+            - img [ref=e656]: 
+          - searchbox "Search..." [active] [ref=e658]
+        - button "" [ref=e659] [cursor=pointer]
+      - search [ref=e661]:
+        - navigation "Pager" [ref=e662]:
+          - generic [ref=e663]:
+            - generic [ref=e664]: 1-1
+            - text: / 1
+          - generic [ref=e665]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - table [ref=e668]:
+      - rowgroup [ref=e669]:
+        - row "Billing Note No.  Vendor Reference  Vendor  Billing Date  Due Date  Total  Status  Payment Status  " [ref=e670]:
+          - columnheader [ref=e671] [cursor=pointer]:
+            - checkbox [ref=e673]
+          - columnheader "Billing Note No. " [ref=e674] [cursor=pointer]:
+            - generic [ref=e675]:
+              - generic [ref=e676]: Billing Note No.
+              - generic [ref=e677]: 
+          - columnheader "Vendor Reference " [ref=e679] [cursor=pointer]:
+            - generic [ref=e680]:
+              - generic [ref=e681]: Vendor Reference
+              - generic [ref=e682]: 
+          - columnheader "Vendor " [ref=e684] [cursor=pointer]:
+            - generic [ref=e685]:
+              - generic [ref=e686]: Vendor
+              - generic [ref=e687]: 
+          - columnheader "Billing Date " [ref=e689] [cursor=pointer]:
+            - generic [ref=e690]:
+              - generic [ref=e691]: Billing Date
+              - generic [ref=e692]: 
+          - columnheader "Due Date " [ref=e694] [cursor=pointer]:
+            - generic [ref=e695]:
+              - generic [ref=e696]: Due Date
+              - generic [ref=e697]: 
+          - columnheader "Total " [ref=e699] [cursor=pointer]:
+            - generic [ref=e700]:
+              - generic [ref=e701]: Total
+              - generic [ref=e702]: 
+          - columnheader "Status " [ref=e704] [cursor=pointer]:
+            - generic [ref=e705]:
+              - generic [ref=e706]: Status
+              - generic [ref=e707]: 
+          - columnheader "Payment Status " [ref=e709] [cursor=pointer]:
+            - generic [ref=e710]:
+              - generic [ref=e711]: Payment Status
+              - generic [ref=e712]: 
+          - columnheader "" [ref=e714]:
+            - button "" [ref=e716] [cursor=pointer]:
+              - generic [ref=e717]: 
+      - rowgroup [ref=e718]:
+        - row "BN/2026/05/0035 JW TECH CO.,LTD. 05/26/2026 1,070,000.00 ฿ Draft Not Paid" [ref=e719]:
+          - cell [ref=e720]:
+            - checkbox [ref=e722] [cursor=pointer]
+          - cell "BN/2026/05/0035" [ref=e723] [cursor=pointer]
+          - cell [ref=e724] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e725] [cursor=pointer]
+          - cell "05/26/2026" [ref=e726] [cursor=pointer]
+          - cell [ref=e727] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e728] [cursor=pointer]:
+            - generic [ref=e729]: 1,070,000.00 ฿
+          - cell "Draft" [ref=e730] [cursor=pointer]:
+            - generic [ref=e732]: Draft
+          - cell "Not Paid" [ref=e733] [cursor=pointer]:
+            - generic [ref=e735]: Not Paid
+          - cell [ref=e736]
+        - row [ref=e737]:
+          - cell [ref=e738]
+        - row [ref=e739]:
+          - cell [ref=e740]
+        - row [ref=e741]:
+          - cell [ref=e742]
+      - rowgroup [ref=e743]:
+        - row "1,070,000.00 ฿" [ref=e744]:
+          - cell [ref=e745]
+          - cell [ref=e746]
+          - cell [ref=e747]
+          - cell [ref=e748]
+          - cell [ref=e749]
+          - cell [ref=e750]
+          - cell "1,070,000.00 ฿" [ref=e751]
+          - cell [ref=e752]
+          - cell [ref=e753]
+          - cell [ref=e754]

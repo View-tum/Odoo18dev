@@ -1,0 +1,817 @@
+{
+  "database": "AMS",
+  "url": "http://localhost:8813/web/login?db=AMS",
+  "generated_at": "2026-06-22T02:36:30",
+  "dry_run": false,
+  "standard_first": true,
+  "installed_custom_modules": [],
+  "modules": {
+    "mrp_workorder": "installed",
+    "mrp_account": "installed",
+    "stock_account": "installed",
+    "stock_accountant": "installed",
+    "spreadsheet_dashboard_stock_account": "installed",
+    "spreadsheet_dashboard_mrp": "missing"
+  },
+  "product": {
+    "code": "AMS.400",
+    "name": "[AMS.400] AMS.400 REV 00",
+    "cost_method": "fifo",
+    "valuation": "manual_periodic",
+    "standard_price": 1559.0,
+    "sale_price": 2104.65,
+    "routes": [
+      "Replenish on Order (MTO)",
+      "Manufacture"
+    ]
+  },
+  "bom": {
+    "name": "AMS.400 REV 00: [AMS.400] AMS.400 REV 00",
+    "components": 18,
+    "operations": 21
+  },
+  "cost_config": {
+    "workcenters": [
+      {
+        "name": "PUNCHING",
+        "costs_hour": 350.0
+      },
+      {
+        "name": "SLIT",
+        "costs_hour": 300.0
+      },
+      {
+        "name": "LAMINATE",
+        "costs_hour": 500.0
+      },
+      {
+        "name": "CUTTING",
+        "costs_hour": 280.0
+      },
+      {
+        "name": "MANUAL",
+        "costs_hour": 180.0
+      },
+      {
+        "name": "ASSEMBLY",
+        "costs_hour": 220.0
+      },
+      {
+        "name": "PACKING",
+        "costs_hour": 220.0
+      }
+    ],
+    "operations": [
+      {
+        "sequence": 10,
+        "name": "PUNCHING 1",
+        "workcenter": "PUNCHING",
+        "minutes": 12.0,
+        "costs_hour": 350.0,
+        "planned_cost": 70.0
+      },
+      {
+        "sequence": 20,
+        "name": "SLIT FILM 1",
+        "workcenter": "SLIT",
+        "minutes": 8.0,
+        "costs_hour": 300.0,
+        "planned_cost": 40.0
+      },
+      {
+        "sequence": 30,
+        "name": "SLIT ADHESIVE 1",
+        "workcenter": "SLIT",
+        "minutes": 8.0,
+        "costs_hour": 300.0,
+        "planned_cost": 40.0
+      },
+      {
+        "sequence": 40,
+        "name": "LAMINATE 1",
+        "workcenter": "LAMINATE",
+        "minutes": 15.0,
+        "costs_hour": 500.0,
+        "planned_cost": 125.0
+      },
+      {
+        "sequence": 50,
+        "name": "PUNCHING 2",
+        "workcenter": "PUNCHING",
+        "minutes": 12.0,
+        "costs_hour": 350.0,
+        "planned_cost": 70.0
+      },
+      {
+        "sequence": 60,
+        "name": "LAMINATE MACHINE 2",
+        "workcenter": "LAMINATE",
+        "minutes": 15.0,
+        "costs_hour": 500.0,
+        "planned_cost": 125.0
+      },
+      {
+        "sequence": 70,
+        "name": "CUTTING 1",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 80,
+        "name": "SLIT ADHESIVE 2",
+        "workcenter": "SLIT",
+        "minutes": 8.0,
+        "costs_hour": 300.0,
+        "planned_cost": 40.0
+      },
+      {
+        "sequence": 90,
+        "name": "PRE-CUT1",
+        "workcenter": "MANUAL",
+        "minutes": 20.0,
+        "costs_hour": 180.0,
+        "planned_cost": 60.0
+      },
+      {
+        "sequence": 100,
+        "name": "SLIT FILM 2",
+        "workcenter": "SLIT",
+        "minutes": 8.0,
+        "costs_hour": 300.0,
+        "planned_cost": 40.0
+      },
+      {
+        "sequence": 110,
+        "name": "SLIT ADHESIVE 3",
+        "workcenter": "SLIT",
+        "minutes": 8.0,
+        "costs_hour": 300.0,
+        "planned_cost": 40.0
+      },
+      {
+        "sequence": 120,
+        "name": "PRE-CUT2",
+        "workcenter": "MANUAL",
+        "minutes": 20.0,
+        "costs_hour": 180.0,
+        "planned_cost": 60.0
+      },
+      {
+        "sequence": 130,
+        "name": "CUTTING 2",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 140,
+        "name": "CUTTING 3",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 150,
+        "name": "CUTTING 4",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 160,
+        "name": "PUNCHING 3",
+        "workcenter": "PUNCHING",
+        "minutes": 12.0,
+        "costs_hour": 350.0,
+        "planned_cost": 70.0
+      },
+      {
+        "sequence": 170,
+        "name": "CUTTING 5",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 180,
+        "name": "CUTTING 6",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 190,
+        "name": "CUTTING 7",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 200,
+        "name": "CUTTING 8",
+        "workcenter": "CUTTING",
+        "minutes": 10.0,
+        "costs_hour": 280.0,
+        "planned_cost": 46.67
+      },
+      {
+        "sequence": 210,
+        "name": "ASSEMBLY & PACKING",
+        "workcenter": "ASSEMBLY",
+        "minutes": 25.0,
+        "costs_hour": 220.0,
+        "planned_cost": 91.67
+      }
+    ],
+    "components": [
+      {
+        "code": "10001001",
+        "product": "[10001001] Raw Material 1",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 9.0,
+        "line_cost": 9.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001002",
+        "product": "[10001002] Raw Material 2",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 10.0,
+        "line_cost": 10.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001003",
+        "product": "[10001003] Raw Material 3",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 11.0,
+        "line_cost": 11.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001004",
+        "product": "[10001004] Raw Material 4",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 12.0,
+        "line_cost": 12.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001005",
+        "product": "[10001005] Raw Material 5",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 13.0,
+        "line_cost": 13.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001006",
+        "product": "[10001006] Raw Material 6",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 14.0,
+        "line_cost": 14.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001007",
+        "product": "[10001007] Raw Material 7",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 15.0,
+        "line_cost": 15.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001008",
+        "product": "[10001008] Raw Material 8",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 16.0,
+        "line_cost": 16.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001009",
+        "product": "[10001009] Raw Material 9",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 17.0,
+        "line_cost": 17.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001010",
+        "product": "[10001010] Raw Material 10",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 18.0,
+        "line_cost": 18.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001011",
+        "product": "[10001011] Raw Material 11",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 19.0,
+        "line_cost": 19.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001012",
+        "product": "[10001012] Raw Material 12",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 20.0,
+        "line_cost": 20.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001013",
+        "product": "[10001013] Raw Material 13",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 21.0,
+        "line_cost": 21.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001014",
+        "product": "[10001014] Raw Material 14",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 22.0,
+        "line_cost": 22.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001015",
+        "product": "[10001015] Raw Material 15",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 23.0,
+        "line_cost": 23.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "10001016",
+        "product": "[10001016] Raw Material 16",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 24.0,
+        "line_cost": 24.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "BOX.0001",
+        "product": "[BOX.0001] Raw Material 17",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 25.0,
+        "line_cost": 25.0,
+        "cost_method": "average",
+        "valuation": "manual_periodic"
+      },
+      {
+        "code": "40001014",
+        "product": "[40001014] Trading 1",
+        "qty": 1.0,
+        "uom": "Units",
+        "unit_cost": 25.0,
+        "line_cost": 25.0,
+        "cost_method": "fifo",
+        "valuation": "manual_periodic"
+      }
+    ],
+    "component_cost": 314.0,
+    "operation_cost": 1245.03,
+    "fg_standard_price": 1559.0,
+    "fg_sale_price": 2104.65
+  },
+  "flow": {
+    "sale_order": "S00009",
+    "sale_state": "sale",
+    "manufacturing_order": "WH/MO/00010",
+    "mo_state": "done",
+    "mo_origin": "S00009",
+    "finished_lot": "FG-COST-S00009",
+    "purchase_orders": [
+      {
+        "name": "P00009",
+        "state": "draft",
+        "origin": "WH/MO/00010"
+      }
+    ],
+    "deliveries": [
+      {
+        "name": "WH/OUT/00009",
+        "state": "done"
+      }
+    ],
+    "invoices": [
+      {
+        "name": "INV/2026/00004",
+        "state": "posted",
+        "amount_total": 2420.35
+      }
+    ],
+    "workorders": [
+      {
+        "sequence": 0,
+        "name": "PUNCHING 1",
+        "state": "done",
+        "workcenter": "PUNCHING",
+        "duration_expected": 12.0,
+        "duration": 12.0,
+        "costs_hour": 350.0,
+        "actual_cost": 70.0
+      },
+      {
+        "sequence": 1,
+        "name": "SLIT FILM 1",
+        "state": "done",
+        "workcenter": "SLIT",
+        "duration_expected": 8.0,
+        "duration": 8.0,
+        "costs_hour": 300.0,
+        "actual_cost": 40.0
+      },
+      {
+        "sequence": 2,
+        "name": "SLIT ADHESIVE 1",
+        "state": "done",
+        "workcenter": "SLIT",
+        "duration_expected": 8.0,
+        "duration": 8.0,
+        "costs_hour": 300.0,
+        "actual_cost": 40.0
+      },
+      {
+        "sequence": 3,
+        "name": "LAMINATE 1",
+        "state": "done",
+        "workcenter": "LAMINATE",
+        "duration_expected": 15.0,
+        "duration": 15.0,
+        "costs_hour": 500.0,
+        "actual_cost": 125.0
+      },
+      {
+        "sequence": 4,
+        "name": "PUNCHING 2",
+        "state": "done",
+        "workcenter": "PUNCHING",
+        "duration_expected": 12.0,
+        "duration": 12.0,
+        "costs_hour": 350.0,
+        "actual_cost": 70.0
+      },
+      {
+        "sequence": 5,
+        "name": "LAMINATE MACHINE 2",
+        "state": "done",
+        "workcenter": "LAMINATE",
+        "duration_expected": 15.0,
+        "duration": 15.0,
+        "costs_hour": 500.0,
+        "actual_cost": 125.0
+      },
+      {
+        "sequence": 6,
+        "name": "CUTTING 1",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 7,
+        "name": "SLIT ADHESIVE 2",
+        "state": "done",
+        "workcenter": "SLIT",
+        "duration_expected": 8.0,
+        "duration": 8.0,
+        "costs_hour": 300.0,
+        "actual_cost": 40.0
+      },
+      {
+        "sequence": 8,
+        "name": "PRE-CUT1",
+        "state": "done",
+        "workcenter": "MANUAL",
+        "duration_expected": 20.0,
+        "duration": 20.0,
+        "costs_hour": 180.0,
+        "actual_cost": 60.0
+      },
+      {
+        "sequence": 9,
+        "name": "SLIT FILM 2",
+        "state": "done",
+        "workcenter": "SLIT",
+        "duration_expected": 8.0,
+        "duration": 8.0,
+        "costs_hour": 300.0,
+        "actual_cost": 40.0
+      },
+      {
+        "sequence": 10,
+        "name": "SLIT ADHESIVE 3",
+        "state": "done",
+        "workcenter": "SLIT",
+        "duration_expected": 8.0,
+        "duration": 8.0,
+        "costs_hour": 300.0,
+        "actual_cost": 40.0
+      },
+      {
+        "sequence": 11,
+        "name": "PRE-CUT2",
+        "state": "done",
+        "workcenter": "MANUAL",
+        "duration_expected": 20.0,
+        "duration": 20.0,
+        "costs_hour": 180.0,
+        "actual_cost": 60.0
+      },
+      {
+        "sequence": 12,
+        "name": "CUTTING 2",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 13,
+        "name": "CUTTING 3",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 14,
+        "name": "CUTTING 4",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 15,
+        "name": "PUNCHING 3",
+        "state": "done",
+        "workcenter": "PUNCHING",
+        "duration_expected": 12.0,
+        "duration": 12.0,
+        "costs_hour": 350.0,
+        "actual_cost": 70.0
+      },
+      {
+        "sequence": 16,
+        "name": "CUTTING 5",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 17,
+        "name": "CUTTING 6",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 18,
+        "name": "CUTTING 7",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 19,
+        "name": "CUTTING 8",
+        "state": "done",
+        "workcenter": "CUTTING",
+        "duration_expected": 10.0,
+        "duration": 10.0,
+        "costs_hour": 280.0,
+        "actual_cost": 46.67
+      },
+      {
+        "sequence": 20,
+        "name": "ASSEMBLY & PACKING",
+        "state": "done",
+        "workcenter": "ASSEMBLY",
+        "duration_expected": 25.0,
+        "duration": 25.0,
+        "costs_hour": 220.0,
+        "actual_cost": 91.67
+      }
+    ],
+    "valuation_layers": [
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001001] Raw Material 1",
+        "quantity": -1.0,
+        "unit_cost": 9.0,
+        "value": -9.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001002] Raw Material 2",
+        "quantity": -1.0,
+        "unit_cost": 10.0,
+        "value": -10.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001003] Raw Material 3",
+        "quantity": -1.0,
+        "unit_cost": 11.0,
+        "value": -11.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001004] Raw Material 4",
+        "quantity": -1.0,
+        "unit_cost": 12.0,
+        "value": -12.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001005] Raw Material 5",
+        "quantity": -1.0,
+        "unit_cost": 13.0,
+        "value": -13.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001006] Raw Material 6",
+        "quantity": -1.0,
+        "unit_cost": 14.0,
+        "value": -14.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001007] Raw Material 7",
+        "quantity": -1.0,
+        "unit_cost": 15.0,
+        "value": -15.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001008] Raw Material 8",
+        "quantity": -1.0,
+        "unit_cost": 16.0,
+        "value": -16.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001009] Raw Material 9",
+        "quantity": -1.0,
+        "unit_cost": 17.0,
+        "value": -17.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001010] Raw Material 10",
+        "quantity": -1.0,
+        "unit_cost": 18.0,
+        "value": -18.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001011] Raw Material 11",
+        "quantity": -1.0,
+        "unit_cost": 19.0,
+        "value": -19.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001012] Raw Material 12",
+        "quantity": -1.0,
+        "unit_cost": 20.0,
+        "value": -20.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001013] Raw Material 13",
+        "quantity": -1.0,
+        "unit_cost": 21.0,
+        "value": -21.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001014] Raw Material 14",
+        "quantity": -1.0,
+        "unit_cost": 22.0,
+        "value": -22.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001015] Raw Material 15",
+        "quantity": -1.0,
+        "unit_cost": 23.0,
+        "value": -23.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[10001016] Raw Material 16",
+        "quantity": -1.0,
+        "unit_cost": 24.0,
+        "value": -24.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[BOX.0001] Raw Material 17",
+        "quantity": -1.0,
+        "unit_cost": 25.0,
+        "value": -25.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[40001014] Trading 1",
+        "quantity": -1.0,
+        "unit_cost": 25.0,
+        "value": -25.0
+      },
+      {
+        "reference": "WH/MO/00010",
+        "product": "[AMS.400] AMS.400 REV 00",
+        "quantity": 1.0,
+        "unit_cost": 1559.0,
+        "value": 1559.0
+      },
+      {
+        "reference": "WH/OUT/00009",
+        "product": "[AMS.400] AMS.400 REV 00",
+        "quantity": -1.0,
+        "unit_cost": 1559.0,
+        "value": -1559.0
+      }
+    ],
+    "mo_workcenter_cost_total": 1245.0,
+    "mo_svl_total": -314.0
+  },
+  "dashboard_paths": [
+    "Manufacturing > Operations > Manufacturing Orders",
+    "Manufacturing > Operations > Work Orders",
+    "Product > AMS.400 > Cost Structure",
+    "Inventory > Reporting > Valuation",
+    "Accounting > Customers > Invoices"
+  ],
+  "notes": [
+    "All changes use standard Odoo ORM and standard Odoo MRP/Stock/Accounting models.",
+    "Work center cost is assumed demo cost in THB/hour and can be edited in Odoo Work Centers.",
+    "Inventory valuation is manual periodic in this AMS demo database, so cost is visible in stock valuation layers without automated stock journal posting."
+  ]
+}

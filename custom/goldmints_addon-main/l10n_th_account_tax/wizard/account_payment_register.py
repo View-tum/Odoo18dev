@@ -25,6 +25,8 @@ class AccountPaymentRegister(models.TransientModel):
     @api.depends("early_payment_discount_mode")
     def _compute_payment_difference_handling(self):
         res = super()._compute_payment_difference_handling()
+        if self.env.context.get("skip_wht_auto_payment_difference_handling"):
+            return res
         for wizard in self:
             if (
                 wizard.wht_amount_base
@@ -87,10 +89,40 @@ class AccountPaymentRegister(models.TransientModel):
         self.writeoff_account_id = self.wht_tax_id.account_id
         self.writeoff_label = self.wht_tax_id.display_name
 
+    def _prepare_missing_wht_writeoff_move_line(self):
+        self.ensure_one()
+        if not self.wht_tax_id or not self.payment_difference:
+            return False
+        if self.currency_id.is_zero(self.payment_difference):
+            return False
+        if not self.wht_tax_id.account_id:
+            raise UserError(_("Please set an account on the withholding tax before creating the payment."))
+        conversion_rate = self.env["res.currency"]._get_conversion_rate(
+            self.currency_id,
+            self.company_id.currency_id,
+            self.company_id,
+            self.payment_date,
+        )
+        amount = abs(self.payment_difference)
+        amount_currency = amount if self.payment_type == "inbound" else -amount
+        balance = self.company_id.currency_id.round(amount_currency * conversion_rate)
+        return {
+            "name": self.writeoff_label or self.wht_tax_id.display_name,
+            "account_id": self.wht_tax_id.account_id.id,
+            "partner_id": self.partner_id.id,
+            "currency_id": self.currency_id.id,
+            "amount_currency": amount_currency,
+            "balance": balance,
+        }
+
     def _create_payment_vals_from_wizard(self, batch_result):
         payment_vals = super()._create_payment_vals_from_wizard(batch_result)
         # Check case auto and manual withholding tax
         if self.payment_difference_handling == "reconcile" and self.wht_tax_id:
+            if not payment_vals.get("write_off_line_vals"):
+                missing_writeoff = self._prepare_missing_wht_writeoff_move_line()
+                if missing_writeoff:
+                    payment_vals["write_off_line_vals"] = [missing_writeoff]
             payment_vals["write_off_line_vals"] = self._prepare_writeoff_move_line(
                 payment_vals.get("write_off_line_vals", [])
             )
@@ -202,7 +234,9 @@ class AccountPaymentRegister(models.TransientModel):
 
     def action_create_payments(self):
         # For case calculate tax invoice partial payment
-        if self.payment_difference_handling == "open":
+        if self.env.context.get("force_cross_settlement_partial_payment"):
+            self = self.with_context(partial_payment=True)
+        elif self.payment_difference_handling == "open":
             self = self.with_context(partial_payment=True)
         elif self.payment_difference_handling == "reconcile":
             self = self.with_context(skip_account_move_synchronization=True)

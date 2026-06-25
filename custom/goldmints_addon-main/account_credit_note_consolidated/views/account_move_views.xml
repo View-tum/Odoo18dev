@@ -5,12 +5,26 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_return_pickings"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-truck"
+                        invisible="return_picking_count == 0">
+                    <field name="return_picking_count" string="Returns" widget="statinfo"/>
+                </button>
+            </xpath>
             <xpath expr="//header" position="inside">
                 <button name="action_open_consolidation_wizard" 
                         string="Consolidate Items" 
                         type="object" 
                         class="oe_highlight"
                         invisible="move_type not in ('in_refund', 'out_refund') or state != 'draft'"/>
+            </xpath>
+            <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']" position="inside">
+                <group string="Return Documents" invisible="move_type != 'in_refund'">
+                    <field name="return_picking_ids" widget="many2many_tags" readonly="state != 'draft'" options="{'no_create': True}"/>
+                </group>
             </xpath>
         </field>
     </record>

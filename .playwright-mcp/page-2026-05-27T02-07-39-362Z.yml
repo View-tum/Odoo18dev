@@ -1,0 +1,277 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 126" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "126"
+        - button "Activities 48" [ref=e957] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "48"
+        - button "Toggle Studio" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e1183]:
+    - generic [ref=e1185]:
+      - generic [ref=e1186]:
+        - button "New" [ref=e1189] [cursor=pointer]
+        - generic [ref=e1190]:
+          - list [ref=e1191]:
+            - listitem [ref=e1192]:
+              - link "Purchase Orders" [ref=e1193] [cursor=pointer]:
+                - /url: /odoo/purchase-orders
+            - listitem [ref=e1194]:
+              - text: /
+              - link "P01068" [ref=e1195] [cursor=pointer]:
+                - /url: /odoo/purchase-orders/1130
+          - generic [ref=e1196]:
+            - generic [ref=e1198]: GMP/IN/00128
+            - button "" [ref=e1202] [cursor=pointer]:
+              - generic [ref=e1203]: 
+        - generic [ref=e1204]:
+          - generic [ref=e1494]:
+            - button "Save manually" [disabled]:
+              - generic: 
+            - button "Discard all changes" [ref=e1495] [cursor=pointer]:
+              - generic [ref=e1496]: 
+          - generic [ref=e1498]: 
+      - generic [ref=e1206]:
+        - button " Moves" [ref=e1207] [cursor=pointer]:
+          - generic [ref=e1208]: 
+          - generic [ref=e1210]: Moves
+        - button " 1 Purchase Orders" [ref=e1211] [cursor=pointer]:
+          - generic [ref=e1212]: 
+          - generic [ref=e1213]:
+            - generic [ref=e1214]: "1"
+            - generic [ref=e1215]: Purchase Orders
+      - generic [ref=e1216]:
+        - button "Search Knowledge Articles" [ref=e1217] [cursor=pointer]:
+          - img [ref=e1218]
+        - search [ref=e1222]:
+          - navigation "Pager" [ref=e1223]:
+            - generic [ref=e1224]:
+              - generic [ref=e1225]: "1"
+              - text: / 1
+            - generic [ref=e1226]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e1229]:
+      - generic [ref=e1230]:
+        - generic [ref=e1231]:
+          - button "Validate" [ref=e1232] [cursor=pointer]
+          - button "Print" [ref=e1233] [cursor=pointer]
+          - button "Return" [ref=e1234] [cursor=pointer]
+          - button "Cancel" [ref=e1235] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e1237]:
+          - radio "Done" [disabled]
+          - radio "Ready" [checked] [disabled]
+          - radio "Draft" [disabled]
+      - generic [ref=e1238]:
+        - heading "Priority GMP/IN/00128" [level=1] [ref=e1240]:
+          - radiogroup "Priority" [ref=e1242]:
+            - radio "Urgent" [ref=e1243] [cursor=pointer]: 
+          - generic [ref=e1244]: GMP/IN/00128
+        - generic [ref=e1245]:
+          - generic [ref=e1246]:
+            - generic [ref=e1247]:
+              - generic [ref=e1250]: Receive From
+              - combobox "Receive From" [ref=e1256]: JW TECH CO.,LTD.
+            - generic [ref=e1257]:
+              - generic [ref=e1259]: Operation Type
+              - combobox "Operation Type" [ref=e1265]: "GOLD MINTS PRODUCTS CO., LTD.: Receipts"
+            - generic [ref=e1266]:
+              - generic [ref=e1268]: Destination Location
+              - combobox "Destination Location" [ref=e1274]: GMP/HOLD-V
+          - generic [ref=e1275]:
+            - generic [ref=e1276]:
+              - generic [ref=e1278]:
+                - text: Scheduled Date
+                - superscript [ref=e1279]: "?"
+              - textbox "Scheduled Date?" [ref=e1284] [cursor=pointer]: 05/27/2026 08:24:32
+            - generic [ref=e1285]:
+              - generic [ref=e1287]:
+                - text: Deadline
+                - superscript [ref=e1288]: "?"
+              - generic [ref=e1292]: 05/27/2026 08:24:32
+            - generic [ref=e1293]:
+              - generic [ref=e1295]:
+                - text: Invoice reference
+                - superscript [ref=e1296]: "?"
+              - textbox "Invoice reference?" [ref=e1299]
+            - generic [ref=e1300]:
+              - generic [ref=e1302]:
+                - text: Invoice date
+                - superscript [ref=e1303]: "?"
+              - textbox "Invoice date?" [ref=e1307] [cursor=pointer]
+            - generic [ref=e1308]:
+              - generic [ref=e1310]:
+                - text: Source Document
+                - superscript [ref=e1311]: "?"
+              - textbox "Source Document?" [ref=e1314]:
+                - /placeholder: e.g. PO0032
+                - text: P01068
+            - generic [ref=e1316]:
+              - generic [ref=e1318]:
+                - text: Allow Edit Effective Date
+                - superscript [ref=e1319]: "?"
+              - generic [ref=e1322]:
+                - checkbox "Allow Edit Effective Date?" [disabled]
+        - generic [ref=e1323]:
+          - list [ref=e1325]:
+            - listitem [ref=e1326] [cursor=pointer]:
+              - tab "Operations" [ref=e1327]
+            - listitem [ref=e1328] [cursor=pointer]:
+              - tab "Additional Info" [ref=e1329]
+            - listitem [ref=e1330] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e1331]
+          - table [ref=e1337]:
+            - rowgroup [ref=e1338]:
+              - row "No.  Product  Demand  Quantity  Unit  Serial Numbers " [ref=e1339]:
+                - columnheader "No. " [ref=e1340] [cursor=pointer]:
+                  - generic [ref=e1341]:
+                    - generic [ref=e1342]: No.
+                    - generic [ref=e1343]: 
+                - columnheader "Product " [ref=e1345] [cursor=pointer]:
+                  - generic [ref=e1346]:
+                    - generic [ref=e1347]: Product
+                    - generic [ref=e1348]: 
+                - columnheader "Demand " [ref=e1350] [cursor=pointer]:
+                  - generic [ref=e1351]:
+                    - generic [ref=e1352]: Demand
+                    - generic [ref=e1353]: 
+                - columnheader [ref=e1355]
+                - columnheader "Quantity " [ref=e1356] [cursor=pointer]:
+                  - generic [ref=e1357]:
+                    - generic [ref=e1358]: Quantity
+                    - generic [ref=e1359]: 
+                - columnheader "Unit " [ref=e1361] [cursor=pointer]:
+                  - generic [ref=e1362]:
+                    - generic [ref=e1363]: Unit
+                    - generic [ref=e1364]: 
+                - columnheader "Serial Numbers" [ref=e1366]:
+                  - generic [ref=e1367]:
+                    - generic [ref=e1368]: Serial Numbers
+                    - text: 
+                - columnheader [ref=e1370]
+                - columnheader [ref=e1371]
+                - columnheader [ref=e1372]
+                - columnheader "" [ref=e1373]:
+                  - button "" [ref=e1375] [cursor=pointer]:
+                    - generic [ref=e1376]: 
+            - rowgroup [ref=e1377]:
+              - row "1 Injection Machine 1.00  1.00 Unit  Delete row" [ref=e1378]:
+                - cell "1" [ref=e1379] [cursor=pointer]
+                - cell "Injection Machine" [ref=e1380] [cursor=pointer]
+                - cell "1.00" [ref=e1381] [cursor=pointer]
+                - cell "" [ref=e1382] [cursor=pointer]:
+                  - button "" [ref=e1384]:
+                    - generic [ref=e1385]: 
+                - cell "1.00" [ref=e1386] [cursor=pointer]
+                - cell "Unit" [ref=e1387] [cursor=pointer]
+                - cell [ref=e1388] [cursor=pointer]
+                - cell [ref=e1389] [cursor=pointer]
+                - cell [ref=e1390] [cursor=pointer]
+                - cell "" [ref=e1391] [cursor=pointer]:
+                  - button "" [ref=e1392]
+                - cell "Delete row" [ref=e1393]:
+                  - button "Delete row" [ref=e1394] [cursor=pointer]: 
+              - row "2 Injection Machine 1.00  1.00 Unit  Delete row" [ref=e1395]:
+                - cell "2" [ref=e1396] [cursor=pointer]
+                - cell "Injection Machine" [ref=e1397] [cursor=pointer]
+                - cell "1.00" [ref=e1398] [cursor=pointer]
+                - cell "" [ref=e1399] [cursor=pointer]:
+                  - button "" [ref=e1401]:
+                    - generic [ref=e1402]: 
+                - cell "1.00" [ref=e1403] [cursor=pointer]
+                - cell "Unit" [ref=e1404] [cursor=pointer]
+                - cell [ref=e1405] [cursor=pointer]
+                - cell [ref=e1406] [cursor=pointer]
+                - cell [ref=e1407] [cursor=pointer]
+                - cell "" [ref=e1408] [cursor=pointer]:
+                  - button "" [ref=e1409]
+                - cell "Delete row" [ref=e1410]:
+                  - button "Delete row" [ref=e1411] [cursor=pointer]: 
+              - row "Add a line" [ref=e1412]:
+                - cell "Add a line" [ref=e1413]:
+                  - button "Add a line" [ref=e1414] [cursor=pointer]
+              - row [ref=e1415]:
+                - cell [ref=e1416]
+            - rowgroup [ref=e1417]:
+              - row [ref=e1418]:
+                - cell [ref=e1419]
+                - cell [ref=e1420]
+                - cell [ref=e1421]
+                - cell [ref=e1422]
+                - cell [ref=e1423]
+                - cell [ref=e1424]
+                - cell [ref=e1425]
+                - cell [ref=e1426]
+                - cell [ref=e1427]
+                - cell [ref=e1428]
+                - cell [ref=e1429]
+      - generic [ref=e1431]:
+        - generic [ref=e1433]:
+          - button "Send message" [ref=e1449] [cursor=pointer]
+          - button "Log note" [ref=e1450] [cursor=pointer]
+          - button "Activities" [ref=e1434] [cursor=pointer]
+          - button "Search Messages" [ref=e1436] [cursor=pointer]:
+            - img [ref=e1437]: 
+          - button "Attach files" [ref=e1439] [cursor=pointer]:
+            - generic [ref=e1440]: 
+          - button "1" [ref=e1451] [cursor=pointer]:
+            - img [ref=e1452]: 
+            - superscript: "1"
+          - button "Follow" [ref=e1442] [cursor=pointer]:
+            - generic [ref=e1444]: Follow
+        - generic [ref=e1453]:
+          - generic [ref=e1455]:
+            - separator [ref=e1456]
+            - generic [ref=e1457]: Today
+            - separator [ref=e1458]
+          - group "System notification" [ref=e1459]:
+            - generic [ref=e1460]:
+              - generic "Open card" [ref=e1462] [cursor=pointer]:
+                - img [ref=e1463]
+              - generic [ref=e1464]:
+                - generic [ref=e1465]:
+                  - generic "Open card" [ref=e1466] [cursor=pointer]:
+                    - strong [ref=e1467]: OdooBot
+                  - generic "5/27/2026, 8:51:15 AM" [ref=e1468]: Today at 8:51 AM
+                - paragraph [ref=e1475]:
+                  - text: "This transfer has been created from:"
+                  - link "P01068" [ref=e1476] [cursor=pointer]:
+                    - /url: "#"
+          - group "System notification" [ref=e1477]:
+            - generic [ref=e1478]:
+              - generic "Open card" [ref=e1480] [cursor=pointer]:
+                - img [ref=e1481]
+              - generic [ref=e1482]:
+                - generic [ref=e1483]:
+                  - generic "Open card" [ref=e1484] [cursor=pointer]:
+                    - strong [ref=e1485]: OdooBot
+                  - generic "5/27/2026, 8:51:15 AM" [ref=e1486]: Today at 8:51 AM
+                - paragraph [ref=e1493]: Transfer created

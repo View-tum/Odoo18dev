@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_advance_payment_inv_inherit_auto_confirm" model="ir.ui.view">
+        <field name="name">Invoice Orders (auto confirm) - button label</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <field name="is_mobile_warehouse" invisible="1"/>
+                <field name="mobile_amount_exceeded" invisible="1"/>
+                <field name="mobile_settlement_ready" invisible="1"/>
+                <field name="mobile_account_missing" invisible="1"/>
+                <div invisible="1" class="o_mobile_payment_receipt">
+                    <div class="o_mobile_payment_title">
+                        <h3>Receive Payment</h3>
+                        <field name="mobile_invoice_total" widget="monetary"
+                               options="{'currency_field': 'currency_id'}" nolabel="1" readonly="1"/>
+                    </div>
+
+                    <field name="mobile_payment_line_ids" widget="mobile_mixed_payment_rows"
+                           nolabel="1" class="o_mobile_payment_rows">
+                        <list editable="bottom" create="false" delete="false">
+                            <field name="payment_type"/>
+                            <field name="is_rounding" column_invisible="1"/>
+                            <field name="amount"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="journal_account_name"/>
+                            <field name="cheque_number"/>
+                            <field name="cheque_bank_id"/>
+                            <field name="cheque_branch"/>
+                            <field name="cheque_date"/>
+                        </list>
+                    </field>
+
+                    <div class="o_mobile_payment_summary">
+                        <span>Payment Received:</span>
+                        <field name="mobile_actual_payment_total" widget="monetary"
+                               options="{'currency_field': 'currency_id'}" nolabel="1" readonly="1"/>
+                        <span>Write-off:</span>
+                        <field name="mobile_rounding_total" widget="monetary"
+                               options="{'currency_field': 'currency_id'}" nolabel="1" readonly="1"/>
+                        <span>Balance:</span>
+                        <span class="o_mobile_payment_balance">
+                            <field name="mobile_balance" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}" nolabel="1" readonly="1"/>
+                        </span>
+                    </div>
+
+                    <div class="alert alert-danger o_mobile_payment_error" role="alert"
+                         invisible="not mobile_amount_exceeded">
+                        Payment settlement exceeds the invoice total. Reduce the entered amount before continuing.
+                    </div>
+                    <div class="alert alert-warning o_mobile_payment_config_warning" role="alert"
+                         invisible="not mobile_account_missing">
+                        <field name="mobile_account_warning" nolabel="1" readonly="1"/>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='advance_payment_method']" position="attributes">
+                <attribute name="invisible">count &gt; 1</attribute>
+                <attribute name="widget">mobile_advance_payment_method</attribute>
+            </xpath>
+            <xpath expr="//footer/button[@name='create_invoices']" position="replace">
+                <button name="create_invoices" type="object"
+                        id="create_invoice_open"
+                        string="Create Invoice"
+                        class="btn-primary"
+                        data-hotkey="q"
+                        invisible="is_mobile_warehouse"/>
+            </xpath>
+            <xpath expr="//footer/button[@name='create_invoices']" position="after">
+                <button name="action_create_invoice_mobile" type="object"
+                        string="Create Invoice"
+                        class="btn btn-primary o_mobile_payment_submit"
+                        invisible="not is_mobile_warehouse"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,26 @@
+[
+  {
+    "defect": "1667",
+    "title": "Vendor return picking creates linked vendor credit note",
+    "status": "PASS",
+    "evidence": "action={'name': 'Reverse Moves', 'type': 'ir.actions.act_window', 'res_model': 'account.move', 'view_mode': 'form', 'res_id': 69797, 'context': {'default_move_type': 'in_refund'}}; cns=[{'id': 69797, 'name': False, 'state': 'draft', 'return_picking_ids': [10574], 'invoice_line_ids': [214199]}]"
+  },
+  {
+    "defect": "1683",
+    "title": "Manual merge internal transfers creates one merged draft transfer",
+    "status": "PASS",
+    "evidence": "action={'type': 'ir.actions.act_window', 'res_model': 'stock.picking', 'res_id': 10812, 'view_mode': 'form', 'target': 'current'}; pickings=[{'id': 10812, 'name': 'GMP/PACK/00002', 'state': 'confirmed', 'move_ids': [33259], 'origin': 'E2E-MERGE-TEST, GMP/PACK/00002, GMP/PACK/00003'}, {'id': 10813, 'name': 'GMP/PACK/00003', 'state': 'cancel', 'move_ids': [], 'origin': 'E2E-MERGE-TEST'}, {'id': 10812, 'name': 'GMP/PACK/00002', 'state': 'confirmed', 'move_ids': [33259], 'origin': 'E2E-MERGE-TEST, GMP/PACK/00002, GMP/PACK/00003'}]"
+  },
+  {
+    "defect": "1685",
+    "title": "Purchase status report can create vendor credit note before vendor bill",
+    "status": "FAIL",
+    "evidence": "credit_actions=[]"
+  },
+  {
+    "defect": "1679",
+    "title": "Van Sales creates posted/paid invoice from Mobile Warehouse flow",
+    "status": "PASS",
+    "evidence": "mobile_invoice=[({'id': 69788, 'name': 'INV-D/26/06/00005', 'invoice_origin': 'SOD-263080', 'payment_state': 'paid', 'amount_total': 3420.0}, {'id': 16651, 'name': 'SOD-263080', 'warehouse_id': [2, 'Mobile Warehouse']})]"
+  }
+]

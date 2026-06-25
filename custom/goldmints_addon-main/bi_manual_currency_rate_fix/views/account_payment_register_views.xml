@@ -9,6 +9,23 @@
             <xpath expr="//field[@name='amount']" position="attributes">
                 <attribute name="force_save">1</attribute>
             </xpath>
+            <xpath expr="//div[@name='amount_div']/field[@name='currency_id']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_bank_id']" position="attributes">
+                <attribute name="invisible">not show_partner_bank_account or not can_edit_wizard</attribute>
+                <attribute name="required">require_partner_bank_account and can_edit_wizard</attribute>
+            </xpath>
+            <xpath expr="//field[@name='communication']" position="attributes">
+                <attribute name="invisible">not can_edit_wizard</attribute>
+            </xpath>
+            <xpath expr="//field[@name='manual_currency_rate_active']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='manual_currency_rate']" position="attributes">
+                <attribute name="invisible">not manual_currency_rate_active</attribute>
+                <attribute name="required">manual_currency_rate_active</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>

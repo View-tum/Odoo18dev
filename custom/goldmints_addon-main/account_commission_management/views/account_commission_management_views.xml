@@ -31,13 +31,13 @@
                             <field name="line_ids" readonly="1">
                                 <list decoration-muted="amount_commission == 0">
 
-                                    <field name="salesperson_id" optional="show"/>
-                                    <field name="customer_code" optional="show"/>
-                                    <field name="customer_name" optional="show"/>
                                     <field name="invoice_date" optional="show"/>
                                     <field name="sale_order_name" optional="show"/>
                                     <field name="invoice_name" optional="show"/>
                                     <field name="credit_note_name" optional="show"/>
+                                    <field name="customer_code" optional="show"/>
+                                    <field name="customer_name" optional="show"/>
+                                    <field name="salesperson_id" optional="show"/>
                                     <field name="amount_invoice_total" optional="show" sum="Total INV"/>
                                     <field name="amount_credit_note_total" optional="show" sum="Total Credit Note"/>
                                     <field name="amount_payment_total" optional="show" sum="Total Paid"/>

@@ -118,6 +118,20 @@
             groups="base.group_user" />
     </menuitem>
 
+    <!-- Filter MTO ในหน้าจอ Shopfloor / Search View -->
+    <record id="mrp_parallel_console_mrp_production_search_inherit" model="ir.ui.view">
+        <field name="name">mrp.production.search.parallel.console</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter string="แสดงหน้างาน (Show on Shopfloor)" name="show_on_shopfloor" domain="[('hide_from_shopfloor', '=', False)]"/>
+                <filter string="ซ่อนจากหน้างาน (Hidden from Shopfloor)" name="hidden_from_shopfloor" domain="[('hide_from_shopfloor', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+
     <!-- เพิ่มปุ่ม Console บน MO -->
     <record id="mrp_parallel_console_mrp_production_form_inherit" model="ir.ui.view">
         <field name="name">mrp.production.form.parallel.console</field>
@@ -130,6 +144,16 @@
                     string="Console"
                     class="oe_highlight"
                     invisible="1" />
+                <field name="hide_from_shopfloor" invisible="1"/>
+                <button name="action_show_on_shopfloor"
+                    type="object"
+                    string="Show on Shopfloor"
+                    class="oe_highlight"
+                    invisible="hide_from_shopfloor == False or state in ('done', 'cancel')" />
+                <button name="action_hide_from_shopfloor"
+                    type="object"
+                    string="Hide from Shopfloor"
+                    invisible="hide_from_shopfloor == True or state in ('done', 'cancel')" />
             </xpath>
         </field>
     </record>
@@ -471,6 +495,40 @@
                 <field name="loss_id" optional="show" />
                 <field name="duration" widget="float_time" sum="Total Duration" />
             </list>
+        </field>
+    </record>
+
+
+    <!-- MO List View Inheritance: Add Shopfloor visibility action -->
+    <record id="mrp_parallel_console_mrp_production_tree_inherit" model="ir.ui.view">
+        <field name="name">mrp.production.list.parallel.console</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="hide_from_shopfloor" column_invisible="1"/>
+                <field name="show_on_shopfloor" column_invisible="1"/>
+                <button name="action_hide_from_shopfloor"
+                    type="object"
+                    icon="fa-eye"
+                    title="แสดงบนหน้างาน (คลิกเพื่อซ่อน)"
+                    class="btn-link text-primary"
+                    invisible="hide_from_shopfloor == True or state in ('done', 'cancel')"/>
+                <button name="action_show_on_shopfloor"
+                    type="object"
+                    icon="fa-eye-slash"
+                    title="ซ่อนจากหน้างาน (คลิกเพื่อแสดง)"
+                    class="btn-link text-muted"
+                    invisible="hide_from_shopfloor == False or state in ('done', 'cancel')"/>
+                <button icon="fa-eye"
+                    title="แสดงบนหน้างาน"
+                    class="btn-link text-primary oe_read_only"
+                    invisible="hide_from_shopfloor == True or state not in ('done', 'cancel')"/>
+                <button icon="fa-eye-slash"
+                    title="ซ่อนจากหน้างาน"
+                    class="btn-link text-muted oe_read_only"
+                    invisible="hide_from_shopfloor == False or state not in ('done', 'cancel')"/>
+            </xpath>
         </field>
     </record>
 

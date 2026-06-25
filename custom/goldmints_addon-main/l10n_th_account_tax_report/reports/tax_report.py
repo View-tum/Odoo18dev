@@ -9,9 +9,18 @@ class ThaiTaxReport(models.AbstractModel):
     _name = "report.l10n_th_account_tax_report.report_thai_tax"
     _description = "Thai Tax Report"
 
+    # def _query_select_tax(self):
+    #     return """
+    #         ROW_NUMBER() OVER (ORDER BY tax_date, tax_invoice_number) AS row_number,
+    #         company_id, account_id, partner_id, branch, tax_invoice_number,
+    #         TO_CHAR(tax_date, 'DD/MM/YYYY') AS tax_date,
+    #         name, sum(tax_base_amount) tax_base_amount,
+    #         sum(tax_amount) tax_amount
+    #     """
+
     def _query_select_tax(self):
         return """
-            ROW_NUMBER() OVER (ORDER BY tax_date, tax_invoice_number) AS row_number,
+            0 AS row_number,
             company_id, account_id, partner_id, branch, tax_invoice_number,
             TO_CHAR(tax_date, 'DD/MM/YYYY') AS tax_date,
             name, sum(tax_base_amount) tax_base_amount,
@@ -53,17 +62,70 @@ class ThaiTaxReport(models.AbstractModel):
             return " AND t.tax_invoice_number like '" + so_type + "%' "
         else:
             return ""
-    #2026-02-18 add function for get tax_id query
-    def _get_tax_id_where_clause(self, tax_id):
-        if tax_id:
-            return " AND tax_id = " +  str(tax_id) + " "
-        else:
-            return " "
 
-    def _get_tax_data(self, tax_id, date_from, date_to, show_cancel, company_id, so_type):
+    # 2026-02-18 add function for get tax_id query
+    # def _get_tax_id_where_clause(self, tax_id):
+    #     if tax_id:
+    #         return " AND tax_id = " + str(tax_id) + " "
+    #     else:
+    #         return " "
+
+    # def _get_tax_data(
+    #     self, tax_id, date_from, date_to, show_cancel, company_id, so_type
+    # ):
+    #     domain = self._domain_where_clause_tax(show_cancel)
+    #     self._cr.execute(f"""
+    #         SELECT {self._query_select_tax()}
+    #         FROM (
+    #             SELECT {self._query_select_sub_tax()}
+    #             FROM account_move_tax_invoice t
+    #             JOIN account_move_line ml ON ml.id = t.move_line_id
+    #             JOIN account_move m ON m.id = ml.move_id
+    #             WHERE {domain}
+    #                 AND t.tax_invoice_number IS NOT NULL
+    #                 AND ml.account_id IN (
+    #                     SELECT account_id
+    #                     FROM account_tax_repartition_line
+    #                     WHERE account_id is not null {self._get_tax_id_where_clause(tax_id)}
+    #                     GROUP BY account_id
+    #                 )
+    #                 -- query condition with normal report date by report date
+    #                 -- and late report date within range date end
+    #                 AND (
+    #                     (t.report_date >= '{date_from}' AND t.report_date <= '{date_to}')
+    #                     OR (
+    #                         t.report_late_mo != '0' AND
+    #                         EXTRACT(MONTH FROM t.report_date) <= '{date_to.month}' AND
+    #                         EXTRACT(YEAR FROM t.report_date) <= '{date_to.year}' AND
+    #                         EXTRACT(MONTH FROM t.report_date) >= '{date_from.month}' AND
+    #                         EXTRACT(YEAR FROM t.report_date) >= '{date_to.year}'
+    #                     )
+    #                 )
+    #             AND ml.company_id = {company_id}
+    #             {self._get_tax_invoice_type_where_clause(so_type)}
+    #             AND t.reversed_id is null
+    #         ) a
+    #         GROUP BY {self._query_groupby_tax()}
+    #         ORDER BY tax_date, tax_invoice_number
+    #     """)
+    #     tax_report_data = self._cr.dictfetchall()
+    #     return tax_report_data
+
+    def _get_tax_data(
+        self, tax_id, date_from, date_to, show_cancel, company_id, so_type
+    ):
         domain = self._domain_where_clause_tax(show_cancel)
-        self._cr.execute(
-            f"""
+
+        # 1. เปลี่ยนการกรอง: ตรวจสอบเงื่อนไขผ่าน Python ก่อน
+        tax_filter = ""
+        if tax_id:
+            # ถ้า User เลือก tax_id ให้เจาะจงกรองจากฟิลด์ ml.tax_line_id ของบรรทัดบัญชีนั้นโดยตรง (แม่นยำและเร็วที่สุด)
+            tax_filter = f" AND ml.tax_line_id = {int(tax_id)} "
+        else:
+            # ถ้าไม่เลือก tax_id ให้ดึงเฉพาะบรรทัดที่เป็นรายการภาษีทั้งหมด (ป้องกันข้อมูลขยะ)
+            tax_filter = " AND ml.tax_line_id IS NOT NULL "
+
+        self._cr.execute(f"""
             SELECT {self._query_select_tax()}
             FROM (
                 SELECT {self._query_select_sub_tax()}
@@ -72,12 +134,7 @@ class ThaiTaxReport(models.AbstractModel):
                 JOIN account_move m ON m.id = ml.move_id
                 WHERE {domain}
                     AND t.tax_invoice_number IS NOT NULL
-                    AND ml.account_id IN (
-                        SELECT account_id
-                        FROM account_tax_repartition_line
-                        WHERE account_id is not null {self._get_tax_id_where_clause(tax_id)}
-                        GROUP BY account_id
-                    )
+                    {tax_filter}
                     -- query condition with normal report date by report date
                     -- and late report date within range date end
                     AND (
@@ -96,8 +153,7 @@ class ThaiTaxReport(models.AbstractModel):
             ) a
             GROUP BY {self._query_groupby_tax()}
             ORDER BY tax_date, tax_invoice_number
-        """
-        )
+        """)
         tax_report_data = self._cr.dictfetchall()
         return tax_report_data
 
@@ -105,17 +161,23 @@ class ThaiTaxReport(models.AbstractModel):
         partner_model = self.env["res.partner"]
         total_base = 0.0
         total_tax = 0.0
+        idx = 1
+
         for line in tax_report_data:
             partner_id = partner_model.browse(line["partner_id"])
             line.update(
                 {
+                    "row_number": idx,
                     "partner_name": partner_id.display_name,
                     "partner_vat": partner_id.vat,
-                    "partner_branch": line.get("branch") or partner_id.branch or partner_id.company_registry,
+                    "partner_branch": line.get("branch")
+                    or partner_id.branch
+                    or partner_id.company_registry,
                 }
             )
             total_base += line["tax_base_amount"]
             total_tax += line["tax_amount"]
+            idx += 1
         return total_base, total_tax, tax_report_data
 
     def _get_tax_invoice_type(self, so_type_id, company):
@@ -128,14 +190,8 @@ class ThaiTaxReport(models.AbstractModel):
                     return company.short_journal_id.code  # "INV-C"
                 else:
                     return "INV-D"
-
-
-
-
-
         else:
             return None
-
 
     def _get_report_values(self, docids, data):
         docs = self.env["tax.report.wizard"].browse(docids)
@@ -146,7 +202,7 @@ class ThaiTaxReport(models.AbstractModel):
         date_to = data["date_to"]
         tax_id = data["tax_id"]
         show_cancel = data["show_cancel"]
-        #2026-02-18 add new parameter so_type_id
+        # 2026-02-18 add new parameter so_type_id
         so_type = self._get_tax_invoice_type(data["so_type_id"], company)
 
         tax_report_data = self._get_tax_data(
@@ -155,9 +211,8 @@ class ThaiTaxReport(models.AbstractModel):
             date_to=date_to,
             show_cancel=show_cancel,
             company_id=company.id,
-            so_type = so_type
+            so_type=so_type,
         )
-
         # Add parameter to line
         total_base, total_tax, tax_report_data = self._add_data_line(tax_report_data)
 

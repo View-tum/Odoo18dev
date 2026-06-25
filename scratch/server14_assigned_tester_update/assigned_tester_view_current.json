@@ -1,0 +1,116 @@
+{
+  "filters": [
+    {
+      "id": 107,
+      "name": "view",
+      "domain": "[\"&\", (\"is_closed\", \"=\", False), (\"x_studio_assign_365\", \"=\", \"View\")]",
+      "context": "{'group_by': []}",
+      "user_id": [
+        2,
+        "Administrator"
+      ],
+      "sort": "[]"
+    }
+  ],
+  "stages": [
+    {
+      "id": 56,
+      "name": "06) Assigned Tester",
+      "project_ids": [
+        3
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1684,
+      "name": "งานจัดจ้าง ระบบมี trigger เตือนว่าจะหมด contract แล้วหรือเปล่า",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1667,
+      "name": "Defect-0277: เพิ่มระบบเชื่อมเอกสาร Return ของคืน Vendor เชื่อม",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Inventory",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1665,
+      "name": "ต้องทำให้ billing note ต้องสามารถดึง vendor bill และ credit note มาทำได้",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Purchase",
+      "x_studio_function": "Screen",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    },
+    {
+      "id": 1622,
+      "name": "Defect-0233: รายการ Advance ต้องเพิ่มเติม เรื่องการซื้อดราฟ ทำคล้ายกับ Cheque",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Report",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": "<p>ระบบ Advance รองรับกระบวนการขอซื้อดราฟท์ธนาคาร โดยมี Flow การทำงานเทียบเคียงกับการจ่ายด้วยเช็ค</p>"
+    },
+    {
+      "id": 1596,
+      "name": "Defect-0207: CN. RMA. ยังไม่ได้ทำการ Test ระบบ เพราะในส่วนของกา",
+      "stage_id": [
+        56,
+        "06) Assigned Tester"
+      ],
+      "project_id": [
+        3,
+        "Defects List"
+      ],
+      "x_studio_assign_365": "View",
+      "x_studio_module": "Accounting",
+      "x_studio_function": "Workflow",
+      "x_studio_test_steps": "Test Step",
+      "x_studio_test_step": false,
+      "x_studio_expected_result": false
+    }
+  ]
+}

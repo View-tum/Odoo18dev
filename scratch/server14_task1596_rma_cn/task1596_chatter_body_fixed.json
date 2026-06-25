@@ -1,0 +1,12 @@
+{
+  "write": true,
+  "message": {
+    "id": 267357,
+    "body": "<p><b>QA Test Update 2026-06-13</b></p>\n<p>อัปเดต Test Step เป็นภาษาไทย และทดสอบ RMA/CN ด้วยข้อมูลจริงบน server14 แล้ว</p>\n<ul>\n<li>RMA: RMA0022 / RMATR/2026/06/000015 - Transform Return</li>\n<li>CN: CCND/26/06/00002 เปิดได้จาก Smart Button Refund Invoices บน RMA</li>\n<li>ผล: PASS - เปิด CN จาก RMA ได้ และ CN มี link กลับผ่าน rma_transform_claim_id / rma_transform_return_id</li>\n<li>ข้อสังเกต: field claim_id มาตรฐานยังว่าง เพราะ transform flow ใช้ field rma_transform_claim_id แทน ถ้ารายงานหรือหน้าจอใดอิง claim_id ต้องรองรับ field transform ด้วย</li>\n</ul>",
+    "attachment_ids": [
+      3862,
+      3860,
+      3858
+    ]
+  }
+}

@@ -33,7 +33,7 @@ class StockCountReportWizard(models.TransientModel):
             ("blank", "Blank sheet"),
         ],
         string="Mode",
-        default="blank",
+        default="prefill",
         required=True,
     )
     show_uom = fields.Boolean(
@@ -71,7 +71,6 @@ class StockCountReportWizard(models.TransientModel):
             # Blank: แสดง System Qty เพื่อเทียบตอนนับ
             wizard.show_system_qty = wizard.mode == "blank"
 
-    
     def _report_action(self, report_xmlid, report_type="qweb-pdf"):
         """Return an ir.actions.report with a forced report_type.
 
@@ -80,7 +79,9 @@ class StockCountReportWizard(models.TransientModel):
         - Print (qweb-pdf)
         """
         self.ensure_one()
-        action = self.env.ref(report_xmlid).report_action(self, data={"wizard_id": self.id})
+        action = self.env.ref(report_xmlid).report_action(
+            self, data={"wizard_id": self.id}
+        )
         action["report_type"] = report_type
         return action
 
@@ -93,15 +94,16 @@ class StockCountReportWizard(models.TransientModel):
         )
 
     def _ensure_locations_selected(self):
-        if not self.location_ids:
-            raise UserError(_("Please select at least one location."))
+        #     if not self.location_ids:
+        #         raise UserError(_("Please select at least one location."))
+        pass
 
     def _get_data_service(self):
         return StockCountDataService(self.env)
 
     def _get_export_service(self):
         return StockCountExportService(self.env)
-    
+
     def _build_pdf_filename(self):
         timestamp = fields.Datetime.context_timestamp(self, datetime.utcnow())
         return f"stock_count_report_{timestamp.strftime('%Y%m%d_%H%M%S')}.pdf"
@@ -180,6 +182,8 @@ class StockCountReportWizard(models.TransientModel):
 
     def _get_selected_location_names(self):
         self.ensure_one()
+        if not self.location_ids:
+            return "All Internal Locations"
         return ", ".join(self.location_ids.mapped("display_name"))
 
     def _get_mode_label(self):

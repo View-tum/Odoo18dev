@@ -1,0 +1,273 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+      - menu [ref=e7]:
+        - button "Attendance" [ref=e8] [cursor=pointer]:
+          - img "Attendance" [ref=e9]: 
+        - button "Messages 2" [ref=e11] [cursor=pointer]:
+          - img "Messages" [ref=e12]: 
+          - generic [ref=e13]: "2"
+        - button "Activities 68" [ref=e14] [cursor=pointer]:
+          - img "Activities" [ref=e15]: 
+          - generic [ref=e16]: "68"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e18]:
+          - text: 
+          - generic [ref=e19]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e21] [cursor=pointer]:
+          - img "User" [ref=e22]
+          - text: 
+  - generic [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - button "New" [ref=e31] [cursor=pointer]
+        - generic [ref=e32]:
+          - generic [ref=e34]: S12177
+          - button "" [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: 
+      - button " 1 Invoices" [ref=e43] [cursor=pointer]:
+        - generic [ref=e44]: 
+        - generic [ref=e45]:
+          - generic [ref=e46]: "1"
+          - generic [ref=e47]: Invoices
+      - generic [ref=e48]:
+        - button "Search Knowledge Articles" [ref=e49] [cursor=pointer]:
+          - img [ref=e50]
+        - search [ref=e54]:
+          - navigation "Pager" [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: "1"
+              - text: / 1
+            - generic [ref=e58]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - button "ชำระเงิน" [ref=e64] [cursor=pointer]
+          - button "Send by Email" [ref=e65] [cursor=pointer]
+          - button "Unlock" [ref=e66] [cursor=pointer]
+          - button "Preview" [ref=e67] [cursor=pointer]
+          - button "Cancel" [ref=e68] [cursor=pointer]
+          - button "Create Job Request" [ref=e69] [cursor=pointer]
+          - button "Simulation Print" [ref=e70] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e72]:
+          - radio "Sales Order2m" [checked] [disabled]
+          - radio "To Approve" [disabled]
+          - radio "Quotation" [disabled]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]: 
+          - text: Locked
+        - heading "S12177" [level=1] [ref=e77]:
+          - generic [ref=e78]: S12177
+        - generic [ref=e79]:
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - generic [ref=e83]: Customer
+              - link "UAT Mobile Payment Customer" [ref=e86] [cursor=pointer]:
+                - /url: /odoo/res.partner/283074
+                - generic [ref=e87]: UAT Mobile Payment Customer
+            - generic [ref=e88]:
+              - generic [ref=e90]: Invoice Address
+              - link "UAT Mobile Payment Customer" [ref=e93] [cursor=pointer]:
+                - /url: /odoo/res.partner/283074
+                - generic [ref=e94]: UAT Mobile Payment Customer
+            - generic [ref=e95]:
+              - generic [ref=e97]: Delivery Address
+              - link "UAT Mobile Payment Customer" [ref=e100] [cursor=pointer]:
+                - /url: /odoo/res.partner/283074
+                - generic [ref=e101]: UAT Mobile Payment Customer
+            - generic [ref=e103]:
+              - generic [ref=e105]: Is Exported?
+              - generic [ref=e108]:
+                - checkbox "Is Exported?" [disabled]
+            - generic [ref=e111]: Exported Date
+            - generic [ref=e115]: Sale Number (AX)
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e120]: SO Type
+              - link "ใบกำกับภาษีแบบย่อ" [ref=e123] [cursor=pointer]:
+                - /url: /odoo/sale.sequence.type/1
+                - generic [ref=e124]: ใบกำกับภาษีแบบย่อ
+            - generic [ref=e125]:
+              - generic [ref=e128]:
+                - text: Order Date
+                - superscript [ref=e129]: "?"
+              - generic [ref=e133]: 06/24/2026 21:06:11
+            - generic [ref=e134]:
+              - generic [ref=e136]:
+                - text: Pricelist
+                - superscript [ref=e137]: "?"
+              - combobox "Pricelist?" [ref=e144]: Default (THB)
+            - generic [ref=e145]:
+              - generic [ref=e147]: Payment Terms
+              - combobox "Payment Terms" [ref=e153]
+            - generic [ref=e154]:
+              - generic [ref=e156]: Customer Payment
+              - generic [ref=e159]: Not Paid
+            - generic [ref=e160]:
+              - generic [ref=e162]: Customer Balance
+              - generic [ref=e165]: 9,750.00 ฿
+            - generic [ref=e168]: Customer Reference
+            - generic [ref=e171]:
+              - generic [ref=e173]: Apply Manual Exchange
+              - generic [ref=e176]:
+                - checkbox "Apply Manual Exchange" [disabled]
+            - generic [ref=e179]:
+              - text: Delivery Date
+              - superscript [ref=e180]: "?"
+            - generic [ref=e184]:
+              - text: เลขที่เอกสาร
+              - superscript [ref=e185]: "?"
+            - generic [ref=e187]:
+              - generic [ref=e189]: ยอดชำระแล้ว
+              - generic [ref=e192]: 0.00 ฿
+        - generic [ref=e193]:
+          - list [ref=e195]:
+            - listitem [ref=e196] [cursor=pointer]:
+              - tab "Order Lines" [ref=e197]
+            - listitem [ref=e198] [cursor=pointer]:
+              - tab "Other Info" [ref=e199]
+            - listitem [ref=e200] [cursor=pointer]:
+              - tab "Sale Note" [ref=e201]
+          - generic [ref=e203]:
+            - table [ref=e207]:
+              - rowgroup [ref=e208]:
+                - row "No.  Product Quantity  Delivered  Invoiced  UoM  Unit Price  Taxes Disc.%  Amount  " [ref=e209]:
+                  - columnheader [ref=e210] [cursor=pointer]
+                  - columnheader "No. " [ref=e211] [cursor=pointer]:
+                    - generic [ref=e212]:
+                      - generic [ref=e213]: No.
+                      - generic [ref=e214]: 
+                  - columnheader "Product" [ref=e216]:
+                    - generic [ref=e217]:
+                      - generic [ref=e218]: Product
+                      - text: 
+                  - columnheader "Quantity " [ref=e220] [cursor=pointer]:
+                    - generic [ref=e221]:
+                      - generic [ref=e222]: Quantity
+                      - generic [ref=e223]: 
+                  - columnheader "Delivered " [ref=e225] [cursor=pointer]:
+                    - generic [ref=e226]:
+                      - generic [ref=e227]: Delivered
+                      - generic [ref=e228]: 
+                  - columnheader [ref=e230]
+                  - columnheader "Invoiced " [ref=e231] [cursor=pointer]:
+                    - generic [ref=e232]:
+                      - generic [ref=e233]: Invoiced
+                      - generic [ref=e234]: 
+                  - columnheader "UoM " [ref=e236] [cursor=pointer]:
+                    - generic [ref=e237]:
+                      - generic [ref=e238]: UoM
+                      - generic [ref=e239]: 
+                  - columnheader "Unit Price " [ref=e241] [cursor=pointer]:
+                    - generic [ref=e242]:
+                      - generic [ref=e243]: Unit Price
+                      - generic [ref=e244]: 
+                  - columnheader "Taxes" [ref=e246]:
+                    - generic [ref=e247]:
+                      - generic [ref=e248]: Taxes
+                      - text: 
+                  - columnheader "Disc.% " [ref=e250] [cursor=pointer]:
+                    - generic [ref=e251]:
+                      - generic [ref=e252]: Disc.%
+                      - generic [ref=e253]: 
+                  - columnheader "Amount " [ref=e255] [cursor=pointer]:
+                    - generic [ref=e256]:
+                      - generic [ref=e257]: Amount
+                      - generic [ref=e258]: 
+                  - columnheader "" [ref=e260]:
+                    - button "" [ref=e262] [cursor=pointer]:
+                      - generic [ref=e263]: 
+              - rowgroup [ref=e264]:
+                - row "1 UAT Mobile Payment Service 1.00 0.00 1.00 Unit 9,750.00 0.00 9,750.00 ฿" [ref=e265]:
+                  - cell [ref=e266] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e267] [cursor=pointer]
+                  - cell "UAT Mobile Payment Service" [ref=e268] [cursor=pointer]:
+                    - link "UAT Mobile Payment Service" [ref=e271]:
+                      - /url: /odoo/product.template/9399
+                      - generic [ref=e272]: UAT Mobile Payment Service
+                  - cell "1.00" [ref=e273] [cursor=pointer]
+                  - cell "0.00" [ref=e274] [cursor=pointer]
+                  - cell [ref=e275]
+                  - cell "1.00" [ref=e277] [cursor=pointer]
+                  - cell "Unit" [ref=e278] [cursor=pointer]
+                  - cell "9,750.00" [ref=e279] [cursor=pointer]
+                  - cell [ref=e280] [cursor=pointer]
+                  - cell "0.00" [ref=e282] [cursor=pointer]
+                  - cell "9,750.00 ฿" [ref=e283] [cursor=pointer]
+                  - cell [ref=e284]
+                - row [ref=e285]:
+                  - cell [ref=e286]
+                - row [ref=e287]:
+                  - cell [ref=e288]
+                - row [ref=e289]:
+                  - cell [ref=e290]
+              - rowgroup [ref=e291]:
+                - row [ref=e292]:
+                  - cell [ref=e293]
+                  - cell [ref=e294]
+                  - cell [ref=e295]
+                  - cell [ref=e296]
+                  - cell [ref=e297]
+                  - cell [ref=e298]
+                  - cell [ref=e299]
+                  - cell [ref=e300]
+                  - cell [ref=e301]
+                  - cell [ref=e302]
+                  - cell [ref=e303]
+                  - cell [ref=e304]
+                  - cell [ref=e305]
+            - table [ref=e314]:
+              - rowgroup [ref=e315]:
+                - 'row "Untaxed Amount: 9,750.00 ฿" [ref=e316]':
+                  - cell "Untaxed Amount:" [ref=e317]:
+                    - generic [ref=e318]: "Untaxed Amount:"
+                  - cell "9,750.00 ฿" [ref=e319]
+                - 'row "Total: 9,750.00 ฿" [ref=e320]':
+                  - cell "Total:" [ref=e321]:
+                    - generic [ref=e322]: "Total:"
+                  - cell "9,750.00 ฿" [ref=e323]
+      - generic [ref=e326]:
+        - generic [ref=e328]:
+          - button "Send message" [ref=e329] [cursor=pointer]
+          - button "Log note" [ref=e330] [cursor=pointer]
+          - button "Activities" [ref=e331] [cursor=pointer]
+          - button "Search Messages" [ref=e333] [cursor=pointer]:
+            - img [ref=e334]: 
+          - button "Attach files" [ref=e336] [cursor=pointer]:
+            - generic [ref=e337]: 
+          - button "1" [ref=e339] [cursor=pointer]:
+            - img [ref=e340]: 
+            - superscript: "1"
+          - button "Follow" [ref=e341] [cursor=pointer]:
+            - generic [ref=e343]: Follow
+        - generic [ref=e345]:
+          - generic [ref=e346]:
+            - generic [ref=e348]:
+              - separator [ref=e349]
+              - generic [ref=e350]: Today
+              - separator [ref=e351]
+            - group "System notification" [ref=e352]:
+              - generic [ref=e353]:
+                - generic "Open card" [ref=e355] [cursor=pointer]:
+                  - img [ref=e356]
+                - generic [ref=e357]:
+                  - generic [ref=e358]:
+                    - generic "Open card" [ref=e359] [cursor=pointer]:
+                      - strong [ref=e360]: OdooBot
+                    - generic "6/24/2026, 9:06:10 PM" [ref=e361]: Today at 9:06 PM
+                  - paragraph [ref=e368]: Sales Order created
+          - button "" [ref=e369] [cursor=pointer]:
+            - generic [ref=e370]: 
+  - generic [ref=e535]: Loading

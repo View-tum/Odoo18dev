@@ -1,0 +1,418 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+        - generic [ref=e10]: H
+      - menu [ref=e11]:
+        - button "Orders 1" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: Orders
+          - generic [ref=e15]: "1"
+        - button "Products 2" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: Products
+          - generic [ref=e19]: "2"
+        - button "Reporting 3" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Reporting
+          - generic [ref=e23]: "3"
+        - button "Configuration 4" [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: Configuration
+          - generic [ref=e27]: "4"
+      - menu [ref=e28]:
+        - button "Attendance" [ref=e29] [cursor=pointer]:
+          - img "Attendance" [ref=e30]: 
+        - button "Messages 2" [ref=e32] [cursor=pointer]:
+          - img "Messages" [ref=e33]: 
+          - generic [ref=e34]: "2"
+        - button "Activities 60" [ref=e35] [cursor=pointer]:
+          - img "Activities" [ref=e36]: 
+          - generic [ref=e37]: "60"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e39]:
+          - text: 
+          - generic [ref=e40]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e42] [cursor=pointer]:
+          - img "User" [ref=e43]
+          - text: 
+  - generic [ref=e46]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - button "New" [ref=e52] [cursor=pointer]
+        - generic [ref=e53]:
+          - list [ref=e54]:
+            - listitem [ref=e55]:
+              - link "รายงานสถานะคำสั่งซื้อ" [ref=e56] [cursor=pointer]:
+                - /url: /odoo/action-1410/41
+          - generic [ref=e57]:
+            - generic [ref=e59]: รายงานสถานะคำสั่งซื้อ
+            - button "" [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: 
+      - generic [ref=e66]:
+        - button "Search Knowledge Articles" [ref=e67] [cursor=pointer]:
+          - img [ref=e68]
+        - search [ref=e72]:
+          - navigation "Pager" [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: "1"
+              - text: / 1
+            - generic [ref=e76]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e79]:
+      - generic [ref=e81]:
+        - button "Preview" [ref=e82] [cursor=pointer]
+        - button "Select APD/CN" [ref=e83] [cursor=pointer]
+        - button "Select Billable" [ref=e84] [cursor=pointer]
+        - button "Clear Selection" [ref=e85] [cursor=pointer]
+        - button "Export PDF" [ref=e86] [cursor=pointer]
+        - button "Export XLSX" [ref=e87] [cursor=pointer]
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e93]: ผู้ขาย
+              - combobox "ผู้ขาย" [ref=e99]
+            - generic [ref=e100]:
+              - generic [ref=e102]: สินค้า
+              - combobox "สินค้า" [ref=e108]
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e112]: วันที่เริ่มต้น
+              - textbox "วันที่เริ่มต้น" [ref=e116] [cursor=pointer]: 06/01/2026
+            - generic [ref=e117]:
+              - generic [ref=e119]: วันที่สิ้นสุด
+              - textbox "วันที่สิ้นสุด" [ref=e123] [cursor=pointer]: 06/05/2026
+            - generic [ref=e124]:
+              - generic [ref=e126]: สถานะใบสั่งซื้อ
+              - combobox "สถานะใบสั่งซื้อ" [ref=e129] [cursor=pointer]:
+                - option [selected]
+                - option "RFQ"
+                - option "RFQ Sent"
+                - option "To Approve"
+                - option "To Approve LV2"
+                - option "Purchase Order"
+                - option "Locked"
+                - option "Rejected"
+                - option "Cancelled"
+            - generic [ref=e130]:
+              - generic [ref=e132]: สถานะการวางบิล
+              - combobox "สถานะการวางบิล" [ref=e135] [cursor=pointer]:
+                - option [selected]
+                - option "ยังไม่วางบิล"
+                - option "ร่างใบวางบิล"
+                - option "วางบิลบางส่วน"
+                - option "วางบิลครบแล้ว"
+            - generic [ref=e136]:
+              - generic [ref=e138]: สถานะการตั้งหนี้
+              - combobox "สถานะการตั้งหนี้" [ref=e141] [cursor=pointer]:
+                - option [selected]
+                - option "ยังไม่ตั้งหนี้"
+                - option "รอตั้งหนี้"
+                - option "ตั้งหนี้ครบแล้ว"
+        - generic [ref=e142]:
+          - list [ref=e144]:
+            - listitem [ref=e145] [cursor=pointer]:
+              - tab "Lines" [ref=e146]
+          - table [ref=e152]:
+            - rowgroup [ref=e153]:
+              - row " Type  ใบสั่งซื้อ  APD/CN  Doc Type  อ้างอิง  ใบรับสินค้า/บริการ (SA/Receipt)  วันที่รับสินค้า/บริการ  เลขที่ใบแจ้งหนี้ (Inv Ref)  Bill Date  Bill Total  Open Balance  Billing Note  วันที่สั่งซื้อ  วันที่คาดว่าจะมาถึง  ผู้ขาย  สินค้า  จำนวน  รับสินค้า/บริการ  ค้างรับชำระ  หน่วยนับ  ราคาต่อหน่วย  ยอดไม่รวมภาษี  สถานะใบสั่งซื้อ  สถานะการวางบิล  สถานะการตั้งหนี้  " [ref=e154]:
+                - columnheader "" [ref=e155] [cursor=pointer]:
+                  - generic [ref=e156]: 
+                - columnheader "Type " [ref=e158] [cursor=pointer]:
+                  - generic [ref=e159]:
+                    - generic [ref=e160]: Type
+                    - generic [ref=e161]: 
+                - columnheader "ใบสั่งซื้อ " [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]: ใบสั่งซื้อ
+                    - generic [ref=e166]: 
+                - columnheader "APD/CN " [ref=e168] [cursor=pointer]:
+                  - generic [ref=e169]:
+                    - generic [ref=e170]: APD/CN
+                    - generic [ref=e171]: 
+                - columnheader "Doc Type " [ref=e173] [cursor=pointer]:
+                  - generic [ref=e174]:
+                    - generic [ref=e175]: Doc Type
+                    - generic [ref=e176]: 
+                - columnheader "อ้างอิง " [ref=e178] [cursor=pointer]:
+                  - generic [ref=e179]:
+                    - generic [ref=e180]: อ้างอิง
+                    - generic [ref=e181]: 
+                - columnheader "ใบรับสินค้า/บริการ (SA/Receipt) " [ref=e183] [cursor=pointer]:
+                  - generic [ref=e184]:
+                    - generic [ref=e185]: ใบรับสินค้า/บริการ (SA/Receipt)
+                    - generic [ref=e186]: 
+                - columnheader "วันที่รับสินค้า/บริการ " [ref=e188] [cursor=pointer]:
+                  - generic [ref=e189]:
+                    - generic [ref=e190]: วันที่รับสินค้า/บริการ
+                    - generic [ref=e191]: 
+                - columnheader "เลขที่ใบแจ้งหนี้ (Inv Ref) " [ref=e193] [cursor=pointer]:
+                  - generic [ref=e194]:
+                    - generic [ref=e195]: เลขที่ใบแจ้งหนี้ (Inv Ref)
+                    - generic [ref=e196]: 
+                - columnheader "Bill Date " [ref=e198] [cursor=pointer]:
+                  - generic [ref=e199]:
+                    - generic [ref=e200]: Bill Date
+                    - generic [ref=e201]: 
+                - columnheader "Bill Total " [ref=e203] [cursor=pointer]:
+                  - generic [ref=e204]:
+                    - generic [ref=e205]: Bill Total
+                    - generic [ref=e206]: 
+                - columnheader "Open Balance " [ref=e208] [cursor=pointer]:
+                  - generic [ref=e209]:
+                    - generic [ref=e210]: Open Balance
+                    - generic [ref=e211]: 
+                - columnheader "Billing Note " [ref=e213] [cursor=pointer]:
+                  - generic [ref=e214]:
+                    - generic [ref=e215]: Billing Note
+                    - generic [ref=e216]: 
+                - columnheader "วันที่สั่งซื้อ " [ref=e218] [cursor=pointer]:
+                  - generic [ref=e219]:
+                    - generic [ref=e220]: วันที่สั่งซื้อ
+                    - generic [ref=e221]: 
+                - columnheader "วันที่คาดว่าจะมาถึง " [ref=e223] [cursor=pointer]:
+                  - generic [ref=e224]:
+                    - generic [ref=e225]: วันที่คาดว่าจะมาถึง
+                    - generic [ref=e226]: 
+                - columnheader "ผู้ขาย " [ref=e228] [cursor=pointer]:
+                  - generic [ref=e229]:
+                    - generic [ref=e230]: ผู้ขาย
+                    - generic [ref=e231]: 
+                - columnheader "สินค้า " [ref=e233] [cursor=pointer]:
+                  - generic [ref=e234]:
+                    - generic [ref=e235]: สินค้า
+                    - generic [ref=e236]: 
+                - columnheader "จำนวน " [ref=e238] [cursor=pointer]:
+                  - generic [ref=e239]:
+                    - generic [ref=e240]: จำนวน
+                    - generic [ref=e241]: 
+                - columnheader "รับสินค้า/บริการ " [ref=e243] [cursor=pointer]:
+                  - generic [ref=e244]:
+                    - generic [ref=e245]: รับสินค้า/บริการ
+                    - generic [ref=e246]: 
+                - columnheader "ค้างรับชำระ " [ref=e248] [cursor=pointer]:
+                  - generic [ref=e249]:
+                    - generic [ref=e250]: ค้างรับชำระ
+                    - generic [ref=e251]: 
+                - columnheader "หน่วยนับ " [ref=e253] [cursor=pointer]:
+                  - generic [ref=e254]:
+                    - generic [ref=e255]: หน่วยนับ
+                    - generic [ref=e256]: 
+                - columnheader "ราคาต่อหน่วย " [ref=e258] [cursor=pointer]:
+                  - generic [ref=e259]:
+                    - generic [ref=e260]: ราคาต่อหน่วย
+                    - generic [ref=e261]: 
+                - columnheader "ยอดไม่รวมภาษี " [ref=e263] [cursor=pointer]:
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: ยอดไม่รวมภาษี
+                    - generic [ref=e266]: 
+                - columnheader "สถานะใบสั่งซื้อ " [ref=e268] [cursor=pointer]:
+                  - generic [ref=e269]:
+                    - generic [ref=e270]: สถานะใบสั่งซื้อ
+                    - generic [ref=e271]: 
+                - columnheader "สถานะการวางบิล " [ref=e273] [cursor=pointer]:
+                  - generic [ref=e274]:
+                    - generic [ref=e275]: สถานะการวางบิล
+                    - generic [ref=e276]: 
+                - columnheader "สถานะการตั้งหนี้ " [ref=e278] [cursor=pointer]:
+                  - generic [ref=e279]:
+                    - generic [ref=e280]: สถานะการตั้งหนี้
+                    - generic [ref=e281]: 
+                - columnheader "" [ref=e283]:
+                  - button "" [ref=e285] [cursor=pointer]:
+                    - generic [ref=e286]: 
+            - rowgroup [ref=e287]:
+              - row "PO / Service P01092 UI-VRCN-PO-20260605 Total Summary 0.000 0.000 06/05/2026 06/05/2026 DENKI SHOJI CO.,LTD. [990052] อะไหล่ FORM_MC01 0.000 3.000 3.000 0.000 300.000 Locked ยังไม่วางบิล รอตั้งหนี้" [ref=e288]:
+                - cell [ref=e289] [cursor=pointer]:
+                  - generic [ref=e290]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e291] [cursor=pointer]:
+                  - generic [ref=e293]: PO / Service
+                - cell "P01092" [ref=e294] [cursor=pointer]
+                - cell [ref=e295] [cursor=pointer]
+                - cell [ref=e296] [cursor=pointer]
+                - cell "UI-VRCN-PO-20260605" [ref=e298] [cursor=pointer]
+                - cell "Total Summary" [ref=e299] [cursor=pointer]
+                - cell [ref=e300] [cursor=pointer]
+                - cell [ref=e301] [cursor=pointer]
+                - cell [ref=e302] [cursor=pointer]
+                - cell "0.000" [ref=e303] [cursor=pointer]
+                - cell "0.000" [ref=e304] [cursor=pointer]
+                - cell [ref=e305] [cursor=pointer]
+                - cell "06/05/2026" [ref=e306] [cursor=pointer]
+                - cell "06/05/2026" [ref=e307] [cursor=pointer]
+                - cell "DENKI SHOJI CO.,LTD." [ref=e308] [cursor=pointer]
+                - cell "[990052] อะไหล่ FORM_MC01" [ref=e309] [cursor=pointer]
+                - cell "0.000" [ref=e310] [cursor=pointer]:
+                  - generic [ref=e311]: "0.000"
+                - cell "3.000" [ref=e312] [cursor=pointer]:
+                  - generic [ref=e313]: "3.000"
+                - cell "3.000" [ref=e314] [cursor=pointer]:
+                  - generic [ref=e315]: "3.000"
+                - cell [ref=e316] [cursor=pointer]
+                - cell "0.000" [ref=e317] [cursor=pointer]:
+                  - generic [ref=e318]: "0.000"
+                - cell "300.000" [ref=e319] [cursor=pointer]:
+                  - generic [ref=e320]: "300.000"
+                - cell "Locked" [ref=e321] [cursor=pointer]:
+                  - generic [ref=e323]: Locked
+                - cell "ยังไม่วางบิล" [ref=e324] [cursor=pointer]:
+                  - generic [ref=e326]: ยังไม่วางบิล
+                - cell "รอตั้งหนี้" [ref=e327] [cursor=pointer]:
+                  - generic [ref=e329]: รอตั้งหนี้
+                - cell [ref=e330]
+              - 'row "PO / Service P01093 UI-VRCN-PO-20260605B Total Summary APD: APD/2026/06/0003 | CN: RAPD/2026/06/0002 0.000 0.000 06/05/2026 06/05/2026 DENKI SHOJI CO.,LTD. [990052] อะไหล่ FORM_MC01 0.000 1.000 0.000 0.000 300.000 Locked วางบิลครบแล้ว ตั้งหนี้ครบแล้ว" [ref=e331]':
+                - cell [ref=e332] [cursor=pointer]:
+                  - generic [ref=e333]:
+                    - checkbox [disabled]
+                - cell "PO / Service" [ref=e334] [cursor=pointer]:
+                  - generic [ref=e336]: PO / Service
+                - cell "P01093" [ref=e337] [cursor=pointer]
+                - cell [ref=e338] [cursor=pointer]
+                - cell [ref=e339] [cursor=pointer]
+                - cell "UI-VRCN-PO-20260605B" [ref=e341] [cursor=pointer]
+                - cell "Total Summary" [ref=e342] [cursor=pointer]
+                - cell [ref=e343] [cursor=pointer]
+                - 'cell "APD: APD/2026/06/0003 | CN: RAPD/2026/06/0002" [ref=e344] [cursor=pointer]'
+                - cell [ref=e345] [cursor=pointer]
+                - cell "0.000" [ref=e346] [cursor=pointer]
+                - cell "0.000" [ref=e347] [cursor=pointer]
+                - cell [ref=e348] [cursor=pointer]
+                - cell "06/05/2026" [ref=e349] [cursor=pointer]
+                - cell "06/05/2026" [ref=e350] [cursor=pointer]
+                - cell "DENKI SHOJI CO.,LTD." [ref=e351] [cursor=pointer]
+                - cell "[990052] อะไหล่ FORM_MC01" [ref=e352] [cursor=pointer]
+                - cell "0.000" [ref=e353] [cursor=pointer]:
+                  - generic [ref=e354]: "0.000"
+                - cell "1.000" [ref=e355] [cursor=pointer]:
+                  - generic [ref=e356]: "1.000"
+                - cell "0.000" [ref=e357] [cursor=pointer]:
+                  - generic [ref=e358]: "0.000"
+                - cell [ref=e359] [cursor=pointer]
+                - cell "0.000" [ref=e360] [cursor=pointer]:
+                  - generic [ref=e361]: "0.000"
+                - cell "300.000" [ref=e362] [cursor=pointer]:
+                  - generic [ref=e363]: "300.000"
+                - cell "Locked" [ref=e364] [cursor=pointer]:
+                  - generic [ref=e366]: Locked
+                - cell "วางบิลครบแล้ว" [ref=e367] [cursor=pointer]:
+                  - generic [ref=e369]: วางบิลครบแล้ว
+                - cell "ตั้งหนี้ครบแล้ว" [ref=e370] [cursor=pointer]:
+                  - generic [ref=e372]: ตั้งหนี้ครบแล้ว
+                - cell [ref=e373]
+              - row "Bill / Credit Note P01093 APD/2026/06/0003 (UI-VRCN-PO-20260605B-BILL) Vendor Bill UI-VRCN-PO-20260605B Vendor Bill 06/05/2026 APD/2026/06/0003 06/05/2026 321.000 ฿ 321.000 ฿ 06/05/2026 06/05/2026 DENKI SHOJI CO.,LTD. [990052] อะไหล่ FORM_MC01 0.000 0.000 0.000 0.000 300.000 Locked ยังไม่วางบิล ตั้งหนี้ครบแล้ว" [ref=e374]:
+                - cell [ref=e375] [cursor=pointer]:
+                  - generic [ref=e376]:
+                    - checkbox [disabled]
+                - cell "Bill / Credit Note" [ref=e377] [cursor=pointer]:
+                  - generic [ref=e379]: Bill / Credit Note
+                - cell "P01093" [ref=e380] [cursor=pointer]
+                - cell "APD/2026/06/0003 (UI-VRCN-PO-20260605B-BILL)" [ref=e381] [cursor=pointer]
+                - cell "Vendor Bill" [ref=e382] [cursor=pointer]:
+                  - generic [ref=e384]: Vendor Bill
+                - cell "UI-VRCN-PO-20260605B" [ref=e385] [cursor=pointer]
+                - cell "Vendor Bill" [ref=e386] [cursor=pointer]
+                - cell "06/05/2026" [ref=e387] [cursor=pointer]
+                - cell "APD/2026/06/0003" [ref=e388] [cursor=pointer]
+                - cell "06/05/2026" [ref=e389] [cursor=pointer]
+                - cell "321.000 ฿" [ref=e390] [cursor=pointer]
+                - cell "321.000 ฿" [ref=e391] [cursor=pointer]
+                - cell [ref=e392] [cursor=pointer]
+                - cell "06/05/2026" [ref=e393] [cursor=pointer]
+                - cell "06/05/2026" [ref=e394] [cursor=pointer]
+                - cell "DENKI SHOJI CO.,LTD." [ref=e395] [cursor=pointer]
+                - cell "[990052] อะไหล่ FORM_MC01" [ref=e396] [cursor=pointer]
+                - cell "0.000" [ref=e397] [cursor=pointer]:
+                  - generic [ref=e398]: "0.000"
+                - cell "0.000" [ref=e399] [cursor=pointer]:
+                  - generic [ref=e400]: "0.000"
+                - cell "0.000" [ref=e401] [cursor=pointer]:
+                  - generic [ref=e402]: "0.000"
+                - cell [ref=e403] [cursor=pointer]
+                - cell "0.000" [ref=e404] [cursor=pointer]:
+                  - generic [ref=e405]: "0.000"
+                - cell "300.000" [ref=e406] [cursor=pointer]:
+                  - generic [ref=e407]: "300.000"
+                - cell "Locked" [ref=e408] [cursor=pointer]:
+                  - generic [ref=e410]: Locked
+                - cell "ยังไม่วางบิล" [ref=e411] [cursor=pointer]:
+                  - generic [ref=e413]: ยังไม่วางบิล
+                - cell "ตั้งหนี้ครบแล้ว" [ref=e414] [cursor=pointer]:
+                  - generic [ref=e416]: ตั้งหนี้ครบแล้ว
+                - cell [ref=e417]
+              - 'row "Bill / Credit Note P01093 RAPD/2026/06/0002 (การกลับรายการของ: APD/2026/06/0003, UI-VRCN- [...]) Vendor Credit Note UI-VRCN-PO-20260605B Vendor Credit Note 06/05/2026 RAPD/2026/06/0002 06/05/2026 -214.000 ฿ -214.000 ฿ 06/05/2026 06/05/2026 DENKI SHOJI CO.,LTD. [990052] อะไหล่ FORM_MC01 0.000 0.000 0.000 0.000 -200.000 Locked ยังไม่วางบิล ตั้งหนี้ครบแล้ว" [ref=e418]':
+                - cell [ref=e419] [cursor=pointer]:
+                  - generic [ref=e420]:
+                    - checkbox [disabled]
+                - cell "Bill / Credit Note" [ref=e421] [cursor=pointer]:
+                  - generic [ref=e423]: Bill / Credit Note
+                - cell "P01093" [ref=e424] [cursor=pointer]
+                - 'cell "RAPD/2026/06/0002 (การกลับรายการของ: APD/2026/06/0003, UI-VRCN- [...])" [ref=e425] [cursor=pointer]'
+                - cell "Vendor Credit Note" [ref=e426] [cursor=pointer]:
+                  - generic [ref=e428]: Vendor Credit Note
+                - cell "UI-VRCN-PO-20260605B" [ref=e429] [cursor=pointer]
+                - cell "Vendor Credit Note" [ref=e430] [cursor=pointer]
+                - cell "06/05/2026" [ref=e431] [cursor=pointer]
+                - cell "RAPD/2026/06/0002" [ref=e432] [cursor=pointer]
+                - cell "06/05/2026" [ref=e433] [cursor=pointer]
+                - cell "-214.000 ฿" [ref=e434] [cursor=pointer]
+                - cell "-214.000 ฿" [ref=e435] [cursor=pointer]
+                - cell [ref=e436] [cursor=pointer]
+                - cell "06/05/2026" [ref=e437] [cursor=pointer]
+                - cell "06/05/2026" [ref=e438] [cursor=pointer]
+                - cell "DENKI SHOJI CO.,LTD." [ref=e439] [cursor=pointer]
+                - cell "[990052] อะไหล่ FORM_MC01" [ref=e440] [cursor=pointer]
+                - cell "0.000" [ref=e441] [cursor=pointer]:
+                  - generic [ref=e442]: "0.000"
+                - cell "0.000" [ref=e443] [cursor=pointer]:
+                  - generic [ref=e444]: "0.000"
+                - cell "0.000" [ref=e445] [cursor=pointer]:
+                  - generic [ref=e446]: "0.000"
+                - cell [ref=e447] [cursor=pointer]
+                - cell "0.000" [ref=e448] [cursor=pointer]:
+                  - generic [ref=e449]: "0.000"
+                - cell "-200.000" [ref=e450] [cursor=pointer]:
+                  - generic [ref=e451]: "-200.000"
+                - cell "Locked" [ref=e452] [cursor=pointer]:
+                  - generic [ref=e454]: Locked
+                - cell "ยังไม่วางบิล" [ref=e455] [cursor=pointer]:
+                  - generic [ref=e457]: ยังไม่วางบิล
+                - cell "ตั้งหนี้ครบแล้ว" [ref=e458] [cursor=pointer]:
+                  - generic [ref=e460]: ตั้งหนี้ครบแล้ว
+                - cell [ref=e461]
+            - rowgroup [ref=e462]:
+              - row "107.000 107.000" [ref=e463]:
+                - cell [ref=e464]
+                - cell [ref=e465]
+                - cell [ref=e466]
+                - cell [ref=e467]
+                - cell [ref=e468]
+                - cell [ref=e469]
+                - cell [ref=e470]
+                - cell [ref=e471]
+                - cell [ref=e472]
+                - cell [ref=e473]
+                - cell "107.000" [ref=e474]
+                - cell "107.000" [ref=e475]
+                - cell [ref=e476]
+                - cell [ref=e477]
+                - cell [ref=e478]
+                - cell [ref=e479]
+                - cell [ref=e480]
+                - cell [ref=e481]
+                - cell [ref=e482]
+                - cell [ref=e483]
+                - cell [ref=e484]
+                - cell [ref=e485]
+                - cell [ref=e486]
+                - cell [ref=e487]
+                - cell [ref=e488]
+                - cell [ref=e489]
+                - cell [ref=e490]

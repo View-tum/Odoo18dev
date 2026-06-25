@@ -1,0 +1,616 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Accounting" [ref=e151]
+        - generic [ref=e152]: Accounting
+      - menu [ref=e153]:
+        - menuitem "Dashboard" [ref=e154] [cursor=pointer]
+        - button "Customers" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: Customers
+        - button "Vendors" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]: Vendors
+        - button "Accounting" [ref=e159] [cursor=pointer]:
+          - generic [ref=e160]: Accounting
+        - button "Reporting" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: Reporting
+        - button "Configuration" [expanded] [active] [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 21" [ref=e730] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "21"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "" [disabled] [ref=e20]:
+          - generic [ref=e21]: 
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e172]:
+    - generic [ref=e174]:
+      - generic [ref=e176]:
+        - generic [ref=e178]: Dashboard
+        - button "" [ref=e182] [cursor=pointer]:
+          - generic [ref=e183]: 
+      - search [ref=e185]:
+        - search [ref=e186]:
+          - button "Search..." [ref=e187] [cursor=pointer]:
+            - img [ref=e188]: 
+          - generic [ref=e189]:
+            - listitem "search" [ref=e190]:
+              - button " " [ref=e192] [cursor=pointer]:
+                - generic [ref=e193]: 
+                - generic [ref=e195]: 
+              - generic [ref=e196]:
+                - generic "Favorites" [ref=e197]
+                - button "Remove" [ref=e198] [cursor=pointer]: 
+            - searchbox "Search..." [ref=e199]
+        - button "" [ref=e200] [cursor=pointer]
+      - search [ref=e202]:
+        - navigation "Pager" [ref=e203]:
+          - generic [ref=e204]:
+            - generic [ref=e205]: 1-32
+            - text: / 32
+          - generic [ref=e206]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - generic [ref=e208]:
+      - article [ref=e209]:
+        - link "ใบสำคัญผ่อนชำระ" [ref=e211] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e215] [cursor=pointer]
+      - article [ref=e217]:
+        - link "Miscellaneous Operations" [ref=e219] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e223] [cursor=pointer]
+      - article [ref=e228]:
+        - link "Cheque for Customer Invoices" [ref=e230] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e232]:
+          - button "Transactions" [ref=e235] [cursor=pointer]
+          - generic [ref=e236]:
+            - generic [ref=e237]:
+              - link "Balance" [ref=e239] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e240]: 195,638.60 ฿
+            - generic [ref=e241]:
+              - link "Payments" [ref=e243] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e244]: 7,959,210.40 ฿
+            - generic [ref=e245]:
+              - link "Misc. Operations" [ref=e247] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e248]: 734,792.65 ฿
+      - article [ref=e253]:
+        - link "Cheque for Vendor Bills" [ref=e255] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e256]: Connect your bank. Match invoices automatically.
+        - generic [ref=e731]:
+          - button "Search over 26 000 banks" [ref=e733] [cursor=pointer]:
+            - generic [ref=e734]: Search over 26 000 banks
+          - button "Kasikornthai Bank" [ref=e736] [cursor=pointer]:
+            - img "Kasikornthai Bank" [ref=e737]
+          - button "Krungsri Biz" [ref=e739] [cursor=pointer]
+          - button "Bangkok Bank" [ref=e741] [cursor=pointer]:
+            - img "Bangkok Bank" [ref=e742]
+          - button "Citibank" [ref=e744] [cursor=pointer]:
+            - img "Citibank" [ref=e745]
+          - button "Kasikornbank" [ref=e747] [cursor=pointer]
+          - button "Krungsri Online" [ref=e749] [cursor=pointer]:
+            - img "Krungsri Online" [ref=e750]
+          - button "Government Savings Bank" [ref=e752] [cursor=pointer]:
+            - img "Government Savings Bank" [ref=e753]
+          - button "Krungthai Card Public Company Limited" [ref=e755] [cursor=pointer]:
+            - img "Krungthai Card Public Company Limited" [ref=e756]
+          - button "ME by TMB" [ref=e758] [cursor=pointer]:
+            - img "ME by TMB" [ref=e759]
+          - button "Thai Military Bank PCL" [ref=e761] [cursor=pointer]:
+            - img "Thai Military Bank PCL" [ref=e762]
+          - button "Belfius" [ref=e764] [cursor=pointer]:
+            - img "Belfius" [ref=e765]
+          - button "ING" [ref=e767] [cursor=pointer]:
+            - img "ING" [ref=e768]
+          - button "KBC" [ref=e770] [cursor=pointer]:
+            - img "KBC" [ref=e771]
+          - button "CBC" [ref=e773] [cursor=pointer]:
+            - img "CBC" [ref=e774]
+          - button "Chase" [ref=e776] [cursor=pointer]:
+            - img "Chase" [ref=e777]
+          - button "Caixa Bank" [ref=e779] [cursor=pointer]:
+            - img "Caixa Bank" [ref=e780]
+          - button "Crelan" [ref=e782] [cursor=pointer]:
+            - img "Crelan" [ref=e783]
+          - button "BNP Paribas Fortis" [ref=e785] [cursor=pointer]:
+            - img "BNP Paribas Fortis" [ref=e786]
+          - button "Rabobank" [ref=e788] [cursor=pointer]:
+            - img "Rabobank" [ref=e789]
+          - button "BBVA" [ref=e791] [cursor=pointer]:
+            - img "BBVA" [ref=e792]
+          - button "Bank of America" [ref=e794] [cursor=pointer]:
+            - img "Bank of America" [ref=e795]
+          - button "Santander" [ref=e797] [cursor=pointer]:
+            - img "Santander" [ref=e798]
+          - button "Sabadell" [ref=e800] [cursor=pointer]:
+            - img "Sabadell" [ref=e801]
+          - button "American Express" [ref=e803] [cursor=pointer]:
+            - img "American Express" [ref=e804]
+          - button "Qonto" [ref=e806] [cursor=pointer]:
+            - img "Qonto" [ref=e807]
+          - button "ING (Mijn)" [ref=e809] [cursor=pointer]:
+            - img "ING (Mijn)" [ref=e810]
+      - article [ref=e261]:
+        - link "เงินฝากธนาคารสกุลเงิน JPY -ธ.กสิกรไทย#" [ref=e263] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e264]: Connect your bank. Match invoices automatically.
+        - generic [ref=e811]:
+          - button "Search over 26 000 banks" [ref=e813] [cursor=pointer]:
+            - generic [ref=e814]: Search over 26 000 banks
+          - button "Kasikornthai Bank" [ref=e816] [cursor=pointer]:
+            - img "Kasikornthai Bank" [ref=e817]
+          - button "Krungsri Biz" [ref=e819] [cursor=pointer]
+          - button "Bangkok Bank" [ref=e821] [cursor=pointer]:
+            - img "Bangkok Bank" [ref=e822]
+          - button "Citibank" [ref=e824] [cursor=pointer]:
+            - img "Citibank" [ref=e825]
+          - button "Kasikornbank" [ref=e827] [cursor=pointer]
+          - button "Krungsri Online" [ref=e829] [cursor=pointer]:
+            - img "Krungsri Online" [ref=e830]
+          - button "Government Savings Bank" [ref=e832] [cursor=pointer]:
+            - img "Government Savings Bank" [ref=e833]
+          - button "Krungthai Card Public Company Limited" [ref=e835] [cursor=pointer]:
+            - img "Krungthai Card Public Company Limited" [ref=e836]
+          - button "ME by TMB" [ref=e838] [cursor=pointer]:
+            - img "ME by TMB" [ref=e839]
+          - button "Thai Military Bank PCL" [ref=e841] [cursor=pointer]:
+            - img "Thai Military Bank PCL" [ref=e842]
+          - button "Belfius" [ref=e844] [cursor=pointer]:
+            - img "Belfius" [ref=e845]
+          - button "ING" [ref=e847] [cursor=pointer]:
+            - img "ING" [ref=e848]
+          - button "KBC" [ref=e850] [cursor=pointer]:
+            - img "KBC" [ref=e851]
+          - button "CBC" [ref=e853] [cursor=pointer]:
+            - img "CBC" [ref=e854]
+          - button "Chase" [ref=e856] [cursor=pointer]:
+            - img "Chase" [ref=e857]
+          - button "Caixa Bank" [ref=e859] [cursor=pointer]:
+            - img "Caixa Bank" [ref=e860]
+          - button "Crelan" [ref=e862] [cursor=pointer]:
+            - img "Crelan" [ref=e863]
+          - button "BNP Paribas Fortis" [ref=e865] [cursor=pointer]:
+            - img "BNP Paribas Fortis" [ref=e866]
+          - button "Rabobank" [ref=e868] [cursor=pointer]:
+            - img "Rabobank" [ref=e869]
+          - button "BBVA" [ref=e871] [cursor=pointer]:
+            - img "BBVA" [ref=e872]
+          - button "Bank of America" [ref=e874] [cursor=pointer]:
+            - img "Bank of America" [ref=e875]
+          - button "Santander" [ref=e877] [cursor=pointer]:
+            - img "Santander" [ref=e878]
+          - button "Sabadell" [ref=e880] [cursor=pointer]:
+            - img "Sabadell" [ref=e881]
+          - button "American Express" [ref=e883] [cursor=pointer]:
+            - img "American Express" [ref=e884]
+          - button "Qonto" [ref=e886] [cursor=pointer]:
+            - img "Qonto" [ref=e887]
+          - button "ING (Mijn)" [ref=e889] [cursor=pointer]:
+            - img "ING (Mijn)" [ref=e890]
+      - article [ref=e269]:
+        - link "เงินฝากธนาคารสกุลเงิน USD -ธ.กสิกรไทย#" [ref=e271] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e272]: Connect your bank. Match invoices automatically.
+        - generic [ref=e891]:
+          - button "Search over 26 000 banks" [ref=e893] [cursor=pointer]:
+            - generic [ref=e894]: Search over 26 000 banks
+          - button "Kasikornthai Bank" [ref=e896] [cursor=pointer]:
+            - img "Kasikornthai Bank" [ref=e897]
+          - button "Krungsri Biz" [ref=e899] [cursor=pointer]
+          - button "Bangkok Bank" [ref=e901] [cursor=pointer]:
+            - img "Bangkok Bank" [ref=e902]
+          - button "Citibank" [ref=e904] [cursor=pointer]:
+            - img "Citibank" [ref=e905]
+          - button "Kasikornbank" [ref=e907] [cursor=pointer]
+          - button "Krungsri Online" [ref=e909] [cursor=pointer]:
+            - img "Krungsri Online" [ref=e910]
+          - button "Government Savings Bank" [ref=e912] [cursor=pointer]:
+            - img "Government Savings Bank" [ref=e913]
+          - button "Krungthai Card Public Company Limited" [ref=e915] [cursor=pointer]:
+            - img "Krungthai Card Public Company Limited" [ref=e916]
+          - button "ME by TMB" [ref=e918] [cursor=pointer]:
+            - img "ME by TMB" [ref=e919]
+          - button "Thai Military Bank PCL" [ref=e921] [cursor=pointer]:
+            - img "Thai Military Bank PCL" [ref=e922]
+          - button "Belfius" [ref=e924] [cursor=pointer]:
+            - img "Belfius" [ref=e925]
+          - button "ING" [ref=e927] [cursor=pointer]:
+            - img "ING" [ref=e928]
+          - button "KBC" [ref=e930] [cursor=pointer]:
+            - img "KBC" [ref=e931]
+          - button "CBC" [ref=e933] [cursor=pointer]:
+            - img "CBC" [ref=e934]
+          - button "Chase" [ref=e936] [cursor=pointer]:
+            - img "Chase" [ref=e937]
+          - button "Caixa Bank" [ref=e939] [cursor=pointer]:
+            - img "Caixa Bank" [ref=e940]
+          - button "Crelan" [ref=e942] [cursor=pointer]:
+            - img "Crelan" [ref=e943]
+          - button "BNP Paribas Fortis" [ref=e945] [cursor=pointer]:
+            - img "BNP Paribas Fortis" [ref=e946]
+          - button "Rabobank" [ref=e948] [cursor=pointer]:
+            - img "Rabobank" [ref=e949]
+          - button "BBVA" [ref=e951] [cursor=pointer]:
+            - img "BBVA" [ref=e952]
+          - button "Bank of America" [ref=e954] [cursor=pointer]:
+            - img "Bank of America" [ref=e955]
+          - button "Santander" [ref=e957] [cursor=pointer]:
+            - img "Santander" [ref=e958]
+          - button "Sabadell" [ref=e960] [cursor=pointer]:
+            - img "Sabadell" [ref=e961]
+          - button "American Express" [ref=e963] [cursor=pointer]:
+            - img "American Express" [ref=e964]
+          - button "Qonto" [ref=e966] [cursor=pointer]:
+            - img "Qonto" [ref=e967]
+          - button "ING (Mijn)" [ref=e969] [cursor=pointer]:
+            - img "ING (Mijn)" [ref=e970]
+      - article [ref=e277]:
+        - 'link "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8" [ref=e279] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e281]:
+          - generic [ref=e283]:
+            - button "Transactions" [ref=e284] [cursor=pointer]
+            - button "167 to reconcile" [ref=e285] [cursor=pointer]
+          - generic [ref=e286]:
+            - generic [ref=e287]:
+              - link "Balance" [ref=e289] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e290]: 17,957,688.88 ฿
+            - generic [ref=e291]:
+              - link "Last Statement" [ref=e293] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e294]: 8,041,177.44 ฿
+            - generic [ref=e295]:
+              - link "Payments" [ref=e297] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e298]: 20,160,711.91 ฿
+            - generic [ref=e299]:
+              - link "Misc. Operations" [ref=e301] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e302]: 734,792.65 ฿
+      - article [ref=e307]:
+        - 'link "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงเทพ สี่แยกบางนา #240-300280-7" [ref=e309] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e311]:
+          - button "Transactions" [ref=e314] [cursor=pointer]
+          - generic [ref=e315]:
+            - generic [ref=e316]:
+              - link "Balance" [ref=e318] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e319]: 3,267,658.83 ฿
+            - generic [ref=e320]:
+              - link "Payments" [ref=e322] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e323]: 139,195.00 ฿
+      - article [ref=e328]:
+        - 'link "เงินฝากธนาคารออมทรัพย์-ธ.กสิกรไทย เซ็นทรัลบางนา #011-3-18586-4" [ref=e330] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e332]:
+          - button "Transactions" [ref=e335] [cursor=pointer]
+          - generic [ref=e336]:
+            - generic [ref=e337]:
+              - link "Balance" [ref=e339] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e340]: 47,366,249.80 ฿
+            - generic [ref=e341]:
+              - link "Payments" [ref=e343] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e344]: 513.00 ฿
+            - generic [ref=e345]:
+              - link "Misc. Operations" [ref=e347] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e348]: "-12,065.00 ฿"
+      - article [ref=e353]:
+        - 'link "เงินฝากธนาคารออมทรัพย์-ธ.กรุงไทย สรรพาวุธ #180-0-01184-9" [ref=e355] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e357]:
+          - button "Transactions" [ref=e360] [cursor=pointer]
+          - generic [ref=e361]:
+            - generic [ref=e362]:
+              - link "Balance" [ref=e364] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e365]: 45,877.93 ฿
+            - generic [ref=e366]:
+              - link "Payments" [ref=e368] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e369]: 11,696,604.08 ฿
+      - article [ref=e374]:
+        - 'link "เงินฝากธนาคารออมทรัพย์-ธ.ไทยพาณิชย์ บางนา #015-441363-4" [ref=e376] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e378]:
+          - button "Transactions" [ref=e381] [cursor=pointer]
+          - generic [ref=e383]:
+            - link "Balance" [ref=e385] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e386]: 179,304.64 ฿
+      - article [ref=e391]:
+        - 'link "เงินฝากธนาคาร UOB CA The Third Place #814-300-155-5" [ref=e393] [cursor=pointer]':
+          - /url: "#"
+        - generic [ref=e395]:
+          - generic [ref=e397]:
+            - button "Bank Setup" [ref=e398] [cursor=pointer]
+            - button "Transactions" [ref=e399] [cursor=pointer]
+          - generic [ref=e401]:
+            - link "Balance" [ref=e403] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e404]: 8,495,066.03 ฿
+      - article [ref=e409]:
+        - link "Cash" [ref=e411] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e413]:
+          - button "Transactions" [ref=e416] [cursor=pointer]
+          - generic [ref=e417]:
+            - generic [ref=e418]:
+              - link "Balance" [ref=e420] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e421]: 0.00 ฿
+            - generic [ref=e422]:
+              - link "Payments" [ref=e424] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e425]: 25,294.70 ฿
+      - article [ref=e430]:
+        - link "เงินสดจากการขาย (กทม.)" [ref=e432] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e434]:
+          - button "Transactions" [ref=e437] [cursor=pointer]
+          - generic [ref=e438]:
+            - generic [ref=e439]:
+              - link "Balance" [ref=e441] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e442]: 1,689,624.99 ฿
+            - generic [ref=e443]:
+              - link "Misc. Operations" [ref=e445] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e446]: "-1,193.00 ฿"
+      - article [ref=e451]:
+        - link "เงินสดจากการขาย (ตจว.)" [ref=e453] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e455]:
+          - button "Transactions" [ref=e458] [cursor=pointer]
+          - generic [ref=e460]:
+            - link "Balance" [ref=e462] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e463]: 10,387,624.04 ฿
+      - article [ref=e468]:
+        - link "Cash Mobile" [ref=e470] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e472]:
+          - button "Transactions" [ref=e475] [cursor=pointer]
+          - generic [ref=e476]:
+            - generic [ref=e477]:
+              - link "Balance" [ref=e479] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e480]: 142,232.00 ฿
+            - generic [ref=e481]:
+              - link "Misc. Operations" [ref=e483] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e484]: "-1,193.00 ฿"
+      - article [ref=e489]:
+        - link "เงินสดย่อย" [ref=e491] [cursor=pointer]:
+          - /url: "#"
+        - button "Transactions" [ref=e496] [cursor=pointer]
+      - article [ref=e502]:
+        - link "Advance" [ref=e504] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e508] [cursor=pointer]
+      - article [ref=e510]:
+        - link "เงินมัดจำ" [ref=e512] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e516] [cursor=pointer]
+      - article [ref=e518]:
+        - link "Cash Basis Tax Journal" [ref=e520] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e524] [cursor=pointer]
+      - article [ref=e526]:
+        - link "Depreciation Journal" [ref=e528] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e532] [cursor=pointer]
+      - article [ref=e534]:
+        - link "Land Cost" [ref=e536] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e540] [cursor=pointer]
+      - article [ref=e542]:
+        - link "Opening Invoices" [ref=e544] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e548] [cursor=pointer]
+      - article [ref=e550]:
+        - link "Opening Balance" [ref=e552] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e556] [cursor=pointer]
+      - article [ref=e558]:
+        - link "Opening Vendor Bill" [ref=e560] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e564] [cursor=pointer]
+      - article [ref=e566]:
+        - link "ใบสำคัญบันทึกสินค้า" [ref=e568] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e572] [cursor=pointer]
+      - article [ref=e574]:
+        - link "ใบสำคัญการโอน" [ref=e576] [cursor=pointer]:
+          - /url: "#"
+        - button "New" [ref=e580] [cursor=pointer]
+      - article [ref=e582]:
+        - link "Domestic Vendor Bills" [ref=e584] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e586]:
+          - generic [ref=e588]:
+            - link "Upload" [ref=e591] [cursor=pointer]:
+              - /url: "#"
+            - button "New" [ref=e593] [cursor=pointer]
+          - generic [ref=e594]:
+            - generic [ref=e595]:
+              - link "20 To Validate" [ref=e597] [cursor=pointer]:
+                - /url: "#"
+                - generic "Bills to Validate" [ref=e598]: 20 To Validate
+              - generic [ref=e599]: 4,593,309.78 ฿
+            - generic [ref=e600]:
+              - link "144 To Pay" [ref=e602] [cursor=pointer]:
+                - /url: "#"
+                - generic "Bills to Pay" [ref=e603]: 144 To Pay
+              - generic [ref=e604]: 51,287,345.61 ฿
+            - generic [ref=e605]:
+              - link "142 Late" [ref=e607] [cursor=pointer]:
+                - /url: "#"
+                - generic "Bills Late" [ref=e608]: 142 Late
+              - generic [ref=e609]: 51,260,718.56 ฿
+            - generic [ref=e610]:
+              - link "159 To Check" [ref=e612] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e613]: 55,770,058.10 ฿
+            - link "Irregular Sequences" [ref=e615] [cursor=pointer]:
+              - /url: "#"
+      - article [ref=e620]:
+        - link "Overseas Vendor Bills" [ref=e622] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e624]:
+          - generic [ref=e626]:
+            - link "Upload" [ref=e629] [cursor=pointer]:
+              - /url: "#"
+            - button "New" [ref=e631] [cursor=pointer]
+          - generic [ref=e633]:
+            - link "1 To Pay" [ref=e635] [cursor=pointer]:
+              - /url: "#"
+              - generic "Bills to Pay" [ref=e636]: 1 To Pay
+            - generic [ref=e637]: 107,000.00 ฿
+      - article [ref=e642]:
+        - link "Other Vendor Invoice" [ref=e644] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e645]: Let artificial intelligence scan your bill. Pay easily.
+        - generic [ref=e649]:
+          - link "Upload" [ref=e652] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e654]:
+            - generic [ref=e655]:
+              - img [ref=e657]
+              - generic [ref=e658]:
+                - generic: Drag & drop
+                - generic [ref=e659]:
+                  - generic: or
+                  - link "try our sample" [ref=e660] [cursor=pointer]:
+                    - /url: "#"
+            - generic [ref=e664]: or
+            - generic [ref=e667]:
+              - img "Create bill manually" [ref=e669]
+              - link "Create a bill manually" [ref=e672] [cursor=pointer]:
+                - /url: "#"
+      - article [ref=e673]:
+        - link "Domestic Customer Invoice" [ref=e675] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e677]:
+          - button "New" [ref=e679] [cursor=pointer]
+          - generic [ref=e680]:
+            - generic [ref=e681]:
+              - link "8 To Validate" [ref=e683] [cursor=pointer]:
+                - /url: "#"
+                - generic "Invoices to Validate" [ref=e684]: 8 To Validate
+              - generic [ref=e685]: "-3,280,060.66 ฿"
+            - generic [ref=e686]:
+              - link "1881 Unpaid" [ref=e688] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e689]: 1881 Unpaid
+              - generic [ref=e690]: 121,448,976.67 ฿
+            - generic [ref=e691]:
+              - link "1879 Late" [ref=e693] [cursor=pointer]:
+                - /url: "#"
+                - generic "Invoices late" [ref=e694]: 1879 Late
+              - generic [ref=e695]: 121,435,234.79 ฿
+            - generic [ref=e696]:
+              - link "509 To Check" [ref=e698] [cursor=pointer]:
+                - /url: "#"
+              - generic [ref=e699]: "-3,310,202.56 ฿"
+            - link "Irregular Sequences" [ref=e701] [cursor=pointer]:
+              - /url: "#"
+      - article [ref=e706]:
+        - link "International Customer Invoice" [ref=e708] [cursor=pointer]:
+          - /url: "#"
+        - generic [ref=e710]:
+          - button "New" [ref=e712] [cursor=pointer]
+          - generic [ref=e713]:
+            - generic [ref=e714]:
+              - link "2 Unpaid" [ref=e716] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e717]: 2 Unpaid
+              - generic [ref=e718]: $ 837,945.12
+            - generic [ref=e719]:
+              - link "2 Late" [ref=e721] [cursor=pointer]:
+                - /url: "#"
+                - generic "Invoices late" [ref=e722]: 2 Late
+              - generic [ref=e723]: $ 837,945.12
+            - link "Irregular Sequences" [ref=e725] [cursor=pointer]:
+              - /url: "#"
+  - menu [ref=e971]:
+    - menuitem "Settings" [ref=e972] [cursor=pointer]
+    - generic [ref=e973]: Invoicing
+    - menuitem "Payment Terms" [ref=e974] [cursor=pointer]
+    - menuitem "Follow-up Levels" [ref=e975] [cursor=pointer]
+    - menuitem "Incoterms" [ref=e976] [cursor=pointer]
+    - menuitem "Statement Config" [ref=e977] [cursor=pointer]
+    - generic [ref=e978]: Banks
+    - menuitem "Add a Bank Account" [ref=e979] [cursor=pointer]
+    - menuitem "Reconciliation Models" [ref=e980] [cursor=pointer]
+    - menuitem "Online Synchronization" [ref=e981] [cursor=pointer]
+    - generic [ref=e982]: Accounting
+    - menuitem "Chart of Accounts" [ref=e983] [cursor=pointer]
+    - menuitem "Taxes" [ref=e984] [cursor=pointer]
+    - menuitem "Withholding Tax" [ref=e985] [cursor=pointer]
+    - menuitem "WHT Income Code" [ref=e986] [cursor=pointer]
+    - menuitem "PIT Rate" [ref=e987] [cursor=pointer]
+    - menuitem "WHT Revenue Types" [ref=e988] [cursor=pointer]
+    - menuitem "Journals" [ref=e989] [cursor=pointer]
+    - menuitem "Currencies" [ref=e990] [cursor=pointer]
+    - menuitem "Fiscal Positions" [ref=e991] [cursor=pointer]
+    - menuitem "Multi-Ledger" [ref=e992] [cursor=pointer]
+    - menuitem "Tax Groups" [ref=e993] [cursor=pointer]
+    - menuitem "Tax Units" [ref=e994] [cursor=pointer]
+    - menuitem "Account Tags" [ref=e995] [cursor=pointer]
+    - menuitem "Account Groups" [ref=e996] [cursor=pointer]
+    - menuitem "Horizontal Groups" [ref=e997] [cursor=pointer]
+    - menuitem "Financial Budgets" [ref=e998] [cursor=pointer]
+    - generic [ref=e999]: Online Payments
+    - menuitem "Payment Methods" [ref=e1000] [cursor=pointer]
+    - menuitem "Payment Tokens" [ref=e1001] [cursor=pointer]
+    - menuitem "Payment Transactions" [ref=e1002] [cursor=pointer]
+    - generic [ref=e1003]: Management
+    - menuitem "Asset Models" [ref=e1004] [cursor=pointer]
+    - menuitem "Product Categories" [ref=e1005] [cursor=pointer]
+    - menuitem "Accounting Reports" [ref=e1006] [cursor=pointer]
+    - menuitem "Disallowed Expenses Categories" [ref=e1007] [cursor=pointer]
+    - generic [ref=e1008]: Analytic Accounting
+    - menuitem "Analytic Distribution Models" [ref=e1009] [cursor=pointer]
+    - menuitem "Analytic Accounts" [ref=e1010] [cursor=pointer]
+    - menuitem "Analytic Plans" [ref=e1011] [cursor=pointer]
+    - generic [ref=e1012]: Periods
+    - menuitem "Fiscal Year" [ref=e1013] [cursor=pointer]
+    - menuitem "Periods" [ref=e1014] [cursor=pointer]
+    - generic [ref=e1015]: End of Period
+    - menuitem "Generate Opening Entries" [ref=e1016] [cursor=pointer]
+    - menuitem "Cancel Closing Entries" [ref=e1017] [cursor=pointer]
+    - menuitem "Close a Fiscal Year" [ref=e1018] [cursor=pointer]
+    - menuitem "Close a Period" [ref=e1019] [cursor=pointer]
+    - menuitem "Recurring Templates" [ref=e1020] [cursor=pointer]
+    - generic [ref=e1021]: ตั้งค่าคอมมิชชั่น
+    - menuitem "อัตราค่าคอมมิชชั่น" [ref=e1022] [cursor=pointer]
+    - menuitem "เกณฑ์การคิดคอมมิชชั่น" [ref=e1023] [cursor=pointer]
+    - generic [ref=e1024]: MIS Reporting
+    - menuitem "MIS Report Templates" [ref=e1025] [cursor=pointer]
+    - menuitem "MIS Report Styles" [ref=e1026] [cursor=pointer]
+    - menuitem "Default Effective Date Journal" [ref=e1027] [cursor=pointer]

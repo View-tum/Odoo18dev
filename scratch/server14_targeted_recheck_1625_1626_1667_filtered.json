@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-06T22:20:09.315180",
+  "checks": {
+    "1625": {
+      "reports": [],
+      "menus": [],
+      "actions": [],
+      "status": "FAIL"
+    },
+    "1626": {
+      "reports": [],
+      "menus": [],
+      "actions": [],
+      "status": "FAIL"
+    },
+    "1667": {
+      "fields": {
+        "vendor_credit_note_ids": {
+          "relation": "account.move",
+          "string": "Vendor Credit Notes",
+          "type": "many2many"
+        },
+        "vendor_credit_note_count": {
+          "string": "Vendor Credit Note Count",
+          "type": "integer"
+        },
+        "vendor_credit_note_state": {
+          "string": "Vendor Credit Note Status",
+          "type": "selection"
+        }
+      },
+      "credit_notes_with_return_picking": [],
+      "pickings_with_credit_note": [],
+      "sample_latest_checked": 200,
+      "status": "FAIL"
+    }
+  }
+}

@@ -1,110 +1,30 @@
 <odoo>
-    <record id="view_rma_transform_return_list" model="ir.ui.view">
-        <field name="name">rma.transform.return.list</field>
-        <field name="model">rma.transform.return</field>
+    <record id="view_rma_transform_return_line_form" model="ir.ui.view">
+        <field name="name">rma.transform.return.line.form</field>
+        <field name="model">rma.transform.return.line</field>
         <field name="arch" type="xml">
-            <list string="RMA Transform Returns">
-                <field name="name"/>
-                <field name="date"/>
-                <field name="source_picking_id"/>
-                <field name="source_lot_id"/>
-                <field name="product_from_id"/>
-                <field name="product_to_id"/>
-                <field name="qty_return"/>
-                <field name="sale_id"/>
-                <field name="invoice_id"/>
-                <field name="return_picking_id"/>
-                <field name="credit_note_id"/>
-                <field name="state"/>
-            </list>
-        </field>
-    </record>
-
-    <record id="view_rma_transform_return_search" model="ir.ui.view">
-        <field name="name">rma.transform.return.search</field>
-        <field name="model">rma.transform.return</field>
-        <field name="arch" type="xml">
-            <search string="RMA Transform Returns">
-                <field name="name"/>
-                <field name="source_picking_id"/>
-                <field name="source_lot_id"/>
-                <field name="product_from_id"/>
-                <field name="product_to_id"/>
-                <field name="sale_id"/>
-                <field name="invoice_id"/>
-                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
-                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
-                    <filter name="group_product_from" string="Sold Product" context="{'group_by': 'product_from_id'}"/>
-                    <filter name="group_product_to" string="Returned Product" context="{'group_by': 'product_to_id'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
-    <record id="view_rma_transform_return_form" model="ir.ui.view">
-        <field name="name">rma.transform.return.form</field>
-        <field name="model">rma.transform.return</field>
-        <field name="arch" type="xml">
-            <form string="RMA Transform Return">
-                <header>
-                    <button name="action_confirm" type="object" string="Confirm Return" class="btn-primary" invisible="state != 'draft'"/>
-                    <button name="action_cancel" type="object" string="Cancel" invisible="state != 'draft'"/>
-                    <button name="action_cancel" type="object" string="Cancel E2E" invisible="state != 'done'" confirm="This will cancel and remove generated RMA, return picking, and credit note only if they are still reversible. Continue?"/>
-                    <button name="action_set_to_draft" type="object" string="Reset to Draft" invisible="state != 'cancel'"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
-                </header>
+            <form string="RMA Transform Return Line">
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button name="action_view_source_picking" type="object" class="oe_stat_button" icon="fa-truck" invisible="not source_picking_id">
-                            <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_text">Original OUT</span>
-                            </div>
-                        </button>
-                        <button name="action_view_return_picking" type="object" class="oe_stat_button" icon="fa-undo" invisible="not return_picking_id">
-                            <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_text">Return</span>
-                            </div>
-                        </button>
-                        <button name="action_view_credit_note" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="not credit_note_id">
-                            <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_text">Credit Note</span>
-                            </div>
-                        </button>
-                        <button name="action_view_rma_claim" type="object" class="oe_stat_button" icon="fa-life-ring" invisible="not rma_claim_id">
-                            <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_text">RMA</span>
-                            </div>
-                        </button>
-                        <button name="action_view_valuation_layers" type="object" class="oe_stat_button" icon="fa-balance-scale" invisible="not return_picking_id">
-                            <field name="svl_count" widget="statinfo" string="Valuation Layers"/>
-                        </button>
-                    </div>
-                    <div class="oe_title">
-                        <h1>
-                            <field name="name" readonly="1"/>
-                        </h1>
-                    </div>
-                    <group string="Find Original Sale Delivery">
+                    <group string="Original Sale Delivery">
                         <group>
+                            <field name="return_id" readonly="1"/>
                             <field name="source_picking_id" readonly="state != 'draft'"/>
                             <field name="source_lot_id" readonly="state != 'draft'"/>
-                            <field name="source_move_id" readonly="state != 'draft'"/>
-                            <field name="partner_id" readonly="1"/>
+                            <field name="source_move_id" readonly="state != 'draft'" force_save="1"/>
+                            <field name="partner_id" readonly="1" force_save="1"/>
                         </group>
                         <group>
-                            <field name="sale_id" readonly="1"/>
-                            <field name="invoice_id" readonly="1"/>
-                            <field name="invoice_line_id" readonly="1"/>
+                            <field name="sale_id" readonly="1" force_save="1"/>
+                            <field name="invoice_id" readonly="1" force_save="1"/>
+                            <field name="invoice_line_id" readonly="1" force_save="1"/>
                             <field name="company_id" readonly="1"/>
                         </group>
                     </group>
                     <group string="Transform Return">
                         <group>
                             <field name="rule_id" readonly="state != 'draft'"/>
-                            <field name="product_from_id" readonly="1"/>
-                            <field name="product_to_id" readonly="1"/>
+                            <field name="product_from_id" readonly="1" force_save="1"/>
+                            <field name="product_to_id" readonly="1" force_save="1"/>
                             <field name="factor" readonly="1"/>
                         </group>
                         <group>
@@ -117,18 +37,18 @@
                     <group string="Returned Lot and Locations">
                         <group>
                             <field name="return_lot_name" readonly="state != 'draft'"/>
-                            <field name="return_lot_id" readonly="1"/>
-                            <field name="customer_location_id" readonly="1"/>
+                            <field name="return_lot_id" readonly="1" force_save="1"/>
+                            <field name="customer_location_id" readonly="1" force_save="1"/>
                             <field name="destination_location_id" readonly="state != 'draft'"/>
                         </group>
                         <group>
-                            <field name="rma_reason_id" readonly="state != 'draft'"/>
-                            <field name="auto_validate_return" readonly="state != 'draft'"/>
-                            <field name="auto_create_credit_note" readonly="state != 'draft'"/>
-                            <field name="auto_post_credit_note" readonly="state != 'draft'"/>
+                            <field name="rma_reason_id" readonly="state != 'draft'" required="1"/>
+                            <field name="return_picking_id" readonly="1"/>
+                            <field name="credit_note_id" readonly="1"/>
+                            <field name="rma_claim_line_id" readonly="1"/>
                         </group>
                     </group>
-                    <group string="Amount and Cost Preview">
+                    <group string="Amount and Cost Preview" groups="base.group_no_one">
                         <group>
                             <field name="currency_id" invisible="1"/>
                             <field name="refund_unit_price" readonly="1"/>
@@ -142,6 +62,247 @@
                     <group string="Notes">
                         <field name="note" nolabel="1" readonly="state != 'draft'"/>
                     </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rma_transform_return_list" model="ir.ui.view">
+        <field name="name">rma.transform.return.list</field>
+        <field name="model">rma.transform.return</field>
+        <field name="arch" type="xml">
+            <list string="RMA Transform Returns">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="source_picking_id"/>
+                <field name="line_count"/>
+                <field name="refund_amount" widget="monetary"/>
+                <field name="stock_value" widget="monetary"/>
+                <field name="return_picking_count"/>
+                <field name="credit_note_count"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rma_transform_return_search" model="ir.ui.view">
+        <field name="name">rma.transform.return.search</field>
+        <field name="model">rma.transform.return</field>
+        <field name="arch" type="xml">
+            <search string="RMA Transform Returns">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="source_picking_id"/>
+                <field name="source_lot_id"/>
+                <field name="product_from_id"/>
+                <field name="product_to_id"/>
+                <field name="sale_id"/>
+                <field name="invoice_id"/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                <filter name="cancel" string="Cancelled" domain="[('state', '=', 'cancel')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_source" string="Original Delivery" context="{'group_by': 'source_picking_id'}"/>
+                    <filter name="group_product_from" string="Sold Product" context="{'group_by': 'product_from_id'}"/>
+                    <filter name="group_product_to" string="Returned Product" context="{'group_by': 'product_to_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rma_transform_return_form" model="ir.ui.view">
+        <field name="name">rma.transform.return.form</field>
+        <field name="model">rma.transform.return</field>
+        <field name="arch" type="xml">
+            <form string="RMA Transform Return">
+                <header>
+                    <button name="action_load_source" type="object" string="Load Source" invisible="state != 'draft' or not source_picking_id"/>
+                    <button name="action_confirm" type="object" string="Confirm Return" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel E2E" invisible="state != 'done'" confirm="This will cancel and remove generated RMA, return pickings, and credit notes only if they are still reversible. Continue?"/>
+                    <button name="action_set_to_draft" type="object" string="Reset to Draft" invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_source_picking" type="object" class="oe_stat_button" icon="fa-truck" invisible="source_picking_count == 0">
+                            <field name="source_picking_count" widget="statinfo" string="Original OUT"/>
+                        </button>
+                        <button name="action_view_return_picking" type="object" class="oe_stat_button" icon="fa-undo" invisible="return_picking_count == 0">
+                            <field name="return_picking_count" widget="statinfo" string="Returns"/>
+                        </button>
+                        <button name="action_view_credit_note" type="object" class="oe_stat_button" icon="fa-file-text-o" invisible="credit_note_count == 0">
+                            <field name="credit_note_count" widget="statinfo" string="Credit Notes"/>
+                        </button>
+                        <button name="action_view_rma_claim" type="object" class="oe_stat_button" icon="fa-life-ring" invisible="not rma_claim_id">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">RMA</span>
+                            </div>
+                        </button>
+                        <button name="action_view_valuation_layers" type="object" class="oe_stat_button" icon="fa-balance-scale" invisible="svl_count == 0">
+                            <field name="svl_count" widget="statinfo" string="Valuation Layers"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group string="Header">
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="company_id" readonly="1"/>
+                            <field name="partner_id" readonly="1" force_save="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="source_picking_id" readonly="state != 'draft'"/>
+                            <field name="source_lot_id" readonly="state != 'draft'"/>
+                            <field name="destination_location_id" readonly="state != 'draft'"/>
+                            <field name="source_move_id" readonly="1" force_save="1" invisible="not source_move_id"/>
+                            <field name="sale_id" readonly="1" force_save="1" invisible="not sale_id"/>
+                            <field name="invoice_id" readonly="1" force_save="1" invisible="not invoice_id"/>
+                        </group>
+                    </group>
+                    <group string="Automation" groups="base.group_no_one">
+                        <group>
+                            <field name="auto_validate_return" readonly="state != 'draft'" groups="base.group_no_one"/>
+                            <field name="auto_create_credit_note" readonly="state != 'draft'" groups="base.group_no_one"/>
+                            <field name="auto_post_credit_note" readonly="state != 'draft'" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Return Lines">
+                            <field name="line_ids" readonly="state != 'draft'" context="{'default_return_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="state" column_invisible="1"/>
+                                    <field name="source_picking_id"/>
+                                    <field name="source_lot_id"/>
+                                    <field name="source_move_id" optional="hide" force_save="1"/>
+                                    <field name="sale_id" readonly="1" optional="hide" force_save="1"/>
+                                    <field name="invoice_id" readonly="1" force_save="1"/>
+                                    <field name="invoice_line_id" readonly="1" optional="hide" force_save="1"/>
+                                    <field name="rule_id"/>
+                                    <field name="product_from_id" readonly="1" force_save="1"/>
+                                    <field name="product_to_id" readonly="1" force_save="1"/>
+                                    <field name="qty_return"/>
+                                    <field name="factor" readonly="1"/>
+                                    <field name="qty_source_equivalent" readonly="1"/>
+                                    <field name="max_return_qty" readonly="1" groups="base.group_no_one"/>
+                                    <field name="return_lot_name"/>
+                                    <field name="destination_location_id"/>
+                                    <field name="rma_reason_id" readonly="state != 'draft'" required="1"/>
+                                    <field name="refund_amount" widget="monetary" readonly="1" groups="base.group_no_one"/>
+                                    <field name="stock_value" widget="monetary" readonly="1" groups="base.group_no_one"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                                <form string="Return Line">
+                                    <group string="Original Sale Delivery">
+                                        <group>
+                                            <field name="state" invisible="1"/>
+                                            <field name="source_picking_id" readonly="state != 'draft'"/>
+                                            <field name="source_lot_id" readonly="state != 'draft'"/>
+                                            <field name="source_move_id" readonly="state != 'draft'" force_save="1"/>
+                                            <field name="partner_id" readonly="1" force_save="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="sale_id" readonly="1" force_save="1"/>
+                                            <field name="invoice_id" readonly="1" force_save="1"/>
+                                            <field name="invoice_line_id" readonly="1" force_save="1"/>
+                                            <field name="company_id" readonly="1"/>
+                                        </group>
+                                    </group>
+                                    <group string="Transform Return">
+                                        <group>
+                                            <field name="rule_id" readonly="state != 'draft'"/>
+                                            <field name="product_from_id" readonly="1" force_save="1"/>
+                                            <field name="product_to_id" readonly="1" force_save="1"/>
+                                            <field name="factor" readonly="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="qty_return" readonly="state != 'draft'"/>
+                                            <field name="qty_source_equivalent" readonly="1"/>
+                                            <field name="returned_qty" readonly="1"/>
+                                            <field name="max_return_qty" readonly="1"/>
+                                        </group>
+                                    </group>
+                                    <group string="Returned Lot and Locations">
+                                        <group>
+                                            <field name="return_lot_name" readonly="state != 'draft'"/>
+                                            <field name="return_lot_id" readonly="1" force_save="1"/>
+                                            <field name="customer_location_id" readonly="1" force_save="1"/>
+                                            <field name="destination_location_id" readonly="state != 'draft'"/>
+                                        </group>
+                                        <group>
+                                            <field name="rma_reason_id" readonly="state != 'draft'" required="1"/>
+                                            <field name="return_picking_id" readonly="1"/>
+                                            <field name="credit_note_id" readonly="1"/>
+                                            <field name="rma_claim_line_id" readonly="1"/>
+                                        </group>
+                                    </group>
+                                    <group string="Amount and Cost Preview" groups="base.group_no_one">
+                                        <group>
+                                            <field name="currency_id" invisible="1"/>
+                                            <field name="refund_unit_price" readonly="1"/>
+                                            <field name="refund_amount" widget="monetary" readonly="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="stock_unit_cost" readonly="1"/>
+                                            <field name="stock_value" widget="monetary" readonly="1"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Amount and Cost Preview" groups="base.group_no_one">
+                            <group>
+                                <group>
+                                    <field name="refund_unit_price" readonly="1"/>
+                                    <field name="refund_amount" widget="monetary" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="stock_unit_cost" readonly="1"/>
+                                    <field name="stock_value" widget="monetary" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Generated Documents">
+                            <group>
+                                <group>
+                                    <field name="rma_claim_id" readonly="1"/>
+                                    <field name="return_picking_id" readonly="1"/>
+                                    <field name="credit_note_id" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="return_picking_ids" widget="many2many_tags" readonly="1"/>
+                                    <field name="credit_note_ids" widget="many2many_tags" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Legacy First Line Trace" groups="base.group_no_one">
+                            <group>
+                                <group>
+                                    <field name="source_move_id" readonly="1" force_save="1"/>
+                                    <field name="source_lot_id" readonly="1"/>
+                                    <field name="invoice_line_id" readonly="1" force_save="1"/>
+                                    <field name="sale_line_id" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="rule_id" readonly="1"/>
+                                    <field name="product_from_id" readonly="1" force_save="1"/>
+                                    <field name="product_to_id" readonly="1" force_save="1"/>
+                                    <field name="return_lot_id" readonly="1" force_save="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="note" nolabel="1" readonly="state != 'draft'"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -168,12 +329,14 @@
                 <field name="rma_transform_return_id" readonly="1" invisible="not rma_transform_return_id"/>
             </xpath>
             <xpath expr="//field[@name='claim_line_ids']/list/field[@name='move_id']" position="before">
-                <field name="rma_transform_return_id" readonly="1" optional="show"/>
+                <field name="rma_transform_return_id" readonly="1" optional="hide"/>
+                <field name="rma_transform_return_line_id" readonly="1" optional="show"/>
                 <field name="rma_transform_original_product_id" readonly="1" optional="hide"/>
                 <field name="rma_transform_invoice_id" readonly="1" optional="hide"/>
             </xpath>
             <xpath expr="//field[@name='claim_line_ids']/form//field[@name='product_id']" position="after">
                 <field name="rma_transform_return_id" readonly="1"/>
+                <field name="rma_transform_return_line_id" readonly="1"/>
                 <field name="rma_transform_original_product_id" readonly="1"/>
                 <field name="rma_transform_invoice_id" readonly="1"/>
             </xpath>

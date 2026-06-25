@@ -85,16 +85,28 @@ class AccountMove(models.Model):
         description = (description or '').strip()
         return description or _('New Asset')
 
+    def _get_asset_creation_lines(self):
+        self.ensure_one()
+        return self.invoice_line_ids.filtered(
+            lambda line: line.product_id.categ_id.is_fixed_asset
+        )
+
+    def _get_asset_amounts_for_bill_line(self, line, num_assets):
+        amount = line.price_subtotal / num_assets if num_assets > 0 else line.price_subtotal
+        return [amount] * num_assets
+
+    def _get_asset_source_lines(self, line):
+        return line
+
     def action_create_assets_from_bill_lines(self):
         """Create assets from vendor bill lines, handling quantity splitting and OCA profiles."""
         self.ensure_one()
+        if self.state != 'posted':
+            raise UserError(_("Please post the vendor bill before creating fixed assets."))
         Asset = self.env['account.asset']
         assets_to_create = []
 
-        for line in self.invoice_line_ids:
-            if not line.product_id.categ_id.is_fixed_asset:
-                continue
-
+        for line in self._get_asset_creation_lines():
             profile = line.product_id.asset_model_id
             if not profile:
                 raise UserError(_("Product '%s' is a fixed asset but has no Asset Profile defined.") % line.product_id.name)
@@ -106,17 +118,16 @@ class AccountMove(models.Model):
                 if num_assets <= 0:
                     num_assets = 1
 
-            price_unit = line.price_subtotal / num_assets if num_assets > 0 else line.price_subtotal
-
-            for i in range(num_assets):
+            asset_amounts = self._get_asset_amounts_for_bill_line(line, num_assets)
+            for i, asset_amount in enumerate(asset_amounts):
                 asset_name = self._get_asset_name_from_description(line.name)
                 if num_assets > 1:
                     asset_name = f"{asset_name} ({i+1}/{num_assets})"
                 vals = self._prepare_vendor_bill_asset_vals(
                     profile=profile,
                     asset_name=asset_name,
-                    asset_amount=price_unit,
-                    source_line=line,
+                    asset_amount=asset_amount,
+                    source_line=self._get_asset_source_lines(line),
                 )
                 assets_to_create.append(vals)
 

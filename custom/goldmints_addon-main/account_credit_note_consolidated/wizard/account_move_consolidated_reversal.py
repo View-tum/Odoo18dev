@@ -1,4 +1,4 @@
-from odoo import api, fields, models, _
+from odoo import Command, api, fields, models, _
 from odoo.exceptions import UserError
 
 
@@ -124,6 +124,7 @@ class AccountMoveConsolidatedReversal(models.TransientModel):
             raise UserError(_("Please select at least one line."))
 
         invoice_lines = []
+        return_pickings = self.env["stock.picking"]
         for line in selected_lines:
             vals = {
                 "display_type": "product",
@@ -139,6 +140,11 @@ class AccountMoveConsolidatedReversal(models.TransientModel):
                 })
             elif line.source_type == "return" and line.stock_move_id:
                 rm = line.stock_move_id
+                return_pickings |= rm.picking_id
+                vals.update({
+                    "return_picking_id": rm.picking_id.id,
+                    "return_stock_move_id": rm.id,
+                })
                 if rm.purchase_line_id and rm.purchase_line_id.taxes_id:
                     vals.update({"tax_ids": [(6, 0, rm.purchase_line_id.taxes_id.ids)]})
                 elif rm.sale_line_id and rm.sale_line_id.tax_id:
@@ -153,7 +159,10 @@ class AccountMoveConsolidatedReversal(models.TransientModel):
 
             invoice_lines.append((0, 0, vals))
 
-        self.move_id.write({"invoice_line_ids": invoice_lines})
+        write_vals = {"invoice_line_ids": invoice_lines}
+        if return_pickings:
+            write_vals["return_picking_ids"] = [Command.set((self.move_id.return_picking_ids | return_pickings).ids)]
+        self.move_id.write(write_vals)
         return {"type": "ir.actions.act_window_close"}
 
 

@@ -1,0 +1,997 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Accounting" [ref=e7]
+        - generic [ref=e8]: Accounting
+      - menu [ref=e9]:
+        - menuitem "Dashboard" [ref=e10] [cursor=pointer]
+        - button "Customers" [ref=e11] [cursor=pointer]:
+          - generic [ref=e12]: Customers
+        - button "Vendors" [ref=e13] [cursor=pointer]:
+          - generic [ref=e14]: Vendors
+        - button "Accounting" [ref=e15] [cursor=pointer]:
+          - generic [ref=e16]: Accounting
+        - button "Reporting" [ref=e17] [cursor=pointer]:
+          - generic [ref=e18]: Reporting
+        - button "Configuration" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: Configuration
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 23" [ref=e28] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "23"
+        - button "Toggle Studio" [ref=e1831] [cursor=pointer]:
+          - img [ref=e1832]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e1833]:
+    - generic [ref=e1835]:
+      - generic [ref=e1836]:
+        - button "New" [ref=e1839] [cursor=pointer]
+        - generic [ref=e1840]:
+          - list [ref=e1841]:
+            - listitem [ref=e1842]:
+              - link "Settings" [ref=e1843] [cursor=pointer]:
+                - /url: /odoo/action-297
+          - generic [ref=e1844]:
+            - generic [ref=e1846]: Currencies
+            - button "" [ref=e1850] [cursor=pointer]:
+              - generic [ref=e1851]: 
+      - search [ref=e1853]:
+        - search [ref=e1854]:
+          - button "Search..." [ref=e1855] [cursor=pointer]:
+            - img [ref=e1856]: 
+          - searchbox "Search..." [active] [ref=e1858]
+        - button "" [ref=e1859] [cursor=pointer]
+      - generic [ref=e1860]:
+        - search [ref=e1861]:
+          - navigation "Pager" [ref=e1862]:
+            - generic [ref=e1863]:
+              - generic [ref=e1864]: 1-80
+              - text: / 169
+            - generic [ref=e1865]:
+              - button "Previous" [ref=e1866] [cursor=pointer]:
+                - generic [ref=e1867]: 
+              - button "Next" [ref=e1868] [cursor=pointer]:
+                - generic [ref=e1869]: 
+        - navigation [ref=e1870]:
+          - button "" [ref=e1871] [cursor=pointer]:
+            - generic [ref=e1872]: 
+          - button "" [ref=e1873] [cursor=pointer]:
+            - generic [ref=e1874]: 
+    - table [ref=e1877]:
+      - rowgroup [ref=e1878]:
+        - row "Currency  Symbol  Name  Last Update Unit per THB Active  " [ref=e1879]:
+          - columnheader [ref=e1880] [cursor=pointer]:
+            - checkbox [ref=e1882]
+          - columnheader "Currency " [ref=e1883] [cursor=pointer]:
+            - generic [ref=e1884]:
+              - generic [ref=e1885]: Currency
+              - generic [ref=e1886]: 
+          - columnheader "Symbol " [ref=e1888] [cursor=pointer]:
+            - generic [ref=e1889]:
+              - generic [ref=e1890]: Symbol
+              - generic [ref=e1891]: 
+          - columnheader "Name " [ref=e1893] [cursor=pointer]:
+            - generic [ref=e1894]:
+              - generic [ref=e1895]: Name
+              - generic [ref=e1896]: 
+          - columnheader "Last Update" [ref=e1898]:
+            - generic [ref=e1899]:
+              - generic [ref=e1900]: Last Update
+              - text: 
+          - columnheader "Unit per THB" [ref=e1902]:
+            - generic [ref=e1903]:
+              - generic [ref=e1904]: Unit per THB
+              - text: 
+          - columnheader "Active " [ref=e1906] [cursor=pointer]:
+            - generic [ref=e1907]:
+              - generic [ref=e1908]: Active
+              - generic [ref=e1909]: 
+          - columnheader "" [ref=e1911]:
+            - button "" [ref=e1913] [cursor=pointer]:
+              - generic [ref=e1914]: 
+      - rowgroup [ref=e1915]:
+        - row "CNY ¥ Chinese yuan 05/25/2026 0.211663" [ref=e1916]:
+          - cell [ref=e1917]:
+            - checkbox [ref=e1919] [cursor=pointer]
+          - cell "CNY" [ref=e1920] [cursor=pointer]
+          - cell "¥" [ref=e1921] [cursor=pointer]
+          - cell "Chinese yuan" [ref=e1922] [cursor=pointer]
+          - cell "05/25/2026" [ref=e1923] [cursor=pointer]
+          - cell "0.211663" [ref=e1924] [cursor=pointer]
+          - cell [ref=e1925] [cursor=pointer]:
+            - checkbox [checked] [ref=e1929]
+          - cell [ref=e1930]
+        - row "EUR € Euro 05/25/2026 0.026734" [ref=e1931]:
+          - cell [ref=e1932]:
+            - checkbox [ref=e1934] [cursor=pointer]
+          - cell "EUR" [ref=e1935] [cursor=pointer]
+          - cell "€" [ref=e1936] [cursor=pointer]
+          - cell "Euro" [ref=e1937] [cursor=pointer]
+          - cell "05/25/2026" [ref=e1938] [cursor=pointer]
+          - cell "0.026734" [ref=e1939] [cursor=pointer]
+          - cell [ref=e1940] [cursor=pointer]:
+            - checkbox [checked] [ref=e1944]
+          - cell [ref=e1945]
+        - row "JPY ¥ Japanese yen 05/25/2026 0.049748" [ref=e1946]:
+          - cell [ref=e1947]:
+            - checkbox [ref=e1949] [cursor=pointer]
+          - cell "JPY" [ref=e1950] [cursor=pointer]
+          - cell "¥" [ref=e1951] [cursor=pointer]
+          - cell "Japanese yen" [ref=e1952] [cursor=pointer]
+          - cell "05/25/2026" [ref=e1953] [cursor=pointer]
+          - cell "0.049748" [ref=e1954] [cursor=pointer]
+          - cell [ref=e1955] [cursor=pointer]:
+            - checkbox [checked] [ref=e1959]
+          - cell [ref=e1960]
+        - row "THB ฿ Thai baht 05/25/2026 1.000000" [ref=e1961]:
+          - cell [ref=e1962]:
+            - checkbox [ref=e1964] [cursor=pointer]
+          - cell "THB" [ref=e1965] [cursor=pointer]
+          - cell "฿" [ref=e1966] [cursor=pointer]
+          - cell "Thai baht" [ref=e1967] [cursor=pointer]
+          - cell "05/25/2026" [ref=e1968] [cursor=pointer]
+          - cell "1.000000" [ref=e1969] [cursor=pointer]
+          - cell [ref=e1970] [cursor=pointer]:
+            - checkbox [checked] [ref=e1974]
+          - cell [ref=e1975]
+        - row "USD $ United States dollar 05/25/2026 0.030954" [ref=e1976]:
+          - cell [ref=e1977]:
+            - checkbox [ref=e1979] [cursor=pointer]
+          - cell "USD" [ref=e1980] [cursor=pointer]
+          - cell "$" [ref=e1981] [cursor=pointer]
+          - cell "United States dollar" [ref=e1982] [cursor=pointer]
+          - cell "05/25/2026" [ref=e1983] [cursor=pointer]
+          - cell "0.030954" [ref=e1984] [cursor=pointer]
+          - cell [ref=e1985] [cursor=pointer]:
+            - checkbox [checked] [ref=e1989]
+          - cell [ref=e1990]
+        - row "AED د.إ United Arab Emirates dirham 1.000000" [ref=e1991]:
+          - cell [ref=e1992]:
+            - checkbox [ref=e1994] [cursor=pointer]
+          - cell "AED" [ref=e1995] [cursor=pointer]
+          - cell "د.إ" [ref=e1996] [cursor=pointer]
+          - cell "United Arab Emirates dirham" [ref=e1997] [cursor=pointer]
+          - cell [ref=e1998] [cursor=pointer]
+          - cell "1.000000" [ref=e1999] [cursor=pointer]
+          - cell [ref=e2000] [cursor=pointer]:
+            - checkbox [ref=e2004]
+          - cell [ref=e2005]
+        - row "AFN Afs Afghan afghani 1.000000" [ref=e2006]:
+          - cell [ref=e2007]:
+            - checkbox [ref=e2009] [cursor=pointer]
+          - cell "AFN" [ref=e2010] [cursor=pointer]
+          - cell "Afs" [ref=e2011] [cursor=pointer]
+          - cell "Afghan afghani" [ref=e2012] [cursor=pointer]
+          - cell [ref=e2013] [cursor=pointer]
+          - cell "1.000000" [ref=e2014] [cursor=pointer]
+          - cell [ref=e2015] [cursor=pointer]:
+            - checkbox [ref=e2019]
+          - cell [ref=e2020]
+        - row "ALL L Albanian lek 1.000000" [ref=e2021]:
+          - cell [ref=e2022]:
+            - checkbox [ref=e2024] [cursor=pointer]
+          - cell "ALL" [ref=e2025] [cursor=pointer]
+          - cell "L" [ref=e2026] [cursor=pointer]
+          - cell "Albanian lek" [ref=e2027] [cursor=pointer]
+          - cell [ref=e2028] [cursor=pointer]
+          - cell "1.000000" [ref=e2029] [cursor=pointer]
+          - cell [ref=e2030] [cursor=pointer]:
+            - checkbox [ref=e2034]
+          - cell [ref=e2035]
+        - row "AMD դր. Armenian dram 1.000000" [ref=e2036]:
+          - cell [ref=e2037]:
+            - checkbox [ref=e2039] [cursor=pointer]
+          - cell "AMD" [ref=e2040] [cursor=pointer]
+          - cell "դր." [ref=e2041] [cursor=pointer]
+          - cell "Armenian dram" [ref=e2042] [cursor=pointer]
+          - cell [ref=e2043] [cursor=pointer]
+          - cell "1.000000" [ref=e2044] [cursor=pointer]
+          - cell [ref=e2045] [cursor=pointer]:
+            - checkbox [ref=e2049]
+          - cell [ref=e2050]
+        - row "ANG ƒ Netherlands Antillean guilder 1.000000" [ref=e2051]:
+          - cell [ref=e2052]:
+            - checkbox [ref=e2054] [cursor=pointer]
+          - cell "ANG" [ref=e2055] [cursor=pointer]
+          - cell "ƒ" [ref=e2056] [cursor=pointer]
+          - cell "Netherlands Antillean guilder" [ref=e2057] [cursor=pointer]
+          - cell [ref=e2058] [cursor=pointer]
+          - cell "1.000000" [ref=e2059] [cursor=pointer]
+          - cell [ref=e2060] [cursor=pointer]:
+            - checkbox [ref=e2064]
+          - cell [ref=e2065]
+        - row "AOA Kz Angolan kwanza 1.000000" [ref=e2066]:
+          - cell [ref=e2067]:
+            - checkbox [ref=e2069] [cursor=pointer]
+          - cell "AOA" [ref=e2070] [cursor=pointer]
+          - cell "Kz" [ref=e2071] [cursor=pointer]
+          - cell "Angolan kwanza" [ref=e2072] [cursor=pointer]
+          - cell [ref=e2073] [cursor=pointer]
+          - cell "1.000000" [ref=e2074] [cursor=pointer]
+          - cell [ref=e2075] [cursor=pointer]:
+            - checkbox [ref=e2079]
+          - cell [ref=e2080]
+        - row "ARS $ Argentine peso 1.000000" [ref=e2081]:
+          - cell [ref=e2082]:
+            - checkbox [ref=e2084] [cursor=pointer]
+          - cell "ARS" [ref=e2085] [cursor=pointer]
+          - cell "$" [ref=e2086] [cursor=pointer]
+          - cell "Argentine peso" [ref=e2087] [cursor=pointer]
+          - cell [ref=e2088] [cursor=pointer]
+          - cell "1.000000" [ref=e2089] [cursor=pointer]
+          - cell [ref=e2090] [cursor=pointer]:
+            - checkbox [ref=e2094]
+          - cell [ref=e2095]
+        - row "AUD $ Australian dollar 1.000000" [ref=e2096]:
+          - cell [ref=e2097]:
+            - checkbox [ref=e2099] [cursor=pointer]
+          - cell "AUD" [ref=e2100] [cursor=pointer]
+          - cell "$" [ref=e2101] [cursor=pointer]
+          - cell "Australian dollar" [ref=e2102] [cursor=pointer]
+          - cell [ref=e2103] [cursor=pointer]
+          - cell "1.000000" [ref=e2104] [cursor=pointer]
+          - cell [ref=e2105] [cursor=pointer]:
+            - checkbox [ref=e2109]
+          - cell [ref=e2110]
+        - row "AWG Afl. Aruban florin 1.000000" [ref=e2111]:
+          - cell [ref=e2112]:
+            - checkbox [ref=e2114] [cursor=pointer]
+          - cell "AWG" [ref=e2115] [cursor=pointer]
+          - cell "Afl." [ref=e2116] [cursor=pointer]
+          - cell "Aruban florin" [ref=e2117] [cursor=pointer]
+          - cell [ref=e2118] [cursor=pointer]
+          - cell "1.000000" [ref=e2119] [cursor=pointer]
+          - cell [ref=e2120] [cursor=pointer]:
+            - checkbox [ref=e2124]
+          - cell [ref=e2125]
+        - row "AZN m Azerbaijani manat 1.000000" [ref=e2126]:
+          - cell [ref=e2127]:
+            - checkbox [ref=e2129] [cursor=pointer]
+          - cell "AZN" [ref=e2130] [cursor=pointer]
+          - cell "m" [ref=e2131] [cursor=pointer]
+          - cell "Azerbaijani manat" [ref=e2132] [cursor=pointer]
+          - cell [ref=e2133] [cursor=pointer]
+          - cell "1.000000" [ref=e2134] [cursor=pointer]
+          - cell [ref=e2135] [cursor=pointer]:
+            - checkbox [ref=e2139]
+          - cell [ref=e2140]
+        - row "BAM KM Bosnia and Herzegovina convertible mark 1.000000" [ref=e2141]:
+          - cell [ref=e2142]:
+            - checkbox [ref=e2144] [cursor=pointer]
+          - cell "BAM" [ref=e2145] [cursor=pointer]
+          - cell "KM" [ref=e2146] [cursor=pointer]
+          - cell "Bosnia and Herzegovina convertible mark" [ref=e2147] [cursor=pointer]
+          - cell [ref=e2148] [cursor=pointer]
+          - cell "1.000000" [ref=e2149] [cursor=pointer]
+          - cell [ref=e2150] [cursor=pointer]:
+            - checkbox [ref=e2154]
+          - cell [ref=e2155]
+        - row "BBD Bds$ Barbados dollar 1.000000" [ref=e2156]:
+          - cell [ref=e2157]:
+            - checkbox [ref=e2159] [cursor=pointer]
+          - cell "BBD" [ref=e2160] [cursor=pointer]
+          - cell "Bds$" [ref=e2161] [cursor=pointer]
+          - cell "Barbados dollar" [ref=e2162] [cursor=pointer]
+          - cell [ref=e2163] [cursor=pointer]
+          - cell "1.000000" [ref=e2164] [cursor=pointer]
+          - cell [ref=e2165] [cursor=pointer]:
+            - checkbox [ref=e2169]
+          - cell [ref=e2170]
+        - row "BDT ৳ Bangladeshi taka 1.000000" [ref=e2171]:
+          - cell [ref=e2172]:
+            - checkbox [ref=e2174] [cursor=pointer]
+          - cell "BDT" [ref=e2175] [cursor=pointer]
+          - cell "৳" [ref=e2176] [cursor=pointer]
+          - cell "Bangladeshi taka" [ref=e2177] [cursor=pointer]
+          - cell [ref=e2178] [cursor=pointer]
+          - cell "1.000000" [ref=e2179] [cursor=pointer]
+          - cell [ref=e2180] [cursor=pointer]:
+            - checkbox [ref=e2184]
+          - cell [ref=e2185]
+        - row "BGN лв Bulgarian lev 1.000000" [ref=e2186]:
+          - cell [ref=e2187]:
+            - checkbox [ref=e2189] [cursor=pointer]
+          - cell "BGN" [ref=e2190] [cursor=pointer]
+          - cell "лв" [ref=e2191] [cursor=pointer]
+          - cell "Bulgarian lev" [ref=e2192] [cursor=pointer]
+          - cell [ref=e2193] [cursor=pointer]
+          - cell "1.000000" [ref=e2194] [cursor=pointer]
+          - cell [ref=e2195] [cursor=pointer]:
+            - checkbox [ref=e2199]
+          - cell [ref=e2200]
+        - row "BHD BD Bahraini dinar 1.000000" [ref=e2201]:
+          - cell [ref=e2202]:
+            - checkbox [ref=e2204] [cursor=pointer]
+          - cell "BHD" [ref=e2205] [cursor=pointer]
+          - cell "BD" [ref=e2206] [cursor=pointer]
+          - cell "Bahraini dinar" [ref=e2207] [cursor=pointer]
+          - cell [ref=e2208] [cursor=pointer]
+          - cell "1.000000" [ref=e2209] [cursor=pointer]
+          - cell [ref=e2210] [cursor=pointer]:
+            - checkbox [ref=e2214]
+          - cell [ref=e2215]
+        - row "BIF FBu Burundian franc 1.000000" [ref=e2216]:
+          - cell [ref=e2217]:
+            - checkbox [ref=e2219] [cursor=pointer]
+          - cell "BIF" [ref=e2220] [cursor=pointer]
+          - cell "FBu" [ref=e2221] [cursor=pointer]
+          - cell "Burundian franc" [ref=e2222] [cursor=pointer]
+          - cell [ref=e2223] [cursor=pointer]
+          - cell "1.000000" [ref=e2224] [cursor=pointer]
+          - cell [ref=e2225] [cursor=pointer]:
+            - checkbox [ref=e2229]
+          - cell [ref=e2230]
+        - row "BMD BD$ Bermudian dollar 1.000000" [ref=e2231]:
+          - cell [ref=e2232]:
+            - checkbox [ref=e2234] [cursor=pointer]
+          - cell "BMD" [ref=e2235] [cursor=pointer]
+          - cell "BD$" [ref=e2236] [cursor=pointer]
+          - cell "Bermudian dollar" [ref=e2237] [cursor=pointer]
+          - cell [ref=e2238] [cursor=pointer]
+          - cell "1.000000" [ref=e2239] [cursor=pointer]
+          - cell [ref=e2240] [cursor=pointer]:
+            - checkbox [ref=e2244]
+          - cell [ref=e2245]
+        - row "BND $ Brunei dollar 1.000000" [ref=e2246]:
+          - cell [ref=e2247]:
+            - checkbox [ref=e2249] [cursor=pointer]
+          - cell "BND" [ref=e2250] [cursor=pointer]
+          - cell "$" [ref=e2251] [cursor=pointer]
+          - cell "Brunei dollar" [ref=e2252] [cursor=pointer]
+          - cell [ref=e2253] [cursor=pointer]
+          - cell "1.000000" [ref=e2254] [cursor=pointer]
+          - cell [ref=e2255] [cursor=pointer]:
+            - checkbox [ref=e2259]
+          - cell [ref=e2260]
+        - row "BOB Bs. Boliviano 1.000000" [ref=e2261]:
+          - cell [ref=e2262]:
+            - checkbox [ref=e2264] [cursor=pointer]
+          - cell "BOB" [ref=e2265] [cursor=pointer]
+          - cell "Bs." [ref=e2266] [cursor=pointer]
+          - cell "Boliviano" [ref=e2267] [cursor=pointer]
+          - cell [ref=e2268] [cursor=pointer]
+          - cell "1.000000" [ref=e2269] [cursor=pointer]
+          - cell [ref=e2270] [cursor=pointer]:
+            - checkbox [ref=e2274]
+          - cell [ref=e2275]
+        - row "BRL R$ Brazilian real 1.000000" [ref=e2276]:
+          - cell [ref=e2277]:
+            - checkbox [ref=e2279] [cursor=pointer]
+          - cell "BRL" [ref=e2280] [cursor=pointer]
+          - cell "R$" [ref=e2281] [cursor=pointer]
+          - cell "Brazilian real" [ref=e2282] [cursor=pointer]
+          - cell [ref=e2283] [cursor=pointer]
+          - cell "1.000000" [ref=e2284] [cursor=pointer]
+          - cell [ref=e2285] [cursor=pointer]:
+            - checkbox [ref=e2289]
+          - cell [ref=e2290]
+        - row "BSD B$ Bahamian dollar 1.000000" [ref=e2291]:
+          - cell [ref=e2292]:
+            - checkbox [ref=e2294] [cursor=pointer]
+          - cell "BSD" [ref=e2295] [cursor=pointer]
+          - cell "B$" [ref=e2296] [cursor=pointer]
+          - cell "Bahamian dollar" [ref=e2297] [cursor=pointer]
+          - cell [ref=e2298] [cursor=pointer]
+          - cell "1.000000" [ref=e2299] [cursor=pointer]
+          - cell [ref=e2300] [cursor=pointer]:
+            - checkbox [ref=e2304]
+          - cell [ref=e2305]
+        - row "BTN Nu. Bhutanese ngultrum 1.000000" [ref=e2306]:
+          - cell [ref=e2307]:
+            - checkbox [ref=e2309] [cursor=pointer]
+          - cell "BTN" [ref=e2310] [cursor=pointer]
+          - cell "Nu." [ref=e2311] [cursor=pointer]
+          - cell "Bhutanese ngultrum" [ref=e2312] [cursor=pointer]
+          - cell [ref=e2313] [cursor=pointer]
+          - cell "1.000000" [ref=e2314] [cursor=pointer]
+          - cell [ref=e2315] [cursor=pointer]:
+            - checkbox [ref=e2319]
+          - cell [ref=e2320]
+        - row "BWP P Botswana pula 1.000000" [ref=e2321]:
+          - cell [ref=e2322]:
+            - checkbox [ref=e2324] [cursor=pointer]
+          - cell "BWP" [ref=e2325] [cursor=pointer]
+          - cell "P" [ref=e2326] [cursor=pointer]
+          - cell "Botswana pula" [ref=e2327] [cursor=pointer]
+          - cell [ref=e2328] [cursor=pointer]
+          - cell "1.000000" [ref=e2329] [cursor=pointer]
+          - cell [ref=e2330] [cursor=pointer]:
+            - checkbox [ref=e2334]
+          - cell [ref=e2335]
+        - row "BYN Br Belarusian ruble 1.000000" [ref=e2336]:
+          - cell [ref=e2337]:
+            - checkbox [ref=e2339] [cursor=pointer]
+          - cell "BYN" [ref=e2340] [cursor=pointer]
+          - cell "Br" [ref=e2341] [cursor=pointer]
+          - cell "Belarusian ruble" [ref=e2342] [cursor=pointer]
+          - cell [ref=e2343] [cursor=pointer]
+          - cell "1.000000" [ref=e2344] [cursor=pointer]
+          - cell [ref=e2345] [cursor=pointer]:
+            - checkbox [ref=e2349]
+          - cell [ref=e2350]
+        - row "BYR BR Belarusian ruble 1.000000" [ref=e2351]:
+          - cell [ref=e2352]:
+            - checkbox [ref=e2354] [cursor=pointer]
+          - cell "BYR" [ref=e2355] [cursor=pointer]
+          - cell "BR" [ref=e2356] [cursor=pointer]
+          - cell "Belarusian ruble" [ref=e2357] [cursor=pointer]
+          - cell [ref=e2358] [cursor=pointer]
+          - cell "1.000000" [ref=e2359] [cursor=pointer]
+          - cell [ref=e2360] [cursor=pointer]:
+            - checkbox [ref=e2364]
+          - cell [ref=e2365]
+        - row "BZD BZ$ Belize dollar 1.000000" [ref=e2366]:
+          - cell [ref=e2367]:
+            - checkbox [ref=e2369] [cursor=pointer]
+          - cell "BZD" [ref=e2370] [cursor=pointer]
+          - cell "BZ$" [ref=e2371] [cursor=pointer]
+          - cell "Belize dollar" [ref=e2372] [cursor=pointer]
+          - cell [ref=e2373] [cursor=pointer]
+          - cell "1.000000" [ref=e2374] [cursor=pointer]
+          - cell [ref=e2375] [cursor=pointer]:
+            - checkbox [ref=e2379]
+          - cell [ref=e2380]
+        - row "CAD $ Canadian dollar 1.000000" [ref=e2381]:
+          - cell [ref=e2382]:
+            - checkbox [ref=e2384] [cursor=pointer]
+          - cell "CAD" [ref=e2385] [cursor=pointer]
+          - cell "$" [ref=e2386] [cursor=pointer]
+          - cell "Canadian dollar" [ref=e2387] [cursor=pointer]
+          - cell [ref=e2388] [cursor=pointer]
+          - cell "1.000000" [ref=e2389] [cursor=pointer]
+          - cell [ref=e2390] [cursor=pointer]:
+            - checkbox [ref=e2394]
+          - cell [ref=e2395]
+        - row "CDF Fr Congolese franc 1.000000" [ref=e2396]:
+          - cell [ref=e2397]:
+            - checkbox [ref=e2399] [cursor=pointer]
+          - cell "CDF" [ref=e2400] [cursor=pointer]
+          - cell "Fr" [ref=e2401] [cursor=pointer]
+          - cell "Congolese franc" [ref=e2402] [cursor=pointer]
+          - cell [ref=e2403] [cursor=pointer]
+          - cell "1.000000" [ref=e2404] [cursor=pointer]
+          - cell [ref=e2405] [cursor=pointer]:
+            - checkbox [ref=e2409]
+          - cell [ref=e2410]
+        - row "CHF CHF Swiss franc 1.000000" [ref=e2411]:
+          - cell [ref=e2412]:
+            - checkbox [ref=e2414] [cursor=pointer]
+          - cell "CHF" [ref=e2415] [cursor=pointer]
+          - cell "CHF" [ref=e2416] [cursor=pointer]
+          - cell "Swiss franc" [ref=e2417] [cursor=pointer]
+          - cell [ref=e2418] [cursor=pointer]
+          - cell "1.000000" [ref=e2419] [cursor=pointer]
+          - cell [ref=e2420] [cursor=pointer]:
+            - checkbox [ref=e2424]
+          - cell [ref=e2425]
+        - row "CLF $ Unidad de Fomento 1.000000" [ref=e2426]:
+          - cell [ref=e2427]:
+            - checkbox [ref=e2429] [cursor=pointer]
+          - cell "CLF" [ref=e2430] [cursor=pointer]
+          - cell "$" [ref=e2431] [cursor=pointer]
+          - cell "Unidad de Fomento" [ref=e2432] [cursor=pointer]
+          - cell [ref=e2433] [cursor=pointer]
+          - cell "1.000000" [ref=e2434] [cursor=pointer]
+          - cell [ref=e2435] [cursor=pointer]:
+            - checkbox [ref=e2439]
+          - cell [ref=e2440]
+        - row "CLP $ Chilean peso 1.000000" [ref=e2441]:
+          - cell [ref=e2442]:
+            - checkbox [ref=e2444] [cursor=pointer]
+          - cell "CLP" [ref=e2445] [cursor=pointer]
+          - cell "$" [ref=e2446] [cursor=pointer]
+          - cell "Chilean peso" [ref=e2447] [cursor=pointer]
+          - cell [ref=e2448] [cursor=pointer]
+          - cell "1.000000" [ref=e2449] [cursor=pointer]
+          - cell [ref=e2450] [cursor=pointer]:
+            - checkbox [ref=e2454]
+          - cell [ref=e2455]
+        - row "CNH ¥ Chinese yuan - Offshore 1.000000" [ref=e2456]:
+          - cell [ref=e2457]:
+            - checkbox [ref=e2459] [cursor=pointer]
+          - cell "CNH" [ref=e2460] [cursor=pointer]
+          - cell "¥" [ref=e2461] [cursor=pointer]
+          - cell "Chinese yuan - Offshore" [ref=e2462] [cursor=pointer]
+          - cell [ref=e2463] [cursor=pointer]
+          - cell "1.000000" [ref=e2464] [cursor=pointer]
+          - cell [ref=e2465] [cursor=pointer]:
+            - checkbox [ref=e2469]
+          - cell [ref=e2470]
+        - row "COP $ Colombian peso 1.000000" [ref=e2471]:
+          - cell [ref=e2472]:
+            - checkbox [ref=e2474] [cursor=pointer]
+          - cell "COP" [ref=e2475] [cursor=pointer]
+          - cell "$" [ref=e2476] [cursor=pointer]
+          - cell "Colombian peso" [ref=e2477] [cursor=pointer]
+          - cell [ref=e2478] [cursor=pointer]
+          - cell "1.000000" [ref=e2479] [cursor=pointer]
+          - cell [ref=e2480] [cursor=pointer]:
+            - checkbox [ref=e2484]
+          - cell [ref=e2485]
+        - row "COU $ Unidad de Valor Real 1.000000" [ref=e2486]:
+          - cell [ref=e2487]:
+            - checkbox [ref=e2489] [cursor=pointer]
+          - cell "COU" [ref=e2490] [cursor=pointer]
+          - cell "$" [ref=e2491] [cursor=pointer]
+          - cell "Unidad de Valor Real" [ref=e2492] [cursor=pointer]
+          - cell [ref=e2493] [cursor=pointer]
+          - cell "1.000000" [ref=e2494] [cursor=pointer]
+          - cell [ref=e2495] [cursor=pointer]:
+            - checkbox [ref=e2499]
+          - cell [ref=e2500]
+        - row "CRC ₡ Costa Rican colón 1.000000" [ref=e2501]:
+          - cell [ref=e2502]:
+            - checkbox [ref=e2504] [cursor=pointer]
+          - cell "CRC" [ref=e2505] [cursor=pointer]
+          - cell "₡" [ref=e2506] [cursor=pointer]
+          - cell "Costa Rican colón" [ref=e2507] [cursor=pointer]
+          - cell [ref=e2508] [cursor=pointer]
+          - cell "1.000000" [ref=e2509] [cursor=pointer]
+          - cell [ref=e2510] [cursor=pointer]:
+            - checkbox [ref=e2514]
+          - cell [ref=e2515]
+        - row "CUC $ Cuban convertible peso 1.000000" [ref=e2516]:
+          - cell [ref=e2517]:
+            - checkbox [ref=e2519] [cursor=pointer]
+          - cell "CUC" [ref=e2520] [cursor=pointer]
+          - cell "$" [ref=e2521] [cursor=pointer]
+          - cell "Cuban convertible peso" [ref=e2522] [cursor=pointer]
+          - cell [ref=e2523] [cursor=pointer]
+          - cell "1.000000" [ref=e2524] [cursor=pointer]
+          - cell [ref=e2525] [cursor=pointer]:
+            - checkbox [ref=e2529]
+          - cell [ref=e2530]
+        - row "CUP $ Cuban peso 1.000000" [ref=e2531]:
+          - cell [ref=e2532]:
+            - checkbox [ref=e2534] [cursor=pointer]
+          - cell "CUP" [ref=e2535] [cursor=pointer]
+          - cell "$" [ref=e2536] [cursor=pointer]
+          - cell "Cuban peso" [ref=e2537] [cursor=pointer]
+          - cell [ref=e2538] [cursor=pointer]
+          - cell "1.000000" [ref=e2539] [cursor=pointer]
+          - cell [ref=e2540] [cursor=pointer]:
+            - checkbox [ref=e2544]
+          - cell [ref=e2545]
+        - row "CVE $ Cape Verdean escudo 1.000000" [ref=e2546]:
+          - cell [ref=e2547]:
+            - checkbox [ref=e2549] [cursor=pointer]
+          - cell "CVE" [ref=e2550] [cursor=pointer]
+          - cell "$" [ref=e2551] [cursor=pointer]
+          - cell "Cape Verdean escudo" [ref=e2552] [cursor=pointer]
+          - cell [ref=e2553] [cursor=pointer]
+          - cell "1.000000" [ref=e2554] [cursor=pointer]
+          - cell [ref=e2555] [cursor=pointer]:
+            - checkbox [ref=e2559]
+          - cell [ref=e2560]
+        - row "CZK Kč Czech koruna 1.000000" [ref=e2561]:
+          - cell [ref=e2562]:
+            - checkbox [ref=e2564] [cursor=pointer]
+          - cell "CZK" [ref=e2565] [cursor=pointer]
+          - cell "Kč" [ref=e2566] [cursor=pointer]
+          - cell "Czech koruna" [ref=e2567] [cursor=pointer]
+          - cell [ref=e2568] [cursor=pointer]
+          - cell "1.000000" [ref=e2569] [cursor=pointer]
+          - cell [ref=e2570] [cursor=pointer]:
+            - checkbox [ref=e2574]
+          - cell [ref=e2575]
+        - row "DJF Fdj Djiboutian franc 1.000000" [ref=e2576]:
+          - cell [ref=e2577]:
+            - checkbox [ref=e2579] [cursor=pointer]
+          - cell "DJF" [ref=e2580] [cursor=pointer]
+          - cell "Fdj" [ref=e2581] [cursor=pointer]
+          - cell "Djiboutian franc" [ref=e2582] [cursor=pointer]
+          - cell [ref=e2583] [cursor=pointer]
+          - cell "1.000000" [ref=e2584] [cursor=pointer]
+          - cell [ref=e2585] [cursor=pointer]:
+            - checkbox [ref=e2589]
+          - cell [ref=e2590]
+        - row "DKK kr Danish krone 1.000000" [ref=e2591]:
+          - cell [ref=e2592]:
+            - checkbox [ref=e2594] [cursor=pointer]
+          - cell "DKK" [ref=e2595] [cursor=pointer]
+          - cell "kr" [ref=e2596] [cursor=pointer]
+          - cell "Danish krone" [ref=e2597] [cursor=pointer]
+          - cell [ref=e2598] [cursor=pointer]
+          - cell "1.000000" [ref=e2599] [cursor=pointer]
+          - cell [ref=e2600] [cursor=pointer]:
+            - checkbox [ref=e2604]
+          - cell [ref=e2605]
+        - row "DOP RD$ Dominican peso 1.000000" [ref=e2606]:
+          - cell [ref=e2607]:
+            - checkbox [ref=e2609] [cursor=pointer]
+          - cell "DOP" [ref=e2610] [cursor=pointer]
+          - cell "RD$" [ref=e2611] [cursor=pointer]
+          - cell "Dominican peso" [ref=e2612] [cursor=pointer]
+          - cell [ref=e2613] [cursor=pointer]
+          - cell "1.000000" [ref=e2614] [cursor=pointer]
+          - cell [ref=e2615] [cursor=pointer]:
+            - checkbox [ref=e2619]
+          - cell [ref=e2620]
+        - row "DZD DA Algerian dinar 1.000000" [ref=e2621]:
+          - cell [ref=e2622]:
+            - checkbox [ref=e2624] [cursor=pointer]
+          - cell "DZD" [ref=e2625] [cursor=pointer]
+          - cell "DA" [ref=e2626] [cursor=pointer]
+          - cell "Algerian dinar" [ref=e2627] [cursor=pointer]
+          - cell [ref=e2628] [cursor=pointer]
+          - cell "1.000000" [ref=e2629] [cursor=pointer]
+          - cell [ref=e2630] [cursor=pointer]:
+            - checkbox [ref=e2634]
+          - cell [ref=e2635]
+        - row "EGP LE Egyptian pound 1.000000" [ref=e2636]:
+          - cell [ref=e2637]:
+            - checkbox [ref=e2639] [cursor=pointer]
+          - cell "EGP" [ref=e2640] [cursor=pointer]
+          - cell "LE" [ref=e2641] [cursor=pointer]
+          - cell "Egyptian pound" [ref=e2642] [cursor=pointer]
+          - cell [ref=e2643] [cursor=pointer]
+          - cell "1.000000" [ref=e2644] [cursor=pointer]
+          - cell [ref=e2645] [cursor=pointer]:
+            - checkbox [ref=e2649]
+          - cell [ref=e2650]
+        - row "ERN Nfk Eritrean nakfa 1.000000" [ref=e2651]:
+          - cell [ref=e2652]:
+            - checkbox [ref=e2654] [cursor=pointer]
+          - cell "ERN" [ref=e2655] [cursor=pointer]
+          - cell "Nfk" [ref=e2656] [cursor=pointer]
+          - cell "Eritrean nakfa" [ref=e2657] [cursor=pointer]
+          - cell [ref=e2658] [cursor=pointer]
+          - cell "1.000000" [ref=e2659] [cursor=pointer]
+          - cell [ref=e2660] [cursor=pointer]:
+            - checkbox [ref=e2664]
+          - cell [ref=e2665]
+        - row "ETB Br Ethiopian birr 1.000000" [ref=e2666]:
+          - cell [ref=e2667]:
+            - checkbox [ref=e2669] [cursor=pointer]
+          - cell "ETB" [ref=e2670] [cursor=pointer]
+          - cell "Br" [ref=e2671] [cursor=pointer]
+          - cell "Ethiopian birr" [ref=e2672] [cursor=pointer]
+          - cell [ref=e2673] [cursor=pointer]
+          - cell "1.000000" [ref=e2674] [cursor=pointer]
+          - cell [ref=e2675] [cursor=pointer]:
+            - checkbox [ref=e2679]
+          - cell [ref=e2680]
+        - row "FJD FJ$ Fiji dollar 1.000000" [ref=e2681]:
+          - cell [ref=e2682]:
+            - checkbox [ref=e2684] [cursor=pointer]
+          - cell "FJD" [ref=e2685] [cursor=pointer]
+          - cell "FJ$" [ref=e2686] [cursor=pointer]
+          - cell "Fiji dollar" [ref=e2687] [cursor=pointer]
+          - cell [ref=e2688] [cursor=pointer]
+          - cell "1.000000" [ref=e2689] [cursor=pointer]
+          - cell [ref=e2690] [cursor=pointer]:
+            - checkbox [ref=e2694]
+          - cell [ref=e2695]
+        - row "FKP £ Falkland Islands pound 1.000000" [ref=e2696]:
+          - cell [ref=e2697]:
+            - checkbox [ref=e2699] [cursor=pointer]
+          - cell "FKP" [ref=e2700] [cursor=pointer]
+          - cell "£" [ref=e2701] [cursor=pointer]
+          - cell "Falkland Islands pound" [ref=e2702] [cursor=pointer]
+          - cell [ref=e2703] [cursor=pointer]
+          - cell "1.000000" [ref=e2704] [cursor=pointer]
+          - cell [ref=e2705] [cursor=pointer]:
+            - checkbox [ref=e2709]
+          - cell [ref=e2710]
+        - row "GBP £ Pound sterling 1.000000" [ref=e2711]:
+          - cell [ref=e2712]:
+            - checkbox [ref=e2714] [cursor=pointer]
+          - cell "GBP" [ref=e2715] [cursor=pointer]
+          - cell "£" [ref=e2716] [cursor=pointer]
+          - cell "Pound sterling" [ref=e2717] [cursor=pointer]
+          - cell [ref=e2718] [cursor=pointer]
+          - cell "1.000000" [ref=e2719] [cursor=pointer]
+          - cell [ref=e2720] [cursor=pointer]:
+            - checkbox [ref=e2724]
+          - cell [ref=e2725]
+        - row "GEL ლ Georgian lari 1.000000" [ref=e2726]:
+          - cell [ref=e2727]:
+            - checkbox [ref=e2729] [cursor=pointer]
+          - cell "GEL" [ref=e2730] [cursor=pointer]
+          - cell "ლ" [ref=e2731] [cursor=pointer]
+          - cell "Georgian lari" [ref=e2732] [cursor=pointer]
+          - cell [ref=e2733] [cursor=pointer]
+          - cell "1.000000" [ref=e2734] [cursor=pointer]
+          - cell [ref=e2735] [cursor=pointer]:
+            - checkbox [ref=e2739]
+          - cell [ref=e2740]
+        - row "GHS GH¢ Ghanaian cedi 1.000000" [ref=e2741]:
+          - cell [ref=e2742]:
+            - checkbox [ref=e2744] [cursor=pointer]
+          - cell "GHS" [ref=e2745] [cursor=pointer]
+          - cell "GH¢" [ref=e2746] [cursor=pointer]
+          - cell "Ghanaian cedi" [ref=e2747] [cursor=pointer]
+          - cell [ref=e2748] [cursor=pointer]
+          - cell "1.000000" [ref=e2749] [cursor=pointer]
+          - cell [ref=e2750] [cursor=pointer]:
+            - checkbox [ref=e2754]
+          - cell [ref=e2755]
+        - row "GIP £ Gibraltar pound 1.000000" [ref=e2756]:
+          - cell [ref=e2757]:
+            - checkbox [ref=e2759] [cursor=pointer]
+          - cell "GIP" [ref=e2760] [cursor=pointer]
+          - cell "£" [ref=e2761] [cursor=pointer]
+          - cell "Gibraltar pound" [ref=e2762] [cursor=pointer]
+          - cell [ref=e2763] [cursor=pointer]
+          - cell "1.000000" [ref=e2764] [cursor=pointer]
+          - cell [ref=e2765] [cursor=pointer]:
+            - checkbox [ref=e2769]
+          - cell [ref=e2770]
+        - row "GMD D Gambian dalasi 1.000000" [ref=e2771]:
+          - cell [ref=e2772]:
+            - checkbox [ref=e2774] [cursor=pointer]
+          - cell "GMD" [ref=e2775] [cursor=pointer]
+          - cell "D" [ref=e2776] [cursor=pointer]
+          - cell "Gambian dalasi" [ref=e2777] [cursor=pointer]
+          - cell [ref=e2778] [cursor=pointer]
+          - cell "1.000000" [ref=e2779] [cursor=pointer]
+          - cell [ref=e2780] [cursor=pointer]:
+            - checkbox [ref=e2784]
+          - cell [ref=e2785]
+        - row "GNF FG Guinean franc 1.000000" [ref=e2786]:
+          - cell [ref=e2787]:
+            - checkbox [ref=e2789] [cursor=pointer]
+          - cell "GNF" [ref=e2790] [cursor=pointer]
+          - cell "FG" [ref=e2791] [cursor=pointer]
+          - cell "Guinean franc" [ref=e2792] [cursor=pointer]
+          - cell [ref=e2793] [cursor=pointer]
+          - cell "1.000000" [ref=e2794] [cursor=pointer]
+          - cell [ref=e2795] [cursor=pointer]:
+            - checkbox [ref=e2799]
+          - cell [ref=e2800]
+        - row "GTQ Q Guatemalan Quetzal 1.000000" [ref=e2801]:
+          - cell [ref=e2802]:
+            - checkbox [ref=e2804] [cursor=pointer]
+          - cell "GTQ" [ref=e2805] [cursor=pointer]
+          - cell "Q" [ref=e2806] [cursor=pointer]
+          - cell "Guatemalan Quetzal" [ref=e2807] [cursor=pointer]
+          - cell [ref=e2808] [cursor=pointer]
+          - cell "1.000000" [ref=e2809] [cursor=pointer]
+          - cell [ref=e2810] [cursor=pointer]:
+            - checkbox [ref=e2814]
+          - cell [ref=e2815]
+        - row "GYD $ Guyanese dollar 1.000000" [ref=e2816]:
+          - cell [ref=e2817]:
+            - checkbox [ref=e2819] [cursor=pointer]
+          - cell "GYD" [ref=e2820] [cursor=pointer]
+          - cell "$" [ref=e2821] [cursor=pointer]
+          - cell "Guyanese dollar" [ref=e2822] [cursor=pointer]
+          - cell [ref=e2823] [cursor=pointer]
+          - cell "1.000000" [ref=e2824] [cursor=pointer]
+          - cell [ref=e2825] [cursor=pointer]:
+            - checkbox [ref=e2829]
+          - cell [ref=e2830]
+        - row "HKD $ Hong Kong dollar 1.000000" [ref=e2831]:
+          - cell [ref=e2832]:
+            - checkbox [ref=e2834] [cursor=pointer]
+          - cell "HKD" [ref=e2835] [cursor=pointer]
+          - cell "$" [ref=e2836] [cursor=pointer]
+          - cell "Hong Kong dollar" [ref=e2837] [cursor=pointer]
+          - cell [ref=e2838] [cursor=pointer]
+          - cell "1.000000" [ref=e2839] [cursor=pointer]
+          - cell [ref=e2840] [cursor=pointer]:
+            - checkbox [ref=e2844]
+          - cell [ref=e2845]
+        - row "HNL L Honduran lempira 1.000000" [ref=e2846]:
+          - cell [ref=e2847]:
+            - checkbox [ref=e2849] [cursor=pointer]
+          - cell "HNL" [ref=e2850] [cursor=pointer]
+          - cell "L" [ref=e2851] [cursor=pointer]
+          - cell "Honduran lempira" [ref=e2852] [cursor=pointer]
+          - cell [ref=e2853] [cursor=pointer]
+          - cell "1.000000" [ref=e2854] [cursor=pointer]
+          - cell [ref=e2855] [cursor=pointer]:
+            - checkbox [ref=e2859]
+          - cell [ref=e2860]
+        - row "HRK kn Croatian kuna 1.000000" [ref=e2861]:
+          - cell [ref=e2862]:
+            - checkbox [ref=e2864] [cursor=pointer]
+          - cell "HRK" [ref=e2865] [cursor=pointer]
+          - cell "kn" [ref=e2866] [cursor=pointer]
+          - cell "Croatian kuna" [ref=e2867] [cursor=pointer]
+          - cell [ref=e2868] [cursor=pointer]
+          - cell "1.000000" [ref=e2869] [cursor=pointer]
+          - cell [ref=e2870] [cursor=pointer]:
+            - checkbox [ref=e2874]
+          - cell [ref=e2875]
+        - row "HTG G Haitian gourde 1.000000" [ref=e2876]:
+          - cell [ref=e2877]:
+            - checkbox [ref=e2879] [cursor=pointer]
+          - cell "HTG" [ref=e2880] [cursor=pointer]
+          - cell "G" [ref=e2881] [cursor=pointer]
+          - cell "Haitian gourde" [ref=e2882] [cursor=pointer]
+          - cell [ref=e2883] [cursor=pointer]
+          - cell "1.000000" [ref=e2884] [cursor=pointer]
+          - cell [ref=e2885] [cursor=pointer]:
+            - checkbox [ref=e2889]
+          - cell [ref=e2890]
+        - row "HUF Ft Hungarian forint 1.000000" [ref=e2891]:
+          - cell [ref=e2892]:
+            - checkbox [ref=e2894] [cursor=pointer]
+          - cell "HUF" [ref=e2895] [cursor=pointer]
+          - cell "Ft" [ref=e2896] [cursor=pointer]
+          - cell "Hungarian forint" [ref=e2897] [cursor=pointer]
+          - cell [ref=e2898] [cursor=pointer]
+          - cell "1.000000" [ref=e2899] [cursor=pointer]
+          - cell [ref=e2900] [cursor=pointer]:
+            - checkbox [ref=e2904]
+          - cell [ref=e2905]
+        - row "IDR Rp Indonesian rupiah 1.000000" [ref=e2906]:
+          - cell [ref=e2907]:
+            - checkbox [ref=e2909] [cursor=pointer]
+          - cell "IDR" [ref=e2910] [cursor=pointer]
+          - cell "Rp" [ref=e2911] [cursor=pointer]
+          - cell "Indonesian rupiah" [ref=e2912] [cursor=pointer]
+          - cell [ref=e2913] [cursor=pointer]
+          - cell "1.000000" [ref=e2914] [cursor=pointer]
+          - cell [ref=e2915] [cursor=pointer]:
+            - checkbox [ref=e2919]
+          - cell [ref=e2920]
+        - row "ILS ₪ Israeli new shekel 1.000000" [ref=e2921]:
+          - cell [ref=e2922]:
+            - checkbox [ref=e2924] [cursor=pointer]
+          - cell "ILS" [ref=e2925] [cursor=pointer]
+          - cell "₪" [ref=e2926] [cursor=pointer]
+          - cell "Israeli new shekel" [ref=e2927] [cursor=pointer]
+          - cell [ref=e2928] [cursor=pointer]
+          - cell "1.000000" [ref=e2929] [cursor=pointer]
+          - cell [ref=e2930] [cursor=pointer]:
+            - checkbox [ref=e2934]
+          - cell [ref=e2935]
+        - row "INR ₹ Indian rupee 1.000000" [ref=e2936]:
+          - cell [ref=e2937]:
+            - checkbox [ref=e2939] [cursor=pointer]
+          - cell "INR" [ref=e2940] [cursor=pointer]
+          - cell "₹" [ref=e2941] [cursor=pointer]
+          - cell "Indian rupee" [ref=e2942] [cursor=pointer]
+          - cell [ref=e2943] [cursor=pointer]
+          - cell "1.000000" [ref=e2944] [cursor=pointer]
+          - cell [ref=e2945] [cursor=pointer]:
+            - checkbox [ref=e2949]
+          - cell [ref=e2950]
+        - row "IQD ع.د Iraqi dinar 1.000000" [ref=e2951]:
+          - cell [ref=e2952]:
+            - checkbox [ref=e2954] [cursor=pointer]
+          - cell "IQD" [ref=e2955] [cursor=pointer]
+          - cell "ع.د" [ref=e2956] [cursor=pointer]
+          - cell "Iraqi dinar" [ref=e2957] [cursor=pointer]
+          - cell [ref=e2958] [cursor=pointer]
+          - cell "1.000000" [ref=e2959] [cursor=pointer]
+          - cell [ref=e2960] [cursor=pointer]:
+            - checkbox [ref=e2964]
+          - cell [ref=e2965]
+        - row "IRR ﷼ Iranian rial 1.000000" [ref=e2966]:
+          - cell [ref=e2967]:
+            - checkbox [ref=e2969] [cursor=pointer]
+          - cell "IRR" [ref=e2970] [cursor=pointer]
+          - cell "﷼" [ref=e2971] [cursor=pointer]
+          - cell "Iranian rial" [ref=e2972] [cursor=pointer]
+          - cell [ref=e2973] [cursor=pointer]
+          - cell "1.000000" [ref=e2974] [cursor=pointer]
+          - cell [ref=e2975] [cursor=pointer]:
+            - checkbox [ref=e2979]
+          - cell [ref=e2980]
+        - row "ISK kr Icelandic króna 1.000000" [ref=e2981]:
+          - cell [ref=e2982]:
+            - checkbox [ref=e2984] [cursor=pointer]
+          - cell "ISK" [ref=e2985] [cursor=pointer]
+          - cell "kr" [ref=e2986] [cursor=pointer]
+          - cell "Icelandic króna" [ref=e2987] [cursor=pointer]
+          - cell [ref=e2988] [cursor=pointer]
+          - cell "1.000000" [ref=e2989] [cursor=pointer]
+          - cell [ref=e2990] [cursor=pointer]:
+            - checkbox [ref=e2994]
+          - cell [ref=e2995]
+        - row "JMD $ Jamaican dollar 1.000000" [ref=e2996]:
+          - cell [ref=e2997]:
+            - checkbox [ref=e2999] [cursor=pointer]
+          - cell "JMD" [ref=e3000] [cursor=pointer]
+          - cell "$" [ref=e3001] [cursor=pointer]
+          - cell "Jamaican dollar" [ref=e3002] [cursor=pointer]
+          - cell [ref=e3003] [cursor=pointer]
+          - cell "1.000000" [ref=e3004] [cursor=pointer]
+          - cell [ref=e3005] [cursor=pointer]:
+            - checkbox [ref=e3009]
+          - cell [ref=e3010]
+        - row "JOD د.ا Jordanian dinar 1.000000" [ref=e3011]:
+          - cell [ref=e3012]:
+            - checkbox [ref=e3014] [cursor=pointer]
+          - cell "JOD" [ref=e3015] [cursor=pointer]
+          - cell "د.ا" [ref=e3016] [cursor=pointer]
+          - cell "Jordanian dinar" [ref=e3017] [cursor=pointer]
+          - cell [ref=e3018] [cursor=pointer]
+          - cell "1.000000" [ref=e3019] [cursor=pointer]
+          - cell [ref=e3020] [cursor=pointer]:
+            - checkbox [ref=e3024]
+          - cell [ref=e3025]
+        - row "KES KSh Kenyan shilling 1.000000" [ref=e3026]:
+          - cell [ref=e3027]:
+            - checkbox [ref=e3029] [cursor=pointer]
+          - cell "KES" [ref=e3030] [cursor=pointer]
+          - cell "KSh" [ref=e3031] [cursor=pointer]
+          - cell "Kenyan shilling" [ref=e3032] [cursor=pointer]
+          - cell [ref=e3033] [cursor=pointer]
+          - cell "1.000000" [ref=e3034] [cursor=pointer]
+          - cell [ref=e3035] [cursor=pointer]:
+            - checkbox [ref=e3039]
+          - cell [ref=e3040]
+        - row "KGS лв Kyrgyzstani som 1.000000" [ref=e3041]:
+          - cell [ref=e3042]:
+            - checkbox [ref=e3044] [cursor=pointer]
+          - cell "KGS" [ref=e3045] [cursor=pointer]
+          - cell "лв" [ref=e3046] [cursor=pointer]
+          - cell "Kyrgyzstani som" [ref=e3047] [cursor=pointer]
+          - cell [ref=e3048] [cursor=pointer]
+          - cell "1.000000" [ref=e3049] [cursor=pointer]
+          - cell [ref=e3050] [cursor=pointer]:
+            - checkbox [ref=e3054]
+          - cell [ref=e3055]
+        - row "KHR ៛ Cambodian riel 1.000000" [ref=e3056]:
+          - cell [ref=e3057]:
+            - checkbox [ref=e3059] [cursor=pointer]
+          - cell "KHR" [ref=e3060] [cursor=pointer]
+          - cell "៛" [ref=e3061] [cursor=pointer]
+          - cell "Cambodian riel" [ref=e3062] [cursor=pointer]
+          - cell [ref=e3063] [cursor=pointer]
+          - cell "1.000000" [ref=e3064] [cursor=pointer]
+          - cell [ref=e3065] [cursor=pointer]:
+            - checkbox [ref=e3069]
+          - cell [ref=e3070]
+        - row "KMF CF Comorian franc 1.000000" [ref=e3071]:
+          - cell [ref=e3072]:
+            - checkbox [ref=e3074] [cursor=pointer]
+          - cell "KMF" [ref=e3075] [cursor=pointer]
+          - cell "CF" [ref=e3076] [cursor=pointer]
+          - cell "Comorian franc" [ref=e3077] [cursor=pointer]
+          - cell [ref=e3078] [cursor=pointer]
+          - cell "1.000000" [ref=e3079] [cursor=pointer]
+          - cell [ref=e3080] [cursor=pointer]:
+            - checkbox [ref=e3084]
+          - cell [ref=e3085]
+        - row "KPW ₩ North Korean won 1.000000" [ref=e3086]:
+          - cell [ref=e3087]:
+            - checkbox [ref=e3089] [cursor=pointer]
+          - cell "KPW" [ref=e3090] [cursor=pointer]
+          - cell "₩" [ref=e3091] [cursor=pointer]
+          - cell "North Korean won" [ref=e3092] [cursor=pointer]
+          - cell [ref=e3093] [cursor=pointer]
+          - cell "1.000000" [ref=e3094] [cursor=pointer]
+          - cell [ref=e3095] [cursor=pointer]:
+            - checkbox [ref=e3099]
+          - cell [ref=e3100]
+        - row "KRW ₩ South Korean won 1.000000" [ref=e3101]:
+          - cell [ref=e3102]:
+            - checkbox [ref=e3104] [cursor=pointer]
+          - cell "KRW" [ref=e3105] [cursor=pointer]
+          - cell "₩" [ref=e3106] [cursor=pointer]
+          - cell "South Korean won" [ref=e3107] [cursor=pointer]
+          - cell [ref=e3108] [cursor=pointer]
+          - cell "1.000000" [ref=e3109] [cursor=pointer]
+          - cell [ref=e3110] [cursor=pointer]:
+            - checkbox [ref=e3114]
+          - cell [ref=e3115]
+      - rowgroup [ref=e3116]:
+        - row [ref=e3117]:
+          - cell [ref=e3118]
+          - cell [ref=e3119]
+          - cell [ref=e3120]
+          - cell [ref=e3121]
+          - cell [ref=e3122]
+          - cell [ref=e3123]
+          - cell [ref=e3124]
+          - cell [ref=e3125]
+  - generic [ref=e3126]: Loading

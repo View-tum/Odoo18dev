@@ -20,7 +20,10 @@ Key Features:
     "depends": [
         "base",
         "sale",
+        "sale_stock",
+        "sale_mrp",
         "product",
+        "mrp",
     ],
     "data": ["views/product_template_views.xml", "views/sale_order_line_views.xml"],
     "assets": {},

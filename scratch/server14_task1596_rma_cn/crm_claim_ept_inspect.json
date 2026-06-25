@@ -1,0 +1,1303 @@
+{
+  "interesting_fields": {
+    "activity_state": {
+      "readonly": true,
+      "required": false,
+      "selection": [
+        [
+          "overdue",
+          "Overdue"
+        ],
+        [
+          "today",
+          "Today"
+        ],
+        [
+          "planned",
+          "Planned"
+        ]
+      ],
+      "string": "Activity State",
+      "type": "selection"
+    },
+    "activity_date_deadline": {
+      "readonly": true,
+      "required": false,
+      "string": "Next Activity Deadline",
+      "type": "date"
+    },
+    "my_activity_date_deadline": {
+      "readonly": true,
+      "required": false,
+      "string": "My Activity Deadline",
+      "type": "date"
+    },
+    "rma_send": {
+      "readonly": false,
+      "required": false,
+      "string": "RMA Send",
+      "type": "boolean"
+    },
+    "is_rma_without_incoming": {
+      "readonly": false,
+      "required": false,
+      "string": "Is RMA Without Incoming",
+      "type": "boolean"
+    },
+    "code": {
+      "readonly": true,
+      "required": false,
+      "string": "RMA Number",
+      "type": "char"
+    },
+    "date_deadline": {
+      "readonly": false,
+      "required": false,
+      "string": "Deadline",
+      "type": "date"
+    },
+    "state": {
+      "readonly": false,
+      "required": false,
+      "selection": [
+        [
+          "draft",
+          "Draft"
+        ],
+        [
+          "approve",
+          "Approved"
+        ],
+        [
+          "approve2",
+          "Approved2"
+        ],
+        [
+          "process",
+          "Processing"
+        ],
+        [
+          "close",
+          "Closed"
+        ],
+        [
+          "reject",
+          "Rejected"
+        ]
+      ],
+      "string": "State",
+      "type": "selection"
+    },
+    "section_id": {
+      "readonly": false,
+      "relation": "crm.team",
+      "required": false,
+      "string": "Sales Channel",
+      "type": "many2one"
+    },
+    "invoice_id": {
+      "readonly": false,
+      "relation": "account.move",
+      "required": false,
+      "string": "Invoice",
+      "type": "many2one"
+    },
+    "sale_id": {
+      "readonly": false,
+      "relation": "sale.order",
+      "required": false,
+      "string": "Sale Order",
+      "type": "many2one"
+    },
+    "new_sale_id": {
+      "readonly": false,
+      "relation": "sale.order",
+      "required": false,
+      "string": "New Sale Order",
+      "type": "many2one"
+    },
+    "location_id": {
+      "readonly": false,
+      "relation": "stock.location",
+      "required": false,
+      "string": "Return Location",
+      "type": "many2one"
+    },
+    "internal_picking_id": {
+      "readonly": false,
+      "relation": "stock.picking",
+      "required": false,
+      "string": "Internal Delivery Order",
+      "type": "many2one"
+    },
+    "picking_id": {
+      "readonly": false,
+      "relation": "stock.picking",
+      "required": false,
+      "string": "Delivery Order",
+      "type": "many2one"
+    },
+    "return_picking_id": {
+      "readonly": false,
+      "relation": "stock.picking",
+      "required": false,
+      "string": "Return Delivery Order",
+      "type": "many2one"
+    },
+    "return_picking_count": {
+      "readonly": true,
+      "required": false,
+      "string": "Return Picking Count",
+      "type": "integer"
+    },
+    "rma_support_person_id": {
+      "readonly": false,
+      "relation": "res.partner",
+      "required": false,
+      "string": "Contact Person",
+      "type": "many2one"
+    },
+    "move_product_ids": {
+      "readonly": true,
+      "relation": "product.product",
+      "required": false,
+      "string": "Products",
+      "type": "many2many"
+    },
+    "to_return_picking_ids": {
+      "readonly": false,
+      "relation": "stock.picking",
+      "required": false,
+      "string": "Return Delivery Orders",
+      "type": "many2many"
+    },
+    "delivery_picking_count": {
+      "readonly": true,
+      "required": false,
+      "string": "Delivery Picking Count",
+      "type": "integer"
+    },
+    "refund_invoice_ids": {
+      "readonly": false,
+      "relation": "account.move",
+      "required": false,
+      "string": "Refund Invoices",
+      "type": "many2many"
+    },
+    "refund_invoice_count": {
+      "readonly": true,
+      "required": false,
+      "string": "Refund Invoice Count",
+      "type": "integer"
+    },
+    "claim_lot_ids": {
+      "readonly": true,
+      "relation": "stock.lot",
+      "required": false,
+      "string": "Claim Lot",
+      "type": "many2many"
+    },
+    "claim_line_ids": {
+      "readonly": false,
+      "relation": "claim.line.ept",
+      "required": false,
+      "string": "Return Line",
+      "type": "one2many"
+    },
+    "transform_id": {
+      "readonly": true,
+      "relation": "product.transform",
+      "required": false,
+      "string": "Product Transform",
+      "type": "many2one"
+    },
+    "rma_transform_return_id": {
+      "readonly": true,
+      "relation": "rma.transform.return",
+      "required": false,
+      "string": "RMA Transform Return",
+      "type": "many2one"
+    }
+  },
+  "records": [
+    {
+      "id": 22,
+      "display_name": "RMATR/2026/06/000015 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        34
+      ],
+      "picking_id": [
+        10897,
+        "M-WH/OUT/03783"
+      ],
+      "refund_invoice_ids": [
+        70245
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10898,
+        "GMP/R-IN/00031"
+      ],
+      "sale_id": [
+        16664,
+        "SOB-263089"
+      ],
+      "claim_lot_ids": [
+        6595,
+        7564
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        9387
+      ],
+      "code": "RMA0022",
+      "rma_transform_return_id": [
+        15,
+        "RMATR/2026/06/000015"
+      ],
+      "invoice_id": [
+        70242,
+        "INV-C/26/06/00002"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        37,
+        "M-WH/Stock/CARSALEU2"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10898
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/06/000015 - Transform Return"
+    },
+    {
+      "id": 21,
+      "display_name": "RMATR/2026/06/000013 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        33
+      ],
+      "picking_id": [
+        10878,
+        "M-WH/OUT/03778"
+      ],
+      "refund_invoice_ids": [
+        69830
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10879,
+        "GMP/R-IN/00030"
+      ],
+      "sale_id": [
+        16658,
+        "SOD-263083"
+      ],
+      "claim_lot_ids": [
+        6593,
+        7560
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        9387
+      ],
+      "code": "RMA0021",
+      "rma_transform_return_id": [
+        13,
+        "RMATR/2026/06/000013"
+      ],
+      "invoice_id": [
+        69827,
+        "INV-D/26/06/00010"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        42,
+        "M-WH/Stock/CARSALEU7"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10879
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/06/000013 - Transform Return"
+    },
+    {
+      "id": 20,
+      "display_name": "RMATR/2026/05/000009 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        32
+      ],
+      "picking_id": [
+        10612,
+        "GMP/OUT/02525"
+      ],
+      "refund_invoice_ids": [
+        69300
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10615,
+        "GMP/R-IN/00026"
+      ],
+      "sale_id": [
+        16607,
+        "SOD-263064"
+      ],
+      "claim_lot_ids": [
+        6588,
+        7528
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        9387
+      ],
+      "code": "RMA0020",
+      "rma_transform_return_id": [
+        9,
+        "RMATR/2026/05/000009"
+      ],
+      "invoice_id": [
+        69295,
+        "INV-D/26/05/00004"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        11,
+        "GMP/Output"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10615
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/05/000009 - Transform Return"
+    },
+    {
+      "id": 17,
+      "display_name": "RMATR/2026/05/000008 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        29
+      ],
+      "picking_id": [
+        10589,
+        "GMP/OUT/02523"
+      ],
+      "refund_invoice_ids": [
+        69293
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10610,
+        "GMP/R-IN/00023"
+      ],
+      "sale_id": [
+        16606,
+        "SOD-263063"
+      ],
+      "claim_lot_ids": [
+        6595,
+        7523
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8885
+      ],
+      "code": "RMA0017",
+      "rma_transform_return_id": [
+        8,
+        "RMATR/2026/05/000008"
+      ],
+      "invoice_id": [
+        69272,
+        "INV-D/26/05/00003"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        11,
+        "GMP/Output"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10610
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/05/000008 - Transform Return"
+    },
+    {
+      "id": 16,
+      "display_name": "RMATR/2026/05/000006 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        28
+      ],
+      "picking_id": [
+        10589,
+        "GMP/OUT/02523"
+      ],
+      "refund_invoice_ids": [
+        69290
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10609,
+        "GMP/R-IN/00022"
+      ],
+      "sale_id": [
+        16606,
+        "SOD-263063"
+      ],
+      "claim_lot_ids": [
+        6595,
+        7523
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8885
+      ],
+      "code": "RMA0016",
+      "rma_transform_return_id": [
+        6,
+        "RMATR/2026/05/000006"
+      ],
+      "invoice_id": [
+        69272,
+        "INV-D/26/05/00003"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        11,
+        "GMP/Output"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10609
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/05/000006 - Transform Return"
+    },
+    {
+      "id": 15,
+      "display_name": "RMATR/2026/05/000005 - Transform Return",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        27
+      ],
+      "picking_id": [
+        10589,
+        "GMP/OUT/02523"
+      ],
+      "refund_invoice_ids": [
+        69286
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10606,
+        "GMP/R-IN/00020"
+      ],
+      "sale_id": [
+        16606,
+        "SOD-263063"
+      ],
+      "claim_lot_ids": [
+        6595,
+        7523
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8885
+      ],
+      "code": "RMA0015",
+      "rma_transform_return_id": [
+        5,
+        "RMATR/2026/05/000005"
+      ],
+      "invoice_id": [
+        69272,
+        "INV-D/26/05/00003"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        11,
+        "GMP/Output"
+      ],
+      "delivery_picking_count": 1,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [
+        10606
+      ],
+      "section_id": false,
+      "name": "RMATR/2026/05/000005 - Transform Return"
+    },
+    {
+      "id": 14,
+      "display_name": "RMATR/2026/05/000002 - ยาดมโป๊ยเซียน ชิ้น (1*1)",
+      "refund_invoice_count": 0,
+      "claim_line_ids": [
+        26
+      ],
+      "picking_id": [
+        10579,
+        "M-WH/OUT/03764"
+      ],
+      "refund_invoice_ids": [],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10598,
+        "GMP/R-IN/00016"
+      ],
+      "sale_id": [
+        16604,
+        "SOB-263078"
+      ],
+      "claim_lot_ids": [
+        6593,
+        7526
+      ],
+      "state": "draft",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8885
+      ],
+      "code": "RMA0014",
+      "rma_transform_return_id": [
+        2,
+        "RMATR/2026/05/000002"
+      ],
+      "invoice_id": [
+        69264,
+        "INV-C/26/05/00001"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        29,
+        "M-WH/Stock"
+      ],
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": false,
+      "name": "RMATR/2026/05/000002 - ยาดมโป๊ยเซียน ชิ้น (1*1)"
+    },
+    {
+      "id": 11,
+      "display_name": "RMATR/2026/05/000003 - ยาดมโป๊ยเซียน ชิ้น (1*1)",
+      "refund_invoice_count": 0,
+      "claim_line_ids": [
+        23
+      ],
+      "picking_id": [
+        10589,
+        "GMP/OUT/02523"
+      ],
+      "refund_invoice_ids": [],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10592,
+        "GMP/R-IN/00010"
+      ],
+      "sale_id": [
+        16606,
+        "SOD-263063"
+      ],
+      "claim_lot_ids": [
+        6595,
+        7523
+      ],
+      "state": "draft",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8885
+      ],
+      "code": "RMA0011",
+      "rma_transform_return_id": [
+        3,
+        "RMATR/2026/05/000003"
+      ],
+      "invoice_id": [
+        69272,
+        "INV-D/26/05/00003"
+      ],
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        11,
+        "GMP/Output"
+      ],
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": false,
+      "name": "RMATR/2026/05/000003 - ยาดมโป๊ยเซียน ชิ้น (1*1)"
+    },
+    {
+      "id": 10,
+      "display_name": "คืนเพราะXXX",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        22
+      ],
+      "picking_id": [
+        7536,
+        "M-WH/OUT/02684"
+      ],
+      "refund_invoice_ids": [
+        69165
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10557,
+        "GMP/R-IN/00005"
+      ],
+      "sale_id": [
+        14769,
+        "SOB-262140"
+      ],
+      "claim_lot_ids": [
+        7206,
+        7242,
+        7192
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8215,
+        7973
+      ],
+      "code": "RMA0010",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": true,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "คืนเพราะXXX"
+    },
+    {
+      "id": 9,
+      "display_name": "เทส",
+      "refund_invoice_count": 0,
+      "claim_line_ids": [
+        19,
+        20,
+        21
+      ],
+      "picking_id": [
+        2026,
+        "GMP/OUT/00299"
+      ],
+      "refund_invoice_ids": [],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 0,
+      "return_picking_id": false,
+      "sale_id": [
+        10223,
+        "SOD-260560"
+      ],
+      "claim_lot_ids": [
+        6593,
+        6611
+      ],
+      "state": "draft",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223,
+        8215,
+        7963
+      ],
+      "code": "RMA0009",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "เทส"
+    },
+    {
+      "id": 8,
+      "display_name": "456",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        14
+      ],
+      "picking_id": [
+        1644,
+        "GMP/OUT/00041"
+      ],
+      "refund_invoice_ids": [
+        69159
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10314,
+        "GMP/R-IN/00001"
+      ],
+      "sale_id": [
+        10399,
+        "SOD-260491"
+      ],
+      "claim_lot_ids": [],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8035
+      ],
+      "code": "RMA0008",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "456"
+    },
+    {
+      "id": 7,
+      "display_name": "123",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        13
+      ],
+      "picking_id": [
+        2170,
+        "M-WH/OUT/00084"
+      ],
+      "refund_invoice_ids": [
+        68381
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        10313,
+        "M-WH/IN/00117"
+      ],
+      "sale_id": [
+        9821,
+        "SOB-260484"
+      ],
+      "claim_lot_ids": [
+        6593
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223
+      ],
+      "code": "RMA0007",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "123"
+    },
+    {
+      "id": 6,
+      "display_name": "SOR-260036",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        12
+      ],
+      "picking_id": [
+        4885,
+        "M-WH/OUT/01314"
+      ],
+      "refund_invoice_ids": [
+        62037
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        8049,
+        "M-WH/IN/00112"
+      ],
+      "sale_id": [
+        13180,
+        "SOD-261411"
+      ],
+      "claim_lot_ids": [
+        7214
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8210
+      ],
+      "code": "RMA0006",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "SOR-260036"
+    },
+    {
+      "id": 5,
+      "display_name": "SOR-260049",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        11
+      ],
+      "picking_id": [
+        4813,
+        "GMP/OUT/01286"
+      ],
+      "refund_invoice_ids": [
+        61027
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        7652,
+        "GMP/IN/00028"
+      ],
+      "sale_id": [
+        13113,
+        "SOD-261369"
+      ],
+      "claim_lot_ids": [
+        7233
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8223
+      ],
+      "code": "RMA0005",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "SOR-260049"
+    },
+    {
+      "id": 4,
+      "display_name": "SOR-260043",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        9,
+        10
+      ],
+      "picking_id": [
+        4348,
+        "GMP/OUT/01202"
+      ],
+      "refund_invoice_ids": [
+        61003
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        7648,
+        "GMP/IN/00027"
+      ],
+      "sale_id": [
+        12745,
+        "SOB-260853"
+      ],
+      "claim_lot_ids": [
+        7234,
+        7233
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8215,
+        8223
+      ],
+      "code": "RMA0004",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "SOR-260043"
+    },
+    {
+      "id": 3,
+      "display_name": "ยกเลิกเนื่องจากตัด Lot ผิด",
+      "refund_invoice_count": 0,
+      "claim_line_ids": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "picking_id": [
+        3174,
+        "M-WH/OUT/00331"
+      ],
+      "refund_invoice_ids": [],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        5854,
+        "M-WH/IN/00032"
+      ],
+      "sale_id": [
+        11831,
+        "SOB-260738"
+      ],
+      "claim_lot_ids": [
+        6605,
+        6598,
+        7199,
+        6631
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        7983,
+        7989,
+        8211,
+        8224
+      ],
+      "code": "RMA0003",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": [
+        29,
+        "M-WH/Stock"
+      ],
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "ยกเลิกเนื่องจากตัด Lot ผิด"
+    },
+    {
+      "id": 2,
+      "display_name": "ยกเลิกสินค้าเนื่องจากเปิดบิลผิด",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        4
+      ],
+      "picking_id": [
+        3637,
+        "GMP/OUT/00922"
+      ],
+      "refund_invoice_ids": [
+        52470
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        5285,
+        "GMP/IN/00011"
+      ],
+      "sale_id": [
+        10570,
+        "SOD-260164"
+      ],
+      "claim_lot_ids": [
+        6630
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8224
+      ],
+      "code": "RMA0002",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "ยกเลิกสินค้าเนื่องจากเปิดบิลผิด"
+    },
+    {
+      "id": 1,
+      "display_name": "สินค้าตากการสั่งซื้อผิด",
+      "refund_invoice_count": 1,
+      "claim_line_ids": [
+        1,
+        2,
+        3
+      ],
+      "picking_id": [
+        2326,
+        "GMP/OUT/00400"
+      ],
+      "refund_invoice_ids": [
+        58752
+      ],
+      "activity_state": false,
+      "activity_date_deadline": false,
+      "return_picking_count": 1,
+      "return_picking_id": [
+        5281,
+        "GMP/IN/00010"
+      ],
+      "sale_id": [
+        10310,
+        "SOD-260553"
+      ],
+      "claim_lot_ids": [
+        6630,
+        6605,
+        6598
+      ],
+      "state": "close",
+      "my_activity_date_deadline": false,
+      "transform_id": false,
+      "move_product_ids": [
+        8224,
+        7983,
+        7989
+      ],
+      "code": "RMA0001",
+      "rma_transform_return_id": false,
+      "invoice_id": false,
+      "rma_send": false,
+      "is_rma_without_incoming": false,
+      "date_deadline": false,
+      "location_id": false,
+      "delivery_picking_count": 0,
+      "internal_picking_id": false,
+      "new_sale_id": false,
+      "rma_support_person_id": false,
+      "to_return_picking_ids": [],
+      "section_id": [
+        1,
+        "Sales"
+      ],
+      "name": "สินค้าตากการสั่งซื้อผิด"
+    }
+  ],
+  "views": [
+    {
+      "id": 4533,
+      "name": "CRM - Claims Ept Form",
+      "type": "form",
+      "inherit_id": false,
+      "arch_excerpt": "<form string=\"Claim\">\n                <header>\n                    <button type=\"object\" name=\"action_rma_send\" class=\"oe_highlight\" string=\"Send RMA By Mail\" invisible=\"rma_send\"/>\n                    <button type=\"object\" name=\"action_rma_send\" string=\"Send RMA By Mail\" invisible=\"not rma_send\"/>\n                    <button type=\"object\" name=\"approve_claim\" string=\"Approve\" class=\"oe_highlight\" invisible=\"state != 'draft'\"/>\n                    <button type=\"object\" name=\"reject_claim\" string=\"Reject\" class=\"oe_highlight\" invisible=\"state != 'draft'\"/>\n                    <button type=\"object\" name=\"set_to_draft\" string=\"Set to Draft\" class=\"oe_highlight\" invisible=\"state not in ['approve','reject']\"/>\n                    <button type=\"object\" name=\"process_claim\" string=\"Validate\" class=\"oe_highlight\" invisible=\"state != 'process'\"/>\n                    <button type=\"object\" name=\"action_claim_reject_process_ept\" string=\"Reject\" class=\"oe_highlight\" invisible=\"state != 'process'\"/>\n                    <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"draft,approve,process,close\"/>\n                </header>\n                <sheet string=\"Claims\">\n                    <group name=\"invisible_fields\" invisible=\"1\">\n                        <field name=\"new_sale_id\"/>\n                        <field name=\"parent_partner_id\"/>\n                        <field name=\"refund_invoice_ids\"/>\n                        <field name=\"to_return_picking_ids\"/>\n                        <field name=\"rma_send\"/>\n                        <field name=\"internal_picking_id\"/>\n                        <field name=\"move_product_ids\"/>\n                        <field name=\"return_picking_id\"/>\n                        <field name=\"claim_lot_ids\"/>\n                    </group>\n                    <div class=\"oe_button_box\" name=\"button_box\">\n                        <button class=\"oe_stat_button\" name=\"show_return_picking\" type=\"object\" icon=\"fa-truck\" invisible=\"(return_picking_id == False) or (state in ['draft'])\">\n                            <field name=\"return_picking_count\" string=\"Receipt\" widget=\"statinfo\"/>\n                        </button>\n                        <button class=\"oe_stat_button\" name=\"show_delivery_picking\" type=\"object\" icon=\"fa-truck\" invisible=\"to_return_picking_ids == []\">\n                            <field name=\"delivery_picking_count\" string=\"Deliveries\" widget=\"statinfo\"/>\n                        </button>\n                        <button class=\"oe_stat_button\" name=\"act_supplier_invoice_refund_ept\" icon=\"fa-money\" type=\"object\" invisible=\"refund_invoice_ids == []\">\n                            <field name=\"refund_invoice_count\" string=\"Refund Invoices\" widget=\"statinfo\"/>\n                        </button>\n                        <button class=\"oe_stat_button\" name=\"act_new_so_ept\" type=\"object\" icon=\"fa-usd\" invisible=\"not new_sale_id\" context=\"{'so_id': new_sale_id}\">\n                            <span class=\"o_stat_text\">Sale Order</span>\n                        </button>\n                        <button class=\"oe_stat_button\" name=\"action_view_repair_orders\" icon=\"fa-wrench\" type=\"object\" invisible=\"repairs_count == 0\">\n                            <field name=\"repairs_count\" string=\"Repairs\" widget=\"statinfo\"/>\n                        </button>\n                    </div>\n                    <h1>\n                        <field name=\"code\" class=\"oe_inline\" readonly=\"1\"/>\n                    </h1>\n                    <group>\n                        <group readonly=\"state != 'draft'\">\n                            <field name=\"name\"/>\n                            <field name=\"user_id\" widget=\"many2one_avatar_user\"/>\n                            <field name=\"section_id\"/>\n                            <field name=\"is_rma_without_incoming\"/>\n                            <field name=\"rma_support_person_id\" domain=\"[('type', '=', 'contact'), ('parent_id', '=?', parent_partner_id)]\" options=\"{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}\"/>\n                        </group>\n                        <group>\n                            <field name=\"date\" readonly=\"state != 'draft'\"/>\n                            <field name=\"priority\" readonly=\"state != 'draft'\" widget=\"priority\"/>\n                            <field name=\"date_deadline\" readonly=\"state != 'draft'\"/>\n                            <button name=\"create_contact_partner\" type=\"object\" string=\"Add Contact Person\" invisible=\"state == 'close'\"/>\n                        </group>\n                    </group>\n                    <group>\n                        <field name=\"reject_message_id\" readonly=\"1\" invisible=\"state != 'reject'\" options=\"{&quot;no_open&quot;: True}\"/>\n                    </group>\n                    <notebook>\n                        <page string=\"RMA Details\" name=\"rma_details\">\n                            <group>\n                                <group>\n                                    <field name=\"picking_id\" context=\"{'rma_model': True}\" required=\"1\" readonly=\"state != 'draft'\" domain=\"['&amp;', ('picking_type_code', '=', 'outgoing'), '&amp;', ('state', '=', 'done'), '|', ('sale_id', '!=', False), ('rma_sale_id', '!=', False)]\" options=\"{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}\"/>\n                                    <field name=\"partner_id\" string=\"Partner\" required=\"1\" readonly=\"state != 'draft'\" options=\"{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}\"/>\n                                    <field name=\"email_from\" widget=\"email\" readonly=\"state != 'draft'\"/>\n                                    <field name=\"partner_delivery_id\" required=\"1\" domain=\"[('type', '=', 'delivery'), ('parent_id', '=?', parent_partner_id)]\" readonly=\"state != 'draft'\" options=\"{'no_quick_create': True,'no_create_edit': True,'no_open': True}\"/>\n                                </group>\n                                <group>\n                                    <field name=\"sale_id\" read"
+    },
+    {
+      "id": 4532,
+      "name": "CRM - Claims Ept Tree",
+      "type": "list",
+      "inherit_id": false,
+      "arch_excerpt": "<list sample=\"1\">\n                <field name=\"code\"/>\n                <field name=\"name\"/>\n                <field name=\"partner_id\"/>\n                <field name=\"user_id\" widget=\"many2one_avatar_user\"/>\n                <field name=\"date\"/>\n                <field name=\"state\" decoration-success=\"state == 'process'\" decoration-info=\"state == 'draft' or state == 'approve'\" decoration-warning=\"state == 'reject'\" widget=\"badge\"/>\n                <field name=\"date_action_next\"/>\n                <field name=\"action_next\"/>\n                <field name=\"date_deadline\" invisible=\"1\"/>\n                <field name=\"date_closed\" invisible=\"1\"/>\n            </list>"
+    },
+    {
+      "id": 4535,
+      "name": "CRM - Claims Search",
+      "type": "search",
+      "inherit_id": false,
+      "arch_excerpt": "<search string=\"Search Claims\">\n                <field name=\"name\" string=\"Claims\"/>\n                <field name=\"partner_id\" filter_domain=\"[('partner_id', 'child_of', self)]\"/>\n                <field name=\"user_id\"/>\n                <filter string=\"Unassigned Claims\" domain=\"[('user_id', '=', False)]\" name=\"Unassigned_Claims\"/>\n                <group expand=\"0\" string=\"Group By\">\n                    <filter string=\"Partner\" name=\"partner\" help=\"Partner\" context=\"{'group_by':'partner_id'}\"/>\n                    <filter string=\"Responsible\" name=\"user\" help=\"Responsible User\" context=\"{'group_by':'user_id'}\"/>\n                    <filter string=\"State\" name=\"state\" context=\"{'group_by':'state'}\"/>\n                    <filter string=\"Claim Month\" name=\"claim_month\" help=\"Claim Date by Month\" context=\"{'group_by':'date'}\"/>\n                    <filter string=\"Deadline\" name=\"deadline\" context=\"{'group_by':'date_deadline'}\"/>\n                </group>\n            </search>"
+    },
+    {
+      "id": 4534,
+      "name": "Claims Actions",
+      "type": "calendar",
+      "inherit_id": false,
+      "arch_excerpt": "<calendar string=\"Claims\" date_start=\"date_action_next\" color=\"user_id\">\n                <field name=\"name\"/>\n            </calendar>"
+    },
+    {
+      "id": 4824,
+      "name": "crm.claim.ept.form.rma.transform.return.inherit",
+      "type": "form",
+      "inherit_id": [
+        4533,
+        "CRM - Claims Ept Form"
+      ],
+      "arch_excerpt": "<data><xpath expr=\"//field[@name='sale_id']\" position=\"after\">\n                <field name=\"rma_transform_return_id\" readonly=\"1\" invisible=\"not rma_transform_return_id\"/>\n            </xpath>\n            <xpath expr=\"//field[@name='claim_line_ids']/list/field[@name='move_id']\" position=\"before\">\n                <field name=\"rma_transform_return_id\" readonly=\"1\" optional=\"hide\"/>\n                <field name=\"rma_transform_return_line_id\" readonly=\"1\" optional=\"show\"/>\n                <field name=\"rma_transform_original_product_id\" readonly=\"1\" optional=\"hide\"/>\n                <field name=\"rma_transform_invoice_id\" readonly=\"1\" optional=\"hide\"/>\n            </xpath>\n            <xpath expr=\"//field[@name='claim_line_ids']/form//field[@name='product_id']\" position=\"after\">\n                <field name=\"rma_transform_return_id\" readonly=\"1\"/>\n                <field name=\"rma_transform_return_line_id\" readonly=\"1\"/>\n                <field name=\"rma_transform_original_product_id\" readonly=\"1\"/>\n                <field name=\"rma_transform_invoice_id\" readonly=\"1\"/>\n            </xpath>\n        </data>"
+    },
+    {
+      "id": 4820,
+      "name": "crm.claim.ept.form.transform.inherit",
+      "type": "form",
+      "inherit_id": [
+        4533,
+        "CRM - Claims Ept Form"
+      ],
+      "arch_excerpt": "<data><xpath expr=\"//group[@name='invisible_fields']\" position=\"inside\">\n                <field name=\"transform_id\"/>\n            </xpath>\n            <xpath expr=\"//field[@name='sale_id']\" position=\"after\">\n                <field name=\"invoice_id\" readonly=\"1\"/>\n                <field name=\"transform_id\" readonly=\"1\" invisible=\"not transform_id\"/>\n            </xpath>\n            <xpath expr=\"//field[@name='claim_line_ids']/list/field[@name='move_id']\" position=\"before\">\n                <field name=\"transform_id\" readonly=\"1\" optional=\"show\"/>\n                <field name=\"transform_original_product_id\" readonly=\"1\" optional=\"hide\"/>\n                <field name=\"transform_invoice_id\" readonly=\"1\" optional=\"hide\"/>\n            </xpath>\n            <xpath expr=\"//field[@name='claim_line_ids']/form//field[@name='product_id']\" position=\"after\">\n                <field name=\"transform_id\" readonly=\"1\"/>\n                <field name=\"transform_original_product_id\" readonly=\"1\"/>\n                <field name=\"transform_invoice_id\" readonly=\"1\"/>\n            </xpath>\n        </data>"
+    }
+  ]
+}

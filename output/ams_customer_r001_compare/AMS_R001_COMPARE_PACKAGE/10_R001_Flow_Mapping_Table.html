@@ -1,0 +1,1093 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AMS R001 Flow Mapping Table</title>
+<style>
+body{font-family:Arial,'Noto Sans Thai',sans-serif;margin:0;background:#f8fafc;color:#111827}
+.wrap{max-width:1400px;margin:0 auto;padding:28px}
+.hero{background:#5B1747;color:white;padding:20px 24px;border-radius:8px}
+h1{margin:0;font-size:26px}h2{color:#5B1747;margin-top:26px}
+.note{background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px;margin-top:12px}
+table{border-collapse:collapse;width:100%;background:white;border:1px solid #cbd5e1;font-size:13px}
+th{background:#5B1747;color:white;text-align:left;position:sticky;top:0}
+td,th{border:1px solid #cbd5e1;padding:8px;vertical-align:top}
+.num{text-align:right;white-space:nowrap}.fit{font-weight:700}.std{color:#166534}.report{color:#7C3AED}.cust{color:#9A3412}.muted{color:#64748b;font-size:12px}
+</style></head><body><div class="wrap">
+<section class="hero"><h1>AMS R001 Flow Mapping Table</h1><p>Customer request จริงใน R001 มี 44 ข้อ ส่วนอีก 24 จุดคือ supporting mapping points จาก solution note และ blueprint image ไม่ใช่ request เพิ่มของลูกค้า</p></section>
+<div class="note"><strong>สรุปคำตอบ:</strong> ตารางนี้แยก 44 customer requests ออกจาก 24 blueprint/add-on mapping points แล้ว map เข้า Draw.io flow เพื่อใช้ตอบว่า Odoo standard รองรับตรงไหน และตรงไหนต้องเพิ่ม รายการที่เป็น API, report format, COA, DPPM/OEE/OPE, budget hard lock, netting, multi-ledger, WIP/valuation ยังต้อง confirm rule/sample กับลูกค้าก่อน final quotation</div>
+<h2>1. Flow Standard/Custom Map</h2>
+<table><thead><tr><th>Flow</th><th>Standard Odoo ใช้ได้</th><th>Report / KPI</th><th>ต้องทำเพิ่ม / Custom</th><th>MD</th></tr></thead><tbody><tr>
+<td><strong>01 Overall R001 Blueprint End-to-End</strong><br><span class="muted">ภาพรวม End-to-End</span></td>
+<td><strong class="std">0 จุด</strong><br>ใช้เป็นหน้าภาพรวมเชื่อมทุก module</td>
+<td><strong class="report">0 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">0 จุด</strong><br>ใช้ระบุ cross-module decision และ dependency</td>
+<td class="num">0</td>
+</tr>
+<tr>
+<td><strong>02 Sales + Customer Forecast API</strong><br><span class="muted">ขาย</span></td>
+<td><strong class="std">13 จุด</strong><br>Sales/CRM/Invoice standard</td>
+<td><strong class="report">1 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">8 จุด</strong><br>Legacy doc forms and forecast import</td>
+<td class="num">116</td>
+</tr>
+<tr>
+<td><strong>03 Procurement + PR PO Approval</strong><br><span class="muted">ซื้อ</span></td>
+<td><strong class="std">10 จุด</strong><br>Purchase standard</td>
+<td><strong class="report">1 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">5 จุด</strong><br>Auto suggestion/grouping</td>
+<td class="num">75</td>
+</tr>
+<tr>
+<td><strong>04 RM Warehouse + Customer Supplied Material</strong><br><span class="muted">คลังวัตถุดิบ</span></td>
+<td><strong class="std">0 จุด</strong><br>Standard base</td>
+<td><strong class="report">1 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">2 จุด</strong><br>Customer supplied material report/valuation</td>
+<td class="num">17</td>
+</tr>
+<tr>
+<td><strong>05 Engineering + PCC BOM Routing</strong><br><span class="muted">วิศวกรรมการผลิต</span></td>
+<td><strong class="std">0 จุด</strong><br>MRP/PLM standard</td>
+<td><strong class="report">0 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">1 จุด</strong><br>PCC form/approval</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td><strong>06 Quality + COA</strong><br><span class="muted">ควบคุมคุณภาพ</span></td>
+<td><strong class="std">1 จุด</strong><br>Quality standard base</td>
+<td><strong class="report">0 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">1 จุด</strong><br>COA PDF/customer format</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td><strong>07 Planning + IS WI MRP</strong><br><span class="muted">วางแผนผลิต</span></td>
+<td><strong class="std">0 จุด</strong><br>MRP standard</td>
+<td><strong class="report">1 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">0 จุด</strong><br>IS/WI forms</td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td><strong>08 Production + MO WO Rework</strong><br><span class="muted">ผลิต</span></td>
+<td><strong class="std">2 จุด</strong><br>MRP work orders standard</td>
+<td><strong class="report">0 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">1 จุด</strong><br>Exact rework route</td>
+<td class="num">3</td>
+</tr>
+<tr>
+<td><strong>09 FG Warehouse + Delivery</strong><br><span class="muted">คลังสินค้าสำเร็จรูป/จัดส่ง</span></td>
+<td><strong class="std">0 จุด</strong><br>Inventory delivery standard</td>
+<td><strong class="report">0 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">0 จุด</strong><br>Delivery ticket/driver KPI</td>
+<td class="num">0</td>
+</tr>
+<tr>
+<td><strong>10 Accounting + Thai Tax Legacy Docs</strong><br><span class="muted">การเงิน/บัญชี</span></td>
+<td><strong class="std">8 จุด</strong><br>Accounting standard + l10n_th</td>
+<td><strong class="report">4 จุด</strong><br>Report/KPI หรือแบบฟอร์มที่ต้องทำให้ตรงรูปแบบ AMS</td>
+<td><strong class="cust">8 จุด</strong><br>Legacy report/sequence/netting/multi ledger</td>
+<td class="num">127</td>
+</tr></tbody></table>
+<h2>2. Mapping Summary by Flow</h2>
+<table><thead><tr><th>Flow</th><th>Lane</th><th>Items</th><th>Std</th><th>Report</th><th>Custom</th><th>MD</th><th>Odoo Equivalent</th><th>Custom Risk</th><th>Present Note</th></tr></thead><tbody><tr>
+<td>01 Overall R001 Blueprint End-to-End</td>
+<td>ภาพรวม End-to-End</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td>End-to-end Odoo process mapping</td>
+<td>ใช้ระบุ cross-module decision และ dependency</td>
+<td>เริ่มจากภาพรวมก่อนลงราย module</td>
+</tr>
+<tr>
+<td>02 Sales + Customer Forecast API</td>
+<td>ขาย</td>
+<td class="num">22</td>
+<td class="num">13</td>
+<td class="num">1</td>
+<td class="num">8</td>
+<td class="num">116</td>
+<td>CRM/Sales/Product/Invoice/Statement</td>
+<td>Legacy doc forms and forecast import</td>
+<td>เริ่มเล่าจากฝ่ายขาย เพราะเป็น trigger ของ demand</td>
+</tr>
+<tr>
+<td>03 Procurement + PR PO Approval</td>
+<td>ซื้อ</td>
+<td class="num">16</td>
+<td class="num">10</td>
+<td class="num">1</td>
+<td class="num">5</td>
+<td class="num">75</td>
+<td>Purchase/Approval/RFQ/PO</td>
+<td>Auto suggestion/grouping</td>
+<td>เชื่อมจาก Sales/MRP shortage ไป PO</td>
+</tr>
+<tr>
+<td>04 RM Warehouse + Customer Supplied Material</td>
+<td>คลังวัตถุดิบ</td>
+<td class="num">3</td>
+<td class="num">0</td>
+<td class="num">1</td>
+<td class="num">2</td>
+<td class="num">17</td>
+<td>Inventory/Barcode/Owner stock</td>
+<td>Customer supplied material report/valuation</td>
+<td>ย้ำ owner stock และ lot/location</td>
+</tr>
+<tr>
+<td>05 Engineering + PCC BOM Routing</td>
+<td>วิศวกรรมการผลิต</td>
+<td class="num">1</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">1</td>
+<td class="num">6</td>
+<td>BOM/Routing/Work Centers/PLM</td>
+<td>PCC form/approval</td>
+<td>ก่อนผลิตต้อง master data พร้อม</td>
+</tr>
+<tr>
+<td>06 Quality + COA</td>
+<td>ควบคุมคุณภาพ</td>
+<td class="num">2</td>
+<td class="num">1</td>
+<td class="num">0</td>
+<td class="num">1</td>
+<td class="num">6</td>
+<td>Quality Check/COA report</td>
+<td>COA PDF/customer format</td>
+<td>COA เป็น output ให้ลูกค้า</td>
+</tr>
+<tr>
+<td>07 Planning + IS WI MRP</td>
+<td>วางแผนผลิต</td>
+<td class="num">1</td>
+<td class="num">0</td>
+<td class="num">1</td>
+<td class="num">0</td>
+<td class="num">8</td>
+<td>MRP run/material issue/work instruction</td>
+<td>IS/WI forms</td>
+<td>เล่าจุด buy/make และ material issue</td>
+</tr>
+<tr>
+<td>08 Production + MO WO Rework</td>
+<td>ผลิต</td>
+<td class="num">3</td>
+<td class="num">2</td>
+<td class="num">0</td>
+<td class="num">1</td>
+<td class="num">3</td>
+<td>MO/WO/Rework/Scrap</td>
+<td>Exact rework route</td>
+<td>ตัดสินใจ QC pass/fail</td>
+</tr>
+<tr>
+<td>09 FG Warehouse + Delivery</td>
+<td>คลังสินค้าสำเร็จรูป/จัดส่ง</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td class="num">0</td>
+<td>FG receipt/Delivery</td>
+<td>Delivery ticket/driver KPI</td>
+<td>จบ stock movement ก่อน invoice</td>
+</tr>
+<tr>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>การเงิน/บัญชี</td>
+<td class="num">20</td>
+<td class="num">8</td>
+<td class="num">4</td>
+<td class="num">8</td>
+<td class="num">127</td>
+<td>Accounting/Payment/Receipt/Thai localization</td>
+<td>Legacy report/sequence/netting/multi ledger</td>
+<td>ปิด flow ด้วย accounting integrity</td>
+</tr></tbody></table>
+<h2>3. Detail Mapping: 44 Customer Requests + 24 Supporting Points</h2>
+<table><thead><tr><th>Seq</th><th>Flow</th><th>Area</th><th>No</th><th>Customer Requirement</th><th>Odoo Standard Explanation</th><th>Fit</th><th>ต้องอธิบาย/ต้องเพิ่ม</th><th>MD</th><th>Phase</th><th>Priority</th></tr></thead><tbody><tr>
+<td>1</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>1</td>
+<td>Financial report by Business unit ( Segment)/Branch</td>
+<td>ใช้ Accounting, Thai Localization, Budget, Project, Spreadsheet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>2</td>
+<td>Finance Analysis report ( Finance Ratio , Quick ratio, EBITDA…)</td>
+<td>ใช้ Accounting, Thai Localization, Budget, Project, Spreadsheet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Report/KPI</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>3</td>
+<td>Consolidation Function and Financial report</td>
+<td>Odoo standard รองรับ multi-company, inter-company และ reporting base; consolidation แบบ elimination/ownership/translation ต้องออกแบบ report/custom หรือ external consolidation</td>
+<td>Custom/Integration</td>
+<td>ใช้ Multi-company ได้สำหรับแยกบริษัท/branch แต่ statutory consolidation ยังต้องออกแบบ consolidation/elimination เพิ่ม</td>
+<td class="num">18</td>
+<td>P3</td>
+<td>High</td>
+</tr>
+<tr>
+<td>4</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>4</td>
+<td>Banking Reconcilation</td>
+<td>ใช้ Accounting, Thai Localization, Budget, Project, Spreadsheet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">1</td>
+<td>P1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>5</td>
+<td>Cash Flow forecast</td>
+<td>Odoo standard มี cash flow statement, AP/AR aging และ payment terms; forecast รวม PR/PO/AP/AR ต้องทำ spreadsheet/dashboard/custom report</td>
+<td>Custom/Integration</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>6</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>6</td>
+<td>Budgeting and controlling system ( Budget limit)</td>
+<td>Odoo standard มี Analytic Budget/Budget APP; hard lock PR/PO เกินงบต้องเพิ่ม approval guard/constraint</td>
+<td>Custom/Integration</td>
+<td>ใช้ Budget/Analytic Budget standard ก่อน ถ้าต้อง hard lock PR/PO เกินงบต้องเพิ่ม guard</td>
+<td class="num">8</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>7</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>7</td>
+<td>Capital Budget System ( Investment and Project)</td>
+<td>Odoo standard มี Analytic Budget/Budget APP; hard lock PR/PO เกินงบต้องเพิ่ม approval guard/constraint</td>
+<td>Custom/Integration</td>
+<td>ใช้ Project + Analytic Account สำหรับ CAPEX/Investment tracking</td>
+<td class="num">12</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>8</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>8</td>
+<td>Cost Variance Anaysis report</td>
+<td>Landed Cost เป็น standard สำหรับ allocate cost เข้า stock valuation; production variance allocation to COG/WIP/FG ต้อง design accounting rule เพิ่ม</td>
+<td>Custom/Integration</td>
+<td>ลูกค้าระบุว่าต้อง customize ต้องแตก business formula และ source data ก่อน estimate final</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>9</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>9</td>
+<td>Cost Variance allocation to COG , Inventory and value of WIP</td>
+<td>Landed Cost เป็น standard สำหรับ allocate cost เข้า stock valuation; production variance allocation to COG/WIP/FG ต้อง design accounting rule เพิ่ม</td>
+<td>Standard/Config</td>
+<td>Landed Cost standard ช่วย allocate landed cost เข้า inventory ได้ แต่ production variance to COG/WIP/FG ต้อง design เพิ่ม</td>
+<td class="num">12</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>10</td>
+<td>WIP report ( In case of no location) ไม่ได้กำหนดให้เป็น stock แต่ tracking จำนวน มูลค่าได้</td>
+<td>MRP/Inventory standard track WIP ผ่าน production moves/location/work order; WIP value by process without location ต้องทำ report/custom</td>
+<td>Standard/Config</td>
+<td>ถ้าใช้ WIP location/operation tracking ทำได้ด้วย MRP+Inventory; ถ้าไม่ใช้ stock location แต่ต้อง value WIP ตาม process ต้อง report/custom</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>11</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>11</td>
+<td>Other else. That system will offer</td>
+<td>ใช้ Accounting, Thai Localization, Budget, Project, Spreadsheet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ใช้ Accounting Report/Spreadsheet Dashboard ได้ แต่ executive pack เฉพาะบริษัทเป็น report configuration/custom dashboard</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>12</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>1</td>
+<td>Quotation Function and Measuring Success ( win rate : quoted vs won )</td>
+<td>CRM/Contacts standard รองรับ profile, activities, tags, notes; customer 360/web portal เฉพาะทางเป็น custom/report</td>
+<td>Standard/Config</td>
+<td>ใช้ CRM standard สำหรับ lead/opportunity/win-rate และเชื่อม quotation</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>13</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>2</td>
+<td>SO integrated with Customer 's PO ( Auto motive) and MRP/ Forecast ( + stock require )</td>
+<td>Sales/MRP standard รับ SO/forecast ได้; external Customer PO/forecast automotive ต้องทำ import/API mapping</td>
+<td>Custom/Integration</td>
+<td>ถ้าลูกค้าต้องรับ Customer PO/Forecast automotive จาก external file/API ต้องทำ import/integration เพิ่ม</td>
+<td class="num">12</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>14</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>3</td>
+<td>Outgoing performance ( % non fulfilment " request vs delivery " )</td>
+<td>Return/Quality data เป็น standard base; DPPM/RMA claim dashboard ต้อง custom/report</td>
+<td>Custom/Integration</td>
+<td>ใช้ Inventory/Sales data ทำ dashboard ได้ แต่สูตร non-fulfillment ต้องนิยาม KPI เพิ่ม</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>15</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>4</td>
+<td>Sale by Business Unit and GP</td>
+<td>ใช้ CRM, Sales, Sales Margin, MRP/Sales, Inventory เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>16</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>5</td>
+<td>Sale By Branch and GP</td>
+<td>ใช้ CRM, Sales, Sales Margin, MRP/Sales, Inventory เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>17</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>6</td>
+<td>Sale forecast link to MRP in order to forecast Matetial</td>
+<td>ใช้ CRM, Sales, Sales Margin, MRP/Sales, Inventory เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ใช้ MPS/MRP forecast เป็น standard แต่ format forecast import ต้องออกแบบ</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>18</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>7</td>
+<td>SO by MOQ controlling ( Link with BOM ( by master unit ) , store ( by STD Unit ) and Purchasing unit (by min q'ty " unique & common )</td>
+<td>ใช้ CRM, Sales, Sales Margin, MRP/Sales, Inventory เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>19</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>8</td>
+<td>Contract agrrememnt & framework ( by business unit )</td>
+<td>Purchase blanket agreement standard รองรับฝั่งซื้อ; sales framework by BU ต้องตรวจว่าใช้ Sales template/contract ได้หรือทำ custom contract model</td>
+<td>Custom/Integration</td>
+<td>ยังไม่ชัดเจน ต้องถาม scope เพิ่มใน workshop</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>20</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>9</td>
+<td>CRM ( customer - mission & vision , strategy , organization , performance )</td>
+<td>CRM/Contacts standard รองรับ profile, activities, tags, notes; customer 360/web portal เฉพาะทางเป็น custom/report</td>
+<td>Custom/Integration</td>
+<td>CRM customer profile standard รองรับ notes/tags/activity; ถ้าต้อง web portal/customer 360 เพิ่มต้องออกแบบ</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>21</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>10</td>
+<td>Other else. That system will offer</td>
+<td>ใช้ CRM, Sales, Sales Margin, MRP/Sales, Inventory เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">1.5</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>22</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Procurement</td>
+<td>1</td>
+<td>Quotation system ( RM , SEMI , TRADING ) and Measuring selection ( win rate : quotation vs target price )</td>
+<td>ใช้ Purchase, Purchase Agreements, Approvals, Inventory, Vendor Pricelist เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>23</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>2</td>
+<td>Supplier Evalutation</td>
+<td>Purchase/Vendor Pricelist standard รองรับ vendor data; weighted supplier scorecard ต้องทำ KPI/report</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>24</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>3</td>
+<td>( Delivery on time , Low price, credit longterm ,…)</td>
+<td>ใช้ Purchase, Purchase Agreements, Approvals, Inventory, Vendor Pricelist เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Report/KPI</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">3.5</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>25</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>4</td>
+<td>Cost up/down report</td>
+<td>ใช้ Purchase, Purchase Agreements, Approvals, Inventory, Vendor Pricelist เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Custom/Integration</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>26</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Procurement</td>
+<td>5</td>
+<td>Integrate with MRP and SO about MOQ,lead time of supplier</td>
+<td>Purchase/Vendor Pricelist standard รองรับ vendor data; weighted supplier scorecard ต้องทำ KPI/report</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>27</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>6</td>
+<td>PR and PO approval process ( make analysis data / suggestion )</td>
+<td>ใช้ Purchase, Purchase Agreements, Approvals, Inventory, Vendor Pricelist เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Custom/Integration</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>28</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Procurement</td>
+<td>7</td>
+<td>Contract agrrememnt & framework</td>
+<td>Purchase blanket agreement standard รองรับฝั่งซื้อ; sales framework by BU ต้องตรวจว่าใช้ Sales template/contract ได้หรือทำ custom contract model</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>29</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>8</td>
+<td>Other else. That system will offer</td>
+<td>ใช้ Purchase, Purchase Agreements, Approvals, Inventory, Vendor Pricelist เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">1.5</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>30</td>
+<td>08 Production + MO WO Rework</td>
+<td>Warehouse & Logistic</td>
+<td>1</td>
+<td>Stock Control by Lot</td>
+<td>ใช้ Inventory, Barcode, Delivery, Fleet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">1</td>
+<td>P1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>31</td>
+<td>08 Production + MO WO Rework</td>
+<td>Warehouse & Logistic</td>
+<td>2</td>
+<td>Storage Management ( Shelf and location)</td>
+<td>ใช้ Inventory, Barcode, Delivery, Fleet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>32</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Warehouse & Logistic</td>
+<td>3</td>
+<td>Barcode system</td>
+<td>Inventory Barcode และ Barcode MRP standard รองรับ scan receipt/delivery/operation; ถ้าฟอร์ม tag เฉพาะ legacy ต้องทำ report template</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">1</td>
+<td>P1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>33</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Warehouse & Logistic</td>
+<td>4</td>
+<td>Integrate with MRP/Forecast ,SO and PO about minimum Stock ,Slow and Dead stock</td>
+<td>ใช้ Inventory, Barcode, Delivery, Fleet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>34</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Warehouse & Logistic</td>
+<td>5</td>
+<td>Minimum stock and re-order point</td>
+<td>ใช้ Inventory, Barcode, Delivery, Fleet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>35</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Warehouse & Logistic</td>
+<td>6</td>
+<td>Control routes and transportation costs</td>
+<td>ใช้ Inventory, Barcode, Delivery, Fleet เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ยืนยัน business rule, source data และ owner ใน workshop</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>36</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Manufacturing</td>
+<td>1</td>
+<td>MRP/Forecast Integration Purchase (PO) and SO , Stock ( FG + WIP )</td>
+<td>MRP/Inventory standard track WIP ผ่าน production moves/location/work order; WIP value by process without location ต้องทำ report/custom</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>37</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Manufacturing</td>
+<td>2</td>
+<td>Production Control ( Input ,Output ,waste amd time)</td>
+<td>ใช้ MRP, Work Orders, Quality, Maintenance, Barcode MRP, PLM เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>38</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Manufacturing</td>
+<td>3</td>
+<td>Shop Floor Management ( Tracking status of products)</td>
+<td>ใช้ MRP, Work Orders, Quality, Maintenance, Barcode MRP, PLM เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">1</td>
+<td>P1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>39</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Manufacturing</td>
+<td>4</td>
+<td>Overall production effectiveness(OPE) " availability , performance rate , quality performance "</td>
+<td>Work Orders/Maintenance/Quality มี source data; สูตร OPE/OEE ตามบริษัทต้องทำ dashboard/report</td>
+<td>Custom/Integration</td>
+<td>ลูกค้าระบุว่าต้อง customize ต้องแตก business formula และ source data ก่อน estimate final</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>40</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Manufacturing</td>
+<td>5</td>
+<td>Overall equipment effectiveness(OEE) " availability , performance rate , quality performance "</td>
+<td>Work Orders/Maintenance/Quality มี source data; สูตร OPE/OEE ตามบริษัทต้องทำ dashboard/report</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>41</td>
+<td>06 Quality + COA</td>
+<td>Manufacturing</td>
+<td>6</td>
+<td>BOM and routing in multi-layer</td>
+<td>ใช้ MRP, Work Orders, Quality, Maintenance, Barcode MRP, PLM เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">1</td>
+<td>P1</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>42</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Manufacturing</td>
+<td>7</td>
+<td>BOM version for Quotation and PPAP</td>
+<td>ใช้ MRP, Work Orders, Quality, Maintenance, Barcode MRP, PLM เป็น baseline แล้วตรวจ requirement detail ใน workshop</td>
+<td>Standard/Config</td>
+<td>MTO route standard แต่ quotation BOM/PPAP revision control ต้อง design เพิ่ม</td>
+<td class="num">12</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>43</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Manufacturing</td>
+<td>8</td>
+<td>Barcode System for tracking in each process of production</td>
+<td>Inventory Barcode และ Barcode MRP standard รองรับ scan receipt/delivery/operation; ถ้าฟอร์ม tag เฉพาะ legacy ต้องทำ report template</td>
+<td>Standard/Config</td>
+<td>ตั้งค่า standard module + master data แล้วทำ UAT scenario</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>44</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Manufacturing</td>
+<td>9</td>
+<td>Outgoing & customer return dppm</td>
+<td>Return/Quality data เป็น standard base; DPPM/RMA claim dashboard ต้อง custom/report</td>
+<td>Custom/Integration</td>
+<td>Odoo standard มี return flow; ถ้าต้อง RMA workflow/claim/DPPM dashboard ต้อง custom/report</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>45</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Financial report as Audit Report</td>
+<td>Accounting Reports / Audit report layout</td>
+<td>Report/KPI</td>
+<td>Standard report base แต่ audit format เฉพาะต้อง config/report</td>
+<td class="num">3.5</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>46</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Fixed Assets Family</td>
+<td>Assets standard</td>
+<td>Standard/Config</td>
+<td>Odoo Accounting asset/deferred model ใช้ได้ ต้อง setup asset category/family</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>47</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>QR code for collection</td>
+<td>l10n_th/account_qr_code_emv</td>
+<td>Standard/Config</td>
+<td>Thailand localization มี QR base; format ธนาคารจริงต้องทดสอบ</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>48</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Netting Payment</td>
+<td>Accounting payment/journal entry</td>
+<td>Custom/Integration</td>
+<td>Customer/vendor netting แบบ workflow อาจต้อง wizard/approval</td>
+<td class="num">8</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>49</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Multi Ledger</td>
+<td>Journals, multi-company, analytic</td>
+<td>Custom/Integration</td>
+<td>ถ้าหมายถึง parallel ledger/reporting book ต้อง design เพิ่ม</td>
+<td class="num">15</td>
+<td>P3</td>
+<td>High</td>
+</tr>
+<tr>
+<td>50</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Deferred Expenses</td>
+<td>Deferred expense/revenue standard</td>
+<td>Standard/Config</td>
+<td>ใช้ standard accounting deferral ก่อน</td>
+<td class="num">2</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>51</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting & Finance</td>
+<td>-</td>
+<td>Thai Tax report</td>
+<td>l10n_th + l10n_th_reports</td>
+<td>Report/KPI</td>
+<td>มี standard Thailand Accounting/Reports ใน source; ต้องติดตั้งและทดสอบแบบ ภ.ง.ด./VAT</td>
+<td class="num">2.5</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>52</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Warehouse & Logistic</td>
+<td>-</td>
+<td>Ticket issuing / Driver evaluation</td>
+<td>Delivery + Fleet + Helpdesk/Project optional</td>
+<td>Custom/Integration</td>
+<td>Route/cost standard บางส่วน; ticket/driver score workflow ต้องออกแบบ</td>
+<td class="num">9</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>53</td>
+<td>08 Production + MO WO Rework</td>
+<td>System / Infrastructure</td>
+<td>-</td>
+<td>Cloud service / Server</td>
+<td>Deployment track</td>
+<td>Custom/Integration</td>
+<td>แยกเป็น infrastructure/commercial ไม่ใช่ Odoo functional gap</td>
+<td class="num">0</td>
+<td>Commercial</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>54</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Project Timeline</td>
+<td>-</td>
+<td>Project lead time 9-12 MTH</td>
+<td>Project plan</td>
+<td>Standard/Config</td>
+<td>ใช้เป็น presentation timeline benchmark ไม่ใช่ functional manday</td>
+<td class="num">0</td>
+<td>Commercial</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>55</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>-</td>
+<td>SP สินค้าใหม่ / IMR ขอรหัสสินค้า</td>
+<td>Product + Approvals + PLM</td>
+<td>Custom/Integration</td>
+<td>Standard รองรับ product master/ECO/approval; ต้องเพิ่ม form/sequence ถ้าต้องเหมือนเอกสารเดิม</td>
+<td class="num">6</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>56</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Sales</td>
+<td>-</td>
+<td>FA / Forecast Automotive จากลูกค้า</td>
+<td>Sales Forecast / MPS / Import</td>
+<td>Custom/Integration</td>
+<td>MPS/MRP standard; automotive forecast file/API ต้องทำ import mapping</td>
+<td class="num">12</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>57</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Sales</td>
+<td>-</td>
+<td>SO + แผน / IV / BI</td>
+<td>Sales Order, Invoice, Billing Statement</td>
+<td>Custom/Integration</td>
+<td>SO/Invoice standard; BI statement format ไทยหรือ legacy อาจต้อง custom report</td>
+<td class="num">4</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>58</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Procurement</td>
+<td>-</td>
+<td>รวบรวม PR คัดแยก และออก PO</td>
+<td>Purchase + Approvals + Purchase Agreement</td>
+<td>Standard/Config</td>
+<td>Standard รองรับ RFQ/PO/approval; suggestion/auto grouping ต้องตรวจ rule</td>
+<td class="num">4</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>59</td>
+<td>04 RM Warehouse + Customer Supplied Material</td>
+<td>Raw Material Warehouse</td>
+<td>-</td>
+<td>รับ RM / พิมพ์ Tag / จ่าย RM</td>
+<td>Inventory Receipt, Barcode, Internal Transfer</td>
+<td>Report/KPI</td>
+<td>Standard รองรับ receipt/tag/barcode/move; label layout เฉพาะต้อง report template</td>
+<td class="num">4</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>60</td>
+<td>04 RM Warehouse + Customer Supplied Material</td>
+<td>Raw Material Warehouse</td>
+<td>-</td>
+<td>วัตถุดิบลูกค้า / CP</td>
+<td>Owner stock / Customer supplied material</td>
+<td>Custom/Integration</td>
+<td>Odoo มี owner/consignment concept; valuation/report separation ต้อง design</td>
+<td class="num">6</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>61</td>
+<td>05 Engineering + PCC BOM Routing</td>
+<td>Production Engineering</td>
+<td>-</td>
+<td>PCC กำหนดขั้นตอนการผลิต</td>
+<td>BOM/Routing/Work Centers/PLM</td>
+<td>Custom/Integration</td>
+<td>Routing/work centers standard; PCC document/form approval อาจต้อง custom report/workflow</td>
+<td class="num">6</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>62</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Quality</td>
+<td>-</td>
+<td>ตรวจสอบตามข้อกำหนด และออก COA</td>
+<td>Quality Point/Quality Check/COA Report</td>
+<td>Custom/Integration</td>
+<td>Quality standard เก็บผลตรวจได้; COA PDF/customer format ต้อง custom report</td>
+<td class="num">8</td>
+<td>P2</td>
+<td>High</td>
+</tr>
+<tr>
+<td>63</td>
+<td>07 Planning + IS WI MRP</td>
+<td>Planning</td>
+<td>-</td>
+<td>กำหนดเครื่องผลิต / IS เบิกวัตถุดิบ / WI กึ่งสำเร็จรูป</td>
+<td>MRP Work Orders, material issue, semi-finished</td>
+<td>Report/KPI</td>
+<td>MRP standard รองรับ work center/material consumption/semi-finished; WI/IS form เฉพาะต้อง report</td>
+<td class="num">8</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>64</td>
+<td>06 Quality + COA</td>
+<td>Manufacturing</td>
+<td>-</td>
+<td>ผลิตตามแผน / ผลิตเสร็จ / แก้ไข</td>
+<td>MO/Work Orders/Rework/Scrap</td>
+<td>Custom/Integration</td>
+<td>MO/WO/Rework/Scrap standard base; exact rework route approval ต้อง design</td>
+<td class="num">5</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>65</td>
+<td>02 Sales + Customer Forecast API</td>
+<td>Finished Goods Warehouse</td>
+<td>-</td>
+<td>PI รับเข้าคลัง / จัดส่งตาม SO</td>
+<td>FG Receipt/Delivery Order</td>
+<td>Report/KPI</td>
+<td>Standard inventory delivery flow; PI document sequence/report เฉพาะต้อง config/report</td>
+<td class="num">3.5</td>
+<td>P1</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>66</td>
+<td>04 RM Warehouse + Customer Supplied Material</td>
+<td>Logistics</td>
+<td>-</td>
+<td>ตรวจสอบใบส่งของขนส่ง / รับวัตถุดิบลูกค้า</td>
+<td>Delivery/Fleet/Barcode</td>
+<td>Custom/Integration</td>
+<td>Delivery/Fleet standard บางส่วน; delivery ticket/driver evaluation เพิ่ม</td>
+<td class="num">7</td>
+<td>P2</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>67</td>
+<td>10 Accounting + Thai Tax Legacy Docs</td>
+<td>Accounting</td>
+<td>-</td>
+<td>สร้างรหัสสินค้า / PD/RR/PS/RE</td>
+<td>Accounting, Payments, Receipts, Product approval</td>
+<td>Report/KPI</td>
+<td>Invoice/payment/receipt standard; legacy document code mapping ต้องทำ sequence/report</td>
+<td class="num">6</td>
+<td>P1</td>
+<td>High</td>
+</tr>
+<tr>
+<td>68</td>
+<td>03 Procurement + PR PO Approval</td>
+<td>Cross Module</td>
+<td>-</td>
+<td>Legacy system icons Access/BP Soft/Express/Excel/Web</td>
+<td>Data migration / integration assessment</td>
+<td>Custom/Integration</td>
+<td>ต้องทำ data migration mapping และตัดสินใจระบบใด replace ด้วย Odoo</td>
+<td class="num">14</td>
+<td>P2</td>
+<td>High</td>
+</tr></tbody></table>
+</div></body></html>

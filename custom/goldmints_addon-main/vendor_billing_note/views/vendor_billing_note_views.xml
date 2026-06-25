@@ -8,7 +8,8 @@
             <form string="Vendor Billing Note">
                 <header>
                     <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" invisible="state != 'draft'"/>
-                    <button name="action_create_bill" string="Create Bill" type="object" class="oe_highlight" invisible="state not in ('confirmed', 'partial_billed')"/>
+                    <button name="action_create_bill" string="Create Bill" type="object" class="oe_highlight" invisible="state not in ('confirmed', 'partial_billed') or billing_source == 'existing_bills'"/>
+                    <button name="action_register_payment" string="Register Payment" type="object" class="oe_highlight" invisible="state not in ('confirmed', 'partial_billed', 'billed') or payment_state in ('paid', 'in_payment') or amount_residual_net_due == 0"/>
                     <button name="action_cancel" string="Cancel" type="object" invisible="state not in ('draft', 'confirmed', 'partial_billed')"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,partial_billed,billed"/>
                 </header>
@@ -43,6 +44,10 @@
                             <field name="partner_id" readonly="state != 'draft'"/>
                             <field name="purchase_ids" widget="many2many_tags" readonly="1"/>
                             <field name="vendor_ref" readonly="state != 'draft'"/>
+                            <field name="billing_source" widget="badge" readonly="1"
+                                   decoration-info="billing_source == 'existing_bills'"
+                                   decoration-warning="billing_source == 'mixed'"
+                                   decoration-success="billing_source == 'po_service'"/>
                         </group>
                         <group>
                             <field name="date" readonly="state != 'draft'"/>
@@ -52,26 +57,59 @@
                                    decoration-danger="payment_state == 'not_paid'" 
                                    decoration-warning="payment_state == 'partial'" 
                                    decoration-success="payment_state == 'paid'"
-                                   invisible="1"/>
+                                   invisible="state == 'draft'"/>
                             <field name="company_id" invisible="1"/>
                             <field name="currency_id" invisible="1"/>
                         </group>
                     </group>
+                    <group name="existing_bill_summary" invisible="billing_source not in ('existing_bills', 'mixed')">
+                        <group>
+                            <field name="amount_vendor_bills" widget="monetary" readonly="1" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_credit_notes" widget="monetary" readonly="1" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="amount_total" widget="monetary" readonly="1" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_net_due" widget="monetary" readonly="1" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_residual_net_due" widget="monetary" readonly="1" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </group>
                     <notebook>
-                        <page string="Billing Lines" name="billing_lines">
+                        <page string="Lines" name="lines">
                             <field name="line_ids" readonly="state != 'draft'">
                                 <list editable="bottom" create="0"> 
                                     <field name="purchase_line_id" column_invisible="True"/>
-                                    <field name="purchase_order_id" widget="many2one" optional="show"/>
-                                    <field name="picking_id" optional="show"/>
-                                    <field name="service_acceptance_id" optional="show"/>
+                                    <field name="purchase_order_id" string="Purchase Order" widget="many2one" optional="show"/>
+                                    <field name="picking_id" string="Receipt" optional="show"/>
+                                    <field name="service_acceptance_id" string="Service Acceptance" optional="show"/>
                                     <field name="product_id" readonly="1"/>
-                                    <field name="name"/>
+                                    <field name="name" string="Description"/>
                                     <field name="quantity" options="{'dp': 2}"/>
                                     <field name="price_unit" readonly="1" options="{'dp': 2}"/>
+                                    <field name="discount" readonly="1" optional="show"/>
+                                    <field name="fixed_discount" readonly="1" optional="show"/>
                                     <field name="tax_ids" widget="many2many_tags" readonly="1" column_invisible="True"/>
                                     <field name="price_subtotal" readonly="1"/>
                                     <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                            <field name="selected_bill_ids" readonly="state != 'draft'"
+                                   domain="[('move_type', 'in', ('in_invoice', 'in_refund')), ('state', '!=', 'cancel'), ('partner_id', '=', partner_id), ('company_id', '=', company_id), '|', ('vendor_billing_note_id', '=', False), ('vendor_billing_note_id', '=', id)]"
+                                   context="{'default_partner_id': partner_id, 'default_vendor_billing_note_id': id, 'default_move_type': 'in_invoice'}">
+                                <list>
+                                    <field name="move_type" string="Doc Type" widget="badge"
+                                           decoration-info="move_type == 'in_invoice'"
+                                           decoration-danger="move_type == 'in_refund'"
+                                           optional="show"/>
+                                    <field name="name" string="APD/CN" optional="show"/>
+                                    <field name="invoice_date" string="Bill Date" optional="show"/>
+                                    <field name="ref" string="Vendor Reference" optional="show"/>
+                                    <field name="payment_reference" optional="hide"/>
+                                    <field name="amount_untaxed" sum="Total Untaxed" optional="hide"/>
+                                    <field name="amount_total" sum="Total Amount" optional="show"/>
+                                    <field name="amount_residual" sum="Open Balance" optional="show"/>
+                                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'posted'" optional="show"/>
+                                    <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state == 'partial'" decoration-success="payment_state == 'paid'" optional="show"/>
+                                    <field name="vendor_billing_note_id" optional="hide"/>
                                 </list>
                             </field>
                             <group>
@@ -113,6 +151,9 @@
                 <field name="date"/>
                 <field name="due_date" optional="show"/>
                 <field name="amount_total" sum="Total Amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="amount_net_due" sum="Net Due" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="amount_residual_net_due" sum="Open Balance" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="billing_source" widget="badge" optional="show"/>
                 <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'confirmed'" decoration-warning="state == 'billed'"/>
                 <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state == 'partial'" decoration-success="payment_state == 'paid'"/>
                 <field name="currency_id" column_invisible="True"/>

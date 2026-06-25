@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile Warehouse - Mixed Payment Layout</title>
+    <style>
+        :root {
+            --odoo: #714b67;
+            --odoo-dark: #503548;
+            --ink: #252733;
+            --muted: #667085;
+            --line: #d9dce5;
+            --bg: #f4f5f8;
+            --surface: #ffffff;
+            --soft: #f8f5f7;
+            --ok: #067647;
+            --ok-bg: #eaf8ef;
+            --blue: #007ea7;
+            --blue-bg: #eaf6fa;
+            --amber: #a15c00;
+            --amber-bg: #fff3e0;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: Inter, "Noto Sans Thai", "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+        }
+        .page {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 26px 28px 34px;
+        }
+        h1 {
+            font-size: 27px;
+            line-height: 1.25;
+            margin: 0 0 7px;
+        }
+        .intro {
+            color: var(--muted);
+            margin: 0 0 22px;
+            font-size: 15px;
+        }
+        .layouts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+        .choice {
+            border: 2px solid transparent;
+            border-radius: 16px;
+            background: var(--surface);
+            padding: 16px;
+            cursor: pointer;
+            transition: box-shadow .15s ease, border-color .15s ease;
+        }
+        .choice:hover, .choice.selected {
+            border-color: var(--odoo);
+            box-shadow: 0 8px 26px rgba(80, 53, 72, .12);
+        }
+        .choice-head {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin: 2px 2px 14px;
+        }
+        .letter {
+            width: 36px;
+            height: 36px;
+            flex: none;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--odoo);
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+        }
+        .choice h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .choice-head p {
+            margin: 2px 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .recommended {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ok);
+            background: var(--ok-bg);
+            border-radius: 99px;
+            padding: 6px 10px;
+        }
+        .tablet {
+            border-radius: 14px;
+            background: #dadee5;
+            padding: 12px;
+            min-height: 640px;
+        }
+        .app {
+            min-height: 616px;
+            border-radius: 7px;
+            overflow: hidden;
+            background: #eef0f3;
+            position: relative;
+        }
+        .appbar {
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 13px;
+        }
+        .modal {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            top: 18px;
+            bottom: 14px;
+            border: 1px solid #d4d6db;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(0,0,0,.12);
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-title {
+            height: 52px;
+            border-bottom: 1px solid var(--line);
+            padding: 15px 18px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .close { color: #9196a1; }
+        .modal-body {
+            padding: 14px 16px;
+            overflow: hidden;
+            flex: 1;
+        }
+        .top-grid {
+            display: grid;
+            grid-template-columns: 110px 1fr 105px 1fr;
+            align-items: center;
+            font-size: 13px;
+            gap: 9px;
+            margin-bottom: 15px;
+        }
+        .lbl { color: #364152; font-weight: 600; }
+        .value {
+            min-height: 29px;
+            padding: 6px 9px;
+            border: 1px solid #d8dbe2;
+            border-radius: 5px;
+            background: #fff;
+        }
+        .radio { color: var(--odoo); font-weight: 600; }
+        .payment-title {
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 11px;
+        }
+        .payment-title strong { font-size: 15px; }
+        .total {
+            color: var(--odoo-dark);
+            font-size: 19px;
+            font-weight: 700;
+        }
+        .actions {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 11px;
+        }
+        .pill {
+            border: 1px solid #d5c9d1;
+            background: var(--soft);
+            color: var(--odoo-dark);
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 9px 12px;
+        }
+        .pill.primary {
+            color: white;
+            border-color: var(--odoo);
+            background: var(--odoo);
+        }
+        .rows {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: 105px 130px 1fr 30px;
+            align-items: center;
+            gap: 7px;
+            min-height: 47px;
+            padding: 6px 9px;
+            border-bottom: 1px solid #e8eaf0;
+            font-size: 13px;
+        }
+        .row:last-child { border-bottom: none; }
+        .row.header {
+            min-height: 32px;
+            background: #f7f8fa;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .type {
+            display: inline-flex;
+            gap: 5px;
+            align-items: center;
+            font-weight: 600;
+        }
+        .amount {
+            border: 1px solid #d3d8e0;
+            border-radius: 5px;
+            padding: 8px 7px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .linked {
+            color: #475467;
+            font-size: 12px;
+        }
+        .remove { color: #a0a6b2; font-size: 15px; }
+        .writeoff {
+            color: var(--amber);
+            background: var(--amber-bg);
+            padding: 3px 7px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-left: 5px;
+        }
+        .summary {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: 1fr 140px;
+            row-gap: 7px;
+            justify-content: end;
+            font-size: 13px;
+        }
+        .summary span:nth-child(odd) { text-align: right; color: var(--muted); }
+        .summary span:nth-child(even) { text-align: right; font-weight: 600; }
+        .summary .balance { color: var(--ok); font-weight: 700; }
+        .modal-footer {
+            min-height: 60px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 16px;
+        }
+        .button {
+            border-radius: 6px;
+            padding: 11px 15px;
+            border: 1px solid #cbd0d8;
+            color: #364152;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .button.create {
+            background: var(--odoo);
+            border-color: var(--odoo);
+            color: #fff;
+        }
+        .cards-pay {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+        .pay-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 10px;
+            background: #fff;
+        }
+        .pay-card .head {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+        .pay-card .amount { margin-bottom: 6px; }
+        .pay-card .linked { line-height: 1.3; }
+        .cheque-fields {
+            border: 1px dashed #cfd3db;
+            border-radius: 7px;
+            background: #fafafb;
+            padding: 8px;
+            margin-top: 9px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .tiny-input {
+            font-size: 11px;
+            color: #687386;
+            background: #fff;
+            border: 1px solid #d6d9df;
+            border-radius: 4px;
+            padding: 7px 6px;
+        }
+        .notes {
+            display: flex;
+            gap: 18px;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 13px;
+            padding: 17px 20px;
+            border: 1px solid var(--line);
+        }
+        .notes div { flex: 1; }
+        .notes h3 {
+            margin: 0 0 7px;
+            font-size: 14px;
+        }
+        .notes p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.45;
+            font-size: 13px;
+        }
+        @media (max-width: 960px) {
+            .layouts { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <h1>เลือก layout สำหรับ Mobile Create Invoice + รับชำระทันที</h1>
+        <p class="intro">ตัวอย่างยอด Invoice 150,000.10 บาท รับด้วย Bank 100,000.00 + Cash 50,000.00 + ปัดเศษ 0.10 โดย Sale ไม่เลือกบัญชีเอง</p>
+        <section class="layouts">
+            <article class="choice" data-choice="compact_rows" onclick="toggleSelect(this)">
+                <header class="choice-head">
+                    <div class="letter">A</div>
+                    <div>
+                        <h2>Quick Payment Rows</h2>
+                        <p>เพิ่มบรรทัดเร็ว เห็นยอดคงเหลือและบัญชีที่ผูกอัตโนมัติทันที</p>
+                    </div>
+                    <span class="recommended">แนะนำ</span>
+                </header>
+                <div class="tablet">
+                    <div class="app">
+                        <div class="appbar"><span>Sales / Orders / SO-00452</span><span>Mobile Warehouse</span></div>
+                        <div class="modal">
+                            <div class="modal-title"><span>Create Invoice(s)</span><span class="close">x</span></div>
+                            <div class="modal-body">
+                                <div class="top-grid">
+                                    <span class="lbl">Create Invoice</span><span class="radio">● Regular invoice</span>
+                                    <span class="lbl">Invoice Date</span><span class="value">05/27/2026</span>
+                                </div>
+                                <div class="payment-title">
+                                    <strong>Receive Payment</strong>
+                                    <span class="total">150,000.10 ฿</span>
+                                </div>
+                                <div class="actions">
+                                    <span class="pill primary">+ Bank</span>
+                                    <span class="pill">+ Cash</span>
+                                    <span class="pill">+ Cheque</span>
+                                    <span class="pill">+ ปัดเศษ</span>
+                                </div>
+                                <div class="rows">
+                                    <div class="row header"><span>Type</span><span>Amount</span><span>Journal / Account</span><span></span></div>
+                                    <div class="row">
+                                        <span class="type">▣ Bank</span>
+                                        <span class="amount">100,000.00</span>
+                                        <span class="linked">BAY CA #046-0-14721-8</span>
+                                        <span class="remove">x</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="type">฿ Cash</span>
+                                        <span class="amount">50,000.00</span>
+                                        <span class="linked">เงินสดรับชำระ Mobile</span>
+                                        <span class="remove">x</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="type">≈ ปัดเศษ <small class="writeoff">Write-off</small></span>
+                                        <span class="amount">0.10</span>
+                                        <span class="linked">ส่วนต่างรับชำระ / Auto Difference</span>
+                                        <span class="remove">x</span>
+                                    </div>
+                                </div>
+                                <div class="summary">
+                                    <span>Payment Received</span><span>150,000.00</span>
+                                    <span>Write-off</span><span>0.10</span>
+                                    <span>Balance</span><span class="balance">0.00</span>
+                                </div>
+                            </div>
+                            <footer class="modal-footer">
+                                <span class="button create">Create Invoice &amp; Receive Payment</span>
+                                <span class="button">Cancel</span>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="choice" data-choice="payment_cards" onclick="toggleSelect(this)">
+                <header class="choice-head">
+                    <div class="letter">B</div>
+                    <div>
+                        <h2>Payment Cards</h2>
+                        <p>แตะง่ายขึ้น แต่ใช้พื้นที่มากเมื่อมี Cheque หรือรับหลายช่องทาง</p>
+                    </div>
+                </header>
+                <div class="tablet">
+                    <div class="app">
+                        <div class="appbar"><span>Sales / Orders / SO-00452</span><span>Mobile Warehouse</span></div>
+                        <div class="modal">
+                            <div class="modal-title"><span>Create Invoice(s)</span><span class="close">x</span></div>
+                            <div class="modal-body">
+                                <div class="top-grid">
+                                    <span class="lbl">Create Invoice</span><span class="radio">● Regular invoice</span>
+                                    <span class="lbl">Invoice Date</span><span class="value">05/27/2026</span>
+                                </div>
+                                <div class="payment-title">
+                                    <strong>Receive Payment</strong>
+                                    <span class="total">150,000.10 ฿</span>
+                                </div>
+                                <div class="actions">
+                                    <span class="pill primary">+ Add Payment</span>
+                                    <span class="pill">+ ปัดเศษ</span>
+                                </div>
+                                <div class="cards-pay">
+                                    <div class="pay-card">
+                                        <div class="head"><span>Bank</span><span>x</span></div>
+                                        <div class="amount">100,000.00</div>
+                                        <div class="linked">BAY CA #046-0-14721-8</div>
+                                    </div>
+                                    <div class="pay-card">
+                                        <div class="head"><span>Cash</span><span>x</span></div>
+                                        <div class="amount">50,000.00</div>
+                                        <div class="linked">เงินสดรับชำระ Mobile</div>
+                                    </div>
+                                    <div class="pay-card">
+                                        <div class="head"><span>Cheque</span><span>x</span></div>
+                                        <div class="amount">0.00</div>
+                                        <div class="cheque-fields">
+                                            <span class="tiny-input">Cheque No.</span>
+                                            <span class="tiny-input">Bank</span>
+                                            <span class="tiny-input">Date</span>
+                                            <span class="tiny-input">Branch</span>
+                                        </div>
+                                    </div>
+                                    <div class="pay-card">
+                                        <div class="head"><span>ปัดเศษ</span><span>x</span></div>
+                                        <div class="amount">0.10</div>
+                                        <div class="linked">Auto Difference</div>
+                                    </div>
+                                </div>
+                                <div class="summary">
+                                    <span>Balance</span><span class="balance">0.00</span>
+                                </div>
+                            </div>
+                            <footer class="modal-footer">
+                                <span class="button create">Create &amp; Receive</span>
+                                <span class="button">Cancel</span>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="notes">
+            <div>
+                <h3>Accounting rule</h3>
+                <p>Bank, Cash, Cheque สร้าง Payment คนละรายการและ reconcile กับ Invoice เดียวกัน ส่วน ปัดเศษ เป็น Write-off เท่านั้น ไม่ใช่เงินรับจริง</p>
+            </div>
+            <div>
+                <h3>Cheque rule</h3>
+                <p>Cheque ทำให้ Invoice Paid ทันทีโดยลงบัญชีเช็ครับรอเรียกเก็บ จากนั้นจึงเคลียร์เข้าธนาคารในกระบวนการเช็คภายหลัง</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

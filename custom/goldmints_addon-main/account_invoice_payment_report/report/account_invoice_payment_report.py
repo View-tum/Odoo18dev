@@ -76,6 +76,10 @@ class AccountInvoicePaymentReport(models.TransientModel):
         """
         res = super(AccountInvoicePaymentReport, self).default_get(fields_list)
 
+        if "team_id" in fields_list and not res.get("team_id"):
+            team_id = self.env["crm.team"].search([], limit=1, order="id asc")
+            res["team_id"] = team_id.id if team_id else False
+
         if "date_to" in fields_list and not res.get("date_to"):
             res["date_to"] = fields.Datetime.now()
 

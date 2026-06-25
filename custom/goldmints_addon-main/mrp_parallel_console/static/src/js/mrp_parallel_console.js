@@ -66,6 +66,21 @@ export class ParallelShopfloorHome extends Component {
     }
 
 
+    formatDisplayDatetime(value) {
+        if (!value) {
+            return "-";
+        }
+        try {
+            const normalized = value.replace(" ", "T");
+            const date = new Date(normalized + (normalized.includes("Z") ? "" : "Z"));
+            const pad = (n) => n.toString().padStart(2, "0");
+
+            return `${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear()} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+        } catch (e) {
+            return value;
+        }
+    }
+
     openConsole(mo) {
         // If product is tracked by lot/serial but MO has no lot yet,
         // open a simple wizard to assign LOT before entering console.
@@ -253,7 +268,10 @@ export class ParallelShopfloorHomeAction extends Component {
                 domain,
                 orderBy: [{ name: "id", asc: false }],
                 searchMenuTypes: ["filter", "favorite"],
-                searchViewArch: views.views.search.arch,
+                searchViewArch: views.views.search.arch
+                    .replace(/<separator\s*\/>\s*<filter[^>]*name=["']show_on_shopfloor["'][^>]*\/>\s*<filter[^>]*name=["']hidden_from_shopfloor["'][^>]*\/>/g, "")
+                    .replace(/<filter[^>]*name=["']show_on_shopfloor["'][^>]*\/>/g, "")
+                    .replace(/<filter[^>]*name=["']hidden_from_shopfloor["'][^>]*\/>/g, ""),
                 searchViewId: views.views.search.id,
                 searchViewFields: views.fields,
                 loadIrFilters: true,

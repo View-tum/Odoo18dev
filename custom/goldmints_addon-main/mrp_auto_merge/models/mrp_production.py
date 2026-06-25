@@ -166,6 +166,9 @@ class MrpProduction(models.Model):
         if mo_cache is not None and self in mo_cache:
             return mo_cache[self]
 
+        if mo_cache is not None:
+            mo_cache[self] = self
+
         if not self.origin:
             res = self
         else:
@@ -174,7 +177,6 @@ class MrpProduction(models.Model):
                 res = self
             else:
                 first_origin = origin_parts[0]
-                # Skip SO origins when looking for Root MO, we want the highest MO
                 if self._find_sale_order_from_origin_text(first_origin):
                     res = self
                 elif MO_NAME_RE.search(first_origin):
@@ -195,14 +197,13 @@ class MrpProduction(models.Model):
         if mo_cache is not None and self in mo_cache:
             return mo_cache[self]
 
-        # 1. Direct Link (Standard Odoo MTO)
+        if mo_cache is not None:
+            mo_cache[self] = self.env['sale.order']
+
         so = self.procurement_group_id.sale_id or (hasattr(self, 'sale_line_id') and self.sale_line_id.order_id)
         if not so and self.origin:
-            # 2. Check Origin. Origins can be "SOB-263077",
-            # "FG-... - SOB-263077", or comma-separated parent MO names.
             so = self._find_sale_order_from_origin_text(self.origin, so_cache=so_cache)
 
-            # 3. Traversal (Check parent MOs by name)
             if not so:
                 for parent in self._find_parent_mos_from_origin_text(self.origin):
                     if parent and parent != self:
@@ -213,7 +214,7 @@ class MrpProduction(models.Model):
                         if so:
                             break
 
-        if mo_cache is not None:
+        if mo_cache is not None and so:
             mo_cache[self] = so
         return so or self.env['sale.order']
 

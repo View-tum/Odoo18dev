@@ -6,6 +6,7 @@ from . import (
     mrp_mps_parallel_machines,
     mrp_production_console_apply,
     mrp_production_employee_cost,
+    mrp_production_shopfloor,
     mrp_production_parallel_split,
     mrp_parallel_mold_guard,
     mrp_report_cost,

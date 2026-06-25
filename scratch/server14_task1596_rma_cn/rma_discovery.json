@@ -1,0 +1,1009 @@
+{
+  "models": [
+    {
+      "id": 3535,
+      "name": "RMA CRM Claim",
+      "model": "crm.claim.ept",
+      "state": "base",
+      "modules": "rma_ept, stock_picking_invrefs_edit_date_done, transform_product_advanced"
+    },
+    {
+      "id": 84,
+      "name": "Address Format",
+      "model": "format.address.mixin",
+      "state": "base",
+      "modules": "base"
+    },
+    {
+      "id": 756,
+      "name": "Backorder Confirmation",
+      "model": "stock.backorder.confirmation",
+      "state": "base",
+      "modules": "stock, stock_barcode"
+    },
+    {
+      "id": 853,
+      "name": "Backorder Confirmation Line",
+      "model": "mrp.production.backorder.line",
+      "state": "base",
+      "modules": "mrp"
+    },
+    {
+      "id": 755,
+      "name": "Backorder Confirmation Line",
+      "model": "stock.backorder.confirmation.line",
+      "state": "base",
+      "modules": "stock"
+    },
+    {
+      "id": 3538,
+      "name": "CRM Reason",
+      "model": "rma.reason.ept",
+      "state": "base",
+      "modules": "rma_ept"
+    },
+    {
+      "id": 567,
+      "name": "Calendar Attendee Information",
+      "model": "calendar.attendee",
+      "state": "base",
+      "modules": "appointment, calendar"
+    },
+    {
+      "id": 1068,
+      "name": "Confirm Expiry",
+      "model": "expiry.picking.confirmation",
+      "state": "base",
+      "modules": "mrp_product_expiry, product_expiry"
+    },
+    {
+      "id": 83,
+      "name": "Country Specific VAT Label",
+      "model": "format.vat.label.mixin",
+      "state": "base",
+      "modules": "base"
+    },
+    {
+      "id": 808,
+      "name": "Export format for accounting's reports",
+      "model": "account_reports.export.wizard.format",
+      "state": "base",
+      "modules": "account_reports, documents_account"
+    },
+    {
+      "id": 820,
+      "name": "Followup missing information wizard",
+      "model": "account_followup.missing.information.wizard",
+      "state": "base",
+      "modules": "account_followup"
+    },
+    {
+      "id": 444,
+      "name": "Format Error Sending a Snailmail Letter",
+      "model": "snailmail.letter.format.error",
+      "state": "base",
+      "modules": "snailmail"
+    },
+    {
+      "id": 74,
+      "name": "Paper Format Config",
+      "model": "report.paperformat",
+      "state": "base",
+      "modules": "base, cheque_management, web_studio"
+    },
+    {
+      "id": 235,
+      "name": "Partner with additional information for mail resend",
+      "model": "mail.resend.partner",
+      "state": "base",
+      "modules": "mail"
+    },
+    {
+      "id": 2433,
+      "name": "Product Transformation Rule",
+      "model": "product.transform.rule",
+      "state": "base",
+      "modules": "transform_product_advanced"
+    },
+    {
+      "id": 7936,
+      "name": "RMA Transform Return",
+      "model": "rma.transform.return",
+      "state": "base",
+      "modules": "transform_product_advanced"
+    },
+    {
+      "id": 7946,
+      "name": "RMA Transform Return Line",
+      "model": "rma.transform.return.line",
+      "state": "base",
+      "modules": "transform_product_advanced"
+    },
+    {
+      "id": 582,
+      "name": "Rank based on karma",
+      "model": "gamification.karma.rank",
+      "state": "base",
+      "modules": "gamification"
+    },
+    {
+      "id": 762,
+      "name": "Stock Track Confirmation",
+      "model": "stock.track.confirmation",
+      "state": "base",
+      "modules": "stock"
+    },
+    {
+      "id": 767,
+      "name": "Stock supplier replenishment information",
+      "model": "stock.replenishment.info",
+      "state": "base",
+      "modules": "purchase_stock, stock"
+    },
+    {
+      "id": 583,
+      "name": "Track Karma Changes",
+      "model": "gamification.karma.tracking",
+      "state": "base",
+      "modules": "gamification"
+    }
+  ],
+  "menus": [
+    {
+      "id": 61,
+      "name": "Users",
+      "complete_name": "Settings/Users & Companies/Users",
+      "action": "ir.actions.act_window,70"
+    },
+    {
+      "id": 67,
+      "name": "General Settings",
+      "complete_name": "Settings/General Settings",
+      "action": "ir.actions.act_window,85"
+    },
+    {
+      "id": 152,
+      "name": "Settings",
+      "complete_name": "Accounting/Configuration/Settings",
+      "action": "ir.actions.act_window,297"
+    },
+    {
+      "id": 259,
+      "name": "Challenges",
+      "complete_name": "Settings/Gamification Tools/Challenges",
+      "action": "ir.actions.act_window,398"
+    },
+    {
+      "id": 319,
+      "name": "Settings",
+      "complete_name": "Employees/Configuration/Settings",
+      "action": "ir.actions.act_window,454"
+    },
+    {
+      "id": 342,
+      "name": "Settings",
+      "complete_name": "Email Marketing/Configuration/Settings",
+      "action": "ir.actions.act_window,491"
+    },
+    {
+      "id": 361,
+      "name": "Settings",
+      "complete_name": "Project/Configuration/Settings",
+      "action": "ir.actions.act_window,524"
+    },
+    {
+      "id": 407,
+      "name": "Settings",
+      "complete_name": "CRM/Configuration/Settings",
+      "action": "ir.actions.act_window,590"
+    },
+    {
+      "id": 421,
+      "name": "Lead Mining Requests",
+      "complete_name": "CRM/Configuration/Lead Generation/Lead Mining Requests",
+      "action": "ir.actions.act_window,606"
+    },
+    {
+      "id": 453,
+      "name": "Overview",
+      "complete_name": "Inventory/Overview",
+      "action": "ir.actions.act_window,684"
+    },
+    {
+      "id": 462,
+      "name": "Settings",
+      "complete_name": "Inventory/Configuration/Settings",
+      "action": "ir.actions.act_window,700"
+    },
+    {
+      "id": 514,
+      "name": "Requests for Quotation",
+      "complete_name": "Purchase/Orders/Requests for Quotation",
+      "action": "ir.actions.act_window,766"
+    },
+    {
+      "id": 516,
+      "name": "Settings",
+      "complete_name": "Purchase/Configuration/Settings",
+      "action": "ir.actions.act_window,775"
+    },
+    {
+      "id": 539,
+      "name": "Settings",
+      "complete_name": "Manufacturing/Configuration/Settings",
+      "action": "ir.actions.act_window,832"
+    },
+    {
+      "id": 570,
+      "name": "Expenses Analysis",
+      "complete_name": "Expenses/Reporting/Expenses Analysis",
+      "action": "ir.actions.act_window,894"
+    },
+    {
+      "id": 575,
+      "name": "Settings",
+      "complete_name": "Expenses/Configuration/Settings",
+      "action": "ir.actions.act_window,906"
+    },
+    {
+      "id": 577,
+      "name": "Documents",
+      "complete_name": "Documents/Documents",
+      "action": "ir.actions.act_window,916"
+    },
+    {
+      "id": 607,
+      "name": "Dashboard",
+      "complete_name": "Maintenance/Dashboard",
+      "action": "ir.actions.act_window,1014"
+    },
+    {
+      "id": 622,
+      "name": "Settings",
+      "complete_name": "Maintenance/Configuration/Settings",
+      "action": "ir.actions.act_window,1016"
+    },
+    {
+      "id": 641,
+      "name": "Helpdesk Teams",
+      "complete_name": "Helpdesk/Configuration/Helpdesk Teams",
+      "action": "ir.actions.act_window,1052"
+    },
+    {
+      "id": 686,
+      "name": "Fleet",
+      "complete_name": "Fleet/Fleet/Fleet",
+      "action": "ir.actions.act_window,1100"
+    },
+    {
+      "id": 698,
+      "name": "Settings",
+      "complete_name": "Fleet/Configuration/Settings",
+      "action": "ir.actions.act_window,1110"
+    },
+    {
+      "id": 858,
+      "name": "Accounting Reports",
+      "complete_name": "Accounting/Reporting/Accounting Reports",
+      "action": false
+    },
+    {
+      "id": 936,
+      "name": "Overview",
+      "complete_name": "Repairs/Overview",
+      "action": "ir.actions.server,1537"
+    },
+    {
+      "id": 995,
+      "name": "Billing Notes",
+      "complete_name": "Accounting/Vendors/Billing Notes",
+      "action": "ir.actions.act_window,1651"
+    },
+    {
+      "id": 3,
+      "name": "Users & Companies",
+      "complete_name": "Settings/Users & Companies",
+      "action": false
+    },
+    {
+      "id": 43,
+      "name": "Menu Items",
+      "complete_name": "Settings/Technical/User Interface/Menu Items",
+      "action": "ir.actions.act_window,30"
+    },
+    {
+      "id": 59,
+      "name": "Languages",
+      "complete_name": "Settings/Translations/Languages",
+      "action": "ir.actions.act_window,54"
+    },
+    {
+      "id": 72,
+      "name": "Onboardings",
+      "complete_name": "Settings/Technical/User Interface/Onboardings",
+      "action": "ir.actions.act_window,92"
+    },
+    {
+      "id": 73,
+      "name": "Onboardings Steps",
+      "complete_name": "Settings/Technical/User Interface/Onboardings Steps",
+      "action": "ir.actions.act_window,93"
+    },
+    {
+      "id": 75,
+      "name": "Working Schedules",
+      "complete_name": "Settings/Technical/Resource/Working Schedules",
+      "action": "ir.actions.act_window,100"
+    },
+    {
+      "id": 84,
+      "name": "Configuration",
+      "complete_name": "Discuss/Configuration",
+      "action": false
+    },
+    {
+      "id": 85,
+      "name": "Notifications",
+      "complete_name": "Discuss/Configuration/Notifications",
+      "action": "ir.actions.client,142"
+    },
+    {
+      "id": 88,
+      "name": "Emails",
+      "complete_name": "Settings/Technical/Email/Emails",
+      "action": "ir.actions.act_window,117"
+    },
+    {
+      "id": 96,
+      "name": "Discuss",
+      "complete_name": "Settings/Technical/Discuss",
+      "action": false
+    },
+    {
+      "id": 97,
+      "name": "Messages",
+      "complete_name": "Settings/Technical/Discuss/Messages",
+      "action": "ir.actions.act_window,115"
+    },
+    {
+      "id": 119,
+      "name": "Privacy Logs",
+      "complete_name": "Settings/Technical/Privacy/Privacy Logs",
+      "action": "ir.actions.act_window,169"
+    },
+    {
+      "id": 120,
+      "name": "SMS",
+      "complete_name": "Settings/Technical/Phone / SMS/SMS",
+      "action": "ir.actions.act_window,213"
+    },
+    {
+      "id": 126,
+      "name": "Dashboard",
+      "complete_name": "Accounting/Dashboard",
+      "action": "ir.actions.act_window,302"
+    },
+    {
+      "id": 128,
+      "name": "Invoices",
+      "complete_name": "Accounting/Customers/Invoices",
+      "action": "ir.actions.act_window,263"
+    },
+    {
+      "id": 135,
+      "name": "Bills",
+      "complete_name": "Accounting/Vendors/Bills",
+      "action": "ir.actions.act_window,266"
+    },
+    {
+      "id": 142,
+      "name": "Journal Entries",
+      "complete_name": "Accounting/Accounting/Journal Entries",
+      "action": "ir.actions.act_window,261"
+    },
+    {
+      "id": 148,
+      "name": "Invoice Analysis",
+      "complete_name": "Accounting/Reporting/Management/Invoice Analysis",
+      "action": "ir.actions.act_window,294"
+    },
+    {
+      "id": 150,
+      "name": "Statement Reports",
+      "complete_name": "Accounting/Reporting/Statement Reports",
+      "action": false
+    },
+    {
+      "id": 153,
+      "name": "Invoicing",
+      "complete_name": "Accounting/Configuration/Invoicing",
+      "action": false
+    },
+    {
+      "id": 154,
+      "name": "Payment Terms",
+      "complete_name": "Accounting/Configuration/Invoicing/Payment Terms",
+      "action": "ir.actions.act_window,286"
+    },
+    {
+      "id": 157,
+      "name": "Add a Bank Account",
+      "complete_name": "Accounting/Configuration/Banks/Add a Bank Account",
+      "action": "ir.actions.server,287"
+    },
+    {
+      "id": 160,
+      "name": "Chart of Accounts",
+      "complete_name": "Accounting/Configuration/Accounting/Chart of Accounts",
+      "action": "ir.actions.act_window,276"
+    },
+    {
+      "id": 173,
+      "name": "Analytic Distribution Models",
+      "complete_name": "Accounting/Configuration/Analytic Accounting/Analytic Distribution Models",
+      "action": "ir.actions.act_window,158"
+    },
+    {
+      "id": 174,
+      "name": "Analytic Accounts",
+      "complete_name": "Accounting/Configuration/Analytic Accounting/Analytic Accounts",
+      "action": "ir.actions.act_window,156"
+    },
+    {
+      "id": 179,
+      "name": "Dashboards",
+      "complete_name": "Dashboards/Dashboards",
+      "action": "ir.actions.client,310"
+    },
+    {
+      "id": 238,
+      "name": "Calendar",
+      "complete_name": "Calendar/Calendar",
+      "action": "ir.actions.act_window,386"
+    },
+    {
+      "id": 248,
+      "name": "Contact Tags",
+      "complete_name": "Contacts/Configuration/Contact Tags",
+      "action": "ir.actions.act_window,59"
+    },
+    {
+      "id": 252,
+      "name": "Countries",
+      "complete_name": "Contacts/Configuration/Localization/Countries",
+      "action": "ir.actions.act_window,63"
+    },
+    {
+      "id": 256,
+      "name": "Banks",
+      "complete_name": "Contacts/Configuration/Bank Accounts/Banks",
+      "action": "ir.actions.act_window,61"
+    },
+    {
+      "id": 269,
+      "name": "Surveys",
+      "complete_name": "Surveys/Surveys",
+      "action": "ir.actions.act_window,407"
+    },
+    {
+      "id": 270,
+      "name": "Participations",
+      "complete_name": "Surveys/Participations",
+      "action": "ir.actions.act_window,408"
+    },
+    {
+      "id": 304,
+      "name": "Employees",
+      "complete_name": "Employees/Employees/Employees",
+      "action": "ir.actions.act_window,449"
+    },
+    {
+      "id": 317,
+      "name": "Job Positions",
+      "complete_name": "Employees/Configuration/Recruitment/Job Positions",
+      "action": "ir.actions.act_window,445"
+    },
+    {
+      "id": 321,
+      "name": "Home",
+      "complete_name": "Knowledge/Home",
+      "action": "ir.actions.server,457"
+    },
+    {
+      "id": 324,
+      "name": "Members",
+      "complete_name": "Knowledge/Configuration/Members",
+      "action": "ir.actions.act_window,468"
+    },
+    {
+      "id": 333,
+      "name": "Mailings",
+      "complete_name": "Email Marketing/Mailings",
+      "action": "ir.actions.act_window,485"
+    },
+    {
+      "id": 335,
+      "name": "Mailing Lists",
+      "complete_name": "Email Marketing/Mailing Lists/Mailing Lists",
+      "action": "ir.actions.act_window,484"
+    },
+    {
+      "id": 339,
+      "name": "Mass Mailing Analysis",
+      "complete_name": "Email Marketing/Reporting/Mass Mailing Analysis",
+      "action": "ir.actions.act_window,479"
+    },
+    {
+      "id": 352,
+      "name": "Projects",
+      "complete_name": "Project/Projects",
+      "action": "ir.actions.act_window,506"
+    },
+    {
+      "id": 355,
+      "name": "My Tasks",
+      "complete_name": "Project/Tasks/My Tasks",
+      "action": "ir.actions.server,517"
+    },
+    {
+      "id": 395,
+      "name": "Sales",
+      "complete_name": "CRM/Sales",
+      "action": false
+    },
+    {
+      "id": 396,
+      "name": "My Pipeline",
+      "complete_name": "CRM/Sales/My Pipeline",
+      "action": "ir.actions.server,569"
+    },
+    {
+      "id": 402,
+      "name": "Forecast",
+      "complete_name": "CRM/Reporting/Forecast",
+      "action": "ir.actions.server,570"
+    },
+    {
+      "id": 417,
+      "name": "Tags",
+      "complete_name": "CRM/Configuration/Pipeline/Tags",
+      "action": "ir.actions.act_window,196"
+    },
+    {
+      "id": 425,
+      "name": "Transfers",
+      "complete_name": "Inventory/Operations/Transfers",
+      "action": false
+    },
+    {
+      "id": 429,
+      "name": "Warehouse Management",
+      "complete_name": "Inventory/Configuration/Warehouse Management",
+      "action": false
+    },
+    {
+      "id": 446,
+      "name": "Warehouses",
+      "complete_name": "Inventory/Configuration/Warehouse Management/Warehouses",
+      "action": "ir.actions.act_window,653"
+    },
+    {
+      "id": 454,
+      "name": "Products",
+      "complete_name": "Inventory/Products/Products",
+      "action": "ir.actions.act_window,688"
+    },
+    {
+      "id": 492,
+      "name": "Asset Models",
+      "complete_name": "Accounting/Configuration/Management/Asset Models",
+      "action": "ir.actions.act_window,743"
+    },
+    {
+      "id": 501,
+      "name": "Orders",
+      "complete_name": "Purchase/Orders",
+      "action": false
+    },
+    {
+      "id": 504,
+      "name": "Vendor Pricelists",
+      "complete_name": "Purchase/Configuration/Vendor Pricelists",
+      "action": "ir.actions.act_window,186"
+    },
+    {
+      "id": 531,
+      "name": "Manufacturing Orders",
+      "complete_name": "Manufacturing/Operations/Manufacturing Orders",
+      "action": "ir.actions.act_window,821"
+    },
+    {
+      "id": 535,
+      "name": "Products",
+      "complete_name": "Manufacturing/Products/Products",
+      "action": "ir.actions.act_window,826"
+    },
+    {
+      "id": 541,
+      "name": "Planning by Production",
+      "complete_name": "Manufacturing/Planning/Work Orders/Planning by Production",
+      "action": "ir.actions.server,846"
+    },
+    {
+      "id": 565,
+      "name": "My Expenses",
+      "complete_name": "Expenses/My Expenses",
+      "action": false
+    },
+    {
+      "id": 566,
+      "name": "My Expenses",
+      "complete_name": "Expenses/My Expenses/My Expenses",
+      "action": "ir.actions.act_window,895"
+    },
+    {
+      "id": 586,
+      "name": "Contributors",
+      "complete_name": "Settings/Technical/Spreadsheet/Contributors",
+      "action": "ir.actions.act_window,956"
+    },
+    {
+      "id": 588,
+      "name": "My Time",
+      "complete_name": "Time Off/My Time",
+      "action": false
+    },
+    {
+      "id": 589,
+      "name": "Dashboard",
+      "complete_name": "Time Off/My Time/Dashboard",
+      "action": "ir.actions.act_window,980"
+    },
+    {
+      "id": 597,
+      "name": "by Employee",
+      "complete_name": "Time Off/Reporting/by Employee",
+      "action": "ir.actions.act_window,985"
+    },
+    {
+      "id": 601,
+      "name": "Time Off Types",
+      "complete_name": "Time Off/Configuration/Time Off Types",
+      "action": "ir.actions.act_window,986"
+    },
+    {
+      "id": 608,
+      "name": "Maintenance",
+      "complete_name": "Maintenance/Maintenance",
+      "action": false
+    },
+    {
+      "id": 609,
+      "name": "Maintenance Requests",
+      "complete_name": "Maintenance/Maintenance/Maintenance Requests",
+      "action": "ir.actions.act_window,1003"
+    },
+    {
+      "id": 618,
+      "name": "Maintenance Teams",
+      "complete_name": "Maintenance/Configuration/Maintenance Teams",
+      "action": "ir.actions.act_window,1013"
+    },
+    {
+      "id": 623,
+      "name": "Work Centers",
+      "complete_name": "Maintenance/Equipment/Work Centers",
+      "action": "ir.actions.act_window,1017"
+    },
+    {
+      "id": 674,
+      "name": "ECOs",
+      "complete_name": "PLM/Reporting/ECOs",
+      "action": "ir.actions.act_window,1092"
+    },
+    {
+      "id": 682,
+      "name": "Manufacturers",
+      "complete_name": "Fleet/Configuration/Models/Manufacturers",
+      "action": "ir.actions.act_window,1098"
+    },
+    {
+      "id": 696,
+      "name": "Costs",
+      "complete_name": "Fleet/Reporting/Costs",
+      "action": "ir.actions.act_window,1108"
+    },
+    {
+      "id": 747,
+      "name": "Master Production Schedule",
+      "complete_name": "Manufacturing/Planning/MPS/Master Production Schedule",
+      "action": "ir.actions.client,1186"
+    },
+    {
+      "id": 750,
+      "name": "Date ranges",
+      "complete_name": "Settings/Technical/Date ranges",
+      "action": false
+    },
+    {
+      "id": 755,
+      "name": "Delivery Methods",
+      "complete_name": "Inventory/Configuration/Delivery/Delivery Methods",
+      "action": "ir.actions.act_window,1196"
+    },
+    {
+      "id": 761,
+      "name": "Dashboard",
+      "complete_name": "Approvals/Dashboard",
+      "action": "ir.actions.act_window,1209"
+    },
+    {
+      "id": 772,
+      "name": "Advances",
+      "complete_name": "Expenses/My Expenses/My Reports/Advances",
+      "action": "ir.actions.act_window,1219"
+    },
+    {
+      "id": 810,
+      "name": "Automation Rules",
+      "complete_name": "Settings/Technical/Automation/Automation Rules",
+      "action": "ir.actions.act_window,1278"
+    }
+  ],
+  "actions": [
+    {
+      "id": 218,
+      "name": "Format Error",
+      "res_model": "snailmail.letter.format.error",
+      "view_mode": "form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 393,
+      "name": "Karma Tracking",
+      "res_model": "gamification.karma.tracking",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 1642,
+      "name": "Manufacturing Orders (Pharma)",
+      "res_model": "mrp.production",
+      "view_mode": "list,kanban,form,calendar,pivot,graph",
+      "domain": "[('manufacturing_type', '=', 'pharma')]",
+      "context": "{'default_manufacturing_type': 'pharma'}"
+    },
+    {
+      "id": 76,
+      "name": "Paper Format General Configuration",
+      "res_model": "report.paperformat",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 1035,
+      "name": "Performance Analysis",
+      "res_model": "helpdesk.ticket",
+      "view_mode": "pivot,graph",
+      "domain": false,
+      "context": "{'search_default_team_id': active_ids, 'pivot_measures': ['close_hours', '__count__']}"
+    },
+    {
+      "id": 1540,
+      "name": "RMA",
+      "res_model": "crm.claim.ept",
+      "view_mode": "list,calendar,form",
+      "domain": false,
+      "context": "{\"search_default_user_id\": uid}"
+    },
+    {
+      "id": 1542,
+      "name": "RMA Reasons",
+      "res_model": "rma.reason.ept",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 1683,
+      "name": "RMA Transform Returns",
+      "res_model": "rma.transform.return",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 1684,
+      "name": "RMA Transform Returns",
+      "res_model": "rma.transform.return",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 392,
+      "name": "Ranks",
+      "res_model": "gamification.karma.rank",
+      "view_mode": "list,form",
+      "domain": false,
+      "context": "{}"
+    },
+    {
+      "id": 635,
+      "name": "Replenishment Information",
+      "res_model": "stock.replenishment.info",
+      "view_mode": "form",
+      "domain": false,
+      "context": "{'default_orderpoint_id': active_id}"
+    },
+    {
+      "id": 802,
+      "name": "Work Orders Performance",
+      "res_model": "mrp.workorder",
+      "view_mode": "graph,pivot,list,form,gantt",
+      "domain": "[('workcenter_id','=', active_id),('state','=','done')]",
+      "context": "{}"
+    }
+  ],
+  "modules": [
+    {
+      "id": 166,
+      "name": "dev_customer_credit_limit",
+      "summary": "Customer Credit Limit, Partner Credit Limit, Credit Limit, Sale limit,Customer Credit balance, Customer credit management, Sale credit approval, Sale customer credit approval, Sale Customer Credit Informatation",
+      "state": "uninstalled"
+    },
+    {
+      "id": 167,
+      "name": "dev_print_cheque",
+      "summary": "Dynamic Cheque report Print Bank check print Dynamic Cheque print account check print Dynamic back Cheque easy to create check formats create employee payslip check print cheque dynamic check print cheque print us cheque print cheque format bank spenish cheque bank cheque print cheque print priprint",
+      "state": "uninstalled"
+    },
+    {
+      "id": 226,
+      "name": "hr",
+      "summary": "Centralize employee information",
+      "state": "installed"
+    },
+    {
+      "id": 834,
+      "name": "mis_builder",
+      "summary": "\n        Build 'Management Information System' Reports and Dashboards\n    ",
+      "state": "installed"
+    },
+    {
+      "id": 1568,
+      "name": "rma_ept",
+      "summary": "Manage Return Merchandize Authorization (RMA) in Odoo. Allow users to manage Return Orders, Replacement, Refund & Repair in Odoo.The RMA solution from Emipro helps to efficiently accept return request from the customer, provide them the option to get a refund, repair or replacement, and accordingly manage various operational aspects in Odoo such as creating return receipts, delivery orders, credit notes, adjusting stock levels, etc.Emipro is also having integration for well known ecommerce solutions or applications named as Woocommerce connector , Shopify connector , magento connector and also we have solutions for Marketplace Integration such as Odoo Amazon connector , Odoo eBay connector , Odoo walmart Connector , Odoo Bol.com connector.Aside from ecommerce integration and ecommerce marketplace integration, we also provide solutions for various operations, such as shipping , logistics , shipping labels , and shipping carrier management with our shipping integration , known as the Shipstation connector.For the customers who are into Dropship business, we do provide EDI Integration that can help them manage their Dropshipping business with our Dropshipping integration or Dropshipper integration It is listed as Dropshipping EDI integration and Dropshipper EDI integration.Emipro applications can be searched with different keywords like Amazon integration , Shopify integration , Woocommerce integration, Magento integration , Amazon vendor center module , Amazon seller center module , Inter company transfer , eBay integration , Bol.com integration , inventory management , warehouse transfer module , dropship and dropshipper integration and other Odoo integration application or module",
+      "state": "installed"
+    },
+    {
+      "id": 941,
+      "name": "pos_pricer",
+      "summary": "Display and change your products information on electronic Pricer tags",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1570,
+      "name": "account_stock_card_rng8",
+      "summary": "Export Stock Card Balance (RNG8) to Excel Format",
+      "state": "installed"
+    },
+    {
+      "id": 1586,
+      "name": "contact_accounting_bank_info",
+      "summary": "Add Banker / Remittance Information field to contacts (res.partner)",
+      "state": "uninstalled"
+    },
+    {
+      "id": 440,
+      "name": "l10n_de_pos_cert",
+      "summary": "Germany TSS Regulation",
+      "state": "uninstalled"
+    },
+    {
+      "id": 441,
+      "name": "l10n_de_pos_res_cert",
+      "summary": "Germany TSS Regulation for restaurant",
+      "state": "uninstalled"
+    },
+    {
+      "id": 453,
+      "name": "l10n_dk_oioubl",
+      "summary": "E-Invoicing, Offentlig Information Online Universal Business Language",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1522,
+      "name": "mrp_mps_manufacturing_type",
+      "summary": "Split Master Production Schedule by product manufacturing type (Plastic vs Pharma).",
+      "state": "installed"
+    },
+    {
+      "id": 849,
+      "name": "mrp_subcontracting_account_enterprise",
+      "summary": "Add Subcontracting information in Cost Analysis Reports and Production Analysis",
+      "state": "installed"
+    },
+    {
+      "id": 1660,
+      "name": "rma_uom_extension",
+      "summary": "Allow changing UoM on RMA lines, Lot breakdown, and FIFO cost calculation",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1598,
+      "name": "sale_extra_info",
+      "summary": "Adds Proforma, Reference PI, and Credit Balance to SO Other Info",
+      "state": "installed"
+    },
+    {
+      "id": 1580,
+      "name": "sale_report_saleorder_pro_forma",
+      "summary": "Beautify Pro-Forma Invoice layout (QWeb inherit)",
+      "state": "installed"
+    },
+    {
+      "id": 1247,
+      "name": "test_performance",
+      "summary": "",
+      "state": "uninstalled"
+    },
+    {
+      "id": 140,
+      "name": "data_cleaning",
+      "summary": "Easily format text data across multiple records. Find duplicate records and easily merge them.",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1328,
+      "name": "website_appointment_crm",
+      "summary": "Enrich lead created automatically through an appointment with gathered website visitor information",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1244,
+      "name": "test_mass_mailing",
+      "summary": "Mass Mail Tests: feature and performance tests for mass mailing",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1260,
+      "name": "test_timer",
+      "summary": "Timer Tests: feature and performance tests for timer",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1238,
+      "name": "test_mail",
+      "summary": "Mail Tests: performances and tests specific to mail",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1239,
+      "name": "test_mail_enterprise",
+      "summary": "Mail Tests: performances and tests specific to mail with all sub-modules",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1240,
+      "name": "test_mail_full",
+      "summary": "Mail Tests: performances and tests specific to mail with all sub-modules",
+      "state": "uninstalled"
+    },
+    {
+      "id": 1241,
+      "name": "test_mail_sms",
+      "summary": "SMS Tests: performances and tests specific to SMS",
+      "state": "uninstalled"
+    },
+    {
+      "id": 904,
+      "name": "phone_validation",
+      "summary": "Validate and format phone numbers",
+      "state": "installed"
+    }
+  ]
+}

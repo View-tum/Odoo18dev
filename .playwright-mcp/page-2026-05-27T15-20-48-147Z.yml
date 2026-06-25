@@ -1,0 +1,496 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e7]
+        - generic [ref=e8]: Sales
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "To Invoice" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: To Invoice
+        - button "Products" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Products
+        - button "After-Sale Services" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: After-Sale Services
+        - button "Reporting" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: Reporting
+        - button "Configuration" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Configuration
+      - menu [ref=e22]:
+        - button "Attendance" [ref=e43] [cursor=pointer]:
+          - img "Attendance" [ref=e44]: 
+        - button "Open developer tools" [ref=e24] [cursor=pointer]:
+          - img "Open developer tools" [ref=e25]: 
+        - button "Messages 126" [ref=e45] [cursor=pointer]:
+          - img "Messages" [ref=e28]: 
+          - generic [ref=e29]: "126"
+        - button "Activities 54" [ref=e46] [cursor=pointer]:
+          - img "Activities" [ref=e31]: 
+          - generic [ref=e47]: "54"
+        - button "Toggle Studio" [ref=e49] [cursor=pointer]:
+          - img [ref=e50]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e33]:
+          - text: 
+          - generic [ref=e34]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User Administrator  GoldMints_Uat_Manu" [ref=e36] [cursor=pointer]:
+          - img "User" [ref=e37]
+          - generic [ref=e38]:
+            - text: Administrator
+            - mark [ref=e39]:
+              - generic [ref=e40]: 
+              - text: GoldMints_Uat_Manu
+  - generic [ref=e52]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - button "New" [ref=e58] [cursor=pointer]
+        - generic [ref=e59]:
+          - list [ref=e60]:
+            - listitem [ref=e61]:
+              - link "Sales Orders" [ref=e62] [cursor=pointer]:
+                - /url: /odoo/orders
+          - generic [ref=e63]:
+            - generic [ref=e65]: S11765
+            - button "" [ref=e69] [cursor=pointer]:
+              - generic [ref=e70]: 
+      - generic [ref=e73]:
+        - button " 1 Delivery" [ref=e74] [cursor=pointer]:
+          - generic [ref=e75]: 
+          - generic [ref=e76]:
+            - generic [ref=e77]: "1"
+            - generic [ref=e78]: Delivery
+        - button " 1 Invoices" [ref=e79] [cursor=pointer]:
+          - generic [ref=e80]: 
+          - generic [ref=e81]:
+            - generic [ref=e82]: "1"
+            - generic [ref=e83]: Invoices
+        - button " 1 Payments" [disabled]:
+          - generic: 
+          - generic:
+            - generic: "1"
+            - generic: Payments
+      - generic [ref=e84]:
+        - button "Search Knowledge Articles" [ref=e85] [cursor=pointer]:
+          - img [ref=e86]
+        - search [ref=e90]:
+          - navigation "Pager" [ref=e91]:
+            - generic [ref=e92]:
+              - generic [ref=e93]: "1"
+              - text: / 1
+            - generic [ref=e94]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - button "Create Invoice" [ref=e100] [cursor=pointer]
+          - button "Send by Email" [ref=e101] [cursor=pointer]
+          - button "Unlock" [ref=e102] [cursor=pointer]
+          - button "Preview" [ref=e103] [cursor=pointer]
+          - button "Cancel" [ref=e104] [cursor=pointer]
+          - button "Create Job Request" [ref=e105] [cursor=pointer]
+          - button "Simulation Print" [ref=e106] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e108]:
+          - radio "Sales Order7d" [checked] [disabled]
+          - radio "To Approve1m" [disabled]
+          - radio "Quotation1m" [disabled]
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]: 
+          - text: Locked
+        - heading "S11765" [level=1] [ref=e113]:
+          - generic [ref=e114]: S11765
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - generic [ref=e119]:
+                - text: Customer
+                - superscript [ref=e120]: "?"
+              - link "09140 -> บริษัท เดอะมอลล์ กรุ๊ป จำกัด 49 ถ.รามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพมหานคร 10240 Thailand ‒ 0105523009350" [ref=e123] [cursor=pointer]:
+                - /url: /odoo/res.partner/246209
+                - generic [ref=e124]: 09140 -> บริษัท เดอะมอลล์ กรุ๊ป จำกัด
+                - text: 49 ถ.รามคำแหง แขวงหัวหมาก
+                - text: เขตบางกะปิ
+                - text: กรุงเทพมหานคร 10240
+                - text: Thailand ‒ 0105523009350
+            - generic [ref=e125]:
+              - generic [ref=e127]:
+                - text: Invoice Address
+                - superscript [ref=e128]: "?"
+              - link "บริษัท เดอะมอลล์ กรุ๊ป จำกัด, (สำนักงานใหญ่)" [ref=e131] [cursor=pointer]:
+                - /url: /odoo/res.partner/251886
+                - generic [ref=e132]: บริษัท เดอะมอลล์ กรุ๊ป จำกัด, (สำนักงานใหญ่)
+            - generic [ref=e133]:
+              - generic [ref=e135]:
+                - text: Delivery Address
+                - superscript [ref=e136]: "?"
+              - link "บริษัท เดอะมอลล์ กรุ๊ป จำกัด, (สำนักงานใหญ่)" [ref=e139] [cursor=pointer]:
+                - /url: /odoo/res.partner/251956
+                - generic [ref=e140]: บริษัท เดอะมอลล์ กรุ๊ป จำกัด, (สำนักงานใหญ่)
+            - generic [ref=e142]:
+              - generic [ref=e144]:
+                - text: Is Exported?
+                - superscript [ref=e145]: "?"
+              - generic [ref=e148]:
+                - checkbox "Is Exported??" [disabled]
+            - generic [ref=e151]:
+              - text: Exported Date
+              - superscript [ref=e152]: "?"
+            - generic [ref=e156]:
+              - text: Sale Number (AX)
+              - superscript [ref=e157]: "?"
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - generic [ref=e162]:
+                - text: SO Type
+                - superscript [ref=e163]: "?"
+              - link "ใบกำกับภาษีแบบเต็ม" [ref=e166] [cursor=pointer]:
+                - /url: /odoo/sale.sequence.type/2
+                - generic [ref=e167]: ใบกำกับภาษีแบบเต็ม
+            - generic [ref=e168]:
+              - generic [ref=e171]:
+                - text: Order Date
+                - superscript [ref=e172]: "?"
+              - generic [ref=e176]: 05/20/2026 13:32:58
+            - generic [ref=e177]:
+              - generic [ref=e179]:
+                - text: Pricelist
+                - superscript [ref=e180]: "?"
+              - combobox "Pricelist?" [ref=e187]: The Mall Group (THB)
+            - generic [ref=e188]:
+              - generic [ref=e190]:
+                - text: Payment Terms
+                - superscript [ref=e191]: "?"
+              - combobox "Payment Terms?" [ref=e197]: 60 Days
+            - generic [ref=e200]:
+              - text: Customer Reference
+              - superscript [ref=e201]: "?"
+            - generic [ref=e204]:
+              - generic [ref=e206]:
+                - text: Apply Manual Exchange
+                - superscript [ref=e207]: "?"
+              - generic [ref=e210]:
+                - checkbox "Apply Manual Exchange?" [disabled]
+            - generic [ref=e211]:
+              - generic [ref=e213]:
+                - text: Delivery Date
+                - superscript [ref=e214]: "?"
+              - generic [ref=e218]: 05/27/2026 13:00:00
+            - generic [ref=e221]:
+              - text: เลขที่เอกสาร
+              - superscript [ref=e222]: "?"
+            - generic [ref=e224]:
+              - generic [ref=e226]:
+                - text: ยอดชำระแล้ว
+                - superscript [ref=e227]: "?"
+              - generic [ref=e230]: 10,000.00 ฿
+        - generic [ref=e231]:
+          - list [ref=e233]:
+            - listitem [ref=e234] [cursor=pointer]:
+              - tab "Order Lines" [ref=e235]
+            - listitem [ref=e236] [cursor=pointer]:
+              - tab "Other Info" [ref=e237]
+            - listitem [ref=e238] [cursor=pointer]:
+              - tab "Customer Signature" [ref=e239]
+            - listitem [ref=e240] [cursor=pointer]:
+              - tab "Sale Note" [ref=e241]
+          - generic [ref=e243]:
+            - table [ref=e247]:
+              - rowgroup [ref=e248]:
+                - row "No.  Product Quantity  Delivered  Invoiced  UoM  Unit Price  Taxes Disc.%  Amount  " [ref=e249]:
+                  - columnheader [ref=e250] [cursor=pointer]
+                  - columnheader "No. " [ref=e251] [cursor=pointer]:
+                    - generic [ref=e252]:
+                      - generic [ref=e253]: No.
+                      - generic [ref=e254]: 
+                  - columnheader "Product" [ref=e256]:
+                    - generic [ref=e257]:
+                      - generic [ref=e258]: Product
+                      - text: 
+                  - columnheader "Quantity " [ref=e260] [cursor=pointer]:
+                    - generic [ref=e261]:
+                      - generic [ref=e262]: Quantity
+                      - generic [ref=e263]: 
+                  - columnheader "Delivered " [ref=e265] [cursor=pointer]:
+                    - generic [ref=e266]:
+                      - generic [ref=e267]: Delivered
+                      - generic [ref=e268]: 
+                  - columnheader [ref=e270]
+                  - columnheader "Invoiced " [ref=e271] [cursor=pointer]:
+                    - generic [ref=e272]:
+                      - generic [ref=e273]: Invoiced
+                      - generic [ref=e274]: 
+                  - columnheader "UoM " [ref=e276] [cursor=pointer]:
+                    - generic [ref=e277]:
+                      - generic [ref=e278]: UoM
+                      - generic [ref=e279]: 
+                  - columnheader "Unit Price " [ref=e281] [cursor=pointer]:
+                    - generic [ref=e282]:
+                      - generic [ref=e283]: Unit Price
+                      - generic [ref=e284]: 
+                  - columnheader "Taxes" [ref=e286]:
+                    - generic [ref=e287]:
+                      - generic [ref=e288]: Taxes
+                      - text: 
+                  - columnheader "Disc.% " [ref=e290] [cursor=pointer]:
+                    - generic [ref=e291]:
+                      - generic [ref=e292]: Disc.%
+                      - generic [ref=e293]: 
+                  - columnheader "Amount " [ref=e295] [cursor=pointer]:
+                    - generic [ref=e296]:
+                      - generic [ref=e297]: Amount
+                      - generic [ref=e298]: 
+                  - columnheader "" [ref=e300]:
+                    - button "" [ref=e302] [cursor=pointer]:
+                      - generic [ref=e303]: 
+              - rowgroup [ref=e304]:
+                - row "1 [RM-PET-RO-00001] PETแบบม้วน 380x0.25mm สีใส 1.00 1.00 0.00 Kgs 10,000.00 Output VAT 7% Tax Included 0.00 9,345.79 ฿" [ref=e305]:
+                  - cell [ref=e306] [cursor=pointer]:
+                    - generic: 
+                  - cell "1" [ref=e307] [cursor=pointer]
+                  - cell "[RM-PET-RO-00001] PETแบบม้วน 380x0.25mm สีใส" [ref=e308] [cursor=pointer]:
+                    - link "[RM-PET-RO-00001] PETแบบม้วน 380x0.25mm สีใส" [ref=e311]:
+                      - /url: /odoo/product.template/8197
+                      - generic [ref=e312]: "[RM-PET-RO-00001] PETแบบม้วน 380x0.25mm สีใส"
+                  - cell "1.00" [ref=e313] [cursor=pointer]
+                  - cell "1.00" [ref=e314] [cursor=pointer]
+                  - cell [ref=e315]
+                  - cell "0.00" [ref=e317] [cursor=pointer]
+                  - cell "Kgs" [ref=e318] [cursor=pointer]
+                  - cell "10,000.00" [ref=e319] [cursor=pointer]
+                  - cell "Output VAT 7% Tax Included" [ref=e320] [cursor=pointer]:
+                    - generic "Output VAT 7% Tax Included" [ref=e323]:
+                      - generic [ref=e324]: Output VAT 7% Tax Included
+                  - cell "0.00" [ref=e325] [cursor=pointer]
+                  - cell "9,345.79 ฿" [ref=e326] [cursor=pointer]
+                  - cell [ref=e327]
+                - row [ref=e328]:
+                  - cell [ref=e329]
+                - row [ref=e330]:
+                  - cell [ref=e331]
+                - row [ref=e332]:
+                  - cell [ref=e333]
+              - rowgroup [ref=e334]:
+                - row [ref=e335]:
+                  - cell [ref=e336]
+                  - cell [ref=e337]
+                  - cell [ref=e338]
+                  - cell [ref=e339]
+                  - cell [ref=e340]
+                  - cell [ref=e341]
+                  - cell [ref=e342]
+                  - cell [ref=e343]
+                  - cell [ref=e344]
+                  - cell [ref=e345]
+                  - cell [ref=e346]
+                  - cell [ref=e347]
+                  - cell [ref=e348]
+            - button "Add shipping" [ref=e350] [cursor=pointer]
+            - table [ref=e359]:
+              - rowgroup [ref=e360]:
+                - 'row "Untaxed Amount: 9,345.79 ฿" [ref=e361]':
+                  - cell "Untaxed Amount:" [ref=e362]:
+                    - generic [ref=e363]: "Untaxed Amount:"
+                  - cell "9,345.79 ฿" [ref=e364]
+                - 'row "VAT 7%: 654.21 ฿" [ref=e365]':
+                  - cell "VAT 7%:" [ref=e366]:
+                    - generic [ref=e367]: "VAT 7%:"
+                  - cell "654.21 ฿" [ref=e368]:
+                    - generic [ref=e369]: 654.21 ฿
+                - 'row "Total: 10,000.00 ฿" [ref=e370]':
+                  - cell "Total:" [ref=e371]:
+                    - generic [ref=e372]: "Total:"
+                  - cell "10,000.00 ฿" [ref=e373]
+      - generic [ref=e376]:
+        - generic [ref=e378]:
+          - button "Send message" [ref=e379] [cursor=pointer]
+          - button "Log note" [ref=e380] [cursor=pointer]
+          - button "Activities" [ref=e381] [cursor=pointer]
+          - button "Search Messages" [ref=e383] [cursor=pointer]:
+            - img [ref=e384]: 
+          - button "Attach files" [ref=e386] [cursor=pointer]:
+            - generic [ref=e387]: 
+          - button "34" [ref=e389] [cursor=pointer]:
+            - img [ref=e390]: 
+            - superscript: "34"
+          - button "Following" [ref=e391] [cursor=pointer]:
+            - generic [ref=e393]: Following
+        - generic [ref=e394]:
+          - generic [ref=e395]:
+            - generic [ref=e396] [cursor=pointer]:
+              - separator [ref=e397]
+              - generic [ref=e398]:
+                - generic [ref=e399]: 
+                - text: Planned Activities
+              - separator [ref=e400]
+            - generic [ref=e401]:
+              - generic [ref=e402]:
+                - button [ref=e403] [cursor=pointer]:
+                  - img [ref=e404]
+                - generic [ref=e406]: 
+              - generic [ref=e407]:
+                - generic [ref=e408]:
+                  - generic [ref=e409]: "7 days overdue:"
+                  - text: "“รับทราบ: เอกสาร S11765 ได้รับการอนุมัติแล้ว”"
+                  - generic [ref=e410]: for เกษม แซ่จอง
+                  - button "Info" [ref=e411] [cursor=pointer]:
+                    - img "Info" [ref=e412]: 
+                - generic [ref=e413]:
+                  - button " Mark Done" [ref=e414] [cursor=pointer]:
+                    - generic [ref=e415]: 
+                    - text: Mark Done
+                  - button " Edit" [ref=e416] [cursor=pointer]:
+                    - generic [ref=e417]: 
+                    - text: Edit
+                  - button " Cancel" [ref=e418] [cursor=pointer]:
+                    - generic [ref=e419]: 
+                    - text: Cancel
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - generic [ref=e423]:
+                - separator [ref=e424]
+                - generic [ref=e425]: May 20, 2026
+                - separator [ref=e426]
+              - group "System notification" [ref=e427]:
+                - generic [ref=e428]:
+                  - generic "Open card" [ref=e430] [cursor=pointer]:
+                    - img [ref=e431]
+                  - generic [ref=e432]:
+                    - generic [ref=e433]:
+                      - generic "Open card" [ref=e434] [cursor=pointer]:
+                        - strong [ref=e435]: Administrator
+                      - generic "5/20/2026, 1:33:00 PM" [ref=e436]: May 20, 1:33 PM
+                    - generic [ref=e440]:
+                      - paragraph [ref=e441]: Quotation confirmed
+                      - list [ref=e442]:
+                        - group [ref=e443]:
+                          - text: "No"
+                          - generic [ref=e444]: 
+                          - text: "Yes"
+                          - generic [ref=e445]: (Locked)
+                        - group [ref=e446]:
+                          - text: To Approve
+                          - generic [ref=e447]: 
+                          - text: Sales Order
+                          - generic [ref=e448]: (Status)
+              - group "System notification" [ref=e449]:
+                - generic [ref=e450]:
+                  - generic "Open card" [ref=e452] [cursor=pointer]:
+                    - img [ref=e453]
+                  - generic [ref=e454]:
+                    - generic [ref=e455]:
+                      - generic "Open card" [ref=e456] [cursor=pointer]:
+                        - strong [ref=e457]: Administrator
+                      - generic "5/20/2026, 1:32:53 PM" [ref=e458]: May 20, 1:32 PM
+                    - list [ref=e463]:
+                      - group [ref=e464]:
+                        - text: Quotation
+                        - generic [ref=e465]: 
+                        - text: To Approve
+                        - generic [ref=e466]: (Status)
+              - group "Note" [ref=e467]:
+                - generic [ref=e468]:
+                  - generic "Open card" [ref=e470] [cursor=pointer]:
+                    - img [ref=e471]
+                  - generic [ref=e472]:
+                    - generic [ref=e473]:
+                      - generic "Open card" [ref=e474] [cursor=pointer]:
+                        - strong [ref=e475]: Administrator
+                      - generic "5/20/2026, 1:32:53 PM" [ref=e476]: May 20, 1:32 PM
+                    - generic [ref=e482]:
+                      - emphasis [ref=e483]: "Subject: Approval | Sales Order | S11765"
+                      - generic [ref=e485]:
+                        - paragraph [ref=e486]: "> Dear Administrator,ประวิตร สงวนสุข,Boonnaree,I'am Mr. Q,WARANYA KNAPP CHARUYODHIN,กฤษฎิ์ ศักดิ์ชัยชาญชล,ขายจากบริษัท,ชนะรบ,ชาญพิชชา จิรพงศานานุรักษ์,ณัฐพงศ์ บุญเพ็ญ,ณัทพงศ์ บุญเพชร,ธีรพล,ธีรยุทธ,นัทพงษ์ ภูพันนา,ผู้จัดการบัญชีและการเงิน,พชร,พนักงาน บัญชี 1,พนักงานธุรการทั่วไป,พนักงานธุรการและบุคคล 1,พนักงานธุรการและบุคคล 2,ภามิน สงวนทรัพย์,มนัส พรมมา,มะลิวรรณ ภูระหาร,มารยาท แจ่มเสียง,รองหัวหน้าปฎิบัติงานแผนกประกอบ,รองหัวหน้าปฎิบัติงานแผนกห้องพิมพ์,สมเกียรติ วรรณปะเข,หัวหน้าห้องพิมพ์,หัวหน้าแผนกบุคคล,เกษม แซ่จอง,เครือวัลย์ สาระมณี,เชิดชัย,ไพบูลย์ ,"
+                        - paragraph [ref=e487]: Document is Waiting For Your Approval
+                        - paragraph [ref=e488]:
+                          - text: Sales Order | S11765
+                          - text: To Approve
+                        - paragraph [ref=e489]: "Requester: Administrator"
+                        - link "View Document" [ref=e491] [cursor=pointer]:
+                          - /url: http://localhost:8811/odoo/sale.order/16773
+                        - paragraph [ref=e492]: Best regards,
+              - group "System notification" [ref=e493]:
+                - generic [ref=e494]:
+                  - generic "Open card" [ref=e496] [cursor=pointer]:
+                    - img [ref=e497]
+                  - generic [ref=e498]:
+                    - generic [ref=e499]:
+                      - generic "Open card" [ref=e500] [cursor=pointer]:
+                        - strong [ref=e501]: Administrator
+                      - generic "5/20/2026, 1:32:25 PM" [ref=e502]: May 20, 1:32 PM
+                    - paragraph [ref=e509]: Sales Order created
+            - button "" [ref=e510] [cursor=pointer]:
+              - generic [ref=e511]: 
+  - dialog [active] [ref=e512]:
+    - generic [ref=e513]:
+      - banner [ref=e514]:
+        - button "Open developer tools" [ref=e516] [cursor=pointer]:
+          - img "Open developer tools" [ref=e517]: 
+        - heading "Create invoice(s)" [level=4] [ref=e518]
+        - button "Close" [ref=e519] [cursor=pointer]
+      - main [ref=e520]:
+        - generic [ref=e524]:
+          - generic [ref=e525]:
+            - generic [ref=e526]:
+              - generic [ref=e528]:
+                - text: Create Invoice
+                - superscript [ref=e529]: "?"
+              - radiogroup "Create Invoice" [ref=e532]:
+                - generic [ref=e533]:
+                  - radio "Regular invoice" [checked] [ref=e534] [cursor=pointer]
+                  - generic [ref=e535] [cursor=pointer]: Regular invoice
+            - generic [ref=e536]:
+              - generic [ref=e538]:
+                - text: Invoice Date
+                - superscript [ref=e539]: "?"
+              - textbox "Invoice Date?" [ref=e543] [cursor=pointer]: 05/27/2026
+          - generic [ref=e544]:
+            - generic [ref=e545]:
+              - heading "Receive Payment" [level=3] [ref=e546]
+              - generic [ref=e548]: 10,000.00 ฿
+            - generic [ref=e550]:
+              - toolbar "Receive Payment" [ref=e551]:
+                - button "+ Bank" [ref=e552] [cursor=pointer]
+                - button "+ Cash" [ref=e553] [cursor=pointer]
+                - button "+ Cheque" [ref=e554] [cursor=pointer]
+                - button "+ ปัดเศษ" [ref=e555] [cursor=pointer]
+              - generic [ref=e556]:
+                - generic [ref=e557]:
+                  - generic [ref=e558]: Type
+                  - generic [ref=e559]: Amount
+                  - generic [ref=e560]: Journal / Account
+                - generic [ref=e572]:
+                  - generic [ref=e573]:
+                    - generic [ref=e574]: 
+                    - generic [ref=e575]: Bank
+                  - generic [ref=e577]:
+                    - generic:
+                      - generic: 10,000.00
+                    - textbox [ref=e578]: 10,000.00
+                  - generic [ref=e579]: "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8"
+                  - button "Remove payment row" [ref=e580] [cursor=pointer]: x
+                - generic [ref=e582]:
+                  - generic [ref=e583]:
+                    - generic [ref=e584]: 
+                    - generic [ref=e585]: Cash
+                  - generic [ref=e587]:
+                    - generic:
+                      - generic: "0.00"
+                    - textbox [ref=e588]: "0.00"
+                  - generic [ref=e589]: เงินสดจากการขาย (ตจว.)
+                  - button "Remove payment row" [ref=e590] [cursor=pointer]: x
+            - generic [ref=e562]:
+              - generic [ref=e563]: Payment Received
+              - generic [ref=e564]: 10,000.00 ฿
+              - generic [ref=e565]: Write-off
+              - generic [ref=e566]: 0.00 ฿
+              - generic [ref=e567]: Balance
+              - generic [ref=e569]: 0.00 ฿
+      - contentinfo [ref=e570]:
+        - button "Create Invoice & Receive Payment" [ref=e581] [cursor=pointer]
+        - button "Cancel" [ref=e571] [cursor=pointer]

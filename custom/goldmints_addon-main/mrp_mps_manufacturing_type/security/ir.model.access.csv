@@ -1,4 +1,5 @@
-# mrp_mps_manufacturing_type/security/ir.model.access.csv
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_mrp_production_schedule_plastic,mrp.production.schedule plastic,mrp_mps.model_mrp_production_schedule,mrp_mps_manufacturing_type.group_mrp_mps_plastic,1,1,1,1
 access_mrp_production_schedule_pharma,mrp.production.schedule pharma,mrp_mps.model_mrp_production_schedule,mrp_mps_manufacturing_type.group_mrp_mps_pharma,1,1,1,1
+access_stock_picking_manual_merge_wizard_user,stock.picking.manual.merge.wizard user,model_stock_picking_manual_merge_wizard,base.group_user,1,1,1,1
+access_stock_picking_manual_merge_wizard,stock.picking.manual.merge.wizard,model_stock_picking_manual_merge_wizard,stock.group_stock_user,1,1,1,1

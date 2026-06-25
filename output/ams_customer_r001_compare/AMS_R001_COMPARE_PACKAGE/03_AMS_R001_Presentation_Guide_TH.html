@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><title>AMS R001 Presentation Guide</title>
+<style>body{font-family:Arial,'Noto Sans Thai',sans-serif;max-width:1180px;margin:32px;line-height:1.55;color:#111827}h1{color:#5B1747}h2{border-bottom:2px solid #E5E7EB;padding-bottom:6px;margin-top:32px}h3{color:#374151}li{margin:5px 0}table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border:1px solid #CBD5E1;padding:8px;vertical-align:top}th{background:#5B1747;color:white}</style></head><body>
+<h1>AMS R001 Comparison Presentation Guide</h1>
+<h2>เริ่มอ่านจากอะไร</h2>
+<ul>
+<li>เริ่มจากไฟล์ Excel: 01_AMS_R001_Comparison_Manday_Sequence.xlsx</li>
+<li>เปิด sheet 00 Executive Summary เพื่อบอก scope และตัวเลขรวม</li>
+<li>ต่อด้วย sheet 03 Blueprint Flow Mapping เพื่ออธิบายภาพ TFI blueprint จากซ้ายไปขวา</li>
+<li>ใช้ sheet 01 R001 vs Our Mapping เพื่อเทียบ requirement ลูกค้ากับ mapping เดิมของเรา</li>
+<li>ใช้ sheet 02 Additions from R001 Blueprint เพื่อคุยรายการที่เพิ่มจาก Solution note และภาพ blueprint</li>
+<li>ปิดด้วย sheet 05 Manday Summary และ 06 Present Sequence</li>
+</ul>
+<h2>ประเด็นที่เพิ่มจากไฟล์ลูกค้า R001</h2>
+<ul>
+<li>ลูกค้าเพิ่ม Solution note เช่น Multi Company, Need Budget APP, Need Project APP, Use Landed Cost, Use Action WIP, MPS, API, RMA</li>
+<li>ต้องอธิบายเพิ่มว่า Solution เหล่านี้ใน Odoo คือ standard/config/custom ระดับไหน</li>
+<li>ภาพ blueprint เพิ่มเอกสาร legacy และ handoff เช่น SP, FA, IMR, PCC, COA, IS, WI, PI, IV, BI, PD, RR, PS, RE</li>
+<li>ต้อง map เอกสารเดิมเหล่านี้กับ Odoo model/document ก่อนทำ UAT</li>
+</ul>
+<h2>ลำดับ Present แบบละเอียด</h2>
+<ul>
+<li>1. เปิดด้วย objective: เทียบ R001 กับ mapping เดิมและ identify สิ่งที่ต้องเพิ่ม</li>
+<li>2. อธิบายวิธีอ่าน blueprint: lane คือแผนก, ลูกศรคือ handoff, รหัสเอกสารคือ legacy document ที่ต้อง map กับ Odoo</li>
+<li>3. เริ่ม Sales: RFQ/Quotation/SO/Customer PO/Forecast/API</li>
+<li>4. ต่อ Procurement: PR/RFQ/PO/Blanket/Supplier evaluation</li>
+<li>5. ต่อ Warehouse RM: Receipt, Tag, Lot, Shelf, Customer supplied material</li>
+<li>6. ต่อ Engineering/QC: PCC, BOM/Routing, Quality Check, COA</li>
+<li>7. ต่อ Planning/Production: MPS/MRP, IS, WI, MO, WO, Rework/Scrap, OEE/OPE/DPPM</li>
+<li>8. ต่อ FG/Delivery: PI, Delivery by SO, route/cost/fleet</li>
+<li>9. ปิด Accounting: Invoice, Billing, Payment, Receipt, Thai Tax, QR, Netting, Multi Ledger</li>
+<li>10. Review Manday: แยก base requirement กับ add-on จาก R001/blueprint</li>
+<li>11. ปิดด้วย Workshop Questions และ action owner</li>
+</ul>
+<h2>วิธีอธิบาย Standard vs Custom</h2>
+<ul>
+<li>Standard: ใช้ Odoo module โดย config/master data ได้ เช่น Sales, Purchase, Inventory, MRP, Quality, Accounting, Thai localization</li>
+<li>Config + Report: standard มีข้อมูล แต่ต้องจัด report/form/dashboard เฉพาะบริษัท เช่น COA, BI, stock aging, sales dashboard</li>
+<li>Custom / Integration: standard ไม่มี business rule หรือมี external file/API เช่น customer forecast API, supplier scorecard weighted, budget hard lock, netting wizard</li>
+<li>Accounting/Stock Critical: WIP, valuation, cost variance, customer supplied material ต้อง review design ก่อน custom</li>
+</ul>
+<h2>Manday หมายถึงอะไร</h2>
+<ul>
+<li>Manday เป็น initial estimate สำหรับ workshop/planning</li>
+<li>MD Min คือกรณี requirement ชัดและใช้ standard/config ได้มาก</li>
+<li>MD Max คือกรณีต้อง revise, build report/custom, UAT fix หรือมี data gap</li>
+<li>MD Recommended คือค่ากลางใช้คุย priority และ phase</li>
+<li>ตัวเลขยังไม่ใช่ fixed quotation จนกว่าจะ scope lock</li>
+</ul>
+</body></html>

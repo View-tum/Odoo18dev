@@ -1,0 +1,33 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to Content" [ref=e3] [cursor=pointer]:
+      - /url: "#wrap"
+    - main [ref=e4]:
+      - generic [ref=e7]:
+        - img "Logo" [ref=e9]
+        - form [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]:
+              - text: Email
+              - button "Choose a user" [ref=e18] [cursor=pointer]
+            - textbox "Email Choose a user" [active] [ref=e19]:
+              - /placeholder: Email
+          - generic [ref=e20]:
+            - generic [ref=e21]:
+              - text: Password
+              - link "Reset Password" [ref=e22] [cursor=pointer]:
+                - /url: /web/reset_password?redirect=%2Fodoo%2Forders%2F16773%3Fdebug%3Dassets
+            - textbox "Password Reset Password" [ref=e23]:
+              - /placeholder: Password
+          - generic [ref=e24]:
+            - button "Log in" [ref=e25] [cursor=pointer]
+            - button "Log in as superuser" [ref=e26] [cursor=pointer]
+          - paragraph [ref=e27]:
+            - link "Don't have an account?" [ref=e28] [cursor=pointer]:
+              - /url: /web/signup?redirect=%2Fodoo%2Forders%2F16773%3Fdebug%3Dassets
+        - generic [ref=e10]:
+          - link "Manage Databases" [ref=e11] [cursor=pointer]:
+            - /url: /web/database/manager
+          - link "Powered by Odoo" [ref=e12] [cursor=pointer]:
+            - /url: https://www.odoo.com?utm_source=db&utm_medium=auth
+  - generic [ref=e14]: "Database neutralized for testing: no emails sent, etc."

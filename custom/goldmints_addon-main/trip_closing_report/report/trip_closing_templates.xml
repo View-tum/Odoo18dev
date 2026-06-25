@@ -58,7 +58,7 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="col-date" rowspan="2">ว.ด.ป.</th>
+                                        <!-- <th class="col-date" rowspan="2">ว.ด.ป.</th> -->
                                         <th class="col-product" rowspan="2">รายการ</th>
                                         <th t-att-colspan="len(trip_nos) or 1">ครั้งที่</th>
                                         <th class="col-total"  rowspan="2">รวม</th>
@@ -75,7 +75,12 @@
                                     <tr>
                                         <t t-if="trip_nos">
                                             <t t-foreach="trip_nos" t-as="tn">
-                                                <th class="col-trip"><t t-esc="tn"/></th>
+                                                <th class="col-trip">
+                                                    ครั้งที่ <t t-esc="tn"/><br/>
+                                                    <span style="font-weight: normal; font-size: 0.9em;">
+                                                        <t t-esc="format_th_date(v.get('trip_date_map', {}).get(tn))"/>
+                                                    </span>
+                                                </th>
                                             </t>
                                         </t>
                                         <t t-else="">
@@ -86,9 +91,9 @@
                                 <tbody>
                                     <t t-foreach="v.get('lines', [])" t-as="line">
                                         <tr>
-                                        <td class="text-center">
+                                        <!-- <td class="text-center">
                                             <t t-esc="format_th_date(line.get('latest_transfer_date'))"/>
-                                        </td>
+                                        </td> -->
                                         <td class="text-left"><t t-esc="line.get('product_name')"/></td>
 
                                         <t t-set="trip_qty_list" t-value="line.get('trip_qty') or line.get('trip_qtys') or []"/>
@@ -105,7 +110,9 @@
                                             <t t-esc="line.get('transfer_total') or line.get('trip_total') or 0.0"/>
                                         </td>
                                         <td class="text-center"></td>
-                                        <td class="text-center"></td>
+                                        <td class="text-center">
+                                            <t t-esc="line.get('free_qty') if line.get('free_qty') else ''"/>
+                                        </td>
                                         <td class="text-center"></td>
                                         <td class="text-center"></td>
                                         <td class="text-center"></td>
@@ -193,7 +200,7 @@
                                                         t-options='{"widget": "monetary", "display_currency": currency}'/>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td class="summary-label">ยอดขายหลังส่วนลด (ไม่รวม VAT)</td>
                                                 <td class="summary-value text-right">
                                                     <span t-esc="sum1.get('untaxed_amount', 0.0)"
@@ -213,7 +220,7 @@
                                                     <span t-esc="sum1.get('total_amount', 0.0)"
                                                         t-options='{"widget": "monetary", "display_currency": currency}'/>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                             <tr>
                                                 <td class="summary-label">หัก คืนของ/ลดหนี้</td>
                                                 <td class="summary-value text-right">
@@ -223,7 +230,7 @@
                                             </tr>
 
                                             <tr class="summary-total">
-                                                <td class="summary-label">ยอดขายสุทธิ (รวม VAT)</td>
+                                                <td class="summary-label">ยอดขายสุทธิ</td>
                                                 <td class="summary-value text-right">
                                                     <span t-esc="sum1.get('net_sales', 0.0)"
                                                         t-options='{"widget": "monetary", "display_currency": currency}'/>

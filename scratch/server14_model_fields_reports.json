@@ -1,0 +1,154 @@
+{
+  "reports": [
+    {
+      "id": 340,
+      "name": "Commercial Invoice",
+      "model": "account.move",
+      "report_name": "l10n_th.report_commercial_invoice",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        457,
+        "Journal Entry"
+      ]
+    },
+    {
+      "id": 615,
+      "name": "Delivery Slip",
+      "model": "stock.picking",
+      "report_name": "stock.report_deliveryslip",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 233,
+      "name": "Original Bills",
+      "model": "account.move",
+      "report_name": "account.report_original_vendor_bill",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 232,
+      "name": "PDF",
+      "model": "account.move",
+      "report_name": "account.report_invoice_with_payments",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 342,
+      "name": "PDF Quote",
+      "model": "sale.order",
+      "report_name": "sale.report_saleorder",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        547,
+        "Sales Order"
+      ]
+    },
+    {
+      "id": 234,
+      "name": "PDF without Payment",
+      "model": "account.move",
+      "report_name": "account.report_invoice",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 343,
+      "name": "PRO-FORMA Invoice",
+      "model": "sale.order",
+      "report_name": "sale.report_saleorder_pro_forma",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        547,
+        "Sales Order"
+      ]
+    },
+    {
+      "id": 616,
+      "name": "Packages",
+      "model": "stock.picking",
+      "report_name": "stock.report_picking_packages",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    },
+    {
+      "id": 235,
+      "name": "Payment Receipt",
+      "model": "account.payment",
+      "report_name": "account.report_payment_receipt",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        483,
+        "Payments"
+      ]
+    },
+    {
+      "id": 614,
+      "name": "Picking Operations",
+      "model": "stock.picking",
+      "report_name": "stock.report_picking",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    },
+    {
+      "id": 380,
+      "name": "Quotation / Order",
+      "model": "sale.order",
+      "report_name": "sale.report_saleorder_raw",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        547,
+        "Sales Order"
+      ]
+    },
+    {
+      "id": 612,
+      "name": "Reception Report",
+      "model": "stock.picking",
+      "report_name": "stock.report_reception",
+      "report_type": "qweb-pdf",
+      "binding_model_id": false
+    },
+    {
+      "id": 631,
+      "name": "Return slip",
+      "model": "stock.picking",
+      "report_name": "stock.report_return_slip",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        727,
+        "Transfer"
+      ]
+    },
+    {
+      "id": 888,
+      "name": "Timesheets",
+      "model": "sale.order",
+      "report_name": "sale_timesheet.report_timesheet_sale_order",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        547,
+        "Sales Order"
+      ]
+    },
+    {
+      "id": 889,
+      "name": "Timesheets",
+      "model": "account.move",
+      "report_name": "sale_timesheet.report_timesheet_account_move",
+      "report_type": "qweb-pdf",
+      "binding_model_id": [
+        457,
+        "Journal Entry"
+      ]
+    }
+  ]
+}

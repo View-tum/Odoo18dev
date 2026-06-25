@@ -417,14 +417,24 @@ def select_shop_category(page, category_chain: str) -> dict[str, Any]:
         """
         ({ categoryChain }) => {
           const normalize = (text) => (text || '').replace(/\\s+/g, ' ').replace(/›/g, '>').replace(/â€º/g, '>').trim();
-          const leaf = normalize(categoryChain).split('>').map(x => x.trim()).filter(Boolean).pop();
+          const leafOf = (text) => normalize(text).split('>').map(x => x.trim()).filter(Boolean).pop();
+          const loose = (text) => normalize(text).toLowerCase().replace(/[\\s\\u200B-\\u200D\\uFEFF]/g, '').replace(/\\u0e07/g, '');
+          const leaf = leafOf(categoryChain);
           const select = document.querySelector('.shopCat select, div.shopCat select');
           if (!select) return { ok: false, reason: 'shop category select not found' };
           const options = Array.from(select.options || []);
           const normalizedChain = normalize(categoryChain);
           let option = options.find(opt => normalize(opt.textContent) === normalizedChain);
           if (!option) option = options.find(opt => normalize(opt.textContent).endsWith(normalizedChain));
-          if (!option && leaf) option = options.find(opt => normalize(opt.textContent).split('>').map(x => x.trim()).pop() === leaf);
+          if (!option) {
+            const looseChain = loose(normalizedChain);
+            option = options.find(opt => loose(opt.textContent) === looseChain || loose(opt.textContent).endsWith(looseChain));
+          }
+          if (!option && leaf) option = options.find(opt => leafOf(opt.textContent) === leaf);
+          if (!option && leaf) {
+            const looseLeaf = loose(leaf);
+            option = options.find(opt => loose(leafOf(opt.textContent)) === looseLeaf || loose(opt.textContent).includes(looseLeaf));
+          }
           if (!option && leaf) option = options.find(opt => normalize(opt.textContent).includes(leaf));
           if (!option) return { ok: false, reason: 'category option not found', categoryChain, available: options.map(opt => normalize(opt.textContent)).slice(0, 120) };
           select.value = option.value;
@@ -775,7 +785,67 @@ def fill_product_seo(page, seo_title: str, seo_description: str, seo_keywords: s
     )
 
 
+def upload_dialog_state(page) -> dict[str, Any]:
+    return page.evaluate(
+        """
+        () => {
+          const visible = (el) => {
+            const rect = el.getBoundingClientRect();
+            const style = window.getComputedStyle(el);
+            return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none';
+          };
+          const textOf = (el) => `${el.innerText || ''} ${el.value || ''} ${el.getAttribute('aria-label') || ''}`
+            .replace(/\\s+/g, ' ')
+            .trim();
+          const visibleText = Array.from(document.querySelectorAll('body *'))
+            .filter(visible)
+            .map(textOf)
+            .filter(Boolean)
+            .join(' ');
+          const lowerText = visibleText.toLowerCase();
+          const busy = lowerText.includes('กำลังอัพโหลด') || lowerText.includes('uploading') || lowerText.includes('please wait');
+          const confirmButtons = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a, .button'))
+            .filter(visible)
+            .map((el) => ({ text: textOf(el), className: String(el.className || '') }))
+            .filter((item) => item.className.includes('btn-confirm-selected') || /^เพิ่ม\\s*\\(\\d+\\)$/.test(item.text) || /^Add\\s*\\(\\d+\\)$/i.test(item.text));
+          return {
+            ok: !busy && confirmButtons.length > 0,
+            busy,
+            confirmCount: confirmButtons.length,
+            confirmText: confirmButtons[0]?.text || '',
+            visibleText: visibleText.slice(0, 300),
+          };
+        }
+        """
+    )
+
+
+def wait_upload_ready(page, timeout_ms: int = 90000) -> dict[str, Any]:
+    attempts = max(1, timeout_ms // 500)
+    last_state: dict[str, Any] = {}
+    for _ in range(attempts):
+        last_state = upload_dialog_state(page)
+        if last_state.get("ok"):
+            return last_state
+        page.wait_for_timeout(500)
+    return {"ok": False, "reason": "upload dialog not ready before timeout", "state": last_state}
+
+
+def wait_upload_dialog_closed(page, timeout_ms: int = 20000) -> dict[str, Any]:
+    attempts = max(1, timeout_ms // 500)
+    last_state: dict[str, Any] = {}
+    for _ in range(attempts):
+        last_state = upload_dialog_state(page)
+        if not last_state.get("busy") and int(last_state.get("confirmCount") or 0) < 1:
+            return {"ok": True}
+        page.wait_for_timeout(500)
+    return {"ok": False, "reason": "upload dialog did not close after confirm", "state": last_state}
+
+
 def click_upload_confirm(page) -> dict[str, Any]:
+    ready = wait_upload_ready(page)
+    if not ready.get("ok"):
+        return ready
     for _ in range(24):
         result = page.evaluate(
             """
@@ -791,7 +861,7 @@ def click_upload_confirm(page) -> dict[str, Any]:
               const candidates = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"], a, .button'))
                 .filter(visible)
                 .map((el) => ({ el, text: textOf(el), rect: el.getBoundingClientRect(), className: String(el.className || '') }))
-                .filter((item) => /^เพิ่ม\\s*(\\(\\d+\\))?$/.test(item.text) || /^Add\\s*(\\(\\d+\\))?$/i.test(item.text));
+                .filter((item) => item.className.includes('btn-confirm-selected') || /^เพิ่ม\\s*\\(\\d+\\)$/.test(item.text) || /^Add\\s*\\(\\d+\\)$/i.test(item.text));
               if (candidates.length < 1) return { ok: false, reason: 'confirm button not found' };
               candidates.sort((a, b) => {
                 const aScore = (a.text.includes('(') ? 10 : 0) + (a.className.includes('primary') ? 3 : 0) + a.rect.left / 1000 + a.rect.top / 1000;
@@ -804,7 +874,8 @@ def click_upload_confirm(page) -> dict[str, Any]:
             """
         )
         if result.get("ok"):
-            page.wait_for_timeout(1500)
+            result["ready"] = ready
+            result["closed"] = wait_upload_dialog_closed(page)
             return result
         page.wait_for_timeout(500)
     return {"ok": False, "reason": "upload confirm button not found after waiting"}
@@ -834,9 +905,14 @@ def upload_image(page, image_path: str) -> dict[str, Any]:
                     with page.expect_file_chooser(timeout=2200) as chooser_info:
                         trigger.first.click(timeout=2200)
                     chooser_info.value.set_files(str(path))
-                    page.wait_for_timeout(1200)
                     confirm = click_upload_confirm(page)
-                    return {"ok": True, "file": str(path), "method": "file-chooser", "selector": selector, "confirm": confirm}
+                    return {
+                        "ok": bool(confirm.get("ok") and confirm.get("closed", {}).get("ok")),
+                        "file": str(path),
+                        "method": "file-chooser",
+                        "selector": selector,
+                        "confirm": confirm,
+                    }
                 except PlaywrightTimeoutError:
                     page.wait_for_timeout(500)
                     break
@@ -875,9 +951,8 @@ def upload_image(page, image_path: str) -> dict[str, Any]:
             if count < 1:
                 return {"ok": False, "reason": "no file input found", "click": click_result}
         inputs.nth(count - 1).set_input_files(str(path))
-        page.wait_for_timeout(1200)
         confirm = click_upload_confirm(page)
-        return {"ok": True, "file": str(path), "confirm": confirm}
+        return {"ok": bool(confirm.get("ok") and confirm.get("closed", {}).get("ok")), "file": str(path), "confirm": confirm}
     except Exception as exc:
         return {"ok": False, "reason": str(exc)}
 
@@ -962,6 +1037,18 @@ def fill_category(page, category: dict[str, str]) -> dict[str, Any]:
     return results
 
 
+def product_auto_save_blockers(results: dict[str, Any]) -> list[str]:
+    blockers: list[str] = []
+    if not results.get("shop_category", {}).get("ok"):
+        blockers.append("shop_category")
+    product_type = results.get("product_type", {})
+    if not product_type.get("level_1", {}).get("ok") or not product_type.get("level_2", {}).get("ok"):
+        blockers.append("product_type")
+    if not results.get("image", {}).get("ok"):
+        blockers.append("image")
+    return blockers
+
+
 def run_browser(args, action) -> None:
     DEFAULT_SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
     args.profile.mkdir(parents=True, exist_ok=True)
@@ -1029,7 +1116,11 @@ def command_fill(args) -> None:
                 input()
         results = fill_product(page, product)
         if args.auto_save:
-            results["save"] = click_save(page)
+            blockers = product_auto_save_blockers(results)
+            if blockers:
+                results["save"] = {"ok": False, "skipped": True, "reason": "auto-save blocked", "blockers": blockers}
+            else:
+                results["save"] = click_save(page)
         result_path = Path(__file__).resolve().parent / "last_fill_result.json"
         result_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
         screenshot = DEFAULT_SCREENSHOT_DIR / f"lnwshop_fill_row_{args.row}.png"
@@ -1037,8 +1128,11 @@ def command_fill(args) -> None:
         print(f"saved fill result: {result_path}")
         print(f"saved screenshot: {screenshot}")
         if args.auto_save:
-            print("Auto-save mode completed. Review the page in Edge, then press Enter here when done.")
-            input()
+            if results.get("save", {}).get("skipped"):
+                print(f"Auto-save skipped because: {', '.join(results['save']['blockers'])}")
+            else:
+                print("Auto-save mode completed. Review the page in Edge, then press Enter here when done.")
+                input()
         else:
             print("Manual-save mode: review the page in Edge. Press Enter here when done.")
             input()
@@ -1171,13 +1265,19 @@ def command_fill_products(args) -> None:
                 input()
             results = fill_product(page, product)
             if args.auto_save:
-                results["save"] = click_save(page)
+                blockers = product_auto_save_blockers(results)
+                if blockers:
+                    results["save"] = {"ok": False, "skipped": True, "reason": "auto-save blocked", "blockers": blockers}
+                else:
+                    results["save"] = click_save(page)
             result_path = Path(__file__).resolve().parent / f"last_product_fill_row_{row_number}.json"
             result_path.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
             screenshot = DEFAULT_SCREENSHOT_DIR / f"lnwshop_product_fill_row_{row_number}.png"
             page.screenshot(path=str(screenshot), full_page=True)
             print(f"saved fill result: {result_path}")
             print(f"saved screenshot: {screenshot}")
+            if args.auto_save and results.get("save", {}).get("skipped"):
+                raise RuntimeError(f"Stopped before save at row {row_number}: {', '.join(results['save']['blockers'])}")
             if args.auto_save:
                 if args.no_pause:
                     continue

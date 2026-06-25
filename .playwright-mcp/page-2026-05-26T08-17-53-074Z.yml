@@ -1,0 +1,430 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e3256] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Inventory" [ref=e3257]
+        - generic [ref=e8]: Inventory
+      - menu [ref=e9]:
+        - menuitem "Overview" [ref=e3258] [cursor=pointer]
+        - button "Operations" [ref=e3259] [cursor=pointer]:
+          - generic [ref=e3260]: Operations
+        - button "Products" [ref=e3261] [cursor=pointer]:
+          - generic [ref=e3262]: Products
+        - button "AX Interface" [ref=e3263] [cursor=pointer]:
+          - generic [ref=e3264]: AX Interface
+        - button "Reporting" [ref=e3265] [cursor=pointer]:
+          - generic [ref=e3266]: Reporting
+        - button "Configuration" [ref=e3267] [cursor=pointer]:
+          - generic [ref=e3268]: Configuration
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 24" [ref=e3131] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "24"
+        - button "Toggle Studio" [ref=e1831] [cursor=pointer]:
+          - img [ref=e1832]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e3269]:
+    - generic [ref=e3271]:
+      - generic [ref=e3273]:
+        - generic [ref=e3275]: Inventory Overview
+        - button "" [ref=e3279] [cursor=pointer]:
+          - generic [ref=e3280]: 
+      - search [ref=e3282]:
+        - search [ref=e3283]:
+          - button "Search..." [ref=e3284] [cursor=pointer]:
+            - img [ref=e3285]: 
+          - searchbox "Search..." [active] [ref=e3287]
+        - button "" [ref=e3288] [cursor=pointer]
+      - search [ref=e3290]:
+        - navigation "Pager" [ref=e3291]:
+          - generic [ref=e3292]:
+            - generic [ref=e3293]: 1-25
+            - text: / 25
+          - generic [ref=e3294]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - generic [ref=e3296]:
+      - article [ref=e3297]:
+        - generic [ref=e3298]:
+          - link "Receipts" [ref=e3299] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3300]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3301]:
+            - button "7 To Receive" [ref=e3303] [cursor=pointer]:
+              - generic [ref=e3304]: 7 To Receive
+            - generic [ref=e3305]:
+              - link "Late 7" [ref=e3307] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3308]:
+                  - generic [ref=e3309]: Late
+                  - generic [ref=e3310]: "7"
+              - link "Back Orders 1" [ref=e3312] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3313]:
+                  - generic [ref=e3314]: Back Orders
+                  - generic [ref=e3315]: "1"
+              - generic:
+                - link:
+                  - /url: "#"
+              - link "Operations 7" [ref=e3317] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3318]:
+                  - generic [ref=e3319]: Operations
+                  - generic [ref=e3320]: "7"
+      - article [ref=e3324]:
+        - generic [ref=e3325]:
+          - link "Storage" [ref=e3326] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3327]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3328]:
+            - button "2 To Process" [ref=e3330] [cursor=pointer]:
+              - generic [ref=e3331]: 2 To Process
+            - generic [ref=e3332]:
+              - link "Late 2" [ref=e3334] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3335]:
+                  - generic [ref=e3336]: Late
+                  - generic [ref=e3337]: "2"
+              - generic:
+                - link:
+                  - /url: "#"
+              - link "Operations 2" [ref=e3339] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3340]:
+                  - generic [ref=e3341]: Operations
+                  - generic [ref=e3342]: "2"
+        - button "" [ref=e3347] [cursor=pointer]:
+          - generic [ref=e3348]: 
+      - article [ref=e3349]:
+        - generic [ref=e3350]:
+          - link "Pick" [ref=e3351] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3352]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3353]:
+            - button "Open" [ref=e3355] [cursor=pointer]
+            - generic [ref=e3356]:
+              - link "Waiting 1" [ref=e3358] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3359]:
+                  - generic [ref=e3360]: Waiting
+                  - generic [ref=e3361]: "1"
+              - link "Late 1" [ref=e3363] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3364]:
+                  - generic [ref=e3365]: Late
+                  - generic [ref=e3366]: "1"
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3370]:
+        - generic [ref=e3371]:
+          - link "Internal Transfers" [ref=e3372] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3373]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3374]:
+            - button "Open" [ref=e3376] [cursor=pointer]
+            - generic [ref=e3377]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3381]:
+        - generic [ref=e3382]:
+          - link "Delivery Orders" [ref=e3383] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3384]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3385]:
+            - button "1 To Deliver" [ref=e3387] [cursor=pointer]:
+              - generic [ref=e3388]: 1 To Deliver
+            - generic [ref=e3389]:
+              - link "Late 1" [ref=e3391] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3392]:
+                  - generic [ref=e3393]: Late
+                  - generic [ref=e3394]: "1"
+              - generic:
+                - link:
+                  - /url: "#"
+              - link "Operations 1" [ref=e3396] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3397]:
+                  - generic [ref=e3398]: Operations
+                  - generic [ref=e3399]: "1"
+      - article [ref=e3403]:
+        - generic [ref=e3404]:
+          - link "Transfer Pharma" [ref=e3405] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3406]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3407]:
+            - button "Open" [ref=e3409] [cursor=pointer]
+            - generic [ref=e3410]:
+              - link "Waiting 1" [ref=e3412] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3413]:
+                  - generic [ref=e3414]: Waiting
+                  - generic [ref=e3415]: "1"
+              - link "Late 1" [ref=e3417] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3418]:
+                  - generic [ref=e3419]: Late
+                  - generic [ref=e3420]: "1"
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3424]:
+        - generic [ref=e3425]:
+          - link "Transfer Plastic" [ref=e3426] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3427]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3428]:
+            - button "Open" [ref=e3430] [cursor=pointer]
+            - generic [ref=e3431]:
+              - link "Waiting 1" [ref=e3433] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3434]:
+                  - generic [ref=e3435]: Waiting
+                  - generic [ref=e3436]: "1"
+              - link "Late 1" [ref=e3438] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3439]:
+                  - generic [ref=e3440]: Late
+                  - generic [ref=e3441]: "1"
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3445]:
+        - generic [ref=e3446]:
+          - link "Transfer Packaging" [ref=e3447] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3448]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3449]:
+            - button "1 To Process" [ref=e3451] [cursor=pointer]:
+              - generic [ref=e3452]: 1 To Process
+            - generic [ref=e3453]:
+              - link "Waiting 1" [ref=e3455] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3456]:
+                  - generic [ref=e3457]: Waiting
+                  - generic [ref=e3458]: "1"
+              - link "Late 2" [ref=e3460] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3461]:
+                  - generic [ref=e3462]: Late
+                  - generic [ref=e3463]: "2"
+              - generic:
+                - link:
+                  - /url: "#"
+              - link "Operations 7" [ref=e3465] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3466]:
+                  - generic [ref=e3467]: Operations
+                  - generic [ref=e3468]: "7"
+      - article [ref=e3472]:
+        - generic [ref=e3473]:
+          - link "Manufacturing Pharma" [ref=e3474] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3475]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3476]:
+            - button "12 To Manufacture" [ref=e3478] [cursor=pointer]:
+              - generic [ref=e3479]: 12 To Manufacture
+            - generic [ref=e3480]:
+              - link "Waiting 10" [ref=e3482] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3483]:
+                  - generic [ref=e3484]: Waiting
+                  - generic [ref=e3485]: "10"
+              - link "Late 12" [ref=e3487] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3488]:
+                  - generic [ref=e3489]: Late
+                  - generic [ref=e3490]: "12"
+      - article [ref=e3494]:
+        - generic [ref=e3495]:
+          - link "Manufacturing Plastic" [ref=e3496] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3497]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3498]:
+            - button "16 To Manufacture" [ref=e3500] [cursor=pointer]:
+              - generic [ref=e3501]: 16 To Manufacture
+            - generic [ref=e3502]:
+              - link "Waiting 16" [ref=e3504] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3505]:
+                  - generic [ref=e3506]: Waiting
+                  - generic [ref=e3507]: "16"
+              - link "Late 16" [ref=e3509] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3510]:
+                  - generic [ref=e3511]: Late
+                  - generic [ref=e3512]: "16"
+      - article [ref=e3516]:
+        - generic [ref=e3517]:
+          - link "Manufacturing" [ref=e3518] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3519]: GOLD MINTS PRODUCTS CO., LTD.
+          - button "Open" [ref=e3522] [cursor=pointer]
+      - article [ref=e3527]:
+        - generic [ref=e3528]:
+          - link "Receipts" [ref=e3529] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3530]: Mobile Warehouse
+          - generic [ref=e3531]:
+            - button "Open" [ref=e3533] [cursor=pointer]
+            - generic [ref=e3534]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3538]:
+        - generic [ref=e3539]:
+          - link "Internal Transfers" [ref=e3540] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3541]: Mobile Warehouse
+          - generic [ref=e3542]:
+            - button "Open" [ref=e3544] [cursor=pointer]
+            - generic [ref=e3545]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3549]:
+        - generic [ref=e3550]:
+          - link "Delivery Orders" [ref=e3551] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3552]: Mobile Warehouse
+          - generic [ref=e3553]:
+            - button "Open" [ref=e3555] [cursor=pointer]
+            - generic [ref=e3556]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3560]:
+        - generic [ref=e3561]:
+          - link "ทดสอบคุณภาพ" [ref=e3562] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3563]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3564]:
+            - button "Open" [ref=e3566] [cursor=pointer]
+            - generic [ref=e3567]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3571]:
+        - generic [ref=e3572]:
+          - link "ส่งเสริมการขาย" [ref=e3573] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3574]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3575]:
+            - button "Open" [ref=e3577] [cursor=pointer]
+            - generic [ref=e3578]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3582]:
+        - generic [ref=e3583]:
+          - link "Return IN" [ref=e3584] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3585]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3586]:
+            - button "Open" [ref=e3588] [cursor=pointer]
+            - generic [ref=e3589]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3593]:
+        - generic [ref=e3594]:
+          - link "Return OUT" [ref=e3595] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3596]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3597]:
+            - button "1 To Receive" [ref=e3599] [cursor=pointer]:
+              - generic [ref=e3600]: 1 To Receive
+            - generic [ref=e3601]:
+              - generic:
+                - link:
+                  - /url: "#"
+              - link "Operations 1" [ref=e3603] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e3604]:
+                  - generic [ref=e3605]: Operations
+                  - generic [ref=e3606]: "1"
+      - article [ref=e3610]:
+        - generic [ref=e3611]:
+          - link "Report As Finish" [ref=e3612] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3613]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3614]:
+            - button "Open" [ref=e3616] [cursor=pointer]
+            - generic [ref=e3617]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3621]:
+        - generic [ref=e3622]:
+          - link "Adjust Report As Finish" [ref=e3623] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3624]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3625]:
+            - button "Open" [ref=e3627] [cursor=pointer]
+            - generic [ref=e3628]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3632]:
+        - generic [ref=e3633]:
+          - link "Repairs" [ref=e3634] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3635]: GOLD MINTS PRODUCTS CO., LTD.
+          - button "Open" [ref=e3638] [cursor=pointer]
+      - article [ref=e3643]:
+        - generic [ref=e3644]:
+          - link "Repairs" [ref=e3645] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3646]: Mobile Warehouse
+          - button "Open" [ref=e3649] [cursor=pointer]
+      - article [ref=e3654]:
+        - generic [ref=e3655]:
+          - link "PoS Orders" [ref=e3656] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3657]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3658]:
+            - button "Open" [ref=e3660] [cursor=pointer]
+            - generic [ref=e3661]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3665]:
+        - generic [ref=e3666]:
+          - link "Resupply Subcontractor" [ref=e3667] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3668]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3669]:
+            - button "Open" [ref=e3671] [cursor=pointer]
+            - generic [ref=e3672]:
+              - generic:
+                - link:
+                  - /url: "#"
+      - article [ref=e3676]:
+        - generic [ref=e3677]:
+          - link "Cross Dock" [ref=e3678] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e3679]: GOLD MINTS PRODUCTS CO., LTD.
+          - generic [ref=e3680]:
+            - button "Open" [ref=e3682] [cursor=pointer]
+            - generic [ref=e3683]:
+              - generic:
+                - link:
+                  - /url: "#"
+  - generic [ref=e3687]: Loading

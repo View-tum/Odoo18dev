@@ -605,6 +605,7 @@ class ProductTransform(models.Model):
                 "location_id": rec.location_id.id,
                 "location_dest_id": transform_location.id,
                 "company_id": rec.company_id.id,
+                "picked": True,
             }
             if rec.product_from_id.tracking != "none" and rec.lot_from_id:
                 move_out_line_vals["lot_id"] = rec.lot_from_id.id
@@ -669,6 +670,7 @@ class ProductTransform(models.Model):
                 "location_id": transform_location.id,
                 "location_dest_id": rec.dest_location_id.id,
                 "company_id": rec.company_id.id,
+                "picked": True,
             }
             if rec.product_to_id.tracking != "none":
                 lot_to = rec.lot_to_id

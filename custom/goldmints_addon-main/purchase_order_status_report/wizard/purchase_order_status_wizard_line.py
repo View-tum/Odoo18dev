@@ -33,6 +33,7 @@ class PurchaseOrderStatusReportWizardLine(models.TransientModel):
     expected_arrival = fields.Date(string="วันที่คาดว่าจะมาถึง")
     vendor_id = fields.Many2one("res.partner", string="ผู้ขาย")
     product_id = fields.Many2one("product.product", string="สินค้า")
+    product_display = fields.Char(string="สินค้า (แสดงผล)")
     qty = fields.Float(string="จำนวน")
     qty_received = fields.Float(string="รับสินค้า/บริการ")
     qty_pending_invoice = fields.Float(string="ค้างรับชำระ")
@@ -43,15 +44,17 @@ class PurchaseOrderStatusReportWizardLine(models.TransientModel):
     is_header = fields.Boolean(string="เป็นบรรทัดหลัก")
     receipt_date = fields.Date(string="วันที่รับสินค้า/บริการ")
     
-    state = fields.Selection([
-        ("draft", "ใบขอเสนอราคา"),
-        ("sent", "ส่งใบขอเสนอราคาแล้ว"),
-        ("to approve", "รออนุมัติ"),
-        ("purchase", "ใบสั่งซื้อ"),
-        ("done", "ล็อกแล้ว"),
-        ("rejected", "ปฏิเสธ"),
-        ("cancel", "ยกเลิก"),
-    ], string="สถานะใบสั่งซื้อ")
+    @api.model
+    def _get_state_selection(self):
+        selection = self.env["purchase.order"]._fields["state"].selection
+        if callable(selection):
+            return selection(self.env["purchase.order"])
+        return selection
+
+    state = fields.Selection(
+        selection="_get_state_selection",
+        string="สถานะใบสั่งซื้อ"
+    )
 
     invoice_status = fields.Selection([
         ("no", "ยังไม่ตั้งหนี้"),

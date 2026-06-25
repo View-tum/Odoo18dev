@@ -1,0 +1,156 @@
+[
+  {
+    "defect": "ALL",
+    "title": "All target custom views load without server error",
+    "status": "PASS",
+    "evidence": "12 models loaded",
+    "records": []
+  },
+  {
+    "defect": "1611",
+    "title": "Billing Note created from existing APD/CN appears in Accounting/Purchase Billing Notes",
+    "status": "PASS",
+    "evidence": "menus=['Accounting/Vendors/Billing Notes', 'Purchase/Orders/Billing Notes'] BN={'id': 63, 'name': 'BN/2026/06/0063', 'bill_ids': [69388, 69356, 69355], 'billing_source': 'existing_bills', 'amount_residual_net_due': 2344.052552}",
+    "records": []
+  },
+  {
+    "defect": "1618",
+    "title": "Consolidated Credit Note can pull multiple bill lines and vendor return line into one draft CN",
+    "status": "PASS",
+    "evidence": "CN=69796 lines=3 returns=[10574]",
+    "records": []
+  },
+  {
+    "defect": "1625",
+    "title": "Equity statement report is available and opens",
+    "status": "FAIL",
+    "evidence": "reports=[] menus=[]",
+    "records": []
+  },
+  {
+    "defect": "1626",
+    "title": "Cost of sales report is available and opens",
+    "status": "FAIL",
+    "evidence": "reports=[] menus=[]",
+    "records": []
+  },
+  {
+    "defect": "1633",
+    "title": "Asset model uses required clearing accounts 123010/123008",
+    "status": "FAIL",
+    "evidence": "accounts=[{'id': 851, 'code': '123008', 'name': 'เครื่องจักรระหว่างติดตั้ง'}, {'id': 853, 'code': '123010', 'name': 'เครื่องมือเครื่องใช้ระหว่างติดตั้ง'}]; asset_models_sample=[{'id': 2, 'name': 'อาคารและสิ่งปลูกสร้าง-ผลิต', 'account_asset_id': [845, '123002 อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_id': [856, '123013 ค่าเสื่อมราคาสะสม - อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_expense_id': [994, '530071 ค่าเสื่อมราคา - อาคารและสิ่งปลูกสร้าง']}, {'id': 3, 'name': 'อาคารและสิ่งปลูกสร้าง-ขาย', 'account_asset_id': [845, '123002 อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_id': [856, '123013 ค่าเสื่อมราคาสะสม - อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_expense_id': [1062, '600091 ค่าเสื่อมราคา - อาคารและสิ่งปลูกสร้าง']}, {'id': 4, 'name': 'อาคารและสิ่งปลูกสร้าง-บริหาร', 'account_asset_id': [845, '123002 อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_id': [856, '123013 ค่าเสื่อมราคาสะสม - อาคารและสิ่งปลูกสร้าง'], 'account_depreciation_expense_id': [1062, '600091 ค่าเสื่อมราคา - อาคารและสิ่งปลูกสร้าง']}, {'id': 5, 'name': 'เครื่องจักร', 'account_asset_id': [846, '123003 เครื่องจักร'], 'account_depreciation_id': [857, '123014 ค่าเสื่อมราคาสะสม - เครื่องจักร'], 'account_depreciation_expense_id': [995, '530072 ค่าเสื่อมราคา - เครื่องจักร']}, {'id': 6, 'name': 'เครื่องมือเครื่องใช้-ผลิต', 'account_asset_id': [847, '123004 เครื่องมือเครื่องใช้'], 'account_depreciation_id': [858, '123015 ค่าเสื่อมราคาสะสม - เครื่องมือเครื่องใช้'], 'account_depreciation_expense_id': [996, '530073 ค่าเสื่อมราคา - เครื่องมือเครื่องใช้การผลิต']}]",
+    "records": []
+  },
+  {
+    "defect": "1654",
+    "title": "Payment posting has no unexpected payment difference and rounding config exists",
+    "status": "FAIL",
+    "evidence": "BN net=2344.052552 wizard_amount=2146.889253 payment_difference=4885.268403 handling=reconcile",
+    "records": []
+  },
+  {
+    "defect": "1659",
+    "title": "Receipt print all required receipt reports without error",
+    "status": "FAIL",
+    "evidence": "[[\"stock.report_deliveryslip\", 200, \"application/pdf\", 22104, \"%PDF\"], [\"stock.report_picking\", 500, \"text/html;charset=utf-8\", 2508, \"\\n   \"]]",
+    "records": []
+  },
+  {
+    "defect": "1665",
+    "title": "Vendor Billing Note APD/CN to payment wizard nets correctly",
+    "status": "FAIL",
+    "evidence": "note={'id': 65, 'name': 'BN/2026/06/0065', 'amount_vendor_bills': 4688.105104, 'amount_credit_notes': 2344.052552, 'amount_residual_net_due': 2344.052552, 'state': 'billed'}; payment_wizard={'id': 3161, 'amount': 2146.889253, 'payment_difference': 4885.268403, 'line_ids': [213044, 212951, 212948], 'allocation_line_ids': [3732, 3733, 3734]}",
+    "records": []
+  },
+  {
+    "defect": "1667",
+    "title": "Vendor return picking creates linked vendor credit note",
+    "status": "FAIL",
+    "evidence": "The operation cannot be completed:\n- Create/update: a mandatory field is not set.\n- Delete: another model requires the record being deleted. If possible, archive it instead.\n\nModel: Account Move Reversal (account.move.reversal)\nField: Journal (journal_id)\n",
+    "records": []
+  },
+  {
+    "defect": "1672",
+    "title": "Material Lot List does not change MO status",
+    "status": "PASS",
+    "evidence": "MO=GMP/MO/00007 before=confirmed after=confirmed http=200",
+    "records": []
+  },
+  {
+    "defect": "1673",
+    "title": "Auto-created MO start date equals SO delivery date minus MFG lead time",
+    "status": "FAIL",
+    "evidence": "checked=0 bad=[]",
+    "records": []
+  },
+  {
+    "defect": "1674",
+    "title": "International SO auto-generates PO when material is unavailable",
+    "status": "FAIL",
+    "evidence": "[[\"SOE-260065\", 0, 0, []], [\"SOE-260064\", 2, 0, [[\"GMP/MOPL/00163\", 0, \"unavailable\"], [\"GMP/MOPH/00516\", 0, \"unavailable\"]]], [\"SOE-260060\", 0, 0, []], [\"SOE-260059\", 0, 0, []], [\"SOE-260058\", 0, 0, []], [\"SOE-260057\", 0, 0, []], [\"SOE-260056\", 0, 0, []], [\"SOE-260055\", 0, 0, []], [\"SOE-260054\", 0, 0, []], [\"SOE-260053\", 0, 0, []]]",
+    "records": []
+  },
+  {
+    "defect": "1677",
+    "title": "MO list UI shows Shopfloor visibility header on eye column",
+    "status": "PASS",
+    "evidence": "field={'string': 'Show in Shopfloor', 'type': 'boolean'} actions=(True, True)",
+    "records": []
+  },
+  {
+    "defect": "1678",
+    "title": "Product Transform end-to-end has completed transform with stock moves and valuation",
+    "status": "PASS",
+    "evidence": "transforms=[{'id': 35, 'name': 'PTRAN/2026/05/000044', 'move_out_id': [31902, 'FG-PPR-TH-01002: FG>Transform Location'], 'move_in_id': [31903, 'FG-PPR-TH-01001: Transform Location>FG'], 'svl_count': 2}, {'id': 34, 'name': 'PTRAN/2026/05/000043', 'move_out_id': [30889, 'FG-PSS-TH-01002: Customers>Transform Location'], 'move_in_id': [30890, 'Transform Location>Customers'], 'svl_count': 6}, {'id': 33, 'name': 'PTRAN/2026/05/000042', 'move_out_id': [30887, 'FG-PSS-TH-01002: Customers>Transform Location'], 'move_in_id': [30888, 'FG-PSS-TH-01001: Transform Location>Customers'], 'svl_count': 2}, {'id': 30, 'name': 'PTRAN/2026/04/000041', 'move_out_id': [23981, 'FG-PSS-TH-01002: None>Transform Location'], 'move_in_id': [23982, 'FG-PSS-TH-01001: Transform Location>None'], 'svl_count': 2}, {'id': 29, 'name': 'PTRAN/2026/03/000040', 'move_out_id': [20828, 'FG-PSS-TH-01001: FG>Transform Location'], 'move_in_id': [20829, 'FG-PSS-TH-01002: Transform Location>FG'], 'svl_count': 2}]",
+    "records": []
+  },
+  {
+    "defect": "1679",
+    "title": "Van Sales creates invoice with multi payment method wizard",
+    "status": "PASS",
+    "evidence": "SO={'id': 16651, 'name': 'SOD-263080', 'amount_total': 3420.0} defaults={'advance_payment_method': 'delivered', 'sale_order_ids': [[6, 0, [16651]]], 'mobile_payment_method': 'cash'}; fields_present=True",
+    "records": []
+  },
+  {
+    "defect": "1680",
+    "title": "Van Sales original tax invoice can be printed once only",
+    "status": "FAIL",
+    "evidence": "print_control_fields=[]; reports=[]",
+    "records": []
+  },
+  {
+    "defect": "1682",
+    "title": "Receipt Delivery Slip prints PDF",
+    "status": "PASS",
+    "evidence": "status=200 bytes=22104 head=b'%PDF'",
+    "records": []
+  },
+  {
+    "defect": "1683",
+    "title": "Manual merge internal transfers creates one merged draft transfer",
+    "status": "FAIL",
+    "evidence": "You cannot perform moves because their unit of measure has a different category from their product unit of measure.\n\n[RM-PLA-HD-00001] เม็ดพลาสติก HDPE 5200B --> Product UoM is Kgs (Weight) - Move UoM is Unit (Tank)\n\nBlocking: E2E merge test",
+    "records": []
+  },
+  {
+    "defect": "1684",
+    "title": "Contract expiry reminder cron is active and configured",
+    "status": "PASS",
+    "evidence": "crons=[{'id': 70, 'name': 'Contract Auto-Expire - Daily', 'active': True, 'interval_number': 1, 'interval_type': 'days'}, {'id': 69, 'name': 'Contract Expiry Reminder - Daily', 'active': True, 'interval_number': 1, 'interval_type': 'days'}]",
+    "records": []
+  },
+  {
+    "defect": "1685",
+    "title": "Purchase status report can create vendor credit note before vendor bill",
+    "status": "PASS",
+    "evidence": "Credit Note action found",
+    "records": []
+  },
+  {
+    "defect": "1688",
+    "title": "Multiple customer payments can print one payment receipt voucher",
+    "status": "PASS",
+    "evidence": "payment={'id': 3714, 'name': 'PPBAY1/2026/00464', 'date': '2026-06-05', 'partner_id': [253051, 'OK. มาร์ท'], 'amount': 41595.75} pdf_status=200 bytes=20504",
+    "records": []
+  }
+]

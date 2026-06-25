@@ -1,0 +1,29 @@
+{
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "generated_at": "2026-06-07T08:50:08.280165",
+  "created_records": [
+    [
+      "purchase.order",
+      186
+    ]
+  ],
+  "log": [
+    {
+      "step": "po_confirmed",
+      "po": {
+        "id": 186,
+        "name": "P00124",
+        "state": "to approve",
+        "picking_ids": [],
+        "invoice_ids": [],
+        "partner_id": [
+          282401,
+          "ร้านค้า บอส"
+        ]
+      }
+    }
+  ],
+  "error": "No receipt picking created from PO",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 136, in <module>\nException: No receipt picking created from PO\n"
+}

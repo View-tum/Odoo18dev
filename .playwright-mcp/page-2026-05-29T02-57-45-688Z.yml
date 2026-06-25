@@ -1,0 +1,842 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e151]
+        - generic [ref=e152]: Purchase
+      - menu [ref=e153]:
+        - button "Orders" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Orders
+        - button "Products" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Products
+        - button "Reporting" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]: Reporting
+        - button "Configuration" [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 59" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "59"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e20]:
+          - text: 
+          - generic [ref=e21]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e2557]:
+    - generic [ref=e2559]:
+      - generic [ref=e2560]:
+        - button "New" [ref=e2563] [cursor=pointer]
+        - generic [ref=e2564]:
+          - generic [ref=e2566]: Billing Notes
+          - button "" [ref=e2570] [cursor=pointer]:
+            - generic [ref=e2571]: 
+      - search [ref=e2573]:
+        - search [ref=e2574]:
+          - button "Search..." [ref=e2575] [cursor=pointer]:
+            - img [ref=e2576]: 
+          - searchbox "Search..." [active] [ref=e2578]
+        - button "" [ref=e2579] [cursor=pointer]
+      - search [ref=e2581]:
+        - navigation "Pager" [ref=e2582]:
+          - generic [ref=e2583]:
+            - generic [ref=e2584]: 1-34
+            - text: / 34
+          - generic [ref=e2585]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - table [ref=e2588]:
+      - rowgroup [ref=e2589]:
+        - row "Billing Note No.  Vendor Reference  Vendor  Billing Date  Due Date  Total  Amount Due  Open Balance  Billing Source  Status  Payment Status  " [ref=e2590]:
+          - columnheader [ref=e2591] [cursor=pointer]:
+            - checkbox [ref=e2593]
+          - columnheader "Billing Note No. " [ref=e2594] [cursor=pointer]:
+            - generic [ref=e2595]:
+              - generic [ref=e2596]: Billing Note No.
+              - generic [ref=e2597]: 
+          - columnheader "Vendor Reference " [ref=e2599] [cursor=pointer]:
+            - generic [ref=e2600]:
+              - generic [ref=e2601]: Vendor Reference
+              - generic [ref=e2602]: 
+          - columnheader "Vendor " [ref=e2604] [cursor=pointer]:
+            - generic [ref=e2605]:
+              - generic [ref=e2606]: Vendor
+              - generic [ref=e2607]: 
+          - columnheader "Billing Date " [ref=e2609] [cursor=pointer]:
+            - generic [ref=e2610]:
+              - generic [ref=e2611]: Billing Date
+              - generic [ref=e2612]: 
+          - columnheader "Due Date " [ref=e2614] [cursor=pointer]:
+            - generic [ref=e2615]:
+              - generic [ref=e2616]: Due Date
+              - generic [ref=e2617]: 
+          - columnheader "Total " [ref=e2619] [cursor=pointer]:
+            - generic [ref=e2620]:
+              - generic [ref=e2621]: Total
+              - generic [ref=e2622]: 
+          - columnheader "Amount Due " [ref=e2624] [cursor=pointer]:
+            - generic [ref=e2625]:
+              - generic [ref=e2626]: Amount Due
+              - generic [ref=e2627]: 
+          - columnheader "Open Balance " [ref=e2629] [cursor=pointer]:
+            - generic [ref=e2630]:
+              - generic [ref=e2631]: Open Balance
+              - generic [ref=e2632]: 
+          - columnheader "Billing Source " [ref=e2634] [cursor=pointer]:
+            - generic [ref=e2635]:
+              - generic [ref=e2636]: Billing Source
+              - generic [ref=e2637]: 
+          - columnheader "Status " [ref=e2639] [cursor=pointer]:
+            - generic [ref=e2640]:
+              - generic [ref=e2641]: Status
+              - generic [ref=e2642]: 
+          - columnheader "Payment Status " [ref=e2644] [cursor=pointer]:
+            - generic [ref=e2645]:
+              - generic [ref=e2646]: Payment Status
+              - generic [ref=e2647]: 
+          - columnheader "" [ref=e2649]:
+            - button "" [ref=e2651] [cursor=pointer]:
+              - generic [ref=e2652]: 
+      - rowgroup [ref=e2653]:
+        - row "BN/2026/05/0049 Home Product Center Plc. 05/29/2026 963.00 ฿ 963.00 ฿ 0.00 ฿ PO / Service Confirmed Not Paid" [ref=e2654]:
+          - cell [ref=e2655]:
+            - checkbox [ref=e2657] [cursor=pointer]
+          - cell "BN/2026/05/0049" [ref=e2658] [cursor=pointer]
+          - cell [ref=e2659] [cursor=pointer]
+          - cell "Home Product Center Plc." [ref=e2660] [cursor=pointer]
+          - cell "05/29/2026" [ref=e2661] [cursor=pointer]
+          - cell [ref=e2662] [cursor=pointer]
+          - cell "963.00 ฿" [ref=e2663] [cursor=pointer]:
+            - generic [ref=e2664]: 963.00 ฿
+          - cell "963.00 ฿" [ref=e2665] [cursor=pointer]:
+            - generic [ref=e2666]: 963.00 ฿
+          - cell "0.00 ฿" [ref=e2667] [cursor=pointer]:
+            - generic [ref=e2668]: 0.00 ฿
+          - cell "PO / Service" [ref=e2669] [cursor=pointer]:
+            - generic [ref=e2671]: PO / Service
+          - cell "Confirmed" [ref=e2672] [cursor=pointer]:
+            - generic [ref=e2674]: Confirmed
+          - cell "Not Paid" [ref=e2675] [cursor=pointer]:
+            - generic [ref=e2677]: Not Paid
+          - cell [ref=e2678]
+        - row "BN/2026/05/0047 DENKI SHOJI CO.,LTD. 05/28/2026 1,605.00 ฿ 1,605.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2679]:
+          - cell [ref=e2680]:
+            - checkbox [ref=e2682] [cursor=pointer]
+          - cell "BN/2026/05/0047" [ref=e2683] [cursor=pointer]
+          - cell [ref=e2684] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e2685] [cursor=pointer]
+          - cell "05/28/2026" [ref=e2686] [cursor=pointer]
+          - cell [ref=e2687] [cursor=pointer]
+          - cell "1,605.00 ฿" [ref=e2688] [cursor=pointer]:
+            - generic [ref=e2689]: 1,605.00 ฿
+          - cell "1,605.00 ฿" [ref=e2690] [cursor=pointer]:
+            - generic [ref=e2691]: 1,605.00 ฿
+          - cell "0.00 ฿" [ref=e2692] [cursor=pointer]:
+            - generic [ref=e2693]: 0.00 ฿
+          - cell "PO / Service" [ref=e2694] [cursor=pointer]:
+            - generic [ref=e2696]: PO / Service
+          - cell "Draft" [ref=e2697] [cursor=pointer]:
+            - generic [ref=e2699]: Draft
+          - cell "Not Paid" [ref=e2700] [cursor=pointer]:
+            - generic [ref=e2702]: Not Paid
+          - cell [ref=e2703]
+        - row "BN/2026/05/0046 DENKI SHOJI CO.,LTD. 05/27/2026 4,815.00 ฿ 4,815.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2704]:
+          - cell [ref=e2705]:
+            - checkbox [ref=e2707] [cursor=pointer]
+          - cell "BN/2026/05/0046" [ref=e2708] [cursor=pointer]
+          - cell [ref=e2709] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e2710] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2711] [cursor=pointer]
+          - cell [ref=e2712] [cursor=pointer]
+          - cell "4,815.00 ฿" [ref=e2713] [cursor=pointer]:
+            - generic [ref=e2714]: 4,815.00 ฿
+          - cell "4,815.00 ฿" [ref=e2715] [cursor=pointer]:
+            - generic [ref=e2716]: 4,815.00 ฿
+          - cell "0.00 ฿" [ref=e2717] [cursor=pointer]:
+            - generic [ref=e2718]: 0.00 ฿
+          - cell "PO / Service" [ref=e2719] [cursor=pointer]:
+            - generic [ref=e2721]: PO / Service
+          - cell "Draft" [ref=e2722] [cursor=pointer]:
+            - generic [ref=e2724]: Draft
+          - cell "Not Paid" [ref=e2725] [cursor=pointer]:
+            - generic [ref=e2727]: Not Paid
+          - cell [ref=e2728]
+        - row "BN/2026/05/0045 JW TECH CO.,LTD. 05/27/2026 0.00 ฿ 0.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2729]:
+          - cell [ref=e2730]:
+            - checkbox [ref=e2732] [cursor=pointer]
+          - cell "BN/2026/05/0045" [ref=e2733] [cursor=pointer]
+          - cell [ref=e2734] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2735] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2736] [cursor=pointer]
+          - cell [ref=e2737] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e2738] [cursor=pointer]:
+            - generic [ref=e2739]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2740] [cursor=pointer]:
+            - generic [ref=e2741]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2742] [cursor=pointer]:
+            - generic [ref=e2743]: 0.00 ฿
+          - cell "PO / Service" [ref=e2744] [cursor=pointer]:
+            - generic [ref=e2746]: PO / Service
+          - cell "Draft" [ref=e2747] [cursor=pointer]:
+            - generic [ref=e2749]: Draft
+          - cell "Not Paid" [ref=e2750] [cursor=pointer]:
+            - generic [ref=e2752]: Not Paid
+          - cell [ref=e2753]
+        - row "BN/2026/05/0044 LF LOGISTICS (THAILAND) LTD. 05/27/2026 1,915,300.00 ฿ 1,915,300.00 ฿ 1,915,300.00 ฿ Mixed Fully Billed Not Paid" [ref=e2754]:
+          - cell [ref=e2755]:
+            - checkbox [ref=e2757] [cursor=pointer]
+          - cell "BN/2026/05/0044" [ref=e2758] [cursor=pointer]
+          - cell [ref=e2759] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e2760] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2761] [cursor=pointer]
+          - cell [ref=e2762] [cursor=pointer]
+          - cell "1,915,300.00 ฿" [ref=e2763] [cursor=pointer]:
+            - generic [ref=e2764]: 1,915,300.00 ฿
+          - cell "1,915,300.00 ฿" [ref=e2765] [cursor=pointer]:
+            - generic [ref=e2766]: 1,915,300.00 ฿
+          - cell "1,915,300.00 ฿" [ref=e2767] [cursor=pointer]:
+            - generic [ref=e2768]: 1,915,300.00 ฿
+          - cell "Mixed" [ref=e2769] [cursor=pointer]:
+            - generic [ref=e2771]: Mixed
+          - cell "Fully Billed" [ref=e2772] [cursor=pointer]:
+            - generic [ref=e2774]: Fully Billed
+          - cell "Not Paid" [ref=e2775] [cursor=pointer]:
+            - generic [ref=e2777]: Not Paid
+          - cell [ref=e2778]
+        - row "BN/2026/05/0043 JW TECH CO.,LTD. 05/27/2026 958,720.00 ฿ 958,720.00 ฿ 958,720.00 ฿ Mixed Fully Billed Not Paid" [ref=e2779]:
+          - cell [ref=e2780]:
+            - checkbox [ref=e2782] [cursor=pointer]
+          - cell "BN/2026/05/0043" [ref=e2783] [cursor=pointer]
+          - cell [ref=e2784] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2785] [cursor=pointer]
+          - cell "05/27/2026" [ref=e2786] [cursor=pointer]
+          - cell [ref=e2787] [cursor=pointer]
+          - cell "958,720.00 ฿" [ref=e2788] [cursor=pointer]:
+            - generic [ref=e2789]: 958,720.00 ฿
+          - cell "958,720.00 ฿" [ref=e2790] [cursor=pointer]:
+            - generic [ref=e2791]: 958,720.00 ฿
+          - cell "958,720.00 ฿" [ref=e2792] [cursor=pointer]:
+            - generic [ref=e2793]: 958,720.00 ฿
+          - cell "Mixed" [ref=e2794] [cursor=pointer]:
+            - generic [ref=e2796]: Mixed
+          - cell "Fully Billed" [ref=e2797] [cursor=pointer]:
+            - generic [ref=e2799]: Fully Billed
+          - cell "Not Paid" [ref=e2800] [cursor=pointer]:
+            - generic [ref=e2802]: Not Paid
+          - cell [ref=e2803]
+        - row "BN/2026/05/0042 JW TECH CO.,LTD. 05/26/2026 0.00 ฿ 0.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2804]:
+          - cell [ref=e2805]:
+            - checkbox [ref=e2807] [cursor=pointer]
+          - cell "BN/2026/05/0042" [ref=e2808] [cursor=pointer]
+          - cell [ref=e2809] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2810] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2811] [cursor=pointer]
+          - cell [ref=e2812] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e2813] [cursor=pointer]:
+            - generic [ref=e2814]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2815] [cursor=pointer]:
+            - generic [ref=e2816]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2817] [cursor=pointer]:
+            - generic [ref=e2818]: 0.00 ฿
+          - cell "PO / Service" [ref=e2819] [cursor=pointer]:
+            - generic [ref=e2821]: PO / Service
+          - cell "Draft" [ref=e2822] [cursor=pointer]:
+            - generic [ref=e2824]: Draft
+          - cell "Not Paid" [ref=e2825] [cursor=pointer]:
+            - generic [ref=e2827]: Not Paid
+          - cell [ref=e2828]
+        - row "BN/2026/05/0041 JW TECH CO.,LTD. 05/26/2026 909,500.00 ฿ 909,500.00 ฿ 909,500.00 ฿ Mixed Fully Billed Not Paid" [ref=e2829]:
+          - cell [ref=e2830]:
+            - checkbox [ref=e2832] [cursor=pointer]
+          - cell "BN/2026/05/0041" [ref=e2833] [cursor=pointer]
+          - cell [ref=e2834] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2835] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2836] [cursor=pointer]
+          - cell [ref=e2837] [cursor=pointer]
+          - cell "909,500.00 ฿" [ref=e2838] [cursor=pointer]:
+            - generic [ref=e2839]: 909,500.00 ฿
+          - cell "909,500.00 ฿" [ref=e2840] [cursor=pointer]:
+            - generic [ref=e2841]: 909,500.00 ฿
+          - cell "909,500.00 ฿" [ref=e2842] [cursor=pointer]:
+            - generic [ref=e2843]: 909,500.00 ฿
+          - cell "Mixed" [ref=e2844] [cursor=pointer]:
+            - generic [ref=e2846]: Mixed
+          - cell "Fully Billed" [ref=e2847] [cursor=pointer]:
+            - generic [ref=e2849]: Fully Billed
+          - cell "Not Paid" [ref=e2850] [cursor=pointer]:
+            - generic [ref=e2852]: Not Paid
+          - cell [ref=e2853]
+        - row "BN/2026/05/0040 JW TECH CO.,LTD. 05/26/2026 963,000.00 ฿ 963,000.00 ฿ 963,000.00 ฿ Mixed Fully Billed Not Paid" [ref=e2854]:
+          - cell [ref=e2855]:
+            - checkbox [ref=e2857] [cursor=pointer]
+          - cell "BN/2026/05/0040" [ref=e2858] [cursor=pointer]
+          - cell [ref=e2859] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2860] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2861] [cursor=pointer]
+          - cell [ref=e2862] [cursor=pointer]
+          - cell "963,000.00 ฿" [ref=e2863] [cursor=pointer]:
+            - generic [ref=e2864]: 963,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e2865] [cursor=pointer]:
+            - generic [ref=e2866]: 963,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e2867] [cursor=pointer]:
+            - generic [ref=e2868]: 963,000.00 ฿
+          - cell "Mixed" [ref=e2869] [cursor=pointer]:
+            - generic [ref=e2871]: Mixed
+          - cell "Fully Billed" [ref=e2872] [cursor=pointer]:
+            - generic [ref=e2874]: Fully Billed
+          - cell "Not Paid" [ref=e2875] [cursor=pointer]:
+            - generic [ref=e2877]: Not Paid
+          - cell [ref=e2878]
+        - row "BN/2026/05/0035 JW TECH CO.,LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2879]:
+          - cell [ref=e2880]:
+            - checkbox [ref=e2882] [cursor=pointer]
+          - cell "BN/2026/05/0035" [ref=e2883] [cursor=pointer]
+          - cell [ref=e2884] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2885] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2886] [cursor=pointer]
+          - cell [ref=e2887] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e2888] [cursor=pointer]:
+            - generic [ref=e2889]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e2890] [cursor=pointer]:
+            - generic [ref=e2891]: 1,070,000.00 ฿
+          - cell "0.00 ฿" [ref=e2892] [cursor=pointer]:
+            - generic [ref=e2893]: 0.00 ฿
+          - cell "PO / Service" [ref=e2894] [cursor=pointer]:
+            - generic [ref=e2896]: PO / Service
+          - cell "Draft" [ref=e2897] [cursor=pointer]:
+            - generic [ref=e2899]: Draft
+          - cell "Not Paid" [ref=e2900] [cursor=pointer]:
+            - generic [ref=e2902]: Not Paid
+          - cell [ref=e2903]
+        - row "BN/2026/05/0034 JW TECH CO.,LTD. 05/26/2026 901,600.00 ฿ 901,600.00 ฿ 912,300.00 ฿ Mixed Fully Billed Not Paid" [ref=e2904]:
+          - cell [ref=e2905]:
+            - checkbox [ref=e2907] [cursor=pointer]
+          - cell "BN/2026/05/0034" [ref=e2908] [cursor=pointer]
+          - cell [ref=e2909] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2910] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2911] [cursor=pointer]
+          - cell [ref=e2912] [cursor=pointer]
+          - cell "901,600.00 ฿" [ref=e2913] [cursor=pointer]:
+            - generic [ref=e2914]: 901,600.00 ฿
+          - cell "901,600.00 ฿" [ref=e2915] [cursor=pointer]:
+            - generic [ref=e2916]: 901,600.00 ฿
+          - cell "912,300.00 ฿" [ref=e2917] [cursor=pointer]:
+            - generic [ref=e2918]: 912,300.00 ฿
+          - cell "Mixed" [ref=e2919] [cursor=pointer]:
+            - generic [ref=e2921]: Mixed
+          - cell "Fully Billed" [ref=e2922] [cursor=pointer]:
+            - generic [ref=e2924]: Fully Billed
+          - cell "Not Paid" [ref=e2925] [cursor=pointer]:
+            - generic [ref=e2927]: Not Paid
+          - cell [ref=e2928]
+        - row "BN/2026/05/0033 JW TECH CO.,LTD. 05/26/2026 951,600.00 ฿ 951,600.00 ฿ 0.00 ฿ PO / Service Cancelled Not Paid" [ref=e2929]:
+          - cell [ref=e2930]:
+            - checkbox [ref=e2932] [cursor=pointer]
+          - cell "BN/2026/05/0033" [ref=e2933] [cursor=pointer]
+          - cell [ref=e2934] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2935] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2936] [cursor=pointer]
+          - cell [ref=e2937] [cursor=pointer]
+          - cell "951,600.00 ฿" [ref=e2938] [cursor=pointer]:
+            - generic [ref=e2939]: 951,600.00 ฿
+          - cell "951,600.00 ฿" [ref=e2940] [cursor=pointer]:
+            - generic [ref=e2941]: 951,600.00 ฿
+          - cell "0.00 ฿" [ref=e2942] [cursor=pointer]:
+            - generic [ref=e2943]: 0.00 ฿
+          - cell "PO / Service" [ref=e2944] [cursor=pointer]:
+            - generic [ref=e2946]: PO / Service
+          - cell "Cancelled" [ref=e2947] [cursor=pointer]:
+            - generic [ref=e2949]: Cancelled
+          - cell "Not Paid" [ref=e2950] [cursor=pointer]:
+            - generic [ref=e2952]: Not Paid
+          - cell [ref=e2953]
+        - row "BN/2026/05/0030 JW TECH CO.,LTD. 05/26/2026 963,000.00 ฿ 963,000.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e2954]:
+          - cell [ref=e2955]:
+            - checkbox [ref=e2957] [cursor=pointer]
+          - cell "BN/2026/05/0030" [ref=e2958] [cursor=pointer]
+          - cell [ref=e2959] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2960] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2961] [cursor=pointer]
+          - cell [ref=e2962] [cursor=pointer]
+          - cell "963,000.00 ฿" [ref=e2963] [cursor=pointer]:
+            - generic [ref=e2964]: 963,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e2965] [cursor=pointer]:
+            - generic [ref=e2966]: 963,000.00 ฿
+          - cell "0.00 ฿" [ref=e2967] [cursor=pointer]:
+            - generic [ref=e2968]: 0.00 ฿
+          - cell "PO / Service" [ref=e2969] [cursor=pointer]:
+            - generic [ref=e2971]: PO / Service
+          - cell "Draft" [ref=e2972] [cursor=pointer]:
+            - generic [ref=e2974]: Draft
+          - cell "Not Paid" [ref=e2975] [cursor=pointer]:
+            - generic [ref=e2977]: Not Paid
+          - cell [ref=e2978]
+        - row "BN/2026/05/0027 JW TECH CO.,LTD. 05/26/2026 0.00 ฿ 0.00 ฿ 0.00 ฿ PO / Service Cancelled Not Paid" [ref=e2979]:
+          - cell [ref=e2980]:
+            - checkbox [ref=e2982] [cursor=pointer]
+          - cell "BN/2026/05/0027" [ref=e2983] [cursor=pointer]
+          - cell [ref=e2984] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e2985] [cursor=pointer]
+          - cell "05/26/2026" [ref=e2986] [cursor=pointer]
+          - cell [ref=e2987] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e2988] [cursor=pointer]:
+            - generic [ref=e2989]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2990] [cursor=pointer]:
+            - generic [ref=e2991]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e2992] [cursor=pointer]:
+            - generic [ref=e2993]: 0.00 ฿
+          - cell "PO / Service" [ref=e2994] [cursor=pointer]:
+            - generic [ref=e2996]: PO / Service
+          - cell "Cancelled" [ref=e2997] [cursor=pointer]:
+            - generic [ref=e2999]: Cancelled
+          - cell "Not Paid" [ref=e3000] [cursor=pointer]:
+            - generic [ref=e3002]: Not Paid
+          - cell [ref=e3003]
+        - row "BN/2026/05/0026 JW TECH CO.,LTD. 05/26/2026 0.00 ฿ 0.00 ฿ 0.00 ฿ PO / Service Cancelled Not Paid" [ref=e3004]:
+          - cell [ref=e3005]:
+            - checkbox [ref=e3007] [cursor=pointer]
+          - cell "BN/2026/05/0026" [ref=e3008] [cursor=pointer]
+          - cell [ref=e3009] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e3010] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3011] [cursor=pointer]
+          - cell [ref=e3012] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3013] [cursor=pointer]:
+            - generic [ref=e3014]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e3015] [cursor=pointer]:
+            - generic [ref=e3016]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e3017] [cursor=pointer]:
+            - generic [ref=e3018]: 0.00 ฿
+          - cell "PO / Service" [ref=e3019] [cursor=pointer]:
+            - generic [ref=e3021]: PO / Service
+          - cell "Cancelled" [ref=e3022] [cursor=pointer]:
+            - generic [ref=e3024]: Cancelled
+          - cell "Not Paid" [ref=e3025] [cursor=pointer]:
+            - generic [ref=e3027]: Not Paid
+          - cell [ref=e3028]
+        - row "BN/2026/05/0025 JW TECH CO.,LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 953,000.00 ฿ Mixed Fully Billed Not Paid" [ref=e3029]:
+          - cell [ref=e3030]:
+            - checkbox [ref=e3032] [cursor=pointer]
+          - cell "BN/2026/05/0025" [ref=e3033] [cursor=pointer]
+          - cell [ref=e3034] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e3035] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3036] [cursor=pointer]
+          - cell [ref=e3037] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e3038] [cursor=pointer]:
+            - generic [ref=e3039]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e3040] [cursor=pointer]:
+            - generic [ref=e3041]: 1,070,000.00 ฿
+          - cell "953,000.00 ฿" [ref=e3042] [cursor=pointer]:
+            - generic [ref=e3043]: 953,000.00 ฿
+          - cell "Mixed" [ref=e3044] [cursor=pointer]:
+            - generic [ref=e3046]: Mixed
+          - cell "Fully Billed" [ref=e3047] [cursor=pointer]:
+            - generic [ref=e3049]: Fully Billed
+          - cell "Not Paid" [ref=e3050] [cursor=pointer]:
+            - generic [ref=e3052]: Not Paid
+          - cell [ref=e3053]
+        - row "BN/2026/05/0024 JW TECH CO.,LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 953,000.00 ฿ Mixed Fully Billed Not Paid" [ref=e3054]:
+          - cell [ref=e3055]:
+            - checkbox [ref=e3057] [cursor=pointer]
+          - cell "BN/2026/05/0024" [ref=e3058] [cursor=pointer]
+          - cell [ref=e3059] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e3060] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3061] [cursor=pointer]
+          - cell [ref=e3062] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e3063] [cursor=pointer]:
+            - generic [ref=e3064]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e3065] [cursor=pointer]:
+            - generic [ref=e3066]: 1,070,000.00 ฿
+          - cell "953,000.00 ฿" [ref=e3067] [cursor=pointer]:
+            - generic [ref=e3068]: 953,000.00 ฿
+          - cell "Mixed" [ref=e3069] [cursor=pointer]:
+            - generic [ref=e3071]: Mixed
+          - cell "Fully Billed" [ref=e3072] [cursor=pointer]:
+            - generic [ref=e3074]: Fully Billed
+          - cell "Not Paid" [ref=e3075] [cursor=pointer]:
+            - generic [ref=e3077]: Not Paid
+          - cell [ref=e3078]
+        - row "BN/2026/05/0020 DENKI SHOJI CO.,LTD. 05/26/2026 963,000.00 ฿ 963,000.00 ฿ 0.00 ฿ PO / Service Confirmed Not Paid" [ref=e3079]:
+          - cell [ref=e3080]:
+            - checkbox [ref=e3082] [cursor=pointer]
+          - cell "BN/2026/05/0020" [ref=e3083] [cursor=pointer]
+          - cell [ref=e3084] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3085] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3086] [cursor=pointer]
+          - cell [ref=e3087] [cursor=pointer]
+          - cell "963,000.00 ฿" [ref=e3088] [cursor=pointer]:
+            - generic [ref=e3089]: 963,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e3090] [cursor=pointer]:
+            - generic [ref=e3091]: 963,000.00 ฿
+          - cell "0.00 ฿" [ref=e3092] [cursor=pointer]:
+            - generic [ref=e3093]: 0.00 ฿
+          - cell "PO / Service" [ref=e3094] [cursor=pointer]:
+            - generic [ref=e3096]: PO / Service
+          - cell "Confirmed" [ref=e3097] [cursor=pointer]:
+            - generic [ref=e3099]: Confirmed
+          - cell "Not Paid" [ref=e3100] [cursor=pointer]:
+            - generic [ref=e3102]: Not Paid
+          - cell [ref=e3103]
+        - row "BN/2026/05/0019 LF LOGISTICS (THAILAND) LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 0.00 ฿ PO / Service Cancelled Not Paid" [ref=e3104]:
+          - cell [ref=e3105]:
+            - checkbox [ref=e3107] [cursor=pointer]
+          - cell "BN/2026/05/0019" [ref=e3108] [cursor=pointer]
+          - cell [ref=e3109] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3110] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3111] [cursor=pointer]
+          - cell [ref=e3112] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e3113] [cursor=pointer]:
+            - generic [ref=e3114]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e3115] [cursor=pointer]:
+            - generic [ref=e3116]: 1,070,000.00 ฿
+          - cell "0.00 ฿" [ref=e3117] [cursor=pointer]:
+            - generic [ref=e3118]: 0.00 ฿
+          - cell "PO / Service" [ref=e3119] [cursor=pointer]:
+            - generic [ref=e3121]: PO / Service
+          - cell "Cancelled" [ref=e3122] [cursor=pointer]:
+            - generic [ref=e3124]: Cancelled
+          - cell "Not Paid" [ref=e3125] [cursor=pointer]:
+            - generic [ref=e3127]: Not Paid
+          - cell [ref=e3128]
+        - row "BN/2026/05/0018 LF LOGISTICS (THAILAND) LTD. 05/26/2026 -10,700.00 ฿ -10,700.00 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e3129]:
+          - cell [ref=e3130]:
+            - checkbox [ref=e3132] [cursor=pointer]
+          - cell "BN/2026/05/0018" [ref=e3133] [cursor=pointer]
+          - cell [ref=e3134] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3135] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3136] [cursor=pointer]
+          - cell [ref=e3137] [cursor=pointer]
+          - cell "-10,700.00 ฿" [ref=e3138] [cursor=pointer]:
+            - generic [ref=e3139]: "-10,700.00 ฿"
+          - cell "-10,700.00 ฿" [ref=e3140] [cursor=pointer]:
+            - generic [ref=e3141]: "-10,700.00 ฿"
+          - cell "0.00 ฿" [ref=e3142] [cursor=pointer]:
+            - generic [ref=e3143]: 0.00 ฿
+          - cell "PO / Service" [ref=e3144] [cursor=pointer]:
+            - generic [ref=e3146]: PO / Service
+          - cell "Draft" [ref=e3147] [cursor=pointer]:
+            - generic [ref=e3149]: Draft
+          - cell "Not Paid" [ref=e3150] [cursor=pointer]:
+            - generic [ref=e3152]: Not Paid
+          - cell [ref=e3153]
+        - row "BN/2026/05/0017 LF LOGISTICS (THAILAND) LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 963,000.00 ฿ Mixed Fully Billed Not Paid" [ref=e3154]:
+          - cell [ref=e3155]:
+            - checkbox [ref=e3157] [cursor=pointer]
+          - cell "BN/2026/05/0017" [ref=e3158] [cursor=pointer]
+          - cell [ref=e3159] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3160] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3161] [cursor=pointer]
+          - cell [ref=e3162] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e3163] [cursor=pointer]:
+            - generic [ref=e3164]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e3165] [cursor=pointer]:
+            - generic [ref=e3166]: 1,070,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e3167] [cursor=pointer]:
+            - generic [ref=e3168]: 963,000.00 ฿
+          - cell "Mixed" [ref=e3169] [cursor=pointer]:
+            - generic [ref=e3171]: Mixed
+          - cell "Fully Billed" [ref=e3172] [cursor=pointer]:
+            - generic [ref=e3174]: Fully Billed
+          - cell "Not Paid" [ref=e3175] [cursor=pointer]:
+            - generic [ref=e3177]: Not Paid
+          - cell [ref=e3178]
+        - row "BN/2026/05/0016 LF LOGISTICS (THAILAND) LTD. 05/26/2026 1,070,000.00 ฿ 1,070,000.00 ฿ 963,000.00 ฿ Mixed Fully Billed Not Paid" [ref=e3179]:
+          - cell [ref=e3180]:
+            - checkbox [ref=e3182] [cursor=pointer]
+          - cell "BN/2026/05/0016" [ref=e3183] [cursor=pointer]
+          - cell [ref=e3184] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3185] [cursor=pointer]
+          - cell "05/26/2026" [ref=e3186] [cursor=pointer]
+          - cell [ref=e3187] [cursor=pointer]
+          - cell "1,070,000.00 ฿" [ref=e3188] [cursor=pointer]:
+            - generic [ref=e3189]: 1,070,000.00 ฿
+          - cell "1,070,000.00 ฿" [ref=e3190] [cursor=pointer]:
+            - generic [ref=e3191]: 1,070,000.00 ฿
+          - cell "963,000.00 ฿" [ref=e3192] [cursor=pointer]:
+            - generic [ref=e3193]: 963,000.00 ฿
+          - cell "Mixed" [ref=e3194] [cursor=pointer]:
+            - generic [ref=e3196]: Mixed
+          - cell "Fully Billed" [ref=e3197] [cursor=pointer]:
+            - generic [ref=e3199]: Fully Billed
+          - cell "Not Paid" [ref=e3200] [cursor=pointer]:
+            - generic [ref=e3202]: Not Paid
+          - cell [ref=e3203]
+        - row "BN/2026/05/0015 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 05/20/2026 0.10 ฿ 0.10 ฿ 0.00 ฿ PO / Service Draft Not Paid" [ref=e3204]:
+          - cell [ref=e3205]:
+            - checkbox [ref=e3207] [cursor=pointer]
+          - cell "BN/2026/05/0015" [ref=e3208] [cursor=pointer]
+          - cell [ref=e3209] [cursor=pointer]
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3210] [cursor=pointer]
+          - cell "05/20/2026" [ref=e3211] [cursor=pointer]
+          - cell [ref=e3212] [cursor=pointer]
+          - cell "0.10 ฿" [ref=e3213] [cursor=pointer]:
+            - generic [ref=e3214]: 0.10 ฿
+          - cell "0.10 ฿" [ref=e3215] [cursor=pointer]:
+            - generic [ref=e3216]: 0.10 ฿
+          - cell "0.00 ฿" [ref=e3217] [cursor=pointer]:
+            - generic [ref=e3218]: 0.00 ฿
+          - cell "PO / Service" [ref=e3219] [cursor=pointer]:
+            - generic [ref=e3221]: PO / Service
+          - cell "Draft" [ref=e3222] [cursor=pointer]:
+            - generic [ref=e3224]: Draft
+          - cell "Not Paid" [ref=e3225] [cursor=pointer]:
+            - generic [ref=e3227]: Not Paid
+          - cell [ref=e3228]
+        - row "BN/2026/05/0014 DENKI SHOJI CO.,LTD. 05/18/2026 0.00 ฿ 0.00 ฿ 0.00 ฿ Mixed Fully Billed Not Paid" [ref=e3229]:
+          - cell [ref=e3230]:
+            - checkbox [ref=e3232] [cursor=pointer]
+          - cell "BN/2026/05/0014" [ref=e3233] [cursor=pointer]
+          - cell [ref=e3234] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3235] [cursor=pointer]
+          - cell "05/18/2026" [ref=e3236] [cursor=pointer]
+          - cell [ref=e3237] [cursor=pointer]
+          - cell "0.00 ฿" [ref=e3238] [cursor=pointer]:
+            - generic [ref=e3239]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e3240] [cursor=pointer]:
+            - generic [ref=e3241]: 0.00 ฿
+          - cell "0.00 ฿" [ref=e3242] [cursor=pointer]:
+            - generic [ref=e3243]: 0.00 ฿
+          - cell "Mixed" [ref=e3244] [cursor=pointer]:
+            - generic [ref=e3246]: Mixed
+          - cell "Fully Billed" [ref=e3247] [cursor=pointer]:
+            - generic [ref=e3249]: Fully Billed
+          - cell "Not Paid" [ref=e3250] [cursor=pointer]:
+            - generic [ref=e3252]: Not Paid
+          - cell [ref=e3253]
+        - row "BN/2026/04/0013 บริษัท ซีพี ออลล์ จำกัด (มหาชน) 04/10/2026 2,344.05 ฿ 2,344.05 ฿ 2,344.05 ฿ Mixed Fully Billed Not Paid" [ref=e3254]:
+          - cell [ref=e3255]:
+            - checkbox [ref=e3257] [cursor=pointer]
+          - cell "BN/2026/04/0013" [ref=e3258] [cursor=pointer]
+          - cell [ref=e3259] [cursor=pointer]
+          - cell "บริษัท ซีพี ออลล์ จำกัด (มหาชน)" [ref=e3260] [cursor=pointer]
+          - cell "04/10/2026" [ref=e3261] [cursor=pointer]
+          - cell [ref=e3262] [cursor=pointer]
+          - cell "2,344.05 ฿" [ref=e3263] [cursor=pointer]:
+            - generic [ref=e3264]: 2,344.05 ฿
+          - cell "2,344.05 ฿" [ref=e3265] [cursor=pointer]:
+            - generic [ref=e3266]: 2,344.05 ฿
+          - cell "2,344.05 ฿" [ref=e3267] [cursor=pointer]:
+            - generic [ref=e3268]: 2,344.05 ฿
+          - cell "Mixed" [ref=e3269] [cursor=pointer]:
+            - generic [ref=e3271]: Mixed
+          - cell "Fully Billed" [ref=e3272] [cursor=pointer]:
+            - generic [ref=e3274]: Fully Billed
+          - cell "Not Paid" [ref=e3275] [cursor=pointer]:
+            - generic [ref=e3277]: Not Paid
+          - cell [ref=e3278]
+        - row "BN/2026/04/0012 DENKI SHOJI CO.,LTD. 04/06/2026 78,110.00 ฿ 78,110.00 ฿ 78,110.00 ฿ Mixed Fully Billed Not Paid" [ref=e3279]:
+          - cell [ref=e3280]:
+            - checkbox [ref=e3282] [cursor=pointer]
+          - cell "BN/2026/04/0012" [ref=e3283] [cursor=pointer]
+          - cell [ref=e3284] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3285] [cursor=pointer]
+          - cell "04/06/2026" [ref=e3286] [cursor=pointer]
+          - cell [ref=e3287] [cursor=pointer]
+          - cell "78,110.00 ฿" [ref=e3288] [cursor=pointer]:
+            - generic [ref=e3289]: 78,110.00 ฿
+          - cell "78,110.00 ฿" [ref=e3290] [cursor=pointer]:
+            - generic [ref=e3291]: 78,110.00 ฿
+          - cell "78,110.00 ฿" [ref=e3292] [cursor=pointer]:
+            - generic [ref=e3293]: 78,110.00 ฿
+          - cell "Mixed" [ref=e3294] [cursor=pointer]:
+            - generic [ref=e3296]: Mixed
+          - cell "Fully Billed" [ref=e3297] [cursor=pointer]:
+            - generic [ref=e3299]: Fully Billed
+          - cell "Not Paid" [ref=e3300] [cursor=pointer]:
+            - generic [ref=e3302]: Not Paid
+          - cell [ref=e3303]
+        - row "BN/2026/04/0011 DENKI SHOJI CO.,LTD. 04/03/2026 78,110.00 ฿ 78,110.00 ฿ 48,110.00 ฿ Mixed Fully Billed Partially Paid" [ref=e3304]:
+          - cell [ref=e3305]:
+            - checkbox [ref=e3307] [cursor=pointer]
+          - cell "BN/2026/04/0011" [ref=e3308] [cursor=pointer]
+          - cell [ref=e3309] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3310] [cursor=pointer]
+          - cell "04/03/2026" [ref=e3311] [cursor=pointer]
+          - cell [ref=e3312] [cursor=pointer]
+          - cell "78,110.00 ฿" [ref=e3313] [cursor=pointer]:
+            - generic [ref=e3314]: 78,110.00 ฿
+          - cell "78,110.00 ฿" [ref=e3315] [cursor=pointer]:
+            - generic [ref=e3316]: 78,110.00 ฿
+          - cell "48,110.00 ฿" [ref=e3317] [cursor=pointer]:
+            - generic [ref=e3318]: 48,110.00 ฿
+          - cell "Mixed" [ref=e3319] [cursor=pointer]:
+            - generic [ref=e3321]: Mixed
+          - cell "Fully Billed" [ref=e3322] [cursor=pointer]:
+            - generic [ref=e3324]: Fully Billed
+          - cell "Partially Paid" [ref=e3325] [cursor=pointer]:
+            - generic [ref=e3327]: Partially Paid
+          - cell [ref=e3328]
+        - row "BN/2026/04/0010 DENKI SHOJI CO.,LTD. 04/02/2026 17,655.00 ฿ 17,655.00 ฿ 0.00 ฿ Mixed Fully Billed Paid" [ref=e3329]:
+          - cell [ref=e3330]:
+            - checkbox [ref=e3332] [cursor=pointer]
+          - cell "BN/2026/04/0010" [ref=e3333] [cursor=pointer]
+          - cell [ref=e3334] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3335] [cursor=pointer]
+          - cell "04/02/2026" [ref=e3336] [cursor=pointer]
+          - cell [ref=e3337] [cursor=pointer]
+          - cell "17,655.00 ฿" [ref=e3338] [cursor=pointer]:
+            - generic [ref=e3339]: 17,655.00 ฿
+          - cell "17,655.00 ฿" [ref=e3340] [cursor=pointer]:
+            - generic [ref=e3341]: 17,655.00 ฿
+          - cell "0.00 ฿" [ref=e3342] [cursor=pointer]:
+            - generic [ref=e3343]: 0.00 ฿
+          - cell "Mixed" [ref=e3344] [cursor=pointer]:
+            - generic [ref=e3346]: Mixed
+          - cell "Fully Billed" [ref=e3347] [cursor=pointer]:
+            - generic [ref=e3349]: Fully Billed
+          - cell "Paid" [ref=e3350] [cursor=pointer]:
+            - generic [ref=e3352]: Paid
+          - cell [ref=e3353]
+        - row "BN/2026/04/0009 DENKI SHOJI CO.,LTD. 04/02/2026 17,655.00 ฿ 17,655.00 ฿ 0.00 ฿ PO / Service Cancelled Not Paid" [ref=e3354]:
+          - cell [ref=e3355]:
+            - checkbox [ref=e3357] [cursor=pointer]
+          - cell "BN/2026/04/0009" [ref=e3358] [cursor=pointer]
+          - cell [ref=e3359] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3360] [cursor=pointer]
+          - cell "04/02/2026" [ref=e3361] [cursor=pointer]
+          - cell [ref=e3362] [cursor=pointer]
+          - cell "17,655.00 ฿" [ref=e3363] [cursor=pointer]:
+            - generic [ref=e3364]: 17,655.00 ฿
+          - cell "17,655.00 ฿" [ref=e3365] [cursor=pointer]:
+            - generic [ref=e3366]: 17,655.00 ฿
+          - cell "0.00 ฿" [ref=e3367] [cursor=pointer]:
+            - generic [ref=e3368]: 0.00 ฿
+          - cell "PO / Service" [ref=e3369] [cursor=pointer]:
+            - generic [ref=e3371]: PO / Service
+          - cell "Cancelled" [ref=e3372] [cursor=pointer]:
+            - generic [ref=e3374]: Cancelled
+          - cell "Not Paid" [ref=e3375] [cursor=pointer]:
+            - generic [ref=e3377]: Not Paid
+          - cell [ref=e3378]
+        - row "BN/2026/04/0008 LF LOGISTICS (THAILAND) LTD. 04/01/2026 10,700.00 ฿ 10,700.00 ฿ 10,700.00 ฿ Mixed Fully Billed Not Paid" [ref=e3379]:
+          - cell [ref=e3380]:
+            - checkbox [ref=e3382] [cursor=pointer]
+          - cell "BN/2026/04/0008" [ref=e3383] [cursor=pointer]
+          - cell [ref=e3384] [cursor=pointer]
+          - cell "LF LOGISTICS (THAILAND) LTD." [ref=e3385] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3386] [cursor=pointer]
+          - cell [ref=e3387] [cursor=pointer]
+          - cell "10,700.00 ฿" [ref=e3388] [cursor=pointer]:
+            - generic [ref=e3389]: 10,700.00 ฿
+          - cell "10,700.00 ฿" [ref=e3390] [cursor=pointer]:
+            - generic [ref=e3391]: 10,700.00 ฿
+          - cell "10,700.00 ฿" [ref=e3392] [cursor=pointer]:
+            - generic [ref=e3393]: 10,700.00 ฿
+          - cell "Mixed" [ref=e3394] [cursor=pointer]:
+            - generic [ref=e3396]: Mixed
+          - cell "Fully Billed" [ref=e3397] [cursor=pointer]:
+            - generic [ref=e3399]: Fully Billed
+          - cell "Not Paid" [ref=e3400] [cursor=pointer]:
+            - generic [ref=e3402]: Not Paid
+          - cell [ref=e3403]
+        - row "BN/2026/04/0007 บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด 04/01/2026 21,400.00 ฿ 21,400.00 ฿ 21,400.00 ฿ Mixed Fully Billed Not Paid" [ref=e3404]:
+          - cell [ref=e3405]:
+            - checkbox [ref=e3407] [cursor=pointer]
+          - cell "BN/2026/04/0007" [ref=e3408] [cursor=pointer]
+          - cell [ref=e3409] [cursor=pointer]
+          - cell "บริษัท กิมไป๊ บรรจุภัณฑ์กระดาษ จำกัด" [ref=e3410] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3411] [cursor=pointer]
+          - cell [ref=e3412] [cursor=pointer]
+          - cell "21,400.00 ฿" [ref=e3413] [cursor=pointer]:
+            - generic [ref=e3414]: 21,400.00 ฿
+          - cell "21,400.00 ฿" [ref=e3415] [cursor=pointer]:
+            - generic [ref=e3416]: 21,400.00 ฿
+          - cell "21,400.00 ฿" [ref=e3417] [cursor=pointer]:
+            - generic [ref=e3418]: 21,400.00 ฿
+          - cell "Mixed" [ref=e3419] [cursor=pointer]:
+            - generic [ref=e3421]: Mixed
+          - cell "Fully Billed" [ref=e3422] [cursor=pointer]:
+            - generic [ref=e3424]: Fully Billed
+          - cell "Not Paid" [ref=e3425] [cursor=pointer]:
+            - generic [ref=e3427]: Not Paid
+          - cell [ref=e3428]
+        - row "BN/2026/04/0006 DENKI SHOJI CO.,LTD. 04/01/2026 6,955.00 ฿ 6,955.00 ฿ 5,350.00 ฿ Mixed Partially Billed Not Paid" [ref=e3429]:
+          - cell [ref=e3430]:
+            - checkbox [ref=e3432] [cursor=pointer]
+          - cell "BN/2026/04/0006" [ref=e3433] [cursor=pointer]
+          - cell [ref=e3434] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3435] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3436] [cursor=pointer]
+          - cell [ref=e3437] [cursor=pointer]
+          - cell "6,955.00 ฿" [ref=e3438] [cursor=pointer]:
+            - generic [ref=e3439]: 6,955.00 ฿
+          - cell "6,955.00 ฿" [ref=e3440] [cursor=pointer]:
+            - generic [ref=e3441]: 6,955.00 ฿
+          - cell "5,350.00 ฿" [ref=e3442] [cursor=pointer]:
+            - generic [ref=e3443]: 5,350.00 ฿
+          - cell "Mixed" [ref=e3444] [cursor=pointer]:
+            - generic [ref=e3446]: Mixed
+          - cell "Partially Billed" [ref=e3447] [cursor=pointer]:
+            - generic [ref=e3449]: Partially Billed
+          - cell "Not Paid" [ref=e3450] [cursor=pointer]:
+            - generic [ref=e3452]: Not Paid
+          - cell [ref=e3453]
+        - row "BN/2026/04/0005 DENKI SHOJI CO.,LTD. 04/01/2026 10,700.00 ฿ 10,700.00 ฿ 10,700.00 ฿ Mixed Fully Billed Not Paid" [ref=e3454]:
+          - cell [ref=e3455]:
+            - checkbox [ref=e3457] [cursor=pointer]
+          - cell "BN/2026/04/0005" [ref=e3458] [cursor=pointer]
+          - cell [ref=e3459] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3460] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3461] [cursor=pointer]
+          - cell [ref=e3462] [cursor=pointer]
+          - cell "10,700.00 ฿" [ref=e3463] [cursor=pointer]:
+            - generic [ref=e3464]: 10,700.00 ฿
+          - cell "10,700.00 ฿" [ref=e3465] [cursor=pointer]:
+            - generic [ref=e3466]: 10,700.00 ฿
+          - cell "10,700.00 ฿" [ref=e3467] [cursor=pointer]:
+            - generic [ref=e3468]: 10,700.00 ฿
+          - cell "Mixed" [ref=e3469] [cursor=pointer]:
+            - generic [ref=e3471]: Mixed
+          - cell "Fully Billed" [ref=e3472] [cursor=pointer]:
+            - generic [ref=e3474]: Fully Billed
+          - cell "Not Paid" [ref=e3475] [cursor=pointer]:
+            - generic [ref=e3477]: Not Paid
+          - cell [ref=e3478]
+        - row "BN/2026/04/0002 DENKI SHOJI CO.,LTD. 04/01/2026 5,350.00 ฿ 5,350.00 ฿ 0.00 ฿ Mixed Fully Billed Paid" [ref=e3479]:
+          - cell [ref=e3480]:
+            - checkbox [ref=e3482] [cursor=pointer]
+          - cell "BN/2026/04/0002" [ref=e3483] [cursor=pointer]
+          - cell [ref=e3484] [cursor=pointer]
+          - cell "DENKI SHOJI CO.,LTD." [ref=e3485] [cursor=pointer]
+          - cell "04/01/2026" [ref=e3486] [cursor=pointer]
+          - cell [ref=e3487] [cursor=pointer]
+          - cell "5,350.00 ฿" [ref=e3488] [cursor=pointer]:
+            - generic [ref=e3489]: 5,350.00 ฿
+          - cell "5,350.00 ฿" [ref=e3490] [cursor=pointer]:
+            - generic [ref=e3491]: 5,350.00 ฿
+          - cell "0.00 ฿" [ref=e3492] [cursor=pointer]:
+            - generic [ref=e3493]: 0.00 ฿
+          - cell "Mixed" [ref=e3494] [cursor=pointer]:
+            - generic [ref=e3496]: Mixed
+          - cell "Fully Billed" [ref=e3497] [cursor=pointer]:
+            - generic [ref=e3499]: Fully Billed
+          - cell "Paid" [ref=e3500] [cursor=pointer]:
+            - generic [ref=e3502]: Paid
+          - cell [ref=e3503]
+      - rowgroup [ref=e3504]:
+        - row "15,191,382.15 ฿ 15,191,382.15 ฿ 9,667,534.05 ฿" [ref=e3505]:
+          - cell [ref=e3506]
+          - cell [ref=e3507]
+          - cell [ref=e3508]
+          - cell [ref=e3509]
+          - cell [ref=e3510]
+          - cell [ref=e3511]
+          - cell "15,191,382.15 ฿" [ref=e3512]
+          - cell "15,191,382.15 ฿" [ref=e3513]
+          - cell "9,667,534.05 ฿" [ref=e3514]
+          - cell [ref=e3515]
+          - cell [ref=e3516]
+          - cell [ref=e3517]
+          - cell [ref=e3518]
+  - generic [ref=e3520]: BN/2026/05/0046

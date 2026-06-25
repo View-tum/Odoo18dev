@@ -4,14 +4,51 @@
         <field name="model">purchase.order.status.report.wizard</field>
         <field name="inherit_id" ref="purchase_order_status_report.view_purchase_order_status_report_wizard"/>
         <field name="arch" type="xml">
-            
+            <xpath expr="//header/button[@name='button_preview']" position="after">
+                <button name="action_select_bill_lines" string="Select APD/CN" type="object"
+                        class="btn-secondary" invisible="not line_ids"/>
+                <button name="action_select_all" string="Select Billable" type="object"
+                        class="btn-secondary" invisible="not line_ids"/>
+                <button name="action_unselect_all" string="Clear Selection" type="object"
+                        class="btn-secondary" invisible="not line_ids"/>
+            </xpath>
+
             <xpath expr="//header/button[@name='button_export_xlsx']" position="after">
                 <button name="action_create_billing_note" string="Create Billing Note" 
-                        type="object" class="btn-primary" invisible="not has_selected_lines"/>
-                        
+                        type="object" class="btn-primary" invisible="not line_ids"/>
                 <field name="has_selected_lines" invisible="1"/>
             </xpath>
 
+            <xpath expr="//notebook/page[1]" position="attributes">
+                <attribute name="string">Lines</attribute>
+                <attribute name="name">lines</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='is_selected']" position="after">
+                <field name="line_type" string="Type" readonly="1" widget="badge"
+                       decoration-info="line_type == 'po'"
+                       decoration-warning="line_type == 'bill'"
+                       optional="show"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='order_id']" position="after">
+                <field name="account_move_id" string="APD/CN" readonly="1" optional="show"/>
+                <field name="move_type" string="Doc Type" readonly="1" widget="badge"
+                       decoration-info="move_type == 'in_invoice'"
+                       decoration-danger="move_type == 'in_refund'"
+                       optional="show"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='inv_ref']" position="after">
+                <field name="bill_invoice_date" readonly="1" optional="show"/>
+                <field name="bill_ref" readonly="1" optional="hide"/>
+                <field name="bill_payment_reference" readonly="1" optional="hide"/>
+                <field name="bill_amount_untaxed" readonly="1" sum="Bill Untaxed" optional="hide"/>
+                <field name="bill_amount_total" readonly="1" sum="Bill Total" optional="show"/>
+                <field name="bill_amount_residual" readonly="1" sum="Open Balance" optional="show"/>
+                <field name="vendor_billing_note_id" readonly="1" optional="show"/>
+                <field name="bill_currency_id" column_invisible="1"/>
+            </xpath>
         </field>
     </record>
 </odoo>

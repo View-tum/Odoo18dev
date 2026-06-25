@@ -1,0 +1,192 @@
+{
+  "database": "AMS",
+  "url": "http://localhost:8813/web/login?db=AMS",
+  "server_port": 8813,
+  "mto_active": true,
+  "routes": {
+    "mto": {
+      "name": "Replenish on Order (MTO)",
+      "active": true,
+      "rules": [
+        [
+          "pull",
+          "Delivery Orders",
+          "make_to_order"
+        ],
+        [
+          "pull",
+          "Manufacturing",
+          "make_to_order"
+        ]
+      ]
+    },
+    "buy": {
+      "name": "Buy",
+      "active": true,
+      "rules": [
+        [
+          "buy",
+          "Receipts",
+          "make_to_stock"
+        ]
+      ]
+    },
+    "manufacture": {
+      "name": "Manufacture",
+      "active": true,
+      "rules": [
+        [
+          "manufacture",
+          "Manufacturing",
+          "make_to_order"
+        ]
+      ]
+    }
+  },
+  "counts": {
+    "products_checked": 19,
+    "sellerinfo": 18,
+    "orderpoints": 18
+  },
+  "products": [
+    {
+      "code": "10001001",
+      "name": "Raw Material 1",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001002",
+      "name": "Raw Material 2",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001003",
+      "name": "Raw Material 3",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001004",
+      "name": "Raw Material 4",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001005",
+      "name": "Raw Material 5",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001006",
+      "name": "Raw Material 6",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001007",
+      "name": "Raw Material 7",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001008",
+      "name": "Raw Material 8",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001009",
+      "name": "Raw Material 9",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001010",
+      "name": "Raw Material 10",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001011",
+      "name": "Raw Material 11",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001012",
+      "name": "Raw Material 12",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001013",
+      "name": "Raw Material 13",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001014",
+      "name": "Raw Material 14",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001015",
+      "name": "Raw Material 15",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "10001016",
+      "name": "Raw Material 16",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "40001014",
+      "name": "Trading 1",
+      "routes": "Replenish on Order (MTO), Buy",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    },
+    {
+      "code": "AMS.400",
+      "name": "AMS.400 REV 00",
+      "routes": "Replenish on Order (MTO), Manufacture",
+      "vendors": "",
+      "orderpoints": ""
+    },
+    {
+      "code": "BOX.0001",
+      "name": "Raw Material 17",
+      "routes": "Buy, Replenish on Order (MTO)",
+      "vendors": "AMS Supplier Demo",
+      "orderpoints": "WH/Stock min 10 max 100"
+    }
+  ],
+  "dryrun": {
+    "auto_mo": "PASSED",
+    "auto_po": "PASSED",
+    "note": "Dry-run rollback: confirm SO created 1 MO and 1 RFQ/PO through standard procurement route. Documents were not committed.",
+    "evidence": "SO S00006 -> MO WH/MO/00007; RFQ/PO P00006 origin WH/MO/00007, S00006"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "generated_at": "2026-06-07T08:53:52.563691",
+  "created_records": [
+    [
+      "vendor.billing.note",
+      69
+    ]
+  ],
+  "log": [
+    {
+      "step": "cn_posted",
+      "bill": {
+        "id": 69799,
+        "name": "APD/26/06/00003",
+        "state": "posted",
+        "amount_total": 500.0,
+        "payment_state": "not_paid",
+        "move_type": "in_invoice",
+        "line_ids": [
+          214202,
+          214203
+        ]
+      },
+      "credit_note": {
+        "id": 69804,
+        "name": "VCND/26/06/00002",
+        "state": "posted",
+        "amount_total": 321.0,
+        "payment_state": "not_paid",
+        "move_type": "in_refund",
+        "return_picking_ids": [
+          10818,
+          10819
+        ],
+        "return_picking_count": 2,
+        "tax_invoice_ids": [
+          37147
+        ]
+      },
+      "returns_after": [
+        {
+          "id": 10818,
+          "name": "GMP/R-OUT/00011",
+          "state": "done",
+          "vendor_credit_note_state": "posted",
+          "vendor_credit_note_count": 1,
+          "vendor_credit_note_ids": [
+            69804
+          ]
+        },
+        {
+          "id": 10819,
+          "name": "GMP/R-OUT/00012",
+          "state": "done",
+          "vendor_credit_note_state": "posted",
+          "vendor_credit_note_count": 1,
+          "vendor_credit_note_ids": [
+            69804
+          ]
+        }
+      ]
+    }
+  ],
+  "error": "{\"code\": 200, \"message\": \"Odoo Server Error\", \"data\": {\"name\": \"odoo.exceptions.UserError\", \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/mail/models/mail_thread.py\\\", line 349, in write\\n    result = super(MailThread, self).write(values)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/mail/models/mail_activity_mixin.py\\\", line 243, in write\\n    return super(MailActivityMixin, self).write(vals)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/simplify_access_management/models/models.py\\\", line 496, in write\\n    return super().write(vals)\\n           ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/models.py\\\", line 4840, in write\\n    fields[0].determine_inverse(real_recs)\\n  File \\\"/opt/odoo/odoo-server/odoo/fields.py\\\", line 1494, in determine_inverse\\n    determine(self.inverse, records)\\n  File \\\"/opt/odoo/odoo-server/odoo/fields.py\\\", line 110, in determine\\n    return needle(*args)\\n           ^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/vendor_billing_note/models/vendor_billing_note.py\\\", line 290, in _inverse_selected_bill_ids\\n    note._validate_selected_bills(selected_bills)\\n  File \\\"/opt/odoo/custom/goldmints_addon/vendor_billing_note/models/vendor_billing_note.py\\\", line 280, in _validate_selected_bills\\n    raise UserError(_(\\\"All selected APD/CN documents must belong to the same vendor.\\\"))\\nodoo.exceptions.UserError: All selected APD/CN documents must belong to the same vendor.\\n\", \"message\": \"All selected APD/CN documents must belong to the same vendor.\", \"arguments\": [\"All selected APD/CN documents must belong to the same vendor.\"], \"context\": {}}}",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 34, in <module>\n  File \"<stdin>\", line 14, in write\n  File \"<stdin>\", line 12, in call\n  File \"<stdin>\", line 7, in rpc\nException: {\"code\": 200, \"message\": \"Odoo Server Error\", \"data\": {\"name\": \"odoo.exceptions.UserError\", \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/mail/models/mail_thread.py\\\", line 349, in write\\n    result = super(MailThread, self).write(values)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/mail/models/mail_activity_mixin.py\\\", line 243, in write\\n    return super(MailActivityMixin, self).write(vals)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/simplify_access_management/models/models.py\\\", line 496, in write\\n    return super().write(vals)\\n           ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/models.py\\\", line 4840, in write\\n    fields[0].determine_inverse(real_recs)\\n  File \\\"/opt/odoo/odoo-server/odoo/fields.py\\\", line 1494, in determine_inverse\\n    determine(self.inverse, records)\\n  File \\\"/opt/odoo/odoo-server/odoo/fields.py\\\", line 110, in determine\\n    return needle(*args)\\n           ^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/vendor_billing_note/models/vendor_billing_note.py\\\", line 290, in _inverse_selected_bill_ids\\n    note._validate_selected_bills(selected_bills)\\n  File \\\"/opt/odoo/custom/goldmints_addon/vendor_billing_note/models/vendor_billing_note.py\\\", line 280, in _validate_selected_bills\\n    raise UserError(_(\\\"All selected APD/CN documents must belong to the same vendor.\\\"))\\nodoo.exceptions.UserError: All selected APD/CN documents must belong to the same vendor.\\n\", \"message\": \"All selected APD/CN documents must belong to the same vendor.\", \"arguments\": [\"All selected APD/CN documents must belong to the same vendor.\"], \"context\": {}}}\n"
+}

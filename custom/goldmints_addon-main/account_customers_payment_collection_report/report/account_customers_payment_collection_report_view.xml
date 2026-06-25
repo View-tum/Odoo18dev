@@ -6,9 +6,12 @@
         <field name="arch" type="xml">
             <form string="รายงานการขายประจำวัน">
                 <group>
-                    <field name="salesperson_id" required="True"/>
-                    <field name="date_from" required="salesperson_id" readonly="not salesperson_id"/>
-                    <field name="date_to" required="salesperson_id" readonly="not salesperson_id"/>
+                    <field name="team_id" placeholder="เลือกทีมขาย" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="salesperson_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="date_from" required="salesperson_id"/>
+                    <field name="date_to" required="salesperson_id"/>
+                    <!-- <field name="date_from" required="salesperson_id" readonly="not salesperson_id"/> -->
+                    <!-- <field name="date_to" required="salesperson_id" readonly="not salesperson_id"/> -->
                 </group>
                 <footer>
                     <button string="Export Excel" name="action_excel" type="object" class="btn-primary"/>

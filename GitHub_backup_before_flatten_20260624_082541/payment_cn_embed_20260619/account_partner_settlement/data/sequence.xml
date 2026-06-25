@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_account_partner_settlement" model="ir.sequence">
+        <field name="name">Partner Settlement</field>
+        <field name="code">account.partner.settlement</field>
+        <field name="prefix">APS/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

@@ -42,21 +42,19 @@ class AccountPaymentRegister(models.TransientModel):
         if source_amount_currency and source_currency:
             if source_currency == self.currency_id:
                 return source_amount_currency
-            return source_currency._convert(
+            return self._convert_with_manual_rate(
                 source_amount_currency,
+                source_currency,
                 self.currency_id,
-                self.company_id,
-                payment_date,
             )
 
         if source_amount:
             if self.currency_id == self.company_id.currency_id:
                 return source_amount
-            return self.company_id.currency_id._convert(
+            return self._convert_with_manual_rate(
                 source_amount,
+                self.company_id.currency_id,
                 self.currency_id,
-                self.company_id,
-                payment_date,
             )
 
         # Last-resort fallback: amount + payment_difference already equals residual in core.
@@ -108,23 +106,20 @@ class AccountPaymentRegister(models.TransientModel):
                     if line.currency_id
                     else abs(line.amount_residual)
                 )
-                line_res = line_currency._convert(
+                line_res = self._convert_with_manual_rate(
                     source_amount,
+                    line_currency,
                     self.currency_id,
-                    self.company_id,
-                    payment_date,
                 )
             total_residual += line_res
 
-        # 2. Total Original Payable (invoice gross amount before payment WHT deduction)
         moves = self._get_wht_source_moves()
         for move in moves:
             move_gross = abs(move.amount_total)
-            total_original_gross += move.currency_id._convert(
+            total_original_gross += self._convert_with_manual_rate(
                 move_gross,
+                move.currency_id,
                 self.currency_id,
-                self.company_id,
-                payment_date,
             )
 
         return total_residual, total_original_gross

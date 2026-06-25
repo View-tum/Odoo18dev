@@ -1,0 +1,180 @@
+{
+  "prefix": "UI-CN-EMBED-20260620024402",
+  "scenarios": {
+    "customer_cn": {
+      "moves": [
+        {
+          "id": 74192,
+          "name": "INV-D/2026/00018",
+          "move_type": "out_invoice",
+          "amount_total_signed": 100.0,
+          "amount_residual": 0.0,
+          "payment_state": "paid",
+          "state": "posted"
+        },
+        {
+          "id": 74193,
+          "name": "RINV-D/2026/00003",
+          "move_type": "out_refund",
+          "amount_total_signed": -25.0,
+          "amount_residual": 0.0,
+          "payment_state": "paid",
+          "state": "posted"
+        }
+      ],
+      "payments": [
+        {
+          "id": 3983,
+          "name": "PPBAY1/2026/00419",
+          "amount": 75.0,
+          "state": "paid",
+          "payment_type": "inbound",
+          "partner_type": "customer",
+          "move_id": 74197,
+          "move_name": "PPBAY1/2026/00419",
+          "same_side_credit_note_embedded": true,
+          "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+          "method": "Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)",
+          "method_has_account": true,
+          "move_lines": [
+            {
+              "account_type": "asset_cash",
+              "account": "111201 BAY CA สามแยก #046-0-14721-8",
+              "debit": 75.0,
+              "credit": 0.0,
+              "amount_currency": 75.0,
+              "reconciled": false
+            },
+            {
+              "account_type": "asset_receivable",
+              "account": "113000 ลูกหนี้การค้า",
+              "debit": 0.0,
+              "credit": 100.0,
+              "amount_currency": -100.0,
+              "reconciled": true
+            },
+            {
+              "account_type": "asset_receivable",
+              "account": "113000 ลูกหนี้การค้า",
+              "debit": 25.0,
+              "credit": 0.0,
+              "amount_currency": 25.0,
+              "reconciled": true
+            }
+          ]
+        }
+      ]
+    },
+    "vendor_cn": {
+      "moves": [
+        {
+          "id": 74194,
+          "name": "APD/2026/06/0013",
+          "move_type": "in_invoice",
+          "amount_total_signed": -100.0,
+          "amount_residual": 0.0,
+          "payment_state": "paid",
+          "state": "posted"
+        },
+        {
+          "id": 74195,
+          "name": "RAPD/2026/06/0009",
+          "move_type": "in_refund",
+          "amount_total_signed": 25.0,
+          "amount_residual": 0.0,
+          "payment_state": "paid",
+          "state": "posted"
+        }
+      ],
+      "payments": [
+        {
+          "id": 3984,
+          "name": "PPBAY1/2026/00420",
+          "amount": 75.0,
+          "state": "paid",
+          "payment_type": "outbound",
+          "partner_type": "supplier",
+          "move_id": 74198,
+          "move_name": "PPBAY1/2026/00420",
+          "same_side_credit_note_embedded": true,
+          "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+          "method": "Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)",
+          "method_has_account": true,
+          "move_lines": [
+            {
+              "account_type": "asset_cash",
+              "account": "111201 BAY CA สามแยก #046-0-14721-8",
+              "debit": 0.0,
+              "credit": 75.0,
+              "amount_currency": -75.0,
+              "reconciled": false
+            },
+            {
+              "account_type": "liability_payable",
+              "account": "210100 Account Payable",
+              "debit": 100.0,
+              "credit": 0.0,
+              "amount_currency": 100.0,
+              "reconciled": true
+            },
+            {
+              "account_type": "liability_payable",
+              "account": "210100 Account Payable",
+              "debit": 0.0,
+              "credit": 25.0,
+              "amount_currency": -25.0,
+              "reconciled": true
+            }
+          ]
+        }
+      ]
+    },
+    "normal_invoice": {
+      "moves": [
+        {
+          "id": 74196,
+          "name": "INV-D/2026/00019",
+          "move_type": "out_invoice",
+          "amount_total_signed": 80.0,
+          "amount_residual": 0.0,
+          "payment_state": "paid",
+          "state": "posted"
+        }
+      ],
+      "payments": [
+        {
+          "id": 3985,
+          "name": "PPBAY1/2026/00421",
+          "amount": 80.0,
+          "state": "paid",
+          "payment_type": "inbound",
+          "partner_type": "customer",
+          "move_id": 74199,
+          "move_name": "PPBAY1/2026/00421",
+          "same_side_credit_note_embedded": false,
+          "journal": "เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8",
+          "method": "Manual Payment (เงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8)",
+          "method_has_account": true,
+          "move_lines": [
+            {
+              "account_type": "asset_cash",
+              "account": "111201 BAY CA สามแยก #046-0-14721-8",
+              "debit": 80.0,
+              "credit": 0.0,
+              "amount_currency": 80.0,
+              "reconciled": false
+            },
+            {
+              "account_type": "asset_receivable",
+              "account": "113000 ลูกหนี้การค้า",
+              "debit": 0.0,
+              "credit": 80.0,
+              "amount_currency": -80.0,
+              "reconciled": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

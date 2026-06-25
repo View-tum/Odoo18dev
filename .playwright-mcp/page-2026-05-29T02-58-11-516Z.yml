@@ -1,0 +1,340 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e150] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e151]
+        - generic [ref=e152]: Purchase
+      - menu [ref=e153]:
+        - button "Orders" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]: Orders
+        - button "Products" [ref=e156] [cursor=pointer]:
+          - generic [ref=e157]: Products
+        - button "Reporting" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]: Reporting
+        - button "Configuration" [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]: Configuration
+      - menu [ref=e6]:
+        - button "Attendance" [ref=e7] [cursor=pointer]:
+          - img "Attendance" [ref=e8]: 
+        - button "Messages 2" [ref=e10] [cursor=pointer]:
+          - img "Messages" [ref=e11]: 
+          - generic [ref=e12]: "2"
+        - button "Activities 59" [ref=e13] [cursor=pointer]:
+          - img "Activities" [ref=e14]: 
+          - generic [ref=e15]: "59"
+        - button "Toggle Studio" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e20]:
+          - text: 
+          - generic [ref=e21]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e23] [cursor=pointer]:
+          - img "User" [ref=e24]
+          - text: 
+  - generic [ref=e3523]:
+    - generic [ref=e3525]:
+      - generic [ref=e3526]:
+        - button "New" [ref=e3529] [cursor=pointer]
+        - generic [ref=e3530]:
+          - list [ref=e3531]:
+            - listitem [ref=e3532]:
+              - link "Billing Notes" [ref=e3533] [cursor=pointer]:
+                - /url: /odoo/action-1651
+          - generic [ref=e3534]:
+            - generic [ref=e3536]: BN/2026/05/0044
+            - button "" [ref=e3540] [cursor=pointer]:
+              - generic [ref=e3541]: 
+      - generic [ref=e3544]:
+        - button " 1 Purchase Orders" [ref=e3545] [cursor=pointer]:
+          - generic [ref=e3546]: 
+          - generic [ref=e3547]:
+            - generic [ref=e3548]: "1"
+            - generic [ref=e3549]: Purchase Orders
+        - button " 1 Vendor Bills" [ref=e3550] [cursor=pointer]:
+          - generic [ref=e3551]: 
+          - generic [ref=e3552]:
+            - generic [ref=e3553]: "1"
+            - generic [ref=e3554]: Vendor Bills
+      - generic [ref=e3555]:
+        - button "Search Knowledge Articles" [ref=e3556] [cursor=pointer]:
+          - img [ref=e3557]
+        - search [ref=e3561]:
+          - navigation "Pager" [ref=e3562]:
+            - generic [ref=e3563]:
+              - generic [ref=e3564]: "5"
+              - text: / 34
+            - generic [ref=e3565]:
+              - button "Previous" [ref=e3566] [cursor=pointer]:
+                - generic [ref=e3567]: 
+              - button "Next" [ref=e3568] [cursor=pointer]:
+                - generic [ref=e3569]: 
+    - generic [ref=e3572]:
+      - generic [ref=e3573]:
+        - button "Register Payment" [ref=e3575] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e3577]:
+          - radio "Fully Billed" [checked] [disabled]
+          - radio "Partially Billed" [disabled]
+          - radio "Confirmed" [disabled]
+          - radio "Draft" [disabled]
+      - generic [ref=e3578]:
+        - generic [ref=e3579]:
+          - text: Billing Note
+          - heading "BN/2026/05/0044" [level=1] [ref=e3580]:
+            - generic [ref=e3581]: BN/2026/05/0044
+        - generic [ref=e3582]:
+          - generic [ref=e3583]:
+            - generic [ref=e3584]:
+              - generic [ref=e3586]: Vendor
+              - link "LF LOGISTICS (THAILAND) LTD." [ref=e3589] [cursor=pointer]:
+                - /url: /odoo/res.partner/70304
+                - generic [ref=e3590]: LF LOGISTICS (THAILAND) LTD.
+            - generic [ref=e3591]:
+              - generic [ref=e3593]: Purchase Orders
+              - generic "P01070" [ref=e3597]:
+                - generic [ref=e3598]: P01070
+            - generic [ref=e3601]:
+              - text: Vendor Reference
+              - superscript [ref=e3602]: "?"
+            - generic [ref=e3604]:
+              - generic [ref=e3606]: Billing Source
+              - generic [ref=e3609]: Mixed
+          - generic [ref=e3610]:
+            - generic [ref=e3611]:
+              - generic [ref=e3613]: Billing Date
+              - generic [ref=e3617]: 05/27/2026
+            - generic [ref=e3620]: Due Date
+            - generic [ref=e3622]:
+              - generic [ref=e3624]: Responsible
+              - generic [ref=e3627]:
+                - img [ref=e3629]
+                - combobox "Responsible" [ref=e3633]: Administrator
+            - generic [ref=e3634]:
+              - generic [ref=e3636]: Payment Status
+              - generic [ref=e3639]: Not Paid
+        - generic [ref=e3640]:
+          - generic [ref=e3641]:
+            - generic [ref=e3642]:
+              - generic [ref=e3644]: Vendor Bills
+              - generic [ref=e3647]: 1,915,300.00 ฿
+            - generic [ref=e3648]:
+              - generic [ref=e3650]: Credit Notes
+              - generic [ref=e3653]: 0.00 ฿
+          - generic [ref=e3654]:
+            - generic [ref=e3655]:
+              - generic [ref=e3657]: "Total:"
+              - generic [ref=e3660]: 1,915,300.00 ฿
+            - generic [ref=e3661]:
+              - generic [ref=e3663]: "Amount Due:"
+              - generic [ref=e3666]: 1,915,300.00 ฿
+            - generic [ref=e3667]:
+              - generic [ref=e3669]: "Open Balance:"
+              - generic [ref=e3672]: 1,915,300.00 ฿
+        - generic [ref=e3673]:
+          - list [ref=e3675]:
+            - listitem [ref=e3676] [cursor=pointer]:
+              - tab "PO / Service Lines" [ref=e3677]
+            - listitem [ref=e3678] [cursor=pointer]:
+              - tab "Vendor Bills & Credit Notes" [ref=e3679]
+          - generic [ref=e3681]:
+            - table [ref=e3685]:
+              - rowgroup [ref=e3686]:
+                - row "Purchase Order  Receipt  Service Acceptance  Product  Description  Quantity  Unit Price  Discount (%)  Fixed Discount  Subtotal  " [ref=e3687]:
+                  - columnheader "Purchase Order " [ref=e3688] [cursor=pointer]:
+                    - generic [ref=e3689]:
+                      - generic [ref=e3690]: Purchase Order
+                      - generic [ref=e3691]: 
+                  - columnheader "Receipt " [ref=e3693] [cursor=pointer]:
+                    - generic [ref=e3694]:
+                      - generic [ref=e3695]: Receipt
+                      - generic [ref=e3696]: 
+                  - columnheader "Service Acceptance " [ref=e3698] [cursor=pointer]:
+                    - generic [ref=e3699]:
+                      - generic [ref=e3700]: Service Acceptance
+                      - generic [ref=e3701]: 
+                  - columnheader "Product " [ref=e3703] [cursor=pointer]:
+                    - generic [ref=e3704]:
+                      - generic [ref=e3705]: Product
+                      - generic [ref=e3706]: 
+                  - columnheader "Description " [ref=e3708] [cursor=pointer]:
+                    - generic [ref=e3709]:
+                      - generic [ref=e3710]: Description
+                      - generic [ref=e3711]: 
+                  - columnheader "Quantity " [ref=e3713] [cursor=pointer]:
+                    - generic [ref=e3714]:
+                      - generic [ref=e3715]: Quantity
+                      - generic [ref=e3716]: 
+                  - columnheader "Unit Price " [ref=e3718] [cursor=pointer]:
+                    - generic [ref=e3719]:
+                      - generic [ref=e3720]: Unit Price
+                      - generic [ref=e3721]: 
+                  - columnheader "Discount (%) " [ref=e3723] [cursor=pointer]:
+                    - generic [ref=e3724]:
+                      - generic [ref=e3725]: Discount (%)
+                      - generic [ref=e3726]: 
+                  - columnheader "Fixed Discount " [ref=e3728] [cursor=pointer]:
+                    - generic [ref=e3729]:
+                      - generic [ref=e3730]: Fixed Discount
+                      - generic [ref=e3731]: 
+                  - columnheader "Subtotal " [ref=e3733] [cursor=pointer]:
+                    - generic [ref=e3734]:
+                      - generic [ref=e3735]: Subtotal
+                      - generic [ref=e3736]: 
+                  - columnheader "" [ref=e3738]:
+                    - button "" [ref=e3740] [cursor=pointer]:
+                      - generic [ref=e3741]: 
+              - rowgroup [ref=e3742]:
+                - row "P01070 Injection Machine เครื่องสูบอิอิ 1.000000 900,000.000000 0.000000000000 0.00 900,000.00 ฿" [ref=e3743]:
+                  - cell "P01070" [ref=e3744] [cursor=pointer]:
+                    - link "P01070" [ref=e3746]:
+                      - /url: /odoo/purchase.order/1132
+                  - cell [ref=e3747] [cursor=pointer]
+                  - cell [ref=e3748] [cursor=pointer]
+                  - cell "Injection Machine" [ref=e3749] [cursor=pointer]
+                  - cell "เครื่องสูบอิอิ" [ref=e3750] [cursor=pointer]
+                  - cell "1.000000" [ref=e3751] [cursor=pointer]
+                  - cell "900,000.000000" [ref=e3752] [cursor=pointer]
+                  - cell "0.000000000000" [ref=e3753] [cursor=pointer]
+                  - cell "0.00" [ref=e3754] [cursor=pointer]
+                  - cell "900,000.00 ฿" [ref=e3755] [cursor=pointer]
+                  - cell [ref=e3756]
+                - row "P01070 Injection Machine เครื่องสูบอิ 1.000000 1,000,000.000000 10.000000000000 0.00 900,000.00 ฿" [ref=e3757]:
+                  - cell "P01070" [ref=e3758] [cursor=pointer]:
+                    - link "P01070" [ref=e3760]:
+                      - /url: /odoo/purchase.order/1132
+                  - cell [ref=e3761] [cursor=pointer]
+                  - cell [ref=e3762] [cursor=pointer]
+                  - cell "Injection Machine" [ref=e3763] [cursor=pointer]
+                  - cell "เครื่องสูบอิ" [ref=e3764] [cursor=pointer]
+                  - cell "1.000000" [ref=e3765] [cursor=pointer]
+                  - cell "1,000,000.000000" [ref=e3766] [cursor=pointer]
+                  - cell "10.000000000000" [ref=e3767] [cursor=pointer]
+                  - cell "0.00" [ref=e3768] [cursor=pointer]
+                  - cell "900,000.00 ฿" [ref=e3769] [cursor=pointer]
+                  - cell [ref=e3770]
+                - row "P01070 discount asset ในปท discount asset ในปท 1.000000 -10,000.000000 0.000000000000 0.00 -10,000.00 ฿" [ref=e3771]:
+                  - cell "P01070" [ref=e3772] [cursor=pointer]:
+                    - link "P01070" [ref=e3774]:
+                      - /url: /odoo/purchase.order/1132
+                  - cell [ref=e3775] [cursor=pointer]
+                  - cell [ref=e3776] [cursor=pointer]
+                  - cell "discount asset ในปท" [ref=e3777] [cursor=pointer]
+                  - cell "discount asset ในปท" [ref=e3778] [cursor=pointer]
+                  - cell "1.000000" [ref=e3779] [cursor=pointer]
+                  - cell "-10,000.000000" [ref=e3780] [cursor=pointer]
+                  - cell "0.000000000000" [ref=e3781] [cursor=pointer]
+                  - cell "0.00" [ref=e3782] [cursor=pointer]
+                  - cell "-10,000.00 ฿" [ref=e3783] [cursor=pointer]
+                  - cell [ref=e3784]
+                - row [ref=e3785]:
+                  - cell [ref=e3786]
+              - rowgroup [ref=e3787]:
+                - row [ref=e3788]:
+                  - cell [ref=e3789]
+                  - cell [ref=e3790]
+                  - cell [ref=e3791]
+                  - cell [ref=e3792]
+                  - cell [ref=e3793]
+                  - cell [ref=e3794]
+                  - cell [ref=e3795]
+                  - cell [ref=e3796]
+                  - cell [ref=e3797]
+                  - cell [ref=e3798]
+                  - cell [ref=e3799]
+            - generic [ref=e3800]:
+              - generic [ref=e3806]:
+                - generic:
+                  - generic:        
+                - generic [ref=e3809]: Terms and Conditions / Internal Notes...
+              - generic [ref=e3810]:
+                - generic [ref=e3811]:
+                  - generic [ref=e3813]: "Untaxed Amount:"
+                  - generic [ref=e3816]: 1,790,000.00 ฿
+                - generic [ref=e3817]:
+                  - generic [ref=e3819]: "Taxes:"
+                  - generic [ref=e3822]: 125,300.00 ฿
+                - generic [ref=e3823]:
+                  - generic [ref=e3826]: "Total:"
+                  - generic [ref=e3829]: 1,915,300.00 ฿
+      - generic [ref=e3831]:
+        - generic [ref=e3833]:
+          - button "Send message" [ref=e3834] [cursor=pointer]
+          - button "Log note" [ref=e3835] [cursor=pointer]
+          - button "Activities" [ref=e3836] [cursor=pointer]
+          - button "Search Messages" [ref=e3838] [cursor=pointer]:
+            - img [ref=e3839]: 
+          - button "Attach files" [ref=e3841] [cursor=pointer]:
+            - generic [ref=e3842]: 
+          - button "1" [ref=e3844] [cursor=pointer]:
+            - img [ref=e3845]: 
+            - superscript: "1"
+          - button "Following" [ref=e3846] [cursor=pointer]:
+            - generic [ref=e3848]: Following
+        - generic [ref=e3850]:
+          - generic [ref=e3851]:
+            - generic [ref=e3853]:
+              - separator [ref=e3854]
+              - generic [ref=e3855]: Today
+              - separator [ref=e3856]
+            - group "System notification" [ref=e3857]:
+              - generic [ref=e3858]:
+                - generic "Open card" [ref=e3860] [cursor=pointer]:
+                  - img [ref=e3861]
+                - generic [ref=e3862]:
+                  - generic [ref=e3863]:
+                    - generic "Open card" [ref=e3864] [cursor=pointer]:
+                      - strong [ref=e3865]: OdooBot
+                    - generic "5/29/2026, 9:55:17 AM" [ref=e3866]: Today at 9:55 AM
+                  - list [ref=e3871]:
+                    - group [ref=e3872]:
+                      - text: None
+                      - generic [ref=e3873]: 
+                      - text: Mixed
+                      - generic [ref=e3874]: (Billing Source)
+            - generic [ref=e3875]:
+              - separator [ref=e3876]
+              - generic [ref=e3877]: May 27, 2026
+              - separator [ref=e3878]
+            - group "System notification" [ref=e3879]:
+              - generic [ref=e3880]:
+                - generic "Open card" [ref=e3882] [cursor=pointer]:
+                  - img [ref=e3883]
+                - generic [ref=e3884]:
+                  - generic [ref=e3885]:
+                    - generic "Open card" [ref=e3886] [cursor=pointer]:
+                      - strong [ref=e3887]: Administrator
+                    - generic "5/27/2026, 1:31:35 PM" [ref=e3888]: May 27, 1:31 PM
+                  - list [ref=e3893]:
+                    - group [ref=e3894]:
+                      - text: Confirmed
+                      - generic [ref=e3895]: 
+                      - text: Fully Billed
+                      - generic [ref=e3896]: (Status)
+            - group "System notification" [ref=e3897]:
+              - generic [ref=e3898]:
+                - generic "Open card" [ref=e3900] [cursor=pointer]:
+                  - img [ref=e3901]
+                - generic [ref=e3902]:
+                  - generic [ref=e3903]:
+                    - generic "Open card" [ref=e3904] [cursor=pointer]:
+                      - strong [ref=e3905]: Administrator
+                    - generic "5/27/2026, 1:31:32 PM" [ref=e3906]: May 27, 1:31 PM
+                  - list [ref=e3911]:
+                    - group [ref=e3912]:
+                      - text: Draft
+                      - generic [ref=e3913]: 
+                      - text: Confirmed
+                      - generic [ref=e3914]: (Status)
+            - group "System notification" [ref=e3915]:
+              - generic [ref=e3916]:
+                - generic "Open card" [ref=e3918] [cursor=pointer]:
+                  - img [ref=e3919]
+                - generic [ref=e3920]:
+                  - generic [ref=e3921]:
+                    - generic "Open card" [ref=e3922] [cursor=pointer]:
+                      - strong [ref=e3923]: Administrator
+                    - generic "5/27/2026, 1:30:28 PM" [ref=e3924]: May 27, 1:30 PM
+                  - paragraph [ref=e3931]: Vendor Billing Note created
+          - button "" [ref=e3932] [cursor=pointer]:
+            - generic [ref=e3933]: 

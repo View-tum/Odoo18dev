@@ -207,7 +207,7 @@ class MrpParallelConsoleController(http.Controller):
         _require_group("mrp.group_mrp_user")
         production_model = request.env[MRP_PRODUCTION_MODEL]
         # Let the search view control state/domain; only enforce active picking type.
-        base_domain = [("picking_type_id.active", "=", True)]
+        base_domain = [("picking_type_id.active", "=", True), ("hide_from_shopfloor", "=", False)]
         if domain:
             try:
                 full_domain = expression.AND([base_domain, domain])
@@ -216,7 +216,7 @@ class MrpParallelConsoleController(http.Controller):
         else:
             full_domain = base_domain
         mos = production_model.search(
-            full_domain, order="priority desc, id desc", limit=80
+            full_domain, order="date_start asc, bom_id asc, is_mto desc, priority desc, id desc", limit=80
         )
         current_user = request.env.user
 
@@ -277,6 +277,9 @@ class MrpParallelConsoleController(http.Controller):
                     "tracking": mo.product_id.tracking,
                     "has_lot": bool(finished_lot),
                     "lot_name": finished_lot.name or "",
+                    # Custom Shopfloor info
+                    "date_start": fields.Datetime.to_string(mo.date_start) if mo.date_start else "",
+                    "is_mto": getattr(mo, "is_mto", False),
                 }
             )
         return {"mos": result}
@@ -1215,7 +1218,6 @@ class MrpParallelConsoleController(http.Controller):
 
     @http.route("/mrp_parallel_console/prepare_material_lots", type="json", auth="user")
     def prepare_material_lots(self, production_id=None):
-        """Prepare component quantities/lots before opening Material Lot Lists."""
         _require_group("mrp.group_mrp_user")
         if not production_id:
             return {"error": _("No manufacturing order found.")}
@@ -1224,43 +1226,10 @@ class MrpParallelConsoleController(http.Controller):
         if not production.exists():
             return {"error": _("Manufacturing order not found.")}
 
-        rounding = production.product_uom_id.rounding or 0.000001
-        try:
-            target_qty = production._console_compute_total_qty(
-                production.workorder_ids,
-                mode="progress",
-            )
-        except UserError:
-            target_qty = 0.0
-
-        if float_compare(target_qty, 0.0, precision_rounding=rounding) <= 0:
-            target_qty = production.qty_producing or production.product_qty
-        target_qty = float_round(max(target_qty or 0.0, 0.0), precision_rounding=rounding)
-
-        if float_compare(target_qty, production.product_qty, precision_rounding=rounding) > 0:
-            production._console_sync_demand_and_replenish(target_qty)
-        if float_compare(
-            production.qty_producing or 0.0,
-            target_qty,
-            precision_rounding=rounding,
-        ) != 0:
-            production.qty_producing = target_qty
-
-        warning = False
-        production.with_context(mpc_allow_partial_lot_prepare=True)._console_fill_auto_component_moves(
-            target_qty
-        )
-        missing_lots = self._get_missing_lot_names(
-            production,
-            finished_qty_map={production.id: target_qty},
-        )
-        if missing_lots:
-            warning = _("Some component lots are still short: %s. Please review before finishing.") % missing_lots
-
         return {
             "status": "ok",
-            "target_qty": target_qty,
-            "warning": warning,
+            "target_qty": production.qty_producing or 0.0,
+            "warning": False,
         }
 
     # ---------------------------------------------------------

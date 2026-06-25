@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AMS R001 Client Dashboard</title>
+<style>
+body{font-family:Arial,'Noto Sans Thai',sans-serif;margin:0;background:#f8fafc;color:#111827}
+.wrap{max-width:1180px;margin:0 auto;padding:28px}.hero{background:#5B1747;color:white;padding:22px 26px;border-radius:8px}
+.hero h1{margin:0;font-size:28px}.hero p{margin:8px 0 0;color:#FDEFF8}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.card{background:white;border:1px solid #e5e7eb;border-radius:8px;padding:14px;min-height:92px}.card strong{display:block;color:#475569;font-size:13px}
+.num{font-size:32px;font-weight:700;color:#5B1747;margin:6px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px}
+.panel h2{font-size:17px;margin:0 0 12px;color:#5B1747}ul{margin:0;padding-left:20px}li{margin:7px 0}.orange h2{color:#9A3412}
+.step{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step div{background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:12px}.footer{margin-top:14px;background:#111827;color:white;border-radius:8px;padding:14px}
+.flowmap{width:100%;border-collapse:collapse;background:white;font-size:13px}.flowmap th{background:#5B1747;color:white;text-align:left}.flowmap td,.flowmap th{border:1px solid #e5e7eb;padding:9px;vertical-align:top}.std{color:#166534;font-weight:700}.cust{color:#9A3412;font-weight:700}
+</style></head>
+<body><div class="wrap">
+<section class="hero"><h1>AMS R001 Dashboard: เราเข้ามาช่วยอะไร</h1><p>สรุปให้ลูกค้าเข้าใจเร็ว: map requirement เข้า Odoo, แยก Standard vs Custom, ประเมิน Manday และเตรียม Workflow/UAT</p></section>
+<section class="cards">
+<div class="card"><strong>Customer R001 requests</strong><div class="num">44</div><span>เลข 44 คือ request ลูกค้าจริง</span></div>
+<div class="card"><strong>Standard/Config MD</strong><div class="num">196</div><span>ใช้ Odoo standard ก่อน</span></div>
+<div class="card"><strong>Report/KPI MD</strong><div class="num">67</div><span>COA, DPPM, OEE/OPE, dashboards</span></div>
+<div class="card"><strong>Custom/Integration MD</strong><div class="num">95</div><span>API/import, guards, accounting design</span></div>
+</section>
+<section class="grid">
+<div class="panel"><h2>เราเข้ามาทำอะไร</h2><ul><li>แปลง R001 + Blueprint เป็น Odoo flow ที่อ่านง่าย</li><li>แยก 44 customer requests ออกจาก 24 blueprint/add-on mapping points</li><li>ชี้ว่าอะไรใช้ Standard/Config ได้</li><li>แยกว่าอะไรต้อง Report / Integration / Custom</li><li>ทำ Manday เพื่อให้เห็น effort ใช้ไปกับอะไร</li><li>เตรียม workflow/business flow สำหรับ workshop และ UAT</li></ul></div>
+<div class="panel"><h2>Odoo Standard ช่วยตรงไหน</h2><ul><li>Sales/CRM: RFQ, Quotation, SO, Customer PO</li><li>Purchase: RFQ/PO, Blanket, Approval</li><li>Inventory: Lot, Shelf, Barcode, Reorder</li><li>MRP/Quality: BOM, Routing, MO/WO, QC</li><li>Accounting: Invoice, Bank, Thai localization, QR base</li></ul></div>
+<div class="panel orange"><h2>จุดที่ต้องเพิ่ม</h2><ul><li>Customer Forecast/API และ legacy data migration</li><li>COA, DPPM, OEE/OPE, BI และ KPI dashboards</li><li>Budget hard lock, supplier score, approval suggestion</li><li>Consolidation, netting payment, multi-ledger, WIP/variance</li><li>Legacy document codes: SP, FA, IMR, PCC, IS, WI, PI, IV, BI, PD, RR, PS, RE</li></ul></div>
+<div class="panel"><h2>Manday ใช้ไปกับอะไร</h2><ul><li>Standard/Config: 196 MD</li><li>Report/KPI: 67 MD</li><li>Custom/Integration: 95 MD</li><li>Total Recommended: 358 MD</li><li>Basis: 44 customer requests + 24 supporting mapping points</li><li>Range: 226.5-493.5 MD, ต้อง scope lock ก่อน quotation</li></ul></div>
+</section>
+<section class="panel" style="margin-top:14px"><h2>Mapping ไปที่ Flow: ตรงไหน Standard / ตรงไหนต้องเพิ่ม</h2>
+<table class="flowmap"><thead><tr><th>Flow</th><th><span class="std">Standard Odoo ใช้ได้</span></th><th><span class="cust">ต้องทำเพิ่ม / Custom / Report</span></th></tr></thead><tbody>
+<tr><td><strong>Sales + Forecast</strong></td><td>Quotation, Sales Order, Customer PO, Invoice</td><td>Forecast/API import, legacy BI/SP/FA forms</td></tr><tr><td><strong>Procurement</strong></td><td>PR/RFQ/PO, vendor, blanket agreement, approval</td><td>Auto grouping, supplier score, budget hard lock</td></tr><tr><td><strong>RM Warehouse</strong></td><td>Receive, lot, shelf/location, barcode, owner stock</td><td>Customer supplied material report/valuation</td></tr><tr><td><strong>Engineering</strong></td><td>Product, BOM, routing, work center, PLM base</td><td>PCC form, approval/revision, PPAP template</td></tr><tr><td><strong>Planning</strong></td><td>MPS/MRP, reorder, buy/make, material issue</td><td>IS/WI legacy form, forecast accuracy view</td></tr><tr><td><strong>Production</strong></td><td>MO/WO, work order, quality check, scrap/rework base</td><td>OEE/OPE, WIP/variance, exact rework route</td></tr><tr><td><strong>Quality</strong></td><td>Quality point/check/alert</td><td>COA customer format, DPPM dashboard</td></tr><tr><td><strong>FG + Delivery</strong></td><td>FG receipt, delivery order, stock move</td><td>Delivery ticket, driver KPI, non-fulfillment report</td></tr><tr><td><strong>Accounting</strong></td><td>Invoice, payment, bank reconcile, Thai localization, QR base</td><td>Netting, multi-ledger, consolidation, legacy reports</td></tr>
+</tbody></table>
+<p style="margin:10px 0 0;color:#475569">ใช้ตารางนี้อธิบายลูกค้าแบบง่าย: เราเริ่มจาก standard ก่อน แล้วทำเพิ่มเฉพาะจุดที่รูปแบบงานของ AMS ต้องการมากกว่า standard.</p></section>
+<section class="panel" style="margin-top:14px"><h2>ลำดับ Present ที่แนะนำ</h2><div class="step"><div><strong>1. Dashboard</strong><br>เข้าใจเร็วว่าเราช่วยอะไร</div><div><strong>2. Manday</strong><br>ดู effort ใช้กับอะไร</div><div><strong>3. Workflow</strong><br>ไล่ business flow ราย module</div><div><strong>4. Decision</strong><br>lock scope และคำถามลูกค้า</div></div></section>
+<section class="footer">Key message: Standard first, custom only when needed. งานที่กระทบ Stock/Accounting ต้อง design review ก่อน custom.</section>
+</div></body></html>

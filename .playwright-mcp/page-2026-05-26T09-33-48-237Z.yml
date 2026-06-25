@@ -1,0 +1,157 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+        - generic [ref=e7320]: H
+      - menu [ref=e9]:
+        - button "Orders 1" [ref=e7321] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+          - generic [ref=e7323]: "1"
+        - button "Products 2" [ref=e7324] [cursor=pointer]:
+          - generic [ref=e13]: Products
+          - generic [ref=e7326]: "2"
+        - button "Reporting 3" [ref=e7327] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+          - generic [ref=e7329]: "3"
+        - button "Configuration 4" [ref=e7330] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+          - generic [ref=e7332]: "4"
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 41" [ref=e7592] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "41"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e7788]:
+    - generic [ref=e7790]:
+      - generic [ref=e7791]:
+        - button "New" [ref=e7794] [cursor=pointer]
+        - generic [ref=e7795]:
+          - list [ref=e7796]:
+            - listitem [ref=e7797]:
+              - link "Purchase Requests" [ref=e7798] [cursor=pointer]:
+                - /url: /odoo/action-1020
+            - listitem [ref=e7799]:
+              - text: /
+              - link "PR00035" [ref=e7800] [cursor=pointer]:
+                - /url: /odoo/action-1020/36
+          - generic [ref=e7801]:
+            - generic [ref=e7803]: RFQ
+            - button "" [ref=e7807] [cursor=pointer]:
+              - generic [ref=e7808]: 
+      - search [ref=e7810]:
+        - search [ref=e7811]:
+          - button "Search..." [ref=e7812] [cursor=pointer]:
+            - img [ref=e7813]: 
+          - searchbox "Search..." [active] [ref=e7815]
+        - button "" [ref=e7816] [cursor=pointer]
+      - search [ref=e7818]:
+        - navigation "Pager" [ref=e7819]:
+          - generic [ref=e7820]:
+            - generic [ref=e7821]: 1-1
+            - text: / 1
+          - generic [ref=e7822]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - table [ref=e7825]:
+      - rowgroup [ref=e7826]:
+        - row "Reference  Confirmation Date  Vendor  Buyer  Source Document  Total  Status  Expected Arrival  " [ref=e7827]:
+          - columnheader [ref=e7828] [cursor=pointer]:
+            - checkbox [ref=e7830]
+          - columnheader [ref=e7831]
+          - columnheader [ref=e7832]
+          - columnheader "Reference " [ref=e7833] [cursor=pointer]:
+            - generic [ref=e7834]:
+              - generic [ref=e7835]: Reference
+              - generic [ref=e7836]: 
+          - columnheader "Confirmation Date " [ref=e7838] [cursor=pointer]:
+            - generic [ref=e7839]:
+              - generic [ref=e7840]: Confirmation Date
+              - generic [ref=e7841]: 
+          - columnheader "Vendor " [ref=e7843] [cursor=pointer]:
+            - generic [ref=e7844]:
+              - generic [ref=e7845]: Vendor
+              - generic [ref=e7846]: 
+          - columnheader "Buyer " [ref=e7848] [cursor=pointer]:
+            - generic [ref=e7849]:
+              - generic [ref=e7850]: Buyer
+              - generic [ref=e7851]: 
+          - columnheader "Source Document " [ref=e7853] [cursor=pointer]:
+            - generic [ref=e7854]:
+              - generic [ref=e7855]: Source Document
+              - generic [ref=e7856]: 
+          - columnheader "Total " [ref=e7858] [cursor=pointer]:
+            - generic [ref=e7859]:
+              - generic [ref=e7860]: Total
+              - generic [ref=e7861]: 
+          - columnheader "Status " [ref=e7863] [cursor=pointer]:
+            - generic [ref=e7864]:
+              - generic [ref=e7865]: Status
+              - generic [ref=e7866]: 
+          - columnheader "Expected Arrival " [ref=e7868] [cursor=pointer]:
+            - generic [ref=e7869]:
+              - generic [ref=e7870]: Expected Arrival
+              - generic [ref=e7871]: 
+          - columnheader [ref=e7873]
+          - columnheader "" [ref=e7874]:
+            - button "" [ref=e7876] [cursor=pointer]:
+              - generic [ref=e7877]: 
+      - rowgroup [ref=e7878]:
+        - row "Priority P01066 JW TECH CO.,LTD. Administrator PR00035 923,000.000 ฿ RFQ 05/26/2026 16:33:46" [ref=e7879]:
+          - cell [ref=e7880]:
+            - checkbox [ref=e7882] [cursor=pointer]
+          - cell "Priority" [ref=e7883] [cursor=pointer]:
+            - radiogroup "Priority" [ref=e7885]:
+              - radio "Urgent" [ref=e7886]: 
+          - cell [ref=e7887] [cursor=pointer]
+          - cell "P01066" [ref=e7888] [cursor=pointer]
+          - cell [ref=e7889] [cursor=pointer]
+          - cell "JW TECH CO.,LTD." [ref=e7890] [cursor=pointer]
+          - cell "Administrator" [ref=e7891] [cursor=pointer]
+          - cell "PR00035" [ref=e7892] [cursor=pointer]
+          - cell "923,000.000 ฿" [ref=e7893] [cursor=pointer]:
+            - generic [ref=e7894]: 923,000.000 ฿
+          - cell "RFQ" [ref=e7895] [cursor=pointer]
+          - cell "05/26/2026 16:33:46" [ref=e7896] [cursor=pointer]
+          - cell [ref=e7897] [cursor=pointer]
+          - cell [ref=e7898]
+        - row [ref=e7899]:
+          - cell [ref=e7900]
+        - row [ref=e7901]:
+          - cell [ref=e7902]
+        - row [ref=e7903]:
+          - cell [ref=e7904]
+      - rowgroup [ref=e7905]:
+        - row "923,000.000 ฿" [ref=e7906]:
+          - cell [ref=e7907]
+          - cell [ref=e7908]
+          - cell [ref=e7909]
+          - cell [ref=e7910]
+          - cell [ref=e7911]
+          - cell [ref=e7912]
+          - cell [ref=e7913]
+          - cell [ref=e7914]
+          - cell "923,000.000 ฿" [ref=e7915]
+          - cell [ref=e7916]
+          - cell [ref=e7917]
+          - cell [ref=e7918]
+          - cell [ref=e7919]

@@ -13,6 +13,10 @@ param(
         "OpenOutput"
     )]
     [string]$Action = "Menu",
+    [ValidateSet("IMOU", "HIKFIRE", "HIKVISION", "HIP", "HUAWEI")]
+    [string]$Dataset = "HIKVISION",
+    [string]$Excel = "",
+    [string]$CategoryExcel = "",
     [int]$Row = 2,
     [int]$StartRow = 2,
     [int]$EndRow = 0,
@@ -30,6 +34,51 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root = Resolve-Path "$ScriptDir\..\.."
 Set-Location $Root
 
+function Get-DatasetConfig {
+    switch ($Dataset) {
+        "IMOU" {
+            return @{
+                PrepareScript = "automation\lnwshop\prepare_assets.py"
+                ProductExcel = "output\spreadsheet\IMOU_LnwShop_AI_ready_watermarked.xlsx"
+                CategoryExcel = "output\spreadsheet\IMOU_LnwShop_categories.xlsx"
+            }
+        }
+        "HIKFIRE" {
+            return @{
+                PrepareScript = "automation\lnwshop\prepare_hikfire_assets.py"
+                ProductExcel = "output\spreadsheet\HIKFIRE_LnwShop_AI_ready_watermarked.xlsx"
+                CategoryExcel = "output\spreadsheet\HIKFIRE_LnwShop_categories.xlsx"
+            }
+        }
+        "HIKVISION" {
+            return @{
+                PrepareScript = "automation\lnwshop\prepare_hikvision_assets.py"
+                ProductExcel = "output\spreadsheet\HIKVISION_LnwShop_AI_ready_watermarked.xlsx"
+                CategoryExcel = "output\spreadsheet\HIKVISION_LnwShop_categories.xlsx"
+            }
+        }
+        "HIP" {
+            return @{
+                PrepareScript = "automation\lnwshop\prepare_lpr_assets.py"
+                ProductExcel = "output\spreadsheet\HIP_LnwShop_AI_ready_watermarked.xlsx"
+                CategoryExcel = "output\spreadsheet\HIP_LnwShop_categories.xlsx"
+            }
+        }
+        "HUAWEI" {
+            return @{
+                PrepareScript = "automation\lnwshop\prepare_huawei_assets.py"
+                ProductExcel = "output\spreadsheet\HUAWEI_LnwShop_AI_ready_watermarked.xlsx"
+                CategoryExcel = "output\spreadsheet\HUAWEI_LnwShop_categories.xlsx"
+            }
+        }
+    }
+}
+
+$Config = Get-DatasetConfig
+$ProductExcel = if ([string]::IsNullOrWhiteSpace($Excel)) { $Config.ProductExcel } else { $Excel }
+$SelectedCategoryExcel = if ([string]::IsNullOrWhiteSpace($CategoryExcel)) { $Config.CategoryExcel } else { $CategoryExcel }
+$PrepareScript = $Config.PrepareScript
+
 function Invoke-Python {
     param([string[]]$ArgsList)
     & python @ArgsList
@@ -37,12 +86,12 @@ function Invoke-Python {
 
 function Invoke-Lnw {
     param([string[]]$ArgsList)
-    $allArgs = @("automation\lnwshop\lnwshop_fill.py") + $ArgsList
+    $allArgs = @("automation\lnwshop\lnwshop_fill.py") + $ArgsList + @("--excel", $ProductExcel, "--category-excel", $SelectedCategoryExcel)
     Invoke-Python $allArgs
 }
 
 function Invoke-Prepare {
-    Invoke-Python @("automation\lnwshop\prepare_assets.py")
+    Invoke-Python @($PrepareScript)
 }
 
 function Open-OutputFolder {
@@ -137,6 +186,9 @@ function Show-Menu {
     while ($true) {
         Write-Host ""
         Write-Host "LnwShop Automation" -ForegroundColor Cyan
+        Write-Host "Dataset: $Dataset"
+        Write-Host "Product Excel: $ProductExcel"
+        Write-Host "Category Excel: $SelectedCategoryExcel"
         Write-Host "1. Prepare Excel, watermarked images, categories"
         Write-Host "2. Dry-run one category row"
         Write-Host "3. Inspect add-category form"
@@ -171,7 +223,7 @@ function Show-Menu {
             }
             "5" {
                 $script:StartRow = Read-IntOrDefault "Start category row" 2
-                $script:EndRow = Read-IntOrDefault "End category row, use 0 for last row" 11
+                $script:EndRow = Read-IntOrDefault "End category row, use 0 for last row" 0
                 $script:AutoSave = Read-YesNo "Click Save automatically?"
                 $script:NoPause = $false
                 if ($script:AutoSave) { $script:NoPause = Read-YesNo "Run continuously without pause after each save?" }
@@ -199,7 +251,7 @@ function Show-Menu {
             }
             "9" {
                 $script:StartRow = Read-IntOrDefault "Start product row" 2
-                $script:EndRow = Read-IntOrDefault "End product row, use 0 for last row" 46
+                $script:EndRow = Read-IntOrDefault "End product row, use 0 for last row" 0
                 $script:AutoSave = Read-YesNo "Click Save automatically?"
                 $script:NoPause = $false
                 if ($script:AutoSave) { $script:NoPause = Read-YesNo "Run continuously without pause after each save?" }

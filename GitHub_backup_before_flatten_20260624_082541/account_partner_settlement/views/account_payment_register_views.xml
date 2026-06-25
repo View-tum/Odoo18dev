@@ -1,0 +1,75 @@
+<odoo>
+    <record id="view_account_payment_register_form_inherit_partner_settlement" model="ir.ui.view">
+        <field name="name">account.payment.register.form.inherit.partner.settlement</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account_payment_multi_allocation.view_account_payment_register_form_inherit_allocation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="attributes">
+                <attribute name="readonly">not can_edit_payment_amount or (can_group_payments and not group_payment and not show_cross_settlement)</attribute>
+            </xpath>
+            <xpath expr="//field[@name='installments_switch_html']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='installments_switch_html'][@widget='account_payment_register_html']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='payment_difference_handling']/.." position="attributes">
+                <attribute name="invisible">payment_difference == 0</attribute>
+            </xpath>
+            <xpath expr="//group[field[@name='allocation_line_ids']]" position="before">
+                <group invisible="1">
+                    <field name="show_cross_settlement"/>
+                    <field name="show_same_side_credit_notes"/>
+                    <field name="show_partner_settlement_panel"/>
+                    <field name="same_side_credit_note_selection_payload" force_save="1"/>
+                    <field name="cross_settlement_partner_eligible"/>
+                    <field name="cross_settlement_amount_editable"/>
+                    <field name="can_edit_payment_amount"/>
+                </group>
+                <notebook name="account_partner_settlement_notebook" colspan="2" invisible="not show_partner_settlement_panel">
+                    <page name="account_partner_settlement" string="Partner Settlement">
+                        <group>
+                            <group string="Cross Settlement" invisible="not partner_id or cross_settlement_partner_eligible" colspan="2">
+                                <div class="text-warning">
+                                    Cross settlement is available only when the contact is marked as both Is a Customer and Is a Supplier.
+                                </div>
+                            </group>
+                            <group string="Cross Settlement (AP/AR)" invisible="not show_partner_settlement_panel" colspan="2">
+                                <field name="same_side_credit_note_amount" readonly="1" invisible="not show_same_side_credit_notes"/>
+                                <field name="same_side_credit_note_line_ids" nolabel="1" force_save="1" invisible="not show_same_side_credit_notes">
+                                    <list editable="bottom" create="0" delete="0">
+                                        <field name="is_selected" force_save="1"/>
+                                        <field name="document_label" string="Type"/>
+                                        <field name="move_id" string="Credit Note"/>
+                                        <field name="move_date" string="Date"/>
+                                        <field name="account_id" string="Account" readonly="1"/>
+                                        <field name="residual_amount" string="Open Amount" readonly="1"/>
+                                        <field name="amount_to_apply" string="Apply Amount" readonly="not is_selected" force_save="1"/>
+                                        <field name="currency_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                                <field name="cross_settlement_amount" readonly="1" invisible="not show_cross_settlement"/>
+                                <div class="mb-2" invisible="not show_cross_settlement">
+                                    <button name="action_select_all" type="object" string="Select All" class="btn-link p-0 me-2" icon="fa-check-square-o"/>
+                                    <button name="action_unselect_all" type="object" string="Unselect All" class="btn-link p-0" icon="fa-square-o"/>
+                                </div>
+                                <field name="cross_settlement_line_ids" nolabel="1" invisible="not show_cross_settlement">
+                                    <list editable="bottom" create="0" delete="0">
+                                        <field name="is_selected"/>
+                                        <field name="document_label" string="Type"/>
+                                        <field name="move_id" string="Document"/>
+                                        <field name="move_date" string="Date"/>
+                                        <field name="account_id" string="Account" readonly="1"/>
+                                        <field name="residual_signed_amount" string="Open Amount" readonly="1"/>
+                                        <field name="amount_to_settle" string="Settle Amount" readonly="not is_selected"/>
+                                        <field name="currency_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -38,7 +38,7 @@
             </xpath>
             <xpath expr="//filter[@name='filter_ready']" position="after">
                 <separator/>
-                <filter string="MTO Orders" name="filter_mto" domain="[('is_mto', '=', True)]"/>
+                <filter string="ด่วน (MTO)" name="filter_mto" domain="[('is_mto', '=', True)]"/>
                 <filter string="MTS Orders" name="filter_mts" domain="[('is_mto', '=', False)]"/>
             </xpath>
             <xpath expr="//group" position="inside">

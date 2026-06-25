@@ -1,0 +1,168 @@
+{
+  "runId": "LOCAL-WAY2-2026-06-17T06-39-57-445Z",
+  "startedAt": "2026-06-17T06:39:57.446Z",
+  "backend": {
+    "uid": 2,
+    "created": {
+      "product": "[SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "bom": "BOM-006-64: [SM-JOI-PK-02001] ตัวต่อสี W02 ชมพู",
+      "firstMo": {
+        "id": 2690,
+        "name": "GMP/MOPL/00821"
+      },
+      "secondMo": {
+        "id": 2691,
+        "name": "GMP/MOPL/00822"
+      },
+      "targetPicking": {
+        "id": 16975,
+        "name": "GMP/TRPL/02168"
+      },
+      "cancelledSourcePicking": {
+        "id": 16976,
+        "name": "GMP/TRPL/02169"
+      }
+    }
+  },
+  "frontend": {},
+  "chatter": [
+    {
+      "at": "2026-06-17T06:40:00.748Z",
+      "target": "GMP/MOPL/00821",
+      "body": "[LOCAL-WAY2-2026-06-17T06-39-57-445Z] Created first MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:40:00.782Z",
+      "target": "GMP/MOPL/00822",
+      "body": "[LOCAL-WAY2-2026-06-17T06-39-57-445Z] Created second MO for local fullstack merge/cancel test."
+    },
+    {
+      "at": "2026-06-17T06:40:00.819Z",
+      "target": "First Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-39-57-445Z] Created first internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:40:00.852Z",
+      "target": "Second Transfer",
+      "body": "[LOCAL-WAY2-2026-06-17T06-39-57-445Z] Created second internal transfer before merge."
+    },
+    {
+      "at": "2026-06-17T06:40:01.288Z",
+      "target": "GMP/TRPL/02168",
+      "body": "[LOCAL-WAY2-2026-06-17T06-39-57-445Z] Merged two transfers into one line. Qty=0.001878. Source GMP/TRPL/02169 cancelled."
+    }
+  ],
+  "screenshots": [],
+  "assertions": [
+    {
+      "name": "existing product is available",
+      "pass": true,
+      "details": {
+        "productId": 8298
+      }
+    },
+    {
+      "name": "existing BOM is available",
+      "pass": true,
+      "details": {
+        "bomId": 2952
+      }
+    },
+    {
+      "name": "Manufacturing Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "Transfer Plastic operation exists",
+      "pass": true,
+      "details": {}
+    },
+    {
+      "name": "both MOs confirmed",
+      "pass": true,
+      "details": {
+        "firstMo": {
+          "id": 2690,
+          "name": "GMP/MOPL/00821",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63293,
+            63294
+          ]
+        },
+        "secondMo": {
+          "id": 2691,
+          "name": "GMP/MOPL/00822",
+          "state": "confirmed",
+          "move_raw_ids": [
+            63298,
+            63299
+          ]
+        }
+      }
+    },
+    {
+      "name": "first MO has raw move",
+      "pass": true,
+      "details": {
+        "firstMo": "GMP/MOPL/00821"
+      }
+    },
+    {
+      "name": "second MO has raw move",
+      "pass": true,
+      "details": {
+        "secondMo": "GMP/MOPL/00822"
+      }
+    },
+    {
+      "name": "merge target is first picking",
+      "pass": true,
+      "details": {
+        "targetPickingId": 16975,
+        "firstPickingId": 16975
+      }
+    },
+    {
+      "name": "merge consolidated to one stock move",
+      "pass": true,
+      "details": {
+        "moveIds": [
+          63303
+        ]
+      }
+    },
+    {
+      "name": "source transfer cancelled after merge",
+      "pass": true,
+      "details": {
+        "id": 16976,
+        "name": "GMP/TRPL/02169",
+        "state": "cancel"
+      }
+    },
+    {
+      "name": "merged transfer linked to both MOs",
+      "pass": true,
+      "details": {
+        "productionIds": [
+          2690,
+          2691
+        ]
+      }
+    },
+    {
+      "name": "merged qty equals raw demand sum",
+      "pass": true,
+      "details": {
+        "mergedQty": 0.001878,
+        "rawOneQty": 0.000939,
+        "rawTwoQty": 0.000939
+      }
+    }
+  ],
+  "finishedAt": "2026-06-17T06:40:39.496Z",
+  "status": "failed",
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Transfer Plastic').first() to be visible\u001b[22m\n\n    at frontendVerifyAndCancel (C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:311:52)\n    at async C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\local_way2_fullstack_test.js:407:5"
+}

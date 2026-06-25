@@ -1,0 +1,264 @@
+.modal-dialog:has(.o_mobile_payment_receipt) {
+    max-width: min(860px, calc(100vw - 32px));
+}
+
+.o_mobile_payment_receipt {
+    --o-mobile-payment-accent: #65425f;
+    --o-mobile-payment-border: #dbe1ea;
+    --o-mobile-payment-muted: #596b87;
+    width: 100%;
+    padding-top: 0.75rem;
+    border-top: 1px solid #dde3ed;
+
+    .o_mobile_payment_rows,
+    .o_mobile_mixed_payment_widget {
+        display: block;
+        width: 100%;
+        max-width: none;
+    }
+
+    .o_mobile_payment_title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 0.65rem;
+        color: #172640;
+
+        h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .o_field_widget {
+            color: var(--o-mobile-payment-accent);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+    }
+
+    .o_mobile_payment_actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin: 0 0 0.6rem;
+    }
+
+    .o_mobile_payment_action {
+        border: 1px solid #d6d9e2;
+        border-radius: 6px;
+        background: #fff;
+        color: #2f2d41;
+        padding: 0.45rem 0.8rem;
+        font-weight: 600;
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--o-mobile-payment-accent);
+            color: var(--o-mobile-payment-accent);
+        }
+    }
+
+    .o_mobile_payment_action_primary {
+        border-color: var(--o-mobile-payment-accent);
+        background: var(--o-mobile-payment-accent);
+        color: #fff;
+
+        &:hover,
+        &:focus-visible {
+            background: #573951;
+            color: #fff;
+        }
+    }
+
+    .o_mobile_payment_table {
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--o-mobile-payment-border);
+        border-radius: 8px;
+    }
+
+    .o_mobile_payment_header,
+    .o_mobile_payment_row {
+        display: grid;
+        grid-template-columns: 112px 150px minmax(280px, 1fr) 40px;
+        align-items: center;
+        gap: 0;
+    }
+
+    .o_mobile_payment_header {
+        min-height: 32px;
+        background: #f4f6fa;
+        color: var(--o-mobile-payment-muted);
+        font-size: 0.75rem;
+
+        span {
+            padding: 0.45rem 0.55rem;
+        }
+    }
+
+    .o_mobile_payment_row {
+        min-height: 49px;
+        border-top: 1px solid var(--o-mobile-payment-border);
+
+        > div {
+            padding: 0.36rem 0.55rem;
+        }
+    }
+
+    .o_mobile_payment_type {
+        display: flex;
+        align-items: center;
+        gap: 0.28rem;
+        font-weight: 500;
+
+        .fa {
+            width: 12px;
+            color: #1c293e;
+        }
+    }
+
+    .o_mobile_payment_writeoff {
+        margin-left: 0.15rem;
+        padding: 0.15rem 0.4rem;
+        border-radius: 14px;
+        background: #fff0ce;
+        color: #c47900;
+        font-size: 0.66rem;
+        font-weight: 600;
+    }
+
+    .o_mobile_payment_amount {
+        .o_field_widget {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            min-height: 36px;
+            border: 1px solid #cad3e2;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+
+    .o_mobile_payment_route {
+        overflow: hidden;
+        color: #45556f;
+        font-size: 0.75rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .o_mobile_payment_remove {
+        border: 0;
+        background: transparent;
+        color: #9da8ba;
+        font-size: 0.9rem;
+    }
+
+    .o_mobile_payment_cheque_fields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+        padding: 0.55rem;
+        border-top: 1px solid var(--o-mobile-payment-border);
+        background: #fafbfd;
+
+        label {
+            display: block;
+            margin-bottom: 0.18rem;
+            color: var(--o-mobile-payment-muted);
+            font-size: 0.72rem;
+        }
+
+        .o_field_many2one_selection,
+        .o_input_dropdown,
+        .o-autocomplete,
+        .d-flex {
+            width: 100%;
+        }
+
+        input.o_input {
+            width: 100%;
+            min-height: 34px;
+            padding: 0.375rem 0.55rem;
+            border: 1px solid #cad3e2;
+            border-radius: 6px;
+            background: #fff;
+        }
+    }
+
+    .o_mobile_payment_summary {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: end;
+        align-items: center;
+        column-gap: 0.5rem;
+        row-gap: 0.28rem;
+        margin-top: 1rem;
+        color: var(--o-mobile-payment-muted);
+        font-size: 0.8rem;
+        text-align: right;
+
+        span {
+            white-space: nowrap;
+        }
+
+        span:nth-of-type(3) {
+            padding-top: 0.28rem;
+            margin-top: 0.15rem;
+        }
+
+        .o_field_widget {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: flex-end;
+            color: #233046;
+            font-weight: 600;
+            min-width: 0 !important;
+            width: auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            .o_currency {
+                margin-left: 0.28rem;
+                margin-right: 0.28rem;
+            }
+        }
+
+        .o_mobile_payment_balance {
+            display: block;
+            border-top: 1px solid #cad3e2;
+            padding-top: 0.28rem;
+            margin-top: 0.15rem;
+
+            .o_field_widget {
+                color: #008f64;
+            }
+        }
+    }
+
+    .o_mobile_payment_error {
+        margin: 0.75rem 0 0;
+    }
+
+    @media (max-width: 700px) {
+        .o_mobile_payment_header,
+        .o_mobile_payment_row {
+            grid-template-columns: 96px 124px minmax(190px, 1fr) 36px;
+        }
+    }
+}
+
+.o_mobile_payment_submit.btn {
+    border-color: #65425f;
+    background: #65425f;
+
+    &:hover,
+    &:focus-visible {
+        border-color: #573951;
+        background: #573951;
+    }
+}

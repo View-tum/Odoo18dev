@@ -1,0 +1,654 @@
+{
+  "summary": {
+    "total": 38,
+    "standard": 28,
+    "custom": 10,
+    "external": 0,
+    "message": "ทุกจุดสามารถเอาเข้า Odoo ได้: ถ้าเป็น standard ให้ทำด้วย configuration/app มาตรฐาน; ถ้าเป็น custom ให้ทำเป็นรายงาน ฟอร์ม หรือ approval เพิ่มใน Odoo"
+  },
+  "rows": [
+    {
+      "no": 1,
+      "code": "SP",
+      "label": "สินค้าใหม่ ออกใบ (SP)",
+      "lane": "ขาย",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Sales + Approvals + Documents",
+      "standard_support": "Odoo ทำ quotation / product request / activity ได้",
+      "custom_reason": "ต้อง custom ถ้าต้องการเอกสาร SP ตามฟอร์มเดิมและเลขเอกสารเฉพาะ",
+      "present_note": "เปิดด้วยการอธิบายว่า SP ยังอยู่ใน Odoo แต่เป็น form/report เพิ่ม"
+    },
+    {
+      "no": 2,
+      "code": "FA",
+      "label": "ออกใบ (FA)",
+      "lane": "ขาย",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Sales + Quality + Documents",
+      "standard_support": "Odoo รองรับ sample/quotation และแนบเอกสาร",
+      "custom_reason": "FA sample workflow/form เฉพาะต้อง custom หรือใช้ Approvals + report",
+      "present_note": "อธิบายว่า standard รองรับ process แต่ form FA เฉพาะต้องเพิ่ม"
+    },
+    {
+      "no": 3,
+      "code": "QUO",
+      "label": "ออกใบ เสนอราคา",
+      "lane": "ขาย",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Sales",
+      "standard_support": "Quotation / Sales Order / pricelist / customer approval รองรับมาตรฐาน",
+      "custom_reason": "ไม่ต้อง custom ถ้าใช้ฟอร์มใบเสนอราคา Odoo ปรับ template ได้",
+      "present_note": "เป็นจุด standard ชัดเจนของ Sales"
+    },
+    {
+      "no": 4,
+      "code": "PR_RM_SALE",
+      "label": "ออกใบ (PR) วัตถุดิบ",
+      "lane": "ขาย",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Approvals + Purchase",
+      "standard_support": "Odoo มี Approvals และ Purchase RFQ/PO",
+      "custom_reason": "PR ก่อนซื้อแบบฟอร์มเดิมและ approval matrix ต้อง config/custom",
+      "present_note": "แยกให้เห็นว่าไม่ใช่ PO standard โดยตรง"
+    },
+    {
+      "no": 5,
+      "code": "IMR",
+      "label": "ออกใบขอรหัสสินค้า (IMR)",
+      "lane": "ขาย",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Inventory + Sales + Approvals",
+      "standard_support": "Odoo รองรับ Product Master และ internal reference",
+      "custom_reason": "ใบขอรหัสสินค้า/ขั้นตอนอนุมัติ master data เฉพาะต้อง custom/config",
+      "present_note": "ผูกกับการสร้าง Product Code ใน Odoo"
+    },
+    {
+      "no": 6,
+      "code": "SO_PLAN",
+      "label": "สินค้ามี PO แล้ว ออกใบ (SO) + แผน",
+      "lane": "ขาย",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Sales + MRP",
+      "standard_support": "Sales Order เชื่อม MTO/MRP สร้าง MO/Procurement ได้",
+      "custom_reason": "ไม่ต้อง custom ถ้าใช้ route MTO + Manufacture/Buy",
+      "present_note": "ใช้เป็นจุดขายว่า SO ทำให้เกิดงานต่ออัตโนมัติ"
+    },
+    {
+      "no": 7,
+      "code": "IV",
+      "label": "ใบกำกับภาษี (IV)",
+      "lane": "ขาย",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Accounting",
+      "standard_support": "Customer Invoice / Tax Invoice รองรับมาตรฐาน",
+      "custom_reason": "ปรับ print template ได้ถ้าต้องการหน้าตาเดิม",
+      "present_note": "เชื่อมไปบัญชีลูกหนี้"
+    },
+    {
+      "no": 8,
+      "code": "BI",
+      "label": "วางบิล (BI)",
+      "lane": "ขาย",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Accounting",
+      "standard_support": "Payment terms / follow-up / statement รองรับ",
+      "custom_reason": "ถ้าต้องการใบวางบิล layout เดิมอาจทำ report เพิ่ม",
+      "present_note": "อยู่ใน Accounting standard เป็นหลัก"
+    },
+    {
+      "no": 9,
+      "code": "PR_COLLECT",
+      "label": "รวบรวม (PR) คัดแยก",
+      "lane": "ซื้อ",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Approvals + Purchase",
+      "standard_support": "Odoo รวม demand เป็น replenishment/RFQ ได้",
+      "custom_reason": "หน้ารวบรวม PR ตาม flow เดิมต้อง config/custom เพื่อคุม approval และ grouping",
+      "present_note": "เชื่อมจากหลาย request ไปเป็น PO"
+    },
+    {
+      "no": 10,
+      "code": "PO",
+      "label": "ออก (PO)",
+      "lane": "ซื้อ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Purchase",
+      "standard_support": "RFQ / Purchase Order / vendor / approval รองรับมาตรฐาน",
+      "custom_reason": "ไม่ต้อง custom ถ้าใช้ PO standard",
+      "present_note": "เป็นจุด standard ของ Purchase"
+    },
+    {
+      "no": 11,
+      "code": "RM_RECEIVE",
+      "label": "รับวัตถุดิบ",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Purchase",
+      "standard_support": "Receipt จาก PO, lot/serial, valuation รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "แสดงว่าวัตถุดิบเข้า stock ได้ครบ"
+    },
+    {
+      "no": 12,
+      "code": "TAG_IN",
+      "label": "พิมพ์ Tag รับ",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Barcode",
+      "standard_support": "Label/Barcode printing รองรับด้วย report/config",
+      "custom_reason": "custom เฉพาะกรณี tag format ซับซ้อนมาก",
+      "present_note": "ให้ระบุเป็น standard/config"
+    },
+    {
+      "no": 13,
+      "code": "RM_ISSUE",
+      "label": "จ่ายวัตถุดิบ",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + MRP",
+      "standard_support": "Internal transfer / component consumption / issue to production รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "เชื่อมไป MRP/MO"
+    },
+    {
+      "no": 14,
+      "code": "CP_RECEIVE",
+      "label": "รับวัตถุดิบ ลูกค้า",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory",
+      "standard_support": "Customer supplied material ทำได้ด้วย owner/lot/location หรือ receipt type",
+      "custom_reason": "อาจต้อง config location/owner และ report แยก CP",
+      "present_note": "ไม่ใช่งานนอก Odoo"
+    },
+    {
+      "no": 15,
+      "code": "TAG_CP",
+      "label": "พิมพ์ Tag รับ",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Barcode",
+      "standard_support": "พิมพ์ label/tag ตาม lot ได้",
+      "custom_reason": "custom เฉพาะ format tag ลูกค้า",
+      "present_note": "ใช้ Barcode/label standard"
+    },
+    {
+      "no": 16,
+      "code": "RM_PICK_DOC",
+      "label": "ตัวสั่งซื้อ หน้าเบิกวัตถุดิบ",
+      "lane": "คลังวัตถุดิบ",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Inventory + MRP + Report",
+      "standard_support": "Odoo มี picking/component availability",
+      "custom_reason": "หน้าจอ/เอกสารเบิกวัตถุดิบตาม format เดิมต้อง custom report/view",
+      "present_note": "แยกเป็น custom เพราะเป็นหน้าฟอร์มเฉพาะ"
+    },
+    {
+      "no": 17,
+      "code": "CP_ISSUE",
+      "label": "จ่ายวัตถุดิบ CP",
+      "lane": "คลังวัตถุดิบ",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + MRP",
+      "standard_support": "จ่ายวัตถุดิบลูกค้าเข้า MO ได้ด้วย lot/owner/location",
+      "custom_reason": "custom เฉพาะรายงาน CP แยก",
+      "present_note": "รองรับใน stock move standard"
+    },
+    {
+      "no": 18,
+      "code": "PCC_STEP",
+      "label": "กำหนดขั้นตอนการผลิต (PCC)",
+      "lane": "วิศวกรรมการผลิต",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "MRP + Quality + Documents",
+      "standard_support": "Odoo มี routing, work center, operation, quality point",
+      "custom_reason": "PCC เป็นเอกสาร/form เฉพาะ ต้อง custom report/template",
+      "present_note": "บอกว่า routing standard แต่ PCC document custom"
+    },
+    {
+      "no": 19,
+      "code": "QC_SPEC",
+      "label": "ตรวจสอบสินค้าตามข้อกำหนด",
+      "lane": "ควบคุมคุณภาพสินค้า",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Quality",
+      "standard_support": "Quality Control Points / Checks / Worksheets รองรับ",
+      "custom_reason": "ไม่ต้อง custom ถ้า check list พื้นฐาน",
+      "present_note": "เชื่อม quality check กับ MO/receipt/delivery"
+    },
+    {
+      "no": 20,
+      "code": "QC_DECISION",
+      "label": "ผ่าน QC?",
+      "lane": "ควบคุมคุณภาพสินค้า",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Quality",
+      "standard_support": "Pass / Fail quality check รองรับ",
+      "custom_reason": "ไม่ต้อง custom ยกเว้น logic rework เฉพาะ",
+      "present_note": "Decision ต้องมี Yes/No ชัดเจน"
+    },
+    {
+      "no": 21,
+      "code": "COA",
+      "label": "ออกใบ COA",
+      "lane": "ควบคุมคุณภาพสินค้า",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Quality + Report",
+      "standard_support": "Odoo เก็บผล QC และ lot traceability ได้",
+      "custom_reason": "Certificate of Analysis ตามฟอร์มลูกค้าต้อง custom report",
+      "present_note": "อธิบายว่า data standard แต่ใบ COA custom"
+    },
+    {
+      "no": 22,
+      "code": "MACHINE",
+      "label": "กำหนดเครื่องผลิต",
+      "lane": "วางแผนผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "MRP",
+      "standard_support": "Work Center / operation planning รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "เชื่อมกำลังการผลิตกับ WO"
+    },
+    {
+      "no": 23,
+      "code": "FG_TAG",
+      "label": "พิมพ์ Tag สินค้า",
+      "lane": "วางแผนผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Barcode",
+      "standard_support": "Product/lot label printing รองรับ",
+      "custom_reason": "custom เฉพาะ format tag",
+      "present_note": "ให้จัดเป็น standard/config"
+    },
+    {
+      "no": 24,
+      "code": "IS",
+      "label": "ออกใบเบิกวัตถุดิบ (IS)",
+      "lane": "วางแผนผลิต",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "Inventory + MRP + Report",
+      "standard_support": "Odoo มี component picking/issue",
+      "custom_reason": "เอกสาร IS ตามเลขเอกสาร/format เดิมต้อง custom report",
+      "present_note": "standard ทำ movement แต่ใบ IS เฉพาะต้องเพิ่ม"
+    },
+    {
+      "no": 25,
+      "code": "SO_CP",
+      "label": "SO มีวัตถุดิบลูกค้า",
+      "lane": "วางแผนผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Sales + Inventory + MRP",
+      "standard_support": "SO/MO ผูก customer material ได้ด้วย owner/location/lot",
+      "custom_reason": "อาจ config route/location เพิ่ม",
+      "present_note": "รองรับใน Odoo ด้วย config"
+    },
+    {
+      "no": 26,
+      "code": "WI",
+      "label": "ออกใบกึ่งสำเร็จรูป (WI)",
+      "lane": "วางแผนผลิต",
+      "category": "custom",
+      "category_label": "Custom in Odoo / Report / Approval เพิ่ม",
+      "module": "MRP + Inventory + Report",
+      "standard_support": "Odoo รองรับ semi-finished product/MO/subassembly",
+      "custom_reason": "เอกสาร WI ตาม format เดิมต้อง custom report",
+      "present_note": "เน้นว่า process standard แต่เอกสาร custom"
+    },
+    {
+      "no": 27,
+      "code": "MO_PLAN",
+      "label": "ผลิตตามแผน",
+      "lane": "ผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "MRP",
+      "standard_support": "Manufacturing Order / Work Order รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "เข้ากับ work order/cost ที่ตั้งใน DB แล้ว"
+    },
+    {
+      "no": 28,
+      "code": "PROD_DONE",
+      "label": "ผลิตเสร็จ",
+      "lane": "ผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "MRP + Inventory",
+      "standard_support": "Mark as Done สร้าง finished goods และ valuation ได้",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "แสดงต้นทุนวิ่งเข้า valuation"
+    },
+    {
+      "no": 29,
+      "code": "REWORK",
+      "label": "แก้ไข",
+      "lane": "ผลิต",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "MRP + Quality",
+      "standard_support": "Rework/scrap/quality alert ทำได้ด้วย MO/Quality",
+      "custom_reason": "custom เฉพาะ rework policy ซับซ้อน",
+      "present_note": "เชื่อมจาก QC fail"
+    },
+    {
+      "no": 30,
+      "code": "PI",
+      "label": "รับสินค้าเข้าคลัง (PI)",
+      "lane": "คลังสินค้าสำเร็จรูป",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + MRP",
+      "standard_support": "Finished goods receipt จาก MO รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "เป็น stock valuation layer รับเข้า"
+    },
+    {
+      "no": 31,
+      "code": "FG_ISSUE_SO",
+      "label": "จ่ายสินค้าตามใบ SO",
+      "lane": "คลังสินค้าสำเร็จรูป",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Sales",
+      "standard_support": "Delivery Order จาก SO รองรับ",
+      "custom_reason": "ไม่ต้อง custom",
+      "present_note": "เชื่อมส่งสินค้า"
+    },
+    {
+      "no": 32,
+      "code": "PACK_CHECK",
+      "label": "ตรวจสอบก่อนแพ็คขนส่งสินค้า",
+      "lane": "จัดส่งสินค้า",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Quality",
+      "standard_support": "Quality check ก่อน delivery / packing operation รองรับ",
+      "custom_reason": "custom เฉพาะ checklist/report เฉพาะ",
+      "present_note": "ใช้ quality point บน delivery ได้"
+    },
+    {
+      "no": 33,
+      "code": "CUSTOMER_RM_DEL",
+      "label": "รับวัตถุดิบลูกค้า",
+      "lane": "จัดส่งสินค้า",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory",
+      "standard_support": "รับคืน/รับวัตถุดิบลูกค้าเข้า location ได้",
+      "custom_reason": "อาจ config owner/location CP",
+      "present_note": "ยังอยู่ใน Odoo"
+    },
+    {
+      "no": 34,
+      "code": "PRODUCT_CODE_ACC",
+      "label": "สร้างรหัสสินค้า",
+      "lane": "การเงิน / บัญชี",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Accounting",
+      "standard_support": "Product master, internal reference, category/account mapping รองรับ",
+      "custom_reason": "custom เฉพาะ IMR approval/form",
+      "present_note": "ใช้ร่วมกับ IMR"
+    },
+    {
+      "no": 35,
+      "code": "PD",
+      "label": "จ่ายวัตถุดิบ (PD)",
+      "lane": "การเงิน / บัญชี",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Accounting",
+      "standard_support": "Stock issue/valuation รองรับ",
+      "custom_reason": "ถ้า PD เป็นเอกสาร legacy ต้อง custom report",
+      "present_note": "ข้อมูล transaction อยู่ใน Odoo"
+    },
+    {
+      "no": 36,
+      "code": "RR",
+      "label": "รับวัตถุดิบ (RR)",
+      "lane": "การเงิน / บัญชี",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Inventory + Accounting",
+      "standard_support": "Receipt/valuation/vendor bill matching รองรับ",
+      "custom_reason": "ถ้า RR เป็นเอกสาร legacy ต้อง custom report",
+      "present_note": "รับเข้าและ valuation standard"
+    },
+    {
+      "no": 37,
+      "code": "PS",
+      "label": "จ่ายหนี้ (PS)",
+      "lane": "การเงิน / บัญชี",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Accounting",
+      "standard_support": "Vendor Payment รองรับ",
+      "custom_reason": "custom เฉพาะชื่อเอกสาร/รายงานเดิม",
+      "present_note": "อยู่ใน AP standard"
+    },
+    {
+      "no": 38,
+      "code": "RE",
+      "label": "ใบเสร็จ (RE)",
+      "lane": "การเงิน / บัญชี",
+      "category": "standard",
+      "category_label": "Standard Odoo / Configuration",
+      "module": "Accounting",
+      "standard_support": "Customer Payment/Receipt รองรับ",
+      "custom_reason": "custom เฉพาะรูปแบบใบเสร็จเดิม",
+      "present_note": "อยู่ใน AR/payment standard"
+    }
+  ],
+  "edges": [
+    [
+      "SP",
+      "FA",
+      ""
+    ],
+    [
+      "FA",
+      "QUO",
+      ""
+    ],
+    [
+      "QUO",
+      "SO_PLAN",
+      "ชนะงาน"
+    ],
+    [
+      "PR_RM_SALE",
+      "PR_COLLECT",
+      ""
+    ],
+    [
+      "PR_COLLECT",
+      "PO",
+      ""
+    ],
+    [
+      "PO",
+      "RM_RECEIVE",
+      ""
+    ],
+    [
+      "RM_RECEIVE",
+      "TAG_IN",
+      ""
+    ],
+    [
+      "TAG_IN",
+      "RM_ISSUE",
+      ""
+    ],
+    [
+      "RM_ISSUE",
+      "PCC_STEP",
+      ""
+    ],
+    [
+      "CP_RECEIVE",
+      "TAG_CP",
+      ""
+    ],
+    [
+      "TAG_CP",
+      "RM_PICK_DOC",
+      ""
+    ],
+    [
+      "RM_PICK_DOC",
+      "CP_ISSUE",
+      ""
+    ],
+    [
+      "PCC_STEP",
+      "QC_SPEC",
+      ""
+    ],
+    [
+      "QC_SPEC",
+      "QC_DECISION",
+      ""
+    ],
+    [
+      "QC_DECISION",
+      "COA",
+      "Yes"
+    ],
+    [
+      "QC_DECISION",
+      "REWORK",
+      "No"
+    ],
+    [
+      "PCC_STEP",
+      "MACHINE",
+      ""
+    ],
+    [
+      "MACHINE",
+      "FG_TAG",
+      ""
+    ],
+    [
+      "FG_TAG",
+      "IS",
+      ""
+    ],
+    [
+      "SO_PLAN",
+      "SO_CP",
+      ""
+    ],
+    [
+      "SO_CP",
+      "WI",
+      ""
+    ],
+    [
+      "IS",
+      "MO_PLAN",
+      ""
+    ],
+    [
+      "WI",
+      "MO_PLAN",
+      ""
+    ],
+    [
+      "MO_PLAN",
+      "PROD_DONE",
+      ""
+    ],
+    [
+      "PROD_DONE",
+      "PI",
+      ""
+    ],
+    [
+      "REWORK",
+      "PROD_DONE",
+      "Rework OK"
+    ],
+    [
+      "PI",
+      "FG_ISSUE_SO",
+      ""
+    ],
+    [
+      "FG_ISSUE_SO",
+      "PACK_CHECK",
+      ""
+    ],
+    [
+      "PACK_CHECK",
+      "CUSTOMER_RM_DEL",
+      ""
+    ],
+    [
+      "FG_ISSUE_SO",
+      "IV",
+      ""
+    ],
+    [
+      "IV",
+      "BI",
+      ""
+    ],
+    [
+      "IMR",
+      "PRODUCT_CODE_ACC",
+      ""
+    ],
+    [
+      "PRODUCT_CODE_ACC",
+      "PCC_STEP",
+      ""
+    ],
+    [
+      "RM_RECEIVE",
+      "RR",
+      ""
+    ],
+    [
+      "RM_ISSUE",
+      "PD",
+      ""
+    ],
+    [
+      "PO",
+      "PS",
+      ""
+    ],
+    [
+      "BI",
+      "RE",
+      ""
+    ]
+  ]
+}

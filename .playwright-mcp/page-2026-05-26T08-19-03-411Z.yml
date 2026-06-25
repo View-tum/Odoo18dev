@@ -1,0 +1,193 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e3256] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Inventory" [ref=e3257]
+        - generic [ref=e8]: Inventory
+        - generic [ref=e4570]: H
+      - menu [ref=e9]:
+        - menuitem "Overview 1" [ref=e4358] [cursor=pointer]:
+          - text: Overview
+          - generic [ref=e4572]: "1"
+        - button "Operations 2" [ref=e4361] [cursor=pointer]:
+          - generic [ref=e3260]: Operations
+          - generic [ref=e4574]: "2"
+        - button "Products 3" [ref=e4364] [cursor=pointer]:
+          - generic [ref=e3262]: Products
+          - generic [ref=e4576]: "3"
+        - button "AX Interface 4" [ref=e4367] [cursor=pointer]:
+          - generic [ref=e3264]: AX Interface
+          - generic [ref=e4578]: "4"
+        - button "Reporting 5" [ref=e4370] [cursor=pointer]:
+          - generic [ref=e3266]: Reporting
+          - generic [ref=e4580]: "5"
+        - button "Configuration 6" [ref=e4373] [cursor=pointer]:
+          - generic [ref=e3268]: Configuration
+          - generic [ref=e4582]: "6"
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 24" [ref=e3131] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "24"
+        - button "Toggle Studio" [ref=e1831] [cursor=pointer]:
+          - img [ref=e1832]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e4377]:
+    - generic [ref=e4379]:
+      - generic [ref=e4380]:
+        - button "New C" [ref=e4383] [cursor=pointer]:
+          - text: New
+          - generic [ref=e4584]: C
+        - generic [ref=e4386]:
+          - list [ref=e4387]:
+            - listitem [ref=e4388]:
+              - link "Rules" [ref=e4389] [cursor=pointer]:
+                - /url: /odoo/action-701
+              - generic [ref=e4586]: B
+          - generic [ref=e4392]:
+            - generic [ref=e4394]: Transfer RM Replenish (copy) (Plastic)
+            - button " U" [ref=e4398] [cursor=pointer]:
+              - generic [ref=e4399]: 
+              - generic [ref=e4588]: U
+      - generic [ref=e4403]:
+        - button "Search Knowledge Articles" [ref=e4404] [cursor=pointer]:
+          - img [ref=e4405]
+        - search [ref=e4409]:
+          - navigation "Pager" [ref=e4410]:
+            - generic [ref=e4411]:
+              - generic [ref=e4412]: "1"
+              - text: / 1
+            - generic [ref=e4413]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e4417]:
+      - generic [ref=e4418]:
+        - generic [ref=e4419]:
+          - text: Name
+          - superscript [ref=e4420]: "?"
+        - heading "Transfer RM Replenish (copy) (Plastic)" [level=1] [ref=e4421]:
+          - textbox "Name?" [ref=e4423]: Transfer RM Replenish (copy) (Plastic)
+      - generic [ref=e4424]:
+        - generic [ref=e4425]:
+          - generic [ref=e4426]:
+            - generic [ref=e4428]: Action
+            - combobox "Action" [ref=e4431] [cursor=pointer]:
+              - option "Pull From" [selected]
+              - option "Push To"
+              - option "Pull & Push"
+              - option "Manufacture"
+              - option "Buy"
+          - generic [ref=e4432]:
+            - generic [ref=e4434]: Operation Type
+            - combobox "Operation Type" [ref=e4440]: "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+          - generic [ref=e4441]:
+            - generic [ref=e4443]: Source Location
+            - generic [ref=e4446]:
+              - generic [ref=e4448]:
+                - combobox "Source Location" [expanded] [active] [ref=e4449]: GMP/Stock/RM
+                - menu [ref=e4589]:
+                  - listitem [ref=e4590]:
+                    - option "GMP" [selected] [ref=e4591] [cursor=pointer]
+                  - listitem [ref=e4592]:
+                    - option "GMP/CT01" [ref=e4593] [cursor=pointer]
+                  - listitem [ref=e4594]:
+                    - option "GMP/CT01/None" [ref=e4595] [cursor=pointer]
+                  - listitem [ref=e4596]:
+                    - option "GMP/HOLD" [ref=e4597] [cursor=pointer]
+                  - listitem [ref=e4598]:
+                    - option "GMP/HOLD-V" [ref=e4599] [cursor=pointer]
+                  - listitem [ref=e4600]:
+                    - option "GMP/OF01" [ref=e4601] [cursor=pointer]
+                  - listitem [ref=e4602]:
+                    - option "GMP/OF01/None" [ref=e4603] [cursor=pointer]
+                  - listitem [ref=e4604]:
+                    - option "GMP/OS01" [ref=e4605] [cursor=pointer]
+                  - listitem [ref=e4606]:
+                    - option "Search More..." [ref=e4607] [cursor=pointer]
+              - button "Internal link" [ref=e4608] [cursor=pointer]: 
+          - generic [ref=e4450]:
+            - generic [ref=e4452]: Destination Location
+            - combobox "Destination Location" [ref=e4458]: GMP/Stock/RM
+          - generic [ref=e4460]:
+            - generic [ref=e4462]:
+              - text: Destination location origin from rule
+              - superscript [ref=e4463]: "?"
+            - checkbox "Destination location origin from rule?" [ref=e4467] [cursor=pointer]
+          - generic [ref=e4468]:
+            - generic [ref=e4470]:
+              - text: Supply Method
+              - superscript [ref=e4471]: "?"
+            - combobox "Supply Method?" [ref=e4474] [cursor=pointer]:
+              - option "Take From Stock"
+              - option "Trigger Another Rule" [selected]
+              - option "Take From Stock, if unavailable, Trigger Another Rule"
+        - paragraph [ref=e4482]:
+          - text: When products are needed in GMP/Stock/RM,
+          - text: Transfer Plastic are created from GMP/Stock/RM to fulfill the need.
+          - text: The products will be moved towards GMP/Stock/คลังลอย,
+          - text: as specified from Transfer Plastic destination.
+          - text: A need is created in GMP/Stock/RM and a rule will be triggered to fulfill it.
+      - generic [ref=e4483]:
+        - generic [ref=e4484]:
+          - generic [ref=e4486]: Applicability
+          - generic [ref=e4487]:
+            - generic [ref=e4489]: Route
+            - combobox "Route" [ref=e4495]: Auto Transfer RM (Plastic)
+          - generic [ref=e4496]:
+            - generic [ref=e4498]: Warehouse
+            - combobox "Warehouse" [ref=e4504]
+          - generic [ref=e4505]:
+            - generic [ref=e4507]: Sequence
+            - textbox "Sequence" [ref=e4510]: "20"
+        - generic [ref=e4511]:
+          - generic [ref=e4513]: Propagation
+          - generic [ref=e4514]:
+            - generic [ref=e4516]: Propagation of Procurement Group
+            - combobox "Propagation of Procurement Group" [ref=e4519] [cursor=pointer]:
+              - option
+              - option "Leave Empty"
+              - option "Propagate" [selected]
+              - option "Fixed"
+          - generic [ref=e4521]:
+            - generic [ref=e4523]:
+              - text: Cancel Next Move
+              - superscript [ref=e4524]: "?"
+            - checkbox "Cancel Next Move?" [ref=e4528] [cursor=pointer]
+          - generic [ref=e4530]:
+            - generic [ref=e4532]:
+              - text: Propagation of carrier
+              - superscript [ref=e4533]: "?"
+            - checkbox "Propagation of carrier?" [ref=e4537] [cursor=pointer]
+          - generic [ref=e4538]:
+            - generic [ref=e4540]:
+              - text: Warehouse to Propagate
+              - superscript [ref=e4541]: "?"
+            - combobox "Warehouse to Propagate?" [ref=e4547]
+        - generic [ref=e4548]:
+          - generic [ref=e4550]: Options
+          - generic [ref=e4551]:
+            - generic [ref=e4553]:
+              - text: Partner Address
+              - superscript [ref=e4554]: "?"
+            - combobox "Partner Address?" [ref=e4560]
+          - generic [ref=e4561]:
+            - generic [ref=e4563]:
+              - text: Lead Time
+              - superscript [ref=e4564]: "?"
+            - generic [ref=e4566]:
+              - textbox "Lead Time?" [ref=e4568]: "0"
+              - text: days

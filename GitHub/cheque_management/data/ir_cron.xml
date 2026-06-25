@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.cron" id="cheque_lists_calculation_cron">
+            <field name="name">Cheque Lists History calculation</field>
+            <field name="model_id" ref="model_cheque_book"/>
+            <field name="state">code</field>
+            <field name="code">model.generate_cheque_lists_history()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="nextcall" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

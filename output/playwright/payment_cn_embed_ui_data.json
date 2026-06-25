@@ -1,0 +1,38 @@
+{
+  "prefix": "UI-CN-EMBED-20260620024402",
+  "partner_id": 70301,
+  "partner_name": "DENKI SHOJI CO.,LTD.",
+  "scenarios": {
+    "customer_cn": {
+      "move_ids": [
+        74192,
+        74193
+      ],
+      "move_names": [
+        "INV-D/2026/00018",
+        "RINV-D/2026/00003"
+      ],
+      "expected_amount": 75.0
+    },
+    "vendor_cn": {
+      "move_ids": [
+        74194,
+        74195
+      ],
+      "move_names": [
+        "APD/2026/06/0013",
+        "RAPD/2026/06/0009"
+      ],
+      "expected_amount": 75.0
+    },
+    "normal_invoice": {
+      "move_ids": [
+        74196
+      ],
+      "move_names": [
+        "INV-D/2026/00019"
+      ],
+      "expected_amount": 80.0
+    }
+  }
+}

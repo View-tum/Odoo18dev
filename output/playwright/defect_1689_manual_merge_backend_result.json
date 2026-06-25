@@ -1,0 +1,126 @@
+{
+  "merge_action": {
+    "type": "ir.actions.act_window",
+    "res_model": "stock.picking",
+    "res_id": 10981,
+    "view_mode": "form",
+    "target": "current"
+  },
+  "pickings": [
+    {
+      "id": 10981,
+      "name": "GMP/TRPL/00071",
+      "state": "assigned",
+      "origin": "GMP/MOPL/00195, GMP/MOPL/00196, GMP/TRPL/00071, GMP/TRPL/00072",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "manufacturing_type": "plastic",
+      "move_ids_without_package": [
+        34457,
+        34458
+      ],
+      "production_ids": [
+        957,
+        958
+      ],
+      "group_id": [
+        7477,
+        "GMP/MOPL/00195"
+      ]
+    },
+    {
+      "id": 10982,
+      "name": "GMP/TRPL/00072",
+      "state": "cancel",
+      "origin": "GMP/MOPL/00196",
+      "picking_type_id": [
+        57,
+        "GOLD MINTS PRODUCTS CO., LTD.: Transfer Plastic"
+      ],
+      "location_id": [
+        22,
+        "GMP/Stock/RM"
+      ],
+      "location_dest_id": [
+        176,
+        "GMP/Stock/คลังลอย"
+      ],
+      "manufacturing_type": "plastic",
+      "move_ids_without_package": [],
+      "production_ids": [
+        958
+      ],
+      "group_id": false
+    }
+  ],
+  "picking_moves": [
+    {
+      "id": 34457,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.41,
+      "state": "assigned",
+      "picking_id": [
+        10981,
+        "GMP/TRPL/00071"
+      ],
+      "raw_material_production_id": false,
+      "move_orig_ids": [],
+      "move_dest_ids": []
+    },
+    {
+      "id": 34458,
+      "product_id": [
+        8343,
+        "[RM-MBS-PK-00002] สีผสมพลาสติก สีชมพูเข้ม"
+      ],
+      "product_uom_qty": 0.41,
+      "quantity": 0.41,
+      "state": "assigned",
+      "picking_id": [
+        10981,
+        "GMP/TRPL/00071"
+      ],
+      "raw_material_production_id": false,
+      "move_orig_ids": [],
+      "move_dest_ids": []
+    }
+  ],
+  "mos": [
+    {
+      "id": 957,
+      "name": "GMP/MOPL/00195",
+      "state": "confirmed",
+      "picking_ids": [
+        10981
+      ],
+      "move_raw_ids": [
+        34447,
+        34448
+      ]
+    },
+    {
+      "id": 958,
+      "name": "GMP/MOPL/00196",
+      "state": "confirmed",
+      "picking_ids": [],
+      "move_raw_ids": [
+        34452,
+        34453
+      ]
+    }
+  ]
+}

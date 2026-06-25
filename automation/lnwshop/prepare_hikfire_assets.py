@@ -18,7 +18,7 @@ from prepare_assets import apply_watermark, crop_watermark
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_EXCEL = ROOT / "automation" / "ATHENS Price HIKFIRE2026 .xlsx"
-WATERMARK = Path(__file__).resolve().parent / "สำเนาของ watermark (15).png"
+WATERMARK = Path(__file__).resolve().parent / "watermark_current_transparent_hq.png"
 IMAGE_DIR = ROOT / "output" / "spreadsheet" / "hikfire_product_images"
 WATERMARKED_DIR = ROOT / "output" / "spreadsheet" / "hikfire_product_images_watermarked"
 PRODUCT_EXCEL = ROOT / "output" / "spreadsheet" / "HIKFIRE_LnwShop_AI_ready_watermarked.xlsx"
@@ -341,11 +341,14 @@ def make_product_rows() -> list[dict[str, Any]]:
                 main_category,
                 sub_category,
                 "One Tech Solution",
+                "ซ่อมติดตั้งสั่งซื้ออะไหล่",
+                "ขายส่ง",
+                "คอนโดโรงเรียนโรงแรมหมู่บ้าน",
             ]
             if token
         )
         meta = f"{thai_name} / {english_name} สำหรับระบบแจ้งเหตุเพลิงไหม้และงานความปลอดภัย ราคา 0 บาทในไฟล์ตรวจสอบก่อนลงร้าน"
-        tags = ", ".join(token for token in [model, "HIKFIRE", "Fire Alarm", "Smoke Alarm", "Fire Detection", main_category] if token)
+        tags = ", ".join(token for token in [model, "HIKFIRE", "Fire Alarm", "Smoke Alarm", "Fire Detection", main_category, "ซ่อมติดตั้งสั่งซื้ออะไหล่", "ขายส่ง", "คอนโดโรงเรียนโรงแรมหมู่บ้าน"] if token)
         rows.append(
             {
                 "ลำดับ": item_no,

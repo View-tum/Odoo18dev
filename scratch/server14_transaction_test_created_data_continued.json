@@ -1,0 +1,100 @@
+{
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "generated_at": "2026-06-07T08:52:22.369113",
+  "created_records": [
+    [
+      "purchase.order",
+      186
+    ],
+    [
+      "account.move",
+      69799
+    ],
+    [
+      "stock.return.picking",
+      181
+    ],
+    [
+      "stock.picking",
+      10818
+    ],
+    [
+      "stock.return.picking",
+      182
+    ],
+    [
+      "stock.picking",
+      10819
+    ],
+    [
+      "account.move.reversal",
+      32
+    ],
+    [
+      "account.move",
+      69804
+    ]
+  ],
+  "log": [
+    {
+      "step": "receipt_checked",
+      "receipt": {
+        "id": 10816,
+        "name": "GMP/IN/00123",
+        "state": "done",
+        "move_ids": [
+          33263
+        ],
+        "invoice_reference": "SERVER14-E2E-20260607085007",
+        "invoice_date": "2026-06-07"
+      }
+    },
+    {
+      "step": "bill_posted",
+      "bill": {
+        "id": 69799,
+        "name": "APD/26/06/00003",
+        "state": "posted",
+        "amount_total": 500.0,
+        "payment_state": "not_paid",
+        "move_type": "in_invoice",
+        "journal_id": [
+          59,
+          "Domestic Vendor Bills"
+        ],
+        "line_ids": [
+          214202,
+          214203
+        ]
+      }
+    },
+    {
+      "step": "returns_done",
+      "returns": [
+        {
+          "id": 10818,
+          "name": "GMP/R-OUT/00011",
+          "state": "done",
+          "move_ids": [
+            33265
+          ],
+          "invoice_reference": "SERVER14-E2E-20260607085007",
+          "invoice_date": "2026-06-07"
+        },
+        {
+          "id": 10819,
+          "name": "GMP/R-OUT/00012",
+          "state": "done",
+          "move_ids": [
+            33266
+          ],
+          "invoice_reference": "SERVER14-E2E-20260607085007",
+          "invoice_date": "2026-06-07"
+        }
+      ]
+    }
+  ],
+  "error": "{\"code\": 200, \"message\": \"Odoo Server Error\", \"data\": {\"name\": \"odoo.exceptions.UserError\", \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/po_asset_discount_apportion/models/account_move.py\\\", line 136, in action_post\\n    return super().action_post()\\n           ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/easy_petty_cash/models/account_move_ext.py\\\", line 16, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/partner_payment_condition/models/res_partner.py\\\", line 84, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/purchase_deposit/models/account_move.py\\\", line 24, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_reports/models/account_move.py\\\", line 40, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/sale/models/account_move.py\\\", line 64, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/account_freeze_address/models/account_move.py\\\", line 108, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/account_accrual_wizard/models/account_move_inherit.py\\\", line 9, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_accountant/models/account_move.py\\\", line 119, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/account/models/account_move.py\\\", line 5426, in action_post\\n    self._post(soft=False)\\n  File \\\"/opt/odoo/custom/goldmints_addon/wht_payment_auto_deduct/models/account_move.py\\\", line 167, in _post\\n    moves = super()._post(soft=soft)\\n            ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax_expense/models/account_move.py\\\", line 12, in _post\\n    res = super()._post(soft)\\n          ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_loans/models/account_move.py\\\", line 20, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_invoice_extract/models/account_invoice.py\\\", line 277, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_asset/models/account_move.py\\\", line 128, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/stock_landed_costs/models/account_move.py\\\", line 51, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_reports/models/account_move.py\\\", line 30, in _post\\n    return super()._post(soft)\\n           ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/sale/models/account_move.py\\\", line 98, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/purchase_stock/models/account_invoice.py\\\", line 144, in _post\\n    posted = super(AccountMove, self.with_context(skip_cogs_reconciliation=True))._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/appointment_account_payment/models/account_move.py\\\", line 14, in _post\\n    posted = super()._post(soft=soft)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/stock_account/models/account_move.py\\\", line 49, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax/models/account_move.py\\\", line 445, in _post\\n    handle_purchase_taxes(move)\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax/models/account_move.py\\\", line 394, in handle_purchase_taxes\\n    raise UserError(\\nodoo.exceptions.UserError: Please fill in tax invoice and tax date\\n\", \"message\": \"Please fill in tax invoice and tax date\", \"arguments\": [\"Please fill in tax invoice and tax date\"], \"context\": {}}}",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 141, in <module>\n  File \"<stdin>\", line 19, in call\n  File \"<stdin>\", line 12, in rpc\nException: {\"code\": 200, \"message\": \"Odoo Server Error\", \"data\": {\"name\": \"odoo.exceptions.UserError\", \"debug\": \"Traceback (most recent call last):\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2166, in _transactioning\\n    return service_model.retrying(func, env=self.env)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/service/model.py\\\", line 156, in retrying\\n    result = func()\\n             ^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2133, in _serve_ir_http\\n    response = self.dispatcher.dispatch(rule.endpoint, args)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 2381, in dispatch\\n    result = self.request.registry['ir.http']._dispatch(endpoint)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/addons/base/models/ir_http.py\\\", line 333, in _dispatch\\n    result = endpoint(**request.params)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/http.py\\\", line 754, in route_wrapper\\n    result = endpoint(self, *args, **params_ok)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/web/controllers/dataset.py\\\", line 36, in call_kw\\n    return call_kw(request.env[model], method, args, kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/odoo/api.py\\\", line 535, in call_kw\\n    result = getattr(recs, name)(*args, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/po_asset_discount_apportion/models/account_move.py\\\", line 136, in action_post\\n    return super().action_post()\\n           ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/easy_petty_cash/models/account_move_ext.py\\\", line 16, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/partner_payment_condition/models/res_partner.py\\\", line 84, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/purchase_deposit/models/account_move.py\\\", line 24, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_reports/models/account_move.py\\\", line 40, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/sale/models/account_move.py\\\", line 64, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/account_freeze_address/models/account_move.py\\\", line 108, in action_post\\n    res = super(AccountMove, self).action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/account_accrual_wizard/models/account_move_inherit.py\\\", line 9, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_accountant/models/account_move.py\\\", line 119, in action_post\\n    res = super().action_post()\\n          ^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/account/models/account_move.py\\\", line 5426, in action_post\\n    self._post(soft=False)\\n  File \\\"/opt/odoo/custom/goldmints_addon/wht_payment_auto_deduct/models/account_move.py\\\", line 167, in _post\\n    moves = super()._post(soft=soft)\\n            ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax_expense/models/account_move.py\\\", line 12, in _post\\n    res = super()._post(soft)\\n          ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_loans/models/account_move.py\\\", line 20, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_invoice_extract/models/account_invoice.py\\\", line 277, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_asset/models/account_move.py\\\", line 128, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/stock_landed_costs/models/account_move.py\\\", line 51, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/account_reports/models/account_move.py\\\", line 30, in _post\\n    return super()._post(soft)\\n           ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/sale/models/account_move.py\\\", line 98, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/purchase_stock/models/account_invoice.py\\\", line 144, in _post\\n    posted = super(AccountMove, self.with_context(skip_cogs_reconciliation=True))._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/enterprise/appointment_account_payment/models/account_move.py\\\", line 14, in _post\\n    posted = super()._post(soft=soft)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/odoo-server/addons/stock_account/models/account_move.py\\\", line 49, in _post\\n    posted = super()._post(soft)\\n             ^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax/models/account_move.py\\\", line 445, in _post\\n    handle_purchase_taxes(move)\\n  File \\\"/opt/odoo/custom/goldmints_addon/l10n_th_account_tax/models/account_move.py\\\", line 394, in handle_purchase_taxes\\n    raise UserError(\\nodoo.exceptions.UserError: Please fill in tax invoice and tax date\\n\", \"message\": \"Please fill in tax invoice and tax date\", \"arguments\": [\"Please fill in tax invoice and tax date\"], \"context\": {}}}\n"
+}

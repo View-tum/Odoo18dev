@@ -1,0 +1,183 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [expanded] [active] [ref=e2460] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e2461] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e2462] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e2463] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 41" [ref=e3432] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "41"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e6329]:
+    - generic [ref=e6331]:
+      - generic [ref=e6332]:
+        - button "New" [ref=e6335] [cursor=pointer]
+        - generic [ref=e6336]:
+          - list [ref=e6337]:
+            - listitem [ref=e6338]:
+              - button "" [ref=e6339] [cursor=pointer]:
+                - generic [ref=e6340]: 
+            - listitem [ref=e6341]:
+              - text: /
+              - link "BN/2026/05/0040" [ref=e6342] [cursor=pointer]:
+                - /url: /odoo/purchase/1127/vendor.billing.note/40
+            - listitem [ref=e6343]:
+              - text: /
+              - link "APD/2026/05/0004 (TC2-P01065)" [ref=e6344] [cursor=pointer]:
+                - /url: /odoo/purchase/1127/vendor.billing.note/40/account.move/73039
+          - generic [ref=e6345]:
+            - generic [ref=e6347]: Assets
+            - button "" [ref=e6351] [cursor=pointer]:
+              - generic [ref=e6352]: 
+      - search [ref=e6354]:
+        - search [ref=e6355]:
+          - button "Search..." [ref=e6356] [cursor=pointer]:
+            - img [ref=e6357]: 
+          - searchbox "Search..." [ref=e6359]
+        - button "" [ref=e6360] [cursor=pointer]
+      - search [ref=e6362]:
+        - navigation "Pager" [ref=e6363]:
+          - generic [ref=e6364]:
+            - generic [ref=e6365]: 1-2
+            - text: / 2
+          - generic [ref=e6366]:
+            - button "Previous" [disabled]:
+              - generic: 
+            - button "Next" [disabled]:
+              - generic: 
+    - table [ref=e6369]:
+      - rowgroup [ref=e6370]:
+        - row "Asset Name  เลขทะเบียนคุม FIX ASSET  Acquisition Date  Original Value  Total Group Value Method  Accum Depreciation  Book Value  Depreciable Value Status  " [ref=e6371]:
+          - columnheader [ref=e6372] [cursor=pointer]:
+            - checkbox [ref=e6374]
+          - columnheader "Asset Name " [ref=e6375] [cursor=pointer]:
+            - generic [ref=e6376]:
+              - generic [ref=e6377]: Asset Name
+              - generic [ref=e6378]: 
+          - columnheader "เลขทะเบียนคุม FIX ASSET " [ref=e6380] [cursor=pointer]:
+            - generic [ref=e6381]:
+              - generic [ref=e6382]: เลขทะเบียนคุม FIX ASSET
+              - generic [ref=e6383]: 
+          - columnheader "Acquisition Date " [ref=e6385] [cursor=pointer]:
+            - generic [ref=e6386]:
+              - generic [ref=e6387]: Acquisition Date
+              - generic [ref=e6388]: 
+          - columnheader "Original Value " [ref=e6390] [cursor=pointer]:
+            - generic [ref=e6391]:
+              - generic [ref=e6392]: Original Value
+              - generic [ref=e6393]: 
+          - columnheader "Total Group Value" [ref=e6395]:
+            - generic [ref=e6396]:
+              - generic [ref=e6397]: Total Group Value
+              - text: 
+          - columnheader "Method " [ref=e6399] [cursor=pointer]:
+            - generic [ref=e6400]:
+              - generic [ref=e6401]: Method
+              - generic [ref=e6402]: 
+          - columnheader "Accum Depreciation " [ref=e6404] [cursor=pointer]:
+            - generic [ref=e6405]:
+              - generic [ref=e6406]: Accum Depreciation
+              - generic [ref=e6407]: 
+          - columnheader "Book Value " [ref=e6409] [cursor=pointer]:
+            - generic [ref=e6410]:
+              - generic [ref=e6411]: Book Value
+              - generic [ref=e6412]: 
+          - columnheader "Depreciable Value" [ref=e6414]:
+            - generic [ref=e6415]:
+              - generic [ref=e6416]: Depreciable Value
+              - text: 
+          - columnheader "Status " [ref=e6418] [cursor=pointer]:
+            - generic [ref=e6419]:
+              - generic [ref=e6420]: Status
+              - generic [ref=e6421]: 
+          - columnheader [ref=e6423]
+          - columnheader "" [ref=e6424]:
+            - button "" [ref=e6426] [cursor=pointer]:
+              - generic [ref=e6427]: 
+      - rowgroup [ref=e6428]:
+        - row "Injection Machine FA/2026/00004 05/26/2026 540,000.00 ฿ 540,000.00 ฿ Straight Line 0 540,000.00 ฿ 540,000.00 ฿ Draft" [ref=e6429]:
+          - cell [ref=e6430]:
+            - checkbox [ref=e6432] [cursor=pointer]
+          - cell "Injection Machine" [ref=e6433] [cursor=pointer]
+          - cell "FA/2026/00004" [ref=e6434] [cursor=pointer]
+          - cell "05/26/2026" [ref=e6435] [cursor=pointer]
+          - cell "540,000.00 ฿" [ref=e6436] [cursor=pointer]
+          - cell "540,000.00 ฿" [ref=e6437] [cursor=pointer]
+          - cell "Straight Line" [ref=e6438] [cursor=pointer]
+          - cell "0" [ref=e6439] [cursor=pointer]
+          - cell "540,000.00 ฿" [ref=e6440] [cursor=pointer]
+          - cell "540,000.00 ฿" [ref=e6441] [cursor=pointer]:
+            - generic [ref=e6442]: 540,000.00 ฿
+          - cell "Draft" [ref=e6443] [cursor=pointer]
+          - cell [ref=e6444] [cursor=pointer]
+          - cell [ref=e6445]
+        - row "Injection Machine FA/2026/00005 05/26/2026 360,000.00 ฿ 360,000.00 ฿ Straight Line 0 360,000.00 ฿ 360,000.00 ฿ Draft" [ref=e6446]:
+          - cell [ref=e6447]:
+            - checkbox [ref=e6449] [cursor=pointer]
+          - cell "Injection Machine" [ref=e6450] [cursor=pointer]
+          - cell "FA/2026/00005" [ref=e6451] [cursor=pointer]
+          - cell "05/26/2026" [ref=e6452] [cursor=pointer]
+          - cell "360,000.00 ฿" [ref=e6453] [cursor=pointer]
+          - cell "360,000.00 ฿" [ref=e6454] [cursor=pointer]
+          - cell "Straight Line" [ref=e6455] [cursor=pointer]
+          - cell "0" [ref=e6456] [cursor=pointer]
+          - cell "360,000.00 ฿" [ref=e6457] [cursor=pointer]
+          - cell "360,000.00 ฿" [ref=e6458] [cursor=pointer]:
+            - generic [ref=e6459]: 360,000.00 ฿
+          - cell "Draft" [ref=e6460] [cursor=pointer]
+          - cell [ref=e6461] [cursor=pointer]
+          - cell [ref=e6462]
+        - row [ref=e6463]:
+          - cell [ref=e6464]
+        - row [ref=e6465]:
+          - cell [ref=e6466]
+      - rowgroup [ref=e6467]:
+        - row [ref=e6468]:
+          - cell [ref=e6469]
+          - cell [ref=e6470]
+          - cell [ref=e6471]
+          - cell [ref=e6472]
+          - cell [ref=e6473]
+          - cell [ref=e6474]
+          - cell [ref=e6475]
+          - cell [ref=e6476]
+          - cell [ref=e6477]
+          - cell [ref=e6478]
+          - cell [ref=e6479]
+          - cell [ref=e6480]
+          - cell [ref=e6481]
+  - menu [ref=e6486]:
+    - menuitem "Requests for Quotation" [ref=e6487] [cursor=pointer]
+    - menuitem "Purchase Orders" [ref=e6488] [cursor=pointer]
+    - menuitem "Purchase Requests" [ref=e6489] [cursor=pointer]
+    - menuitem "Purchase Request Lines" [ref=e6490] [cursor=pointer]
+    - menuitem "Purchase Agreements" [ref=e6491] [cursor=pointer]
+    - menuitem "Service Acceptances" [ref=e6492] [cursor=pointer]
+    - menuitem "Vendors" [ref=e6493] [cursor=pointer]
+    - menuitem "Billing Notes" [ref=e6494] [cursor=pointer]

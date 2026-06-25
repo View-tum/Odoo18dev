@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-06-06T11:16:48.479Z",
+  "base": "http://10.0.0.14",
+  "db": "goldmints_uat",
+  "results": [
+    {
+      "defect": "LOGIN2",
+      "title": "Login rerun for corrected UI harness",
+      "status": "PASS",
+      "evidence": "url=http://10.0.0.14/odoo",
+      "screenshot": "scratch/server14_ui_real_work/010_rerun_login.png"
+    },
+    {
+      "defect": "1611",
+      "title": "UI Billing Note APD/CN form one Lines tab",
+      "status": "PASS",
+      "evidence": "bnId=67 oneTab=true hasAPD=true text=Database neutralized for testing: no emails sent, etc. Purchase Orders Products Reporting Configuration 3 48 GOLD MINTS PRODUCTS CO., LTD. New Billing Notes BN/2026/06/0067 3 Vendor Bills 1 / 1 Confirm Cancel Fully Billed Partially Billed Confirmed Draft Billing Note BN/2026/06/0067 Vendor Purchase Orders Vendor Reference? Billing Source Existing APD/CN Billing Date Due Date Responsible Vendor Bills 4,688.105104 ฿ Credit Notes 2,344.052552 ฿ Total 4,688.105104 ฿ Amount Due 2,344.052552 ฿ Open Balance 2,344.052552 ฿ Lines Purchase Order Receipt Service Acceptance Product Description Quantity Unit Price Discount (%) Fixed Discount Subtotal ​ ​ ",
+      "screenshot": "scratch/server14_ui_real_work/1665_rerun_bn_draft.png"
+    },
+    {
+      "defect": "1665A",
+      "title": "UI Confirm APD/CN BN net due backend/form state",
+      "status": "PASS",
+      "evidence": "bn={\"id\":67,\"name\":\"BN/2026/06/0067\",\"state\":\"billed\",\"amount_vendor_bills\":4688.105104,\"amount_credit_notes\":2344.052552,\"amount_residual_net_due\":2344.052552,\"payment_state\":\"not_paid\"} expected=2344.05",
+      "screenshot": "scratch/server14_ui_real_work/1665_rerun_bn_confirmed.png"
+    },
+    {
+      "defect": "1665",
+      "title": "UI Register Payment nets APD/CN without wrong amount",
+      "status": "FAIL",
+      "evidence": "expected=2344.052552 modalAmount=4381.40664 paymentDifference=4688.11 text=Database neutralized for testing: no emails sent, etc. Purchase Orders Products Reporting Configuration 3 48 GOLD MINTS PRODUCTS CO., LTD. New Billing Notes BN/2026/06/0067 3 Vendor Bills 1 / 1 Register Payment Fully Billed Partially Billed Confirmed Draft Billing Note BN/2026/06/0067 Vendor บริษัท ซีพี ออลล์ จำกัด (มหาชน) Purchase Orders Vendor Reference? UI-E2E-APD-CN-NET-RERUN Billing Source Existing APD/CN Billing Date 06/06/2026 Due Date Responsible Payment Status Not Paid Vendor Bills 4,688.105104 ฿ Credit Notes 2,344.052552 ฿ Total 4,688.105104 ฿ Amount Due 2,344.052552 ฿ Open Balance 2,344.052552 ฿ Lines Purchase Order Receipt Service Acceptance Product Description Quantity Unit Price Discount (%) Fixed Discount Subtotal ​ ​ ​ ​ Doc Type APD/CN Bill Date Vendor Reference Total Amount Due Status Payment Status Vendor Credit Note VCND/26/05/00001 18/05/2026 การกลับรายการของ:APD/26/05/00026 2,344.05 2,344.05 Posted Not Paid Vendor Bill APD/26/05/00026 16/05/2026 2,344.05 2,344.05 ",
+      "screenshot": "scratch/server14_ui_real_work/1665_rerun_payment_modal.png"
+    },
+    {
+      "defect": "1654",
+      "title": "UI Register Payment no unexpected Payment Difference",
+      "status": "FAIL",
+      "evidence": "paymentDifference=4688.11 modalAmount=4381.40664 expected=2344.052552",
+      "screenshot": "scratch/server14_ui_real_work/1665_rerun_payment_modal.png"
+    },
+    {
+      "defect": "1685",
+      "title": "UI PO Status Report clear Lines tab and create Billing Note action",
+      "status": "FAIL",
+      "evidence": "initial={\"lines\":false,\"preview\":false} oneLines=true hasBilling=true createBtn=false text=Database neutralized for testing: no emails sent, etc. Purchase Orders Products Reporting Configuration 3 48 GOLD MINTS PRODUCTS CO., LTD. New รายงานสถานะคำสั่งซื้อ รายงานสถานะคำสั่งซื้อ 1 / 1 Preview Select APD/CN Select Billable Clear Selection Export PDF Export XLSX ผู้ขาย สินค้า วันที่เริ่มต้น วันที่สิ้นสุด สถานะใบสั่งซื้อ RFQ RFQ Sent To Approve To Approve LV2 Purchase Order Locked Rejected Cancelled สถานะการวางบิล ยังไม่วางบิล ร่างใบวางบิล วางบิลบางส่วน วางบิลครบแล้ว สถานะการตั้งหนี้ ยังไม่ตั้งหนี้ รอตั้งหนี้ ตั้งหนี้ครบแล้ว Lines Type ใบสั่งซื้อ APD/CN Doc Type อ้างอิง ใบรับสินค้า/บริการ (SA/Receipt) วันที่รับสินค้า/บริการ เลขที่ใบแจ้งหนี้ (Inv Ref) Bill Date Bill Total Open Balance Billing Note วันที่สั่งซื้อ วันที่คาดว่าจะมาถึง ผู้ขาย สินค้า จำนวน รับสินค้า/บริการ ค้างรับชำระ หน่วยนับ ราคาต่อหน่วย ยอดไม่รวมภาษี สถานะใบสั่งซื้อ สถานะการวางบิล สถานะการตั้งหนี้ PO / Service P00123 PR00040 Total Summary 0.000 0.000 01/06/2026 31/05/2026 JW TECH CO.,LTD. [SM-PSS-TH-02002] ชิ้นส่วนย",
+      "screenshot": "scratch/server14_ui_real_work/1685_rerun_po_status_after_preview.png"
+    },
+    {
+      "defect": "1683",
+      "title": "UI action binding for Manual Merge Internal Transfer on Operation and MO",
+      "status": "PASS",
+      "evidence": "actions=[{\"id\":1697,\"name\":\"Merge Internal Transfers\",\"model_name\":\"stock.picking\",\"binding_model_id\":[727,\"Transfer\"],\"state\":\"code\"},{\"id\":1698,\"name\":\"Merge Internal Transfers\",\"model_name\":\"mrp.production\",\"binding_model_id\":[848,\"Manufacturing Order\"],\"state\":\"code\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1667",
+      "title": "UI vendor return has credit/refund action or linked fields available",
+      "status": "PASS",
+      "evidence": "picking=[{\"id\":10574,\"name\":\"GMP/R-OUT/00002\",\"state\":\"done\",\"picking_type_id\":[62,\"GOLD MINTS PRODUCTS CO., LTD.: Return OUT\"]}] actions=[] fields=[\"return_id\",\"return_ids\",\"return_count\",\"vendor_credit_note_ids\",\"vendor_credit_note_count\",\"vendor_credit_note_state\",\"is_return_picking\",\"return_label_ids\"]",
+      "screenshot": null
+    },
+    {
+      "defect": "1684",
+      "title": "Contract expiry reminder cron active",
+      "status": "PASS",
+      "evidence": "crons=[{\"id\":70,\"name\":\"Contract Auto-Expire - Daily\",\"active\":true,\"interval_number\":1,\"interval_type\":\"days\"},{\"id\":69,\"name\":\"Contract Expiry Reminder - Daily\",\"active\":true,\"interval_number\":1,\"interval_type\":\"days\"}]",
+      "screenshot": null
+    },
+    {
+      "defect": "1633",
+      "title": "Asset model uses clearing accounts 123008/123010",
+      "status": "FAIL",
+      "evidence": "{\"modelRows\":[{\"id\":809,\"model\":\"account.asset\",\"name\":\"Asset/Revenue Recognition\"}]}",
+      "screenshot": null
+    },
+    {
+      "defect": "CLEANUP2",
+      "title": "Temp rerun BN removed and APD/CN unlinked",
+      "status": "PASS",
+      "evidence": "leftovers=[] links=[{\"id\":69356,\"name\":\"APD/26/05/00026\",\"vendor_billing_note_id\":false},{\"id\":69355,\"name\":\"APD/26/05/00025\",\"vendor_billing_note_id\":false},{\"id\":69388,\"name\":\"VCND/26/05/00001\",\"vendor_billing_note_id\":false}]",
+      "screenshot": null
+    }
+  ],
+  "uiErrors": []
+}

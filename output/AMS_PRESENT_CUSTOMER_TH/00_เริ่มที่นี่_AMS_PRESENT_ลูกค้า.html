@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <title>AMS Customer Presentation - Start Here</title>
+  <style>
+    body{font-family:Arial,'Noto Sans Thai',sans-serif;margin:0;background:#f6f7fb;color:#172033}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px}
+    .hero{background:#5b1747;color:white;border-radius:10px;padding:26px 30px}
+    h1{margin:0 0 8px;font-size:30px}h2{margin:26px 0 12px;color:#5b1747}
+    .lead{font-size:17px;line-height:1.7;margin:0;color:#fdeff8}
+    table{width:100%;border-collapse:collapse;background:white;border:1px solid #dde3ee}
+    th{background:#5b1747;color:white;text-align:left}
+    th,td{border:1px solid #dde3ee;padding:10px;vertical-align:top;line-height:1.55}
+    .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#5b1747;color:white;font-weight:700}
+    a{color:#2155a3;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}
+    .note,.card{background:white;border:1px solid #dde3ee;border-radius:10px;padding:16px;margin-top:14px}
+    .warn{background:#fff7ed;border-color:#fed7aa}
+    ul{margin:8px 0 0 22px;padding:0}li{margin:7px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>ลำดับนำเสนอ AMS สำหรับลูกค้า</h1>
+      <p class="lead">ใช้หน้านี้เป็นหน้าเปิดจริงสำหรับ present ลูกค้า เป้าหมายคืออธิบายให้เข้าใจง่ายว่าเราช่วยลดงานซ้ำ ทำให้ flow ชัดขึ้น ใช้ Odoo standard ให้มากที่สุด และแยกจุดที่ต้องทำเพิ่มจริง ๆ</p>
+    </section>
+
+    <div class="note warn">
+      <strong>ข้อความหลัก:</strong> เราใช้ Odoo standard ก่อน แล้วทำเพิ่มเฉพาะจุดที่รูปแบบงานของ AMS ต้องการมากกว่า standard โดยเฉพาะงานที่กระทบ Stock, MRP และ Accounting ต้องยืนยัน rule ก่อน
+    </div>
+
+    <h2>ลำดับเปิดไฟล์จริง</h2>
+    <table>
+      <thead><tr><th>ลำดับ</th><th>ไฟล์ที่เปิด</th><th>ใช้พูดเรื่องอะไร</th><th>คำพูดง่าย ๆ สำหรับลูกค้า</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="num">1</span></td>
+          <td><a href="./01_Dashboard_AMS_เราช่วยอะไร.html">Dashboard</a><br><a href="./01_Dashboard_AMS_เราช่วยอะไร.xlsx">Excel แก้ไขได้</a></td>
+          <td>สรุปว่าเราเข้ามาช่วยลดงานและจัด flow อย่างไร</td>
+          <td>เราจะช่วยจัด requirement ให้เป็น flow เดียวกัน ลดงานซ้ำ และแยกให้ชัดว่าส่วนไหนใช้ Odoo ได้เลย ส่วนไหนต้องทำเพิ่ม</td>
+        </tr>
+        <tr>
+          <td><span class="num">2</span></td>
+          <td><a href="./02_Manday_และ_รายละเอียด_Request.xlsx">Manday และรายละเอียด Request</a></td>
+          <td>อธิบาย Manday และ effort ที่ใช้</td>
+          <td>ตัวเลขนี้ใช้วางแผนและจัดลำดับงาน ยังไม่ใช่ราคาปิดสุดท้าย ต้องยืนยัน scope ก่อน</td>
+        </tr>
+        <tr>
+          <td><span class="num">3</span></td>
+          <td><a href="./03_Mapping_44_Request_กับ_Flow.html">Mapping HTML</a><br><a href="./03_Mapping_44_Request_กับ_Flow.xlsx">Excel แก้ไขได้</a><br><a href="./03A_Mapping_Standard_Custom_By_Flow.drawio">Draw.io แก้ไขได้</a></td>
+          <td>Mapping ว่าแต่ละ request อยู่ flow ไหน อยู่ Odoo module ไหน ส่วนไหน standard และส่วนไหนต้องทำเพิ่ม/custom</td>
+          <td>44 ข้อคือ request จริง ส่วน 24 จุดเป็นข้อมูลประกอบจาก blueprint/note เพื่อให้ flow ครบ แล้วแยก module, standard และ custom ให้เห็นชัด</td>
+        </tr>
+        <tr>
+          <td><span class="num">4</span></td>
+          <td><a href="./04_Workflow_Business_Flow_AMS.drawio">Workflow / Business Flow</a></td>
+          <td>เปิด diagram ไล่ตั้งแต่ขาย ซื้อ คลัง ผลิต คุณภาพ ส่งของ จนถึงบัญชี</td>
+          <td>เราจะไล่ flow จากต้นจนจบ เพื่อดูว่าใครทำอะไร เอกสารไหนเกิดตรงไหน และจุดไหนต้องตัดสินใจร่วมกัน</td>
+        </tr>
+        <tr>
+          <td><span class="num">5</span></td>
+          <td><a href="./05_สรุปปิดการนำเสนอ_และ_Action_Next.html">ปิดการนำเสนอ</a><br><a href="./05_สรุปปิดการนำเสนอ_และ_Action_Next.xlsx">Excel แก้ไขได้</a></td>
+          <td>สรุปสิ่งที่ต้องยืนยันกับลูกค้าและรายการที่ต้องขอเพิ่ม</td>
+          <td>หลังจากวันนี้เราจะขอ confirm scope, ตัวอย่างเอกสาร, format รายงาน และไฟล์/API ที่ต้องเชื่อม</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>ไฟล์แก้ไขได้ที่ควรใช้</h2>
+    <div class="card">
+      <ul>
+        <li><a href="./00_เริ่มที่นี่_AMS_PRESENT_ลูกค้า.xlsx">00_เริ่มที่นี่_AMS_PRESENT_ลูกค้า.xlsx</a> - แก้ลำดับ present และคำพูดหลัก</li>
+        <li><a href="./01_Dashboard_AMS_เราช่วยอะไร.xlsx">01_Dashboard_AMS_เราช่วยอะไร.xlsx</a> - แก้ Dashboard</li>
+        <li><a href="./02_Manday_และ_รายละเอียด_Request.xlsx">02_Manday_และ_รายละเอียด_Request.xlsx</a> - แก้ Manday และรายละเอียด request</li>
+        <li><a href="./03_Mapping_44_Request_กับ_Flow.xlsx">03_Mapping_44_Request_กับ_Flow.xlsx</a> - แก้ mapping รายข้อ</li>
+        <li><a href="./03A_Mapping_Standard_Custom_By_Flow.drawio">03A_Mapping_Standard_Custom_By_Flow.drawio</a> - แก้ภาพ Module / Standard / Custom ราย flow</li>
+        <li><a href="./04_Workflow_Business_Flow_AMS.drawio">04_Workflow_Business_Flow_AMS.drawio</a> - แก้ workflow/business flow</li>
+        <li><a href="./05_สรุปปิดการนำเสนอ_และ_Action_Next.xlsx">05_สรุปปิดการนำเสนอ_และ_Action_Next.xlsx</a> - แก้สรุปปิด meeting และ next step</li>
+      </ul>
+    </div>
+
+    <h2>คำอธิบายตัวเลข 44 และ 24</h2>
+    <div class="card">
+      <ul>
+        <li><strong>44 Customer Requests</strong> คือ request จริงจากไฟล์ R001 ของลูกค้า</li>
+        <li><strong>24 Supporting Mapping Points</strong> คือจุดเสริมจาก solution note และรูป blueprint ไม่ใช่ request เพิ่มใหม่</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

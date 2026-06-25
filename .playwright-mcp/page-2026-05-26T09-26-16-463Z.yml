@@ -1,0 +1,299 @@
+- generic [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Purchase" [ref=e7]
+        - generic [ref=e8]: Purchase
+      - menu [ref=e9]:
+        - button "Orders" [ref=e2460] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "Products" [ref=e2461] [cursor=pointer]:
+          - generic [ref=e13]: Products
+        - button "Reporting" [ref=e2462] [cursor=pointer]:
+          - generic [ref=e15]: Reporting
+        - button "Configuration" [ref=e2463] [cursor=pointer]:
+          - generic [ref=e17]: Configuration
+      - menu [ref=e18]:
+        - button "Attendance" [ref=e19] [cursor=pointer]:
+          - img "Attendance" [ref=e20]: 
+        - button "Messages 2" [ref=e22] [cursor=pointer]:
+          - img "Messages" [ref=e23]: 
+          - generic [ref=e24]: "2"
+        - button "Activities 41" [ref=e3432] [cursor=pointer]:
+          - img "Activities" [ref=e26]: 
+          - generic [ref=e27]: "41"
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e5486]:
+    - generic [ref=e5488]:
+      - generic [ref=e5489]:
+        - button "New" [ref=e5492] [cursor=pointer]
+        - generic [ref=e5493]:
+          - list [ref=e5494]:
+            - listitem [ref=e5495]:
+              - button "" [ref=e5496] [cursor=pointer]:
+                - generic [ref=e5497]: 
+            - listitem [ref=e5498]:
+              - text: /
+              - link "P01065" [ref=e5499] [cursor=pointer]:
+                - /url: /odoo/purchase/1127
+            - listitem [ref=e5500]:
+              - text: /
+              - link "BN/2026/05/0040" [ref=e5501] [cursor=pointer]:
+                - /url: /odoo/purchase/1127/vendor.billing.note/40
+          - generic [ref=e5502]:
+            - generic [ref=e5504]: Draft Bill (TC2-P01065)
+            - button "" [ref=e5508] [cursor=pointer]:
+              - generic [ref=e5509]: 
+      - button " P01065 Purchases" [ref=e5513] [cursor=pointer]:
+        - generic [ref=e5514]: 
+        - generic [ref=e5515]:
+          - generic [ref=e5516]: P01065
+          - generic [ref=e5517]: Purchases
+      - generic [ref=e5518]:
+        - button "Search Knowledge Articles" [ref=e5519] [cursor=pointer]:
+          - img [ref=e5520]
+        - search [ref=e5524]:
+          - navigation "Pager" [ref=e5525]:
+            - generic [ref=e5526]:
+              - generic [ref=e5527]: "1"
+              - text: / 1
+            - generic [ref=e5528]:
+              - button "Previous" [disabled]:
+                - generic: 
+              - button "Next" [disabled]:
+                - generic: 
+    - generic [ref=e5531]:
+      - generic [ref=e5532]:
+        - generic [ref=e5533]:
+          - button "Confirm" [ref=e5534] [cursor=pointer]
+          - button "Cancel" [ref=e5535] [cursor=pointer]
+        - radiogroup "Statusbar" [ref=e5537]:
+          - radio "Posted" [disabled]
+          - radio "Draft" [checked] [disabled]
+      - alert [ref=e5539]:
+        - generic [ref=e5540]: This bill contains products under an Asset category.
+        - button "Create Assets" [ref=e5541] [cursor=pointer]
+      - generic [ref=e5542]:
+        - generic [ref=e5543]:
+          - generic [ref=e5545]: Vendor Bill
+          - heading "Draft" [level=1] [ref=e5546]
+        - generic [ref=e5547]:
+          - generic [ref=e5548]:
+            - generic [ref=e5549]:
+              - generic [ref=e5551]: Vendor
+              - generic [ref=e5554]:
+                - combobox "Vendor" [ref=e5558]: JW TECH CO.,LTD.
+                - generic [ref=e5559]: Thailand
+            - generic [ref=e5561]:
+              - generic [ref=e5563]: Apply Manual Exchange
+              - checkbox "Apply Manual Exchange" [ref=e5567] [cursor=pointer]
+            - generic [ref=e5568]:
+              - generic [ref=e5570]: Bill Reference
+              - textbox "Bill Reference" [ref=e5573]: TC2-P01065
+            - generic [ref=e5574]:
+              - generic [ref=e5576]:
+                - text: Billing Note Ref.
+                - superscript [ref=e5577]: "?"
+              - link "BN/2026/05/0040" [ref=e5580] [cursor=pointer]:
+                - /url: /odoo/vendor.billing.note/40
+                - generic [ref=e5581]: BN/2026/05/0040
+            - generic [ref=e5582]:
+              - generic [ref=e5584]:
+                - text: Auto-Complete
+                - superscript [ref=e5585]: "?"
+              - combobox "Auto-Complete?" [ref=e5591]
+          - generic [ref=e5592]:
+            - generic [ref=e5593]:
+              - generic [ref=e5595]: Period
+              - link "05/2026" [ref=e5598] [cursor=pointer]:
+                - /url: /odoo/sh.account.period/6
+                - generic [ref=e5599]: 05/2026
+            - generic [ref=e5600]:
+              - generic [ref=e5602]: Fiscal Year
+              - link "2026" [ref=e5605] [cursor=pointer]:
+                - /url: /odoo/sh.fiscal.year/1
+                - generic [ref=e5606]: "2026"
+            - generic [ref=e5607]:
+              - generic [ref=e5609]: Bill Date
+              - textbox [ref=e5613] [cursor=pointer]: 05/26/2026
+            - generic [ref=e5614]:
+              - generic [ref=e5616]: Accounting Date
+              - textbox "Accounting Date" [ref=e5620] [cursor=pointer]: 05/26/2026
+            - generic [ref=e5621]:
+              - generic [ref=e5623]:
+                - text: Payment Reference
+                - superscript [ref=e5624]: "?"
+              - textbox "Payment Reference?" [ref=e5627]:
+                - /placeholder: Use Bill Reference
+            - generic [ref=e5628]:
+              - generic [ref=e5630]:
+                - text: Recipient Bank
+                - superscript [ref=e5631]: "?"
+              - combobox "Recipient Bank?" [ref=e5637]
+            - generic [ref=e5638]:
+              - generic [ref=e5641]: Payment terms
+              - generic [ref=e5643]:
+                - textbox [ref=e5646] [cursor=pointer]
+                - combobox "Payment terms" [ref=e5651]: 60 Days
+            - generic [ref=e5652]:
+              - generic [ref=e5654]: Customer Reference
+              - textbox "Customer Reference" [ref=e5657]: TC2-P01065
+            - generic [ref=e5658]:
+              - generic [ref=e5660]: Journal
+              - generic [ref=e5662]:
+                - combobox "Journal" [ref=e5667]: Domestic Vendor Bills
+                - generic [ref=e5669]: in
+                - combobox [ref=e5676]: THB
+        - generic [ref=e5677]:
+          - list [ref=e5679]:
+            - listitem [ref=e5680] [cursor=pointer]:
+              - tab "Invoice Lines" [ref=e5681]
+            - listitem [ref=e5682] [cursor=pointer]:
+              - tab "Journal Items" [ref=e5683]
+            - listitem [ref=e5684] [cursor=pointer]:
+              - tab "Tax Invoice" [active] [ref=e5685]
+            - listitem [ref=e5686] [cursor=pointer]:
+              - tab "Other Info" [ref=e5687]
+            - listitem [ref=e5688] [cursor=pointer]:
+              - tab "Purchase Note" [ref=e5689]
+          - table [ref=e6144]:
+            - rowgroup [ref=e6145]:
+              - row "Partner  Tax Branch  Tax Invoice Number  Tax Invoice Date  Report Late  Report Date  Tax Base  Tax Amount  " [ref=e6146]:
+                - columnheader "Partner " [ref=e6147] [cursor=pointer]:
+                  - generic [ref=e6148]:
+                    - generic [ref=e6149]: Partner
+                    - generic [ref=e6150]: 
+                - columnheader "Tax Branch " [ref=e6152] [cursor=pointer]:
+                  - generic [ref=e6153]:
+                    - generic [ref=e6154]: Tax Branch
+                    - generic [ref=e6155]: 
+                - columnheader "Tax Invoice Number " [ref=e6157] [cursor=pointer]:
+                  - generic [ref=e6158]:
+                    - generic [ref=e6159]: Tax Invoice Number
+                    - generic [ref=e6160]: 
+                - columnheader "Tax Invoice Date " [ref=e6162] [cursor=pointer]:
+                  - generic [ref=e6163]:
+                    - generic [ref=e6164]: Tax Invoice Date
+                    - generic [ref=e6165]: 
+                - columnheader "Report Late " [ref=e6167] [cursor=pointer]:
+                  - generic [ref=e6168]:
+                    - generic [ref=e6169]: Report Late
+                    - generic [ref=e6170]: 
+                - columnheader "Report Date " [ref=e6172] [cursor=pointer]:
+                  - generic [ref=e6173]:
+                    - generic [ref=e6174]: Report Date
+                    - generic [ref=e6175]: 
+                - columnheader "Tax Base " [ref=e6177] [cursor=pointer]:
+                  - generic [ref=e6178]:
+                    - generic [ref=e6179]: Tax Base
+                    - generic [ref=e6180]: 
+                - columnheader "Tax Amount " [ref=e6182] [cursor=pointer]:
+                  - generic [ref=e6183]:
+                    - generic [ref=e6184]: Tax Amount
+                    - generic [ref=e6185]: 
+                - columnheader [ref=e6187]
+                - columnheader "" [ref=e6188]:
+                  - button "" [ref=e6190] [cursor=pointer]:
+                    - generic [ref=e6191]: 
+            - rowgroup [ref=e6192]:
+              - row "JW TECH CO.,LTD. 00000 0 month 900,000.00 63,000.00  Split Delete row" [ref=e6193]:
+                - cell "JW TECH CO.,LTD." [ref=e6194] [cursor=pointer]
+                - cell "00000" [ref=e6195] [cursor=pointer]
+                - cell [ref=e6196] [cursor=pointer]
+                - cell [ref=e6197] [cursor=pointer]
+                - cell "0 month" [ref=e6198] [cursor=pointer]
+                - cell [ref=e6199] [cursor=pointer]
+                - cell "900,000.00" [ref=e6200] [cursor=pointer]
+                - cell "63,000.00" [ref=e6201] [cursor=pointer]
+                - cell " Split" [ref=e6202] [cursor=pointer]:
+                  - button " Split" [ref=e6204]:
+                    - generic [ref=e6205]: 
+                    - text: Split
+                - cell "Delete row" [ref=e6206]:
+                  - button "Delete row" [ref=e6207] [cursor=pointer]: 
+              - row [ref=e6208]:
+                - cell [ref=e6209]
+              - row [ref=e6210]:
+                - cell [ref=e6211]
+              - row [ref=e6212]:
+                - cell [ref=e6213]
+            - rowgroup [ref=e6214]:
+              - row "- -" [ref=e6215]:
+                - cell [ref=e6216]
+                - cell [ref=e6217]
+                - cell [ref=e6218]
+                - cell [ref=e6219]
+                - cell [ref=e6220]
+                - cell [ref=e6221]
+                - cell "-" [ref=e6222]
+                - cell "-" [ref=e6223]
+                - cell [ref=e6224]
+                - cell [ref=e6225]
+      - generic [ref=e5934]:
+        - generic [ref=e5936]:
+          - button "Send message" [ref=e5937] [cursor=pointer]
+          - button "Log note" [ref=e5938] [cursor=pointer]
+          - button "Activities" [ref=e5939] [cursor=pointer]
+          - button "Search Messages" [ref=e5941] [cursor=pointer]:
+            - img [ref=e5942]: 
+          - button "Attach files" [ref=e5944] [cursor=pointer]:
+            - generic [ref=e5945]: 
+          - button "1" [ref=e5947] [cursor=pointer]:
+            - img [ref=e5948]: 
+            - superscript: "1"
+          - button "Following" [ref=e5949] [cursor=pointer]:
+            - generic [ref=e5951]: Following
+        - generic [ref=e5954]:
+          - generic [ref=e6105]:
+            - separator [ref=e6106]
+            - generic [ref=e6107]: Today
+            - separator [ref=e6108]
+          - group "System notification" [ref=e6109]:
+            - generic [ref=e6110]:
+              - generic "Open card" [ref=e6112] [cursor=pointer]:
+                - img [ref=e6113]
+              - generic [ref=e6114]:
+                - generic [ref=e6115]:
+                  - generic "Open card" [ref=e6116] [cursor=pointer]:
+                    - strong [ref=e6117]: Administrator
+                  - generic "5/26/2026, 4:26:00 PM" [ref=e6118]: Today at 4:26 PM
+                - list [ref=e6123]:
+                  - group [ref=e6124]:
+                    - text: None
+                    - generic [ref=e6125]: 
+                    - text: TC2-P01065
+                    - generic [ref=e6126]: (Reference)
+          - group "System notification" [ref=e5960]:
+            - generic [ref=e5961]:
+              - generic "Open card" [ref=e5963] [cursor=pointer]:
+                - img [ref=e5964]
+              - generic [ref=e5965]:
+                - generic [ref=e5966]:
+                  - generic "Open card" [ref=e5967] [cursor=pointer]:
+                    - strong [ref=e5968]: Administrator
+                  - generic "5/26/2026, 4:25:30 PM" [ref=e5969]: Today at 4:25 PM
+                - paragraph [ref=e5976]:
+                  - text: "This vendor bill has been created from:"
+                  - link "P01065" [ref=e5977] [cursor=pointer]:
+                    - /url: "#"
+          - group "System notification" [ref=e5978]:
+            - generic [ref=e5979]:
+              - generic "Open card" [ref=e5981] [cursor=pointer]:
+                - img [ref=e5982]
+              - generic [ref=e5983]:
+                - generic [ref=e5984]:
+                  - generic "Open card" [ref=e5985] [cursor=pointer]:
+                    - strong [ref=e5986]: Administrator
+                  - generic "5/26/2026, 4:25:29 PM" [ref=e5987]: Today at 4:25 PM
+                - paragraph [ref=e5994]: Vendor Bill Created

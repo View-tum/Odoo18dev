@@ -1,0 +1,70 @@
+{
+  "baseUrl": "http://127.0.0.1:8811",
+  "db": "GoldMints_Uat_Manu",
+  "prefix": "UI-CN-EMBED-20260620024402",
+  "startedAt": "2026-06-20T02:44:18.260Z",
+  "scenarios": {
+    "customer_cn": {
+      "moveIds": [
+        74192,
+        74193
+      ],
+      "moveNames": [
+        "INV-D/2026/00018",
+        "RINV-D/2026/00003"
+      ],
+      "expectedAmount": 75,
+      "listScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_customer_cn_list.png",
+      "wizardScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_customer_cn_wizard.png",
+      "afterScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_customer_cn_after.png",
+      "status": "clicked",
+      "amountVisible": true,
+      "wizardTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nUpload\nInvoices\n2\nselected\nPay\nSend\nDownload\nActions\n1-80 / 5278\n\t\nNumber\n\t\nCustomer\n\t\nInvoice Date\n\t\nDue Date\n\t\nPeriod\n\t\nFiscal Year\n\t\nWarehouse\n\t\nTax Excluded\n\t\nTotal\n\t\nStatus\n\t\n\n\n\tRINV-D/2026/00003\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t-25.00 ฿\t-25.00 ฿\t\nNot Paid\n\t\n\n\tRINV-D/2026/00002\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t-25.00 ฿\t-25.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00019\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t80.00 ฿\t80.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00018\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00017\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00016\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t80.00 ฿\t80.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00015\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nNot Paid\n\t\n\n\t/\t#Created by: Administrator\t\t\n9 days ago\n\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nDraft\n\t\n\n\t/\t#Created by: Administrator\t\t\n9 days ago\n\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nDraft\n\t\n\n\t/\t#Created by: Administrator\t\t\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nCancelled\n\t\n\n\tINV-D/2026/00014\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t120.00 ฿\t120.00 ฿\t\nIn Payment\n\t\n\n\tINV-D/2026/00013\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t100.00 ฿\t100.00 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00012\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t222.22 ฿\t222.22 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00011\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t222.22 ฿\t222.22 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00010\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t123.45 ฿\t123.45 ฿\t\nPaid\n\t\n\n\tINV-E/2026/00007\tTheophane Co.Ltd. (Taiwan)\t05/26/2026\t\t05/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\t$ 18,600.00\t$ 18,600.00\t\nPaid\n\t\n\n\tINV-E/2026/00006\tTheophane Co.Ltd. (Taiwan)\t05/26/2026\t\t05/2026\t2026\tGOLD MINTS PR",
+      "afterTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nInvoices\nPPBAY1/2026/00419\n2 Invoice\nJournal Entry\n1 / 1\nReset To Draft\nPaid\nIn Process\nDraft\nPPBAY1/2026/00419\nPayment Type\nSend\nReceive\nCustomer\nDENKI SHOJI CO.,LTD.\nAmount\n75.00\nTHB\nDate\n06/20/2026\nMemo\nGroup Payment Memo\nBATCH/2026/00036\nJournal\nเงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8\nApply Manual Exchange\nPayment Method?\nManual Payment\nCompany Bank Account\nAdvance\nSend message\nLog note\nActivities\n1\nFollowing\nToday\nAdministrator\nToday at 9:45 AM\n\nPayments created",
+      "urlAfter": "http://127.0.0.1:8811/odoo/invoicing/4082/account.payment/3983",
+      "hasRpcError": false
+    },
+    "vendor_cn": {
+      "moveIds": [
+        74194,
+        74195
+      ],
+      "moveNames": [
+        "APD/2026/06/0013",
+        "RAPD/2026/06/0009"
+      ],
+      "expectedAmount": 75,
+      "listScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_vendor_cn_list.png",
+      "wizardScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_vendor_cn_wizard.png",
+      "afterScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_vendor_cn_after.png",
+      "status": "clicked",
+      "amountVisible": true,
+      "wizardTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nUpload\nBills\n2\nselected\nPay\nDownload\nActions\n1-80 / 212\n\t\nNumber\n\t\nVendor\n\t\nBill Date\n\t\nDue Date\n\t\nPeriod\n\t\nFiscal Year\n\t\nWarehouse\n\t\nReference\n\t\nTax Excluded\n\t\nTotal\n\t\nStatus\n\t\n\n\n\tRAPD/2026/06/0006\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S3-CN\t30.00 ฿\t30.00 ฿\t\nPaid\n\t\n\n\tRAPD/2026/06/0005\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S2-CN\t125.00 ฿\t125.00 ฿\t\nPaid\n\t\n\n\tRAPD/2026/06/0004\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\t\tE2E-BN-20260630-080055-S1-CN\t214.00 ฿\t214.00 ฿\t\nPaid\n\t\n\n\tAPD/2026/06/0009\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S4-PO\t-240.00 ฿\t-240.00 ฿\t\nPaid\n\t\n\n\tAPD/2026/06/0008\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S3-PO\t-200.00 ฿\t-200.00 ฿\t\nPaid\n\t\n\n\tAPD/2026/06/0007\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S3-BILL\t-100.00 ฿\t-100.00 ฿\t\nPaid\n\t\n\n\tAPD/2026/06/0006\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\tE2E-BN-20260630-080055-S2-BILL\t-500.00 ฿\t-500.00 ฿\t\nPaid\n\t\n\n\tAPD/2026/06/0005\tDENKI SHOJI CO.,LTD.\t06/30/2026\t\t06/2026\t2026\t\tE2E-BN-20260630-080055-S1-BILL\t-321.00 ฿\t-321.00 ฿\t\nPaid\n\t\n\n\tRAPD/2026/06/0009\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nIn 30 days\n\t06/2026\t2026\t\tUI-CN-EMBED-20260620024402-VENDOR-CN\t25.00 ฿\t25.00 ฿\t\nNot Paid\n\t\n\n\tRAPD/2026/06/0008\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nIn 30 days\n\t06/2026\t2026\t\tUI-CN-EMBED-20260620-VEN-CN\t25.00 ฿\t25.00 ฿\t\nNot Paid\n\t\n\n\tAPD/2026/06/0013\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nIn 30 days\n\t06/2026\t2026\t\tUI-CN-EMBED-20260620024402-VENDOR-BILL\t-100.00 ฿\t-100.00 ฿\t\nNot Paid\n\t\n\n\tAPD/2026/06/0012\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nIn 30 days\n\t06/2026\t2026\t\tUI-CN-EMBED-20260620-CROSS-BILL\t-40.00 ฿\t-40.00 ฿\t\nNot Paid\n\t\n",
+      "afterTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nBills\nPPBAY1/2026/00420\n2 Bill\nJournal Entry\n1 / 1\nReset To Draft\nPaid\nIn Process\nDraft\nPPBAY1/2026/00420\nPayment Type\nSend\nReceive\nVendor\nDENKI SHOJI CO.,LTD.\nAmount\n75.00\nTHB\nDate\n06/20/2026\nMemo\nGroup Payment Memo\nBATCH/2026/00038\nJournal\nเงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8\nApply Manual Exchange\nPayment Method?\nManual Payment\nVendor Bank Account\nSend message\nLog note\nActivities\n1\nFollowing\nToday\nAdministrator\nToday at 9:47 AM\n\nPayments created",
+      "urlAfter": "http://127.0.0.1:8811/odoo/bills/4083/account.payment/3984",
+      "hasRpcError": false
+    },
+    "normal_invoice": {
+      "moveIds": [
+        74196
+      ],
+      "moveNames": [
+        "INV-D/2026/00019"
+      ],
+      "expectedAmount": 80,
+      "listScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_normal_invoice_list.png",
+      "wizardScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_normal_invoice_wizard.png",
+      "afterScreenshot": "C:\\365_project\\TheCool18e\\Dev\\output\\playwright\\payment_cn_normal_invoice_after.png",
+      "status": "clicked",
+      "amountVisible": true,
+      "wizardTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nNew\nUpload\nInvoices\n1\nselected\nPay\nSend\nDownload\nActions\n1-80 / 5278\n\t\nNumber\n\t\nCustomer\n\t\nInvoice Date\n\t\nDue Date\n\t\nPeriod\n\t\nFiscal Year\n\t\nWarehouse\n\t\nTax Excluded\n\t\nTotal\n\t\nStatus\n\t\n\n\n\tRINV-D/2026/00003\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\t06/2026\t2026\t\t-25.00 ฿\t-25.00 ฿\t\nPaid\n\t\n\n\tRINV-D/2026/00002\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t-25.00 ฿\t-25.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00019\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t80.00 ฿\t80.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00018\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00017\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00016\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t80.00 ฿\t80.00 ฿\t\nNot Paid\n\t\n\n\tINV-D/2026/00015\tDENKI SHOJI CO.,LTD.\t06/20/2026\t\nToday\n\t06/2026\t2026\t\t100.00 ฿\t100.00 ฿\t\nNot Paid\n\t\n\n\t/\t#Created by: Administrator\t\t\n9 days ago\n\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nDraft\n\t\n\n\t/\t#Created by: Administrator\t\t\n9 days ago\n\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nDraft\n\t\n\n\t/\t#Created by: Administrator\t\t\t06/2026\t2026\t\t0.00 ฿\t0.00 ฿\t\nCancelled\n\t\n\n\tINV-D/2026/00014\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t120.00 ฿\t120.00 ฿\t\nIn Payment\n\t\n\n\tINV-D/2026/00013\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t100.00 ฿\t100.00 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00012\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t222.22 ฿\t222.22 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00011\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t222.22 ฿\t222.22 ฿\t\nPaid\n\t\n\n\tINV-D/2026/00010\t*คุณเกสรี สุวรรณาภรณ์\t06/06/2026\t\t06/2026\t2026\tMobile Warehouse\t123.45 ฿\t123.45 ฿\t\nPaid\n\t\n\n\tINV-E/2026/00007\tTheophane Co.Ltd. (Taiwan)\t05/26/2026\t\t05/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\t$ 18,600.00\t$ 18,600.00\t\nPaid\n\t\n\n\tINV-E/2026/00006\tTheophane Co.Ltd. (Taiwan)\t05/26/2026\t\t05/2026\t2026\tGOLD MINTS PRODUCTS CO., LTD.\t$ 18,",
+      "afterTextSample": "Database neutralized for testing: no emails sent, etc.\n1\n66\nGOLD MINTS PRODUCTS CO., LTD.\nInvoices\nPPBAY1/2026/00421\n1 Invoice\nJournal Entry\n1 / 1\nReset To Draft\nPaid\nIn Process\nDraft\nPPBAY1/2026/00421\nPayment Type\nSend\nReceive\nCustomer\nDENKI SHOJI CO.,LTD.\nAmount\n80.00\nTHB\nDate\n06/20/2026\nMemo\nGroup Payment Memo\nINV-D/2026/00019\nJournal\nเงินฝากธนาคารกระแสรายวัน-ธ.กรุงศรี สามแยก #046-0-14721-8\nApply Manual Exchange\nPayment Method?\nManual Payment\nCompany Bank Account\nAdvance\nSend message\nLog note\nActivities\n1\nFollowing\nToday\nAdministrator\nToday at 9:48 AM\n\nPayments created",
+      "urlAfter": "http://127.0.0.1:8811/odoo/invoicing/4084/account.payment/3985",
+      "hasRpcError": false
+    }
+  },
+  "skipped": {
+    "cross_settlement": "Journal Entries list has no standard Pay button; verified by backend integration tests."
+  },
+  "finishedAt": "2026-06-20T02:48:44.091Z"
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_expense_report_wizard_form" model="ir.ui.view">
+        <field name="name">account.expense.report.wizard.form</field>
+        <field name="model">account.expense.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="รายงานค่าใช้จ่ายล่วงหน้า">
+                <group>
+                    <group name="details_filters">
+                        <separator string="รายละเอียดตัวกรอง"/>
+                        <field name="product_ids" widget="many2many_tags" placeholder="เลือกสินค้า/บริการ" options="{'no_create': True}"/>
+                        <field name="vendor_id" placeholder="ทั้งหมด" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+
+                    <group name="date_report_settings">
+                        <separator string="ช่วงวันที่และรายงาน"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="report_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Print PDF" name="print_report" type="object" class="btn-primary"/>
+                    <button string="Export Excel" name="export_to_excel" type="object" class="btn-secondary"/>
+                    <button string="Cancel" class="btn-link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_expense_report" model="ir.actions.act_window">
+        <field name="name">รายงานค่าใช้จ่ายล่วงหน้า</field>
+        <field name="res_model">account.expense.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_account_expense_report" name="รายงานค่าใช้จ่ายล่วงหน้า" parent="account_payment_collection_report.account_reports_accounting_reports_menu" action="action_account_expense_report" sequence="90"/>
+</odoo>

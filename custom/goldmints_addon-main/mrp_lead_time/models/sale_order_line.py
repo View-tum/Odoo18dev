@@ -19,3 +19,9 @@ class SaleOrderLine(models.Model):
             return
 
         self.mfg_lead_time = self.product_id.mfg_lead_time
+
+    def _prepare_procurement_values(self, group_id=False):
+        values = super()._prepare_procurement_values(group_id=group_id)
+        self.ensure_one()
+        values["mfg_lead_time"] = self.mfg_lead_time or self.product_id.mfg_lead_time or 0
+        return values

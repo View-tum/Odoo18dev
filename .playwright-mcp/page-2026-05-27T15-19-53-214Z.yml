@@ -1,0 +1,44 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e6] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Sales" [ref=e7]
+        - generic [ref=e8]: Sales
+      - menu [ref=e9]:
+        - button "Orders" [ref=e10] [cursor=pointer]:
+          - generic [ref=e11]: Orders
+        - button "To Invoice" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: To Invoice
+        - button "Products" [ref=e14] [cursor=pointer]:
+          - generic [ref=e15]: Products
+        - button "After-Sale Services" [ref=e16] [cursor=pointer]:
+          - generic [ref=e17]: After-Sale Services
+        - button "Reporting" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: Reporting
+        - button "Configuration" [ref=e20] [cursor=pointer]:
+          - generic [ref=e21]: Configuration
+      - menu [ref=e22]:
+        - button "Open developer tools" [ref=e24] [cursor=pointer]:
+          - img "Open developer tools" [ref=e25]: 
+        - button "Messages 1" [ref=e27] [cursor=pointer]:
+          - img "Messages" [ref=e28]: 
+          - generic [ref=e29]: "1"
+        - button "Activities" [ref=e30] [cursor=pointer]:
+          - img "Activities" [ref=e31]: 
+        - generic:
+          - button "Toggle Studio":
+            - img: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e33]:
+          - text: 
+          - generic [ref=e34]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User Administrator  GoldMints_Uat_Manu" [ref=e36] [cursor=pointer]:
+          - img "User" [ref=e37]
+          - generic [ref=e38]:
+            - text: Administrator
+            - mark [ref=e39]:
+              - generic [ref=e40]: 
+              - text: GoldMints_Uat_Manu
+  - generic [ref=e42]: Loading (1)

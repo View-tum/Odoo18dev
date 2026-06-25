@@ -100,7 +100,7 @@ class TripClosingQueries(models.AbstractModel):
                     return func(*args, rel_table=rel, **kwargs)
             except Exception as e:
                 last_exc = e
-                _logger.exception("rel-table %s failed: %s", rel, e)
+                _logger.debug("rel-table %s failed, trying next: %s", rel, e)
         raise last_exc
 
     # ============================================================
@@ -281,6 +281,7 @@ class TripClosingQueries(models.AbstractModel):
             "carsale_location_name": vehicle_name,
             "trip_numbers": trips["trip_nos"],
             "trip_nos": trips["trip_nos"],
+            "trip_date_map": trips.get("trip_date_map", {}),
             "date_start": ds,
             "date_end": de,
             "lines": lines,
@@ -311,41 +312,75 @@ class TripClosingQueries(models.AbstractModel):
         price_map = sales.get("unit_price_map", {})
         amount_map = sales.get("inv_amount_map", {})
 
-        lines = []
+        # ใช้ Dict เพื่อจับกลุ่มสินค้าที่ชื่อเหมือนกัน (กรณีมีแยก Product [FREE])
+        grouped_data = {}
+
         for p in products:
-            trip_qtys = [
-                (trip_qty_map.get((p.id, tno), 0.0) or 0.0) 
-                for tno in trip_nos
-            ]
+            raw_name = self._strip_product_code(p.display_name)
+            is_free_item = "[FREE]" in p.display_name.upper()
             
+            # ตัดคำว่า [FREE] ออก เพื่อให้สินค้าแถมกับปกติจับกลุ่มเป็นบรรทัดเดียวกัน
+            clean_name = re.sub(r'(?i)\s*\[FREE\]\s*', '', raw_name).strip()
+
+            if clean_name not in grouped_data:
+                grouped_data[clean_name] = {
+                    "product_id": p.id,
+                    "product_code": p.default_code or "",
+                    "product_name": clean_name,
+                    "trip_qtys": [0.0] * len(trip_nos),
+                    "transfer_total": 0.0,
+                    "sold_qty": 0.0,
+                    "free_qty": 0.0,  # ตัวแปรใหม่สำหรับช่อง 'ชดเชย'
+                    "price": 0.0,
+                    "amount": 0.0,    # <--- แก้ไข Error: เพิ่ม amount กลับเข้ามา
+                    "amount_money": 0.0,
+                    "latest_transfer_date": None,
+                }
+
+            group = grouped_data[clean_name]
+
+            # ดึงค่าของสินค้านั้นๆ
             transfer_total = transfer_map.get(p.id, 0.0) or 0.0
             sold_qty = sold_map.get(p.id, 0.0) or 0.0
             price = price_map.get(p.id, 0.0) or 0.0
             
-            # Fallback price calc
-            if not price and sold_qty > 0:
-                amt = amount_map.get(p.id, 0.0) or 0.0
-                if amt and sold_qty:
-                    price = amt / sold_qty
-            
+            # ดึงค่า amount ป้องกันค่าว่าง
             amount = amount_map.get(p.id)
             if amount is None:
                 amount = sold_qty * price
             amount = float(amount or 0.0)
-            amount_money = float((sold_qty or 0.0) * (price or 0.0))
 
-            lines.append({
-                "product_id": p.id,
-                "product_code": p.default_code or "",
-                "product_name": self._strip_product_code(p.display_name),
-                "trip_qtys": trip_qtys,
-                "transfer_total": transfer_total,
-                "sold_qty": sold_qty,
-                "price": price,
-                "amount": amount,
-                "amount_money": amount_money,
-                "latest_transfer_date": latest_map.get(p.id),
-            })
+            # คำนวณราคาเฉลี่ยเผื่อกรณีราคาหาย
+            if not price and sold_qty > 0 and amount > 0:
+                price = amount / sold_qty
+
+            amount_money = float((sold_qty or 0.0) * (price or 0.0))
+            latest_date = latest_map.get(p.id)
+
+            # --- เริ่มรวมยอดเข้ากลุ่ม ---
+            for i, tno in enumerate(trip_nos):
+                group["trip_qtys"][i] += (trip_qty_map.get((p.id, tno), 0.0) or 0.0)
+            
+            group["transfer_total"] += transfer_total
+
+            # ตรวจจับสินค้าฟรี (ชื่อมี [FREE] หรือ ราคาเป็น 0)
+            if is_free_item or (price == 0 and sold_qty > 0):
+                group["free_qty"] += sold_qty
+            else:
+                group["sold_qty"] += sold_qty
+                if price > 0:
+                    group["price"] = price # ยึดราคาของตัวที่ไม่ได้แถม
+
+            group["amount"] += amount         # <--- แก้ไข Error: ยอด amount รวม
+            group["amount_money"] += amount_money
+
+            if latest_date:
+                if not group["latest_transfer_date"] or latest_date > group["latest_transfer_date"]:
+                    group["latest_transfer_date"] = latest_date
+
+        # แปลง Dict กลับเป็น List และเรียงตามชื่อสินค้า
+        lines = list(grouped_data.values())
+        lines.sort(key=lambda x: x["product_name"])
 
         return lines
 
@@ -463,11 +498,13 @@ class TripClosingQueries(models.AbstractModel):
         SELECT
             tl.product_id,
             tl.trip_no,
+            td.trip_day,
             tl.qty,
             tt.total_qty,
             tm.max_trip,
             lbp.latest_trip_day
         FROM transfer_lines tl
+        JOIN trip_days td ON td.trip_no = tl.trip_no
         JOIN transfer_totals tt ON tt.product_id = tl.product_id
         CROSS JOIN trip_max tm
         LEFT JOIN latest_by_product lbp ON lbp.product_id = tl.product_id
@@ -488,6 +525,7 @@ class TripClosingQueries(models.AbstractModel):
         product_ids = set()
         max_trip = 0
         latest_map = {}
+        trip_date_map = {}
 
         for r in rows:
             pid = r["product_id"]
@@ -499,6 +537,8 @@ class TripClosingQueries(models.AbstractModel):
             max_trip = max(max_trip, int(r["max_trip"] or 0))
             if r.get("latest_trip_day"):
                 latest_map[pid] = r["latest_trip_day"]
+            if r.get("trip_day"):
+                trip_date_map[int(r["trip_no"])] = r["trip_day"]
 
         trip_nos = list(range(1, max_trip + 1)) if max_trip else []
         return {
@@ -507,6 +547,7 @@ class TripClosingQueries(models.AbstractModel):
             "trip_qty_map": trip_qty_map,
             "transfer_total_map": transfer_total_map,
             "latest_trip_day_map": latest_map,
+            "trip_date_map": trip_date_map,
         }
 
     # ============================================================
@@ -586,6 +627,7 @@ class TripClosingQueries(models.AbstractModel):
                 oml.product_id,
                 oml.qty_done,
                 sol.id AS sol_id,
+                sol.price_unit AS sol_price_unit,
                 so.user_id AS salesperson_user_id
             FROM out_move_lines oml
             JOIN sale_order_line sol ON sol.id = oml.sale_line_id
@@ -597,8 +639,10 @@ class TripClosingQueries(models.AbstractModel):
             WHERE salesperson_user_id = (SELECT salesperson_user_id FROM params)
         ),
         sold_by_product AS (
+            -- เฉพาะ SOL ที่ราคา > 0 (ไม่นับของแถม)
             SELECT product_id, SUM(qty_done) AS sold_qty
             FROM filtered_sol
+            WHERE sol_price_unit > 0
             GROUP BY product_id
         ),
         sale_lines AS (
@@ -1117,8 +1161,6 @@ class TripClosingQueries(models.AbstractModel):
             elif jtype == "cash":
                 cash.append(item)
         
-        _logger.info(
-            f"Receipts: {len(transfers)} bank, {len(cheques)} cheque, {len(cash)} cash"
-        )
+        _logger.debug( f"Receipts: {len(transfers)} bank, {len(cheques)} cheque, {len(cash)} cash")
         
         return transfers, cheques, cash

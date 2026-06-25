@@ -1,0 +1,126 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]: "Database neutralized for testing: no emails sent, etc."
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - link "Home menu" [ref=e4800] [cursor=pointer]:
+        - /url: /odoo
+        - img
+        - img "Settings" [ref=e4801]
+        - generic [ref=e8]: Settings
+      - menu [ref=e9]:
+        - menuitem "General Settings" [ref=e4802] [cursor=pointer]
+        - button "Users & Companies" [ref=e4803] [cursor=pointer]:
+          - generic [ref=e4804]: Users & Companies
+        - button "Translations" [ref=e4805] [cursor=pointer]:
+          - generic [ref=e4806]: Translations
+        - button "General Settings" [ref=e4807] [cursor=pointer]:
+          - generic [ref=e4808]: General Settings
+        - button "Gamification Tools" [ref=e4809] [cursor=pointer]:
+          - generic [ref=e4810]: Gamification Tools
+        - button "Workflow" [ref=e4811] [cursor=pointer]:
+          - generic [ref=e4812]: Workflow
+        - button "Technical" [ref=e4813] [cursor=pointer]:
+          - generic [ref=e4814]: Technical
+      - menu [ref=e21]:
+        - button "Attendance" [ref=e22] [cursor=pointer]:
+          - img "Attendance" [ref=e23]: 
+        - button "Messages 2" [ref=e25] [cursor=pointer]:
+          - img "Messages" [ref=e26]: 
+          - generic [ref=e27]: "2"
+        - button "Activities 23" [ref=e4675] [cursor=pointer]:
+          - img "Activities" [ref=e29]: 
+          - generic [ref=e30]: "23"
+        - button "Toggle Studio" [ref=e1831] [cursor=pointer]:
+          - img [ref=e1832]: 
+        - button "GOLD MINTS PRODUCTS CO., LTD." [disabled] [ref=e32]:
+          - text: 
+          - generic [ref=e33]: GOLD MINTS PRODUCTS CO., LTD.
+        - button "User" [ref=e35] [cursor=pointer]:
+          - img "User" [ref=e36]
+          - text: 
+  - generic [ref=e6903]:
+    - generic [ref=e6905]:
+      - generic [ref=e6906]:
+        - button "New" [ref=e6909] [cursor=pointer]
+        - generic [ref=e6910]:
+          - list [ref=e6911]:
+            - listitem [ref=e6912]:
+              - link "Scheduled Actions" [ref=e6913] [cursor=pointer]:
+                - /url: /odoo/crons
+          - generic [ref=e6914]:
+            - generic [ref=e6916]: "Currency: rate update"
+            - button "" [ref=e6920] [cursor=pointer]:
+              - generic [ref=e6921]: 
+      - generic [ref=e6923]:
+        - button "Search Knowledge Articles" [ref=e6924] [cursor=pointer]:
+          - img [ref=e6925]
+        - search [ref=e6929]:
+          - navigation "Pager" [ref=e6930]:
+            - generic [ref=e6931]:
+              - generic [ref=e6932]: "25"
+              - text: / 73
+            - generic [ref=e6933]:
+              - button "Previous" [ref=e6934] [cursor=pointer]:
+                - generic [ref=e6935]: 
+              - button "Next" [ref=e6936] [cursor=pointer]:
+                - generic [ref=e6937]: 
+    - generic [ref=e6940]:
+      - button "Run Manually" [ref=e6943] [cursor=pointer]
+      - generic [ref=e6944]:
+        - 'heading "Currency: rate update" [level=1] [ref=e6945]':
+          - textbox "e.g. Mass archive contacts" [ref=e6947]: "Currency: rate update"
+        - generic [ref=e6948]:
+          - generic [ref=e6949]: Technical Settings
+          - generic [ref=e6950]:
+            - generic [ref=e6951]:
+              - generic [ref=e6953]:
+                - text: Model
+                - superscript [ref=e6954]: "?"
+              - combobox "Model?" [ref=e6960]: Companies
+            - generic [ref=e6961]:
+              - generic [ref=e6963]:
+                - text: Allowed Groups
+                - superscript [ref=e6964]: "?"
+              - combobox "Allowed Groups?" [ref=e6971]
+        - generic [ref=e6972]: Action Details
+        - generic [ref=e6974]:
+          - generic [ref=e6975]:
+            - generic [ref=e6977]: Scheduler User
+            - combobox "Scheduler User" [ref=e6983]: OdooBot
+          - generic [ref=e6984]:
+            - generic [ref=e6986]:
+              - text: Execute Every
+              - superscript [ref=e6987]: "?"
+            - generic [ref=e6989]:
+              - textbox "Execute Every?" [ref=e6991]: "1"
+              - combobox [ref=e6993] [cursor=pointer]:
+                - option "Minutes"
+                - option "Hours"
+                - option "Days" [selected]
+                - option "Weeks"
+                - option "Months"
+          - generic [ref=e6994]:
+            - generic [ref=e6996]: Active
+            - checkbox "Active" [ref=e7000] [cursor=pointer]
+          - generic [ref=e7001]:
+            - generic [ref=e7003]:
+              - text: Next Execution Date
+              - superscript [ref=e7004]: "?"
+            - textbox "Next Execution Date?" [ref=e7008] [cursor=pointer]: 12/27/2025 13:50:29
+          - generic [ref=e7009]:
+            - generic [ref=e7011]:
+              - text: Priority
+              - superscript [ref=e7012]: "?"
+            - textbox "Priority?" [ref=e7015]: "5"
+        - generic [ref=e7016]:
+          - list [ref=e7018]:
+            - listitem [ref=e7019] [cursor=pointer]:
+              - tab "Code" [ref=e7020]
+            - listitem [ref=e7021] [cursor=pointer]:
+              - tab "Help" [ref=e7022]
+          - generic [ref=e7027]:
+            - textbox [ref=e7028]
+            - generic [ref=e7031]: "1"
+            - generic [ref=e7033]:
+              - generic:
+                - generic: model.run_update_currency()

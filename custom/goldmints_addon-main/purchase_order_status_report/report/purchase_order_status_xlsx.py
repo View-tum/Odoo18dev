@@ -363,29 +363,31 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
 
         # --------- Data lines ---------
         for line in lines:
-            is_header = line.get("is_header")
-            
-            # Select Formats based on row type
-            fmt_text = header_row_fmt if is_header else detail_row_fmt
-            fmt_num = header_row_num_fmt if is_header else detail_row_num_fmt
-            fmt_date = header_row_date_fmt if is_header else detail_row_date_fmt
+            if line.get("is_header"):
+                fmt_text = header_row_fmt
+                fmt_num = header_row_num_fmt
+                fmt_date = header_row_date_fmt
+            else:
+                fmt_text = detail_row_fmt
+                fmt_num = detail_row_num_fmt
+                fmt_date = detail_row_date_fmt
             
             col = 0
             
-            # Identity Columns (Always show, but lighter for Detail)
+            # Identity Columns
             sheet.write(row, col, line.get("order_name", ""), fmt_text); col += 1
-            sheet.write(row, col, line.get("source_document", "") if is_header else "", fmt_text); col += 1
+            sheet.write(row, col, line.get("source_document", ""), fmt_text); col += 1
             
-            # Receipt Info (Show on all)
+            # Receipt Info
             sheet.write(row, col, line.get("receipt_ref", ""), fmt_text); col += 1
             sheet.write(row, col, line.get("receipt_date") or "", fmt_date); col += 1
             sheet.write(row, col, line.get("inv_ref", ""), fmt_text); col += 1
             
-            # Dates & Vendor/Product (Always show, but lighter for Detail)
-            sheet.write(row, col, line.get("order_date") or "" if is_header else "", fmt_date); col += 1
-            sheet.write(row, col, line.get("expected_arrival") or "" if is_header else "", fmt_date); col += 1
+            # Dates & Vendor/Product
+            sheet.write(row, col, line.get("order_date") or "", fmt_date); col += 1
+            sheet.write(row, col, line.get("expected_arrival") or "", fmt_date); col += 1
             sheet.write(row, col, (line.get("vendor").name if line.get("vendor") else ""), fmt_text); col += 1
-            sheet.write(row, col, (line.get("product").display_name if line.get("product") else ""), fmt_text); col += 1
+            sheet.write(row, col, line.get("product_display") or "", fmt_text); col += 1
             
             # Quantities
             sheet.write(row, col, line.get("qty", 0.0), fmt_num); col += 1
@@ -393,27 +395,27 @@ class PurchaseOrderStatusXlsx(models.AbstractModel):
             sheet.write(row, col, line.get("qty_pending", 0.0), fmt_num); col += 1
             sheet.write(row, col, line.get("qty_pending_invoice", 0.0), fmt_num); col += 1
             
-            # Financials (Only show on Header)
-            sheet.write(row, col, (line.get("uom").name if line.get("uom") else "") if is_header else "", fmt_text); col += 1
-            sheet.write(row, col, line.get("unit_price", 0.0) if is_header else 0.0, fmt_num); col += 1
-            sheet.write(row, col, line.get("subtotal", 0.0) if is_header else 0.0, fmt_num); col += 1
+            # Financials
+            sheet.write(row, col, (line.get("uom").name if line.get("uom") else ""), fmt_text); col += 1
+            sheet.write(row, col, line.get("unit_price", 0.0), fmt_num); col += 1
+            sheet.write(row, col, line.get("subtotal", 0.0), fmt_num); col += 1
 
-            # Order Status (Only show on Header)
-            st = line.get("state") if is_header else ""
-            st_display = status_display.get(st, st or "") if is_header else ""
-            sheet.write(row, col, st_display, status_formats.get(st, fmt_text) if is_header else fmt_text)
+            # Order Status
+            st = line.get("state") or ""
+            st_display = status_display.get(st, st)
+            sheet.write(row, col, st_display, status_formats.get(st, fmt_text))
             col += 1
             
-            # Billing Note Status (Only show on Header)
-            bn_state = line.get("billing_note_status") if is_header else ""
-            bn_display = billing_note_display.get(bn_state, bn_state or "") if is_header else ""
-            sheet.write(row, col, bn_display, billing_note_formats.get(bn_state, fmt_text) if is_header else fmt_text)
+            # Billing Note Status
+            bn_state = line.get("billing_note_status") or ""
+            bn_display = billing_note_display.get(bn_state, bn_state)
+            sheet.write(row, col, bn_display, billing_note_formats.get(bn_state, fmt_text))
             col += 1
 
-            # Invoice Status (Only show on Header)
-            inv_state = line.get("invoice_status") if is_header else ""
-            inv_display = billing_display.get(inv_state, inv_state or "") if is_header else ""
-            sheet.write(row, col, inv_display, billing_formats.get(inv_state, fmt_text) if is_header else fmt_text)
+            # Invoice Status
+            inv_state = line.get("invoice_status") or ""
+            inv_display = billing_display.get(inv_state, inv_state)
+            sheet.write(row, col, inv_display, billing_formats.get(inv_state, fmt_text))
 
             sheet.set_row(row, 20)
             row += 1

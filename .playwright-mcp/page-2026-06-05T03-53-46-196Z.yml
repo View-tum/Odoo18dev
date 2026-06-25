@@ -1,0 +1,26 @@
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - generic [ref=e6]:
+      - img "Logo" [ref=e8]
+      - form [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: Email
+          - textbox "Email" [ref=e12]: admin
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - text: Password
+            - link "Reset Password" [ref=e15] [cursor=pointer]:
+              - /url: /web/reset_password?
+          - textbox "Password Reset Password" [ref=e16]:
+            - /placeholder: Password
+            - text: 365@gmp
+        - button "Log in" [ref=e18] [cursor=pointer]
+        - paragraph [ref=e19]:
+          - link "Don't have an account?" [ref=e20] [cursor=pointer]:
+            - /url: /web/signup?
+      - generic [ref=e21]:
+        - link "Manage Databases" [ref=e22] [cursor=pointer]:
+          - /url: /web/database/manager
+        - link "Powered by Odoo" [ref=e23] [cursor=pointer]:
+          - /url: https://www.odoo.com?utm_source=db&utm_medium=auth
+  - generic [ref=e25]: "Database neutralized for testing: no emails sent, etc."

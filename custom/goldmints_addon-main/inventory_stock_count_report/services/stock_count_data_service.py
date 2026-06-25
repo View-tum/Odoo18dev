@@ -48,30 +48,29 @@ class StockCountDataService:
                     # "price": product.standard_price or 0.0,
                 }
 
-        is_prefill = (wizard.mode == "prefill")
+        is_prefill = wizard.mode == "prefill"
         lines = []
         for key, qty in totals.items():
             info = meta[key]
             qty_rounded = float_round(qty, precision_rounding=info["rounding"] or 0.01)
 
-            lines.append({
-                "location_id": info["location_id"],
-                "location_name": info["location_name"],
-                "product_id": info["product_id"],
-                "product_code": info["product_code"],
-                "product_name": info["product_name"],
-                "lot_id": info["lot_id"],
-                "lot_name": info["lot_name"],
-                "uom_name": info["uom_name"],
-
-                # ✅ Prefill: เอาค่า qty ระบบมาใส่ Counted Qty
-                "counted_qty": qty_rounded if is_prefill else "",
-
-                # ✅ Price (ต้นทุน) - ถ้าจะใช้ราคาขายเปลี่ยนเป็น product.list_price
-                # "price": (info.get("price") or 0.0) if is_prefill else "",
-
-                "note": "",
-            })
+            lines.append(
+                {
+                    "location_id": info["location_id"],
+                    "location_name": info["location_name"],
+                    "product_id": info["product_id"],
+                    "product_code": info["product_code"],
+                    "product_name": info["product_name"],
+                    "lot_id": info["lot_id"],
+                    "lot_name": info["lot_name"],
+                    "uom_name": info["uom_name"],
+                    # ✅ Prefill: เอาค่า qty ระบบมาใส่ Counted Qty
+                    "counted_qty": qty_rounded if is_prefill else "",
+                    # ✅ Price (ต้นทุน) - ถ้าจะใช้ราคาขายเปลี่ยนเป็น product.list_price
+                    # "price": (info.get("price") or 0.0) if is_prefill else "",
+                    "note": "",
+                }
+            )
 
         return self._sort_lines(lines, wizard.sort_by)
 
@@ -90,11 +89,17 @@ class StockCountDataService:
         return list(grouped.values())
 
     def _build_quant_domain(self, wizard):
-        location_field = "child_of" if wizard.include_child_locations else "in"
-        domain = [
-            ("location_id", location_field, wizard.location_ids.ids),
-            ("location_id.usage", "=", "internal"),
-        ]
+        # location_field = "child_of" if wizard.include_child_locations else "in"
+        # domain = [
+        #     ("location_id", location_field, wizard.location_ids.ids),
+        #     ("location_id.usage", "=", "internal"),
+        # ]
+        domain = [("location_id.usage", "=", "internal")]
+
+        if wizard.location_ids:
+            location_field = "child_of" if wizard.include_child_locations else "in"
+            domain.append(("location_id", location_field, wizard.location_ids.ids))
+            
         if wizard.only_on_hand:
             domain.append(("quantity", ">", 0))
         return domain

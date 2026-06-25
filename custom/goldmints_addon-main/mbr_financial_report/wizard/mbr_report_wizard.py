@@ -22,6 +22,17 @@ class MBRReportWizard(models.TransientModel):
         required=True,
         default=lambda self: str(date.today().year),
     )
+    period_type = fields.Selection(
+        [("month", "Month"), ("quarter", "Quarter")],
+        string="Period Type",
+        required=True,
+        default="month",
+    )
+    quarter = fields.Selection(
+        [("1", "Q1"), ("2", "Q2"), ("3", "Q3"), ("4", "Q4")],
+        string="Quarter",
+        default=lambda self: str((date.today().month - 1) // 3 + 1),
+    )
     month = fields.Selection(
         [(str(i), month_name[i]) for i in range(1, 13)],
         string="Month",
@@ -62,13 +73,14 @@ class MBRReportWizard(models.TransientModel):
     # Line definitions: mapping to pseudo 'Excel source rows'
     LINE_DEFS = [
         # 1. Revenue
-        {"code": "1.1", "name": "Sales", "src_row": 6, "section": "revenue"},
+        {"code": "1.1.1", "name": "Domestic Sales", "src_row": 61, "section": "revenue"},
+        {"code": "1.1.2", "name": "International Sales", "src_row": 62, "section": "revenue"},
         {"code": "1.2", "name": "Services", "src_row": 7, "section": "revenue"},
         {"code": "1.3", "name": "Rental", "src_row": 8, "section": "revenue"},
         {"code": "1.4", "name": "Other income", "src_row": 9, "section": "revenue"},
         # 2. Cost of Sales / Services
-        {"code": "2.1", "name": "Cost of Sales", "src_row": 13, "section": "cogs"},
-        {"code": "2.2", "name": "Cost of Services", "src_row": 14, "section": "cogs"},
+        {"code": "2.1.1", "name": "Cost of Sales - Domestic", "src_row": 13, "section": "cogs"},
+        {"code": "2.1.2", "name": "Cost of Sales - International", "src_row": 14, "section": "cogs"},
         {"code": "2.3", "name": "Cost of Rental", "src_row": 15, "section": "cogs"},
         {"code": "2.4", "name": "Other expenses", "src_row": 16, "section": "cogs"},
         # 3. Operating expenses
@@ -101,8 +113,12 @@ class MBRReportWizard(models.TransientModel):
         self.ensure_one()
         # Use the HTML preview; template will offer XLSX download
         ctx = dict(self.env.context)
-        month_name_str = date(int(self.year), int(self.month), 1).strftime("%B") if self.year and self.month else "MBR"
-        ctx["report_file"] = f"{month_name_str} MBR"
+        if self.period_type == "quarter" and self.quarter and self.year:
+            period_str = f"Q{self.quarter} {self.year}"
+        else:
+            month_name_str = date(int(self.year), int(self.month), 1).strftime("%B") if self.year and self.month else "MBR"
+            period_str = f"{month_name_str} {self.year}" if self.year else month_name_str
+        ctx["report_file"] = f"{period_str} MBR"
         return self.env.ref("mbr_financial_report.action_report_mbr_html").with_context(ctx).report_action(self)
 
     def action_auto_map_coa(self):
@@ -119,23 +135,24 @@ class MBRReportWizard(models.TransientModel):
             return (code or "").strip()
 
         lines_map = {
-            "1.1": {
+            "1.1.1": {
                 "410001", "410002", "410003", "410004", "410088",
             },
+            "1.1.2": {
+                "420001", "420002",
+            },
             "1.2": {
-                "420001", "420006", "420007", "430001",
+                "420006", "420007", "430001",
             },
-            "1.3": {
-                "420002",
-            },
+            "1.3": set(),
             "1.4": {
                 "470003", "470004", "470005", "420003", "470006", "470007",
                 "470008", "420004", "480001",
             },
-            "2.1": {
+            "2.1.1": {
                 "510001", "510002", "510003", "510004", "520100",
             },
-            "2.2": {
+            "2.1.2": {
                 "520001", "520002", "520004", "520005",
             },
             "2.3": {
@@ -597,6 +614,33 @@ class MBRReportWizard(models.TransientModel):
             "net_after_tax_diff_ytd": net_after_tax_diff_ytd,
         }
 
+        # Subtotals for 1.1 and 2.1
+        total_rev_1_1_curr, total_rev_1_1_ytd = sum_codes(["1.1.1", "1.1.2"], "actual")
+        total_rev_1_1_budget_curr, total_rev_1_1_budget_ytd = sum_codes(["1.1.1", "1.1.2"], "budget")
+        total_rev_1_1_diff_curr, total_rev_1_1_diff_ytd = sum_codes(["1.1.1", "1.1.2"], "diff")
+
+        totals.update({
+            "total_rev_1_1_curr": total_rev_1_1_curr,
+            "total_rev_1_1_ytd": total_rev_1_1_ytd,
+            "total_rev_1_1_budget_curr": total_rev_1_1_budget_curr,
+            "total_rev_1_1_budget_ytd": total_rev_1_1_budget_ytd,
+            "total_rev_1_1_diff_curr": total_rev_1_1_diff_curr,
+            "total_rev_1_1_diff_ytd": total_rev_1_1_diff_ytd,
+        })
+
+        total_cogs_2_1_curr, total_cogs_2_1_ytd = sum_codes(["2.1.1", "2.1.2"], "actual")
+        total_cogs_2_1_budget_curr, total_cogs_2_1_budget_ytd = sum_codes(["2.1.1", "2.1.2"], "budget")
+        total_cogs_2_1_diff_curr, total_cogs_2_1_diff_ytd = sum_codes(["2.1.1", "2.1.2"], "diff")
+
+        totals.update({
+            "total_cogs_2_1_curr": total_cogs_2_1_curr,
+            "total_cogs_2_1_ytd": total_cogs_2_1_ytd,
+            "total_cogs_2_1_budget_curr": total_cogs_2_1_budget_curr,
+            "total_cogs_2_1_budget_ytd": total_cogs_2_1_budget_ytd,
+            "total_cogs_2_1_diff_curr": total_cogs_2_1_diff_curr,
+            "total_cogs_2_1_diff_ytd": total_cogs_2_1_diff_ytd,
+        })
+
         return {
             "current_label": current_label,
             "ytd_label": ytd_label,
@@ -615,12 +659,20 @@ class MBRReportWizard(models.TransientModel):
 
     def compute_mbr(self):
         self.ensure_one()
-
-        month_int = int(self.month) if self.month else date.today().month
         year_int = int(self.year) if self.year else date.today().year
-        last_day = calendar.monthrange(year_int, month_int)[1]
-        date_from = date(year_int, month_int, 1)
-        date_to = date(year_int, month_int, last_day)
+        
+        if self.period_type == "quarter":
+            q = int(self.quarter) if self.quarter else 1
+            start_month = (q - 1) * 3 + 1
+            end_month = start_month + 2
+            last_day = calendar.monthrange(year_int, end_month)[1]
+            date_from = date(year_int, start_month, 1)
+            date_to = date(year_int, end_month, last_day)
+        else:
+            month_int = int(self.month) if self.month else date.today().month
+            last_day = calendar.monthrange(year_int, month_int)[1]
+            date_from = date(year_int, month_int, 1)
+            date_to = date(year_int, month_int, last_day)
 
         main_data = self._compute_period(date_from, date_to)
         compare_data = False

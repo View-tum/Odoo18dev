@@ -1,6 +1,6 @@
 {
     "name": "Accounting Fixed Asset Report",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.2",
     "summary": "Accounting Fixed Asset Report",
     "author": "K.",
     "website": "https://www.365infotech.co.th/",
@@ -14,6 +14,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/account_fixed_asset_config_view.xml",
         "report/account_fixed_asset_report_view.xml",
         "views/account_menuitem.xml",
     ],
