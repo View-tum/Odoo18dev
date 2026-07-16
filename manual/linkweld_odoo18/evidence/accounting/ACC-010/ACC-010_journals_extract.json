@@ -1,0 +1,173 @@
+{
+  "configuration_id": "ACC-010",
+  "page": "Journals",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.journal",
+  "filter": "Active",
+  "total_active_journals": 29,
+  "page_size": 29,
+  "pager_display": "1-29 / 29",
+  "journal_type_counts": {
+    "Bank": 20,
+    "Miscellaneous": 4,
+    "Cash": 3,
+    "Sales": 1,
+    "Purchase": 1
+  },
+  "list_columns": [
+    "Journal Name",
+    "Type",
+    "Short Code",
+    "Default Account"
+  ],
+  "privacy": {
+    "safe_visible_rows": 6,
+    "list_cropped_before_sensitive_default_account": true,
+    "generic_bank_form_captured": false,
+    "generic_bank_privacy_blocker": "Full bank-account number appeared in journal/payment-method account labels",
+    "full_bank_account_numbers_stored": false
+  },
+  "representative_journals": {
+    "Customer Invoices": {
+      "record_id": 9,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "type": "Sales",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "short_code": "INV",
+      "currency": null,
+      "default_income_account": "401100 Sales / รายได้จากการขายสินค้า",
+      "dedicated_credit_note_sequence": true,
+      "secure_posted_entries_with_hash": false,
+      "sequence_override": null,
+      "allowed_accounts": [],
+      "auto_check_on_post": true,
+      "email_alias": "Configured on localhost; exact address omitted",
+      "communication_type": "Based on Invoice",
+      "communication_standard": "Odoo",
+      "incoming_payment_methods": [],
+      "outgoing_payment_methods": []
+    },
+    "Vendor Bills": {
+      "record_id": 10,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "type": "Purchase",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "short_code": "BILL",
+      "currency": null,
+      "default_expense_account": "510000 Cost of Revenue / ต้นทุนขาย",
+      "dedicated_credit_note_sequence": true,
+      "secure_posted_entries_with_hash": false,
+      "sequence_override": null,
+      "allowed_accounts": [],
+      "auto_check_on_post": true,
+      "email_alias": "vendor-bills@localhost",
+      "incoming_payment_methods": [],
+      "outgoing_payment_methods": []
+    },
+    "Miscellaneous Operations": {
+      "record_id": 11,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "type": "Miscellaneous",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "short_code": "MISC",
+      "currency": null,
+      "default_account": null,
+      "dedicated_credit_note_sequence": false,
+      "secure_posted_entries_with_hash": false,
+      "sequence_override": null,
+      "allowed_accounts": [],
+      "auto_check_on_post": true,
+      "email_alias": null,
+      "incoming_payment_methods": [],
+      "outgoing_payment_methods": []
+    },
+    "Bank": {
+      "record_id": 16,
+      "exact_unique_result_count": 1,
+      "captured": false,
+      "active": true,
+      "type": "Bank",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "short_code": "BNK1",
+      "currency": null,
+      "dedicated_credit_note_sequence": false,
+      "secure_posted_entries_with_hash": false,
+      "sequence_override": null,
+      "default_account": "REDACTED: full bank-account number in label",
+      "bank_account": "REDACTED: full bank-account number",
+      "suspense_account": "111001 Bank Suspense Account",
+      "profit_account": "999002 Cash Difference Gain",
+      "loss_account": "999001 Cash Difference Loss",
+      "incoming_payment_methods": [
+        {"name": "Manual", "outstanding_account": "REDACTED: sensitive label"},
+        {"name": "Batch Deposit", "outstanding_account": "111002 Outstanding Receipts"},
+        {"name": "SCB", "outstanding_account": "111002 Outstanding Receipts"}
+      ],
+      "outgoing_payment_methods": [
+        {"name": "Manual", "outstanding_account": "REDACTED: sensitive label"}
+      ]
+    }
+  },
+  "not_available": [
+    "Complete row-level configuration of all 29 journals",
+    "Full bank-account and manual payment-method account labels by privacy design",
+    "Journal-entry sequences and posted-entry outcomes",
+    "Auto-Check on Post runtime behavior",
+    "Alias-to-document creation outcome",
+    "Payment, outstanding-account, bank-reconciliation, and cheque runtime outcomes"
+  ],
+  "requests_observed": {
+    "read_only_model_calls": [
+      "account.journal/get_views",
+      "account.journal/web_search_read",
+      "account.journal/web_read",
+      "account.journal/search_read",
+      "account.journal/fields_get",
+      "account.journal/read",
+      "account.payment.method.line/fields_get",
+      "account.payment.method.line/read",
+      "access checks",
+      "/web/action/load"
+    ],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "journal_entry_opened": false,
+    "transaction_opened": false
+  },
+  "screenshots": [
+    "original/ACC-010_01_journals_list_safe_original.png",
+    "original/ACC-010_02_customer_invoices_journal_original.png",
+    "original/ACC-010_03_vendor_bills_journal_original.png",
+    "original/ACC-010_04_miscellaneous_advanced_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/journals.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/payments.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/data_inalterability.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "journal_entries_clicked": false,
+    "transactions_clicked": false,
+    "payment_method_opened": false,
+    "bank_account_opened": false,
+    "sequence_changed": false,
+    "accounts_changed": false,
+    "payment_methods_changed": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "entries_created_or_posted": false,
+    "records_changed": false
+  }
+}
