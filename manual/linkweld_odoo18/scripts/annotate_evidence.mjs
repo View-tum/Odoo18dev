@@ -30,24 +30,19 @@ const setPixel = (png, x, y, color) => {
   png.data[offset + 3] = color[3];
 };
 
-const drawCircle = (png, cx, cy, radius, thickness, color) => {
-  const outer = radius + (thickness / 2);
-  const inner = radius - (thickness / 2);
-
-  for (let y = Math.floor(cy - outer); y <= Math.ceil(cy + outer); y += 1) {
-    for (let x = Math.floor(cx - outer); x <= Math.ceil(cx + outer); x += 1) {
-      const distance = Math.hypot(x - cx, y - cy);
-      if (distance >= inner && distance <= outer) setPixel(png, x, y, color);
+const drawFilledRectangle = (png, x, y, width, height, color) => {
+  for (let row = y; row < y + height; row += 1) {
+    for (let column = x; column < x + width; column += 1) {
+      setPixel(png, column, row, color);
     }
   }
 };
 
-const drawFilledCircle = (png, cx, cy, radius, color) => {
-  for (let y = cy - radius; y <= cy + radius; y += 1) {
-    for (let x = cx - radius; x <= cx + radius; x += 1) {
-      if (Math.hypot(x - cx, y - cy) <= radius) setPixel(png, x, y, color);
-    }
-  }
+const drawRectangle = (png, x, y, width, height, thickness, color) => {
+  drawFilledRectangle(png, x, y, width, thickness, color);
+  drawFilledRectangle(png, x, y + height - thickness, width, thickness, color);
+  drawFilledRectangle(png, x, y, thickness, height, color);
+  drawFilledRectangle(png, x + width - thickness, y, thickness, height, color);
 };
 
 const drawLabel = (png, cx, cy, value) => {
@@ -80,6 +75,19 @@ const drawLabel = (png, cx, cy, value) => {
   });
 };
 
+const validateCallout = (callout, png) => {
+  const { shape, x, y, width, height, label } = callout;
+  if (shape !== 'rectangle') throw new Error('Callout shape must be rectangle');
+  if (![x, y, width, height].every(Number.isFinite)) {
+    throw new Error('Rectangle callout coordinates must be finite numbers');
+  }
+  if (width <= 0 || height <= 0) throw new Error('Rectangle callout dimensions must be positive');
+  if (x < 0 || y < 0 || x + width > png.width || y + height > png.height) {
+    throw new Error('Rectangle callout must remain inside the screenshot bounds');
+  }
+  if (!/^\d+$/.test(String(label))) throw new Error('Callout label must contain digits only');
+};
+
 export async function annotateEvidence({ inputPath, outputPath, callouts }) {
   const original = await readFile(inputPath);
   let png;
@@ -92,13 +100,21 @@ export async function annotateEvidence({ inputPath, outputPath, callouts }) {
     png = PNG.sync.read(original);
   }
 
-  callouts.forEach(({ x, y, radius, label }) => {
-    drawCircle(png, x, y, radius, 5, RED);
-    const badgeX = Math.round(x - radius + 10);
-    const badgeY = Math.round(y - radius + 10);
-    drawFilledCircle(png, badgeX, badgeY, 15, WHITE);
-    drawFilledCircle(png, badgeX, badgeY, 12, RED);
-    drawLabel(png, badgeX, badgeY, label);
+  callouts.forEach((callout) => {
+    validateCallout(callout, png);
+    const { x, y, width, height, label } = callout;
+    const borderThickness = 5;
+    const badgeWidth = String(label).length > 1 ? 30 : 24;
+    const badgeHeight = 24;
+    const badgeX = Math.round(x + borderThickness);
+    const badgeY = y >= badgeHeight
+      ? Math.round(y - badgeHeight)
+      : Math.round(y + borderThickness);
+
+    drawRectangle(png, x, y, width, height, borderThickness, RED);
+    drawFilledRectangle(png, badgeX, badgeY, badgeWidth, badgeHeight, WHITE);
+    drawFilledRectangle(png, badgeX + 2, badgeY + 2, badgeWidth - 4, badgeHeight - 4, RED);
+    drawLabel(png, badgeX + (badgeWidth / 2), badgeY + (badgeHeight / 2), label);
   });
 
   await writeFile(outputPath, PNG.sync.write(png));

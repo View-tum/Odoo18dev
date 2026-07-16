@@ -30,7 +30,7 @@
 - Create: `manual/linkweld_odoo18/register/evidence_log.csv` - screenshot and record traceability.
 - Create: `manual/linkweld_odoo18/register/menu_inventory.csv` - installed-module menu coverage.
 - Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/original/` - untouched screenshots grouped by configuration.
-- Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/annotated/` - pixel-faithful screenshots with deterministic numbered circles and callouts.
+- Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/annotated/` - pixel-faithful screenshots with deterministic numbered red rectangular frames and callouts.
 - Create: `manual/linkweld_odoo18/source/01_settings_manual_th.md` - Settings Manual source.
 - Create: `manual/linkweld_odoo18/source/02_accounting_manufacturing_manual_th.md` - Accounting and Manufacturing Manual source.
 - Create: `manual/linkweld_odoo18/scripts/build_linkweld_manuals.py` - deterministic DOCX builder.
@@ -196,7 +196,7 @@ Capture focused images for fiscal localization, taxes, currencies, customer invo
 
 - [x] **Step 2A: Create deterministic annotated copies**
 
-Keep every original screenshot unchanged. Create a separate annotated copy with numbered red circles; add connector lines only when needed to identify the target. Each number must map to the manual explanation table. Do not use generative image reconstruction or cover Odoo field text and values.
+Keep every original screenshot unchanged. Create a separate annotated copy with numbered red rectangular frames sized around the relevant target. Each number must map to the manual explanation table. Do not use generative image reconstruction or cover Odoo field text and values.
 
 - [x] **Step 3: Record the current displayed values**
 

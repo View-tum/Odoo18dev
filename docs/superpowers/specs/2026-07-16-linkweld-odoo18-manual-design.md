@@ -161,7 +161,7 @@ An inferred explanation must never be presented as a confirmed Linkweld outcome.
 
 - Capture a navigation-context image and a focused configuration image.
 - Preserve two files for every screenshot: an untouched original in its native PNG/JPEG format and a deterministic `annotated.png` presentation file.
-- Add numbered red circles only to the annotated copy; use connector lines only when a circle cannot identify the target clearly. Never alter, regenerate, replace, or obscure Odoo field text, values, controls, dates, document numbers, or status indicators.
+- Add numbered red rectangular frames only to the annotated copy. Size each frame around the relevant field, section, row, or control without obscuring Odoo text or values. Never alter, regenerate, replace, or obscure Odoo field text, values, controls, dates, document numbers, or status indicators.
 - Map every callout number to a detailed explanation table containing field name, current value, purpose, enabled effect, disabled effect, dependency, downstream result, accounting/manufacturing/stock/tax impact, risk, and evidence status.
 - Capture list and form views when both are needed to understand the configuration.
 - Use callout numbers without obscuring fields or values.
@@ -170,7 +170,7 @@ An inferred explanation must never be presented as a confirmed Linkweld outcome.
 - Do not enter Edit mode when the page can be inspected in read-only mode.
 - Do not click actions that may save, install, activate, confirm, post, reset, cancel, archive, or delete data.
 - Use existing outcomes only. When no outcome exists, document the expected behavior and evidence limitation without generating replacement data.
-- Use deterministic vector or document-layer callouts for circles and labels so the underlying Odoo screenshot remains pixel-faithful. Do not use generative reconstruction for evidence screenshots.
+- Use deterministic vector or document-layer callouts for rectangular frames and labels so the underlying Odoo screenshot remains pixel-faithful. Do not use generative reconstruction for evidence screenshots.
 
 ## Read-only Safety Controls
 

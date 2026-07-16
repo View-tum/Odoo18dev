@@ -59,42 +59,42 @@ Complete these checks before every evidence session:
 - Manufacturing register: 5 entries, including Products, Product Variants, Bills of Materials, and Lots/Serial Numbers.
 - No duplicate menu paths or configuration IDs were found.
 - Accounting Settings (`ACC-001`) evidence completed on 2026-07-16.
-- Captured 13 untouched originals, 13 deterministic numbered-circle copies, and a structured DOM extract covering 19 sections and 60 setting boxes.
+- Captured 13 untouched originals, 13 deterministic numbered rectangular-frame copies, and a structured DOM extract covering 19 sections and 60 setting boxes.
 - Detailed Thai chapter: `source/ACC-001_accounting_settings_th.md`.
 - Payment Terms (`ACC-002`) evidence completed on 2026-07-16.
-- Captured 11 untouched originals, 11 deterministic numbered-circle copies, all 104 active terms, all 107 due-rule lines, and a name-to-rule risk analysis.
+- Captured 11 untouched originals, 11 deterministic numbered rectangular-frame copies, all 104 active terms, all 107 due-rule lines, and a name-to-rule risk analysis.
 - Confirmed 80 terms are configured as 100% due 0 days after invoice date; 70 names were flagged for business-owner review, not automatically classified as incorrect.
 - Detailed Thai chapter: `source/ACC-002_payment_terms_th.md`.
 - Follow-up Levels (`ACC-003`) evidence completed on 2026-07-16.
-- Captured 5 untouched originals, 5 deterministic numbered-circle copies, and a structured extract covering both existing levels and all visible notification/activity options.
+- Captured 5 untouched originals, 5 deterministic numbered rectangular-frame copies, and a structured extract covering both existing levels and all visible notification/activity options.
 - Confirmed both levels are manual: 7 Days uses Email + Letter with Attach Invoices; First reminder email uses Email with its named template. Automatic and Schedule Activity are disabled for both.
 - Detailed Thai chapter: `source/ACC-003_follow_up_levels_th.md`.
 - Incoterms (`ACC-004`) evidence completed on 2026-07-16.
-- Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 11 active standard Incoterms.
+- Captured 2 untouched originals, 2 deterministic numbered rectangular-frame copies, and a structured extract covering all 11 active standard Incoterms.
 - Confirmed the Linkweld list matches the Odoo 18 standard set: EXW, FCA, FAS, FOB, CFR, CIF, CPT, CIP, DPU, DAP, and DDP.
 - Detailed Thai chapter: `source/ACC-004_incoterms_th.md`.
 - Add a Bank Account (`ACC-005`) evidence completed on 2026-07-16.
-- Captured 1 untouched original, 1 deterministic numbered-circle copy, and a structured extract of the initial `Search for an institution` window.
+- Captured 1 untouched original, 1 deterministic numbered rectangular-frame copy, and a structured extract of the initial `Search for an institution` window.
 - Confirmed 11 institution rows are visible, search is blank, no institution is selected, `Connect` is disabled, and `Cancel` is enabled.
 - Detailed Thai chapter: `source/ACC-005_add_bank_account_th.md`.
 - Reconciliation Models (`ACC-006`) evidence completed on 2026-07-16.
-- Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering all 5 models and 3 representative forms.
+- Captured 4 untouched originals, 4 deterministic numbered rectangular-frame copies, and a structured extract covering all 5 models and 3 representative forms.
 - Confirmed Auto-validate is enabled for Invoices/Bills Perfect Match and Bank Fees. Bank Fees uses Label Contains `bank fees` and posts 100% to account `560202` when its conditions match.
 - Detailed Thai chapter: `source/ACC-006_reconciliation_models_th.md`.
 - Online Synchronization (`ACC-007`) evidence completed on 2026-07-16.
-- Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 3 records and one representative form.
+- Captured 2 untouched originals, 2 deterministic numbered rectangular-frame copies, and a structured extract covering all 3 records and one representative form.
 - Confirmed all 3 records have blank Name and Provider Type and are Not Connected. The representative record has Automatic synchronization enabled but no Next synchronization, expiry date, or account mapping.
 - Detailed Thai chapter: `source/ACC-007_online_synchronization_th.md`.
 - Chart of Accounts (`ACC-008`) evidence completed on 2026-07-16.
-- Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering 353 active company-scoped accounts, account-type counts, and 3 ACC-001 risk-reference accounts.
+- Captured 4 untouched originals, 4 deterministic numbered rectangular-frame copies, and a structured extract covering 353 active company-scoped accounts, account-type counts, and 3 ACC-001 risk-reference accounts.
 - Confirmed 160001 is Current Assets, 120100 is Current Liabilities, and 410000 is Other Income. Their broad type categories are plausible, but their names/purposes do not confirm suitability for Deferred Expense, Deferred Revenue, and Stock Income settings.
 - Detailed Thai chapter: `source/ACC-008_chart_of_accounts_th.md`.
 - Taxes (`ACC-009`) evidence completed on 2026-07-16.
-- Captured 5 untouched originals, 5 deterministic numbered-circle copies, and a structured extract covering 29 active taxes, rate/type counts, candidate selection, and 4 representative VAT/WHT configurations.
+- Captured 5 untouched originals, 5 deterministic numbered rectangular-frame copies, and a structured extract covering 29 active taxes, rate/type counts, candidate selection, and 4 representative VAT/WHT configurations.
 - Confirmed VAT 7% accounts/grids and zero-rated output base grids. Company WHT 1% is a -1% purchase tax to account 232000 but has no visible tax grids, so PND3/PND53 inclusion remains unconfirmed until Clone-UAT report reconciliation.
 - Detailed Thai chapter: `source/ACC-009_taxes_th.md`.
 - Journals (`ACC-010`) evidence completed on 2026-07-16.
-- Captured 4 untouched privacy-safe originals, 4 deterministic numbered-circle copies, and a sanitized structured extract covering 29 active journals, three safe forms, and one redacted bank-journal summary.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a sanitized structured extract covering 29 active journals, three safe forms, and one redacted bank-journal summary.
 - Confirmed Vendor Bills defaults to 510000 Cost of Revenue, representative Sales/Purchase/Misc journals have Secure Posted Entries with Hash disabled and Auto-Check on Post enabled, and the Generic Bank payment methods require privacy-safe Outstanding Account regression.
 - Detailed Thai chapter: `source/ACC-010_journals_th.md`.
 - Next evidence batch: Accounting Configuration menu `ACC-011`, followed by existing-transaction traceability.
