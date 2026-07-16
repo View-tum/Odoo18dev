@@ -1,0 +1,57 @@
+{
+  "configuration_id": "ACC-005",
+  "page": "Add a Bank Account",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "entry_point": "Accounting > Configuration > Add a Bank Account",
+  "initial_window": {
+    "title": "Search for an institution",
+    "opened": true,
+    "search_value": "",
+    "visible_institution_rows": 11,
+    "institution_selected": false,
+    "connect_enabled": false,
+    "cancel_enabled": true,
+    "add_new_bank_visible": false,
+    "closed_with": "Browser session closed without clicking a wizard control"
+  },
+  "observations": {
+    "access_error": false,
+    "popup_blocked_message": false,
+    "odoo_notification": false,
+    "external_logo_dns_error_count": 1,
+    "external_logo_dns_error_impact": "One external default logo did not load for a visible institution; the initial institution window remained usable."
+  },
+  "request_observation": {
+    "observed_during_menu_open": [
+      "/web/action/load",
+      "/web/action/run"
+    ],
+    "create_or_write_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-005_01_bank_institution_search_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank/bank_synchronization.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank.html"
+  ],
+  "safety": {
+    "search_entered": false,
+    "institution_selected": false,
+    "connect_clicked": false,
+    "cancel_clicked": false,
+    "close_clicked": false,
+    "add_new_bank_clicked": false,
+    "record_transactions_manually_clicked": false,
+    "account_number_entered": false,
+    "bank_entered": false,
+    "swift_entered": false,
+    "journal_created": false,
+    "bank_account_created": false,
+    "online_synchronization_created": false,
+    "transactions_imported": false,
+    "records_changed": false
+  }
+}

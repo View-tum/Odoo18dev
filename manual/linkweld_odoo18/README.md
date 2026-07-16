@@ -73,5 +73,9 @@ Complete these checks before every evidence session:
 - Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 11 active standard Incoterms.
 - Confirmed the Linkweld list matches the Odoo 18 standard set: EXW, FCA, FAS, FOB, CFR, CIF, CPT, CIP, DPU, DAP, and DDP.
 - Detailed Thai chapter: `source/ACC-004_incoterms_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-005`, followed by existing-transaction traceability.
+- Add a Bank Account (`ACC-005`) evidence completed on 2026-07-16.
+- Captured 1 untouched original, 1 deterministic numbered-circle copy, and a structured extract of the initial `Search for an institution` window.
+- Confirmed 11 institution rows are visible, search is blank, no institution is selected, `Connect` is disabled, and `Cancel` is enabled.
+- Detailed Thai chapter: `source/ACC-005_add_bank_account_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-006`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
