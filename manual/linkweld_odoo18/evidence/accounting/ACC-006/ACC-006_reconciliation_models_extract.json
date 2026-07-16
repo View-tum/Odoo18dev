@@ -1,0 +1,156 @@
+{
+  "configuration_id": "ACC-006",
+  "page": "Reconciliation Models",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.reconcile.model",
+  "total_records": 5,
+  "list_columns": [
+    "Name",
+    "Type",
+    "Auto-validate"
+  ],
+  "records": [
+    {
+      "sequence_position": 1,
+      "name": "Invoices/Bills Perfect Match",
+      "type": "Rule to match invoices/bills",
+      "auto_validate": true,
+      "detail_evidence": true
+    },
+    {
+      "sequence_position": 2,
+      "name": "Invoices/Bills Partial Match if Underpaid (cash discount)",
+      "type": "Rule to match invoices/bills",
+      "auto_validate": false,
+      "detail_evidence": false
+    },
+    {
+      "sequence_position": 3,
+      "name": "Create Bill",
+      "type": "Button to generate counterpart entry",
+      "auto_validate": false,
+      "detail_evidence": true
+    },
+    {
+      "sequence_position": 4,
+      "name": "Bank Fees",
+      "type": "Rule to suggest counterpart entry",
+      "auto_validate": true,
+      "detail_evidence": true
+    },
+    {
+      "sequence_position": 5,
+      "name": "Internal Transfers",
+      "type": "Button to generate counterpart entry",
+      "auto_validate": false,
+      "detail_evidence": false
+    }
+  ],
+  "representative_forms": {
+    "Invoices/Bills Perfect Match": {
+      "type": "Rule to match invoices/bills",
+      "auto_validate": true,
+      "search_months_limit": 18,
+      "matching_order": "Oldest first",
+      "tabs_visible": [
+        "Bank Transactions Conditions",
+        "Partner Mapping"
+      ],
+      "amount_type": "Paid/Received",
+      "payment_tolerance_enabled": true,
+      "payment_tolerance_value": 0.0,
+      "payment_tolerance_unit": "percentage",
+      "same_currency": true,
+      "match_invoice_bill_with": {
+        "label": true,
+        "note": false,
+        "reference": false
+      },
+      "partner_is_set": true,
+      "partner_mapping_rows_inspected": false
+    },
+    "Bank Fees": {
+      "type": "Rule to suggest counterpart entry",
+      "auto_validate": true,
+      "tabs_visible": [
+        "Bank Transactions Conditions",
+        "Partner Mapping"
+      ],
+      "amount_type": "Paid/Received",
+      "label_operator": "Contains",
+      "label_value": "bank fees",
+      "partner_is_set": false,
+      "counterpart_items": [
+        {
+          "account": "560202 Bank charged / ค่าธรรมเนียมธนาคาร",
+          "amount_type": "Percentage of balance",
+          "amount": 100,
+          "journal_item_label": "Bank Fee Auto-Recon"
+        }
+      ],
+      "partner_mapping_rows_inspected": false
+    },
+    "Create Bill": {
+      "type": "Button to generate counterpart entry",
+      "to_check": false,
+      "counterpart_type": "Vendor Bills",
+      "tabs_visible": [
+        "Bank Transactions Conditions"
+      ],
+      "counterpart_items": [
+        {
+          "account": null,
+          "amount_type": "Percentage of statement line",
+          "amount": 100,
+          "analytic_distribution": null,
+          "journal_item_label": null
+        }
+      ]
+    }
+  },
+  "not_available": [
+    "Invoices/Bills Partial Match detail settings",
+    "Internal Transfers detail settings and account mapping",
+    "Partner Mapping rows",
+    "Runtime reconciliation outcomes",
+    "Generated journal entries, vendor bills, taxes, or exchange differences"
+  ],
+  "requests_observed": {
+    "request_count": 11,
+    "model_methods": [
+      "account.reconcile.model/web_search_read",
+      "account.reconcile.model/web_read"
+    ],
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "action_run_observed": false,
+    "reconciliation_execution_observed": false
+  },
+  "screenshots": [
+    "original/ACC-006_01_reconciliation_models_list_original.png",
+    "original/ACC-006_02_invoices_bills_perfect_match_original.png",
+    "original/ACC-006_03_bank_fees_original.png",
+    "original/ACC-006_04_create_bill_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank/reconciliation_models.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank/reconciliation.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank/internal_transfers.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "edit_mode_entered": false,
+    "inline_edit_entered": false,
+    "run_manually_clicked": false,
+    "auto_validate_toggled": false,
+    "add_line_clicked": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "model_executed": false,
+    "records_changed": false
+  }
+}

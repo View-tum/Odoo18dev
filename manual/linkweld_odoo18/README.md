@@ -77,5 +77,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched original, 1 deterministic numbered-circle copy, and a structured extract of the initial `Search for an institution` window.
 - Confirmed 11 institution rows are visible, search is blank, no institution is selected, `Connect` is disabled, and `Cancel` is enabled.
 - Detailed Thai chapter: `source/ACC-005_add_bank_account_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-006`, followed by existing-transaction traceability.
+- Reconciliation Models (`ACC-006`) evidence completed on 2026-07-16.
+- Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering all 5 models and 3 representative forms.
+- Confirmed Auto-validate is enabled for Invoices/Bills Perfect Match and Bank Fees. Bank Fees uses Label Contains `bank fees` and posts 100% to account `560202` when its conditions match.
+- Detailed Thai chapter: `source/ACC-006_reconciliation_models_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-007`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
