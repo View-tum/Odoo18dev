@@ -1,0 +1,137 @@
+{
+  "configuration_id": "ACC-013",
+  "menu_inventory_name": "Journal Groups",
+  "actual_page_title": "Multi-ledger",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "current_company_id": 1,
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.journal.group",
+  "default_domain": [],
+  "default_order": [
+    "sequence ASC",
+    "id ASC"
+  ],
+  "page_limit": 80,
+  "count_limit": 10001,
+  "total_records": 0,
+  "global_records": 0,
+  "company_1_records": 0,
+  "excluded_journal_relationships": 0,
+  "pager_display": null,
+  "list_columns": [
+    "Ledger group",
+    "Excluded Journals",
+    "Company"
+  ],
+  "help_heading": "Ledger group allows managing multiple accounting standards.",
+  "help_text": "Create as many ledger groups as needed to maintain separate ledgers for local GAAP, IFRS, or fiscal adjustments, ensuring compliance with diverse regulations.",
+  "schema": {
+    "name": {
+      "label": "Ledger group",
+      "type": "char",
+      "required": true
+    },
+    "company_id": {
+      "label": "Company",
+      "type": "many2one",
+      "comodel": "res.company",
+      "required": false
+    },
+    "excluded_journal_ids": {
+      "label": "Excluded Journals",
+      "type": "many2many",
+      "comodel": "account.journal",
+      "required": false
+    },
+    "sequence": {
+      "label": "Sequence",
+      "type": "integer",
+      "required": false
+    },
+    "standard_metadata": [
+      "id",
+      "display_name",
+      "create_uid",
+      "create_date",
+      "write_uid",
+      "write_date"
+    ],
+    "active_field_exists": false,
+    "included_or_selected_journal_field_exists": false,
+    "separate_reporting_behavior_field_exists": false
+  },
+  "representative_sampling": {
+    "existing_form_candidates": 0,
+    "representative_forms_opened": 0,
+    "substitution_used": false,
+    "reason": "No Journal Group record exists in the allowed company context"
+  },
+  "privacy": {
+    "record_rows_visible": 0,
+    "journal_labels_visible": 0,
+    "account_labels_visible": 0,
+    "bank_account_numbers_visible": 0,
+    "privacy_blocker": false
+  },
+  "not_available": [
+    "Existing Ledger group name",
+    "Existing Company value",
+    "Existing Sequence value",
+    "Existing Excluded Journals values",
+    "Local GAAP ledger result",
+    "IFRS ledger result",
+    "Fiscal adjustment ledger result",
+    "Financial-report Multi-ledger selector behavior",
+    "Journal-item inclusion or exclusion result",
+    "Multi-company or consolidation output",
+    "Accounting transaction effect"
+  ],
+  "business_interpretation": {
+    "confirmed": "No configured account.journal.group record or excluded-journal structure exists in the inspected company context",
+    "not_proven": "Multi-ledger is required or unnecessary for Linkweld",
+    "current_observed_path": "No configured alternative ledger group was found; no report was run to prove statutory, consolidation, IFRS, or fiscal output",
+    "decision_required": "Accounting, Tax, Consolidation, Auditor, and Company owners must approve accounting-standard scope and the excluded-journal matrix before the first group is created"
+  },
+  "requests_observed": {
+    "read_only_model_calls": [
+      "account.journal.group/get_views",
+      "account.journal.group/web_search_read",
+      "account.journal.group/fields_get",
+      "account.journal.group/search_count",
+      "account.journal.group/search_read"
+    ],
+    "dashboard_background_call": "account.journal/fetch_online_sync_favorite_institutions before opening Journal Groups",
+    "provider_or_sync_action_from_multi_ledger_page": false,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false
+  },
+  "screenshots": [
+    "original/ACC-013_01_journal_groups_empty_list_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/consolidation.html",
+    "https://www.odoo.com/odoo-18-release-notes"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "duplicate_clicked": false,
+    "journal_added_removed_or_reordered": false,
+    "linked_journal_account_or_company_opened": false,
+    "journal_entry_or_report_opened": false,
+    "report_filter_changed": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}

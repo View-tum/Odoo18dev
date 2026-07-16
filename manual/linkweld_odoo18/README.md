@@ -105,5 +105,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched original, 1 deterministic numbered rectangular-frame copy, and a company-scoped extract confirming zero active Fiscal Positions and zero active tax/account mappings.
 - No form could be sampled because no active record exists. This does not prove Fiscal Positions are unnecessary; cross-border, export, exempt, WHT, Partner assignment, and historical inactive records require Fit-gap and Clone-UAT.
 - Detailed Thai chapter: `source/ACC-012_fiscal_positions_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-013` Journal Groups, followed by existing-transaction traceability.
+- Journal Groups / Multi-ledger (`ACC-013`) evidence completed on 2026-07-16.
+- Captured 1 untouched original, 1 deterministic numbered rectangular-frame copy, and a company-scoped extract confirming zero `account.journal.group` records and zero Excluded Journal relationships.
+- The actual page title is Multi-ledger and the inspected schema has Ledger group, Company, Excluded Journals, and Sequence but no Active or Included Journals field. No report was run, so Local GAAP/IFRS/Fiscal output remains unverified.
+- Detailed Thai chapter: `source/ACC-013_journal_groups_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-014` Tax Groups, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
