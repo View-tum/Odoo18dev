@@ -121,5 +121,9 @@ Complete these checks before every evidence session:
 - Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and an extract covering all 33 active tags, 15 complete Thailand positive/negative tax-tag pairs, and aggregate Account/Tax Repartition/Product usage.
 - Pair structure is complete, but Tax Return behavior remains unverified. Only 2 accessible Accounts use any tag and Operating Activities usage is 0, so Cash Flow classification requires an approved mapping and Clone-UAT reconciliation.
 - Detailed Thai chapter: `source/ACC-016_account_tags_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-017` Account Groups, followed by existing-transaction traceability.
+- Account Groups (`ACC-017`) evidence completed on 2026-07-16 through a read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and an extract confirming zero Account Groups, zero prefix hierarchy, and zero computed group assignments across 353 non-deprecated Company-1 accounts.
+- Zero groups is not automatically a defect. Manual Account Groups are a rare advanced configuration; Trial Balance Hierarchy/Subtotals and report reconciliation remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-017_account_groups_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-018` Horizontal Groups, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

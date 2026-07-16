@@ -1,0 +1,166 @@
+{
+  "configuration_id": "ACC-017",
+  "page": "Account Groups",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.group",
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "menu_external_id": "account_accountant.menu_account_group",
+    "menu_group_restriction_from_local_source": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible": true,
+    "action_external_id": "account_accountant.action_account_group_tree",
+    "observed_action_id": 613,
+    "observed_route": "/odoo/action-613",
+    "action_load_method": "/web/action/load",
+    "action_title": "Account Groups",
+    "view_mode": "list,form",
+    "page_limit": 80,
+    "interpretation": "Developer-hidden advanced configuration surface; not a normal visible business menu for this user"
+  },
+  "default_list": {
+    "domain": [],
+    "ui_order_parameter": "",
+    "model_default_order": "code_prefix_start",
+    "search_blank": true,
+    "active_search_chips": 0,
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": null,
+    "empty_state": "Create a new account group",
+    "list_columns": ["Code Prefix Start", "Code Prefix End", "Name", "Company"]
+  },
+  "schema": {
+    "name": {"label": "Name", "type": "char", "required": true, "readonly": false, "stored": true},
+    "code_prefix_start": {"label": "Code Prefix Start", "type": "char", "required": false, "readonly": false, "stored": true, "computed_with_inverse_write": true},
+    "code_prefix_end": {"label": "Code Prefix End", "type": "char", "required": false, "readonly": false, "stored": true, "computed_with_inverse_write": true},
+    "company_id": {"label": "Company", "type": "many2one", "comodel": "res.company", "required": true, "readonly": true, "stored": true},
+    "parent_id": {"label": "Parent", "type": "many2one", "comodel": "account.group", "required": false, "readonly": true, "stored": true},
+    "active_field_exists": false
+  },
+  "counts": {
+    "total_account_groups": 0,
+    "company_1_or_root_company": 0,
+    "global_company_blank": 0,
+    "other_company_accessible": 0,
+    "blank_start_or_end_prefix": 0,
+    "unequal_prefix_lengths": 0,
+    "start_greater_than_end": 0,
+    "exact_duplicate_ranges": 0,
+    "same_granularity_overlaps": 0,
+    "single_prefix_groups": 0,
+    "range_groups": 0,
+    "top_level_groups": 0,
+    "child_groups": 0,
+    "parent_child_relationships": 0,
+    "maximum_hierarchy_depth": 0,
+    "prefix_length_distribution": {}
+  },
+  "aggregate_account_relationship": {
+    "account_model": "account.account",
+    "field": "group_id",
+    "field_type": "many2one account.group",
+    "readonly": true,
+    "computed": true,
+    "stored": false,
+    "derivation_method": "search_read limited to id and group_id because group_id is non-stored",
+    "non_deprecated_company_1_accounts": 353,
+    "grouped_accounts": 0,
+    "ungrouped_accounts": 353,
+    "account_name_or_full_code_read": false,
+    "balance_or_transaction_value_read": false
+  },
+  "local_source_constraints": [
+    "Code Prefix Start and End must have equal lengths",
+    "Ranges with the same prefix length cannot overlap within the same company",
+    "Nested ranges with different prefix lengths can form a hierarchy and are not automatically overlap defects",
+    "Parent is computed and adapted to the most specific containing range when prefixes change",
+    "Deleting a group reparents direct children to the deleted group's parent before unlink"
+  ],
+  "representative_sampling": {
+    "existing_record_candidates": 0,
+    "forms_opened": 0,
+    "top_level_with_accounts": 0,
+    "deepest_child_with_accounts": 0,
+    "range_group": 0,
+    "single_prefix_group": 0,
+    "zero_account_group": 0,
+    "substitution_used": false,
+    "reason": "No account.group record exists in the allowed company context"
+  },
+  "business_interpretation": {
+    "confirmed": "No account.group hierarchy or computed account assignment exists in the inspected company context",
+    "not_proven": "Trial Balance hierarchy or subtotal output is incorrect or unnecessary",
+    "standard_behavior": "Account Groups consolidate accounts under broader headings in reports such as Trial Balance and are intended for rare advanced manual configuration",
+    "decision_required": "Accounting/CFO must approve whether Linkweld needs manual hierarchy beyond current Account Types and report structure"
+  },
+  "risk_observations": [
+    "Creating the first group can change computed group_id for existing accounts whose codes match the prefix range",
+    "Changing prefixes can automatically adapt parent-child hierarchy and alter report presentation",
+    "An overlapping same-granularity range is invalid, while a nested different-length range can be valid",
+    "Deleting a parent reparents children and can change hierarchy even without changing account codes",
+    "Account Group changes should not change posted debit or credit values, but report grouping and subtotals can change"
+  ],
+  "not_available": [
+    "Trial Balance Hierarchy and Subtotals output",
+    "Financial Statement or custom-report hierarchy",
+    "Historical period presentation",
+    "Account-group assignment after creating a prefix range",
+    "Parent-child adaptation after prefix changes",
+    "Multi-company isolation of group ranges",
+    "Export or audit behavior after hierarchy changes"
+  ],
+  "privacy": {
+    "account_names_read": false,
+    "full_account_codes_read": false,
+    "balances_or_journal_items_read": false,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.group/get_views",
+      "account.group/web_search_read",
+      "account.group/fields_get",
+      "account.group/search_count",
+      "account.account/fields_get",
+      "account.account/search_count",
+      "account.account/search_read"
+    ],
+    "account_search_read_fields": ["id", "group_id"],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "report_observed": false
+  },
+  "screenshots": [
+    "original/ACC-017_01_account_groups_empty_list_original.png"
+  ],
+  "original_sha256": "8C6199B15A3C1B5C528CA31630F6F8ACEC5E399F2D82DDCE936977873FB27537",
+  "annotated_sha256": "D1C7E5CD3404CEE80C7EDE72FE3D27C99D330518B16DC78688520C34CC078DBF",
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/chart_of_accounts.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "delete_or_duplicate_clicked": false,
+    "prefix_or_hierarchy_changed": false,
+    "form_or_linked_record_opened": false,
+    "trial_balance_or_report_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}
