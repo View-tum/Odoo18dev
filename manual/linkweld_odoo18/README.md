@@ -69,5 +69,9 @@ Complete these checks before every evidence session:
 - Captured 5 untouched originals, 5 deterministic numbered-circle copies, and a structured extract covering both existing levels and all visible notification/activity options.
 - Confirmed both levels are manual: 7 Days uses Email + Letter with Attach Invoices; First reminder email uses Email with its named template. Automatic and Schedule Activity are disabled for both.
 - Detailed Thai chapter: `source/ACC-003_follow_up_levels_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-004`, followed by existing-transaction traceability.
+- Incoterms (`ACC-004`) evidence completed on 2026-07-16.
+- Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 11 active standard Incoterms.
+- Confirmed the Linkweld list matches the Odoo 18 standard set: EXW, FCA, FAS, FOB, CFR, CIF, CPT, CIP, DPU, DAP, and DDP.
+- Detailed Thai chapter: `source/ACC-004_incoterms_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-005`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

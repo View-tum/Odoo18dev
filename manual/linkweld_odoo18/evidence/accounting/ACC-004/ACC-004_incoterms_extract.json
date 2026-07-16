@@ -1,0 +1,111 @@
+{
+  "configuration_id": "ACC-004",
+  "page": "Incoterms",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.incoterms",
+  "total_records": 11,
+  "fields": {
+    "name": {
+      "readonly": false,
+      "required": true,
+      "string": "Name",
+      "type": "char"
+    },
+    "code": {
+      "readonly": false,
+      "required": true,
+      "string": "Code",
+      "type": "char"
+    },
+    "active": {
+      "readonly": false,
+      "required": false,
+      "string": "Active",
+      "type": "boolean"
+    }
+  },
+  "records": [
+    {
+      "id": 1,
+      "code": "EXW",
+      "name": "EX WORKS",
+      "active": true
+    },
+    {
+      "id": 2,
+      "code": "FCA",
+      "name": "FREE CARRIER",
+      "active": true
+    },
+    {
+      "id": 3,
+      "code": "FAS",
+      "name": "FREE ALONGSIDE SHIP",
+      "active": true
+    },
+    {
+      "id": 4,
+      "code": "FOB",
+      "name": "FREE ON BOARD",
+      "active": true
+    },
+    {
+      "id": 5,
+      "code": "CFR",
+      "name": "COST AND FREIGHT",
+      "active": true
+    },
+    {
+      "id": 6,
+      "code": "CIF",
+      "name": "COST, INSURANCE AND FREIGHT",
+      "active": true
+    },
+    {
+      "id": 7,
+      "code": "CPT",
+      "name": "CARRIAGE PAID TO",
+      "active": true
+    },
+    {
+      "id": 8,
+      "code": "CIP",
+      "name": "CARRIAGE AND INSURANCE PAID TO",
+      "active": true
+    },
+    {
+      "id": 9,
+      "code": "DPU",
+      "name": "DELIVERED AT PLACE UNLOADED",
+      "active": true
+    },
+    {
+      "id": 10,
+      "code": "DAP",
+      "name": "DELIVERED AT PLACE",
+      "active": true
+    },
+    {
+      "id": 11,
+      "code": "DDP",
+      "name": "DELIVERED DUTY PAID",
+      "active": true
+    }
+  ],
+  "screenshots": [
+    "original/ACC-004_01_incoterms_list_original.png",
+    "original/ACC-004_02_cif_incoterm_form_original.png"
+  ],
+  "official_reference": "https://www.odoo.com/documentation/18.0/applications/finance/accounting/customer_invoices/incoterms.html",
+  "safety": {
+    "new_clicked": false,
+    "edit_mode_entered": true,
+    "discard_clicked": true,
+    "values_modified": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "records_changed": false
+  }
+}
