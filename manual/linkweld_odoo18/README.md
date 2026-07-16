@@ -58,5 +58,8 @@ Complete these checks before every evidence session:
 - Accounting register: 30 entries.
 - Manufacturing register: 5 entries, including Products, Product Variants, Bills of Materials, and Lots/Serial Numbers.
 - No duplicate menu paths or configuration IDs were found.
-- Next evidence batch: Accounting Settings screenshots and field-level current values.
+- Accounting Settings (`ACC-001`) evidence completed on 2026-07-16.
+- Captured 13 untouched originals, 13 deterministic numbered-circle copies, and a structured DOM extract covering 19 sections and 60 setting boxes.
+- Detailed Thai chapter: `source/ACC-001_accounting_settings_th.md`.
+- Next evidence batch: Accounting Configuration menus (`ACC-002` onward), followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

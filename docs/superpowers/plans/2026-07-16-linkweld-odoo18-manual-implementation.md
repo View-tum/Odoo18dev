@@ -29,7 +29,8 @@
 - Create: `manual/linkweld_odoo18/register/configuration_register.csv` - authoritative configuration inventory.
 - Create: `manual/linkweld_odoo18/register/evidence_log.csv` - screenshot and record traceability.
 - Create: `manual/linkweld_odoo18/register/menu_inventory.csv` - installed-module menu coverage.
-- Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/` - original screenshots grouped by configuration.
+- Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/original/` - untouched screenshots grouped by configuration.
+- Create: `manual/linkweld_odoo18/evidence/<module>/<configuration_id>/annotated/` - pixel-faithful screenshots with deterministic numbered circles and callouts.
 - Create: `manual/linkweld_odoo18/source/01_settings_manual_th.md` - Settings Manual source.
 - Create: `manual/linkweld_odoo18/source/02_accounting_manufacturing_manual_th.md` - Accounting and Manufacturing Manual source.
 - Create: `manual/linkweld_odoo18/scripts/build_linkweld_manuals.py` - deterministic DOCX builder.
@@ -90,11 +91,11 @@ OTH = remaining installed modules
 - Consumes: approved design `docs/superpowers/specs/2026-07-16-linkweld-odoo18-manual-design.md`.
 - Produces: stable IDs and CSV schemas used by all capture and publishing tasks.
 
-- [ ] **Step 1: Create the directory structure**
+- [x] **Step 1: Create the directory structure**
 
 Create the exact paths listed in File Structure. Do not place screenshots outside `manual/linkweld_odoo18/evidence`.
 
-- [ ] **Step 2: Write the safety checklist into README**
+- [x] **Step 2: Write the safety checklist into README**
 
 Include these mandatory pre-session checks:
 
@@ -108,11 +109,11 @@ Include these mandatory pre-session checks:
 7. Finalize the browser session after the evidence batch.
 ```
 
-- [ ] **Step 3: Create CSV files with exact headers**
+- [x] **Step 3: Create CSV files with exact headers**
 
 Write only the headers from Data Contracts. Do not pre-populate invented menu or configuration records.
 
-- [ ] **Step 4: Validate workspace structure**
+- [x] **Step 4: Validate workspace structure**
 
 Run:
 
@@ -122,7 +123,7 @@ rg --files manual/linkweld_odoo18 | Sort-Object
 
 Expected: README and three register CSV files are listed; no DOCX or evidence files exist yet.
 
-- [ ] **Step 5: Commit the evidence workspace**
+- [x] **Step 5: Commit the evidence workspace**
 
 ```powershell
 git add manual/linkweld_odoo18/README.md manual/linkweld_odoo18/register
@@ -139,23 +140,23 @@ git commit -m "docs: initialize Linkweld manual evidence register"
 - Consumes: normal Odoo menus visible to the supplied Linkweld staging user.
 - Produces: complete non-Technical menu inventory and one configuration ID per configurable menu.
 
-- [ ] **Step 1: Open staging in read-only navigation mode**
+- [x] **Step 1: Open staging in read-only navigation mode**
 
 Authenticate without recording credentials. Do not open Developer Mode Technical menus.
 
-- [ ] **Step 2: Inventory module Settings and Configuration menus**
+- [x] **Step 2: Inventory module Settings and Configuration menus**
 
 Inspect Accounting, Manufacturing, Inventory, Purchase, Sales, Approvals, Project, Helpdesk, Documents, Website/eCommerce, Barcode, Assets, Budgets, and every other installed business app visible in the app switcher.
 
-- [ ] **Step 3: Record access outcomes**
+- [x] **Step 3: Record access outcomes**
 
 For every menu path, set `access_result` to one of `Accessible`, `No Access`, `Not Installed`, or `Not Visible`. Do not infer access from source code.
 
-- [ ] **Step 4: Assign configuration IDs**
+- [x] **Step 4: Assign configuration IDs**
 
 Use sequential three-digit IDs such as `ACC-001`, `ACC-002`, and `MRP-001`. Assign IDs only to menus observed in Linkweld.
 
-- [ ] **Step 5: Check coverage uniqueness**
+- [x] **Step 5: Check coverage uniqueness**
 
 Run:
 
@@ -167,7 +168,7 @@ $rows | Where-Object visible -eq 'True' | Where-Object coverage_status -eq ''
 
 Expected: no duplicate menu path rows and no blank coverage status for visible menus.
 
-- [ ] **Step 6: Finalize the browser session and commit**
+- [x] **Step 6: Finalize the browser session and commit**
 
 ```powershell
 git add manual/linkweld_odoo18/register/menu_inventory.csv manual/linkweld_odoo18/register/configuration_register.csv
@@ -183,29 +184,33 @@ git commit -m "docs: inventory Linkweld configuration menus"
 
 **Interfaces:**
 - Consumes: Accounting configuration IDs from Task 2.
-- Produces: one navigation image and one focused image for every visible Accounting Settings section.
+- Produces: original and annotated navigation/focused images for every visible Accounting Settings section.
 
-- [ ] **Step 1: Capture Accounting Settings navigation context**
+- [x] **Step 1: Capture Accounting Settings navigation context**
 
 Open Accounting > Configuration > Settings without changing any field. Capture the full page at readable resolution.
 
-- [ ] **Step 2: Capture each visible Settings section**
+- [x] **Step 2: Capture each visible Settings section**
 
 Capture focused images for fiscal localization, taxes, currencies, customer invoices, vendor bills, payments, bank, analytics, budgets, assets, stock accounting, fiscal periods, and installed custom settings that appear on the page.
 
-- [ ] **Step 3: Record the current displayed values**
+- [x] **Step 2A: Create deterministic annotated copies**
+
+Keep every original screenshot unchanged. Create a separate annotated copy with numbered red circles; add connector lines only when needed to identify the target. Each number must map to the manual explanation table. Do not use generative image reconstruction or cover Odoo field text and values.
+
+- [x] **Step 3: Record the current displayed values**
 
 Write exact displayed values into `current_value`. For blank, masked, inaccessible, or ambiguous fields, use `Not Available`; do not click Edit to reveal values.
 
-- [ ] **Step 4: Register screenshot evidence**
+- [x] **Step 4: Register screenshot evidence**
 
-Create one `evidence_log.csv` row per image. Set `record_model` to `res.config.settings`, `record_state` to `Read-only inspection`, and `redacted` to `True` or `False`.
+Create one `evidence_log.csv` row for the original image and one row for its annotated copy. Set `record_model` to `res.config.settings`, `record_state` to `Read-only inspection`, and `redacted` to `True` or `False`.
 
-- [ ] **Step 5: Perform the safety check**
+- [x] **Step 5: Perform the safety check**
 
 Confirm no settings were saved and no success notification indicating a write appeared during the session.
 
-- [ ] **Step 6: Finalize the browser session and commit**
+- [x] **Step 6: Finalize the browser session and commit**
 
 ```powershell
 git add manual/linkweld_odoo18/register manual/linkweld_odoo18/evidence/accounting
@@ -604,4 +609,3 @@ The complete execution is acceptable only when:
 7. Both DOCX files render without visual defects.
 8. LINKWELD_DEV_HANDOFF.md reflects the final evidence status.
 ```
-
