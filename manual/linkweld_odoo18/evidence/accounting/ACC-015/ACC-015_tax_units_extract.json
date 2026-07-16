@@ -1,0 +1,138 @@
+{
+  "configuration_id": "ACC-015",
+  "page": "Tax Units",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.tax.unit",
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "menu_external_id": "account_reports.menu_view_tax_units",
+    "menu_group_restriction_from_local_source": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible": true,
+    "action_external_id": "account_reports.action_view_tax_units",
+    "observed_action_id": 647,
+    "observed_route": "/odoo/action-647",
+    "action_load_method": "/web/action/load",
+    "interpretation": "Developer-hidden multi-company tax-reporting surface; not a normal visible business menu for this user"
+  },
+  "default_domain": [],
+  "ui_order_parameter": "",
+  "ui_order_interpretation": "No explicit order was sent in the inspected web_search_read request",
+  "page_limit": 80,
+  "count_limit": 10001,
+  "pager_display": null,
+  "total_units": 0,
+  "countries_represented": 0,
+  "member_company_relationships": 0,
+  "main_companies_present": 0,
+  "tax_id_present_count": 0,
+  "fpos_synced_true_count": 0,
+  "fpos_synced_false_count": 0,
+  "list_columns": [
+    "Name",
+    "Country"
+  ],
+  "schema": {
+    "name": {"label": "Name", "type": "char", "required": true, "writable": true},
+    "country_id": {"label": "Country", "type": "many2one", "comodel": "res.country", "required": true, "writable": true},
+    "vat": {"label": "Tax ID", "type": "char", "required": true, "writable": true, "value_read": false},
+    "company_ids": {"label": "Companies", "type": "many2many", "comodel": "res.company", "required": true, "writable": true},
+    "main_company_id": {"label": "Main Company", "type": "many2one", "comodel": "res.company", "required": true, "writable": true},
+    "fpos_synced": {"label": "Fiscal Positions Synchronised", "type": "boolean", "computed": true, "readonly": true}
+  },
+  "representative_sampling": {
+    "existing_record_candidates": 0,
+    "forms_opened": 0,
+    "substitution_used": false,
+    "reason": "No Tax Unit exists in the allowed company context"
+  },
+  "fiscal_position_sync_risk": {
+    "method": "action_sync_unit_fiscal_positions",
+    "called": false,
+    "button_exposed": false,
+    "local_source_effect": "Deletes generated Tax Unit Fiscal Positions, recreates tax-to-no-tax mappings for member companies, and assigns those Fiscal Positions to other member-company partners",
+    "risk_level": "Critical",
+    "allowed_environment": "Approved Clone UAT only after Legal/Tax design and backup evidence"
+  },
+  "standard_constraints_from_local_source": [
+    "A Tax Unit must contain at least two companies",
+    "All member companies must share the same main currency",
+    "The Main Company must be one of the member companies",
+    "A company can belong to at most one Tax Unit per country",
+    "The Tax ID must validate for the selected country"
+  ],
+  "privacy": {
+    "tax_id_values_requested": false,
+    "tax_id_values_read": false,
+    "forms_opened": false,
+    "full_tax_ids_stored": 0,
+    "registration_numbers_stored": 0,
+    "bank_account_numbers_stored": 0,
+    "credentials_stored": 0,
+    "privacy_blocker": false
+  },
+  "not_available": [
+    "Tax Unit membership design",
+    "Main Company ownership",
+    "Actual Tax ID",
+    "Per-record Fiscal Positions Synchronised value",
+    "Fiscal Position mappings or Partner assignments",
+    "Aggregated Tax Report result",
+    "Horizontal-group or Tax Unit report-filter behavior",
+    "Tax Return aggregation or XML export",
+    "Consolidation or multi-company accounting effect",
+    "Thailand legal applicability of a Tax Unit"
+  ],
+  "business_interpretation": {
+    "confirmed": "No account.tax.unit record exists in the inspected company context",
+    "not_proven": "A Tax Unit is required or unnecessary for Linkweld",
+    "current_observed_path": "No aggregated multi-company Tax Unit report or Fiscal Position synchronization is configured",
+    "decision_required": "Legal, Tax, CFO, and multi-company owners must confirm eligibility, same-country/currency membership, representative company, Tax ID, intercompany VAT, and reporting requirements"
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.tax.unit/fields_get",
+      "account.tax.unit/search_count",
+      "account.tax.unit/get_views",
+      "account.tax.unit/web_search_read"
+    ],
+    "search_read_with_tax_id_values": false,
+    "action_run_observed": false,
+    "action_sync_unit_fiscal_positions_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false
+  },
+  "screenshots": [
+    "original/ACC-015_01_tax_units_empty_list_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/tax_units.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes/fiscal_positions.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations/thailand.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "duplicate_clicked": false,
+    "company_added_or_removed": false,
+    "main_company_country_or_tax_id_changed": false,
+    "linked_record_opened": false,
+    "tax_or_consolidation_report_opened": false,
+    "company_selector_changed": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}
