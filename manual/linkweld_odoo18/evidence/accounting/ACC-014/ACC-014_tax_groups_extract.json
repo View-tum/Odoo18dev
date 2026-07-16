@@ -1,0 +1,196 @@
+{
+  "configuration_id": "ACC-014",
+  "page": "Tax Groups",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.tax.group",
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "menu_external_id": "account.menu_action_tax_group",
+    "menu_group_restriction_from_local_source": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible": true,
+    "action_external_id": "account.action_tax_group",
+    "observed_action_id": 235,
+    "observed_route": "/odoo/action-235",
+    "action_load_method": "/web/action/load",
+    "interpretation": "Developer-hidden configuration surface; not a normal visible business menu for this user"
+  },
+  "default_domain": [],
+  "default_order": [
+    "sequence ASC",
+    "id ASC"
+  ],
+  "page_limit": 80,
+  "count_limit": 10001,
+  "pager_display": "1-6 / 6",
+  "total_records": 6,
+  "company_1_records": 6,
+  "global_records": 0,
+  "country_counts": {
+    "Thailand": 5,
+    "blank": 1
+  },
+  "sequence_counts": {
+    "0": 1,
+    "10": 5
+  },
+  "field_presence_counts": {
+    "tax_payable_account_present": 0,
+    "tax_payable_account_missing": 6,
+    "tax_receivable_account_present": 0,
+    "tax_receivable_account_missing": 6,
+    "advance_tax_payment_account_present": 0,
+    "advance_tax_payment_account_missing": 6,
+    "preceding_subtotal_present": 0,
+    "preceding_subtotal_missing": 6,
+    "pos_receipt_label_present": 0,
+    "pos_receipt_label_missing": 6
+  },
+  "list_columns": [
+    "Name",
+    "Country",
+    "Company",
+    "Tax Payable Account",
+    "Tax Receivable Account",
+    "Tax Advance Account",
+    "View"
+  ],
+  "groups_in_default_order": [
+    {"id": 8, "name": "Taxes", "sequence": 0, "country": null, "company_id": 1},
+    {"name": "TAX 3%", "sequence": 10, "country": "Thailand", "company_id": 1},
+    {"id": 19, "name": "TAX 1%", "sequence": 10, "country": "Thailand", "company_id": 1},
+    {"name": "TAX 5%", "sequence": 10, "country": "Thailand", "company_id": 1},
+    {"id": 22, "name": "VAT 7%", "sequence": 10, "country": "Thailand", "company_id": 1},
+    {"name": "TAX 2%", "sequence": 10, "country": "Thailand", "company_id": 1}
+  ],
+  "schema": {
+    "name": {"label": "Name", "type": "char", "required": true},
+    "sequence": {"label": "Sequence", "type": "integer", "required": false},
+    "company_id": {"label": "Company", "type": "many2one", "comodel": "res.company", "required": true},
+    "country_id": {"label": "Country", "type": "many2one", "comodel": "res.country", "required": false},
+    "tax_payable_account_id": {"label": "Tax Payable Account", "type": "many2one", "comodel": "account.account", "required": false},
+    "tax_receivable_account_id": {"label": "Tax Receivable Account", "type": "many2one", "comodel": "account.account", "required": false},
+    "advance_tax_payment_account_id": {"label": "Tax Advance Account", "type": "many2one", "comodel": "account.account", "required": false},
+    "preceding_subtotal": {"label": "Preceding Subtotal", "type": "char", "required": false},
+    "pos_receipt_label": {"label": "PoS receipt label", "type": "char", "required": false},
+    "active_field_exists": false
+  },
+  "representative_groups": {
+    "VAT 7%": {
+      "id": 22,
+      "selection_reason": "Referenced by ACC-009 Input VAT 7% and Output VAT 7%",
+      "country": "Thailand",
+      "company_id": 1,
+      "sequence": 10,
+      "tax_payable_account": null,
+      "tax_receivable_account": null,
+      "advance_tax_payment_account": null,
+      "preceding_subtotal": null,
+      "pos_receipt_label": null
+    },
+    "TAX 1%": {
+      "id": 19,
+      "selection_reason": "Referenced by ACC-009 Company Withholding Tax 1%",
+      "country": "Thailand",
+      "company_id": 1,
+      "sequence": 10,
+      "tax_payable_account": null,
+      "tax_receivable_account": null,
+      "advance_tax_payment_account": null,
+      "preceding_subtotal": null,
+      "pos_receipt_label": null
+    },
+    "Taxes": {
+      "id": 8,
+      "selection_reason": "Only group with blank Country and Sequence 0; referenced by ACC-009 Output VAT 0%",
+      "country": null,
+      "company_id": 1,
+      "sequence": 0,
+      "tax_payable_account": null,
+      "tax_receivable_account": null,
+      "advance_tax_payment_account": null,
+      "preceding_subtotal": null,
+      "pos_receipt_label": null
+    }
+  },
+  "sampling_limitations": {
+    "groups_with_payable_or_receivable_account": 0,
+    "groups_with_advance_account": 0,
+    "groups_with_preceding_subtotal": 0,
+    "groups_with_pos_receipt_label": 0,
+    "other_company_or_global_groups": 0,
+    "other_country_groups": 0,
+    "substitution_used": false
+  },
+  "risk_observations": [
+    "All six Tax Groups have blank Tax Payable and Tax Receivable Accounts; this is a Tax Closing configuration risk but not a proven defect until Thai policy and Clone-UAT behavior are tested",
+    "All six Tax Advance Accounts are blank; whether an advance-tax workflow requires this field is Not Available",
+    "Five groups share Sequence 10; duplicate sequence is not automatically a defect because id provides the secondary order",
+    "The Taxes group has blank Country and Sequence 0; its actual applicability must be proven from linked taxes and document/report outcomes",
+    "Group names alone do not prove tax computation, Tax Grid, posting, closing, or report behavior"
+  ],
+  "not_available": [
+    "Tax Closing proposal or posted entry",
+    "Tax Return report result",
+    "Payable or receivable closing-account posting",
+    "Advance tax payment behavior",
+    "Invoice, bill, refund, WHT, or payment transaction result",
+    "PoS receipt label output",
+    "Preceding subtotal document output",
+    "Sequence effect on document totals",
+    "Tax Group access through the normal visible menu"
+  ],
+  "privacy": {
+    "full_bank_account_numbers_visible": 0,
+    "sensitive_account_or_journal_labels_captured": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.tax.group/get_views",
+      "account.tax.group/web_search_read",
+      "account.tax.group/web_read",
+      "account.tax.group/fields_get",
+      "account.tax.group/search_read"
+    ],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false
+  },
+  "screenshots": [
+    "original/ACC-014_01_tax_groups_list_original.png",
+    "original/ACC-014_02_vat_7_group_form_original.png",
+    "original/ACC-014_03_tax_1_group_form_original.png",
+    "original/ACC-014_04_taxes_group_form_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/tax_returns.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/customize.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations/thailand.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "inline_edit_entered": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "duplicate_clicked": false,
+    "sequence_reordered": false,
+    "optional_columns_changed": false,
+    "linked_tax_account_company_or_country_opened": false,
+    "tax_closing_or_report_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}

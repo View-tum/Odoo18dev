@@ -109,5 +109,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched original, 1 deterministic numbered rectangular-frame copy, and a company-scoped extract confirming zero `account.journal.group` records and zero Excluded Journal relationships.
 - The actual page title is Multi-ledger and the inspected schema has Ledger group, Company, Excluded Journals, and Sequence but no Active or Included Journals field. No report was run, so Local GAAP/IFRS/Fiscal output remains unverified.
 - Detailed Thai chapter: `source/ACC-013_journal_groups_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-014` Tax Groups, followed by existing-transaction traceability.
+- Tax Groups (`ACC-014`) evidence completed on 2026-07-16 through a read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a company-scoped extract covering all 6 Tax Groups plus VAT 7%, TAX 1%, and Taxes forms.
+- All 6 groups have blank Tax Payable, Tax Receivable, Tax Advance, Preceding Subtotal, and PoS receipt label fields. This is a Tax Closing configuration risk, not a proven defect until Clone-UAT closing/report reconciliation.
+- Detailed Thai chapter: `source/ACC-014_tax_groups_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-015` Tax Units, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
