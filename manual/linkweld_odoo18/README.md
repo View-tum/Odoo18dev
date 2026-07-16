@@ -125,5 +125,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and an extract confirming zero Account Groups, zero prefix hierarchy, and zero computed group assignments across 353 non-deprecated Company-1 accounts.
 - Zero groups is not automatically a defect. Manual Account Groups are a rare advanced configuration; Trial Balance Hierarchy/Subtotals and report reconciliation remain Clone-UAT-only.
 - Detailed Thai chapter: `source/ACC-017_account_groups_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-018` Horizontal Groups, followed by existing-transaction traceability.
+- Horizontal Groups (`ACC-018`) evidence completed on 2026-07-16 through a read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and an extract confirming zero Horizontal Groups, zero Rules, zero Report links, and no Domain read or execution.
+- ACC-013 Multi-ledger, ACC-015 Tax Units, and ACC-018 Horizontal Groups are all zero configuration. This does not prove Consolidation or aggregated reporting is unnecessary; the decision and report reconciliation remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-018_horizontal_groups_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-019` Financial Budgets, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

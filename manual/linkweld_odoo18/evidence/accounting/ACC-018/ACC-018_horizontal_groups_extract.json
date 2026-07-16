@@ -1,0 +1,160 @@
+{
+  "configuration_id": "ACC-018",
+  "page": "Horizontal Groups",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.report.horizontal.group",
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "menu_external_id": "account_reports.menu_action_account_report_horizontal_groups",
+    "menu_group_restriction_from_local_source": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible": true,
+    "action_external_id": "account_reports.action_account_report_horizontal_groups",
+    "observed_action_id": 756,
+    "observed_route": "/odoo/action-756",
+    "action_load_method": "/web/action/load",
+    "action_title": "Horizontal Groups",
+    "view_mode": "list,form",
+    "explicit_list_view_id": 2181,
+    "page_limit": 80,
+    "interpretation": "Developer-hidden Enterprise report configuration surface; not a normal visible business menu"
+  },
+  "default_list": {
+    "domain": [],
+    "ui_order_parameter": "",
+    "search_blank": true,
+    "active_search_chips": 0,
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": null,
+    "total_records": 0,
+    "list_columns": ["Name", "Reports"],
+    "blank_spacer_rows": 4,
+    "blank_spacer_rows_are_business_records": false
+  },
+  "group_schema": {
+    "name": {"label": "Name", "type": "char", "required": true, "readonly": false, "stored": true},
+    "rule_ids": {"label": "Rules", "type": "one2many", "comodel": "account.report.horizontal.group.rule", "required": true, "readonly": false, "stored": true},
+    "report_ids": {"label": "Reports", "type": "many2many", "comodel": "account.report", "required": false, "readonly": false, "stored": true},
+    "active_field_exists": false,
+    "company_field_exists": false
+  },
+  "rule_schema": {
+    "horizontal_group_id": {"label": "Horizontal Group", "type": "many2one", "comodel": "account.report.horizontal.group", "required": true, "readonly": false, "stored": true},
+    "field_name": {"label": "Field", "type": "selection", "required": true, "readonly": false, "stored": true, "live_relational_candidate_count": 34},
+    "domain": {"label": "Domain", "type": "char", "required": true, "readonly": false, "stored": true},
+    "res_model_name": {"label": "Model", "type": "char", "computed": true, "readonly": true, "stored": false}
+  },
+  "counts": {
+    "horizontal_groups": 0,
+    "rules": 0,
+    "groups_with_rules": 0,
+    "groups_without_rules": 0,
+    "groups_with_reports": 0,
+    "groups_without_reports": 0,
+    "report_links": 0,
+    "distinct_linked_reports": 0,
+    "duplicate_group_names": 0,
+    "rule_count_distribution": {},
+    "report_count_distribution": {},
+    "rules_by_field_name": {},
+    "rules_by_resolved_model": {},
+    "blank_or_default_domains": 0,
+    "privacy_safe_domains": 0,
+    "sensitive_domains": 0
+  },
+  "domain_execution_boundary": {
+    "method": "account.report.horizontal.group.rule._get_matching_records",
+    "called": false,
+    "domain_evaluated": false,
+    "matching_business_records_requested": false,
+    "domain_text_read": false,
+    "local_source_behavior": "Resolves the selected relational account.move.line field's comodel, parses the rule domain with ast.literal_eval, then searches the related model",
+    "risk": "A broad, overlapping, invalid, or sensitive domain can produce incomplete/duplicated report columns, expose identifiers, or create expensive searches"
+  },
+  "representative_sampling": {
+    "existing_record_candidates": 0,
+    "forms_opened": 0,
+    "tax_report_or_tax_unit_candidate": 0,
+    "greatest_report_count_candidate": 0,
+    "greatest_rule_count_candidate": 0,
+    "alternate_field_or_model_candidate": 0,
+    "substitution_used": false,
+    "reason": "No Horizontal Group or Rule exists"
+  },
+  "cross_configuration_observation": {
+    "ACC-013_multi_ledger_records": 0,
+    "ACC-015_tax_units": 0,
+    "ACC-018_horizontal_groups": 0,
+    "interpretation": "No configured Multi-ledger, Tax Unit, or Horizontal Group path was found; consolidation or aggregated reporting necessity remains a business decision"
+  },
+  "business_interpretation": {
+    "confirmed": "No Horizontal Group, Rule, or linked Report is configured",
+    "not_proven": "Horizontal Groups are unnecessary or report columns/consolidation are correct",
+    "standard_behavior": "Horizontal Groups split report columns using Rules and can show each company's contribution in consolidated financial reports",
+    "decision_required": "CFO/Accounting/Consolidation owners must approve scope, companies, ledgers, reports, fields, domains, totals and performance before first configuration"
+  },
+  "not_available": [
+    "Horizontal Group selector or report columns",
+    "Balance Sheet or Profit and Loss company contribution",
+    "Tax Unit aggregated Tax Report columns",
+    "Rule domain coverage, overlap, gaps, and performance",
+    "Multi-ledger and consolidation-adjustment inclusion",
+    "Company isolation and cross-company totals",
+    "PDF or XLSX output",
+    "Historical period and comparison behavior"
+  ],
+  "privacy": {
+    "domain_text_read": false,
+    "report_names_or_ids_read": false,
+    "account_move_line_or_related_records_read": false,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.report.horizontal.group/get_views",
+      "account.report.horizontal.group/web_search_read",
+      "account.report.horizontal.group/fields_get",
+      "account.report.horizontal.group/search_count",
+      "account.report.horizontal.group.rule/fields_get",
+      "account.report.horizontal.group.rule/search_count"
+    ],
+    "search_read_for_rule_records": false,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "report_or_domain_execution_observed": false
+  },
+  "screenshots": [
+    "original/ACC-018_01_horizontal_groups_empty_list_original.png"
+  ],
+  "original_sha256": "AB86B39DF0E4F67F0CA64E4C8FB1D3C430DD113A142C2E0B0E750F3AD846A0FA",
+  "annotated_sha256": "A8BAA0F379B35B9952D3CD56407C70FE93B41ABF91AD6E6171A98FAE2BBB7D07",
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/consolidation.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/customize.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_or_export_clicked": false,
+    "edit_mode_entered": false,
+    "save_delete_or_duplicate_clicked": false,
+    "rule_or_domain_widget_opened": false,
+    "report_chip_or_filter_opened": false,
+    "pdf_or_xlsx_generated": false,
+    "form_or_linked_record_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}
