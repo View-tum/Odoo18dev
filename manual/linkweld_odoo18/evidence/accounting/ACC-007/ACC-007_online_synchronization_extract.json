@@ -1,0 +1,112 @@
+{
+  "configuration_id": "ACC-007",
+  "page": "Online Synchronization",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.online.link",
+  "total_records": 3,
+  "list_columns": [
+    "Name",
+    "State",
+    "Provider Type",
+    "Last Refresh"
+  ],
+  "records": [
+    {
+      "display_sequence": 1,
+      "name": null,
+      "state": "Not Connected",
+      "provider_type": null,
+      "last_refresh_display": "01/04/2023 11:14:21"
+    },
+    {
+      "display_sequence": 2,
+      "name": null,
+      "state": "Not Connected",
+      "provider_type": null,
+      "last_refresh_display": "05/26/2023 09:09:16"
+    },
+    {
+      "display_sequence": 3,
+      "name": null,
+      "state": "Not Connected",
+      "provider_type": null,
+      "last_refresh_display": "07/23/2025 09:02:15"
+    }
+  ],
+  "representative_form": {
+    "record": "First list record",
+    "breadcrumb": "Unnamed",
+    "state": "Not Connected",
+    "inactive_status_steps": [
+      "Connected",
+      "Error"
+    ],
+    "reconnect_visible": true,
+    "connect_visible": true,
+    "client_id_display": "duplicate",
+    "client_id_classification": "Observed literal value; no cause inferred and no credential view opened",
+    "automatic_synchronization": true,
+    "provider_type": null,
+    "last_refresh_display": "01/04/2023 11:14:21",
+    "next_synchronization": null,
+    "expiring_synchronization_date": null,
+    "company": "Linkweld Thailand Co., Ltd.",
+    "account_mapping_columns": [
+      "Account Name",
+      "Account Number",
+      "Journal",
+      "Last synchronization",
+      "Balance",
+      "Company"
+    ],
+    "account_mapping_rows": 0
+  },
+  "not_available": [
+    "Provider connection details",
+    "Connected bank institution",
+    "Mapped bank accounts and journals",
+    "Automatic synchronization runtime or frequency",
+    "Fetched bank transactions",
+    "Credential expiry or update outcome",
+    "Error history or provider diagnostics"
+  ],
+  "requests_observed": {
+    "read_only_model_calls": [
+      "account.online.link/get_views",
+      "account.online.link/web_search_read",
+      "account.online.link/web_read",
+      "res.users/has_group",
+      "mail thread reads"
+    ],
+    "action_load_observed": true,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "sync_observed": false,
+    "credential_update_observed": false,
+    "external_provider_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-007_01_online_synchronization_list_original.png",
+    "original/ACC-007_02_not_connected_form_original.png"
+  ],
+  "official_reference": "https://www.odoo.com/documentation/18.0/applications/finance/accounting/bank/bank_synchronization.html",
+  "safety": {
+    "fetch_transactions_clicked": false,
+    "update_credentials_clicked": false,
+    "connect_clicked": false,
+    "reconnect_clicked": false,
+    "synchronize_clicked": false,
+    "external_provider_opened": false,
+    "credential_view_opened": false,
+    "new_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "records_changed": false
+  }
+}

@@ -81,5 +81,9 @@ Complete these checks before every evidence session:
 - Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering all 5 models and 3 representative forms.
 - Confirmed Auto-validate is enabled for Invoices/Bills Perfect Match and Bank Fees. Bank Fees uses Label Contains `bank fees` and posts 100% to account `560202` when its conditions match.
 - Detailed Thai chapter: `source/ACC-006_reconciliation_models_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-007`, followed by existing-transaction traceability.
+- Online Synchronization (`ACC-007`) evidence completed on 2026-07-16.
+- Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 3 records and one representative form.
+- Confirmed all 3 records have blank Name and Provider Type and are Not Connected. The representative record has Automatic synchronization enabled but no Next synchronization, expiry date, or account mapping.
+- Detailed Thai chapter: `source/ACC-007_online_synchronization_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-008`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
