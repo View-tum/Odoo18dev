@@ -1,0 +1,118 @@
+{
+  "configuration_id": "ACC-012",
+  "page": "Fiscal Positions",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.fiscal.position",
+  "filter": "Active/default list",
+  "active_total": 0,
+  "company_or_global_active_total": 0,
+  "company_or_global_domain": [
+    ["active", "=", true],
+    "and company_id is empty or company_id = 1"
+  ],
+  "pager_display": null,
+  "empty_state_text": "Create a new fiscal position",
+  "list_columns": [
+    "Fiscal Position",
+    "Company"
+  ],
+  "active_counts": {
+    "automatic_detection": 0,
+    "manual": 0,
+    "vat_required": 0,
+    "foreign_vat": 0,
+    "country_scope": 0,
+    "country_group_scope": 0,
+    "tax_mapping_presence": 0,
+    "account_mapping_presence": 0
+  },
+  "fields_confirmed_by_fields_get": [
+    "sequence",
+    "name",
+    "active",
+    "company_id",
+    "account_ids",
+    "tax_ids",
+    "auto_apply",
+    "vat_required",
+    "company_country_id",
+    "country_id",
+    "country_group_id",
+    "state_ids",
+    "zip_from",
+    "zip_to",
+    "foreign_vat",
+    "foreign_vat_header_mode"
+  ],
+  "representative_sampling": {
+    "automatic_candidate_count": 0,
+    "manual_tax_mapping_candidate_count": 0,
+    "account_mapping_candidate_count": 0,
+    "country_or_foreign_vat_candidate_count": 0,
+    "representative_forms_opened": 0,
+    "substitution_used": false,
+    "reason": "No active existing Fiscal Position record was available"
+  },
+  "not_available": [
+    "Existing Fiscal Position form values",
+    "Existing Tax on Product to Tax to Apply mapping pairs",
+    "Existing Account on Product to Account to Use mapping pairs",
+    "Automatic detection sequence and overlap behavior",
+    "VAT Required, Country, Country Group, State, and ZIP criteria values",
+    "Foreign VAT configuration values",
+    "Partner-assigned Fiscal Positions",
+    "Manual Fiscal Position use on Sales Orders, Purchase Orders, Invoices, or Bills",
+    "Historical inactive Fiscal Positions",
+    "Cross-border, zero-rated, exempt, WHT, POS, eCommerce, and report outcomes"
+  ],
+  "business_interpretation": {
+    "confirmed": "No active automatic or manual tax/account remapping configuration exists in the inspected company/global scope",
+    "not_proven": "Fiscal Positions are unnecessary for Linkweld",
+    "decision_required": "Accounting, Tax, Sales, Purchase, and Legal must define whether domestic, export, exempt, WHT, foreign-customer, foreign-vendor, POS, or eCommerce scenarios require controlled Fiscal Positions"
+  },
+  "requests_observed": {
+    "read_only_model_calls": [
+      "account.fiscal.position/get_views",
+      "account.fiscal.position/web_search_read",
+      "account.fiscal.position/fields_get",
+      "account.fiscal.position/search_count",
+      "account.fiscal.position/search_read"
+    ],
+    "dashboard_background_call": "account.journal/fetch_online_sync_favorite_institutions before opening Fiscal Positions",
+    "provider_or_sync_action_from_fiscal_position_page": false,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false
+  },
+  "screenshots": [
+    "original/ACC-012_01_active_fiscal_positions_empty_list_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes/fiscal_positions.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/account/account_fiscal_position.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations/thailand.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "activate_or_deactivate_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "duplicate_clicked": false,
+    "add_mapping_clicked": false,
+    "linked_record_opened": false,
+    "partner_or_document_changed": false,
+    "transaction_or_report_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}

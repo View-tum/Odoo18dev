@@ -101,5 +101,9 @@ Complete these checks before every evidence session:
 - Captured 5 untouched originals, 5 deterministic numbered rectangular-frame copies, and a company-scoped structured extract covering all 8 active currencies plus CNY/EUR/THB/USD forms and rate history.
 - Confirmed THB is the company currency. AED and JPY are active with blank Last Update and displayed Unit per THB 1.000000; rate dates do not prove provider refresh, and ACC-001 remains configured for a manual update interval.
 - Detailed Thai chapter: `source/ACC-011_currencies_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-012` Fiscal Positions, followed by existing-transaction traceability.
+- Fiscal Positions (`ACC-012`) evidence completed on 2026-07-16.
+- Captured 1 untouched original, 1 deterministic numbered rectangular-frame copy, and a company-scoped extract confirming zero active Fiscal Positions and zero active tax/account mappings.
+- No form could be sampled because no active record exists. This does not prove Fiscal Positions are unnecessary; cross-border, export, exempt, WHT, Partner assignment, and historical inactive records require Fit-gap and Clone-UAT.
+- Detailed Thai chapter: `source/ACC-012_fiscal_positions_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-013` Journal Groups, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
