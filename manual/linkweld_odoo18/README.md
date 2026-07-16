@@ -129,5 +129,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and an extract confirming zero Horizontal Groups, zero Rules, zero Report links, and no Domain read or execution.
 - ACC-013 Multi-ledger, ACC-015 Tax Units, and ACC-018 Horizontal Groups are all zero configuration. This does not prove Consolidation or aggregated reporting is unnecessary; the decision and report reconciliation remain Clone-UAT-only.
 - Detailed Thai chapter: `source/ACC-018_horizontal_groups_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-019` Financial Budgets, followed by existing-transaction traceability.
+- Financial Budgets (`ACC-019`) evidence completed on 2026-07-16 through the normal visible Accounting Configuration menu.
+- Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and an extract confirming zero Company-1 Financial Budgets, zero Budget Items, and no Amount/Account/Month/Budget name read.
+- Zero budgets is not automatically a defect. Budget Source of Truth, P&L account scope, period, sign, approval, privacy, report-cell monthly generation and Actual/Variance reconciliation remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-019_financial_budgets_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-020` Payment Providers, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

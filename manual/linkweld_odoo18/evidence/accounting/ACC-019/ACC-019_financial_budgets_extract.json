@@ -1,0 +1,156 @@
+{
+  "configuration_id": "ACC-019",
+  "page": "Financial Budgets",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only with financial-data privacy",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.report.budget",
+  "access": {
+    "visible_in_accounting_configuration_for_user": true,
+    "menu_external_id": "account_reports.menu_action_account_report_budget_tree",
+    "normal_menu_open_succeeded": true,
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "action_external_id": "account_reports.action_account_report_budget_tree",
+    "observed_action_id": 1452,
+    "observed_route": "/odoo/action-1452",
+    "action_title": "Financial Budgets",
+    "view_mode": "list,form",
+    "explicit_list_view_id": 5338,
+    "page_limit": 80,
+    "interpretation": "Normal visible business menu for this user; not developer-hidden"
+  },
+  "default_list": {
+    "domain": [],
+    "order": ["sequence ASC", "id ASC"],
+    "search_blank": true,
+    "active_search_chips": 0,
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": null,
+    "total_records": 0,
+    "list_columns": ["Sequence handle", "Name", "Company"],
+    "blank_spacer_rows": 4,
+    "blank_spacer_rows_are_budget_records": false
+  },
+  "budget_schema": {
+    "sequence": {"label": "Sequence", "type": "integer", "required": false, "readonly": false, "stored": true},
+    "name": {"label": "Name", "type": "char", "required": true, "readonly": false, "stored": true},
+    "item_ids": {"label": "Items", "type": "one2many", "comodel": "account.report.budget.item", "required": false, "readonly": false, "stored": true},
+    "company_id": {"label": "Company", "type": "many2one", "comodel": "res.company", "required": true, "readonly": false, "stored": true},
+    "active_field_exists": false,
+    "approval_or_status_field_in_core_model": false
+  },
+  "budget_item_schema": {
+    "budget_id": {"label": "Budget", "type": "many2one", "comodel": "account.report.budget", "required": true, "readonly": false, "stored": true, "ondelete": "cascade"},
+    "account_id": {"label": "Account", "type": "many2one", "comodel": "account.account", "required": true, "readonly": false, "stored": true},
+    "amount": {"label": "Amount", "type": "float", "required": false, "readonly": false, "stored": true},
+    "date": {"label": "Date", "type": "date", "required": true, "readonly": false, "stored": true}
+  },
+  "sanitized_counts": {
+    "budgets": 0,
+    "budgets_with_items": 0,
+    "budgets_without_items": 0,
+    "budget_items": 0,
+    "item_count_distribution": {},
+    "distinct_accounts": 0,
+    "earliest_month": null,
+    "latest_month": null,
+    "positive_items": 0,
+    "negative_items": 0,
+    "zero_items": 0,
+    "duplicate_budget_account_date_groups": 0,
+    "blank_account_items": 0,
+    "blank_date_items": 0,
+    "duplicate_trimmed_budget_names": 0,
+    "sequence_distribution": {},
+    "duplicate_sequence_values": 0,
+    "sensitive_budget_names": 0
+  },
+  "representative_sampling": {
+    "existing_budget_candidates": 0,
+    "zero_item_candidates": 0,
+    "populated_budget_candidates": 0,
+    "negative_item_budget_candidates": 0,
+    "forms_opened": 0,
+    "substitution_used": false,
+    "reason": "No Financial Budget exists in Company-1 scope"
+  },
+  "critical_write_behaviors_from_local_source": {
+    "report_cell_method": "_create_or_update_budget_items",
+    "report_cell_method_called": false,
+    "behavior": "Creates or updates monthly Budget Items across the selected date range, distributes the entered value across months, and applies the rounding remainder to the final month",
+    "duplicate_behavior": "Copies the Budget and every Budget Item",
+    "delete_behavior": "Deleting a Budget cascades deletion to its Budget Items",
+    "sequence_handle_reordered": false
+  },
+  "business_interpretation": {
+    "confirmed": "No Financial Budget or Budget Item is configured for Company 1",
+    "not_proven": "Financial budgeting is unnecessary or Budget Report/forecast behavior is correct",
+    "standard_behavior": "Financial Budgets are tied to general-ledger income and expense accounts shown in Profit and Loss and can create comparison columns by period",
+    "decision_required": "CFO/FP&A/Accounting must approve budget scope, P&L accounts, periods, signs, owners, confidentiality, approval and report reconciliation before first use"
+  },
+  "not_available": [
+    "Financial Budget names, ownership and approval",
+    "Budget Item Accounts, Months and Amounts",
+    "Profit and Loss Budget column",
+    "Actual-versus-budget percentages",
+    "Monthly distribution and rounding remainder",
+    "Company isolation",
+    "Budget Report, drill-down, PDF or XLSX",
+    "Forecast quality or management decision use"
+  ],
+  "privacy": {
+    "exact_amounts_read_or_stored": false,
+    "account_names_codes_or_labels_read": false,
+    "budget_names_read": false,
+    "months_or_item_ids_read": false,
+    "financial_values_visible_in_evidence": false,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.report.budget/get_views",
+      "account.report.budget/web_search_read",
+      "account.report.budget/fields_get",
+      "account.report.budget/search_read",
+      "account.report.budget.item/fields_get",
+      "account.report.budget.item/search_read"
+    ],
+    "business_searches_returned_records": false,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "report_or_budget_item_generation_observed": false
+  },
+  "screenshots": [
+    "original/ACC-019_01_financial_budgets_empty_list_original.png"
+  ],
+  "original_sha256": "B176F0E60BD23EA3D3B971B567CD32C03F8D74DA51645FF4D7FA323D8825C2FB",
+  "annotated_sha256": "E08E4955947B66302C0E915845277FF56EF9C5FA35AD751282002DEE93C89851",
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/budget.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "sequence_handle_dragged": false,
+    "edit_or_save_clicked": false,
+    "add_or_remove_item_clicked": false,
+    "duplicate_or_delete_clicked": false,
+    "import_or_export_clicked": false,
+    "account_month_amount_or_company_changed": false,
+    "budget_report_or_report_cell_opened": false,
+    "pdf_or_xlsx_generated": false,
+    "form_or_linked_record_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}
