@@ -97,5 +97,9 @@ Complete these checks before every evidence session:
 - Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a sanitized structured extract covering 29 active journals, three safe forms, and one redacted bank-journal summary.
 - Confirmed Vendor Bills defaults to 510000 Cost of Revenue, representative Sales/Purchase/Misc journals have Secure Posted Entries with Hash disabled and Auto-Check on Post enabled, and the Generic Bank payment methods require privacy-safe Outstanding Account regression.
 - Detailed Thai chapter: `source/ACC-010_journals_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-011`, followed by existing-transaction traceability.
+- Currencies (`ACC-011`) evidence completed on 2026-07-16.
+- Captured 5 untouched originals, 5 deterministic numbered rectangular-frame copies, and a company-scoped structured extract covering all 8 active currencies plus CNY/EUR/THB/USD forms and rate history.
+- Confirmed THB is the company currency. AED and JPY are active with blank Last Update and displayed Unit per THB 1.000000; rate dates do not prove provider refresh, and ACC-001 remains configured for a manual update interval.
+- Detailed Thai chapter: `source/ACC-011_currencies_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-012` Fiscal Positions, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

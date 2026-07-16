@@ -1,0 +1,172 @@
+{
+  "configuration_id": "ACC-011",
+  "page": "Currencies",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "res.currency",
+  "rate_model": "res.currency.rate",
+  "filter": "Active",
+  "total_active_currencies": 8,
+  "page_size": 8,
+  "pager_display": "1-8 / 8",
+  "list_columns": [
+    "Currency",
+    "Symbol",
+    "Name",
+    "Last Update",
+    "Unit per THB",
+    "Active"
+  ],
+  "active_currency_list": [
+    {"code": "AED", "last_update": null, "unit_per_thb_display": "1.000000"},
+    {"code": "CNY", "last_update": "03/12/2026", "unit_per_thb_display": "0.213959"},
+    {"code": "EUR", "last_update": "04/10/2026", "unit_per_thb_display": "0.026336"},
+    {"code": "HKD", "last_update": "01/01/2025", "unit_per_thb_display": "0.226547"},
+    {"code": "JPY", "last_update": null, "unit_per_thb_display": "1.000000"},
+    {"code": "SGD", "last_update": "01/28/2026", "unit_per_thb_display": "0.040430"},
+    {"code": "THB", "last_update": "06/07/2023", "unit_per_thb_display": "1.000000"},
+    {"code": "USD", "last_update": "04/24/2026", "unit_per_thb_display": "0.031019"}
+  ],
+  "company_rate_scope": {
+    "allowed_company_ids": [1],
+    "active_rate_rows_for_other_companies": 0,
+    "rate_date_is_provider_refresh_proof": false
+  },
+  "representative_currencies": {
+    "CNY": {
+      "record_id": 7,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "name": "Chinese yuan",
+      "symbol": "¥",
+      "symbol_position": "before",
+      "decimal_places": 2,
+      "rounding_factor": 0.01,
+      "current_rate_model_value": 0.2139586631862724,
+      "inverse_rate_model_value": 4.6738,
+      "company_rate_row_count": 482,
+      "latest_visible_rate": {
+        "date": "03/12/2026",
+        "company": "Linkweld Thailand Co., Ltd.",
+        "unit_per_thb": "0.213958663186",
+        "thb_per_unit": "4.673800000000"
+      }
+    },
+    "EUR": {
+      "record_id": 1,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "name": "Euro",
+      "symbol": "€",
+      "symbol_position": "after",
+      "decimal_places": 2,
+      "rounding_factor": 0.01,
+      "current_rate_model_value": 0.02633602663099013,
+      "inverse_rate_model_value": 37.9708,
+      "company_rate_row_count": 577,
+      "latest_visible_rate": {
+        "date": "04/10/2026",
+        "company": "Linkweld Thailand Co., Ltd.",
+        "unit_per_thb": "0.026336026631",
+        "thb_per_unit": "37.970800000000"
+      }
+    },
+    "THB": {
+      "record_id": 132,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "name": "THAI BAHT",
+      "symbol": "฿",
+      "symbol_position": "after",
+      "decimal_places": 2,
+      "rounding_factor": 0.01,
+      "current_rate_model_value": 1.0,
+      "inverse_rate_model_value": 1.0,
+      "company_currency_banner_visible": true,
+      "rates_table_visible_on_form": false,
+      "company_rate_row_count_from_model": 76,
+      "latest_model_rate_date": "2023-06-07",
+      "latest_model_rate_date_visible_on_form": false
+    },
+    "USD": {
+      "record_id": 2,
+      "exact_unique_result_count": 1,
+      "active": true,
+      "name": "United States dollar",
+      "symbol": "$",
+      "symbol_position": "before",
+      "decimal_places": 2,
+      "rounding_factor": 0.01,
+      "current_rate_model_value": 0.031018620477872866,
+      "inverse_rate_model_value": 32.2387,
+      "company_rate_row_count": 751,
+      "latest_visible_rate": {
+        "date": "04/24/2026",
+        "company": "Linkweld Thailand Co., Ltd.",
+        "unit_per_thb": "0.031018620478",
+        "thb_per_unit": "32.238700000000"
+      }
+    }
+  },
+  "risk_observations": [
+    "AED and JPY are active with blank Last Update and a displayed Unit per THB of 1.000000; use in transactions is unsafe until Accounting validates an approved rate source",
+    "HKD and SGD display older dates than the sampled CNY, EUR, and USD rows; date age must be assessed against the approved exchange-rate policy",
+    "A rate date alone does not prove that an automatic provider refresh completed successfully",
+    "The ACC-001 exchange-rate interval is Manually, so scheduled refresh remains unconfirmed",
+    "Historical rate-row counts prove stored history exists but do not prove completeness, correctness, or provider provenance"
+  ],
+  "not_available": [
+    "Provider refresh execution or provider response",
+    "Automatic or scheduled rate-update outcome",
+    "Approved accounting source and cutoff time for exchange rates",
+    "Transaction-level conversion, payment, reconciliation, realized FX, and unrealized FX outcomes",
+    "Completeness and correctness of every historical rate row",
+    "Whether AED or JPY has been used in existing accounting documents"
+  ],
+  "requests_observed": {
+    "read_only_model_calls": [
+      "res.currency/get_views",
+      "res.currency/web_read",
+      "res.currency/fields_get",
+      "res.currency/search_read",
+      "res.currency.rate/read_group",
+      "res.currency.rate/search_read",
+      "access checks",
+      "/web/action/load"
+    ],
+    "external_currency_service_called": false,
+    "provider_called": false,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false
+  },
+  "screenshots": [
+    "original/ACC-011_01_active_currencies_list_original.png",
+    "original/ACC-011_02_cny_rates_original.png",
+    "original/ACC-011_03_eur_rates_original.png",
+    "original/ACC-011_04_thb_company_currency_original.png",
+    "original/ACC-011_05_usd_rates_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/multi_currency.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "activate_or_deactivate_clicked": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "add_rate_clicked": false,
+    "update_rates_clicked": false,
+    "provider_or_service_opened": false,
+    "linked_company_opened": false,
+    "smart_button_or_report_opened": false,
+    "rates_or_currency_records_changed": false,
+    "transactions_created_or_changed": false
+  }
+}
