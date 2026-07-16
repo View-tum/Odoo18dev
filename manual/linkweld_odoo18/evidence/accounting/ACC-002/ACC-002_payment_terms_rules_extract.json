@@ -1,0 +1,2997 @@
+{
+  "configuration_id": "ACC-002",
+  "inspection_date": "2026-07-16",
+  "mode": "Read-only RPC inspection",
+  "model": "account.payment.term",
+  "total_terms": 104,
+  "total_lines": 107,
+  "summary": {
+    "single_line_immediate": 80,
+    "multi_line": 2,
+    "early_discount_enabled": 1,
+    "display_installments": 2,
+    "company_specific": 2,
+    "duplicate_normalized_name_groups": 2
+  },
+  "duplicate_normalized_names": [
+    [
+      {
+        "id": 4,
+        "name": "30 Days  after Delivery"
+      },
+      {
+        "id": 71,
+        "name": "30 Days  after Delivery"
+      }
+    ],
+    [
+      {
+        "id": 64,
+        "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+      },
+      {
+        "id": 68,
+        "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+      }
+    ]
+  ],
+  "terms": [
+    {
+      "id": 1,
+      "name": "Immediate Payment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        1
+      ],
+      "lines": [
+        {
+          "id": 1,
+          "payment_id": [
+            1,
+            "Immediate Payment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "15 Days after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        2
+      ],
+      "lines": [
+        {
+          "id": 2,
+          "payment_id": [
+            2,
+            "15 Days after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 15,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "21 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        3
+      ],
+      "lines": [
+        {
+          "id": 3,
+          "payment_id": [
+            3,
+            "21 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 21,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "30 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        4
+      ],
+      "lines": [
+        {
+          "id": 4,
+          "payment_id": [
+            4,
+            "30 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_next_month",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "45 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        5
+      ],
+      "lines": [
+        {
+          "id": 5,
+          "payment_id": [
+            5,
+            "45 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 45,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "60 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        6
+      ],
+      "lines": [
+        {
+          "id": 6,
+          "payment_id": [
+            6,
+            "60 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "End of Following Month",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        7
+      ],
+      "lines": [
+        {
+          "id": 7,
+          "payment_id": [
+            7,
+            "End of Following Month"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_next_month",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "30% Now, Balance 60 Days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        8,
+        9
+      ],
+      "lines": [
+        {
+          "id": 8,
+          "payment_id": [
+            8,
+            "30% Now, Balance 60 Days"
+          ],
+          "value": "percent",
+          "value_amount": 30,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        },
+        {
+          "id": 9,
+          "payment_id": [
+            8,
+            "30% Now, Balance 60 Days"
+          ],
+          "value": "percent",
+          "value_amount": 70,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "90 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        10
+      ],
+      "lines": [
+        {
+          "id": 10,
+          "payment_id": [
+            9,
+            "90 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "100% in Advance",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        11
+      ],
+      "lines": [
+        {
+          "id": 11,
+          "payment_id": [
+            10,
+            "100% in Advance"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "45 M",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        12
+      ],
+      "lines": [
+        {
+          "id": 12,
+          "payment_id": [
+            11,
+            "45 M"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 45,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "60 M",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        13
+      ],
+      "lines": [
+        {
+          "id": 13,
+          "payment_id": [
+            12,
+            "60 M"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 60,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "90 M",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        14
+      ],
+      "lines": [
+        {
+          "id": 14,
+          "payment_id": [
+            13,
+            "90 M"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "100%TT AGAINST BL.",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        17
+      ],
+      "lines": [
+        {
+          "id": 17,
+          "payment_id": [
+            16,
+            "100%TT AGAINST BL."
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "30 Days after Billing",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        19
+      ],
+      "lines": [
+        {
+          "id": 19,
+          "payment_id": [
+            17,
+            "30 Days after Billing"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "60 Days after Billing",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        20
+      ],
+      "lines": [
+        {
+          "id": 20,
+          "payment_id": [
+            18,
+            "60 Days after Billing"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "90 Day after Billing",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        21
+      ],
+      "lines": [
+        {
+          "id": 21,
+          "payment_id": [
+            19,
+            "90 Day after Billing"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "30%Against PO,60%AgainstBL,10%Afterinstallation",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        22,
+        23,
+        24
+      ],
+      "lines": [
+        {
+          "id": 22,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 60,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        },
+        {
+          "id": 23,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 30,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        },
+        {
+          "id": 24,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 10,
+          "delay_type": "days_after",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "30% Deposit, 70% Before Shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        25
+      ],
+      "lines": [
+        {
+          "id": 25,
+          "payment_id": [
+            21,
+            "30% Deposit, 70% Before Shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "PDC 30 Days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        27
+      ],
+      "lines": [
+        {
+          "id": 27,
+          "payment_id": [
+            23,
+            "PDC 30 Days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "T/T 30% deposit, 70% against BL copy",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        28
+      ],
+      "lines": [
+        {
+          "id": 28,
+          "payment_id": [
+            24,
+            "T/T 30% deposit, 70% against BL copy"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "T/T 30% deposit, 70% against the delivery note, prior the AIR delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        29
+      ],
+      "lines": [
+        {
+          "id": 29,
+          "payment_id": [
+            25,
+            "T/T 30% deposit, 70% against the delivery note, prior the AIR delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "PDC 90 Day",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        30
+      ],
+      "lines": [
+        {
+          "id": 30,
+          "payment_id": [
+            26,
+            "PDC 90 Day"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "30%deposit, 60% before shipping, 10% after goods arrived and inspected at Linkweld warehouse",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        31
+      ],
+      "lines": [
+        {
+          "id": 31,
+          "payment_id": [
+            27,
+            "30%deposit, 60% before shipping, 10% after goods arrived and inspected at Linkweld warehouse"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "T/T 90 days from B/L date",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        32
+      ],
+      "lines": [
+        {
+          "id": 32,
+          "payment_id": [
+            28,
+            "T/T 90 days from B/L date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "100% T/T before shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        33
+      ],
+      "lines": [
+        {
+          "id": 33,
+          "payment_id": [
+            29,
+            "100% T/T before shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "T/T 50% in advance, 50% Before shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        34
+      ],
+      "lines": [
+        {
+          "id": 34,
+          "payment_id": [
+            30,
+            "T/T 50% in advance, 50% Before shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "30% T/T in advance, 70% agaianst B/L",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        35
+      ],
+      "lines": [
+        {
+          "id": 35,
+          "payment_id": [
+            31,
+            "30% T/T in advance, 70% agaianst B/L"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "DLC",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        36
+      ],
+      "lines": [
+        {
+          "id": 36,
+          "payment_id": [
+            32,
+            "DLC"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "100% T/T before the goods shipping",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        37
+      ],
+      "lines": [
+        {
+          "id": 37,
+          "payment_id": [
+            33,
+            "100% T/T before the goods shipping"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "60 day from B/L date",
+      "active": true,
+      "company_id": [
+        1,
+        "Linkweld Thailand Co., Ltd."
+      ],
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": "included",
+      "line_ids": [
+        38
+      ],
+      "lines": [
+        {
+          "id": 38,
+          "payment_id": [
+            34,
+            "60 day from B/L date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "PDC 45 day",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        39
+      ],
+      "lines": [
+        {
+          "id": 39,
+          "payment_id": [
+            35,
+            "PDC 45 day"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "PDC 60 Days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        40
+      ],
+      "lines": [
+        {
+          "id": 40,
+          "payment_id": [
+            36,
+            "PDC 60 Days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "100% before delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        41
+      ],
+      "lines": [
+        {
+          "id": 41,
+          "payment_id": [
+            37,
+            "100% before delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "100% T/T in advance",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        42
+      ],
+      "lines": [
+        {
+          "id": 42,
+          "payment_id": [
+            38,
+            "100% T/T in advance"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "100%TT AGAINST PO",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        43
+      ],
+      "lines": [
+        {
+          "id": 43,
+          "payment_id": [
+            39,
+            "100%TT AGAINST PO"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "100% TT",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        44
+      ],
+      "lines": [
+        {
+          "id": 44,
+          "payment_id": [
+            40,
+            "100% TT"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "TT 20% in advance, 80% againtst copy B/L",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        45
+      ],
+      "lines": [
+        {
+          "id": 45,
+          "payment_id": [
+            41,
+            "TT 20% in advance, 80% againtst copy B/L"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "30 days End of Month on the 10th",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        46
+      ],
+      "lines": [
+        {
+          "id": 46,
+          "payment_id": [
+            42,
+            "30 days End of Month on the 10th"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_next_month",
+          "nb_days": 10,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "2/7 Net 30",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": true,
+      "early_discount": true,
+      "discount_percentage": 2,
+      "discount_days": 7,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        47
+      ],
+      "lines": [
+        {
+          "id": 47,
+          "payment_id": [
+            43,
+            "2/7 Net 30"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "10% TT in advance, Balance within 1 week after receipt copy BL",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        48
+      ],
+      "lines": [
+        {
+          "id": 48,
+          "payment_id": [
+            44,
+            "10% TT in advance, Balance within 1 week after receipt copy BL"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "100% TT before production",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        51
+      ],
+      "lines": [
+        {
+          "id": 51,
+          "payment_id": [
+            45,
+            "100% TT before production"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "7 Day after delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        52
+      ],
+      "lines": [
+        {
+          "id": 52,
+          "payment_id": [
+            46,
+            "7 Day after delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "60 Day after date of invoice, net",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        53
+      ],
+      "lines": [
+        {
+          "id": 53,
+          "payment_id": [
+            47,
+            "60 Day after date of invoice, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "30% Deposit, 70% Packaging",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        54
+      ],
+      "lines": [
+        {
+          "id": 54,
+          "payment_id": [
+            48,
+            "30% Deposit, 70% Packaging"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "10% TT in advance, balance within 1 week after receipt of copy BL",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        55
+      ],
+      "lines": [
+        {
+          "id": 55,
+          "payment_id": [
+            49,
+            "10% TT in advance, balance within 1 week after receipt of copy BL"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "30% Deposit, 50% Against BL, 20% 90Day after installation",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        56
+      ],
+      "lines": [
+        {
+          "id": 56,
+          "payment_id": [
+            50,
+            "30% Deposit, 50% Against BL, 20% 90Day after installation"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "30% Deposit, 50% Against BL, 20% 30Day after installation",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        58
+      ],
+      "lines": [
+        {
+          "id": 58,
+          "payment_id": [
+            52,
+            "30% Deposit, 50% Against BL, 20% 30Day after installation"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "65% DLC, 35% PDC",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        59
+      ],
+      "lines": [
+        {
+          "id": 59,
+          "payment_id": [
+            53,
+            "65% DLC, 35% PDC"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "80% before shipment. 20% balance after machiine receive in 48 hours",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        60
+      ],
+      "lines": [
+        {
+          "id": 60,
+          "payment_id": [
+            54,
+            "80% before shipment. 20% balance after machiine receive in 48 hours"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "20% Deposit, 40% Before shipment, 20% 30day after arrived , 10% 60day after arrived, 10% 90day after arrived",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        61
+      ],
+      "lines": [
+        {
+          "id": 61,
+          "payment_id": [
+            55,
+            "20% Deposit, 40% Before shipment, 20% 30day after arrived , 10% 60day after arrived, 10% 90day after arrived"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "37% deposit, 37% 60day second payment, 25% 180day final paymnet",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        62
+      ],
+      "lines": [
+        {
+          "id": 62,
+          "payment_id": [
+            56,
+            "37% deposit, 37% 60day second payment, 25% 180day final paymnet"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "80% before delivery, 20% within 1 week after receipt upon inspedtion",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        63
+      ],
+      "lines": [
+        {
+          "id": 63,
+          "payment_id": [
+            57,
+            "80% before delivery, 20% within 1 week after receipt upon inspedtion"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "50% before manufacture, 30% before shipping, 20% 60Day after arriving",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        64
+      ],
+      "lines": [
+        {
+          "id": 64,
+          "payment_id": [
+            58,
+            "50% before manufacture, 30% before shipping, 20% 60Day after arriving"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "30% down payment by TT, 70% balance by TT or irrevocable L/C at sight",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        65
+      ],
+      "lines": [
+        {
+          "id": 65,
+          "payment_id": [
+            59,
+            "30% down payment by TT, 70% balance by TT or irrevocable L/C at sight"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "40% TT in advance , pay balance before loading",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        66
+      ],
+      "lines": [
+        {
+          "id": 66,
+          "payment_id": [
+            60,
+            "40% TT in advance , pay balance before loading"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "30% Deposit, 50% Against BL, 20% 60Day after arriving",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        67
+      ],
+      "lines": [
+        {
+          "id": 67,
+          "payment_id": [
+            61,
+            "30% Deposit, 50% Against BL, 20% 60Day after arriving"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "40% TT Deposit , 60% balance before shipping",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        68
+      ],
+      "lines": [
+        {
+          "id": 68,
+          "payment_id": [
+            62,
+            "40% TT Deposit , 60% balance before shipping"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "PDC 7 days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        69
+      ],
+      "lines": [
+        {
+          "id": 69,
+          "payment_id": [
+            63,
+            "PDC 7 days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 7,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        70
+      ],
+      "lines": [
+        {
+          "id": 70,
+          "payment_id": [
+            64,
+            "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "50% deposit PDC 30 days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        72
+      ],
+      "lines": [
+        {
+          "id": 72,
+          "payment_id": [
+            66,
+            "50% deposit PDC 30 days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "name": "20%deposit,80% after installation",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        73
+      ],
+      "lines": [
+        {
+          "id": 73,
+          "payment_id": [
+            67,
+            "20%deposit,80% after installation"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        74
+      ],
+      "lines": [
+        {
+          "id": 74,
+          "payment_id": [
+            68,
+            "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "name": "T/T in advance 50% upon order and 50% when packing is completed",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        75
+      ],
+      "lines": [
+        {
+          "id": 75,
+          "payment_id": [
+            69,
+            "T/T in advance 50% upon order and 50% when packing is completed"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "name": "100% against copy B/L",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        76
+      ],
+      "lines": [
+        {
+          "id": 76,
+          "payment_id": [
+            70,
+            "100% against copy B/L"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "name": "30 Days  after Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        77
+      ],
+      "lines": [
+        {
+          "id": 77,
+          "payment_id": [
+            71,
+            "30 Days  after Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after_end_of_month",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "name": "60 Days after Invoice date",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        78
+      ],
+      "lines": [
+        {
+          "id": 78,
+          "payment_id": [
+            72,
+            "60 Days after Invoice date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "name": "30% in Advance, 70% Before Delivery",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        80
+      ],
+      "lines": [
+        {
+          "id": 80,
+          "payment_id": [
+            74,
+            "30% in Advance, 70% Before Delivery"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "name": "30 days from B/L date",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        81
+      ],
+      "lines": [
+        {
+          "id": 81,
+          "payment_id": [
+            75,
+            "30 days from B/L date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "name": "30% deposit to be paid 70% to be paid by B/L 30days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        82
+      ],
+      "lines": [
+        {
+          "id": 82,
+          "payment_id": [
+            76,
+            "30% deposit to be paid 70% to be paid by B/L 30days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "name": "30 days after shipment  arrived",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        83
+      ],
+      "lines": [
+        {
+          "id": 83,
+          "payment_id": [
+            77,
+            "30 days after shipment  arrived"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "name": "30%TT in advance, 60% TT before shipment, 10% TT after installation.",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        84
+      ],
+      "lines": [
+        {
+          "id": 84,
+          "payment_id": [
+            78,
+            "30%TT in advance, 60% TT before shipment, 10% TT after installation."
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "name": "40% before manufacture, 55% before shipping, 5% after installation.",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        85
+      ],
+      "lines": [
+        {
+          "id": 85,
+          "payment_id": [
+            79,
+            "40% before manufacture, 55% before shipping, 5% after installation."
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "name": "30 Days after invoice date, net",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        87
+      ],
+      "lines": [
+        {
+          "id": 87,
+          "payment_id": [
+            81,
+            "30 Days after invoice date, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "name": "60 Days after date of invoice, net",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        88
+      ],
+      "lines": [
+        {
+          "id": 88,
+          "payment_id": [
+            82,
+            "60 Days after date of invoice, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "name": "60 Days NET",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        89
+      ],
+      "lines": [
+        {
+          "id": 89,
+          "payment_id": [
+            83,
+            "60 Days NET"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "name": "30% Down Payment By T/T",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        90
+      ],
+      "lines": [
+        {
+          "id": 90,
+          "payment_id": [
+            84,
+            "30% Down Payment By T/T"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "name": "Deposit 30% at issued P/O, Balance by PDC 30 days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        91
+      ],
+      "lines": [
+        {
+          "id": 91,
+          "payment_id": [
+            85,
+            "Deposit 30% at issued P/O, Balance by PDC 30 days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "name": "45 days after date of invoice, net",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        92
+      ],
+      "lines": [
+        {
+          "id": 92,
+          "payment_id": [
+            86,
+            "45 days after date of invoice, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "name": "TT 50% Advance, TT 50% When Packing is Completed",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        93
+      ],
+      "lines": [
+        {
+          "id": 93,
+          "payment_id": [
+            87,
+            "TT 50% Advance, TT 50% When Packing is Completed"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "name": "30% TT advance, 70% TT after production is completed",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        94
+      ],
+      "lines": [
+        {
+          "id": 94,
+          "payment_id": [
+            88,
+            "30% TT advance, 70% TT after production is completed"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "name": "period 1 = 40%, period 2 = 40% and period 3 = 20%",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        96
+      ],
+      "lines": [
+        {
+          "id": 96,
+          "payment_id": [
+            90,
+            "period 1 = 40%, period 2 = 40% and period 3 = 20%"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "name": "period 1 = 20%, period 2 = 45% and period 3 = 35%",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        97
+      ],
+      "lines": [
+        {
+          "id": 97,
+          "payment_id": [
+            91,
+            "period 1 = 20%, period 2 = 45% and period 3 = 35%"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "name": "30% Deposit, 50% Before 30th Sep, 20% after finished installation and trial run within three days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        98
+      ],
+      "lines": [
+        {
+          "id": 98,
+          "payment_id": [
+            92,
+            "30% Deposit, 50% Before 30th Sep, 20% after finished installation and trial run within three days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "name": "30 days against ABW",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        99
+      ],
+      "lines": [
+        {
+          "id": 99,
+          "payment_id": [
+            93,
+            "30 days against ABW"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "name": "TT in Advance 100% Upon Placing Order",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        100
+      ],
+      "lines": [
+        {
+          "id": 100,
+          "payment_id": [
+            94,
+            "TT in Advance 100% Upon Placing Order"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "name": "TT 30% Down Payment, TT 65% Balance Pay Before Loading Container, TT 5% After Commissioning",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        101
+      ],
+      "lines": [
+        {
+          "id": 101,
+          "payment_id": [
+            95,
+            "TT 30% Down Payment, TT 65% Balance Pay Before Loading Container, TT 5% After Commissioning"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "name": "50% Deposit and 50% at 30days net at invoice date",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        102
+      ],
+      "lines": [
+        {
+          "id": 102,
+          "payment_id": [
+            96,
+            "50% Deposit and 50% at 30days net at invoice date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "name": "20 Days after date of B/L",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        103
+      ],
+      "lines": [
+        {
+          "id": 103,
+          "payment_id": [
+            97,
+            "20 Days after date of B/L"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "name": "30% deposit to be paid 70% to be paid by B/L 20days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        104
+      ],
+      "lines": [
+        {
+          "id": 104,
+          "payment_id": [
+            98,
+            "30% deposit to be paid 70% to be paid by B/L 20days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "name": "50% Deposit and the balance will be paid before 1st july",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        105
+      ],
+      "lines": [
+        {
+          "id": 105,
+          "payment_id": [
+            99,
+            "50% Deposit and the balance will be paid before 1st july"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "name": "30% Deposit,70%  after production before shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        106
+      ],
+      "lines": [
+        {
+          "id": 106,
+          "payment_id": [
+            100,
+            "30% Deposit,70%  after production before shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "name": "30% deposit after signing the contract and 70% to be paid by B/L 20days",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        107
+      ],
+      "lines": [
+        {
+          "id": 107,
+          "payment_id": [
+            101,
+            "30% deposit after signing the contract and 70% to be paid by B/L 20days"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "30% TT advance, 70% TT after production before shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        108
+      ],
+      "lines": [
+        {
+          "id": 108,
+          "payment_id": [
+            102,
+            "30% TT advance, 70% TT after production before shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "name": "T/T 60 days from B/L date",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        109
+      ],
+      "lines": [
+        {
+          "id": 109,
+          "payment_id": [
+            103,
+            "T/T 60 days from B/L date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "name": "30% before manufacture, 60% against BL and 10% 40 day after arriving",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        110
+      ],
+      "lines": [
+        {
+          "id": 110,
+          "payment_id": [
+            104,
+            "30% before manufacture, 60% against BL and 10% 40 day after arriving"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "name": "TT 100% againtst copy B/L",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        111
+      ],
+      "lines": [
+        {
+          "id": 111,
+          "payment_id": [
+            105,
+            "TT 100% againtst copy B/L"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "name": "50% After receipt proforma invoice",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        112
+      ],
+      "lines": [
+        {
+          "id": 112,
+          "payment_id": [
+            106,
+            "50% After receipt proforma invoice"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "name": "100% after production before shipment",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        113
+      ],
+      "lines": [
+        {
+          "id": 113,
+          "payment_id": [
+            107,
+            "100% after production before shipment"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "name": "50% Advance, 50% advance prepaid)",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        114
+      ],
+      "lines": [
+        {
+          "id": 114,
+          "payment_id": [
+            108,
+            "50% Advance, 50% advance prepaid)"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "name": "50% advance prepaid",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        115
+      ],
+      "lines": [
+        {
+          "id": 115,
+          "payment_id": [
+            109,
+            "50% advance prepaid"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "name": "10days after invoice date, net",
+      "active": true,
+      "company_id": [
+        1,
+        "Linkweld Thailand Co., Ltd."
+      ],
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": "included",
+      "line_ids": [
+        116
+      ],
+      "lines": [
+        {
+          "id": 116,
+          "payment_id": [
+            110,
+            "10days after invoice date, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 10,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "name": "30% Down Payment, 65% Before Loading Container , 5% After Commissioning., 20% 30Day after installation",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": false,
+      "early_discount": false,
+      "discount_percentage": 0,
+      "discount_days": 0,
+      "early_pay_discount_computation": false,
+      "line_ids": [
+        117
+      ],
+      "lines": [
+        {
+          "id": 117,
+          "payment_id": [
+            111,
+            "30% Down Payment, 65% Before Loading Container , 5% After Commissioning., 20% 30Day after installation"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "name": "90 days, on the 10th",
+      "active": true,
+      "company_id": false,
+      "display_on_invoice": true,
+      "early_discount": false,
+      "discount_percentage": 2,
+      "discount_days": 10,
+      "early_pay_discount_computation": "included",
+      "line_ids": [
+        118
+      ],
+      "lines": [
+        {
+          "id": 118,
+          "payment_id": [
+            112,
+            "90 days, on the 10th"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_end_of_month_on_the",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    }
+  ]
+}

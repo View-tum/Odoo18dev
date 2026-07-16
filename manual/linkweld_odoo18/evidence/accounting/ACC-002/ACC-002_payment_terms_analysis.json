@@ -1,0 +1,768 @@
+{
+  "configuration_id": "ACC-002",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "basis": "Heuristic comparison of payment-term names against configured due rules. Items require business-owner confirmation before any change.",
+  "counts": {
+    "active_terms": 104,
+    "immediate_rule_terms": 80,
+    "potential_name_rule_mismatches": 70,
+    "multi_line_terms": 2,
+    "early_discount_terms": 1,
+    "show_installment_dates_terms": 2,
+    "company_specific_terms": 2,
+    "duplicate_normalized_name_groups": 2
+  },
+  "confirmed_examples": [
+    {
+      "id": 59,
+      "name": "30% down payment by TT, 70% balance by TT or irrevocable L/C at sight",
+      "configured_rule": "100% due 0 days after invoice date",
+      "evidence": "ACC-002_08_named_30_70_actual_100_percent_original.jpg"
+    },
+    {
+      "id": 34,
+      "name": "60 day from B/L date",
+      "configured_rule": "100% due 0 days after invoice date",
+      "company": "Linkweld Thailand Co., Ltd."
+    }
+  ],
+  "duplicate_normalized_names": [
+    [
+      {
+        "id": 4,
+        "name": "30 Days  after Delivery"
+      },
+      {
+        "id": 71,
+        "name": "30 Days  after Delivery"
+      }
+    ],
+    [
+      {
+        "id": 64,
+        "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+      },
+      {
+        "id": 68,
+        "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving"
+      }
+    ]
+  ],
+  "multi_line_terms": [
+    {
+      "id": 8,
+      "name": "30% Now, Balance 60 Days",
+      "display_on_invoice": false,
+      "company": false,
+      "early_discount": false,
+      "lines": [
+        {
+          "id": 8,
+          "payment_id": [
+            8,
+            "30% Now, Balance 60 Days"
+          ],
+          "value": "percent",
+          "value_amount": 30,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        },
+        {
+          "id": 9,
+          "payment_id": [
+            8,
+            "30% Now, Balance 60 Days"
+          ],
+          "value": "percent",
+          "value_amount": 70,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "30%Against PO,60%AgainstBL,10%Afterinstallation",
+      "display_on_invoice": false,
+      "company": false,
+      "early_discount": false,
+      "lines": [
+        {
+          "id": 22,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 60,
+          "delay_type": "days_after",
+          "nb_days": 60,
+          "days_next_month": "10"
+        },
+        {
+          "id": 23,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 30,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        },
+        {
+          "id": 24,
+          "payment_id": [
+            20,
+            "30%Against PO,60%AgainstBL,10%Afterinstallation"
+          ],
+          "value": "percent",
+          "value_amount": 10,
+          "delay_type": "days_after",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    }
+  ],
+  "early_discount_terms": [
+    {
+      "id": 43,
+      "name": "2/7 Net 30",
+      "discount_percentage": 2,
+      "discount_days": 7,
+      "computation": false,
+      "lines": [
+        {
+          "id": 47,
+          "payment_id": [
+            43,
+            "2/7 Net 30"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    }
+  ],
+  "show_installment_dates_terms": [
+    {
+      "id": 43,
+      "name": "2/7 Net 30",
+      "lines": [
+        {
+          "id": 47,
+          "payment_id": [
+            43,
+            "2/7 Net 30"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 30,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "name": "90 days, on the 10th",
+      "lines": [
+        {
+          "id": 118,
+          "payment_id": [
+            112,
+            "90 days, on the 10th"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_end_of_month_on_the",
+          "nb_days": 90,
+          "days_next_month": "10"
+        }
+      ]
+    }
+  ],
+  "company_specific_terms": [
+    {
+      "id": 34,
+      "name": "60 day from B/L date",
+      "company": [
+        1,
+        "Linkweld Thailand Co., Ltd."
+      ],
+      "lines": [
+        {
+          "id": 38,
+          "payment_id": [
+            34,
+            "60 day from B/L date"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 0,
+          "days_next_month": "10"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "name": "10days after invoice date, net",
+      "company": [
+        1,
+        "Linkweld Thailand Co., Ltd."
+      ],
+      "lines": [
+        {
+          "id": 116,
+          "payment_id": [
+            110,
+            "10days after invoice date, net"
+          ],
+          "value": "percent",
+          "value_amount": 100,
+          "delay_type": "days_after",
+          "nb_days": 10,
+          "days_next_month": "10"
+        }
+      ]
+    }
+  ],
+  "potential_name_rule_mismatches": [
+    {
+      "id": 16,
+      "name": "100%TT AGAINST BL.",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "30% Deposit, 70% Before Shipment",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "T/T 30% deposit, 70% against BL copy",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "T/T 30% deposit, 70% against the delivery note, prior the AIR delivery",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "30%deposit, 60% before shipping, 10% after goods arrived and inspected at Linkweld warehouse",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "T/T 90 days from B/L date",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "100% T/T before shipment",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "T/T 50% in advance, 50% Before shipment",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "30% T/T in advance, 70% agaianst B/L",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 34,
+      "name": "60 day from B/L date",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 35,
+      "name": "PDC 45 day",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 36,
+      "name": "PDC 60 Days",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 37,
+      "name": "100% before delivery",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 39,
+      "name": "100%TT AGAINST PO",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 41,
+      "name": "TT 20% in advance, 80% againtst copy B/L",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 44,
+      "name": "10% TT in advance, Balance within 1 week after receipt copy BL",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 45,
+      "name": "100% TT before production",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 46,
+      "name": "7 Day after delivery",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 47,
+      "name": "60 Day after date of invoice, net",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 48,
+      "name": "30% Deposit, 70% Packaging",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 49,
+      "name": "10% TT in advance, balance within 1 week after receipt of copy BL",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "30% Deposit, 50% Against BL, 20% 90Day after installation",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 52,
+      "name": "30% Deposit, 50% Against BL, 20% 30Day after installation",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 53,
+      "name": "65% DLC, 35% PDC",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 54,
+      "name": "80% before shipment. 20% balance after machiine receive in 48 hours",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 55,
+      "name": "20% Deposit, 40% Before shipment, 20% 30day after arrived , 10% 60day after arrived, 10% 90day after arrived",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 56,
+      "name": "37% deposit, 37% 60day second payment, 25% 180day final paymnet",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 57,
+      "name": "80% before delivery, 20% within 1 week after receipt upon inspedtion",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 58,
+      "name": "50% before manufacture, 30% before shipping, 20% 60Day after arriving",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 59,
+      "name": "30% down payment by TT, 70% balance by TT or irrevocable L/C at sight",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 60,
+      "name": "40% TT in advance , pay balance before loading",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 61,
+      "name": "30% Deposit, 50% Against BL, 20% 60Day after arriving",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 62,
+      "name": "40% TT Deposit , 60% balance before shipping",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 64,
+      "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 66,
+      "name": "50% deposit PDC 30 days",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 67,
+      "name": "20%deposit,80% after installation",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 68,
+      "name": "30% before manufacture, 50% against BL and 20% 60 day after arriving",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 69,
+      "name": "T/T in advance 50% upon order and 50% when packing is completed",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 72,
+      "name": "60 Days after Invoice date",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 74,
+      "name": "30% in Advance, 70% Before Delivery",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 75,
+      "name": "30 days from B/L date",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 76,
+      "name": "30% deposit to be paid 70% to be paid by B/L 30days",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 77,
+      "name": "30 days after shipment  arrived",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 78,
+      "name": "30%TT in advance, 60% TT before shipment, 10% TT after installation.",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 79,
+      "name": "40% before manufacture, 55% before shipping, 5% after installation.",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 81,
+      "name": "30 Days after invoice date, net",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 82,
+      "name": "60 Days after date of invoice, net",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 83,
+      "name": "60 Days NET",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 85,
+      "name": "Deposit 30% at issued P/O, Balance by PDC 30 days",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 86,
+      "name": "45 days after date of invoice, net",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 87,
+      "name": "TT 50% Advance, TT 50% When Packing is Completed",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 88,
+      "name": "30% TT advance, 70% TT after production is completed",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 90,
+      "name": "period 1 = 40%, period 2 = 40% and period 3 = 20%",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 91,
+      "name": "period 1 = 20%, period 2 = 45% and period 3 = 35%",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 92,
+      "name": "30% Deposit, 50% Before 30th Sep, 20% after finished installation and trial run within three days",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 93,
+      "name": "30 days against ABW",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 94,
+      "name": "TT in Advance 100% Upon Placing Order",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 95,
+      "name": "TT 30% Down Payment, TT 65% Balance Pay Before Loading Container, TT 5% After Commissioning",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 96,
+      "name": "50% Deposit and 50% at 30days net at invoice date",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 97,
+      "name": "20 Days after date of B/L",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 98,
+      "name": "30% deposit to be paid 70% to be paid by B/L 20days",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 99,
+      "name": "50% Deposit and the balance will be paid before 1st july",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 100,
+      "name": "30% Deposit,70%  after production before shipment",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 101,
+      "name": "30% deposit after signing the contract and 70% to be paid by B/L 20days",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 102,
+      "name": "30% TT advance, 70% TT after production before shipment",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 103,
+      "name": "T/T 60 days from B/L date",
+      "reasons": [
+        "name_suggests_delayed_due_date"
+      ]
+    },
+    {
+      "id": 104,
+      "name": "30% before manufacture, 60% against BL and 10% 40 day after arriving",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date",
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 107,
+      "name": "100% after production before shipment",
+      "reasons": [
+        "name_uses_non_invoice_milestone"
+      ]
+    },
+    {
+      "id": 108,
+      "name": "50% Advance, 50% advance prepaid)",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments"
+      ]
+    },
+    {
+      "id": 111,
+      "name": "30% Down Payment, 65% Before Loading Container , 5% After Commissioning., 20% 30Day after installation",
+      "reasons": [
+        "name_suggests_multiple_milestones_or_installments",
+        "name_suggests_delayed_due_date"
+      ]
+    }
+  ]
+}

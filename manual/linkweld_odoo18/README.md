@@ -61,5 +61,9 @@ Complete these checks before every evidence session:
 - Accounting Settings (`ACC-001`) evidence completed on 2026-07-16.
 - Captured 13 untouched originals, 13 deterministic numbered-circle copies, and a structured DOM extract covering 19 sections and 60 setting boxes.
 - Detailed Thai chapter: `source/ACC-001_accounting_settings_th.md`.
-- Next evidence batch: Accounting Configuration menus (`ACC-002` onward), followed by existing-transaction traceability.
+- Payment Terms (`ACC-002`) evidence completed on 2026-07-16.
+- Captured 11 untouched originals, 11 deterministic numbered-circle copies, all 104 active terms, all 107 due-rule lines, and a name-to-rule risk analysis.
+- Confirmed 80 terms are configured as 100% due 0 days after invoice date; 70 names were flagged for business-owner review, not automatically classified as incorrect.
+- Detailed Thai chapter: `source/ACC-002_payment_terms_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-003`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
