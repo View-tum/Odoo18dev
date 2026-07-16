@@ -89,5 +89,9 @@ Complete these checks before every evidence session:
 - Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering 353 active company-scoped accounts, account-type counts, and 3 ACC-001 risk-reference accounts.
 - Confirmed 160001 is Current Assets, 120100 is Current Liabilities, and 410000 is Other Income. Their broad type categories are plausible, but their names/purposes do not confirm suitability for Deferred Expense, Deferred Revenue, and Stock Income settings.
 - Detailed Thai chapter: `source/ACC-008_chart_of_accounts_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-009`, followed by existing-transaction traceability.
+- Taxes (`ACC-009`) evidence completed on 2026-07-16.
+- Captured 5 untouched originals, 5 deterministic numbered-circle copies, and a structured extract covering 29 active taxes, rate/type counts, candidate selection, and 4 representative VAT/WHT configurations.
+- Confirmed VAT 7% accounts/grids and zero-rated output base grids. Company WHT 1% is a -1% purchase tax to account 232000 but has no visible tax grids, so PND3/PND53 inclusion remains unconfirmed until Clone-UAT report reconciliation.
+- Detailed Thai chapter: `source/ACC-009_taxes_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-010`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

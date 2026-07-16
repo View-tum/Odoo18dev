@@ -1,0 +1,292 @@
+{
+  "configuration_id": "ACC-009",
+  "page": "Taxes",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.tax",
+  "filter": "Sale or Purchase; Active",
+  "total_active_taxes": 29,
+  "page_size": 29,
+  "pager_display": "1-29 / 29",
+  "visible_rows_in_screenshot": 13,
+  "list_columns": [
+    "Tax Name",
+    "Description",
+    "Tax Type",
+    "Tax Scope",
+    "Label on Invoices",
+    "Company",
+    "Active"
+  ],
+  "company_scoped_counts": {
+    "tax_type": {
+      "Purchases": 22,
+      "Sales": 7
+    },
+    "tax_scope_blank": 29,
+    "amount_type_percentage": 29,
+    "rates": {
+      "-15": 1,
+      "-5": 3,
+      "-3": 3,
+      "-2": 3,
+      "-1": 3,
+      "0": 9,
+      "3": 1,
+      "5": 1,
+      "7": 3,
+      "10": 1,
+      "20": 1
+    }
+  },
+  "candidate_selection": {
+    "sales_vat_7": {
+      "candidate_count": 1,
+      "candidates": [
+        "Output VAT 7%"
+      ],
+      "selected": "Output VAT 7%"
+    },
+    "purchase_vat_7": {
+      "candidate_count": 2,
+      "candidates": [
+        "Input VAT 7%",
+        "import tax 7%"
+      ],
+      "selected": "Input VAT 7%",
+      "selection_reason": "Explicit input VAT tax rather than import tax"
+    },
+    "sales_vat_0_or_exempt": {
+      "candidate_count": 2,
+      "candidates": [
+        "Output VAT 0%",
+        "Output VAT Exempted"
+      ],
+      "selected": "Output VAT 0%",
+      "selection_reason": "Requested priority selected zero-rated before exempt"
+    },
+    "purchase_withholding": {
+      "candidate_count": 13,
+      "candidate_groups": {
+        "zero_rate_placeholders": [
+          "WHT 1%",
+          "WHT 2%",
+          "WHT 3%",
+          "WHT 5%"
+        ],
+        "company_withholding": [
+          "Company Withholding Tax 1% (Transportation)",
+          "Company Withholding Tax 2%",
+          "Company Withholding Tax 3%",
+          "Company Withholding Tax 5%",
+          "Company Withholding Tax 15%"
+        ],
+        "personal_withholding": [
+          "Personal Withholding Tax 1% (Transportation)",
+          "Personal Withholding Tax 2%",
+          "Personal Withholding Tax 3%",
+          "Personal Withholding Tax 5%"
+        ]
+      },
+      "selected": "Company Withholding Tax 1% (Transportation)",
+      "selection_reason": "First-sequence nonzero purchase withholding tax with a dedicated WHT account"
+    }
+  },
+  "representative_taxes": {
+    "Input VAT 7%": {
+      "record_id": 1,
+      "amount_type": "Percentage",
+      "rate": 7,
+      "tax_type": "Purchases",
+      "tax_scope": null,
+      "active": true,
+      "sequence": 1,
+      "label_on_invoices": null,
+      "description": null,
+      "tax_group": "VAT 7%",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "country": "Thailand",
+      "included_in_price": "Default",
+      "affect_base_of_subsequent_taxes": false,
+      "base_affected_by_preceding_taxes": true,
+      "include_in_analytic_cost": false,
+      "tax_exigibility": "Based on Invoice",
+      "cash_basis_transition_account": null,
+      "invoice_distribution": [
+        {
+          "based_on": "Base",
+          "factor_percent": 100,
+          "account": null,
+          "tax_grids": ["+6"]
+        },
+        {
+          "based_on": "Tax",
+          "factor_percent": 100,
+          "account": "100640 Input VAT / ภาษีซื้อ",
+          "tax_grids": ["+7"],
+          "use_in_tax_closing": true
+        }
+      ],
+      "refund_distribution": [
+        {
+          "based_on": "Base",
+          "factor_percent": 100,
+          "account": null,
+          "tax_grids": ["-6"]
+        },
+        {
+          "based_on": "Tax",
+          "factor_percent": 100,
+          "account": "100640 Input VAT / ภาษีซื้อ",
+          "tax_grids": ["-7"],
+          "use_in_tax_closing": true
+        }
+      ]
+    },
+    "Output VAT 7%": {
+      "record_id": 2,
+      "amount_type": "Percentage",
+      "rate": 7,
+      "tax_type": "Sales",
+      "tax_scope": null,
+      "active": true,
+      "sequence": 2,
+      "label_on_invoices": null,
+      "tax_group": "VAT 7%",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "country": "Thailand",
+      "included_in_price": "Default",
+      "affect_base_of_subsequent_taxes": false,
+      "base_affected_by_preceding_taxes": true,
+      "include_in_analytic_cost": false,
+      "tax_exigibility": "Based on Invoice",
+      "cash_basis_transition_account": null,
+      "invoice_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": ["+1"]},
+        {"based_on": "Tax", "factor_percent": 100, "account": "231000 Output VAT / ภาษีขาย", "tax_grids": ["+5"], "use_in_tax_closing": true}
+      ],
+      "refund_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": ["-1"]},
+        {"based_on": "Tax", "factor_percent": 100, "account": "231000 Output VAT / ภาษีขาย", "tax_grids": ["-5"], "use_in_tax_closing": true}
+      ]
+    },
+    "Output VAT 0%": {
+      "record_id": 4,
+      "amount_type": "Percentage",
+      "rate": 0,
+      "tax_type": "Sales",
+      "tax_scope": null,
+      "active": true,
+      "sequence": 4,
+      "label_on_invoices": null,
+      "tax_group": "Taxes",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "country": "Thailand",
+      "included_in_price": "Default",
+      "affect_base_of_subsequent_taxes": false,
+      "base_affected_by_preceding_taxes": true,
+      "include_in_analytic_cost": false,
+      "tax_exigibility": "Based on Invoice",
+      "cash_basis_transition_account": null,
+      "invoice_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": ["+1", "+2"]},
+        {"based_on": "Tax", "factor_percent": 100, "account": "231000 Output VAT / ภาษีขาย", "tax_grids": ["+5"], "use_in_tax_closing": true}
+      ],
+      "refund_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": ["-1", "-2"]},
+        {"based_on": "Tax", "factor_percent": 100, "account": "231000 Output VAT / ภาษีขาย", "tax_grids": ["-5"], "use_in_tax_closing": true}
+      ]
+    },
+    "Company Withholding Tax 1% (Transportation)": {
+      "record_id": 7,
+      "amount_type": "Percentage",
+      "rate": -1,
+      "tax_type": "Purchases",
+      "tax_scope": null,
+      "active": true,
+      "sequence": 7,
+      "label_on_invoices": null,
+      "tax_group": "TAX 1%",
+      "company": "Linkweld Thailand Co., Ltd.",
+      "country": "Thailand",
+      "included_in_price": "Default",
+      "affect_base_of_subsequent_taxes": false,
+      "base_affected_by_preceding_taxes": true,
+      "include_in_analytic_cost": false,
+      "tax_exigibility": "Based on Invoice",
+      "cash_basis_transition_account": null,
+      "invoice_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": []},
+        {"based_on": "Tax", "factor_percent": 100, "account": "232000 Withholding Tax", "tax_grids": [], "use_in_tax_closing": true}
+      ],
+      "refund_distribution": [
+        {"based_on": "Base", "factor_percent": 100, "account": null, "tax_grids": []},
+        {"based_on": "Tax", "factor_percent": 100, "account": "232000 Withholding Tax", "tax_grids": [], "use_in_tax_closing": true}
+      ],
+      "pnd_report_inclusion_confirmed": false
+    }
+  },
+  "not_available": [
+    "Transaction-level tax calculation and rounding",
+    "VAT-202-01 and VAT-202-02 report reconciliation",
+    "PND3 and PND53 report inclusion for selected WHT tax",
+    "Tax certificate or PND PDF output",
+    "Product, partner, fiscal-position, and document default-tax mappings",
+    "Behavior of the remaining 25 active taxes"
+  ],
+  "requests_observed": {
+    "valid_read_only_calls": [
+      "account.tax/get_views",
+      "account.tax/web_search_read",
+      "account.tax/web_read",
+      "account.tax/search_count",
+      "account.tax/search_read",
+      "account.tax/read",
+      "account.tax.repartition.line/fields_get",
+      "account.tax.repartition.line/read",
+      "account.account.tag/read",
+      "access checks",
+      "/web/action/load"
+    ],
+    "console_errors": 3,
+    "console_error_classification": [
+      "Unrelated icon 404",
+      "Two 400 responses from malformed read-only exploratory probes; subsequent valid reads returned 200"
+    ],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "tax_report_run_observed": false
+  },
+  "screenshots": [
+    "original/ACC-009_01_taxes_list_original.png",
+    "original/ACC-009_02_input_vat_7_advanced_original.png",
+    "original/ACC-009_03_output_vat_7_definition_original.png",
+    "original/ACC-009_04_output_vat_0_definition_original.png",
+    "original/ACC-009_05_company_wht_1_definition_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes/tax_computation.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/fiscal_localizations/thailand.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "duplicate_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "active_changed": false,
+    "included_in_price_changed": false,
+    "repartition_line_changed": false,
+    "tax_grid_changed": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "tax_report_run": false,
+    "transactions_created": false,
+    "records_changed": false
+  }
+}
