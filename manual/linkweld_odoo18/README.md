@@ -53,5 +53,10 @@ Complete these checks before every evidence session:
 - Design approved.
 - Implementation plan approved for execution.
 - Evidence workspace initialized.
+- Business menu inventory completed on 2026-07-16.
+- Registered 158 visible menu paths: 154 configuration or master-configuration entries and 4 installed apps with no separate Configuration menu.
+- Accounting register: 30 entries.
+- Manufacturing register: 5 entries, including Products, Product Variants, Bills of Materials, and Lots/Serial Numbers.
+- No duplicate menu paths or configuration IDs were found.
+- Next evidence batch: Accounting Settings screenshots and field-level current values.
 - No Odoo configuration, master data, or transaction has been created or modified.
-
