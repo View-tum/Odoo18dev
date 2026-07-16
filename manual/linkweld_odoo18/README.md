@@ -65,5 +65,9 @@ Complete these checks before every evidence session:
 - Captured 11 untouched originals, 11 deterministic numbered-circle copies, all 104 active terms, all 107 due-rule lines, and a name-to-rule risk analysis.
 - Confirmed 80 terms are configured as 100% due 0 days after invoice date; 70 names were flagged for business-owner review, not automatically classified as incorrect.
 - Detailed Thai chapter: `source/ACC-002_payment_terms_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-003`, followed by existing-transaction traceability.
+- Follow-up Levels (`ACC-003`) evidence completed on 2026-07-16.
+- Captured 5 untouched originals, 5 deterministic numbered-circle copies, and a structured extract covering both existing levels and all visible notification/activity options.
+- Confirmed both levels are manual: 7 Days uses Email + Letter with Attach Invoices; First reminder email uses Email with its named template. Automatic and Schedule Activity are disabled for both.
+- Detailed Thai chapter: `source/ACC-003_follow_up_levels_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-004`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.

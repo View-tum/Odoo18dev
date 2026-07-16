@@ -1,0 +1,46 @@
+{
+  "configuration_id": "ACC-003",
+  "page": "Follow-up Levels",
+  "company": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Read-only inspection",
+  "total_records": 2,
+  "records": [
+    {
+      "description": "7 Days",
+      "due_days": 7,
+      "send_email": true,
+      "send_letter": true,
+      "send_sms": false,
+      "automatic": false,
+      "attach_invoices": true,
+      "schedule_activity": false,
+      "content_template": "",
+      "add_followers": "",
+      "record_url": "https://linkweld-staging-31338861.dev.odoo.com/odoo/action-660/2"
+    },
+    {
+      "description": "First reminder email",
+      "due_days": 15,
+      "send_email": true,
+      "send_letter": false,
+      "send_sms": false,
+      "automatic": false,
+      "attach_invoices": false,
+      "schedule_activity": false,
+      "content_template": "First reminder email",
+      "add_followers": "",
+      "record_url": "https://linkweld-staging-31338861.dev.odoo.com/odoo/action-660/3"
+    }
+  ],
+  "screenshot_status": "Not Available in this session - in-app browser capture service timeout after list rendering; no synthetic evidence created",
+  "safety": {
+    "new_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "message_sent": false,
+    "letter_sent": false,
+    "sms_sent": false,
+    "automatic_changed": false
+  }
+}
