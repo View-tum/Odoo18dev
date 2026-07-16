@@ -1,0 +1,153 @@
+{
+  "configuration_id": "ACC-008",
+  "page": "Chart of Accounts",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "model": "account.account",
+  "filter": "Active Account",
+  "total_active_accounts": 353,
+  "page_size": 80,
+  "pager_display": "1-80 / 353",
+  "list_columns": [
+    "Code",
+    "Account Name",
+    "Type",
+    "Allow Reconciliation",
+    "Account Currency",
+    "Companies",
+    "View"
+  ],
+  "company_scoped_account_type_counts": {
+    "asset_cash": 40,
+    "asset_current": 40,
+    "asset_fixed": 22,
+    "asset_non_current": 2,
+    "asset_receivable": 10,
+    "equity": 12,
+    "equity_unaffected": 1,
+    "expense": 126,
+    "expense_depreciation": 12,
+    "expense_direct_cost": 7,
+    "income": 11,
+    "income_other": 6,
+    "liability_current": 38,
+    "liability_non_current": 16,
+    "liability_payable": 10
+  },
+  "account_type_count_sum": 353,
+  "data_quality": {
+    "initial_cross_company_read_group_discarded": true,
+    "company_scoped_total_matches_ui": true,
+    "full_account_names_exported": false,
+    "privacy_limited_list_screenshot": true
+  },
+  "risk_reference_accounts": [
+    {
+      "code": "160001",
+      "name": "Liquidity Transfer",
+      "exact_unique_result_count": 1,
+      "account_type": "Current Assets",
+      "account_type_code": "asset_current",
+      "allow_reconciliation": true,
+      "account_currency": null,
+      "company": "Linkweld Thailand Co., Ltd.",
+      "deprecated": false,
+      "default_taxes": [],
+      "group": null,
+      "tags": [],
+      "allowed_journals": [],
+      "balance_smart_button_display": "0.00",
+      "balance_opened": false,
+      "acc_001_reference": "Deferred Expense Account"
+    },
+    {
+      "code": "120100",
+      "name": "Outstanding Cheques",
+      "exact_unique_result_count": 1,
+      "account_type": "Current Liabilities",
+      "account_type_code": "liability_current",
+      "allow_reconciliation": true,
+      "account_currency": null,
+      "company": "Linkweld Thailand Co., Ltd.",
+      "deprecated": false,
+      "default_taxes": [],
+      "group": null,
+      "tags": [],
+      "allowed_journals": [],
+      "balance_smart_button_display": "0.00",
+      "balance_opened": false,
+      "acc_001_reference": "Deferred Revenue Account"
+    },
+    {
+      "code": "410000",
+      "name": "Interest Income / ดอกเบี้ยรับ",
+      "exact_unique_result_count": 1,
+      "account_type": "Other Income",
+      "account_type_code": "income_other",
+      "allow_reconciliation": true,
+      "account_currency": null,
+      "company": "Linkweld Thailand Co., Ltd.",
+      "deprecated": false,
+      "default_taxes": [],
+      "group": null,
+      "tags": [],
+      "allowed_journals": [],
+      "balance_smart_button_display": "-210,270.70",
+      "balance_opened": false,
+      "acc_001_reference": "Stock Income Account"
+    }
+  ],
+  "not_available": [
+    "Complete row-level extract of all 353 accounts",
+    "Journal-item or balance drilldown",
+    "Historical reconciliation status",
+    "Mapping tab values",
+    "Account usage by products, categories, journals, taxes, assets, or reports",
+    "Cross-company shared-account design"
+  ],
+  "requests_observed": {
+    "read_only_model_calls": [
+      "account.account/get_views",
+      "account.account/search_panel_select_range",
+      "account.account/web_search_read",
+      "account.account/web_read",
+      "account.account/read_group",
+      "access checks",
+      "mail thread reads"
+    ],
+    "action_load_observed": true,
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "reconciliation_observed": false
+  },
+  "screenshots": [
+    "original/ACC-008_01_chart_of_accounts_list_original.png",
+    "original/ACC-008_02_160001_liquidity_transfer_original.png",
+    "original/ACC-008_03_120100_outstanding_cheques_original.png",
+    "original/ACC-008_04_410000_interest_income_original.png"
+  ],
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/chart_of_accounts.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/account/account_account.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "inline_edit_entered": false,
+    "save_clicked": false,
+    "reconcile_clicked": false,
+    "balance_clicked": false,
+    "journal_items_clicked": false,
+    "mapping_tab_clicked": false,
+    "allow_reconciliation_changed": false,
+    "account_type_changed": false,
+    "archive_clicked": false,
+    "delete_clicked": false,
+    "records_changed": false
+  }
+}

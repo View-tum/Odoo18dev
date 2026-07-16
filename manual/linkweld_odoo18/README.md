@@ -85,5 +85,9 @@ Complete these checks before every evidence session:
 - Captured 2 untouched originals, 2 deterministic numbered-circle copies, and a structured extract covering all 3 records and one representative form.
 - Confirmed all 3 records have blank Name and Provider Type and are Not Connected. The representative record has Automatic synchronization enabled but no Next synchronization, expiry date, or account mapping.
 - Detailed Thai chapter: `source/ACC-007_online_synchronization_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-008`, followed by existing-transaction traceability.
+- Chart of Accounts (`ACC-008`) evidence completed on 2026-07-16.
+- Captured 4 untouched originals, 4 deterministic numbered-circle copies, and a structured extract covering 353 active company-scoped accounts, account-type counts, and 3 ACC-001 risk-reference accounts.
+- Confirmed 160001 is Current Assets, 120100 is Current Liabilities, and 410000 is Other Income. Their broad type categories are plausible, but their names/purposes do not confirm suitability for Deferred Expense, Deferred Revenue, and Stock Income settings.
+- Detailed Thai chapter: `source/ACC-008_chart_of_accounts_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-009`, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
