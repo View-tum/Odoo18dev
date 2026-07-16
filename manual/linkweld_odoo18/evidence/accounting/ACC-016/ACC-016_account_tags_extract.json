@@ -1,0 +1,174 @@
+{
+  "configuration_id": "ACC-016",
+  "page": "Account Tags",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-16",
+  "mode": "Evidence-first read-only",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.account.tag",
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "menu_external_id": "account_accountant.account_tag_menu",
+    "menu_group_restriction_from_local_source": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible": true,
+    "action_external_id": "account_accountant.account_tag_action",
+    "observed_action_id": 612,
+    "observed_route": "/odoo/action-612",
+    "action_load_method": "/web/action/load",
+    "action_title": "Account Tags",
+    "view_mode": "list,form",
+    "page_limit": 80,
+    "interpretation": "Developer-hidden configuration surface; not a normal visible business menu for this user"
+  },
+  "default_list": {
+    "domain": false,
+    "context": "{}",
+    "search_blank": true,
+    "active_search_chips": 0,
+    "observed_order": "id ASC",
+    "pager_display": "1-33 / 33",
+    "visible_rows": 33,
+    "list_columns": ["Tag Name", "Applicability", "Country"],
+    "archived_filter_available": true
+  },
+  "schema": {
+    "name": {"label": "Tag Name", "type": "char", "required": true, "readonly": false},
+    "applicability": {"label": "Applicability", "type": "selection", "required": true, "readonly": false, "values": ["accounts", "taxes", "products"]},
+    "active": {"label": "Active", "type": "boolean", "required": false, "readonly": false},
+    "tax_negate": {"label": "Negate Tax Balance", "type": "boolean", "required": false, "readonly": false, "standard_form_readonly": true},
+    "country_id": {"label": "Country", "type": "many2one", "comodel": "res.country", "required": false, "readonly": false},
+    "company_id_field_exists": false
+  },
+  "counts": {
+    "default_active": 33,
+    "all_with_active_test_false": 33,
+    "archived": 0,
+    "applicability": {"accounts": 3, "taxes": 30, "products": 0},
+    "tax_country": {"Thailand": 30, "blank": 0, "other": 0},
+    "tax_negate": {"true": 15, "false": 15},
+    "duplicate_groups_by_name_applicability_country": 0,
+    "exact_positive_negative_pairs": 15,
+    "missing_positive_negative_pairs": 0,
+    "unexpected_sign_vs_tax_negate_patterns": 0
+  },
+  "aggregate_relationships": {
+    "account_account_tag_field": "account.account.tag_ids",
+    "accounts_using_any_tag": 2,
+    "operating_activities_account_usage": 0,
+    "tax_repartition_tag_field": "account.tax.repartition.line.tag_ids",
+    "tax_repartition_lines_using_any_tag": 28,
+    "product_template_tag_field": "product.template.account_tag_ids",
+    "products_using_any_account_tag": 0,
+    "identifiers_or_transaction_values_read": false
+  },
+  "representative_sampling": {
+    "Operating Activities": {
+      "applicability": "Accounts",
+      "country": null,
+      "selection_reason": "Exact unique active Accounts candidate selected by requested priority",
+      "account_usage_count": 0
+    },
+    "+7. Input tax (according to invoice of purchase amount in 6.)": {
+      "applicability": "Taxes",
+      "country": "Thailand",
+      "tax_negate": false,
+      "selection_reason": "Positive Thailand tag with the highest accessible repartition-line usage",
+      "repartition_line_usage_count": 6
+    },
+    "-7. Input tax (according to invoice of purchase amount in 6.)": {
+      "applicability": "Taxes",
+      "country": "Thailand",
+      "tax_negate": true,
+      "selection_reason": "Exact negative counterpart of the selected positive tag",
+      "repartition_line_usage_count": 2
+    },
+    "fourth_materially_different_form": {
+      "products_candidates": 0,
+      "archived_candidates": 0,
+      "other_country_tax_candidates": 0,
+      "country_blank_tax_candidates": 0,
+      "substitution_used": false
+    }
+  },
+  "risk_observations": [
+    "All 15 Thailand tax-grid names have structurally complete positive and negative pairs, but pair completeness does not prove Tax Return values or signs",
+    "Only two accessible accounts use any Account Tag and Operating Activities has zero account usage; Cash Flow classification remains unverified",
+    "No Product uses an Account Tag in the inspected context; product applicability remains unused and untested",
+    "The model has no company_id, so tags are not company-owned records even though reads were made in company context",
+    "Changing tax-tag names, country, applicability, activity, or pair structure can affect report expressions and historical report retrieval"
+  ],
+  "not_available": [
+    "Cash Flow Statement classification and totals",
+    "Tax Return, VAT-202, PND3, or PND53 values",
+    "Tax Closing and carryover behavior",
+    "Posted invoice, bill, refund, payment, or journal-item tag results",
+    "Product Account Tag behavior",
+    "Account-level identities for the two tagged accounts",
+    "Historical report behavior after any tag master change"
+  ],
+  "privacy": {
+    "account_numbers_read": false,
+    "account_labels_read": false,
+    "transaction_values_read": false,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "account.account.tag/get_views",
+      "account.account.tag/web_read",
+      "account.account.tag/fields_get",
+      "account.account.tag/search_read",
+      "account.account.tag/search_count",
+      "account.account/fields_get",
+      "account.account/search_count",
+      "account.tax.repartition.line/fields_get",
+      "account.tax.repartition.line/search_count",
+      "product.template/fields_get",
+      "product.template/search_count"
+    ],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "report_or_recomputation_observed": false
+  },
+  "screenshots": [
+    "original/ACC-016_01_account_tags_list_original.png",
+    "original/ACC-016_02_operating_activities_form_original.png",
+    "original/ACC-016_03_positive_7_input_tax_form_original.png",
+    "original/ACC-016_04_negative_7_input_tax_form_original.png"
+  ],
+  "original_sha256": {
+    "ACC-016_01": "2D13FA657EE6ABEFB74B0E803326A6723215F4AD61E82CA1B282EEA5A9DDCAE4",
+    "ACC-016_02": "E2A4664E89339C2A32DE601215B45D3D96322E56FFDE36E044EBE745A6264095",
+    "ACC-016_03": "7077DA368A3377211AE52B55003CA1283589B80DF75BC9CC6AAFCB2B26135434",
+    "ACC-016_04": "771933C9DD44B24537D5C313E2A38EF851CB5BB4E48000E032847A4A5457F140"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/get_started/chart_of_accounts.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/taxes.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/tax_returns.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting/customize.html",
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/reporting.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/account/account_account_tag.html"
+  ],
+  "safety": {
+    "new_clicked": false,
+    "import_clicked": false,
+    "export_clicked": false,
+    "edit_mode_entered": false,
+    "save_clicked": false,
+    "archive_or_unarchive_clicked": false,
+    "delete_or_duplicate_clicked": false,
+    "field_or_checkbox_changed": false,
+    "linked_record_or_report_opened": false,
+    "technical_view_opened": false,
+    "records_changed": false
+  }
+}

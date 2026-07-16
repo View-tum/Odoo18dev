@@ -117,5 +117,9 @@ Complete these checks before every evidence session:
 - Captured 1 untouched privacy-safe original, 1 deterministic numbered rectangular-frame copy, and a company-scoped extract confirming zero Tax Units, zero member relationships, and no Tax ID read.
 - No form or report was opened. Fiscal Position synchronization was not called; local Odoo source shows that action can delete/recreate generated Fiscal Positions and change Partner assignments, so it is restricted to approved Clone UAT.
 - Detailed Thai chapter: `source/ACC-015_tax_units_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-016` Account Tags, followed by existing-transaction traceability.
+- Account Tags (`ACC-016`) evidence completed on 2026-07-16 through a read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and an extract covering all 33 active tags, 15 complete Thailand positive/negative tax-tag pairs, and aggregate Account/Tax Repartition/Product usage.
+- Pair structure is complete, but Tax Return behavior remains unverified. Only 2 accessible Accounts use any tag and Operating Activities usage is 0, so Cash Flow classification requires an approved mapping and Clone-UAT reconciliation.
+- Detailed Thai chapter: `source/ACC-016_account_tags_th.md`.
+- Next evidence batch: Accounting Configuration menu `ACC-017` Account Groups, followed by existing-transaction traceability.
 - No Odoo configuration, master data, or transaction has been created or modified.
