@@ -1,0 +1,252 @@
+{
+  "configuration_id": "ACC-021",
+  "page": "Payment Methods",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Evidence-first read-only with strict token, credential and payment-data privacy",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "payment.method",
+  "access": {
+    "visible_in_accounting_configuration_for_user": true,
+    "normal_accounting_configuration_menu_opened": true,
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "action_external_id": "payment.action_payment_method",
+    "observed_action_id": 277,
+    "observed_route": "/odoo/action-277",
+    "action_title": "Payment Methods",
+    "view_mode": "list,kanban,form",
+    "action_domain": [["is_primary", "=", true]],
+    "action_context": {
+      "active_test": false,
+      "search_default_available_pms": 1
+    },
+    "page_limit": 80,
+    "application_shell_observed": "Sales",
+    "interpretation": "Shared global action reused by Accounting, Sales and Website menus; Accounting menu is visible and accessible for this user"
+  },
+  "default_available_list": {
+    "domain": [
+      "&",
+      ["is_primary", "=", true],
+      ["provider_ids.state", "!=", "disabled"]
+    ],
+    "order": ["sequence ASC", "id ASC"],
+    "active_test": false,
+    "allowed_company_ids": [1],
+    "search_filter": "Available methods",
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": "1-1 / 1",
+    "total_records": 1,
+    "visible_columns": ["Selection", "Sequence handle", "Name", "Active toggle"],
+    "records": [
+      {"name": "Wire Transfer", "active": true}
+    ]
+  },
+  "all_primary_list": {
+    "interaction": "Removed only the Available methods search chip",
+    "domain": [["is_primary", "=", true]],
+    "order": ["sequence ASC", "id ASC"],
+    "active_test": false,
+    "allowed_company_ids": [1],
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": "1-80 / 175",
+    "total_records": 175,
+    "visible_page_records": 80,
+    "inline_edit_entered": false,
+    "active_toggle_clicked": false,
+    "sequence_handle_dragged": false
+  },
+  "safe_core_schema": {
+    "name": {"label": "Name", "type": "char", "required": true},
+    "code": {"label": "Code", "type": "char", "required": true},
+    "sequence": {"label": "Sequence", "type": "integer"},
+    "primary_payment_method_id": {"label": "Primary Payment Method", "type": "many2one", "comodel": "payment.method"},
+    "brand_ids": {"label": "Brands", "type": "one2many", "comodel": "payment.method"},
+    "is_primary": {"label": "Is Primary Payment Method", "type": "boolean", "computed": true, "stored": false, "readonly": true},
+    "provider_ids": {"label": "Providers", "type": "many2many", "comodel": "payment.provider"},
+    "active": {"label": "Active", "type": "boolean"},
+    "support_tokenization": {"label": "Tokenization", "type": "boolean"},
+    "support_express_checkout": {"label": "Express Checkout", "type": "boolean"},
+    "support_refund": {"label": "Refund", "type": "selection", "required": true},
+    "supported_country_ids": {"label": "Countries", "type": "many2many", "comodel": "res.country"},
+    "supported_currency_ids": {"label": "Currencies", "type": "many2many", "comodel": "res.currency"},
+    "company_field_exists": false,
+    "image_binary_requested": false
+  },
+  "sanitized_counts": {
+    "payment_methods_model_total": 221,
+    "primary_methods": 175,
+    "brands": 46,
+    "primary_active": 1,
+    "primary_archived": 174,
+    "default_available_primary": 1,
+    "provider_relationships": {
+      "zero_links": 30,
+      "one_link": 98,
+      "multiple_links": 47,
+      "linked_to_enabled_provider": 0,
+      "linked_to_test_mode_provider": 1,
+      "linked_only_to_disabled_providers": 144
+    },
+    "country_restrictions": {
+      "present": 162,
+      "missing": 13
+    },
+    "currency_restrictions": {
+      "present": 165,
+      "missing": 10
+    },
+    "capabilities": {
+      "tokenization": 4,
+      "express_checkout": 1,
+      "refund_unsupported": 99,
+      "refund_full_and_partial": 71,
+      "refund_full_only": 5
+    },
+    "normalized_trimmed_name_duplicate_groups_model_wide": 2,
+    "normalized_trimmed_name_duplicate_groups_primary": 1,
+    "duplicate_code_groups": 0,
+    "brand_rows": 46,
+    "primary_methods_with_brands": 5,
+    "orphan_brand_rows": 0,
+    "maximum_brand_count": 36,
+    "maximum_brand_primary_method": "Card"
+  },
+  "duplicate_name_review": {
+    "classification": "Owner-review findings; not confirmed defects",
+    "model_wide_groups": [
+      ["AfterPay", "Afterpay"],
+      ["iDEAL", "iDEAL"]
+    ],
+    "primary_groups": [
+      ["AfterPay", "Afterpay"]
+    ],
+    "code_duplicates": 0
+  },
+  "brand_relationship_evidence": {
+    "brand_ids_values_on_primary_search_read": "empty",
+    "inverse_brand_rows_with_primary_payment_method_id": 46,
+    "relationship_count_method": "Computed from each Brand row's safe primary_payment_method_id",
+    "interpretation": "Read representation mismatch; not classified as a data defect"
+  },
+  "representative_sampling": [
+    {
+      "category": "Default Available and Test-linked",
+      "name": "Wire Transfer",
+      "active": true,
+      "country_scope": "All countries supported",
+      "currency_scope": "All currencies supported",
+      "provider_rows": [
+        {"name": "Wire Transfer", "state": "Test Mode"}
+      ],
+      "form_opened_clean_view_state": true
+    },
+    {
+      "category": "Archived, Disabled-only providers and greatest Brand count",
+      "name": "Card",
+      "active": false,
+      "country_scope": "All countries supported",
+      "currency_scope": "All currencies supported",
+      "inverse_brand_count": 36,
+      "provider_rows": [
+        {"name": "Stripe", "state": "Disabled"},
+        {"name": "Adyen", "state": "Disabled"},
+        {"name": "Amazon Payment Services", "state": "Disabled"},
+        {"name": "Asiapay", "state": "Disabled"},
+        {"name": "Authorize.net", "state": "Disabled"},
+        {"name": "Buckaroo", "state": "Disabled"},
+        {"name": "Flutterwave", "state": "Disabled"},
+        {"name": "Mercado Pago", "state": "Disabled"},
+        {"name": "Mollie", "state": "Disabled"},
+        {"name": "Nuvei", "state": "Disabled"},
+        {"name": "Razorpay", "state": "Disabled"},
+        {"name": "Worldline", "state": "Disabled"},
+        {"name": "Xendit", "state": "Disabled"}
+      ],
+      "form_opened_clean_view_state": true
+    }
+  ],
+  "critical_behaviors_from_local_source": {
+    "archive_detach_or_disable_tokenization": "Can archive linked Tokens for the method and its Brands",
+    "activate": "Can be blocked when the primary method has no linked Provider outside Disabled state",
+    "attach_provider": "Displays a warning to verify that the Provider supports the method",
+    "delete_default_unknown_method": "Blocked by source guard",
+    "compatibility": "Requires a primary method supported by at least one compatible Provider and then applies Partner Country, Currency, tokenization and express-checkout filters",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "Only Wire Transfer is Active and default Available; 174 of 175 primary methods are Archived",
+    "not_proven": "Checkout visibility, payment success, credentials, Token lifecycle, refund behavior, settlement, Journal posting or reconciliation are correct",
+    "provider_alignment": "Wire Transfer is linked to the Test Mode Provider; no primary method is linked to an Enabled Provider",
+    "global_master_caveat": "payment.method has no Company field; Company behavior is derived through linked Providers and runtime context",
+    "decision_required": "Business, Accounting, eCommerce and IT/Security must approve the Provider-to-Method-to-Country/Currency/feature matrix and accounting flow before activation"
+  },
+  "privacy": {
+    "provider_credentials_opened": false,
+    "tokens_transactions_payments_or_partners_queried": false,
+    "image_binary_requested": false,
+    "provider_rows_clicked": false,
+    "brands_tab_opened": false,
+    "hidden_configuration_opened": false,
+    "external_provider_hosts_contacted": 0,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "payment.method/get_views",
+      "payment.method/web_search_read",
+      "payment.method/web_read",
+      "payment.method/fields_get",
+      "payment.method/search_read",
+      "payment.provider/search_read"
+    ],
+    "provider_fields_limited_to": ["id", "name", "state"],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "compatibility_execution_observed": false,
+    "external_provider_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-021_01_payment_methods_default_available_list_original.png",
+    "original/ACC-021_02_payment_methods_all_primary_list_original.png",
+    "original/ACC-021_03_wire_transfer_form_original.png",
+    "original/ACC-021_04_card_archived_disabled_providers_form_original.png"
+  ],
+  "original_sha256": {
+    "ACC-021-01": "FE1BF98C410E6373F59B52E59FB5C661542D376307B3CCEFCA6F6D108290CF9A",
+    "ACC-021-02": "A6D715B52596787F46F544667929A6F683CB2CDE88D0DD95112EA26FA5103022",
+    "ACC-021-03": "C969E05B3FFE32EB005ACD3BC34F5A5E21E66AAB6FB94003C4442CDB9B65956E",
+    "ACC-021-04": "89042A5563659E064D7C2CB695F907B7AAE257D6C33C9C090523260C3FBE43CF"
+  },
+  "annotated_sha256": {
+    "ACC-021-01": "DA3548F5972F67283258912942E77FF94009E2CA109958E358AF12187E779EC6",
+    "ACC-021-02": "144C50665FB4B734FD640FC6EE94032ED58C229630A65C93EB596212B55A8647",
+    "ACC-021-03": "9C0FB3FC9A9D49C89B88957E8E86ECAF7E63DE55EC769DBD731B378266B1658F",
+    "ACC-021-04": "73C516E60B13EBF34E8271F595BC9D1A4C9D95A8F61978EFDB337A3EBD27A979"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/payment_providers.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/payment/payment_method.html"
+  ],
+  "safety": {
+    "active_toggle_clicked": false,
+    "sequence_handle_dragged": false,
+    "inline_or_multi_edit_entered": false,
+    "new_edit_save_archive_unarchive_delete_or_duplicate_clicked": false,
+    "providers_brands_countries_currencies_or_capabilities_changed": false,
+    "provider_form_credentials_or_hidden_configuration_opened": false,
+    "token_transaction_payment_checkout_refund_capture_or_webhook_executed": false,
+    "records_changed": false
+  }
+}

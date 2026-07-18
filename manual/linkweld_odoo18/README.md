@@ -138,5 +138,10 @@ Complete these checks before every evidence session:
 - Confirmed Disabled 16, Enabled 0, Test Mode 1. Wire Transfer is Test Mode and Published; PayPal and Stripe are installed but Disabled. Published flags and capability fields do not prove operational checkout, credentials, settlement, or accounting behavior.
 - No credential, Journal identity, exact Maximum Amount, Token, Transaction, Payment value, external-provider call, or Odoo write was exposed or executed.
 - Detailed Thai chapter: `source/ACC-020_payment_providers_th.md`.
-- Next evidence batch: Accounting Configuration menu `ACC-021` Payment Methods, followed by credential-safe Payment Token and Payment Transaction inventory.
+- Payment Methods (`ACC-021`) evidence completed on 2026-07-18 through the shared normal action accessible from Accounting Configuration.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a sanitized extract covering 221 methods: 175 Primary and 46 Brands.
+- Confirmed one Active/Available Primary Method, Wire Transfer, linked to the Test Mode Provider; 174 Primary Methods are Archived and none is linked to an Enabled Provider.
+- Payment Methods have no Company field. Active/Provider/Tokenization changes can archive linked Tokens, so checkout, Token lifecycle, settlement and accounting behavior remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-021_payment_methods_th.md`.
+- Next evidence batch: developer-hidden `ACC-022` Payment Tokens, followed by `ACC-023` Payment Transactions. Both require strict identity/payment-data privacy and aggregate-only evidence.
 - No Odoo configuration, master data, or transaction has been created or modified.
