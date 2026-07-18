@@ -1,0 +1,238 @@
+{
+  "configuration_id": "ACC-020",
+  "page": "Payment Providers",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Evidence-first read-only with strict credential and payment-data privacy",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "payment.provider",
+  "access": {
+    "visible_in_accounting_configuration_for_user": true,
+    "normal_menu_open_succeeded": true,
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "action_external_id": "payment.action_payment_provider",
+    "observed_action_id": 276,
+    "observed_route": "/odoo/action-276",
+    "action_title": "Payment Providers",
+    "view_mode": "kanban,list,form",
+    "views": [
+      [false, "kanban"],
+      [false, "list"],
+      [false, "form"]
+    ],
+    "page_limit": 80,
+    "interpretation": "Normal visible business menu for this user; not developer-hidden"
+  },
+  "default_kanban": {
+    "domain": [],
+    "order": "",
+    "search_blank": true,
+    "active_search_chips": 0,
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": "1-17 / 17",
+    "total_records": 17,
+    "visible_records": 17,
+    "safe_card_fields": ["Name", "State", "Publication badge", "Module action"]
+  },
+  "safe_list": {
+    "route": "/odoo/action-276?view_type=list",
+    "create_enabled": false,
+    "domain": [],
+    "order": ["sequence ASC", "id ASC"],
+    "search_blank": true,
+    "offset": 0,
+    "limit": 80,
+    "count_limit": 10001,
+    "pager_display": "1-17 / 17",
+    "total_records": 17,
+    "visible_columns": ["Sequence handle", "Name", "State", "Company"],
+    "technical_code_visible": false,
+    "inline_edit_entered": false
+  },
+  "safe_core_schema": {
+    "name": {"label": "Name", "type": "char", "required": true},
+    "code": {"label": "Code", "type": "selection", "required": true, "observed_record_values_reported_under": "sanitized_counts.codes"},
+    "state": {"label": "State", "type": "selection", "required": true, "values": ["disabled", "enabled", "test"]},
+    "is_published": {"label": "Published", "type": "boolean"},
+    "company_id": {"label": "Company", "type": "many2one", "required": true},
+    "payment_method_ids": {"label": "Supported Payment Methods", "type": "many2many"},
+    "available_country_ids": {"label": "Countries", "type": "many2many"},
+    "available_currency_ids": {"label": "Currencies", "type": "many2many"},
+    "allow_tokenization": {"label": "Allow Saving Payment Methods", "type": "boolean"},
+    "capture_manually": {"label": "Capture Amount Manually", "type": "boolean"},
+    "allow_express_checkout": {"label": "Allow Express Checkout", "type": "boolean"},
+    "maximum_amount": {"label": "Maximum Amount", "type": "monetary", "exact_values_read": false},
+    "journal_id": {"label": "Payment Journal", "type": "many2one", "stored": false, "identity_read": false},
+    "support_tokenization": {"label": "Tokenization", "type": "boolean", "readonly": true, "computed": true},
+    "support_manual_capture": {"label": "Manual Capture Supported", "type": "selection", "readonly": true, "computed": true},
+    "support_express_checkout": {"label": "Express Checkout", "type": "boolean", "readonly": true, "computed": true},
+    "support_refund": {"label": "Refund", "type": "selection", "readonly": true, "computed": true},
+    "module_state": {"label": "Module State", "type": "selection", "readonly": true, "computed": true},
+    "module_to_buy": {"label": "Enterprise Module", "type": "boolean", "readonly": true, "computed": true}
+  },
+  "sanitized_counts": {
+    "providers_total": 17,
+    "providers_visible": 17,
+    "states": {
+      "disabled": 16,
+      "enabled": 0,
+      "test_mode": 1
+    },
+    "company_scope": {
+      "company_1": 17,
+      "global": 0,
+      "other_accessible": 0
+    },
+    "module_state": {
+      "installed": 3,
+      "not_installed": 14,
+      "to_buy": 0
+    },
+    "publication": {
+      "published": 9,
+      "unpublished": 8
+    },
+    "codes": {
+      "custom": 1,
+      "paypal": 1,
+      "stripe": 1,
+      "none": 14
+    },
+    "supported_payment_method_links": 1,
+    "providers_with_payment_methods": 1,
+    "providers_with_country_restrictions": 0,
+    "providers_with_currency_restrictions": 1,
+    "options_enabled": {
+      "allow_tokenization": 1,
+      "capture_manually": 0,
+      "allow_express_checkout": 1
+    },
+    "capabilities": {
+      "tokenization_supported": 1,
+      "manual_capture_full_only": 1,
+      "manual_capture_partial": 0,
+      "manual_capture_unsupported": 16,
+      "express_checkout_supported": 1,
+      "refund_partial": 1,
+      "refund_full_only": 0,
+      "refund_unsupported": 16
+    },
+    "maximum_amount_present": 0,
+    "maximum_amount_missing": 17,
+    "journal_present": 1,
+    "journal_missing": 16
+  },
+  "safe_provider_inventory": {
+    "test_mode": [
+      {"name": "Wire Transfer", "state": "Test Mode", "published_badge": true}
+    ],
+    "enabled": [],
+    "installed_disabled": [
+      {"name": "PayPal", "state": "Disabled"},
+      {"name": "Stripe", "state": "Disabled"}
+    ],
+    "not_installed": [
+      "SEPA Direct Debit",
+      "Demo",
+      "Adyen",
+      "Amazon Payment Services",
+      "Asiapay",
+      "Authorize.net",
+      "Buckaroo",
+      "Flutterwave",
+      "Mercado Pago",
+      "Mollie",
+      "Nuvei",
+      "Razorpay",
+      "Worldline",
+      "Xendit"
+    ]
+  },
+  "representative_sampling": {
+    "enabled_candidates": 0,
+    "test_mode_candidates": 1,
+    "installed_disabled_candidates": 2,
+    "not_installed_candidates": 14,
+    "forms_opened": 0,
+    "substitution_used": false,
+    "reason": "All requested categories were evidenced from privacy-safe kanban/list views; provider forms were prohibited because Credentials is the default tab and provider addons can expose secrets"
+  },
+  "critical_behaviors_from_local_source": {
+    "state_change": "Changing state can archive linked payment tokens, activate or deactivate supported payment methods, and toggle the post-processing cron",
+    "state_onchange_publication": "The UI onchange sets Published true only when State is Enabled",
+    "manual_publication_toggle": "Publication can only be toggled when the provider is not Disabled",
+    "company_change": "Company change is blocked when linked payment transactions exist",
+    "module_install": "Install invokes immediate module installation and reload",
+    "journal_compute_inverse": "For Enabled or Test providers, journal computation/inverse can create or update an account.payment.method.line and its outstanding-account relation",
+    "compatibility": "Provider compatibility requires Enabled or Test state and Company match; non-internal users are additionally filtered by Published, with Country/Currency/Amount and requested feature checks",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "No Enabled provider exists; Wire Transfer is Test Mode and Published; PayPal and Stripe are installed but Disabled",
+    "not_proven": "Checkout visibility, credentials, webhook health, payment capture/refund/token behavior, settlement, journal posting, reconciliation, or security are correct",
+    "publication_caveat": "Nine Published flags include records that are Disabled or not installed; Published alone does not prove operational availability",
+    "risk": "A Test Mode and Published provider may be visible to non-internal users when other compatibility conditions pass, but no checkout was opened, so customer visibility is not confirmed",
+    "decision_required": "Business, Accounting, IT/Security and eCommerce owners must approve intended providers, state, publication, credentials, methods, countries/currencies, limits, journal/outstanding accounts, settlement and reconciliation before go-live"
+  },
+  "privacy": {
+    "forms_opened": false,
+    "credentials_tab_opened": false,
+    "provider_specific_fields_requested": false,
+    "credential_or_message_fields_requested": false,
+    "journal_identity_read": false,
+    "maximum_amount_exact_value_read": false,
+    "tokens_transactions_or_payment_values_read": false,
+    "external_provider_hosts_contacted": 0,
+    "credentials_or_long_numbers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "read_only_calls": [
+      "/web/action/load",
+      "payment.provider/get_views",
+      "payment.provider/web_search_read",
+      "payment.provider/fields_get",
+      "payment.provider/search_read"
+    ],
+    "action_run_observed": false,
+    "create_observed": false,
+    "write_observed": false,
+    "unlink_observed": false,
+    "module_install_observed": false,
+    "external_provider_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-020_01_payment_providers_kanban_original.png",
+    "original/ACC-020_02_payment_providers_list_original.png"
+  ],
+  "original_sha256": {
+    "ACC-020-01": "37D2CEF1EC3607F9BBAF6420F767D7BB9C33647C85D1E2D2DDAE5E9D5227C35B",
+    "ACC-020-02": "67792969ED5C1068EF5B222CDB0B4BDEE49E865ED489D9D17AA6917598148E02"
+  },
+  "annotated_sha256": {
+    "ACC-020-01": "173F5DEFCE40E9758F2AB1B831DF5C4D8FBF23645AC906B66099B54902A763BA",
+    "ACC-020-02": "DC1AFB61C80660F4B8EB581E88E8613F79A20A58FB79CCFDE18943577D6BBDCF"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/payment_providers.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/payment/payment_provider.html"
+  ],
+  "safety": {
+    "provider_card_row_or_form_opened": false,
+    "credentials_configuration_or_messages_opened": false,
+    "activate_install_upgrade_or_state_clicked": false,
+    "publish_toggle_clicked": false,
+    "edit_save_new_import_export_clicked": false,
+    "sequence_handle_dragged": false,
+    "company_selector_changed": false,
+    "payment_method_journal_country_currency_or_link_opened": false,
+    "transaction_token_refund_payment_or_report_opened": false,
+    "provider_validation_oauth_webhook_or_external_call_started": false,
+    "records_changed": false
+  }
+}
