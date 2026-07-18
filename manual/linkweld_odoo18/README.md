@@ -148,5 +148,10 @@ Complete these checks before every evidence session:
 - The empty action was opened only after zero records was proven. No Partner, Payment Details, Provider Reference, Token ID, Transaction relation or linked record was read.
 - Token archive/unarchive, Provider/Method state, user-Partner rule, Company rule, consent, retention and lifecycle behavior remain Clone-UAT-only.
 - Detailed Thai chapter: `source/ACC-022_payment_tokens_th.md`.
-- Next evidence batch: developer-hidden `ACC-023` Payment Transactions with a mandatory count-first financial/identity privacy gate.
+- Payment Transactions (`ACC-023`) evidence completed on 2026-07-18 through a count-first financial/identity privacy gate and read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 2 untouched privacy-safe originals, 2 deterministic numbered rectangular-frame copies, and an aggregate-only extract. Accessible Transactions are zero in the inspected user/company context.
+- The empty action was opened only after zero records was proven. No Reference, Amount, Partner identity/contact, Provider Reference, State Message, Token or Transaction relationship was read.
+- Capture, Void, Refund, Provider callbacks, settlement and accounting reconciliation remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-023_payment_transactions_th.md`.
+- Next evidence batch: `ACC-024` Asset Models with existing-record-only read-only evidence and strict no-depreciation/no-asset-generation controls.
 - No Odoo configuration, master data, or transaction has been created or modified.

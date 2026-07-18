@@ -1,0 +1,221 @@
+{
+  "configuration_id": "ACC-023",
+  "page": "Payment Transactions",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Count-first financial and identity-safe read-only inspection",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "payment.transaction",
+  "privacy_gate": {
+    "decision": "PASS FOR EMPTY ACTION",
+    "accessible_total_before_action": 0,
+    "action_opened_only_after_zero_proven": true,
+    "existing_list_row_kanban_card_or_form_opened": false
+  },
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "visible_online_payments_entries": ["Payment Providers"],
+    "payment_transactions_menu_absent": true,
+    "menu_external_id": "account_payment.payment_transaction_menu",
+    "local_source_group_restriction": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible_after_zero_gate": true,
+    "action_external_id": "payment.action_payment_transaction",
+    "observed_action_id": 278,
+    "observed_route": "/odoo/action-278",
+    "action_title": "Payment Transactions",
+    "action_type": "ir.actions.act_window",
+    "view_mode": "list,kanban,form",
+    "domain": false,
+    "context": {},
+    "page_limit": 80,
+    "target": "current",
+    "interpretation": "Developer-hidden and highly sensitive surface; direct action was opened only after zero accessible Transactions was proven"
+  },
+  "empty_list": {
+    "total_records": 0,
+    "list_columns": [
+      "Reference",
+      "Created on",
+      "Payment Method",
+      "Provider",
+      "Customer",
+      "Partner Name",
+      "Amount",
+      "Status",
+      "Company"
+    ],
+    "help_text": "There are no transactions to show",
+    "forms_sampled": 0,
+    "substitution_used": false
+  },
+  "aggregate_counts": {
+    "accessible_total": 0,
+    "company_scope": {
+      "company_1": 0,
+      "global": 0,
+      "other_accessible": 0
+    },
+    "state": {
+      "draft": 0,
+      "pending": 0,
+      "authorized": 0,
+      "done_confirmed": 0,
+      "canceled": 0,
+      "error": 0
+    },
+    "operation": {
+      "online_redirect": 0,
+      "online_direct": 0,
+      "online_token": 0,
+      "validation": 0,
+      "offline": 0,
+      "refund": 0,
+      "blank": 0
+    },
+    "provider_state": {
+      "enabled": 0,
+      "test_mode": 0,
+      "disabled": 0
+    },
+    "payment_method_state": {
+      "active": 0,
+      "archived": 0
+    },
+    "token": {
+      "present": 0,
+      "missing": 0
+    },
+    "source_transaction": {
+      "present": 0,
+      "missing": 0
+    },
+    "provider_reference": {
+      "present": 0,
+      "missing": 0
+    },
+    "state_message": {
+      "present": 0,
+      "missing": 0
+    },
+    "post_processed": {
+      "true": 0,
+      "false": 0
+    },
+    "create_token": {
+      "true": 0,
+      "false": 0
+    },
+    "amount_sign": {
+      "positive": 0,
+      "zero": 0,
+      "negative": 0,
+      "exact_values_or_totals_read": false
+    }
+  },
+  "safe_schema_metadata": {
+    "provider_id": {"label": "Provider", "type": "many2one", "required": true, "readonly": true, "values_read": false},
+    "provider_code": {"label": "Provider Code", "type": "selection", "readonly": true, "values_read": false},
+    "company_id": {"label": "Company", "type": "many2one", "readonly": true, "related_through_provider": true, "values_read": false},
+    "payment_method_id": {"label": "Payment Method", "type": "many2one", "required": true, "readonly": true, "values_read": false},
+    "payment_method_code": {"label": "Payment Method Code", "type": "char", "readonly": true, "values_read": false},
+    "reference": {"label": "Reference", "type": "char", "required": true, "readonly": true, "values_read": false},
+    "provider_reference": {"label": "Provider Reference", "type": "char", "readonly": true, "values_read": false},
+    "amount": {"label": "Amount", "type": "monetary", "required": true, "readonly": true, "values_read": false},
+    "currency_id": {"label": "Currency", "type": "many2one", "required": true, "readonly": true, "values_read": false},
+    "token_id": {"label": "Payment Token", "type": "many2one", "readonly": true, "values_read": false},
+    "state": {"label": "Status", "type": "selection", "required": true, "readonly": true, "values_read": false},
+    "state_message": {"label": "State Message", "type": "text", "readonly": true, "values_read": false},
+    "last_state_change": {"label": "Last State Change Date", "type": "datetime", "readonly": true, "values_read": false},
+    "operation": {"label": "Operation", "type": "selection", "readonly": true, "values_read": false},
+    "source_transaction_id": {"label": "Source Transaction", "type": "many2one", "readonly": true, "values_read": false},
+    "child_transaction_ids": {"label": "Child Transactions", "type": "one2many", "readonly": true, "values_read": false},
+    "refunds_count": {"label": "Refunds Count", "type": "integer", "readonly": true, "values_read": false},
+    "is_post_processed": {"label": "Is Post-processed", "type": "boolean", "values_read": false},
+    "tokenize": {"label": "Create Token", "type": "boolean", "values_read": false},
+    "partner_id": {"label": "Customer", "type": "many2one", "required": true, "readonly": true, "values_read": false},
+    "duplicated_partner_traceability_fields": [
+      "partner_name",
+      "partner_email",
+      "partner_address",
+      "partner_zip",
+      "partner_city",
+      "partner_state_id",
+      "partner_country_id",
+      "partner_phone",
+      "partner_lang"
+    ]
+  },
+  "security_and_source_controls": {
+    "company_ownership": "Stored related Company through Provider",
+    "required_fields": ["Provider", "Payment Method", "Unique Reference", "Amount", "Currency", "State", "Partner"],
+    "partner_traceability": "Partner name and contact/address values are duplicated on creation",
+    "states": ["Draft", "Pending", "Authorized", "Confirmed", "Canceled", "Error"],
+    "authorized_constraint": "Requires a Provider supporting manual capture",
+    "archived_token_constraint": "Archived Tokens cannot be used to create Transactions",
+    "provider_side_effects": "Capture, Void and Refund-related paths can contact a Provider and alter financial state",
+    "model_access": "Core CRUD is restricted to base.group_system",
+    "company_record_rule": "Access is limited to allowed Companies",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "Zero accessible Payment Transactions in Company-1 context for this authenticated user",
+    "not_proven": "No historical or Production Transactions exist, another user/company context is empty, or authorization/capture/refund/payment/accounting behavior is correct",
+    "cross_reference": "ACC-020 found zero Enabled Providers, ACC-021 found Wire Transfer as the only Active Primary Method linked to Test Mode, and ACC-022 found zero accessible Tokens",
+    "decision_required": "Approve the intended online/offline Provider and Method matrix, Transaction lifecycle, privacy controls, settlement and accounting reconciliation before any live activation"
+  },
+  "privacy": {
+    "record_values_read": false,
+    "references_read": false,
+    "amounts_or_totals_read": false,
+    "partner_identity_or_contact_read": false,
+    "provider_method_or_currency_identity_read": false,
+    "token_or_relationship_values_read": false,
+    "distinct_identity_counts_computed": false,
+    "credentials_or_long_identifiers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "pre_gate_calls": [
+      "payment.transaction/fields_get",
+      "payment.transaction/search_count"
+    ],
+    "post_zero_gate_calls": [
+      "/web/action/load",
+      "payment.transaction/get_views",
+      "payment.transaction/web_search_read"
+    ],
+    "record_returning_call_result_count": 0,
+    "linked_model_query_observed": false,
+    "transaction_business_method_observed": false,
+    "action_run_observed": false,
+    "create_write_or_unlink_observed": false,
+    "external_provider_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-023-01_accounting_configuration_transactions_hidden.png",
+    "original/ACC-023-02_payment_transactions_empty_list.png"
+  ],
+  "original_sha256": {
+    "ACC-023-01": "7583E1E1EF09CD281DA80E719770BB9D421E4FB379CC3D26BE50A0BE9ACC5D63",
+    "ACC-023-02": "FA0C5A9308EA4AA58419AA8051114120224440F1AFB6807B2583759320C18FA3"
+  },
+  "annotated_sha256": {
+    "ACC-023-01": "3035AF3BED760A6B5AB970130FED71377A2F9E6CEA76B96EA3248125589E5C2C",
+    "ACC-023-02": "0D18B5FE23F6BA85A2A00A2694777699CF865FFAB841F5ABC5AADFCA077CC019"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/payment_providers.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/payment/payment_transaction.html"
+  ],
+  "safety": {
+    "existing_transaction_list_kanban_or_form_opened": false,
+    "capture_void_refund_or_post_process_called": false,
+    "linked_record_or_report_opened": false,
+    "transaction_created_edited_deleted_imported_or_exported": false,
+    "records_changed": false
+  }
+}
