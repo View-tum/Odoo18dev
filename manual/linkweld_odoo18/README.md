@@ -153,5 +153,11 @@ Complete these checks before every evidence session:
 - The empty action was opened only after zero records was proven. No Reference, Amount, Partner identity/contact, Provider Reference, State Message, Token or Transaction relationship was read.
 - Capture, Void, Refund, Provider callbacks, settlement and accounting reconciliation remain Clone-UAT-only.
 - Detailed Thai chapter: `source/ACC-023_payment_transactions_th.md`.
-- Next evidence batch: `ACC-024` Asset Models with existing-record-only read-only evidence and strict no-depreciation/no-asset-generation controls.
+- Asset Models (`ACC-024`) evidence completed on 2026-07-18 through the normal visible Accounting Configuration menu in existing-record-only read-only mode.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a sanitized extract covering all 12 active Company-1 Asset Models.
+- Confirmed Declining 10, Straight Line 1, Declining then Straight Line 1; one blank each for Fixed Asset, Depreciation and Expense Account, with all Journals present.
+- Forklift has blank Expense Account; Land uses 0 Years/No Prorata; Equipment has one normalized duplicate-name group. These are policy/owner-review findings, not proven posting defects.
+- No Asset, Depreciation Board, Journal Entry, linked record or report was created, opened through a financial smart button, computed, confirmed or posted.
+- Detailed Thai chapter: `source/ACC-024_asset_models_th.md`.
+- Evidence capture paused after ACC-024 because the user-directed usage threshold reached 70%. Do not start ACC-025 until the user resumes the work.
 - No Odoo configuration, master data, or transaction has been created or modified.

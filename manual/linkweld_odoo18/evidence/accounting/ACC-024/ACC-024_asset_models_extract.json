@@ -1,0 +1,223 @@
+{
+  "configuration_id": "ACC-024",
+  "page": "Asset Models",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Existing-record-only read-only with strict no-depreciation and no-posting controls",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "account.asset",
+  "action": {
+    "menu_path": "Accounting > Configuration > Management > Asset Models",
+    "visible_in_normal_menu": true,
+    "observed_action_id": 649,
+    "observed_route": "/odoo/action-649",
+    "view_mode": "list,kanban,form",
+    "domain": [["state", "=", "model"]],
+    "context": {"default_state": "model"},
+    "page_limit": 80,
+    "live_order": null,
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false
+  },
+  "list": {
+    "total_records": 12,
+    "pager": "1-12 / 12",
+    "blank_search": true,
+    "visible_columns": [
+      "Asset Name",
+      "Fixed Asset Account",
+      "Depreciation Account",
+      "Expense Account",
+      "Method",
+      "Number of Depreciations",
+      "Period length"
+    ]
+  },
+  "aggregate_counts": {
+    "active": 12,
+    "archived": 0,
+    "company_scope": {
+      "company_1": 12,
+      "global": 0,
+      "other_accessible": 0
+    },
+    "method": {
+      "straight_line": 1,
+      "declining": 10,
+      "declining_then_straight_line": 1
+    },
+    "period": {
+      "months": 10,
+      "years": 2
+    },
+    "duration": {
+      "0": 1,
+      "5": 1,
+      "60": 9,
+      "240": 1
+    },
+    "prorata": {
+      "no_prorata": 1,
+      "constant_periods": 2,
+      "based_on_days_per_period": 9
+    },
+    "declining_factor_percent": {
+      "5": 1,
+      "20": 9,
+      "30": 2
+    },
+    "blank_fields": {
+      "fixed_asset_account": 1,
+      "depreciation_account": 1,
+      "expense_account": 1,
+      "journal": 0
+    },
+    "linked_assets": {
+      "models_with_any": 0,
+      "models_without_any": 12,
+      "all_count_linked_asset_zero": true
+    },
+    "duplicate_normalized_name_groups": {
+      "count": 1,
+      "group": "Equipment / เครื่องใช้สำนักงาน",
+      "records": 2
+    },
+    "duplicate_account_method_duration_groups": 0
+  },
+  "samples": [
+    {
+      "category": "Straight Line",
+      "candidate_count": 1,
+      "name": "Land / ที่ดิน",
+      "method": "Straight Line",
+      "duration": 0,
+      "period": "Years",
+      "prorata": "No Prorata",
+      "declining_factor_percent": null,
+      "fixed_asset_account_present": true,
+      "depreciation_account_present": true,
+      "expense_account_present": true,
+      "journal_present": true,
+      "interpretation": "Zero duration may reflect non-depreciable land policy; not classified as a defect without approved accounting policy and transaction evidence"
+    },
+    {
+      "category": "Declining then Straight Line",
+      "candidate_count": 1,
+      "name": "Forklift TOYOTA 8FD25",
+      "method": "Declining then Straight Line",
+      "duration": 5,
+      "period": "Years",
+      "prorata": "Constant Periods",
+      "declining_factor_percent": 30,
+      "fixed_asset_account_present": true,
+      "depreciation_account_present": true,
+      "expense_account_present": false,
+      "journal_present": true,
+      "interpretation": "Blank Expense Account is a high-risk owner-review finding; no Asset or depreciation board was created to test runtime behavior"
+    },
+    {
+      "category": "Declining with materially different duration",
+      "candidate_count": 10,
+      "name": "Building & Improvement / อาคารและสิ่งปลูกสร้าง",
+      "method": "Declining",
+      "duration": 240,
+      "period": "Months",
+      "prorata": "Based on days per period",
+      "declining_factor_percent": 5,
+      "fixed_asset_account_present": true,
+      "depreciation_account_present": true,
+      "expense_account_present": true,
+      "journal_present": true,
+      "interpretation": "Twenty-year declining configuration requires accounting-policy, tax-book and useful-life approval"
+    }
+  ],
+  "schema_and_source_controls": {
+    "model_record_state": "model",
+    "required_design_fields": [
+      "Fixed Asset Account",
+      "Depreciation Account",
+      "Expense Account",
+      "Journal",
+      "Method",
+      "Duration",
+      "Prorata"
+    ],
+    "supported_methods": [
+      "Straight Line",
+      "Declining",
+      "Declining then Straight Line"
+    ],
+    "compute_depreciation_board_risk": "Can create depreciation moves and can post past depreciation for running Assets",
+    "validate_risk": "Can compute and post depreciation-related entries",
+    "model_application": "An Asset Model can prefill a new Asset entry linked to a Fixed Asset Account",
+    "read_access": "Accounting read-only group",
+    "write_access": "Accounting user group has CRUD",
+    "company_rule": "Company hierarchy record rule applies",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "Twelve active Company-1 Asset Models with the observed method, period, duration, prorata and account-presence distributions",
+    "owner_review": [
+      "Forklift model has blank Expense Account",
+      "One Fixed Asset Account and one Depreciation Account are blank across the inventory",
+      "Normalized Equipment name is duplicated",
+      "Land uses zero Years and requires explicit non-depreciable policy",
+      "No model shows a linked Asset in the inspected relationship"
+    ],
+    "not_proven": "Depreciation boards, posting, tax depreciation, useful life, salvage value, disposal, revaluation, asset creation, linked-asset behavior, FX or GL reconciliation",
+    "decision_required": "Approve an Asset Class-to-Model-to-Account-to-Method policy and reconcile it on Clone UAT before changing models or creating Assets"
+  },
+  "privacy": {
+    "account_names_or_codes_returned_in_extract": false,
+    "journal_identity_returned": false,
+    "asset_financial_values_returned": false,
+    "linked_asset_identities_returned": false,
+    "bank_tax_person_customer_vendor_identifiers_found": 0,
+    "credentials_or_long_identifiers_found": 0
+  },
+  "requests_observed": {
+    "calls": [
+      "/web/action/load",
+      "account.asset/fields_get",
+      "account.asset/search_read",
+      "account.asset/get_views",
+      "account.asset/web_search_read",
+      "account.asset/web_read"
+    ],
+    "linked_model_query_observed": false,
+    "compute_validate_or_post_observed": false,
+    "action_run_observed": false,
+    "create_write_or_unlink_observed": false,
+    "report_or_external_call_observed": false
+  },
+  "screenshots": [
+    "original/ACC-024-01_asset_models_list.png",
+    "original/ACC-024-02_land_straight_line_form.png",
+    "original/ACC-024-03_forklift_declining_then_straight_line_form.png",
+    "original/ACC-024-04_building_declining_form.png"
+  ],
+  "original_sha256": {
+    "ACC-024-01": "8F0966541A3A8F7D76F9680021F8D4513860B901B40D7BB4573C71DAB1D9E01D",
+    "ACC-024-02": "68E76C4EFF11CF4450DDC2FB03813B5C22087ADC874281CE6EA898E2BA88F814",
+    "ACC-024-03": "3604A0981105633DE9555A0E473B554CBB7CFAFF0A79A8EC2824FDD79B8D688B",
+    "ACC-024-04": "322717D2C96EBE349C1709319D5E9954D8F095FA668912B79ACE6A5A25D80FB7"
+  },
+  "annotated_sha256": {
+    "ACC-024-01": "21CECF7A2BF6D27A43C8C1BFA307B96785B169DEB0A37AD79F7BD24A77BBE6DA",
+    "ACC-024-02": "B5CFF4AB72D87164403C7CB4213343E80E74B2C58216F61795042A3D96E124DA",
+    "ACC-024-03": "9B58908E3B69D2DE309E4459213CC74B3E7A580F38AB596544FF65E55BFE2FD0",
+    "ACC-024-04": "2DBE9708ECD2125FDF3FD4C96B1D42737BFDBE6E9D63573C64A74D221B3B3DA4"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/accounting/vendor_bills/assets.html"
+  ],
+  "safety": {
+    "asset_or_depreciation_board_opened": false,
+    "account_journal_company_group_property_or_linked_asset_opened": false,
+    "confirm_compute_modify_save_model_cancel_archive_delete_clicked": false,
+    "depreciation_move_created_or_posted": false,
+    "records_changed": false
+  }
+}
