@@ -143,5 +143,10 @@ Complete these checks before every evidence session:
 - Confirmed one Active/Available Primary Method, Wire Transfer, linked to the Test Mode Provider; 174 Primary Methods are Archived and none is linked to an Enabled Provider.
 - Payment Methods have no Company field. Active/Provider/Tokenization changes can archive linked Tokens, so checkout, Token lifecycle, settlement and accounting behavior remain Clone-UAT-only.
 - Detailed Thai chapter: `source/ACC-021_payment_methods_th.md`.
-- Next evidence batch: developer-hidden `ACC-022` Payment Tokens, followed by `ACC-023` Payment Transactions. Both require strict identity/payment-data privacy and aggregate-only evidence.
+- Payment Tokens (`ACC-022`) evidence completed on 2026-07-18 through a count-first privacy gate and read-only direct standard action because the developer-hidden menu is not visible to this user.
+- Captured 2 untouched privacy-safe originals, 2 deterministic numbered rectangular-frame copies, and an aggregate-only extract. Active and Archived accessible Tokens are both zero.
+- The empty action was opened only after zero records was proven. No Partner, Payment Details, Provider Reference, Token ID, Transaction relation or linked record was read.
+- Token archive/unarchive, Provider/Method state, user-Partner rule, Company rule, consent, retention and lifecycle behavior remain Clone-UAT-only.
+- Detailed Thai chapter: `source/ACC-022_payment_tokens_th.md`.
+- Next evidence batch: developer-hidden `ACC-023` Payment Transactions with a mandatory count-first financial/identity privacy gate.
 - No Odoo configuration, master data, or transaction has been created or modified.

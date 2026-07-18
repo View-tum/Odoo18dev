@@ -1,0 +1,167 @@
+{
+  "configuration_id": "ACC-022",
+  "page": "Payment Tokens",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Count-first identity-safe read-only with strict token/payment privacy",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "payment.token",
+  "privacy_gate": {
+    "decision": "PASS FOR EMPTY ACTION",
+    "default_active_count_before_action": 0,
+    "active_test_false_total_before_action": 0,
+    "active_count": 0,
+    "archived_count": 0,
+    "action_opened_only_after_zero_proven": true,
+    "existing_token_row_or_form_opened": false
+  },
+  "access": {
+    "visible_in_accounting_configuration_for_user": false,
+    "visible_online_payments_entries": ["Payment Providers"],
+    "payment_tokens_menu_absent": true,
+    "menu_external_id": "account_payment.payment_token_menu",
+    "local_source_group_restriction": "base.group_no_one",
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false,
+    "direct_action_accessible_after_zero_gate": true,
+    "action_external_id": "payment.action_payment_token",
+    "observed_action_id": 280,
+    "observed_route": "/odoo/action-280",
+    "action_title": "Payment Tokens",
+    "action_type": "ir.actions.act_window",
+    "view_mode": "list,form",
+    "domain": false,
+    "context": {},
+    "page_limit": 80,
+    "target": "current",
+    "interpretation": "Developer-hidden configuration surface; direct action was used only after zero accessible records was proven"
+  },
+  "empty_list": {
+    "total_records": 0,
+    "list_columns": [
+      "Payment Details",
+      "Partner",
+      "Payment Method",
+      "Provider",
+      "Provider Reference",
+      "Company"
+    ],
+    "help_text": "There is no token created yet.",
+    "forms_sampled": 0,
+    "substitution_used": false
+  },
+  "safe_schema_metadata": {
+    "provider_id": {"label": "Provider", "type": "many2one", "comodel": "payment.provider", "required": true, "readonly": false},
+    "provider_code": {"label": "Provider Code", "type": "selection", "readonly": true},
+    "company_id": {"label": "Company", "type": "many2one", "comodel": "res.company", "readonly": true, "related_through_provider": true},
+    "payment_method_id": {"label": "Payment Method", "type": "many2one", "comodel": "payment.method", "required": true, "readonly": true},
+    "payment_method_code": {"label": "Payment Method Code", "type": "char", "readonly": true},
+    "payment_details": {"label": "Payment Details", "type": "char", "readonly": false, "values_read": false},
+    "partner_id": {"label": "Partner", "type": "many2one", "comodel": "res.partner", "required": true, "values_read": false},
+    "provider_ref": {"label": "Provider Reference", "type": "char", "required": true, "values_read": false},
+    "transaction_ids": {"label": "Payment Transactions", "type": "one2many", "comodel": "payment.transaction", "values_read": false},
+    "active": {"label": "Active", "type": "boolean"}
+  },
+  "aggregate_counts": {
+    "accessible_total": 0,
+    "active": 0,
+    "archived": 0,
+    "company_scope": {
+      "company_1": 0,
+      "global": 0,
+      "other_accessible": 0
+    },
+    "provider_state": {
+      "enabled": 0,
+      "test_mode": 0,
+      "disabled": 0
+    },
+    "payment_method_state": {
+      "active": 0,
+      "archived": 0
+    },
+    "payment_details": {
+      "present": 0,
+      "missing": 0
+    },
+    "provider_reference": {
+      "present": 0,
+      "missing": 0
+    }
+  },
+  "security_and_source_controls": {
+    "company_ownership": "Stored related Company through Provider",
+    "user_rule": "Internal, portal and public users can access only Tokens assigned to their own Partner",
+    "company_rule": "Access limited to own Companies",
+    "system_access": "System group has full CRUD; general users have read-only model access subject to record rules",
+    "required_relationships": ["Provider", "Payment Method", "Partner", "Provider Reference"],
+    "public_partner_assignment": "Prohibited by model constraint",
+    "archive_behavior": "Calls provider-specific archiving handlers",
+    "unarchive_behavior": "Blocked when the Payment Method is inactive or Provider is Disabled",
+    "display_name_behavior": "May contain a clear payment-details suffix or saved date",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "Zero accessible Active or Archived Payment Tokens in Company-1 context for this authenticated user",
+    "not_proven": "Tokenization is unnecessary, historical users never had Tokens, another access context has zero Tokens, or token create/use/archive behavior is correct",
+    "cross_reference": "ACC-020 found zero Enabled Providers; ACC-021 found one Active Method linked to Test Mode and Tokenization capability only on a small archived/disabled subset",
+    "decision_required": "Business and IT/Security must decide whether tokenization is allowed, which Providers/Methods may use it, retention/consent/rotation rules, and whether Production must remain zero-token"
+  },
+  "privacy": {
+    "record_values_read": false,
+    "display_names_read": false,
+    "partner_provider_or_method_identities_read": false,
+    "payment_details_read": false,
+    "provider_references_read": false,
+    "token_ids_read": false,
+    "transaction_relations_read": false,
+    "distinct_identity_counts_computed": false,
+    "credentials_or_long_identifiers_found": 0,
+    "privacy_blocker": false
+  },
+  "requests_observed": {
+    "pre_gate_calls": [
+      "payment.token/fields_get",
+      "payment.token/search_count"
+    ],
+    "post_zero_gate_calls": [
+      "/web/action/load",
+      "payment.token/get_views",
+      "payment.token/web_search_read"
+    ],
+    "record_returning_call_result_count": 0,
+    "search_read_or_web_read_observed": false,
+    "read_group_name_search_or_display_name_observed": false,
+    "linked_model_query_observed": false,
+    "action_run_observed": false,
+    "create_write_or_unlink_observed": false,
+    "external_provider_request_observed": false
+  },
+  "screenshots": [
+    "original/ACC-022-01_accounting_configuration_tokens_hidden.png",
+    "original/ACC-022-02_payment_tokens_empty_list.png"
+  ],
+  "original_sha256": {
+    "ACC-022-01": "5DC56D51511D62112DACA6D4509F05DEB60B1906F8F9186D91376C384AA767FE",
+    "ACC-022-02": "2A856EC24F063CDAACB2A8B4D970DBD09188251F48348A8C02E01217083FF563"
+  },
+  "annotated_sha256": {
+    "ACC-022-01": "B627FF7FAEF0333D3B04F4D52A729F45C0988C76C10F18F18332FCB4F065395A",
+    "ACC-022-02": "C1B4F842C807F7E30950951DA498C30F9C603CFB540CF16AF832D75C15F44C24"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/finance/payment_providers.html",
+    "https://www.odoo.com/documentation/18.0/developer/reference/standard_modules/payment/payment_token.html"
+  ],
+  "safety": {
+    "existing_token_list_with_rows_opened": false,
+    "existing_token_form_opened": false,
+    "archived_filter_with_rows_opened": false,
+    "partner_provider_method_company_or_payment_link_opened": false,
+    "archive_unarchive_delete_create_edit_or_export_clicked": false,
+    "token_assignment_deletion_validation_or_payment_flow_called": false,
+    "records_changed": false
+  }
+}
