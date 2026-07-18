@@ -1,0 +1,258 @@
+{
+  "configuration_id": "ACC-025",
+  "page": "Product Categories",
+  "company_context": "Linkweld Thailand Co., Ltd.",
+  "allowed_company_ids": [1],
+  "inspection_date": "2026-07-18",
+  "mode": "Existing-record-only read-only with strict inventory valuation and accounting safety",
+  "odoo_version": "18.0",
+  "staging_edition": "Enterprise",
+  "model": "product.category",
+  "action": {
+    "menu_path": "Accounting > Configuration > Management > Product Categories",
+    "visible_in_normal_menu": true,
+    "observed_action_id": 147,
+    "observed_route": "/odoo/action-147",
+    "view_mode": "list,form",
+    "domain": false,
+    "context": {},
+    "page_limit": 80,
+    "live_order": null,
+    "developer_mode_enabled": false,
+    "developer_technical_menu_opened": false
+  },
+  "list": {
+    "total_records": 242,
+    "pager": "1-80 / 242",
+    "blank_search": true,
+    "visible_named_columns": ["Product Category"],
+    "first_page_only_captured": true
+  },
+  "schema": {
+    "available_requested_fields": [
+      "id",
+      "name",
+      "complete_name",
+      "parent_id",
+      "child_id",
+      "property_cost_method",
+      "property_valuation",
+      "property_account_income_categ_id",
+      "property_account_expense_categ_id",
+      "property_stock_valuation_account_id",
+      "property_stock_journal",
+      "property_stock_account_input_categ_id",
+      "property_stock_account_output_categ_id",
+      "property_account_creditor_price_difference_categ",
+      "route_ids",
+      "removal_strategy_id",
+      "product_count",
+      "total_route_ids"
+    ],
+    "unavailable_requested_fields": [
+      "sequence",
+      "packagings_properties_definition"
+    ],
+    "category_company_owned": false,
+    "company_dependent_properties_read_in_company_1_context_only": true
+  },
+  "aggregate_counts": {
+    "categories": 242,
+    "hierarchy": {
+      "roots": 2,
+      "children": 240,
+      "maximum_depth": 4,
+      "depth_distribution": {
+        "0": 2,
+        "1": 7,
+        "2": 12,
+        "3": 88,
+        "4": 133
+      }
+    },
+    "costing_method": {
+      "average_cost_avco": 239,
+      "standard_price": 3,
+      "fifo": 0
+    },
+    "inventory_valuation": {
+      "automated": 239,
+      "manual": 3
+    },
+    "costing_valuation_matrix": {
+      "avco_automated": 239,
+      "standard_manual": 3,
+      "other": 0
+    },
+    "account_and_journal_presence": {
+      "income_present": 242,
+      "income_missing": 0,
+      "expense_present": 242,
+      "expense_missing": 0,
+      "stock_valuation_present": 239,
+      "stock_valuation_missing": 3,
+      "stock_input_present": 239,
+      "stock_input_missing": 3,
+      "stock_output_present": 239,
+      "stock_output_missing": 3,
+      "stock_journal_present": 242,
+      "stock_journal_missing": 0,
+      "price_difference_present": 0,
+      "price_difference_missing": 242
+    },
+    "automated_valuation_completeness": {
+      "complete": 239,
+      "missing_mandatory_stock_account_or_journal": 0
+    },
+    "manual_standard_categories": {
+      "count": 3,
+      "missing_stock_accounts": 3,
+      "interpretation": "Stock valuation/input/output account fields are not required for Manual valuation"
+    },
+    "routes": {
+      "present": 0,
+      "missing": 242
+    },
+    "removal_strategy": {
+      "present": 0,
+      "missing": 242
+    },
+    "product_relationship": {
+      "categories_with_products": 40,
+      "categories_without_products": 202,
+      "product_identities_read": false
+    },
+    "duplicates": {
+      "normalized_leaf_name_groups": 23,
+      "complete_name_groups": 0
+    }
+  },
+  "samples": [
+    {
+      "category": "Automated AVCO",
+      "candidate_count": 239,
+      "complete_name": "All / Saleable",
+      "costing_method": "Average Cost (AVCO)",
+      "inventory_valuation": "Automated",
+      "income_account_present": true,
+      "expense_account_present": true,
+      "stock_valuation_account_present": true,
+      "stock_input_account_present": true,
+      "stock_output_account_present": true,
+      "stock_journal_present": true,
+      "price_difference_account_present": false
+    },
+    {
+      "category": "Manual Standard",
+      "candidate_count": 3,
+      "complete_name": "Fix Assets",
+      "costing_method": "Standard Price",
+      "inventory_valuation": "Manual",
+      "income_account_present": true,
+      "expense_account_present": true,
+      "stock_valuation_account_present": false,
+      "stock_input_account_present": false,
+      "stock_output_account_present": false,
+      "stock_journal_present": true,
+      "price_difference_account_present": false,
+      "interpretation": "Missing automated stock accounts is expected for Manual valuation and is not classified as a defect"
+    },
+    {
+      "category": "Deepest privacy-safe Automated AVCO hierarchy",
+      "candidate_count_at_depth_4": 133,
+      "complete_name": "All / Saleable / Group1 / 001-Carbon Steel Welding consumable / 001-Electrode",
+      "hierarchy_depth": 4,
+      "costing_method": "Average Cost (AVCO)",
+      "inventory_valuation": "Automated",
+      "income_account_present": true,
+      "expense_account_present": true,
+      "stock_valuation_account_present": true,
+      "stock_input_account_present": true,
+      "stock_output_account_present": true,
+      "stock_journal_present": true,
+      "price_difference_account_present": false
+    }
+  ],
+  "sampling_not_available": {
+    "fifo_candidate_count": 0,
+    "incomplete_automated_candidate_count": 0,
+    "substitution_used": false
+  },
+  "source_and_control_findings": {
+    "automatic_valuation": "Each stock valuation layer created during valuation updates can generate an accounting journal entry",
+    "category_cost_or_valuation_write": "Can empty and replenish stock through Stock Valuation Layers and can create and post account moves",
+    "mandatory_automated_accounts": [
+      "Stock Valuation Account",
+      "Stock Input Account",
+      "Stock Output Account"
+    ],
+    "mandatory_account_constraint_passed_for_automated_categories": true,
+    "valuation_account_separation_constraint": "Stock Valuation cannot equal Stock Input or Stock Output",
+    "price_difference_usage": "Purchase/stock accounting may use Product-level or Category-level creditor price-difference account",
+    "anglo_saxon_context": "ACC-001 confirmed Anglo-Saxon Accounting enabled; Product-level fallback and transaction behavior were not inspected",
+    "behaviors_executed": false
+  },
+  "business_interpretation": {
+    "confirmed": "Company-1 properties show 239 AVCO+Automated categories and 3 Standard+Manual categories; all Automated categories have mandatory stock accounts and Stock Journal present",
+    "owner_review": [
+      "AVCO+Automated is used by 239 of 242 categories and requires policy confirmation",
+      "No FIFO category exists",
+      "Price Difference Account is blank at Category level for all 242 categories while Anglo-Saxon Accounting is enabled",
+      "Twenty-three normalized leaf-name duplicate groups require hierarchy/dependency review",
+      "Zero explicit Routes and Removal Strategies may rely on warehouse/product defaults"
+    ],
+    "not_proven": "Stock Valuation Layer accuracy, AVCO/FIFO behavior, WIP, COGS, price variance, landed cost, manufacturing valuation, returns, negative stock, lot valuation or GL reconciliation",
+    "decision_required": "Approve a Product Category-to-Costing-to-Valuation-to-Account matrix and reconcile representative transaction flows on Clone UAT"
+  },
+  "privacy": {
+    "account_names_codes_or_ids_returned_in_extract": false,
+    "journal_identity_returned": false,
+    "product_identities_or_cost_quantity_values_read": false,
+    "bank_tax_person_customer_vendor_identifiers_found": 0,
+    "credentials_emails_or_long_identifiers_found": 0
+  },
+  "requests_observed": {
+    "calls": [
+      "/web/action/load",
+      "product.category/fields_get",
+      "product.category/search_read",
+      "product.category/get_views",
+      "product.category/web_search_read",
+      "product.category/web_read"
+    ],
+    "linked_model_query_observed": false,
+    "revaluation_or_cost_recompute_observed": false,
+    "action_run_observed": false,
+    "create_write_or_unlink_observed": false,
+    "posting_report_or_external_call_observed": false
+  },
+  "screenshots": [
+    "original/ACC-025-01_product_categories_list.png",
+    "original/ACC-025-02_saleable_avco_automated_form.png",
+    "original/ACC-025-03_fix_assets_manual_standard_form.png",
+    "original/ACC-025-04_deepest_electrode_avco_automated_form.png"
+  ],
+  "original_sha256": {
+    "ACC-025-01": "CAA374320EC15806F6EEAD1AA9938DD45366370E54C8AB68E678135B89C10E09",
+    "ACC-025-02": "01DBC53D527E30730AC96CE5BBC9F3CDED952E55909F95ECF8EB6A43FAB40C4B",
+    "ACC-025-03": "7C72F8FA299E59402C3E24B8EFC06ED9F6ECA992F0B1C7A0A6032EA58F29F954",
+    "ACC-025-04": "AE35565AB63FF0DA4D10C638C8ADD8F7924D467BE685C4575FBEF29FEA8C3707"
+  },
+  "annotated_sha256": {
+    "ACC-025-01": "003A86AD60476532B67B90BC44A87983BC293FF062A28C64987EEBEF7230B6B2",
+    "ACC-025-02": "259BFF1F58FC1055D9DAABF2A61F7087548179377F9D5CA6A0457BF4ACA38B81",
+    "ACC-025-03": "6EB7FEC02E15F1D7783AD7D5BFD755FAA0A4569FD9745A499C6047FAF9D14762",
+    "ACC-025-04": "51B70769904E8D90EDEE541CF52EBA4797F5E74DA5B48AAC5FC358479A93D942"
+  },
+  "official_references": [
+    "https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/inventory/product_management/inventory_valuation/inventory_valuation_config.html",
+    "https://www.odoo.com/documentation/18.0/applications/inventory_and_mrp/inventory/product_management/inventory_valuation/using_inventory_valuation.html"
+  ],
+  "safety": {
+    "category_or_product_changed": false,
+    "costing_valuation_account_journal_route_or_removal_changed": false,
+    "products_stock_moves_valuation_layers_or_journal_items_opened": false,
+    "revaluation_cost_recompute_inventory_adjustment_or_posting_executed": false,
+    "records_changed": false
+  }
+}

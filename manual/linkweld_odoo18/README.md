@@ -159,5 +159,11 @@ Complete these checks before every evidence session:
 - Forklift has blank Expense Account; Land uses 0 Years/No Prorata; Equipment has one normalized duplicate-name group. These are policy/owner-review findings, not proven posting defects.
 - No Asset, Depreciation Board, Journal Entry, linked record or report was created, opened through a financial smart button, computed, confirmed or posted.
 - Detailed Thai chapter: `source/ACC-024_asset_models_th.md`.
-- Evidence capture paused after ACC-024 because the user-directed usage threshold reached 70%. Do not start ACC-025 until the user resumes the work.
+- Product Categories (`ACC-025`) evidence completed on 2026-07-18 through the normal visible Accounting Configuration menu in existing-record-only read-only mode.
+- Captured 4 untouched privacy-safe originals, 4 deterministic numbered rectangular-frame copies, and a sanitized extract covering all 242 categories and Company-1 properties.
+- Confirmed AVCO+Automated 239 and Standard+Manual 3; FIFO 0. All Automated categories have mandatory stock accounts and Stock Journal present.
+- Price Difference Account is blank at Category level for all 242 records; Product-level fallback and Anglo-Saxon receipt/bill variance remain Clone-UAT-only.
+- No Category/Product change, revaluation, SVL, stock move, account move, report or linked-model query was executed.
+- Detailed Thai chapter: `source/ACC-025_product_categories_th.md`.
+- Next evidence batch: `ACC-026` Cash Roundings with strict no-invoice/no-payment/no-posting controls.
 - No Odoo configuration, master data, or transaction has been created or modified.
