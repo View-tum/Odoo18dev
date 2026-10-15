@@ -503,6 +503,15 @@ class MrpProduction(models.Model):
         if self.state in ('confirmed', 'progress', 'to_close') and old_qty > 0:
             # Recompute from the BoM instead of scaling existing raw moves.
             self._recompute_raw_moves_from_bom_for_auto_merge()
+            self._sync_finished_moves_after_auto_merge()
+
+    def _sync_finished_moves_after_auto_merge(self):
+        for production in self:
+            for move in production.move_finished_ids.filtered(
+                lambda move: move.state not in ('done', 'cancel')
+                and move.product_id == production.product_id
+            ):
+                move.write({'product_uom_qty': production.product_qty})
 
     def _try_merge_with_existing(self, date_range=None):
         self.ensure_one()
@@ -621,9 +630,7 @@ class MrpProduction(models.Model):
             # In Odoo 18, confirmed MOs do not recompute raw moves by onchange.
             # Rebuild BoM-based requirements with UoM rounding, then reserve again.
             target_mo._recompute_raw_moves_from_bom_for_auto_merge()
-            for move in target_mo.move_finished_ids:
-                if move.product_id == target_mo.product_id:
-                    move.write({'product_uom_qty': target_mo.product_qty})
+            target_mo._sync_finished_moves_after_auto_merge()
 
     def _round_qty_for_uom(self, qty, uom):
         rounding = uom.rounding if uom and uom.rounding and uom.rounding > 0 else 0.000001

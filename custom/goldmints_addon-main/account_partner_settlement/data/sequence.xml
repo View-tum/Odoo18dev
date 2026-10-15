@@ -6,4 +6,12 @@
         <field name="padding">4</field>
         <field name="company_id" eval="False"/>
     </record>
+
+    <record id="seq_account_partner_settlement_stamp" model="ir.sequence">
+        <field name="name">Partner Settlement Stamp</field>
+        <field name="code">account.partner.settlement.stamp</field>
+        <field name="prefix">PST/%(year)s/</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
 </odoo>

@@ -1,6 +1,8 @@
 # Copyright 2020 Ecosoft Co., Ltd (https://ecosoft.co.th/)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html)
 
+from dateutil.relativedelta import relativedelta
+
 from odoo import Command, fields
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form, tagged
@@ -10,6 +12,96 @@ from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 @tagged("post_install", "-at_install")
 class TestWithholdingTax(AccountTestInvoicingCommon):
+    @classmethod
+    def _ensure_open_fiscal_period(cls, company, accounting_date):
+        FiscalYear = cls.env["sh.fiscal.year"].sudo()
+        Period = cls.env["sh.account.period"].sudo()
+        if Period.search(
+            [
+                ("company_id", "=", company.id),
+                ("date_start", "<=", accounting_date),
+                ("date_end", ">=", accounting_date),
+            ],
+            limit=1,
+        ):
+            return
+
+        year_start = accounting_date.replace(month=1, day=1)
+        year_end = accounting_date.replace(month=12, day=31)
+        fiscal_year = FiscalYear.search(
+            [
+                ("company_id", "=", company.id),
+                ("date_start", "<=", accounting_date),
+                ("date_end", ">=", accounting_date),
+            ],
+            limit=1,
+        )
+        if not fiscal_year:
+            fiscal_year = FiscalYear.create(
+                {
+                    "name": str(accounting_date.year),
+                    "code": str(accounting_date.year),
+                    "date_start": year_start,
+                    "date_end": year_end,
+                    "company_id": company.id,
+                    "state": "draft",
+                }
+            )
+        month_start = accounting_date.replace(day=1)
+        month_end = month_start + relativedelta(months=1, days=-1)
+        Period.create(
+            {
+                "name": accounting_date.strftime("%m/%Y"),
+                "code": accounting_date.strftime("%m/%Y"),
+                "date_start": month_start,
+                "date_end": month_end,
+                "fiscal_year_id": fiscal_year.id,
+                "state": "draft",
+            }
+        )
+
+    @classmethod
+    def _create_test_partner(cls, name):
+        partner_vals = {
+            "name": name,
+            "property_account_receivable_id": cls.company_data[
+                "default_account_receivable"
+            ].id,
+            "property_account_payable_id": cls.company_data[
+                "default_account_payable"
+            ].id,
+        }
+        if "approval_state" in cls.env["res.partner"]._fields:
+            partner_vals["approval_state"] = "approved"
+        return cls.env["res.partner"].create(partner_vals)
+
+    @classmethod
+    def _approve_test_partner(cls, partner):
+        values = {}
+        commercial_partner = partner.commercial_partner_id
+        if "approval_state" in commercial_partner._fields:
+            values["approval_state"] = "approved"
+        if "ecom_exempt" in commercial_partner._fields:
+            values["ecom_exempt"] = True
+        if values:
+            commercial_partner.sudo().write(values)
+
+    @classmethod
+    def _create_test_product(cls):
+        return cls.env["product.product"].create(
+            {
+                "name": "Withholding Tax Product Test",
+                "property_account_income_id": cls.company_data[
+                    "default_account_revenue"
+                ].id,
+                "property_account_expense_id": cls.company_data[
+                    "default_account_expense"
+                ].id,
+                "taxes_id": [Command.clear()],
+                "supplier_taxes_id": [Command.clear()],
+            }
+        )
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,15 +113,25 @@ class TestWithholdingTax(AccountTestInvoicingCommon):
         cls.account_wht_obj = cls.env["account.withholding.tax"]
         cls.wht_cert_obj = cls.env["withholding.tax.cert"]
 
-        cls.partner_1 = cls.env.ref("base.res_partner_12")
-        cls.partner_2 = cls.env.ref("base.res_partner_2")
-        cls.product_1 = cls.env.ref("product.product_product_4")
+        cls.partner_1 = cls.env.ref(
+            "base.res_partner_12", raise_if_not_found=False
+        ) or cls._create_test_partner("Withholding Tax Partner 1")
+        cls.partner_2 = cls.env.ref(
+            "base.res_partner_2", raise_if_not_found=False
+        ) or cls._create_test_partner("Withholding Tax Partner 2")
+        cls._approve_test_partner(cls.partner_1)
+        cls._approve_test_partner(cls.partner_2)
+        cls.product_1 = cls.env.ref(
+            "product.product_product_4", raise_if_not_found=False
+        ) or cls._create_test_product()
 
         # Main currency is USD, EUR is multi-currency
         cls.currency_usd = cls.env.ref("base.USD")
         cls.other_currency = cls.setup_other_currency("EUR")
 
         cls.main_company = cls.env.ref("base.main_company")
+        for accounting_date in (fields.Date.today(), fields.Date.to_date("2025-01-01")):
+            cls._ensure_open_fiscal_period(cls.company_data["company"], accounting_date)
         cls.wht_income_code_402I = cls.env.ref(
             "l10n_th_account_tax.withholding_tax_pnd1_402I"
         )

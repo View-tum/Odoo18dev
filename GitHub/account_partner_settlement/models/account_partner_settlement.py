@@ -28,6 +28,12 @@ class AccountPartnerSettlement(models.Model):
     invoice_total = fields.Monetary(string="Selected Customer Invoice Total", compute="_compute_totals", store=True)
     bill_total = fields.Monetary(string="Selected Vendor Bill Total", compute="_compute_totals", store=True)
     settlement_amount = fields.Monetary(string="Settlement Amount", compute="_compute_totals", store=True)
+    settlement_stamp_id = fields.Char(
+        string="Settlement Stamp ID",
+        readonly=True,
+        copy=False,
+        index=True,
+    )
     invoice_refs = fields.Char(string="Invoice References", compute="_compute_reference_fields", store=True)
     bill_refs = fields.Char(string="Bill References", compute="_compute_reference_fields", store=True)
     settlement_move_id = fields.Many2one("account.move", string="Settlement Journal Entry", readonly=True, copy=False)
@@ -51,7 +57,16 @@ class AccountPartnerSettlement(models.Model):
         for vals in vals_list:
             if vals.get("name", "New") == "New":
                 vals["name"] = self.env["ir.sequence"].next_by_code("account.partner.settlement") or "New"
+            if not vals.get("settlement_stamp_id"):
+                vals["settlement_stamp_id"] = self._next_settlement_stamp_id()
         return super().create(vals_list)
+
+    @api.model
+    def _next_settlement_stamp_id(self):
+        stamp_id = self.env["ir.sequence"].sudo().next_by_code(
+            "account.partner.settlement.stamp"
+        )
+        return stamp_id or "PST/%s" % fields.Datetime.now().strftime("%Y%m%d%H%M%S%f")
 
     @api.depends("line_ids.is_selected", "line_ids.amount_to_settle", "line_ids.document_kind")
     def _compute_totals(self):
@@ -330,6 +345,7 @@ class AccountPartnerSettlement(models.Model):
                     "date": settlement.date,
                     "ref": move_ref,
                     "narration": narration,
+                    "settlement_stamp_id": settlement.settlement_stamp_id,
                     "company_id": settlement.company_id.id,
                     "line_ids": move_line_commands,
                 }
@@ -399,6 +415,13 @@ class AccountPartnerSettlementLine(models.Model):
     settlement_id = fields.Many2one("account.partner.settlement", string="Settlement", required=True, ondelete="cascade")
     company_id = fields.Many2one(related="settlement_id.company_id", string="Company", store=True, readonly=True)
     partner_id = fields.Many2one(related="settlement_id.partner_id", string="Partner", store=True, readonly=True)
+    settlement_stamp_id = fields.Char(
+        related="settlement_id.settlement_stamp_id",
+        string="Settlement Stamp ID",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     document_kind = fields.Selection(
         [
             ("customer_invoice", "Customer Invoice"),

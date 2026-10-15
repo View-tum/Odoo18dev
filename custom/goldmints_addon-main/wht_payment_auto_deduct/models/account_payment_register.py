@@ -166,6 +166,180 @@ class AccountPaymentRegister(models.TransientModel):
         if target:
             target.update({"amount": target.amount + (expected - current)})
 
+    def _get_zero_amount_wht_values(self):
+        self.ensure_one()
+        if not self.currency_id.is_zero(self.amount):
+            return []
+        wht_values = []
+        if self.payment_difference_handling == "reconcile_multi_deduct":
+            effective_deductions = self.deduction_ids.filtered(
+                lambda deduction: not deduction.is_open and not self.currency_id.is_zero(deduction.amount)
+            )
+            if not effective_deductions:
+                return []
+            if any(not self._is_wht_deduction_line(deduction) for deduction in effective_deductions):
+                return []
+            wht_values = [
+                {
+                    "partner_id": (deduction.partner_id or self.partner_id).id,
+                    "account_id": deduction.account_id.id,
+                    "name": deduction.name or deduction.wht_tax_id.display_name,
+                    "amount": deduction.amount,
+                    "wht_tax_id": deduction.wht_tax_id.id,
+                    "wht_amount_base": deduction.wht_amount_base,
+                    "analytic_distribution": deduction.analytic_distribution,
+                }
+                for deduction in effective_deductions
+            ]
+        elif self.payment_difference_handling == "reconcile":
+            if not self.wht_tax_id or not self.writeoff_account_id:
+                return []
+            if self.writeoff_account_id != self.wht_tax_id.account_id:
+                return []
+            if self.currency_id.is_zero(self.payment_difference):
+                return []
+            wht_values = [
+                {
+                    "partner_id": self.partner_id.id,
+                    "account_id": self.writeoff_account_id.id,
+                    "name": self.writeoff_label or self.wht_tax_id.display_name,
+                    "amount": self.payment_difference,
+                    "wht_tax_id": self.wht_tax_id.id,
+                    "wht_amount_base": self.wht_amount_base,
+                    "analytic_distribution": self.analytic_distribution,
+                }
+            ]
+        else:
+            return []
+        source_residual, _original = self._get_base_payment_amount_for_wht()
+        total_wht = self.currency_id.round(sum(value["amount"] for value in wht_values))
+        if self.currency_id.compare_amounts(source_residual, total_wht) != 0:
+            return []
+        return wht_values
+
+    def _get_zero_amount_wht_source_lines(self):
+        self.ensure_one()
+        return self._get_wht_source_account_lines().filtered(
+            lambda line: line.account_id.account_type in ("asset_receivable", "liability_payable")
+            and not line.reconciled
+        )
+
+    def _convert_payment_amount_to_company(self, amount):
+        self.ensure_one()
+        return self.currency_id._convert(
+            amount,
+            self.company_id.currency_id,
+            self.company_id,
+            self.payment_date,
+        )
+
+    def _prepare_zero_amount_wht_counterpart_lines(self, source_lines):
+        self.ensure_one()
+        line_commands = []
+        grouped_lines = {}
+        for line in source_lines:
+            key = (line.account_id.id, line.partner_id.id, line.account_id.account_type)
+            grouped_lines.setdefault(key, self.env["account.move.line"])
+            grouped_lines[key] |= line
+        for (account_id, partner_id, account_type), lines in grouped_lines.items():
+            if self.currency_id == self.company_id.currency_id:
+                amount = abs(sum(lines.mapped("amount_residual")))
+            else:
+                amount = abs(sum(lines.mapped("amount_residual_currency")))
+            amount = self.currency_id.round(amount)
+            if self.currency_id.compare_amounts(amount, 0.0) <= 0:
+                continue
+            amount_company = self.company_id.currency_id.round(
+                self._convert_payment_amount_to_company(amount)
+            )
+            debit = amount_company if account_type == "liability_payable" else 0.0
+            credit = amount_company if account_type == "asset_receivable" else 0.0
+            values = {
+                "partner_id": partner_id,
+                "account_id": account_id,
+                "name": self.communication or self.env._("Zero Cash WHT Settlement"),
+                "debit": debit,
+                "credit": credit,
+            }
+            if self.currency_id != self.company_id.currency_id:
+                values.update(
+                    {
+                        "currency_id": self.currency_id.id,
+                        "amount_currency": amount if account_type == "liability_payable" else -amount,
+                    }
+                )
+            line_commands.append(Command.create(values))
+        return line_commands
+
+    def _prepare_zero_amount_wht_deduction_lines(self, wht_values):
+        self.ensure_one()
+        line_commands = []
+        for wht_value in wht_values:
+            amount = self.currency_id.round(abs(wht_value.get("amount") or 0.0))
+            if self.currency_id.compare_amounts(amount, 0.0) <= 0:
+                continue
+            amount_company = self.company_id.currency_id.round(
+                self._convert_payment_amount_to_company(amount)
+            )
+            debit = amount_company if self.payment_type == "inbound" else 0.0
+            credit = amount_company if self.payment_type == "outbound" else 0.0
+            values = {
+                "partner_id": wht_value["partner_id"],
+                "account_id": wht_value["account_id"],
+                "name": wht_value["name"],
+                "debit": debit,
+                "credit": credit,
+                "wht_tax_id": wht_value["wht_tax_id"],
+                "tax_base_amount": wht_value["wht_amount_base"],
+                "analytic_distribution": wht_value.get("analytic_distribution") or {},
+            }
+            if self.currency_id != self.company_id.currency_id:
+                values.update(
+                    {
+                        "currency_id": self.currency_id.id,
+                        "amount_currency": amount if self.payment_type == "inbound" else -amount,
+                    }
+                )
+            line_commands.append(Command.create(values))
+        return line_commands
+
+    def _create_zero_amount_wht_settlement(self):
+        self.ensure_one()
+        wht_values = self._get_zero_amount_wht_values()
+        if not wht_values:
+            return False
+        source_lines = self._get_zero_amount_wht_source_lines()
+        if not source_lines:
+            return False
+        line_commands = (
+            self._prepare_zero_amount_wht_counterpart_lines(source_lines)
+            + self._prepare_zero_amount_wht_deduction_lines(wht_values)
+        )
+        if len(line_commands) < 2:
+            return False
+        move = self.env["account.move"].create(
+            {
+                "journal_id": self.journal_id.id,
+                "date": self.payment_date,
+                "ref": self.communication or self.env._("Zero Cash WHT Settlement"),
+                "company_id": self.company_id.id,
+                "line_ids": line_commands,
+            }
+        )
+        move.action_post()
+        for account in source_lines.mapped("account_id"):
+            reconcile_lines = (
+                source_lines.filtered(lambda line: line.account_id == account)
+                | move.line_ids.filtered(lambda line: line.account_id == account)
+            )
+            reconcile_lines.reconcile()
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "account.move",
+            "view_mode": "form",
+            "res_id": move.id,
+        }
+
     @api.constrains("deduction_ids", "payment_difference_handling")
     def _check_deduction_amount(self):
         if self.env.context.get("skip_wht_deduct") or self.env.context.get("in_wht_sync"):
@@ -184,6 +358,13 @@ class AccountPaymentRegister(models.TransientModel):
                 raise UserError(
                     _("The total deduction should be %s") % expected_diff
                 )
+
+    def action_create_payments(self):
+        self.ensure_one()
+        result = self._create_zero_amount_wht_settlement()
+        if result:
+            return result
+        return super().action_create_payments()
 
     @api.depends("early_payment_discount_mode")
     def _compute_payment_difference_handling(self):
@@ -246,6 +427,46 @@ class AccountPaymentRegister(models.TransientModel):
             return False
         return bool(deduction.account_id or deduction.name or deduction.amount or deduction.is_open)
 
+    def _get_residual_wht_deduction_list(self, deduction_list, residual_amount):
+        self.ensure_one()
+        residual_amount = self.currency_id.round(abs(residual_amount or 0.0))
+        if self.currency_id.compare_amounts(residual_amount, 0.0) <= 0:
+            return []
+        candidates = [
+            dict(deduction, amount=self.currency_id.round(abs(deduction.get("amount") or 0.0)))
+            for deduction in deduction_list
+            if self.currency_id.compare_amounts(abs(deduction.get("amount") or 0.0), 0.0) > 0
+        ]
+        if not candidates:
+            return []
+        full_wht_amount = self.currency_id.round(sum(deduction["amount"] for deduction in candidates))
+        if self.currency_id.compare_amounts(residual_amount, full_wht_amount) == 0:
+            return candidates
+        if self.currency_id.compare_amounts(residual_amount, full_wht_amount) > 0:
+            return []
+
+        ordered_candidates = sorted(
+            enumerate(candidates),
+            key=lambda item: (-item[1]["amount"], item[0]),
+        )
+
+        def find_subset(start_index, remaining_amount):
+            remaining_amount = self.currency_id.round(remaining_amount)
+            if self.currency_id.compare_amounts(remaining_amount, 0.0) == 0:
+                return []
+            if self.currency_id.compare_amounts(remaining_amount, 0.0) < 0:
+                return None
+            for index in range(start_index, len(ordered_candidates)):
+                deduction = ordered_candidates[index][1]
+                if self.currency_id.compare_amounts(deduction["amount"], remaining_amount) > 0:
+                    continue
+                tail = find_subset(index + 1, remaining_amount - deduction["amount"])
+                if tail is not None:
+                    return [deduction] + tail
+            return None
+
+        return find_subset(0, residual_amount) or []
+
     def _auto_apply_wht_from_lines(self):
         self.ensure_one()
         if self.env.context.get("skip_wht_deduct") or self.env.context.get("in_wht_sync"):
@@ -256,6 +477,17 @@ class AccountPaymentRegister(models.TransientModel):
             return
 
         self = self.with_context(in_wht_sync=True)
+        source_wht_taxes = wht_lines.mapped("wht_tax_id")
+        selected_wht_tax = getattr(self, "manual_wht_tax_id", False) or self.wht_tax_id
+        if selected_wht_tax and len(source_wht_taxes) == 1 and selected_wht_tax != source_wht_taxes:
+            if self.payment_difference_handling == "open":
+                self.payment_difference_handling = "reconcile"
+            self.wht_tax_id = selected_wht_tax
+            if self.wht_tax_id.is_pit and hasattr(self, "_onchange_pit"):
+                self._onchange_pit()
+            elif hasattr(self, "_onchange_wht"):
+                self._onchange_wht()
+            return
 
         batch_residual, total_original_payable = self._get_base_payment_amount_for_wht()
         if total_original_payable <= 0:
@@ -263,19 +495,64 @@ class AccountPaymentRegister(models.TransientModel):
 
         residual_ratio = min(batch_residual / total_original_payable, 1.0)
 
-        # Calculate Full WHT for the residual amount
         if hasattr(wht_lines, "_prepare_multi_wht_deduction_list"):
-            _full_list, full_wht_for_residual = wht_lines._prepare_multi_wht_deduction_list(
+            full_deduction_list, _full_wht_amount = wht_lines._prepare_multi_wht_deduction_list(
                 self.payment_date,
                 self.currency_id,
-                pay_ratio=residual_ratio,
             )
+            residual_wht_deduction_list = self._get_residual_wht_deduction_list(
+                full_deduction_list,
+                batch_residual,
+            )
+            if residual_wht_deduction_list:
+                deduction_list = residual_wht_deduction_list
+                amount_deduct = self.currency_id.round(sum(deduction["amount"] for deduction in deduction_list))
+                full_wht_for_residual = amount_deduct
+            else:
+                _full_list, full_wht_for_residual = wht_lines._prepare_multi_wht_deduction_list(
+                    self.payment_date,
+                    self.currency_id,
+                    pay_ratio=residual_ratio,
+                )
+                deduction_list = []
+                amount_deduct = 0.0
         else:
-            _full_list, full_wht_for_residual = wht_lines._prepare_deduction_list(
+            full_deduction_list, full_wht_amount = wht_lines._prepare_deduction_list(
                 self.payment_date,
                 self.currency_id,
             )
-            full_wht_for_residual *= residual_ratio
+            residual_wht_deduction_list = self._get_residual_wht_deduction_list(
+                full_deduction_list,
+                batch_residual,
+            )
+            if residual_wht_deduction_list:
+                deduction_list = residual_wht_deduction_list
+                amount_deduct = self.currency_id.round(sum(deduction["amount"] for deduction in deduction_list))
+                full_wht_for_residual = amount_deduct
+            else:
+                full_wht_for_residual = full_wht_amount * residual_ratio
+                deduction_list = []
+                amount_deduct = 0.0
+
+        if not deduction_list:
+            if hasattr(wht_lines, "_prepare_multi_wht_deduction_list"):
+                deduction_list, amount_deduct = wht_lines._prepare_multi_wht_deduction_list(
+                    self.payment_date,
+                    self.currency_id,
+                    pay_ratio=residual_ratio,
+                )
+            else:
+                deduction_list, amount_deduct = wht_lines._prepare_deduction_list(
+                    self.payment_date,
+                    self.currency_id,
+                )
+                for d in deduction_list:
+                    d['amount'] *= residual_ratio
+                    d['wht_amount_base'] *= residual_ratio
+                amount_deduct *= residual_ratio
+
+        if not deduction_list:
+            return
 
         # Only a real user-entered amount should prorate WHT. Journal/payment onchange
         # can temporarily alter self.amount; treating that as partial payment compounds
@@ -300,26 +577,28 @@ class AccountPaymentRegister(models.TransientModel):
                 else:
                     pay_ratio_of_residual = min(max(self.amount / total_net_expected_full, 0.0), 1.0)
 
-        final_pay_ratio = residual_ratio * pay_ratio_of_residual
+        if not residual_wht_deduction_list:
+            final_pay_ratio = residual_ratio * pay_ratio_of_residual
 
-        # Get final deduction list
-        if hasattr(wht_lines, "_prepare_multi_wht_deduction_list"):
-            deduction_list, amount_deduct = wht_lines._prepare_multi_wht_deduction_list(
-                self.payment_date,
-                self.currency_id,
-                pay_ratio=final_pay_ratio,
-            )
-        else:
-            deduction_list, amount_deduct = wht_lines._prepare_deduction_list(
-                self.payment_date,
-                self.currency_id,
-            )
-            for d in deduction_list:
-                d['amount'] *= final_pay_ratio
-                d['wht_amount_base'] *= final_pay_ratio
-            amount_deduct *= final_pay_ratio
+            if hasattr(wht_lines, "_prepare_multi_wht_deduction_list"):
+                deduction_list, amount_deduct = wht_lines._prepare_multi_wht_deduction_list(
+                    self.payment_date,
+                    self.currency_id,
+                    pay_ratio=final_pay_ratio,
+                )
+            else:
+                deduction_list, amount_deduct = wht_lines._prepare_deduction_list(
+                    self.payment_date,
+                    self.currency_id,
+                )
+                for d in deduction_list:
+                    d['amount'] *= final_pay_ratio
+                    d['wht_amount_base'] *= final_pay_ratio
+                amount_deduct *= final_pay_ratio
 
         if not deduction_list:
+            return
+        if self.currency_id.is_zero(amount_deduct):
             return
 
         # Identification and comparison
@@ -462,7 +741,33 @@ class AccountPaymentRegister(models.TransientModel):
         "manual_currency_rate_active",
     )
     def _compute_amount(self):
+        manual_wht_values = []
+        for wizard in self:
+            source_wht_taxes = wizard._get_wht_source_lines().mapped("wht_tax_id")
+            selected_wht_tax = getattr(wizard, "manual_wht_tax_id", False) or wizard.wht_tax_id
+            if (
+                selected_wht_tax
+                and len(source_wht_taxes) == 1
+                and selected_wht_tax != source_wht_taxes
+            ):
+                manual_wht_values.append(
+                    (
+                        wizard,
+                        selected_wht_tax,
+                        wizard.wht_amount_base,
+                    )
+                )
         super()._compute_amount()
+        for wizard, wht_tax, wht_amount_base in manual_wht_values:
+            wizard.wht_tax_id = wht_tax
+            if wht_amount_base:
+                wizard.wht_amount_base = wht_amount_base
+            if wizard.payment_difference_handling == "open":
+                wizard.payment_difference_handling = "reconcile"
+            if wizard.wht_tax_id.is_pit and hasattr(wizard, "_onchange_pit"):
+                wizard._onchange_pit()
+            elif hasattr(wizard, "_onchange_wht"):
+                wizard._onchange_wht()
         for wizard in self:
             if wizard.journal_id and wizard.currency_id:
                 wizard._auto_apply_wht_from_lines()

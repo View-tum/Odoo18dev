@@ -75,6 +75,51 @@ const drawLabel = (png, cx, cy, value) => {
   });
 };
 
+const foregroundScore = (png, x, y, width, height) => {
+  let score = 0;
+  const startX = Math.max(0, Math.round(x));
+  const startY = Math.max(0, Math.round(y));
+  const endX = Math.min(png.width, Math.round(x + width));
+  const endY = Math.min(png.height, Math.round(y + height));
+  for (let row = startY; row < endY; row += 1) {
+    for (let column = startX; column < endX; column += 1) {
+      const offset = ((row * png.width) + column) * 4;
+      const red = png.data[offset];
+      const green = png.data[offset + 1];
+      const blue = png.data[offset + 2];
+      const gray = ((red * 30) + (green * 59) + (blue * 11)) / 100;
+      const spread = Math.max(red, green, blue) - Math.min(red, green, blue);
+      if (gray < 190 || (spread > 34 && gray < 238)) score += 1;
+    }
+  }
+  return score;
+};
+
+const badgePosition = (png, callout, badgeWidth, badgeHeight) => {
+  const { x, y, width, height } = callout;
+  const candidates = [
+    [x + 4, y - badgeHeight - 3],
+    [x + 4, y + 4],
+    [x + 4, y + height + 3],
+    [x - badgeWidth - 3, y + 4],
+    [x + width + 3, y + 4],
+  ].map(([candidateX, candidateY]) => [
+    Math.max(0, Math.min(Math.round(candidateX), png.width - badgeWidth)),
+    Math.max(0, Math.min(Math.round(candidateY), png.height - badgeHeight)),
+  ]);
+  return candidates.reduce((best, candidate) => {
+    const score = foregroundScore(
+      png,
+      candidate[0] - 2,
+      candidate[1] - 2,
+      badgeWidth + 4,
+      badgeHeight + 4,
+    );
+    if (!best || score < best.score) return { position: candidate, score };
+    return best;
+  }, null).position;
+};
+
 const validateCallout = (callout, png) => {
   const { shape, x, y, width, height, label } = callout;
   if (shape !== 'rectangle') throw new Error('Callout shape must be rectangle');
@@ -103,17 +148,13 @@ export async function annotateEvidence({ inputPath, outputPath, callouts }) {
   callouts.forEach((callout) => {
     validateCallout(callout, png);
     const { x, y, width, height, label } = callout;
-    const borderThickness = 5;
+    const borderThickness = 3;
     const badgeWidth = String(label).length > 1 ? 30 : 24;
     const badgeHeight = 24;
-    const badgeX = Math.round(x + borderThickness);
-    const badgeY = y >= badgeHeight
-      ? Math.round(y - badgeHeight)
-      : Math.round(y + borderThickness);
+    const [badgeX, badgeY] = badgePosition(png, callout, badgeWidth, badgeHeight);
 
     drawRectangle(png, x, y, width, height, borderThickness, RED);
-    drawFilledRectangle(png, badgeX, badgeY, badgeWidth, badgeHeight, WHITE);
-    drawFilledRectangle(png, badgeX + 2, badgeY + 2, badgeWidth - 4, badgeHeight - 4, RED);
+    drawFilledRectangle(png, badgeX, badgeY, badgeWidth, badgeHeight, RED);
     drawLabel(png, badgeX + (badgeWidth / 2), badgeY + (badgeHeight / 2), label);
   });
 

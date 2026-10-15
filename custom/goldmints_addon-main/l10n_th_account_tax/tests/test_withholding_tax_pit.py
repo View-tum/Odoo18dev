@@ -3,6 +3,7 @@
 
 import datetime
 
+from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 
 from odoo import Command, fields
@@ -15,6 +16,54 @@ from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 @tagged("post_install", "-at_install")
 class TestWithholdingTaxPIT(AccountTestInvoicingCommon):
     @classmethod
+    def _ensure_open_fiscal_period(cls, company, accounting_date):
+        FiscalYear = cls.env["sh.fiscal.year"].sudo()
+        Period = cls.env["sh.account.period"].sudo()
+        if Period.search(
+            [
+                ("company_id", "=", company.id),
+                ("date_start", "<=", accounting_date),
+                ("date_end", ">=", accounting_date),
+            ],
+            limit=1,
+        ):
+            return
+
+        year_start = accounting_date.replace(month=1, day=1)
+        year_end = accounting_date.replace(month=12, day=31)
+        fiscal_year = FiscalYear.search(
+            [
+                ("company_id", "=", company.id),
+                ("date_start", "<=", accounting_date),
+                ("date_end", ">=", accounting_date),
+            ],
+            limit=1,
+        )
+        if not fiscal_year:
+            fiscal_year = FiscalYear.create(
+                {
+                    "name": str(accounting_date.year),
+                    "code": str(accounting_date.year),
+                    "date_start": year_start,
+                    "date_end": year_end,
+                    "company_id": company.id,
+                    "state": "draft",
+                }
+            )
+        month_start = accounting_date.replace(day=1)
+        month_end = month_start + relativedelta(months=1, days=-1)
+        Period.create(
+            {
+                "name": accounting_date.strftime("%m/%Y"),
+                "code": accounting_date.strftime("%m/%Y"),
+                "date_start": month_start,
+                "date_end": month_end,
+                "fiscal_year_id": fiscal_year.id,
+                "state": "draft",
+            }
+        )
+
+    @classmethod
     @freeze_time("2001-02-01")
     def setUpClass(cls):
         super().setUpClass()
@@ -26,11 +75,20 @@ class TestWithholdingTaxPIT(AccountTestInvoicingCommon):
         cls.account_payment_obj = cls.env["account.payment"]
         cls.journal_obj = cls.env["account.journal"]
 
-        cls.partner = cls.partner_obj.create({"name": "Test Partner"})
+        partner_vals = {"name": "Test Partner"}
+        if "approval_state" in cls.partner_obj._fields:
+            partner_vals["approval_state"] = "approved"
+        if "ecom_exempt" in cls.partner_obj._fields:
+            partner_vals["ecom_exempt"] = True
+        cls.partner = cls.partner_obj.create(partner_vals)
         cls.product = cls.product_obj.create({"name": "Test", "standard_price": 500.0})
         cls.journal_bank = cls.company_data["default_journal_bank"]
         cls.purchase_journal = cls.company_data["default_journal_purchase"]
         cls.expense_account = cls.company_data["default_account_expense"]
+        cls._ensure_open_fiscal_period(
+            cls.company_data["company"],
+            fields.Date.to_date("2001-02-01"),
+        )
 
         # Setup PIT withholding tax
         cls.account_pit = cls.account_account_obj.create(

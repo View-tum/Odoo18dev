@@ -20,11 +20,12 @@ class TestAccountBilling(TransactionCase):
         cls.billing_model = cls.env["account.billing"]
         cls.register_payments_model = cls.env["account.payment.register"]
 
-        cls.partner_id = cls.env["res.partner"].create({"name": "Test Partner"})
         cls.payment_term = cls.env.ref("account.account_payment_term_15days")
-        cls.partner_agrolait = cls.env.ref("base.res_partner_2")
-        cls.partner_china_exp = cls.env.ref("base.res_partner_3")
-        cls.product = cls.env.ref("product.product_product_4")
+        partners = cls.env["res.partner"].search([], limit=2)
+        cls.partner_agrolait = partners[:1]
+        cls.partner_china_exp = partners[1:2]
+        cls.partner_id = cls.partner_agrolait
+        cls.product = cls.env["product.product"].search([], limit=1)
         cls.currency_eur = cls.env.ref("base.EUR")
         cls.currency_eur.active = True
         cls.currency_usd_id = cls.env.ref("base.USD").id
@@ -50,12 +51,16 @@ class TestAccountBilling(TransactionCase):
             ],
             limit=1,
         )
-        cls.journal_bank = cls.env["account.journal"].create(
-            {"name": "Bank", "type": "bank", "code": "BNK67"}
+        cls.payment_method_manual_in = cls.env["account.payment.method.line"].search(
+            [
+                ("payment_type", "=", "inbound"),
+                ("payment_account_id", "!=", False),
+                ("journal_id.type", "in", ("bank", "cash")),
+                ("journal_id.company_id", "=", cls.env.company.id),
+            ],
+            limit=1,
         )
-        cls.payment_method_manual_in = cls.journal_bank.inbound_payment_method_line_ids[
-            0
-        ]
+        cls.journal_bank = cls.payment_method_manual_in.journal_id
 
         cls.inv_1 = cls.create_invoice(
             cls, amount=100, currency_id=cls.currency_eur_id, partner=cls.partner_id.id

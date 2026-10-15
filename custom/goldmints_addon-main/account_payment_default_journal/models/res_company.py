@@ -25,7 +25,7 @@ class ResCompany(models.Model):
         inverse="_inverse_pmt_ap_payment_method_id",
         store=True,
         readonly=False,
-        domain="[('journal_id', '=', pmt_ap_journal_id), ('payment_type', '=', 'outbound')]",
+        domain="[('journal_id', '=', pmt_ap_journal_id), ('payment_type', '=', 'outbound'), ('payment_account_id', '!=', False)]",
         check_company=True,
         help="Default payment method line for paying Vendor Bills.",
     )
@@ -36,7 +36,7 @@ class ResCompany(models.Model):
         inverse="_inverse_pmt_ar_payment_method_id",
         store=True,
         readonly=False,
-        domain="[('journal_id', '=', pmt_ar_journal_id), ('payment_type', '=', 'inbound')]",
+        domain="[('journal_id', '=', pmt_ar_journal_id), ('payment_type', '=', 'inbound'), ('payment_account_id', '!=', False)]",
         check_company=True,
         help="Default payment method line for receiving Customer Invoices.",
     )
@@ -47,7 +47,7 @@ class ResCompany(models.Model):
             if not company.pmt_ap_journal_id:
                 company.pmt_ap_payment_method_id = False
                 continue
-            available = company.pmt_ap_journal_id._get_available_payment_method_lines('outbound')
+            available = company.pmt_ap_journal_id._get_available_payment_method_lines('outbound').filtered('payment_account_id')
             if company.pmt_ap_payment_method_id not in available:
                 company.pmt_ap_payment_method_id = available[:1] or False
 
@@ -57,14 +57,12 @@ class ResCompany(models.Model):
             if not company.pmt_ar_journal_id:
                 company.pmt_ar_payment_method_id = False
                 continue
-            available = company.pmt_ar_journal_id._get_available_payment_method_lines('inbound')
+            available = company.pmt_ar_journal_id._get_available_payment_method_lines('inbound').filtered('payment_account_id')
             if company.pmt_ar_payment_method_id not in available:
                 company.pmt_ar_payment_method_id = available[:1] or False
 
     def _inverse_pmt_ap_payment_method_id(self):
-        # No-op inverse: field is stored+editable, actual value is written by ORM.
         return
 
     def _inverse_pmt_ar_payment_method_id(self):
-        # No-op inverse: field is stored+editable, actual value is written by ORM.
         return

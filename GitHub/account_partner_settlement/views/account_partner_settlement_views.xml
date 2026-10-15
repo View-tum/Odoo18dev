@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <list string="Partner Settlements">
                 <field name="name"/>
+                <field name="settlement_stamp_id" optional="show"/>
                 <field name="date"/>
                 <field name="partner_id"/>
                 <field name="journal_id"/>
@@ -22,6 +23,7 @@
         <field name="arch" type="xml">
             <search string="Partner Settlements">
                 <field name="name"/>
+                <field name="settlement_stamp_id"/>
                 <field name="partner_id"/>
                 <field name="journal_id"/>
                 <field name="state"/>
@@ -62,6 +64,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="settlement_stamp_id"/>
                             <field name="partner_id" readonly="state != 'draft'"/>
                             <field name="journal_id" readonly="state != 'draft'"/>
                             <field name="date" readonly="state != 'draft'"/>
@@ -87,6 +90,7 @@
                             <field name="line_ids" readonly="state != 'draft'">
                                 <list>
                                     <field name="is_selected" readonly="parent.state != 'draft'"/>
+                                    <field name="settlement_stamp_id" optional="hide"/>
                                     <field name="document_kind"/>
                                     <field name="move_id"/>
                                     <field name="document_date"/>

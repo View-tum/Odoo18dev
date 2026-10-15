@@ -9,6 +9,7 @@
                 <field name="show_same_side_credit_notes" invisible="1"/>
                 <field name="show_partner_settlement_panel" invisible="1"/>
                 <field name="same_side_credit_note_selection_payload" invisible="1" force_save="1"/>
+                <field name="settlement_display_driven" invisible="1" force_save="1"/>
                 <field name="cross_settlement_partner_eligible" invisible="1"/>
                 <field name="cross_settlement_amount_editable" invisible="1"/>
                 <field name="can_edit_payment_amount" invisible="1"/>
@@ -49,7 +50,7 @@
                                 </group>
                                 <field name="settlement_display_line_ids" nolabel="1" force_save="1">
                                     <list editable="bottom" create="0" delete="0">
-                                        <field name="is_selected" string="Select"/>
+                                        <field name="is_selected" string="Select" widget="boolean_toggle"/>
                                         <field name="document_label" string="Type" force_save="1"/>
                                         <field name="move_id" string="Document" force_save="1" options="{'no_create': True, 'no_open': True}"/>
                                         <field name="move_date" string="Date" force_save="1"/>

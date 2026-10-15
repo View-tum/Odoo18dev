@@ -185,6 +185,8 @@ class MrpProduction(models.Model):
 
     def action_confirm(self):
         if self.env['mrp.workcenter'].is_mold_management_enabled() and not self.env.context.get('skip_mold_check'):
+            auto_procurement = self.env.context.get('mrp_mold_auto_procurement_confirm')
+            full_mold_warnings = []
             for mo in self:
                 wo_without_mold = mo.workorder_ids.filtered(
                     lambda w: w.state not in ('done', 'cancel') and not w.mold_ids and w.product_id
@@ -195,6 +197,9 @@ class MrpProduction(models.Model):
                 full_molds = mo.workorder_ids.mapped('mold_ids').filtered(lambda m: m.mold_state == 'full')
                 if full_molds:
                     mold_names = ", ".join(full_molds.mapped('name'))
+                    if auto_procurement:
+                        full_mold_warnings.append((mo, mold_names))
+                        continue
                     msg = _(
                         "The following molds have reached their life limit (Full): %s. "
                         "Continuing may affect production quality. "
@@ -212,6 +217,12 @@ class MrpProduction(models.Model):
                             "default_message": msg,
                         },
                     }
+            result = super().action_confirm()
+            for mo, mold_names in full_mold_warnings:
+                mo.message_post(body=_(
+                    "Auto procurement confirmed this manufacturing order although the following molds have reached their life limit (Full): %s. Please review before production."
+                ) % mold_names)
+            return result
         return super().action_confirm()
 
     def button_mark_done(self):

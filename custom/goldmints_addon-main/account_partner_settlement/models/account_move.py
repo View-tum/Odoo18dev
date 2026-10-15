@@ -3,6 +3,12 @@ from odoo import api, fields, models, _
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
+    settlement_stamp_id = fields.Char(
+        string="Settlement Stamp ID",
+        readonly=True,
+        copy=False,
+        index=True,
+    )
     settlement_move_ids = fields.Many2many(
         'account.move', 
         compute='_compute_settlement_move_ids', 
@@ -149,3 +155,15 @@ class AccountMove(models.Model):
             if move.wht_move_ids.filtered(lambda wht: not wht.wht_cert_income_type):
                 continue
             move.create_wht_cert()
+
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+
+    settlement_stamp_id = fields.Char(
+        related="move_id.settlement_stamp_id",
+        string="Settlement Stamp ID",
+        store=True,
+        readonly=True,
+        index=True,
+    )

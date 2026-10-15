@@ -18,7 +18,7 @@
                             <div class="row">
                                 <label for="pmt_ap_payment_method_id" class="col-lg-4 o_light_label" />
                                 <field name="pmt_ap_payment_method_id"
-                                    domain="[('journal_id', '=', pmt_ap_journal_id), ('payment_type', '=', 'outbound')]"
+                                    domain="[('journal_id', '=', pmt_ap_journal_id), ('payment_type', '=', 'outbound'), ('payment_account_id', '!=', False)]"
                                     options="{'no_create': True, 'no_open': True}" />
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <label for="pmt_ar_payment_method_id" class="col-lg-4 o_light_label" />
                                 <field name="pmt_ar_payment_method_id"
-                                    domain="[('journal_id', '=', pmt_ar_journal_id), ('payment_type', '=', 'inbound')]"
+                                    domain="[('journal_id', '=', pmt_ar_journal_id), ('payment_type', '=', 'inbound'), ('payment_account_id', '!=', False)]"
                                     options="{'no_create': True, 'no_open': True}" />
                             </div>
                         </div>

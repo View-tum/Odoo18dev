@@ -39,6 +39,7 @@ class AccountPaymentRegister(models.TransientModel):
         compute="_compute_partner_settlement_amount",
     )
     same_side_credit_note_selection_payload = fields.Json(copy=False)
+    settlement_display_driven = fields.Boolean(copy=False)
     cross_settlement_partner_eligible = fields.Boolean(
         compute="_compute_cross_settlement_partner_eligible",
     )
@@ -61,6 +62,52 @@ class AccountPaymentRegister(models.TransientModel):
     def _get_preserved_state_key(self):
         self.ensure_one()
         return self._origin.id or self.id
+
+    def _auto_apply_wht_from_lines(self):
+        result = None
+        for wizard in self:
+            if wizard.settlement_display_driven:
+                continue
+            result = super(AccountPaymentRegister, wizard)._auto_apply_wht_from_lines()
+        return result
+
+    def _preserve_settlement_display_wht_amount(self):
+        self.ensure_one()
+        if self.wht_tax_id:
+            if self.writeoff_account_id != self.wht_tax_id.account_id:
+                self.writeoff_account_id = self.wht_tax_id.account_id
+            if self.writeoff_label != self.wht_tax_id.display_name:
+                self.writeoff_label = self.wht_tax_id.display_name
+        if self.custom_user_amount and self.currency_id:
+            target_amount = self.currency_id.round(self.custom_user_amount)
+            if self.currency_id.compare_amounts(self.amount, target_amount) != 0:
+                self.amount = target_amount
+
+    def _onchange_wht(self):
+        result = None
+        for wizard in self:
+            if wizard.settlement_display_driven:
+                wizard._preserve_settlement_display_wht_amount()
+                continue
+            result = super(AccountPaymentRegister, wizard)._onchange_wht()
+        return result
+
+    def _onchange_pit(self):
+        result = None
+        for wizard in self:
+            if wizard.settlement_display_driven:
+                wizard._preserve_settlement_display_wht_amount()
+                continue
+            result = super(AccountPaymentRegister, wizard)._onchange_pit()
+        return result
+
+    @api.depends("wht_tax_id", "wht_amount_base")
+    def _compute_wht_amount(self):
+        standard_wizards = self.filtered(lambda wizard: not wizard.settlement_display_driven)
+        if standard_wizards:
+            super(AccountPaymentRegister, standard_wizards)._compute_wht_amount()
+        for wizard in self - standard_wizards:
+            wizard._preserve_settlement_display_wht_amount()
 
     @api.model
     def default_get(self, fields_list):
@@ -112,6 +159,7 @@ class AccountPaymentRegister(models.TransientModel):
     def create(self, vals_list):
         sanitized_vals_list = []
         shadow_line_values_list = []
+        keep_payload_journal = any(vals.get("settlement_journal_id") for vals in vals_list)
         for vals in vals_list:
             sanitized_vals = dict(vals)
             if sanitized_vals.get("settlement_journal_id") and not sanitized_vals.get("journal_id"):
@@ -174,7 +222,8 @@ class AccountPaymentRegister(models.TransientModel):
             sanitized_vals_list.append(sanitized_vals)
             shadow_line_values_list.append(shadow_line_values)
 
-        wizards = super().create(sanitized_vals_list)
+        create_self = self.with_context(keep_payment_register_payload_journal=True) if keep_payload_journal else self
+        wizards = super(AccountPaymentRegister, create_self).create(sanitized_vals_list)
         for wizard, vals, shadow_line_values in zip(wizards, sanitized_vals_list, shadow_line_values_list):
             wizard._normalize_cross_settlement_lines()
             if not vals.get("cross_settlement_line_ids"):
@@ -186,6 +235,9 @@ class AccountPaymentRegister(models.TransientModel):
             if shadow_line_values:
                 wizard._apply_cross_settlement_shadow_values(shadow_line_values)
             wizard._sync_settlement_display_to_source_lines()
+            if wizard.settlement_display_driven:
+                wizard.with_context(settlement_display_driving=True)._apply_settlement_display_selection()
+                wizard._persist_settlement_display_payment_state()
         return wizards
 
     def write(self, vals):
@@ -205,7 +257,14 @@ class AccountPaymentRegister(models.TransientModel):
                 sanitized_vals["settlement_display_line_ids"],
                 required_fields=("move_id", "line_kind"),
             )
-        return super().write(sanitized_vals)
+        result = super().write(sanitized_vals)
+        if not self.env.context.get("skip_settlement_display_post_write") and (
+            sanitized_vals.get("settlement_display_driven") or "settlement_display_line_ids" in sanitized_vals
+        ):
+            for wizard in self.filtered("settlement_display_driven"):
+                wizard.with_context(settlement_display_driving=True)._apply_settlement_display_selection()
+                wizard._persist_settlement_display_payment_state()
+        return result
 
     @api.model
     def _sanitize_settlement_source_commands(self, commands, required_fields):
@@ -384,7 +443,16 @@ class AccountPaymentRegister(models.TransientModel):
 
     @api.depends("early_payment_discount_mode")
     def _compute_payment_difference_handling(self):
-        super()._compute_payment_difference_handling()
+        display_wizards = self.filtered("settlement_display_driven")
+        standard_wizards = self - display_wizards
+        if standard_wizards:
+            super(AccountPaymentRegister, standard_wizards)._compute_payment_difference_handling()
+        for wizard in display_wizards:
+            if wizard.payment_difference_handling in ("reconcile", "reconcile_multi_deduct"):
+                continue
+            wizard.payment_difference_handling = (
+                "reconcile" if wizard._get_current_settlement_wht_amount_from_fields() else "open"
+            )
         for wizard in self:
             if wizard.payment_difference_handling:
                 continue
@@ -445,10 +513,16 @@ class AccountPaymentRegister(models.TransientModel):
             if (
                 wizard.cross_settlement_line_ids.filtered("is_selected")
                 and wizard.currency_id.compare_amounts(wizard.custom_user_amount, default_amount) == 0
+                and not wizard._get_manual_non_wht_deduction_lines()
             ):
                 continue
+            preserved_amount = wizard.currency_id.round(
+                wizard._get_manual_cross_preserved_amount()
+                if wizard.cross_settlement_line_ids.filtered("is_selected")
+                else (wizard.custom_user_amount or wizard.amount)
+            )
             preserved_manual_states[wizard._get_preserved_state_key()] = {
-                "amount": wizard.amount,
+                "amount": preserved_amount,
                 "handling": wizard.payment_difference_handling,
                 "currency_id": wizard.custom_user_currency_id.id if wizard.custom_user_currency_id else False,
                 "deductions": [
@@ -472,7 +546,16 @@ class AccountPaymentRegister(models.TransientModel):
                     and wizard.payment_difference_handling != preserved_state["handling"]
                 ):
                     wizard.with_context(skip_wht_deduct=True).payment_difference_handling = preserved_state["handling"]
-                if preserved_state.get("deductions") and not wizard.deduction_ids:
+                preserved_deductions = preserved_state.get("deductions")
+                preserved_manual_deductions = [
+                    deduction_values
+                    for deduction_values in preserved_deductions or []
+                    if not deduction_values.get("is_open")
+                    and not deduction_values.get("wht_tax_id")
+                    and not wizard.currency_id.is_zero(deduction_values.get("amount", 0.0))
+                ]
+                current_manual_deductions = wizard._get_manual_non_wht_deduction_lines()
+                if preserved_deductions and (not wizard.deduction_ids or (preserved_manual_deductions and not current_manual_deductions)):
                     wizard.with_context(
                         skip_wht_deduct=True,
                         in_wht_sync=True,
@@ -481,7 +564,7 @@ class AccountPaymentRegister(models.TransientModel):
                         {
                             "deduction_ids": [Command.clear()] + [
                                 Command.create(deduction_values)
-                                for deduction_values in preserved_state["deductions"]
+                                for deduction_values in preserved_deductions
                             ]
                         }
                     )
@@ -489,6 +572,10 @@ class AccountPaymentRegister(models.TransientModel):
                     wizard._cleanup_cross_settlement_auto_deductions()
                 continue
             if wizard.custom_user_amount:
+                if wizard.settlement_display_driven and wizard.currency_id:
+                    target_amount = wizard.currency_id.round(wizard.custom_user_amount)
+                    if wizard.currency_id.compare_amounts(wizard.amount, target_amount) != 0:
+                        wizard.amount = target_amount
                 continue
             wizard._apply_single_wht_amount_if_needed()
             payment_offset_amount = wizard._get_payment_offset_amount()
@@ -517,21 +604,51 @@ class AccountPaymentRegister(models.TransientModel):
         "same_side_credit_note_line_ids.amount_to_apply",
     )
     def _compute_payment_difference(self):
-        preserved_amounts = {}
+        preserved_cross_states = {}
         for wizard in self:
             wizard._sync_settlement_display_to_source_lines()
         for wizard in self.filtered(lambda record: record.cross_settlement_line_ids.filtered("is_selected")):
             if wizard._should_preserve_manual_cross_amount():
-                preserved_amounts[wizard._get_preserved_state_key()] = wizard.amount
-            else:
-                preserved_amounts[wizard._get_preserved_state_key()] = wizard._get_cross_auto_cash_amount()
+                preserved_cross_states[wizard._get_preserved_state_key()] = {
+                    "amount": wizard._get_manual_cross_preserved_amount(),
+                    "custom_user_amount": getattr(wizard, "custom_user_amount", False),
+                    "custom_user_currency_id": wizard.custom_user_currency_id.id if getattr(wizard, "custom_user_currency_id", False) else False,
+                    "payment_difference_handling": wizard.payment_difference_handling,
+                }
         super()._compute_payment_difference()
         for wizard in self:
-            preserved_amount = preserved_amounts.get(wizard._get_preserved_state_key())
-            if preserved_amount is not None and wizard.currency_id.compare_amounts(wizard.amount, preserved_amount) != 0:
-                wizard.amount = preserved_amount
+            preserved_state = preserved_cross_states.get(wizard._get_preserved_state_key())
+            if wizard.cross_settlement_line_ids.filtered("is_selected"):
+                if preserved_state:
+                    preserved_amount = preserved_state["amount"]
+                    if wizard.currency_id.compare_amounts(wizard.amount, preserved_amount) != 0:
+                        wizard.amount = preserved_amount
+                    target_custom_amount = preserved_state["custom_user_amount"] or preserved_amount
+                    if wizard.currency_id.compare_amounts(wizard.custom_user_amount, target_custom_amount) != 0:
+                        wizard.custom_user_amount = target_custom_amount
+                    target_custom_currency = self.env["res.currency"].browse(preserved_state["custom_user_currency_id"]) or wizard.currency_id
+                    if wizard.custom_user_currency_id != target_custom_currency:
+                        wizard.custom_user_currency_id = target_custom_currency
+                    if (
+                        preserved_state["payment_difference_handling"]
+                        and wizard.payment_difference_handling != preserved_state["payment_difference_handling"]
+                    ):
+                        wizard.with_context(skip_wht_deduct=True).payment_difference_handling = preserved_state["payment_difference_handling"]
+                elif not wizard._should_preserve_manual_cross_amount():
+                    auto_amount = wizard._get_cross_auto_cash_amount()
+                    if wizard.currency_id.compare_amounts(wizard.amount, auto_amount) != 0:
+                        wizard.amount = auto_amount
             if not wizard.payment_date:
                 continue
+            same_side_offset = wizard._get_same_side_credit_note_offset_amount()
+            if (
+                same_side_offset
+                and not wizard.cross_settlement_line_ids.filtered("is_selected")
+                and wizard._should_sync_allocation_lines()
+            ):
+                wizard._sync_allocation_lines_to_target_amount(
+                    wizard.currency_id.round((wizard.amount or 0.0) + same_side_offset)
+                )
             same_side_difference = wizard._get_same_side_credit_note_payment_difference()
             base_difference = (
                 same_side_difference
@@ -543,16 +660,15 @@ class AccountPaymentRegister(models.TransientModel):
                 adjusted_difference = wizard.currency_id.round(
                     adjusted_difference - wizard._get_current_settlement_wht_amount_from_fields()
                 )
-                if (
-                    wizard.payment_difference_handling == "open"
-                    and getattr(wizard, "wht_tax_id", False)
-                    and getattr(wizard, "wht_amount_base", 0.0)
-                ):
+                if wizard.payment_difference_handling == "open" and wizard._get_current_settlement_wht_amount_from_fields():
                     wizard.with_context(skip_wht_deduct=True).payment_difference_handling = "reconcile"
                 manual_deduction_lines = wizard._get_manual_non_wht_deduction_lines()
                 if wizard.payment_difference_handling == "reconcile_multi_deduct" and not manual_deduction_lines:
                     wizard.with_context(skip_wht_deduct=True).payment_difference_handling = "open"
-                wizard.payment_difference = max(adjusted_difference, 0.0)
+                if wizard._should_preserve_manual_cross_amount() and manual_deduction_lines:
+                    wizard.payment_difference = wizard.currency_id.round(sum(manual_deduction_lines.mapped("amount")))
+                else:
+                    wizard.payment_difference = max(adjusted_difference, 0.0)
                 if not manual_deduction_lines:
                     wizard._cleanup_cross_settlement_auto_deductions(force=True)
                 if (
@@ -599,25 +715,61 @@ class AccountPaymentRegister(models.TransientModel):
     @api.onchange("cross_settlement_line_ids")
     def _onchange_cross_settlement_line_ids(self):
         for wizard in self:
+            wizard.settlement_display_driven = False
             wizard._apply_cross_settlement_selection()
             wizard._refresh_settlement_display_lines()
 
     @api.onchange("same_side_credit_note_line_ids")
     def _onchange_same_side_credit_note_line_ids(self):
         for wizard in self:
+            wizard.settlement_display_driven = False
             wizard._apply_same_side_credit_note_selection()
             wizard._refresh_settlement_display_lines()
 
     @api.onchange("settlement_display_line_ids")
     def _onchange_settlement_display_line_ids(self):
         for wizard in self:
+            wizard.with_context(settlement_display_driving=True)._apply_settlement_display_selection()
+
+    def _apply_settlement_display_selection(self):
+        for wizard in self:
+            if not wizard.settlement_display_driven:
+                wizard.with_context(skip_settlement_display_post_write=True).settlement_display_driven = True
             wizard._restore_settlement_display_line_metadata()
             wizard._sync_settlement_display_to_source_lines(force=True)
             if wizard.same_side_credit_note_line_ids.filtered("is_selected"):
                 wizard._apply_same_side_credit_note_selection()
             wizard._apply_cross_settlement_selection()
-            wizard._sync_payment_amount_from_display_selection(force=True)
             wizard._refresh_settlement_display_lines()
+            wizard._sync_payment_amount_from_display_selection(force=True)
+
+    def _persist_settlement_display_payment_state(self):
+        for wizard in self:
+            payment_amount = wizard.amount
+            if wizard.settlement_display_driven and wizard.custom_user_amount and wizard.currency_id:
+                payment_amount = wizard.currency_id.round(wizard.custom_user_amount)
+            values = {
+                "amount": payment_amount,
+                "settlement_display_driven": True,
+            }
+            if "custom_user_amount" in wizard._fields:
+                values["custom_user_amount"] = wizard.custom_user_amount
+            if "custom_user_currency_id" in wizard._fields:
+                values["custom_user_currency_id"] = wizard.custom_user_currency_id.id or wizard.currency_id.id
+            if "wht_tax_id" in wizard._fields and wizard.wht_tax_id:
+                values["wht_tax_id"] = wizard.wht_tax_id.id
+            if "wht_amount_base" in wizard._fields:
+                values["wht_amount_base"] = wizard.wht_amount_base or 0.0
+            if "writeoff_account_id" in wizard._fields and wizard.writeoff_account_id:
+                values["writeoff_account_id"] = wizard.writeoff_account_id.id
+            if "writeoff_label" in wizard._fields:
+                values["writeoff_label"] = wizard.writeoff_label
+            wizard.with_context(
+                skip_settlement_display_post_write=True,
+                skip_wht_deduct=True,
+                in_wht_sync=True,
+                skip_wht_auto_payment_difference_handling=True,
+            ).write(values)
 
     @api.onchange("amount")
     def _onchange_amount(self):
@@ -1022,7 +1174,9 @@ class AccountPaymentRegister(models.TransientModel):
     def _refresh_settlement_display_lines(self):
         for wizard in self:
             commands = wizard._prepare_settlement_display_commands_from_records()
-            wizard.update({"settlement_display_line_ids": [Command.clear(), *commands] if commands else [Command.clear()]})
+            wizard.with_context(skip_settlement_display_post_write=True).update(
+                {"settlement_display_line_ids": [Command.clear(), *commands] if commands else [Command.clear()]}
+            )
 
     def _restore_settlement_display_line_metadata(self):
         for wizard in self:
@@ -1099,6 +1253,8 @@ class AccountPaymentRegister(models.TransientModel):
 
     def _sync_payment_amount_from_display_selection(self, force=False):
         self.ensure_one()
+        if not self.env.context.get("settlement_display_driving") and not self.settlement_display_driven:
+            return
         if not force and getattr(self, "custom_user_amount", False):
             return
         if not self._should_sync_allocation_lines() or not self.currency_id:
@@ -1107,16 +1263,58 @@ class AccountPaymentRegister(models.TransientModel):
         if not selected_display_lines:
             return
         same_side_offset = self._get_same_side_credit_note_offset_amount()
-        cross_offset = self._get_cross_payment_offset_amount()
+        cross_offset = self._get_effective_cross_settlement_amount()
         if self.currency_id.is_zero(same_side_offset + cross_offset):
             return
-        _minimum_target, maximum_target = self._get_allocation_target_bounds()
+        total_amount_values = self._get_total_amounts_to_pay(self.batches)
+        maximum_target = self.currency_id.round(total_amount_values["amount_by_default"])
+        current_wht_amount = self._get_current_full_source_wht_amount(maximum_target)
+        target_allocation_amount = self.currency_id.round(max(maximum_target - cross_offset - current_wht_amount, 0.0))
+        target_cash_amount = self.currency_id.round(max(target_allocation_amount - same_side_offset, 0.0))
+        if self.currency_id.compare_amounts(self.custom_user_amount, target_cash_amount) != 0:
+            self.custom_user_amount = target_cash_amount
         allocation_target = self._sync_allocation_lines_to_target_amount(
-            self.currency_id.round(max(maximum_target - cross_offset, 0.0))
+            target_allocation_amount
         )
         cash_amount = self.currency_id.round(max(allocation_target - same_side_offset, 0.0))
+        if self.currency_id.compare_amounts(self.custom_user_amount, cash_amount) != 0:
+            self.custom_user_amount = cash_amount
         if self.currency_id.compare_amounts(self.amount, cash_amount) != 0:
             self.amount = cash_amount
+
+    def _get_current_full_source_wht_amount(self, gross_target):
+        self.ensure_one()
+        if not self.currency_id or self._get_current_account_type() != "liability_payable":
+            return 0.0
+        remaining = self.currency_id.round(max(gross_target or 0.0, 0.0))
+        if self.currency_id.compare_amounts(remaining, 0.0) <= 0:
+            return 0.0
+        items = []
+        current_moves = self.line_ids.move_id.sorted(key=lambda move: (move.invoice_date or fields.Date.today(), move.id))
+        for move in current_moves:
+            if self.currency_id.compare_amounts(remaining, 0.0) <= 0:
+                break
+            open_lines = self._get_open_move_lines(move, "liability_payable")
+            if not open_lines:
+                continue
+            signed_open_amount = self._get_signed_open_amount(open_lines, "liability_payable")
+            if self.currency_id.compare_amounts(signed_open_amount, 0.0) <= 0:
+                continue
+            gross_amount = min(signed_open_amount, remaining)
+            items.extend(
+                move._prepare_partner_settlement_wht_items(
+                    gross_amount,
+                    self.payment_date,
+                    self.currency_id,
+                )
+            )
+            remaining = self.currency_id.round(remaining - gross_amount)
+        source_wht_amount = self.currency_id.round(sum(item["amount"] for item in items))
+        if source_wht_amount:
+            return source_wht_amount
+        if "wht_tax_id" in self._fields and self.wht_tax_id and self.wht_amount_base:
+            return self._get_manual_cross_source_wht_amount()
+        return 0.0
 
     def _prepare_existing_cross_settlement_command(self, line):
         values = {
@@ -1383,27 +1581,53 @@ class AccountPaymentRegister(models.TransientModel):
             return False
         if not self.currency_id:
             return False
+        manual_deductions = self._get_manual_non_wht_deduction_lines()
+        custom_amount = getattr(self, "custom_user_amount", False)
+        if not manual_deductions and not custom_amount:
+            return False
         total_amount_values = self._get_total_amounts_to_pay(self.batches)
         default_amount = self.currency_id.round(total_amount_values["amount_by_default"])
         default_cash_amount = self.currency_id.round(
             max(default_amount - self._get_current_settlement_wht_amount_from_fields(), 0.0)
         )
+        manual_amount = self._get_manual_cross_preserved_amount(default_amount, default_cash_amount)
+        if (
+            self.currency_id.compare_amounts(manual_amount, default_amount) == 0
+            or self.currency_id.compare_amounts(manual_amount, default_cash_amount) == 0
+        ):
+            return False
+        if manual_deductions:
+            return True
+        auto_cash_amount = self._get_cross_auto_cash_amount()
+        if self.currency_id.compare_amounts(manual_amount, auto_cash_amount) != 0:
+            return True
+        return (
+            self.currency_id.compare_amounts(manual_amount, default_amount) != 0
+            and self.currency_id.compare_amounts(manual_amount, default_cash_amount) != 0
+        )
+
+    def _get_manual_cross_preserved_amount(self, default_amount=None, default_cash_amount=None):
+        self.ensure_one()
+        if not self.currency_id:
+            return self.amount or 0.0
+        custom_amount = getattr(self, "custom_user_amount", False)
+        if not custom_amount:
+            return self.currency_id.round(self.amount or 0.0)
+        if default_amount is None:
+            total_amount_values = self._get_total_amounts_to_pay(self.batches)
+            default_amount = self.currency_id.round(total_amount_values["amount_by_default"])
+        if default_cash_amount is None:
+            default_cash_amount = self.currency_id.round(
+                max(default_amount - self._get_current_settlement_wht_amount_from_fields(), 0.0)
+            )
+        auto_cash_amount = self._get_cross_auto_cash_amount()
         if (
             self.currency_id.compare_amounts(self.amount, default_amount) == 0
             or self.currency_id.compare_amounts(self.amount, default_cash_amount) == 0
+            or self.currency_id.compare_amounts(self.amount, auto_cash_amount) == 0
         ):
-            return False
-        if self.currency_id.compare_amounts(self._get_manual_cross_payment_difference(), 0.0) > 0:
-            return True
-        auto_cash_amount = self._get_cross_auto_cash_amount()
-        if self.currency_id.compare_amounts(self.amount, auto_cash_amount) != 0:
-            return True
-        if not getattr(self, "custom_user_amount", False):
-            return False
-        return (
-            self.currency_id.compare_amounts(self.amount, default_amount) != 0
-            and self.currency_id.compare_amounts(self.amount, default_cash_amount) != 0
-        )
+            return self.currency_id.round(custom_amount)
+        return self.currency_id.round(self.amount or 0.0)
 
     def _get_effective_cross_settlement_amount(self):
         self.ensure_one()
@@ -1554,8 +1778,11 @@ class AccountPaymentRegister(models.TransientModel):
                 reduction = min(amount_to_pay, remaining_reduction)
                 amount_to_pay = self.currency_id.round(amount_to_pay - reduction)
                 remaining_reduction = self.currency_id.round(remaining_reduction - reduction)
-            allocation.amount_to_pay = amount_to_pay
-            allocation.amount_residual = self.currency_id.round(allocation.amount_residual_original - amount_to_pay)
+            amount_residual = self.currency_id.round(allocation.amount_residual_original - amount_to_pay)
+            if self.currency_id.compare_amounts(allocation.amount_to_pay, amount_to_pay) != 0:
+                allocation.amount_to_pay = amount_to_pay
+            if self.currency_id.compare_amounts(allocation.amount_residual, amount_residual) != 0:
+                allocation.amount_residual = amount_residual
         return target_amount
 
     def _refresh_allocation_amount(self):
@@ -1682,6 +1909,23 @@ class AccountPaymentRegister(models.TransientModel):
         return getattr(self.company_id, "auto_diff_account_id", False)
 
     def _is_auto_difference_deduction_line(self, deduction):
+        if "is_cross_settlement_auto_difference" in deduction._fields:
+            if deduction.is_cross_settlement_auto_difference:
+                return True
+            if self._get_wht_source_lines() and (deduction.name or "") == "Payment Difference":
+                return True
+            auto_account = self._get_auto_difference_account()
+            auto_label = getattr(self.company_id, "auto_diff_label", False) or "Difference"
+            if (
+                auto_account
+                and deduction.account_id == auto_account
+                and (deduction.name or "") == auto_label
+                and self.currency_id.compare_amounts(deduction.amount, 0.0) <= 0
+            ):
+                return True
+            return False
+        if self._get_wht_source_lines() and (deduction.name or "") == "Payment Difference":
+            return True
         auto_account = self._get_auto_difference_account()
         if not auto_account or deduction.account_id != auto_account:
             return False
@@ -1709,8 +1953,13 @@ class AccountPaymentRegister(models.TransientModel):
         self.ensure_one()
         if not self.cross_settlement_line_ids.filtered("is_selected"):
             return {}
+        preserved_amount = self.currency_id.round(
+            self._get_manual_cross_preserved_amount()
+            if self.cross_settlement_line_ids.filtered("is_selected")
+            else (getattr(self, "custom_user_amount", False) or self.amount)
+        )
         return {
-            "amount": self.amount,
+            "amount": preserved_amount,
             "custom_user_amount": getattr(self, "custom_user_amount", 0.0),
             "custom_user_currency_id": self.custom_user_currency_id.id if getattr(self, "custom_user_currency_id", False) else False,
             "payment_difference_handling": self.payment_difference_handling,
@@ -1961,6 +2210,7 @@ class AccountPaymentRegister(models.TransientModel):
         return self.deduction_ids.filtered(
             lambda line: not line.is_open
             and not self._is_wht_deduction_line(line)
+            and not self._is_auto_difference_deduction_line(line)
             and not self.currency_id.is_zero(line.amount)
         )
 
@@ -2136,12 +2386,7 @@ class AccountPaymentRegister(models.TransientModel):
                 and not self.currency_id.is_zero(deduction_values.get("amount", 0.0))
             ]
             if manual_deduction_values:
-                existing_write_off_line_vals = [
-                    line_vals
-                    for line_vals in payment_vals.get("write_off_line_vals", [])
-                    if not line_vals.get("wht_tax_id") and not line_vals.get("tax_base_amount")
-                ]
-                payment_vals["write_off_line_vals"] = existing_write_off_line_vals + [
+                payment_vals["write_off_line_vals"] = [
                     self._prepare_deduct_move_line_from_values(deduction_values)
                     for deduction_values in manual_deduction_values
                 ]
@@ -2237,6 +2482,12 @@ class AccountPaymentRegister(models.TransientModel):
         self.ensure_one()
         if self.payment_difference_handling != "reconcile_multi_deduct":
             return
+        if not (
+            self.cross_settlement_line_ids.filtered("is_selected")
+            or self.same_side_credit_note_line_ids.filtered(lambda line: line.is_selected and line.amount_to_apply > 0)
+            or self._has_same_side_credit_note_lines(self.line_ids)
+        ):
+            return
         if self._get_wht_source_lines() and not self.deduction_ids:
             return
         if getattr(self, "manual_currency_rate_active", False) and getattr(self, "manual_currency_rate", 0.0):
@@ -2271,16 +2522,29 @@ class AccountPaymentRegister(models.TransientModel):
         if not self.currency_id:
             return
         same_side_offset = self._get_same_side_credit_note_offset_amount()
-        effective_cross_offset = self._get_cross_payment_offset_amount()
+        display_driving = bool(self.env.context.get("settlement_display_driving"))
+        effective_cross_offset = (
+            self._get_effective_cross_settlement_amount()
+            if display_driving
+            else self._get_cross_payment_offset_amount()
+        )
         explicit_cross_offset = self._get_explicit_cross_payment_offset_amount()
         base_settle_capacity = self._get_base_settle_capacity()
-        if self.currency_id.compare_amounts(self.amount + effective_cross_offset, base_settle_capacity) <= 0:
-            preserved_cross_offset = effective_cross_offset
+        if display_driving:
+            base_cash_amount = self.currency_id.round(
+                max(
+                    base_settle_capacity - self._get_current_full_source_wht_amount(base_settle_capacity),
+                    0.0,
+                )
+            )
         else:
-            preserved_cross_offset = explicit_cross_offset
-        base_cash_amount = self.currency_id.round(
-            self.amount + preserved_cross_offset + same_side_offset
-        )
+            if self.currency_id.compare_amounts(self.amount + effective_cross_offset, base_settle_capacity) <= 0:
+                preserved_cross_offset = effective_cross_offset
+            else:
+                preserved_cross_offset = explicit_cross_offset
+            base_cash_amount = self.currency_id.round(
+                self.amount + preserved_cross_offset + same_side_offset
+            )
         self._normalize_cross_settlement_lines()
         for line in self.cross_settlement_line_ids:
             line.amount_to_settle = 0.0
@@ -2318,7 +2582,7 @@ class AccountPaymentRegister(models.TransientModel):
                 break
 
         cash_amount = self.currency_id.round(
-            max(base_cash_amount - self._get_cross_payment_offset_amount() - same_side_offset, 0.0)
+            max(base_cash_amount - effective_cross_offset - same_side_offset, 0.0)
         )
         if not self.currency_id.is_zero(cash_amount + same_side_offset):
             allocation_target = self._sync_allocation_lines_to_target_amount(
@@ -2344,13 +2608,12 @@ class AccountPaymentRegister(models.TransientModel):
             else:
                 line.amount_to_apply = 0.0
         cash_amount = self.currency_id.round(max(base_cash_amount - self._get_payment_offset_amount(), 0.0))
-        if self.cross_settlement_line_ids.filtered("is_selected") and self._should_sync_allocation_lines():
+        same_side_offset = self._get_same_side_credit_note_offset_amount()
+        if same_side_offset and self._should_sync_allocation_lines():
             allocation_target = self._sync_allocation_lines_to_target_amount(
-                self.currency_id.round(cash_amount + self._get_same_side_credit_note_offset_amount())
+                self.currency_id.round(cash_amount + same_side_offset)
             )
-            cash_amount = self.currency_id.round(
-                max(allocation_target - self._get_same_side_credit_note_offset_amount(), 0.0)
-            )
+            cash_amount = self.currency_id.round(max(allocation_target - same_side_offset, 0.0))
         if self.currency_id.compare_amounts(self.amount, cash_amount) != 0:
             self.amount = cash_amount
         self._sync_same_side_credit_note_selection_payload()
@@ -2427,7 +2690,34 @@ class AccountPaymentRegister(models.TransientModel):
         )
         partials = current_lines.matched_debit_ids | current_lines.matched_credit_ids
         payment_moves = (partials.debit_move_id | partials.credit_move_id).move_id
-        return payment_obj.search([("move_id", "in", payment_moves.ids)]) if payment_moves else payment_obj
+        if payment_moves:
+            return payment_obj.search([("move_id", "in", payment_moves.ids)])
+        return self._get_created_payment_records_from_wizard_values()
+
+    def _get_created_payment_records_from_wizard_values(self):
+        self.ensure_one()
+        payment_obj = self.env["account.payment"]
+        domain = [
+            ("company_id", "=", self.company_id.id),
+            ("partner_id", "=", self.partner_id.id),
+            ("amount", "=", self.amount),
+            ("payment_type", "=", self.payment_type),
+        ]
+        if "payment_method_line_id" in payment_obj._fields and self.payment_method_line_id:
+            domain.append(("payment_method_line_id", "=", self.payment_method_line_id.id))
+        if "date" in payment_obj._fields and self.payment_date:
+            domain.append(("date", "=", self.payment_date))
+        if "settlement_stamp_id" in payment_obj._fields:
+            domain.append(("settlement_stamp_id", "=", False))
+        reference_domain = []
+        for field_name in ("memo", "payment_reference"):
+            if field_name in payment_obj._fields and self.communication:
+                reference_domain.append((field_name, "=", self.communication))
+        if len(reference_domain) == 1:
+            domain.append(reference_domain[0])
+        elif len(reference_domain) == 2:
+            domain = ["|", reference_domain[0], reference_domain[1]] + domain
+        return payment_obj.search(domain, order="id desc", limit=1)
 
     def _reconcile_selected_same_side_credit_notes(self, payments):
         self.ensure_one()
@@ -2625,12 +2915,31 @@ class AccountPaymentRegister(models.TransientModel):
         )
         return " | ".join(ref_chunks), narration
 
+    def _next_partner_settlement_stamp_id(self):
+        stamp_id = self.env["ir.sequence"].sudo().next_by_code(
+            "account.partner.settlement.stamp"
+        )
+        return stamp_id or "PST/%s" % fields.Datetime.now().strftime("%Y%m%d%H%M%S%f")
+
+    def _get_or_create_partner_settlement_stamp_id(self):
+        return (
+            self.env.context.get("partner_settlement_stamp_id")
+            or self._next_partner_settlement_stamp_id()
+        )
+
+    def _apply_partner_settlement_stamp(self, payments, settlement_stamp_id):
+        if not settlement_stamp_id or not payments:
+            return
+        payments.write({"settlement_stamp_id": settlement_stamp_id})
+        payments.move_id.write({"settlement_stamp_id": settlement_stamp_id})
+
     def _build_settlement_move(self, current_allocations, cross_lines, wht_items=None):
         self.ensure_one()
         current_moves = self.env["account.move"].browse(
             [allocation["move_id"].id for allocation in current_allocations]
         )
         ref, narration = self._prepare_settlement_reference(current_moves, cross_lines)
+        settlement_stamp_id = self._get_or_create_partner_settlement_stamp_id()
         line_commands = []
 
         for cross_line in cross_lines:
@@ -2696,6 +3005,7 @@ class AccountPaymentRegister(models.TransientModel):
                 "date": self.payment_date,
                 "ref": ref,
                 "narration": narration,
+                "settlement_stamp_id": settlement_stamp_id,
                 "company_id": self.company_id.id,
                 "line_ids": line_commands,
             }
@@ -2813,6 +3123,8 @@ class AccountPaymentRegister(models.TransientModel):
         self.ensure_one()
         if not getattr(self, "deduction_ids", False):
             return
+        if self._should_preserve_manual_cross_amount() and self._get_manual_non_wht_deduction_lines():
+            return
         expected = self._get_cross_expected_deduction_amount()
         effective_deductions = self._get_effective_deduction_lines()
         current = sum(effective_deductions.mapped("amount"))
@@ -2831,9 +3143,11 @@ class AccountPaymentRegister(models.TransientModel):
     def _check_deduction_amount(self):
         if self.env.context.get("skip_wht_deduct") or self.env.context.get("in_wht_sync"):
             return
-        for wizard in self:
-            if not wizard.cross_settlement_line_ids.filtered("is_selected"):
-                continue
+        cross_wizards = self.filtered(lambda wizard: wizard.cross_settlement_line_ids.filtered("is_selected"))
+        standard_wizards = self - cross_wizards
+        if standard_wizards:
+            super(AccountPaymentRegister, standard_wizards)._check_deduction_amount()
+        for wizard in cross_wizards:
             if wizard.payment_difference_handling != "reconcile_multi_deduct":
                 continue
             manual_deductions = wizard._get_effective_deduction_lines().filtered(
@@ -2845,7 +3159,11 @@ class AccountPaymentRegister(models.TransientModel):
 
     def action_create_payments(self):
         self.ensure_one()
-        preserved_manual_amount = self.amount if getattr(self, "custom_user_amount", False) else None
+        preserved_manual_amount = (
+            self.currency_id.round(self._get_manual_cross_preserved_amount())
+            if self.cross_settlement_line_ids.filtered("is_selected") and self._should_preserve_manual_cross_amount()
+            else self.currency_id.round(self.custom_user_amount) if getattr(self, "custom_user_amount", False) else None
+        )
         preserved_manual_currency = self.custom_user_currency_id if getattr(self, "custom_user_currency_id", False) else False
         preserved_handling = self.payment_difference_handling
         preserved_manual_deduction_values = [
@@ -2875,10 +3193,22 @@ class AccountPaymentRegister(models.TransientModel):
         if self._has_same_side_credit_note_lines(self.line_ids) or selected_same_side_credit_note_lines:
             self.group_payment = True
         selected_cross_lines = self._validate_cross_settlement_inputs()
+        uses_partner_settlement_stamp = bool(
+            selected_cross_lines
+            or selected_same_side_credit_note_lines
+            or self._has_same_side_credit_note_lines(self.line_ids)
+        )
+        settlement_stamp_id = (
+            self._get_or_create_partner_settlement_stamp_id()
+            if uses_partner_settlement_stamp
+            else False
+        )
         if not selected_cross_lines:
             result = super().action_create_payments()
+            payments = self._get_created_payment_records(result)
             if selected_same_side_credit_note_lines:
-                self._reconcile_selected_same_side_credit_notes(self._get_created_payment_records(result))
+                self._reconcile_selected_same_side_credit_notes(payments)
+            self._apply_partner_settlement_stamp(payments, settlement_stamp_id)
             return result
 
         if self.currency_id.compare_amounts(self.amount, 0.0) < 0:
@@ -2890,11 +3220,13 @@ class AccountPaymentRegister(models.TransientModel):
             payment_wizard = self._ensure_standard_payment_routing_for_cross_settlement()
             payment_wizard._restore_cross_settlement_payment_state(preserved_payment_state)
             payment_wizard._compute_payment_difference()
+            payment_wizard._restore_cross_settlement_payment_state(preserved_payment_state)
             payment_wizard._validate_effective_deduction_balance()
             current_settlement_wht_context = payment_wizard._get_current_settlement_wht_context()
             payment_difference_handling = payment_wizard.payment_difference_handling
             payment_context = {
                 **current_settlement_wht_context,
+                "skip_wht_deduct": bool(current_settlement_wht_context),
                 "skip_wht_auto_payment_difference_handling": True,
                 "force_cross_settlement_partial_payment": True,
                 "force_cross_settlement_manual_deduction_values": [
@@ -2917,7 +3249,10 @@ class AccountPaymentRegister(models.TransientModel):
         payments = self._get_created_payment_records(result)
         if selected_same_side_credit_note_lines:
             self._reconcile_selected_same_side_credit_notes(payments)
+        self._apply_partner_settlement_stamp(payments, settlement_stamp_id)
         settlement_wizard = self.with_context(**current_settlement_wht_context) if current_settlement_wht_context else self
+        if settlement_stamp_id:
+            settlement_wizard = settlement_wizard.with_context(partner_settlement_stamp_id=settlement_stamp_id)
         if payments:
             settlement_wizard = settlement_wizard.with_context(payment_id=payments[0].id)
         else:
@@ -3051,8 +3386,18 @@ class AccountPaymentRegisterSettlementDisplayLine(models.TransientModel):
             if not selected:
                 line.apply_amount = 0.0
         for wizard in wizards:
-            wizard._sync_settlement_display_to_source_lines(force=True)
-            if wizard.same_side_credit_note_line_ids.filtered("is_selected"):
-                wizard._apply_same_side_credit_note_selection()
-            wizard._apply_cross_settlement_selection()
-            wizard._refresh_settlement_display_lines()
+            display_wizard = wizard.with_context(settlement_display_driving=True)
+            if not display_wizard.settlement_display_driven:
+                display_wizard.with_context(skip_settlement_display_post_write=True).settlement_display_driven = True
+            display_wizard._sync_settlement_display_to_source_lines(force=True)
+            if display_wizard.same_side_credit_note_line_ids.filtered("is_selected"):
+                display_wizard._apply_same_side_credit_note_selection()
+            display_wizard._apply_cross_settlement_selection()
+            display_wizard._refresh_settlement_display_lines()
+            display_wizard._sync_payment_amount_from_display_selection(force=True)
+
+
+class AccountPaymentDeduction(models.TransientModel):
+    _inherit = "account.payment.deduction"
+
+    is_cross_settlement_auto_difference = fields.Boolean(copy=False)

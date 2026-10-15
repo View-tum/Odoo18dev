@@ -18,6 +18,8 @@ class AccountPaymentRegister(models.TransientModel):
 
     def _is_account_payment_auto_difference_line(self, deduction):
         self.ensure_one()
+        if 'is_cross_settlement_auto_difference' in deduction._fields:
+            return bool(deduction.is_cross_settlement_auto_difference)
         auto_account = self.company_id.auto_diff_account_id
         if not auto_account:
             return False
@@ -40,6 +42,7 @@ class AccountPaymentRegister(models.TransientModel):
             'wht_amount_base',
             'tax_base_amount',
             'currency_id',
+            'is_cross_settlement_auto_difference',
         ):
             if field_name not in deduction._fields:
                 continue
@@ -86,13 +89,16 @@ class AccountPaymentRegister(models.TransientModel):
 
             if not wizard.deduction_ids:
                 wizard.payment_difference_handling = 'reconcile_multi_deduct'
-                wizard.deduction_ids = [Command.create({
+                deduction_values = {
                     'account_id': auto_account.id,
                     'name': auto_label,
                     'amount': wizard.payment_difference,
                     'analytic_distribution': auto_analytic,
                     'is_open': False,
-                })]
+                }
+                if 'is_cross_settlement_auto_difference' in self.env['account.payment.deduction']._fields:
+                    deduction_values['is_cross_settlement_auto_difference'] = True
+                wizard.deduction_ids = [Command.create(deduction_values)]
             else:
                 auto_lines = wizard.deduction_ids.filtered(
                     wizard._is_account_payment_auto_difference_line

@@ -4,3 +4,4 @@ from . import mrp_workorder_mold_cost
 from . import mrp_production_mold_cost
 from . import mrp_report_cost
 from . import mrp_mold_bom_wizard
+from . import stock_rule

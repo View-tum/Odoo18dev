@@ -269,6 +269,10 @@ class TestPartnerSettlement(TransactionCase):
 
         self.assertEqual(settlement.state, "done")
         self.assertTrue(settlement.settlement_move_id)
+        self.assertTrue(settlement.settlement_stamp_id)
+        self.assertEqual(settlement.settlement_move_id.settlement_stamp_id, settlement.settlement_stamp_id)
+        self.assertEqual(set(settlement.settlement_move_id.line_ids.mapped("settlement_stamp_id")), {settlement.settlement_stamp_id})
+        self.assertEqual(set(settlement.line_ids.mapped("settlement_stamp_id")), {settlement.settlement_stamp_id})
         self.assertEqual(settlement.settlement_move_id.state, "posted")
         self.assertAlmostEqual(bill.amount_residual, 0.0)
         self.assertAlmostEqual(invoice.amount_residual, 40.0)
@@ -328,6 +332,9 @@ class TestPartnerSettlement(TransactionCase):
 
         payment = self.env["account.payment"].browse(action["res_id"])
         self.assertIn(payment.state, ("paid", "in_process"))
+        self.assertTrue(payment.settlement_stamp_id)
+        self.assertEqual(payment.move_id.settlement_stamp_id, payment.settlement_stamp_id)
+        self.assertEqual(set(payment.move_id.line_ids.mapped("settlement_stamp_id")), {payment.settlement_stamp_id})
         self.assertEqual(payment.move_id.state, "posted")
         self.assertAlmostEqual(payment.amount, 45.0)
 
@@ -342,6 +349,8 @@ class TestPartnerSettlement(TransactionCase):
             limit=1,
         )
         self.assertTrue(settlement_move)
+        self.assertEqual(settlement_move.settlement_stamp_id, payment.settlement_stamp_id)
+        self.assertEqual(set(settlement_move.line_ids.mapped("settlement_stamp_id")), {payment.settlement_stamp_id})
         self.assertEqual(settlement_move.state, "posted")
         self.assertEqual(settlement_move.journal_id, payment.journal_id)
         self.assertAlmostEqual(invoice.amount_residual, 0.0)
@@ -428,6 +437,9 @@ class TestPartnerSettlement(TransactionCase):
             lambda line: line.account_id == self.receivable_account
         )
         self.assertTrue(payment.same_side_credit_note_embedded)
+        self.assertTrue(payment.settlement_stamp_id)
+        self.assertEqual(payment.move_id.settlement_stamp_id, payment.settlement_stamp_id)
+        self.assertEqual(set(payment.move_id.line_ids.mapped("settlement_stamp_id")), {payment.settlement_stamp_id})
         self.assertAlmostEqual(payment.amount, 75.0)
         self.assertAlmostEqual(sum(receivable_lines.mapped("debit")), 25.0)
         self.assertAlmostEqual(sum(receivable_lines.mapped("credit")), 100.0)
@@ -483,7 +495,7 @@ class TestPartnerSettlement(TransactionCase):
         self.assertIn('name="partner_settlement_amount"', arch)
         self.assertIn('string="Amount"', arch)
         self.assertIn('name="is_selected"', arch)
-        self.assertNotIn('widget="boolean_toggle"', arch)
+        self.assertIn('widget="boolean_toggle"', arch)
 
     def test_payment_register_unified_settlement_display_syncs_credit_note_and_cross_lines(self):
         invoice = self._create_customer_invoice(100.0)
@@ -547,6 +559,44 @@ class TestPartnerSettlement(TransactionCase):
         self.assertIn(credit_note.name, " | ".join(payable_lines.mapped("name")))
         self.assertAlmostEqual(bill.amount_residual, 0.0)
         self.assertAlmostEqual(credit_note.amount_residual, 0.0)
+
+    def test_payment_register_unified_display_keeps_vendor_wht_cash_amount(self):
+        vendor_bill = self._create_vendor_bill(100.0, wht_tax_id=self.wht_3)
+        customer_invoice = self._create_customer_invoice(40.0)
+        customer_refund = self._create_customer_refund(10.0)
+
+        wizard = Form.from_action(self.env, vendor_bill.action_register_payment()).save()
+        wizard.settlement_display_line_ids.filtered(lambda line: line.move_id == customer_invoice).write(
+            {"is_selected": True}
+        )
+        wizard._onchange_settlement_display_line_ids()
+        wizard.settlement_display_line_ids.filtered(lambda line: line.move_id == customer_refund).write(
+            {"is_selected": True}
+        )
+        wizard._onchange_settlement_display_line_ids()
+        wizard._compute_payment_difference()
+
+        self.assertAlmostEqual(wizard.cross_settlement_amount, 30.0)
+        self.assertAlmostEqual(wizard.amount, 67.0)
+        self.assertAlmostEqual(sum(wizard.allocation_line_ids.mapped("amount_to_pay")), 67.0)
+        self.assertAlmostEqual(wizard.payment_difference, 0.0)
+        wizard_values = wizard.read(["wht_amount_base", "amount", "custom_user_amount"], load=None)[0]
+        self.assertAlmostEqual(wizard_values["amount"], 67.0)
+        self.assertAlmostEqual(wizard_values["custom_user_amount"], 67.0)
+
+        action = wizard.action_create_payments()
+        payment = self.env["account.payment"].browse(action["res_id"])
+        settlement_move = self.env["account.move"].search(
+            [("ref", "like", vendor_bill.name), ("ref", "like", customer_invoice.name), ("ref", "like", customer_refund.name)],
+            order="id desc",
+            limit=1,
+        )
+        self.assertIn(payment.state, ("paid", "in_process"))
+        self.assertAlmostEqual(payment.amount, 67.0)
+        self.assertAlmostEqual(sum(settlement_move.wht_move_ids.mapped("amount_wht")), 3.0)
+        self.assertAlmostEqual(vendor_bill.amount_residual, 0.0)
+        self.assertAlmostEqual(customer_invoice.amount_residual, 0.0)
+        self.assertAlmostEqual(customer_refund.amount_residual, 0.0)
 
     def test_payment_register_customer_credit_note_selected_in_wizard_allows_partial_payment(self):
         invoice = self._create_customer_invoice(100.0)

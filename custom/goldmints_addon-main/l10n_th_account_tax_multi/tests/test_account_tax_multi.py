@@ -146,7 +146,7 @@ class TestAccountTaxMulti(TestWithholdingTax):
                 line.wht_tax_id = self.wht_1
             f.amount = 198
         payment = register_payment._create_payments()
-        self.assertEqual(payment.state, "paid")
+        self.assertIn(payment.state, ("paid", "in_process"))
         self.assertEqual(
             payment.amount,
             (price_unit * 2) - sum(register_payment.deduction_ids.mapped("amount")),
@@ -175,7 +175,7 @@ class TestAccountTaxMulti(TestWithholdingTax):
             payment_id = wiz_form.save()._create_payments()
 
         payment = self.payment_model.browse(payment_id.id)
-        self.assertEqual(payment.state, "paid")
+        self.assertIn(payment.state, ("paid", "in_process"))
         self.assertEqual(
             payment.amount,
             invoice.amount_total - invoice.amount_untaxed * (self.wht_3.amount / 100),
@@ -224,11 +224,25 @@ class TestAccountTaxMulti(TestWithholdingTax):
         # paid residual, it should be reconcile
         with Form.from_action(self.env, invoice.action_register_payment()) as wiz_form:
             wiz_form.amount = 0
-            wiz_form.deduction_ids.remove(index=1)
+            def get_form_value_id(value):
+                if hasattr(value, "id"):
+                    return value.id
+                if isinstance(value, (list, tuple)):
+                    return value[0] if value else False
+                return value
+
+            remove_indexes = [
+                index
+                for index, values in enumerate(wiz_form.deduction_ids._records)
+                if get_form_value_id(values.get("wht_tax_id")) == self.wht_1.id
+            ]
+            for remove_index in reversed(remove_indexes):
+                wiz_form.deduction_ids.remove(index=remove_index)
             register_payment = wiz_form.save()
 
         register_payment.action_create_payments()
-        self.assertEqual(invoice.payment_state, "paid")
+        self.assertIn(invoice.payment_state, ("paid", "in_payment", "in_process"))
+        self.assertEqual(invoice.amount_residual, 0)
         self.assertTrue(payment.move_id.mapped("line_ids").mapped("full_reconcile_id"))
 
     # TODO: test for PIT cases

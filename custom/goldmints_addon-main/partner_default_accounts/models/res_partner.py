@@ -53,7 +53,7 @@ class ResPartner(models.Model):
         return self.RECEIVABLE_CODE, self.PAYABLE_CODE
 
     @api.model
-    def _get_target_accounts(self, company, country_id=None):
+    def _get_target_accounts(self, company, country_id=None, raise_if_missing=True):
         receivable_code, payable_code = self._get_account_codes(company, country_id)
         receivable = self._find_account_by_code(receivable_code, company)
         payable = self._find_account_by_code(payable_code, company)
@@ -64,7 +64,7 @@ class ResPartner(models.Model):
         if not payable:
             missing.append(payable_code)
 
-        if missing:
+        if missing and raise_if_missing:
             raise UserError(
                 _("Default accounts %s are not available in company %s.")
                 % (", ".join(missing), company.display_name)
@@ -76,10 +76,17 @@ class ResPartner(models.Model):
         if vals.get("parent_id"):
             return vals
 
-        receivable, payable = self._get_target_accounts(company, vals.get("country_id"))
         vals = dict(vals)
-        vals.setdefault("property_account_receivable_id", receivable.id)
-        vals.setdefault("property_account_payable_id", payable.id)
+        if vals.get("property_account_receivable_id") and vals.get("property_account_payable_id"):
+            return vals
+
+        receivable, payable = self._get_target_accounts(
+            company, vals.get("country_id"), raise_if_missing=False
+        )
+        if receivable:
+            vals.setdefault("property_account_receivable_id", receivable.id)
+        if payable:
+            vals.setdefault("property_account_payable_id", payable.id)
         return vals
 
     @api.model
@@ -91,9 +98,13 @@ class ResPartner(models.Model):
 
         company = self._get_company_for_partner(res)
         country_id = res.get("country_id") or self.env.context.get("default_country_id")
-        receivable, payable = self.with_company(company)._get_target_accounts(company, country_id)
-        res["property_account_receivable_id"] = receivable.id
-        res["property_account_payable_id"] = payable.id
+        receivable, payable = self.with_company(company)._get_target_accounts(
+            company, country_id, raise_if_missing=False
+        )
+        if receivable:
+            res["property_account_receivable_id"] = receivable.id
+        if payable:
+            res["property_account_payable_id"] = payable.id
         return res
 
     @api.onchange("country_id")

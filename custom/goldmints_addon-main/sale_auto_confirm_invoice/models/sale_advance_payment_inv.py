@@ -979,6 +979,7 @@ class SaleAdvancePaymentInv(models.TransientModel):
                 "active_model": "account.move",
                 "active_ids": invoice.ids,
                 "active_id": invoice.id,
+                "keep_payment_register_payload_journal": True,
             }
         )
         credit_notes_reconciled = False
@@ -1153,7 +1154,11 @@ class SaleAdvancePaymentInv(models.TransientModel):
             for line in partner_lines:
                 entries.append(
                     "%s | maturity=%s | balance=%s"
-                    % (line.account_id.display_name, line.date_maturity, line.balance)
+                    % (
+                        self._mobile_safe_log_text(line.account_id.display_name),
+                        line.date_maturity,
+                        line.balance,
+                    )
                 )
             _logger.info(
                 "Mobile invoice %s [%s]: %s",
@@ -1161,6 +1166,11 @@ class SaleAdvancePaymentInv(models.TransientModel):
                 label,
                 "; ".join(entries),
             )
+
+    def _mobile_safe_log_text(self, value):
+        if not isinstance(value, str):
+            return value
+        return value.encode("ascii", "backslashreplace").decode("ascii")
 
     def _normalize_due_dates(self, move):
         maturity = move.invoice_date_due or move.date or fields.Date.context_today(self)

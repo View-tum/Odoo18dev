@@ -120,7 +120,11 @@ class AccountPaymentRegister(models.TransientModel):
     )
     def _compute_cheque_already_added(self):
         for rec in self:
-            cheque_line = self.env["cheque.book.lines"].search(
+            if not rec.journal_id or not rec.is_cheque_outgoing:
+                rec.is_cheque_already_added_ids = [(6, 0, [])]
+                continue
+
+            cheque_line = self.env["cheque.book.lines"].sudo().search(
                 [
                     ("cheque_book_id.state", "=", "done"),
                     ("status", "=", "draft"),

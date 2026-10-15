@@ -2,10 +2,11 @@
 
 ## Purpose
 
-This workspace contains read-only evidence and source material for two Thai manuals:
+This workspace contains read-only evidence and source material for three Thai manuals:
 
 1. `01_Linkweld_Odoo18_Settings_Manual_TH.docx`
 2. `02_Linkweld_Odoo18_Accounting_Manufacturing_Manual_TH.docx`
+3. `03_Linkweld_Odoo18_Accounting_Control_JE_Playbook_TH.docx`
 
 The manuals cover every visible business Settings and Configuration menu in the modules installed on Linkweld Odoo 18 Enterprise. Accounting and Manufacturing are the primary focus. Developer Mode Technical menus are excluded.
 
@@ -165,5 +166,15 @@ Complete these checks before every evidence session:
 - Price Difference Account is blank at Category level for all 242 records; Product-level fallback and Anglo-Saxon receipt/bill variance remain Clone-UAT-only.
 - No Category/Product change, revaluation, SVL, stock move, account move, report or linked-model query was executed.
 - Detailed Thai chapter: `source/ACC-025_product_categories_th.md`.
-- Next evidence batch: `ACC-026` Cash Roundings with strict no-invoice/no-payment/no-posting controls.
+- Cash Roundings (`ACC-026`) evidence completed on 2026-07-22: 2 existing rules, both Precision 1.00 and Method Down; Strategy, accounts and transaction result remain Not Available.
+- Accounting Reports (`ACC-027`) evidence completed on 2026-07-22: 24 definitions including Thailand Tax Report, PND53 and PND3 variants; no report/formula/output was run.
+- Analytic Accounts (`ACC-028`) evidence completed on 2026-07-22: 1 account `Salary` under `Upgraded Budget Plan`; no source document or analytic journal item was opened.
+- Analytic Distribution Models (`ACC-029`) evidence completed on 2026-07-22: 1 rule for account prefix 520100 and Salary distribution; no transaction/domain execution occurred.
+- Analytic Plans (`ACC-030`) evidence completed on 2026-07-22: 3 plans and all are Optional; applicability enforcement remains Clone-UAT-only.
+- Accounting Configuration coverage `ACC-001` through `ACC-030` is now evidence captured and documented.
+- Combined Accounting source: `source/02_accounting_manual_th.md`.
+- Accounting DOCX deliverable: `output/02_Linkweld_Odoo18_Accounting_Manual_TH.docx`.
+- Accounting Control & JE Playbook: `output/03_Linkweld_Odoo18_Accounting_Control_JE_Playbook_TH.docx`.
+- Accounting-sensitive module inventory: 289 Standard/Enterprise/Thai/OCA/local entries in `register/accounting_sensitive_module_inventory.csv`.
+- JE/UAT matrix: 101 balanced hypothetical scenarios in `register/accounting_module_je_matrix.csv`; no confidential Linkweld transaction amount is used.
 - No Odoo configuration, master data, or transaction has been created or modified.
